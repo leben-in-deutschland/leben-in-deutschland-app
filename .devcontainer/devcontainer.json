@@ -1,0 +1,33 @@
+{
+    "name": "leben-in-deutschland",
+    "runArgs": [
+      "--userns=keep-id:uid=1000,gid=1000"
+    ],
+    "containerUser": "node",
+    "updateRemoteUserUID": true,
+    "containerEnv": {
+      "HOME": "/home/node"
+    },
+    "build": {
+      "dockerfile": "Dockerfile",
+      "args": {
+        "VARIANT": "latest"
+      }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dbaeumer.vscode-eslint",
+          "shardulm94.trailing-spaces",
+          "IBM.output-colorizer"
+        ]
+      }
+    },
+    "remoteUser": "node",
+    "features": {
+      "ghcr.io/devcontainers/features/git:1": "os-provided"
+    },
+    "remoteEnv": {
+      "DISPLAY": ":0"
+    }
+  }

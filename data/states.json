@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Baden-Württemberg",
+        "code": "BW",
+        "eng": "",
+        "capital": "Stuttgart"
+    },
+    {
+        "name": "Bayern",
+        "code": "BY",
+        "eng": "Bavaria",
+        "capital": "München"
+    },
+    {
+        "name": "Berlin",
+        "code": "BE",
+        "eng": "",
+        "capital": ""
+    },
+    {
+        "name": "Brandenburg",
+        "code": "BB",
+        "eng": "",
+        "capital": "Potsdam"
+    },
+    {
+        "name": "Bremen",
+        "code": "HB",
+        "eng": "",
+        "capital": "Bremen"
+    },
+    {
+        "name": "Hamburg",
+        "code": "HH",
+        "eng": "",
+        "capital": ""
+    },
+    {
+        "name": "Hessen",
+        "code": "HE",
+        "eng": "Hesse",
+        "capital": "Wiesbaden"
+    },
+    {
+        "name": "Niedersachsen",
+        "code": "NI",
+        "eng": "Lower Saxony",
+        "capital": "Hannover"
+    },
+    {
+        "name": "Mecklenburg-Vorpommern",
+        "code": "MV",
+        "eng": "",
+        "capital": "Schwerin"
+    },
+    {
+        "name": "Nordrhein-Westfalen",
+        "code": "NW",
+        "eng": "North Rhine-Westphalia",
+        "capital": "Düsseldorf"
+    },
+    {
+        "name": "Rheinland-Pfalz",
+        "code": "RP",
+        "eng": "Rhineland-Palatinate",
+        "capital": "Mainz"
+    },
+    {
+        "name": "Saarland",
+        "code": "SL",
+        "eng": "",
+        "capital": "Saarbrücken"
+    },
+    {
+        "name": "Sachsen",
+        "code": "SN",
+        "eng": "Saxony",
+        "capital": "Dresden"
+    },
+    {
+        "name": "Sachsen-Anhalt",
+        "code": "ST",
+        "eng": "Saxony-Anhalt",
+        "capital": "Magdeburg"
+    },
+    {
+        "name": "Schleswig-Holstein",
+        "code": "SH",
+        "eng": "",
+        "capital": "Kiel"
+    },
+    {
+        "name": "Thüringen",
+        "code": "TH",
+        "eng": "Thuringia",
+        "capital": "Erfurt"
+    }
+]
