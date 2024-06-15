@@ -17,6 +17,7 @@
     "@nextui-org/switch": "^2.0.30",
     "@nextui-org/system": "^2.2.1",
     "firebase": "^10.12.2",
+    "iconv-lite": "^0.6.3",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
     "next-themes": "^0.3.0",
