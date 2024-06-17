@@ -5,7 +5,7 @@ import { fontSans } from "../config/fonts";
 import { Providers } from "./provider";
 import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
-import { SessionProvider } from "next-auth/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const viewport: Viewport = {
   themeColor: [
@@ -44,10 +44,11 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <SpeedInsights />
         <Providers themeProps={{ attribute: "class", enableSystem: true }}>
           <div className="relative flex flex-col">
             <NavigationBar />
-            <main className="container mx-auto max-w-7xl pt-5 flex-grow md:flex md:items-center md:justify-between md:p-6">
+            <main className="container mx-auto max-w-7xl pt-5 flex-grow">
               {children}
             </main>
             <footer className="container mx-auto max-w-7xl pt-16 px-6 flex-grow md:flex md:items-center md:justify-between md:p-6">

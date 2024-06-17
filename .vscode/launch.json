@@ -9,7 +9,7 @@
         },
         {
             "name": "Debug client-side",
-            "type": "chrome",
+            "type": "msedge",
             "request": "launch",
             "url": "http://localhost:3000"
         },
