@@ -1,10 +1,11 @@
+import { authOptions } from "@/types/auth-option";
 import { User } from "@/types/user";
 import { kv } from "@vercel/kv";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOption } from "@/app/api/auth/[...nextauth]/route";
+
 export async function GET(): Promise<any> {
-    const session = await getServerSession(authOption);
+    const session = await getServerSession(authOptions);
     if (session) {
         const data = await kv.get<User>(session.user.id);
         if (data) {
@@ -29,7 +30,7 @@ export async function GET(): Promise<any> {
 }
 
 export async function POST(req: NextRequest): Promise<any> {
-    const session = await getServerSession(authOption);
+    const session = await getServerSession(authOptions);
 
     if (session) {
         const user: User = await req.json();
