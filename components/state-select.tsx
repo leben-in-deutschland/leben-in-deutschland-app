@@ -1,21 +1,18 @@
-import { getStates, setUserState } from "@/services/states";
+import { getStates } from "@/services/states";
 import { State } from "@/types/state";
-import { Card, CardBody, CardHeader, Image, Link } from "@nextui-org/react";
-import { useRouter } from 'next/navigation'
+import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 
-export default function StateSelect(props: any) {
+export default function StateSelect({ handleSelectState }: { handleSelectState: any }) {
     const [states, setStates] = useState<State[]>([]);
-    const router = useRouter();
+
     useEffect(() => {
         (async () => {
             let states = await getStates();
             setStates(states);
         })();
     }, []);
-    const handleSelectState = async (state: State) => {
-        await setUserState(state);
-    };
+
     return (
         <>
             <div className="flex content-center mb-10">
@@ -23,7 +20,7 @@ export default function StateSelect(props: any) {
             </div>
             <div className="flex content-center gap-3 grid grid-cols-2 sm:grid-cols-4">
                 {states && states.length > 0 && states.map((state: State) => (
-                    <Card key={state.code} className="grid bg-gray-200  dark:bg-gray-700" isPressable isHoverable onPress={() => handleSelectState(state)}>
+                    <Card key={state.code} className="grid bg-gray-200  dark:bg-gray-700" isPressable isHoverable onPress={() => handleSelectState(state.name)}>
                         <CardHeader>
                             <Image
                                 alt={state.name}
