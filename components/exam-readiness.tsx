@@ -12,7 +12,7 @@ export const ExamReadiness = ({ user }: { user: User }) => {
     }
     return (
         <Card className="h-[100%] ">
-            <CardHeader>
+            <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
                     Exam Readiness
                 </h2>

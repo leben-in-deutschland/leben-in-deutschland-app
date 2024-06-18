@@ -6,7 +6,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 export default function MockHistory({ isAuthenticated, user }: { isAuthenticated: boolean, user: User }) {
     return (
         <Card className="card-stats" >
-            <CardHeader className={`justify-between`}>
+            <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
                     Mock Test History
                 </h2>

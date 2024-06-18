@@ -49,7 +49,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", enableSystem: false }}>
           <div className="relative flex flex-col">
             <NavigationBar />
-            <main className="container mx-auto max-w-7xl pt-5 flex-grow">
+            <main className="container mx-auto max-w-7xl p-5 flex-grow">
               <div><Toaster position="top-right" reverseOrder={true} /></div>
               {children}
             </main>

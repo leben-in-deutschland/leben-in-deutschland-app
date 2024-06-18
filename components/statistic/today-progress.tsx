@@ -9,15 +9,15 @@ export const TodayProgress = ({ user }: { user: User }) => {
 
     let todayProgressIndex = user.dailyProgress.findIndex(x => x.date === today);
     return (
-        <div style={{ width: "18rem" }}>
+        <div>
             <Card className="card-stats border-none h-[300px]">
 
-                <CardHeader className="justify-between">
+                <CardHeader className="justify-center">
                     <h2 className="font-bold text-uppercase text-muted">
                         Today
                     </h2>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="items-center">
                     <Doughnut
                         options={{
                             responsive: true,

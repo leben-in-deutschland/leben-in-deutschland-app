@@ -4,6 +4,9 @@ import { MockTestProgress, User } from "@/types/user";
 import { Question } from "@/types/question";
 import { useEffect, useState } from "react";
 import { saveUserData } from "@/services/user";
+import { QuizProgress } from "./quiz-progress";
+import toast from "react-hot-toast";
+import { FlagIcon } from "@/icons/FlagIcon";
 
 export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user: User, questions: Question[], handleCancel: any, isAuthenticated: boolean }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
@@ -11,6 +14,14 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     const [optionSelected, setOptionSelected] = useState<string>("");
     const [currentMockData, setCurrentMockData] = useState<MockTestProgress>();
     const [startTime] = useState<Date>(new Date());
+    const [flagPressed, setFlagPressed] = useState<boolean>(false);
+
+    const handleFlag = () => {
+        if (!flagPressed) {
+            toast.success("Question flagged successfully", { icon: '🚩' });
+        }
+        setFlagPressed(!flagPressed);
+    };
 
     useEffect(() => {
         let randomQuestions = generateRandomQuizQuestions(user, questions);
@@ -82,29 +93,6 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
             currentMockData.passed = currentMockData.questions.filter(x => x.answeredCorrectly).length >= 17;
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
-            // let today = new Date().toLocaleDateString();
-            // let todayProgressIndex = user.dailyProgress.findIndex(x => x.date === today);
-            // if (todayProgressIndex >= 0) {
-            //     let temp = user.dailyProgress[todayProgressIndex];
-            //     user.dailyProgress[todayProgressIndex] = {
-            //         attempted: temp.attempted + currentMockData.questions.length,
-            //         date: temp.date,
-            //         correct: temp.correct + currentMockData.questions.filter(x => x.answeredCorrectly).length,
-            //         incorrect: temp.incorrect + currentMockData.questions.filter(x => !x.answeredCorrectly).length
-            //     };
-            // } else {
-            //     user.dailyProgress.push({
-            //         attempted: currentMockData.questions.length,
-            //         date: today,
-            //         correct: currentMockData.questions.filter(x => x.answeredCorrectly).length,
-            //         incorrect: currentMockData.questions.filter(x => !x.answeredCorrectly).length
-            //     });
-            // }
-
-            // user.overallProgress.attempted = user.overallProgress.attempted + currentMockData.questions.length;
-            // user.overallProgress.incorrect = currentMockData.questions.filter(x => !x.answeredCorrectly).length;
-            // user.overallProgress.correct = currentMockData.questions.filter(x => x.answeredCorrectly).length;
-
             await saveUserData(user, isAuthenticated);
         }
 
@@ -146,18 +134,26 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
         }
         return tempQuestions;
     };
+    const onChangeFromProgressBar = (index: number) => {
+        let temp = quizQuestions[index];
+        let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
+        if (tempIndex > -1) {
+            setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "")
+        }
+        setCurrentQuizQuestion(temp);
+    };
 
     return (
         <div className="flex gap-6">
             {
                 currentQuizQuestion &&
-                <>
+                <div className="grid md:grid-cols-2 gap-2">
                     <div>
-                        <Card>
-                            <CardHeader className="justify-between">
+                        <Card className="h-[100%]">
+                            <CardHeader className="justify-center">
                                 <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
                             </CardHeader>
-                            <CardBody>
+                            <CardBody className="justify-center">
                                 <div className="grid gap-4">
                                     {currentQuizQuestion.image !== "-" && <div hidden={!(currentQuizQuestion.image !== "-")}>
                                         <Image src={`/question/${currentQuizQuestion.image}.png`} alt=""></Image>
@@ -199,20 +195,39 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                                     </div>
                                 </div>
                             </CardBody>
-                            <CardFooter className="justify-end gap-4">
-                                {quizQuestions.length}
-                                <Tooltip content="Cancel Mock Test">
-                                    <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
-                                </Tooltip>
-                                {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
-                                {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
+                            <CardFooter className="justify-between">
+                                <div className="flex gap-3">
+                                    <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
+                                    <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
+                                    <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
+
+                                </div>
+                                <div className="flex">
+                                    <Tooltip content="Cancel Mock Test">
+                                        <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
+                                    </Tooltip>
+                                    <Tooltip content="Flag for review">
+                                        <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                    </Tooltip>
+                                    {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                    {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
+                                </div>
                             </CardFooter>
                         </Card>
                     </div>
-                    <div>
-                        <Countdown handleTimeComplete={handleTimeComplete} />
+                    <div className="grid">
+                        <div className="">
+                            <Countdown handleTimeComplete={handleTimeComplete} />
+                        </div>
+                        <div>
+                            <QuizProgress
+                                onChangeFromProgressBar={onChangeFromProgressBar}
+
+                            />
+                        </div>
+
                     </div>
-                </>
+                </div>
             }
         </div >
     );

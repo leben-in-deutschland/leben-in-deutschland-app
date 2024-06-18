@@ -21,13 +21,13 @@ export const Countdown = ({ handleTimeComplete }: { handleTimeComplete: any }) =
     };
 
     return (
-        <Card className="w-[100%] h-[100%]">
-            <CardHeader>
+        <Card>
+            <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
                     Time Remaining
                 </h2>
             </CardHeader>
-            <CardBody>
+            <CardBody className="items-center">
                 <CountdownCircleTimer
                     {...timerProps}
                     colors="#A30000"
