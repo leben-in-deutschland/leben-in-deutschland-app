@@ -3,10 +3,13 @@ export interface PrepareQuestionType {
     action: PrepareQuestionActions
 }
 export enum PrepareQuestionActions {
+    Correct,
+    Incorrect,
     Skipped,
     Prepare,
     Random,
     Mock,
     Failed,
-    Flagged
+    Flagged,
+    State
 }

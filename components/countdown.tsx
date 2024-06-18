@@ -1,7 +1,7 @@
 import { CardHeader, Card, CardBody } from "@nextui-org/react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-export const Countdown = () => {
+export const Countdown = ({ handleTimeComplete }: { handleTimeComplete: any }) => {
     const hourSeconds = 3600;
 
     const renderTime = ({ remainingTime }) => {
@@ -32,6 +32,7 @@ export const Countdown = () => {
                     {...timerProps}
                     colors="#A30000"
                     duration={hourSeconds}
+                    onComplete={handleTimeComplete}
                 >
                     {({ remainingTime, color }) => (
                         <span style={{ color }}>

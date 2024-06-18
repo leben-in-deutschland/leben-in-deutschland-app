@@ -3,6 +3,9 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { Doughnut } from "react-chartjs-2";
 
 export const MockTestProgress = ({ user }: { user: User }) => {
+    let cancelledMock = user.testProgress.filter(x => x.cancelled).length;
+    let passedMock = user.testProgress.filter(x => x.passed).length;
+    let failedMock = user.testProgress.filter(x => !x.passed).length;
     return (
         <div style={{ width: "18rem" }}>
             <Card className="card-stats border-none h-[300px]">
@@ -27,17 +30,19 @@ export const MockTestProgress = ({ user }: { user: User }) => {
                             }
                         }}
                         data={{
-                            labels: ["Passed", "Failed"],
+                            labels: ["Passed", "Failed", "Cancelled"],
                             datasets: [
                                 {
-                                    data: [5, 17],
+                                    data: [passedMock, failedMock, cancelledMock],
                                     backgroundColor: [
                                         'rgba(65, 239, 106, 0.2)',
                                         'rgba(255, 99, 132, 0.2)',
+                                        'rgba(220,220,220,0.2)'
                                     ],
                                     borderColor: [
                                         'rgba(65, 239, 106, 1)',
                                         'rgba(255, 99, 132, 1)',
+                                        'rgba(220,220,220,1)'
                                     ],
                                     borderWidth: 1,
                                 },

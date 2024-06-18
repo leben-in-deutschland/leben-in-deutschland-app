@@ -193,7 +193,7 @@
   },
   {
     "num": "13",
-    "question": "Im Parlament steht der Begriff Opposition für...",
+    "question": "Im Parlament steht der Begriff Opposition für...",
     "a": "die regierenden Parteien.",
     "b": "alle Abgeordneten, die nicht zu der Regierungspartei/den Regierungsparteien gehören.",
     "c": "die Fraktion mit den meisten Abgeordneten.",
@@ -289,7 +289,7 @@
   },
   {
     "num": "19",
-    "question": "Was versteht man unter dem Recht der Freizügigkeit in Deutschland?",
+    "question": "Was versteht man unter dem Recht der Freizügigkeit in Deutschland?",
     "a": "Man darf sich seinen Wohnort selbst aussuchen.",
     "b": "Man kann seinen Beruf wechseln.",
     "c": "Man darf sich für eine andere Religion entscheiden.",
@@ -626,10 +626,10 @@
   {
     "num": "40",
     "question": "Mit welchen Worten beginnt die deutsche Nationalhymne?",
-    "a": "Völker, hört die Signale ",
-    "b": "Einigkeit und Recht und Freiheit ",
-    "c": "Freude schöner Götterfunken ",
-    "d": "Deutschland einig Vaterland ",
+    "a": "Völker, hört die Signale ",
+    "b": "Einigkeit und Recht und Freiheit ",
+    "c": "Freude schöner Götterfunken ",
+    "d": "Deutschland einig Vaterland ",
     "solution": "b",
     "area_code": "politik",
     "area": "Politik in der Demokratie",
@@ -817,7 +817,7 @@
   },
   {
     "num": "52",
-    "question": "Was bedeutet Volkssouveränität? Alle Staatsgewalt geht vom ...",
+    "question": "Was bedeutet Volkssouveränität? Alle Staatsgewalt geht vom ...",
     "a": "Volke aus.",
     "b": "Bundestag aus.",
     "c": "preußischen König aus.",
@@ -833,7 +833,7 @@
   },
   {
     "num": "53",
-    "question": "Was bedeutet Rechtsstaat in Deutschland?",
+    "question": "Was bedeutet Rechtsstaat in Deutschland?",
     "a": "Der Staat hat Recht.",
     "b": "Es gibt nur rechte Parteien.",
     "c": "Die Bürger und Bürgerinnen entscheiden über Gesetze.",
@@ -929,7 +929,7 @@
   },
   {
     "num": "59",
-    "question": "Welche Parteien wurden in Deutschland 2007 zur Partei Die Linke?",
+    "question": "Welche Parteien wurden in Deutschland 2007 zur Partei Die Linke?",
     "a": "CDU und SSW",
     "b": "PDS und WASG",
     "c": "CSU und FDP",
@@ -961,7 +961,7 @@
   },
   {
     "num": "61",
-    "question": "Was bedeutet Volkssouveränität?",
+    "question": "Was bedeutet Volkssouveränität?",
     "a": "Der König / die Königin herrscht über das Volk.",
     "b": "Das Bundesverfassungsgericht steht über der Verfassung.",
     "c": "Die Interessenverbände üben die Souveränität zusammen mit der Regierung aus.",
@@ -1475,7 +1475,7 @@
   },
   {
     "num": "93",
-    "question": "Je mehr Zweitstimmen eine Partei bei einer Bundestagswahl bekommt, desto ...",
+    "question": "Je mehr Zweitstimmen eine Partei bei einer Bundestagswahl bekommt, desto ...",
     "a": "mehr Sitze erhält die Partei im Parlament.",
     "b": "weniger Erststimmen kann sie haben.",
     "c": "mehr Direktkandidaten der Partei ziehen ins Parlament ein.",
@@ -1623,7 +1623,7 @@
     "a": "Bundesadler.",
     "b": "Bundesverdienstkreuz.",
     "c": "Vaterländischen Verdienstorden.",
-    "d": "Ehrentitel Held der Deutschen Demokratischen Republik.",
+    "d": "Ehrentitel Held der Deutschen Demokratischen Republik.",
     "solution": "b",
     "area_code": "politik",
     "area": "Politik in der Demokratie",
@@ -1635,7 +1635,7 @@
   },
   {
     "num": "103",
-    "question": "Was wird in Deutschland als Ampelkoalition bezeichnet? Die Zusammenarbeit ...",
+    "question": "Was wird in Deutschland als Ampelkoalition bezeichnet? Die Zusammenarbeit ...",
     "a": "der Bundestagsfraktionen von CDU und CSU",
     "b": "von SPD, FDP und Bündnis 90/Die Grünen in einer Regierung",
     "c": "von CSU, Die LINKE und Bündnis 90/Die Grünen in einer Regierung",
@@ -1827,7 +1827,7 @@
   },
   {
     "num": "115",
-    "question": "Was bedeutet aktives Wahlrecht in Deutschland?",
+    "question": "Was bedeutet aktives Wahlrecht in Deutschland?",
     "a": "Man kann gewählt werden.",
     "b": "Man muss wählen gehen.",
     "c": "Man kann wählen.",
@@ -1955,7 +1955,7 @@
   },
   {
     "num": "123",
-    "question": "Was ist in Deutschland die 5 %-Hürde?",
+    "question": "Was ist in Deutschland die 5 %-Hürde?",
     "a": "Abstimmungsregelung im Bundestag für kleine Parteien",
     "b": "Anwesenheitskontrolle im Bundestag für Abstimmungen",
     "c": "Mindestanteil an Wählerstimmen, um ins Parlament zu kommen",
@@ -2515,7 +2515,7 @@
   },
   {
     "num": "158",
-    "question": "Das Dritte Reich war eine ...",
+    "question": "Das Dritte Reich war eine ...",
     "a": "Diktatur.",
     "b": "Demokratie.",
     "c": "Monarchie.",
@@ -2643,7 +2643,7 @@
   },
   {
     "num": "166",
-    "question": "Bei welchen Demonstrationen in Deutschland riefen die Menschen Wir sind das Volk?",
+    "question": "Bei welchen Demonstrationen in Deutschland riefen die Menschen Wir sind das Volk?",
     "a": "bei den Montagsdemonstrationen 1989 in der DDR",
     "b": "beim Arbeiteraufstand 1953 in der DDR",
     "c": "bei den Demonstrationen 1968 in der Bundesrepublik Deutschland",
@@ -2659,7 +2659,7 @@
   },
   {
     "num": "167",
-    "question": "Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als Alliierte Besatzungsmächte bezeichnet?",
+    "question": "Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als Alliierte Besatzungsmächte bezeichnet?",
     "a": "Sowjetunion, Großbritannien, Polen, Schweden",
     "b": "Frankreich, Sowjetunion, Italien, Japan",
     "c": "USA, Sowjetunion, Spanien, Portugal",
@@ -2675,7 +2675,7 @@
   },
   {
     "num": "168",
-    "question": "Welches Land war keine Alliierte Besatzungsmacht in Deutschland?",
+    "question": "Welches Land war keine Alliierte Besatzungsmacht in Deutschland?",
     "a": "USA",
     "b": "Sowjetunion",
     "c": "Frankreich",
@@ -2917,7 +2917,7 @@
   },
   {
     "num": "183",
-    "question": "Wann war in der Bundesrepublik Deutschland das Wirtschaftswunder?",
+    "question": "Wann war in der Bundesrepublik Deutschland das Wirtschaftswunder?",
     "a": "40er Jahre",
     "b": "50er Jahre",
     "c": "70er Jahre",
@@ -2933,7 +2933,7 @@
   },
   {
     "num": "184",
-    "question": "Was nannten die Menschen in Deutschland sehr lange Die Stunde Null?",
+    "question": "Was nannten die Menschen in Deutschland sehr lange Die Stunde Null?",
     "a": "Damit wird die Zeit nach der Wende im Jahr 1989 bezeichnet.",
     "b": "Damit wurde der Beginn des Zweiten Weltkrieges bezeichnet.",
     "c": "Darunter verstand man das Ende des Zweiten Weltkrieges und den Beginn des Wiederaufbaus.",
@@ -2949,7 +2949,7 @@
   },
   {
     "num": "185",
-    "question": "Wofür stand der Ausdruck Eiserner Vorhang? Für die Abschottung ...",
+    "question": "Wofür stand der Ausdruck Eiserner Vorhang? Für die Abschottung ...",
     "a": "des Warschauer Pakts gegen den Westen.",
     "b": "Norddeutschlands gegen Süddeutschland.",
     "c": "Nazi-Deutschlands gegen die Alliierten.",
@@ -2985,7 +2985,7 @@
     "a": "Preußen",
     "b": "Bundesrepublik Deutschland",
     "c": "DDR",
-    "d": "Drittes Reich",
+    "d": "Drittes Reich",
     "solution": "c",
     "area_code": "geschichte",
     "area": "Geschichte und Verantwortung",
@@ -3125,7 +3125,7 @@
   },
   {
     "num": "196",
-    "question": "Warum nennt man die Zeit im Herbst 1989 in der DDR Die Wende? In dieser Zeit veränderte sich die DDR politisch ...",
+    "question": "Warum nennt man die Zeit im Herbst 1989 in der DDR Die Wende? In dieser Zeit veränderte sich die DDR politisch ...",
     "a": "von einer Diktatur zur Demokratie.",
     "b": "von einer liberalen Marktwirtschaft zum Sozialismus.",
     "c": "von einer Monarchie zur Sozialdemokratie.",
@@ -3173,7 +3173,7 @@
   },
   {
     "num": "199",
-    "question": "Mit der Abkürzung Stasi meinte man in der DDR ...",
+    "question": "Mit der Abkürzung Stasi meinte man in der DDR ...",
     "a": "das Parlament.",
     "b": "das Ministerium für Staatssicherheit.",
     "c": "eine regierende Partei.",
@@ -3221,7 +3221,7 @@
   },
   {
     "num": "202",
-    "question": "Zu wem gehörte die DDR im Kalten Krieg?",
+    "question": "Zu wem gehörte die DDR im Kalten Krieg?",
     "a": "zu den Westmächten",
     "b": "zum Warschauer Pakt",
     "c": "zur NATO",
@@ -3285,7 +3285,7 @@
   },
   {
     "num": "206",
-    "question": "Was bedeutete im Jahr 1989 in Deutschland das Wort Montagsdemonstration?",
+    "question": "Was bedeutete im Jahr 1989 in Deutschland das Wort Montagsdemonstration?",
     "a": "In der Bundesrepublik waren Demonstrationen nur am Montag erlaubt.",
     "b": "Montags waren Demonstrationen gegen das DDR-Regime.",
     "c": "Am ersten Montag im Monat trafen sich in der Bundesrepublik Deutschland Demonstranten.",
@@ -3317,8 +3317,8 @@
   },
   {
     "num": "208",
-    "question": "Was war die Stasi?",
-    "a": "der Geheimdienst im Dritten Reich",
+    "question": "Was war die Stasi?",
+    "a": "der Geheimdienst im Dritten Reich",
     "b": "eine berühmte deutsche Gedenkstätte",
     "c": "der Geheimdienst der DDR",
     "d": "ein deutscher Sportverein während des Zweiten Weltkrieges",
@@ -3365,7 +3365,7 @@
   },
   {
     "num": "211",
-    "question": "Welcher Politiker steht für die Ostverträge?",
+    "question": "Welcher Politiker steht für die Ostverträge?",
     "a": "Helmut Kohl",
     "b": "Willy Brandt",
     "c": "Michail Gorbatschow",
@@ -3429,7 +3429,7 @@
   },
   {
     "num": "215",
-    "question": "Wer wird als Kanzler der Deutschen Einheit bezeichnet?",
+    "question": "Wer wird als Kanzler der Deutschen Einheit bezeichnet?",
     "a": "Gerhard Schröder",
     "b": "Helmut Kohl",
     "c": "Konrad Adenauer",
@@ -3687,7 +3687,7 @@
   },
   {
     "num": "231",
-    "question": "Was bedeutet der Begriff europäische Integration?",
+    "question": "Was bedeutet der Begriff europäische Integration?",
     "a": "Damit sind amerikanische Einwanderer in Europa gemeint.",
     "b": "Der Begriff meint den Einwanderungsstopp nach Europa.",
     "c": "Damit sind europäische Auswanderer in den USA gemeint.",
@@ -3784,7 +3784,7 @@
   },
   {
     "num": "237",
-    "question": "2007 wurde das 50-jährige Jubiläum der Römischen Verträge gefeiert. Was war der Inhalt der Verträge?",
+    "question": "2007 wurde das 50-jährige Jubiläum der Römischen Verträge gefeiert. Was war der Inhalt der Verträge?",
     "a": "Beitritt Deutschlands zur NATO",
     "b": "Gründung der Europäischen Wirtschaftsgemeinschaft (EWG)",
     "c": "Verpflichtung Deutschlands zu Reparationsleistungen",
@@ -3817,10 +3817,10 @@
   {
     "num": "239",
     "question": "Durch welche Verträge schloss sich die Bundesrepublik Deutschland mit anderen Staaten zur Europäischen Wirtschaftsgemeinschaft zusammen?",
-    "a": "durch die Hamburger Verträge",
-    "b": "durch die Römischen Verträge",
-    "c": "durch die Pariser Verträge",
-    "d": "durch die Londoner Verträge",
+    "a": "durch die Hamburger Verträge",
+    "b": "durch die Römischen Verträge",
+    "c": "durch die Pariser Verträge",
+    "d": "durch die Londoner Verträge",
     "solution": "b",
     "area_code": "geschichte",
     "area": "Geschichte und Verantwortung",
@@ -4056,7 +4056,7 @@
   },
   {
     "num": "254",
-    "question": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das Trennungsjahr einhalten. Was bedeutet das?",
+    "question": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das Trennungsjahr einhalten. Was bedeutet das?",
     "a": "Der Scheidungsprozess dauert ein Jahr.",
     "b": "Mann und Frau sind ein Jahr verheiratet, dann ist die Scheidung möglich.",
     "c": "Das Besuchsrecht für die Kinder gilt ein Jahr.",
@@ -4456,7 +4456,7 @@
   },
   {
     "num": "279",
-    "question": "In den meisten Mietshäusern in Deutschland gibt es eine Hausordnung. Was steht in einer solchen Hausordnung? Sie nennt ...",
+    "question": "In den meisten Mietshäusern in Deutschland gibt es eine Hausordnung. Was steht in einer solchen Hausordnung? Sie nennt ...",
     "a": "Regeln für die Benutzung öffentlicher Verkehrsmittel.",
     "b": "alle Mieter und Mieterinnen im Haus.",
     "c": "Regeln, an die sich alle Bewohner und Bewohnerinnen halten müssen.",

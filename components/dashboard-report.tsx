@@ -5,12 +5,13 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { User } from "@/types/user";
 import { PrepareQuestionType } from "@/types/prepare-question";
+import { Question } from "@/types/question";
 
-export default function DashboardReports({ isAuthenticated, user, handleStalePress }: { isAuthenticated: boolean, user: User, handleStalePress: any }) {
+export default function DashboardReports({ isAuthenticated, user, handleStalePress, questions }: { isAuthenticated: boolean, user: User, handleStalePress: any, questions: Question[] }) {
     const [showMoreReport, setShowMoreReport] = useState<boolean>(false);
     return (
         <>
-            {!isAuthenticated &&
+            {/* {!isAuthenticated &&
                 <div className="relative">
                     <Image src="/dashboard/stats.png" alt="stats" className={isAuthenticated ? "blur-none" : "blur-sm"} />
                     <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -22,12 +23,12 @@ export default function DashboardReports({ isAuthenticated, user, handleStalePre
                         </Button>
                     </div>
                 </div>
-            }
+            } */}
             {
-                isAuthenticated &&
+                //isAuthenticated &&
                 <div>
                     <div >
-                        <UserStats showMore={showMoreReport} user={user} handleStalePress={handleStalePress} />
+                        <UserStats showMore={showMoreReport} user={user} handleStalePress={handleStalePress} questions={questions} />
                     </div>
                     <div hidden={showMoreReport} className="text-end">
                         <Button

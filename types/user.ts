@@ -1,26 +1,24 @@
 export interface User {
     id: string;
-    state: string;
+    state: UserState;
     dailyProgress: UserDailyProgress[];
     questionProgress: UserQuestionProgress[];
-    overallProgress: UserOverallProgress
+    testProgress: MockTestProgress[];
 }
 
-export interface UserOverallProgress {
-    attempted: number
-    correct: number;
-    incorrect: number;
-    mockAttempted: number;
-    mockFailed: number;
-    flagged: number;
-    skipped: number;
+export interface MockTestProgress {
+    datetime: string;
+    timeTake: string;
+    passed: boolean;
+    cancelled: boolean;
+    questions: UserQuestionProgress[];
 }
 
 export interface UserDailyProgress {
     date: string;
     correct: number;
     incorrect: number;
-    attempted: number
+    attempted: number;
 }
 
 export interface UserQuestionProgress {
@@ -29,4 +27,12 @@ export interface UserQuestionProgress {
     skipped: boolean;
     answerSelected: string;
     flagged: boolean;
+}
+
+export interface UserState {
+    stateName: string;
+    stateCode: string;
+    attempted: number;
+    incorrect: number;
+    correct: number;
 }

@@ -20,7 +20,7 @@ export default function StateSelect({ handleSelectState }: { handleSelectState: 
             </div>
             <div className="flex content-center gap-3 grid grid-cols-2 sm:grid-cols-4">
                 {states && states.length > 0 && states.map((state: State) => (
-                    <Card key={state.code} className="grid bg-gray-200  dark:bg-gray-700" isPressable isHoverable onPress={() => handleSelectState(state.name)}>
+                    <Card key={state.code} className="grid bg-gray-200  dark:bg-gray-700" isPressable isHoverable onPress={() => handleSelectState(state)}>
                         <CardHeader>
                             <Image
                                 alt={state.name}

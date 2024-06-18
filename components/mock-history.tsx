@@ -1,18 +1,51 @@
+import { CrossIcon } from "@/icons/CrossIcon";
+import { TickIcon } from "@/icons/TickIcon";
 import { User } from "@/types/user";
-import { Button, Card, CardBody, CardHeader } from "@nextui-org/react";
-import { signIn } from "next-auth/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
 export default function MockHistory({ isAuthenticated, user }: { isAuthenticated: boolean, user: User }) {
     return (
-        <Card className={`card-stats border-none h-[100%]`}>
-            <CardHeader className={`justify-between ${isAuthenticated ? "blur-none" : "blur-sm"}`}>
+        <Card className="card-stats" >
+            <CardHeader className={`justify-between`}>
                 <h2 className="font-bold text-uppercase text-muted">
                     Mock Test History
                 </h2>
             </CardHeader>
-            <CardBody className={`${isAuthenticated ? "blur-none" : "blur-sm"}`}>
+            <CardBody>
+                <div className="overflow-y-auto scroll-auto h-44">
+                    {user && user.testProgress?.length >= 0 && [...user.testProgress].reverse().map((x) => (
+                        <Card key={x.datetime} className={`mb-3 mt-3 ${x.passed ? "bg-green-200" : "bg-red-200"}`} shadow="none">
+                            <CardBody>
+                                <div className="flex justify-between">
+                                    <div className="bg-gray-300 rounded-xl p-2">
+                                        <p className="text-black font-bold">{new Date(x.datetime).toLocaleDateString()}</p>
+                                        <p className="font-bold text-[5%] text-gray-500">{new Date(x.datetime).toLocaleTimeString()}</p>
+                                    </div>
+                                    <div className="bg-gray-300 rounded-xl p-2">
+                                        <p className="text-black font-bold">Time Taken</p>
+                                        <p className="text-black">{(Number(x.timeTake) / 60).toFixed(2)} <span className="font-bold text-[5%] text-gray-500">minutes</span></p>
+                                    </div>
+                                    <div className="bg-green-400 rounded-xl p-2">
+                                        <p className="text-black font-bold">Correct</p>
+                                        <p className="font-extrabold">{x.questions.filter(x => x.answeredCorrectly).length}</p>
+                                    </div>
+                                    <div className="bg-red-400 rounded-xl p-2">
+                                        <p className="text-black font-bold">Incorrect</p>
+                                        <p className="font-extrabold">{x.questions.filter(x => !x.answeredCorrectly).length}</p>
+                                    </div>
+                                    <div className="bg-gray-400 rounded-xl p-2">
+                                        <p className="text-black font-bold">Result</p>
+                                        {x.passed ? <p className="text-center text-green-700"><TickIcon /> </p> : <p className="text-center text-red-700"><CrossIcon /> </p>}
 
+                                    </div>
+                                </div>
+                            </CardBody>
+                        </Card>
+                    ))}
+                </div>
             </CardBody>
+            {/* 
+            ${isAuthenticated ? "blur-none" : "blur-sm"}
             {!isAuthenticated && <div className={`absolute inset-0 flex items-center justify-center z-10 `}>
                 <Button
                     color="primary"
@@ -20,7 +53,7 @@ export default function MockHistory({ isAuthenticated, user }: { isAuthenticated
                     onPress={() => signIn("google")}>
                     Sign In
                 </Button>
-            </div>}
+            </div>} */}
         </Card >
     );
 
