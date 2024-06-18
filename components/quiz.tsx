@@ -1,215 +1,198 @@
-import { ArrowLeftIcon } from "@/icons/ArrowLeftIcon";
-import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
-import { DashboardIcon } from "@/icons/DashboardIcon";
-import { FlagIcon } from "@/icons/FlagIcon";
-import { PrepareQuestionType } from "@/types/prepare-question";
-import { Question } from "@/types/question";
-import { User } from "@/types/user";
-import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Image, Tooltip } from "@nextui-org/react";
 import { Countdown } from "./countdown";
-import { createUserStats } from "@/utils/user-mapping";
+import { MockTestProgress, User } from "@/types/user";
+import { Question } from "@/types/question";
+import { useEffect, useState } from "react";
+import { saveUserData } from "@/services/user";
 
-export default function Quiz({ questions, user, prepareQuestion, handleHomePress, isAuthenticated }:
-    {
-        questions: Question[],
-        user: User,
-        prepareQuestion: PrepareQuestionType,
-        handleHomePress: any,
-        isAuthenticated: boolean
-    }) {
-    const [currentQuestion, setCurrentQuestion] = useState<Question>(questions[0]);
-    const [isPreviousEnabled, setPreviousEnable] = useState<boolean>(false);
+export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user: User, questions: Question[], handleCancel: any, isAuthenticated: boolean }) => {
+    const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
+    const [currentQuizQuestion, setCurrentQuizQuestion] = useState<Question>(quizQuestions[0]);
     const [optionSelected, setOptionSelected] = useState<string>("");
-    const [showSolution, setShowSolution] = useState<boolean>(false);
-    const [nextEnabled, setNextEnabled] = useState<boolean>(false);
-    const [submitDisabled, setSubmitDisabled] = useState<boolean>(true);
-    const [blockAnserChange, setBlockAnsweChange] = useState<boolean>(false);
-    const [flagPressed, setFlagPressed] = useState<boolean>(false);
-    const [disableSkip, setDisableSkip] = useState<boolean>(false);
+    const [currentMockData, setCurrentMockData] = useState<MockTestProgress>();
+    const [startTime] = useState<Date>(new Date());
+
+    useEffect(() => {
+        let randomQuestions = generateRandomQuizQuestions(user, questions);
+        setQuizQuestions(randomQuestions);
+        setCurrentQuizQuestion(randomQuestions[0]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const handleOptionSelected = (option: string) => {
-        if (!blockAnserChange) {
-            setSubmitDisabled(false);
-            setOptionSelected(option);
+        if (!currentQuizQuestion) {
+            return;
         }
-    };
-
-    const nextQuestion = () => {
-        let indexCurrentQuestion = questions.findIndex((e) => e.num === currentQuestion.num);
-        if (indexCurrentQuestion >= 0) {
-            if (indexCurrentQuestion != questions.length - 1) {
-                let nextIndex = indexCurrentQuestion + 1;
-                return questions[nextIndex];
-            }
-        }
-        return null;
-    };
-
-    const handleSkip = () => {
-        if (!disableSkip) {
-            let newQuestion = nextQuestion();
-            if (newQuestion !== null) {
-                user.questionProgress.push({
-                    num: currentQuestion.num,
-                    skipped: true,
-                    answerSelected: "",
-                    flagged: false,
-                    answeredCorrectly: false,
-
-                });
-                createUserStats(user, optionSelected === currentQuestion.solution, optionSelected, isAuthenticated);
-                setCurrentQuestion(newQuestion);
-                setPreviousEnable(true);
-                setFlagPressed(false);
-            }
-        }
-    };
-    const handleFlag = () => {
-        setFlagPressed(!flagPressed);
-        setNextEnabled(!flagPressed);
-        setDisableSkip(!flagPressed);
-    };
-
-    const handlePrevious = () => {
-        let indexCurrentQuestion = questions.findIndex((e) => e.num === currentQuestion.num);
-        if (indexCurrentQuestion >= 0) {
-            if (indexCurrentQuestion != 0) {
-                let prevIndex = indexCurrentQuestion - 1;
-                let prevQuestion = questions[prevIndex];
-                setCurrentQuestion(prevQuestion);
-                let historyIndex = user.questionProgress.findIndex((x) => x.num === prevQuestion.num);
-                if (historyIndex > -1) {
-                    if (!user.questionProgress[historyIndex].skipped) {
-                        if (user.questionProgress[historyIndex].answerSelected !== "") {
-                            setOptionSelected(user.questionProgress[historyIndex].answerSelected);
-                            setShowSolution(true);
-                            setNextEnabled(true);
-                            setBlockAnsweChange(true);
-                            setSubmitDisabled(true);
-                        }
-                    }
-                    setFlagPressed(user.questionProgress[historyIndex].flagged);
-                    setDisableSkip(user.questionProgress[historyIndex].answerSelected !== "");
-                }
-                if (prevIndex == 0) {
-                    setPreviousEnable(false);
-                }
-            }
-        }
-    }
-    const handleSubmit = () => {
-        if (!submitDisabled && optionSelected !== "") {
-            setShowSolution(true);
-            setNextEnabled(true);
-            setBlockAnsweChange(true);
-            setSubmitDisabled(true);
-            setDisableSkip(true);
-        }
-    };
-    const handleNext = () => {
-        if (flagPressed || (nextEnabled && submitDisabled && optionSelected !== "")) {
-            user.questionProgress.push({
-                num: currentQuestion.num,
+        if (!currentMockData) {
+            let tempMockData: MockTestProgress = {
+                datetime: new Date().toISOString(),
+                timeTake: "",
+                passed: false,
+                cancelled: false,
+                questions: []
+            };
+            tempMockData.questions.push({
+                answeredCorrectly: currentQuizQuestion.solution === option,
+                answerSelected: option,
+                num: currentQuizQuestion.num,
                 skipped: false,
-                answerSelected: optionSelected,
-                flagged: flagPressed,
-                answeredCorrectly: optionSelected === currentQuestion.solution
+                flagged: false
             });
-            setShowSolution(false);
-            setBlockAnsweChange(false);
-            createUserStats(user, optionSelected === currentQuestion.solution, optionSelected, isAuthenticated);
-            setOptionSelected("");
-            setNextEnabled(false);
-            setSubmitDisabled(false);
-            setFlagPressed(false);
-            setDisableSkip(false);
-            let newQuestion = nextQuestion();
-            if (newQuestion !== null) {
-                setCurrentQuestion(newQuestion);
-                setPreviousEnable(true);
+            setCurrentMockData(tempMockData);
+        }
+        else {
+            let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
+            if (index > -1) {
+                let temp = currentMockData.questions[index];
+                temp.answeredCorrectly = currentQuizQuestion.solution === option;
+                temp.answerSelected = option;
+                temp.num = currentQuizQuestion.num;
+            }
+            else {
+                currentMockData.questions.push({
+                    answeredCorrectly: currentQuizQuestion.solution === option,
+                    answerSelected: option,
+                    num: currentQuizQuestion.num,
+                    skipped: false,
+                    flagged: false
+                });
+            }
+            setCurrentMockData(currentMockData);
+        }
+        setOptionSelected(option);
+    };
+
+    const handleNext = () => {
+        let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
+        if (indexCurrentQuestion >= 0) {
+            if (indexCurrentQuestion != quizQuestions.length - 1) {
+                let nextIndex = indexCurrentQuestion + 1;
+                setCurrentQuizQuestion(quizQuestions[nextIndex]);
+                setOptionSelected("");
             }
         }
     };
+
+    const handleTimeComplete = () => {
+        handleSubmit();
+    };
+
+    const handleSubmit = async () => {
+        if (currentMockData) {
+            currentMockData.passed = currentMockData.questions.filter(x => x.answeredCorrectly).length >= 17;
+            currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
+            user.testProgress.push(currentMockData);
+            // let today = new Date().toLocaleDateString();
+            // let todayProgressIndex = user.dailyProgress.findIndex(x => x.date === today);
+            // if (todayProgressIndex >= 0) {
+            //     let temp = user.dailyProgress[todayProgressIndex];
+            //     user.dailyProgress[todayProgressIndex] = {
+            //         attempted: temp.attempted + currentMockData.questions.length,
+            //         date: temp.date,
+            //         correct: temp.correct + currentMockData.questions.filter(x => x.answeredCorrectly).length,
+            //         incorrect: temp.incorrect + currentMockData.questions.filter(x => !x.answeredCorrectly).length
+            //     };
+            // } else {
+            //     user.dailyProgress.push({
+            //         attempted: currentMockData.questions.length,
+            //         date: today,
+            //         correct: currentMockData.questions.filter(x => x.answeredCorrectly).length,
+            //         incorrect: currentMockData.questions.filter(x => !x.answeredCorrectly).length
+            //     });
+            // }
+
+            // user.overallProgress.attempted = user.overallProgress.attempted + currentMockData.questions.length;
+            // user.overallProgress.incorrect = currentMockData.questions.filter(x => !x.answeredCorrectly).length;
+            // user.overallProgress.correct = currentMockData.questions.filter(x => x.answeredCorrectly).length;
+
+            await saveUserData(user, isAuthenticated);
+        }
+
+        handleCancel();
+    };
+
+    const handleQuizCancel = () => {
+        handleCancel();
+    };
+
+    const isNumeric = (val: string): boolean => !isNaN(Number(val));
+    const checkIfQuestionAlreadyPresentInArray = (questions: Question[], current: Question) => {
+        return questions.findIndex(x => x.num === current.num) > -1;
+    };
+
+    const generateRandomQuizQuestions = (user: User, questions: Question[]) => {
+        let allNonStateQuestions = questions.filter(x => isNumeric(x.num));
+        let allStateQuestions = questions.filter(x => x.num.startsWith(user.state.stateCode));
+
+
+        let tempQuestions: Question[] = [];
+
+        for (let i = 0; i < 30;) {
+            const allNonStateQuestionsRandomIndex = Math.floor(Math.random() * allNonStateQuestions.length);
+            let currentRandom = allNonStateQuestions[allNonStateQuestionsRandomIndex];
+            if (!checkIfQuestionAlreadyPresentInArray(tempQuestions, currentRandom)) {
+                tempQuestions.push(currentRandom);
+                i++;
+            }
+        }
+
+        for (let i = 0; i < 3;) {
+            const allStateQuestionsRandomIndex = Math.floor(Math.random() * allStateQuestions.length);
+            let currentRandom = allStateQuestions[allStateQuestionsRandomIndex];
+            if (!checkIfQuestionAlreadyPresentInArray(tempQuestions, currentRandom)) {
+                tempQuestions.push(currentRandom);
+                i++
+            }
+        }
+        return tempQuestions;
+    };
+
     return (
-        <div className="grid gap-5 w-[100%]">
-            <div className="grid grid-cols-2">
-                <div>
-                    <Button startContent={<DashboardIcon size={44} />}
-                        variant="solid"
-                        onPress={handleHomePress}
-                        className="font-bold"
-                        color="primary"
-                    > Dashboard</Button>
-                </div>
-                <div className="flex gap-6 justify-between">
-
-                    <Button startContent={<ArrowLeftIcon />}
-                        disabled={!isPreviousEnabled}
-                        variant="solid"
-                        onPress={handlePrevious}
-                        className="font-bold"
-                        color="secondary"
-                    > Previous</Button>
-
-
-                    <Button endContent={<ArrowRightIcon />}
-                        disabled={!disableSkip}
-                        variant="solid"
-                        onPress={handleSkip}
-                        className="font-bold"
-                        color="secondary"
-                    > Skip</Button>
-
-                </div>
-            </div>
-
-
-            {currentQuestion &&
-                <div className="flex gap-6">
+        <div className="flex gap-6">
+            {
+                currentQuizQuestion &&
+                <>
                     <div>
                         <Card>
                             <CardHeader className="justify-between">
-                                <div className="flex gap-3">
-                                    <p className="font-extrabold text-xl text-gray-700">{currentQuestion.num}. </p>
-                                    <p className="font-bold text-xl">{currentQuestion.question}</p>
-                                </div>
+                                <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
                             </CardHeader>
                             <CardBody>
                                 <div className="grid gap-4">
-                                    {currentQuestion.image !== "-" && <div hidden={!(currentQuestion.image !== "-")}>
-                                        <Image src={`/question/${currentQuestion.image}.png`} alt=""></Image>
+                                    {currentQuizQuestion.image !== "-" && <div hidden={!(currentQuizQuestion.image !== "-")}>
+                                        <Image src={`/question/${currentQuizQuestion.image}.png`} alt=""></Image>
                                     </div>
                                     }
                                     <div className="grid gap-4 md:grid-cols-2">
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "a") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("a")}>
+                                        <Card isPressable onPress={() => handleOptionSelected("a")}>
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                    {currentQuestion.a}
+                                                    {currentQuizQuestion.a}
                                                 </div>
                                             </CardBody>
                                         </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "b") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("b")}>
+                                        <Card isPressable onPress={() => handleOptionSelected("b")}>
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                    {currentQuestion.b}
+                                                    {currentQuizQuestion.b}
                                                 </div>
                                             </CardBody>
                                         </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "c") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("c")}>
+                                        <Card isPressable onPress={() => handleOptionSelected("c")}>
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                    {currentQuestion.c}
+                                                    {currentQuizQuestion.c}
                                                 </div>
                                             </CardBody>
                                         </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "d") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("d")}>
+                                        <Card isPressable onPress={() => handleOptionSelected("d")}>
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                    {currentQuestion.d}
+                                                    {currentQuizQuestion.d}
                                                 </div>
                                             </CardBody>
                                         </Card>
@@ -217,19 +200,20 @@ export default function Quiz({ questions, user, prepareQuestion, handleHomePress
                                 </div>
                             </CardBody>
                             <CardFooter className="justify-end gap-4">
-                                <Tooltip content="Flag for review">
-                                    <Button onPress={handleFlag} disableRipple variant="light" className={`${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                {quizQuestions.length}
+                                <Tooltip content="Cancel Mock Test">
+                                    <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
                                 </Tooltip>
-                                <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
-                                <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>
+                                {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
                             </CardFooter>
                         </Card>
                     </div>
                     <div>
-                        <Countdown />
+                        <Countdown handleTimeComplete={handleTimeComplete} />
                     </div>
-                </div>
+                </>
             }
         </div >
     );
-}
+};

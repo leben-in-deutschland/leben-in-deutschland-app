@@ -21,7 +21,7 @@ export const ProgressLine = ({ user }: { user: User }) => {
 
     let labels: string[] = [];
     let data: number[] = [];
-    for (let i = 15; i >= 0; i--) {
+    for (let i = 14; i >= 0; i--) {
         let startDate = new Date(todayDate.getTime() - i * 24 * 60 * 60 * 1000);
         let date = startDate.toLocaleDateString();
         labels.push(date);

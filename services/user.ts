@@ -1,6 +1,11 @@
 import { User } from "@/types/user";
+import { readFromlocalStorage, saveInlocalStorage } from "@/utils/local-storage";
 
 export const getUserData = async (isAuthenticated: boolean) => {
+    let user = readFromlocalStorage();
+    if(user){
+        return user;
+    }
     if (isAuthenticated) {
         const response = await fetch('/api/user');
         if (response.status === 204) {
@@ -23,5 +28,7 @@ export const saveUserData = async (user: User, isAuthenticated: boolean) => {
         });
         user = await response.json() as User;
     }
+    saveInlocalStorage(user)
+    window.dispatchEvent(new Event('user'));
     return user;
 };

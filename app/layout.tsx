@@ -6,6 +6,7 @@ import { Providers } from "./provider";
 import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "react-hot-toast";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -45,10 +46,11 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        <Providers themeProps={{ attribute: "class", enableSystem: true }}>
+        <Providers themeProps={{ attribute: "class", enableSystem: false }}>
           <div className="relative flex flex-col">
             <NavigationBar />
             <main className="container mx-auto max-w-7xl pt-5 flex-grow">
+              <div><Toaster position="top-right" reverseOrder={true} /></div>
               {children}
             </main>
             <footer className="container mx-auto max-w-7xl pt-16 px-6 flex-grow md:flex md:items-center md:justify-between md:p-6">

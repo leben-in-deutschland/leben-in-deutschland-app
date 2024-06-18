@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { getUserData, saveUserData } from "@/services/user";
 import { User } from "@/types/user";
 import { saveStateChange } from "@/utils/state-utils";
+import { State } from "@/types/state";
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {
     const [user, setUser] = useState<User>();
@@ -27,10 +28,9 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
         setIsAuthenticated(session.status === "authenticated")
     }, [session.status]);
 
-    const handleSelectState = async (state: string) => {
+    const handleSelectState = async (state: State) => {
         let userData = await saveStateChange(state, isAuthenticated)
         setUser(userData);
-        window.dispatchEvent(new Event('user'))
     };
 
     return (

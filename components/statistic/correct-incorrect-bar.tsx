@@ -20,7 +20,26 @@ ChartJS.register(
     Legend
 );
 export const CorrectIncorrectBar = ({ user }: { user: User }) => {
+    let todayDate = new Date();
 
+    let labels: string[] = [];
+    let correctData: number[] = [];
+    let incorrectData: number[] = [];
+    for (let i = 29; i >= 0; i--) {
+        let startDate = new Date(todayDate.getTime() - i * 24 * 60 * 60 * 1000);
+        let date = startDate.toLocaleDateString();
+        labels.push(date);
+        let index = user.dailyProgress.findIndex(x => x.date === date);
+        if (index > -1) {
+            correctData.push(user.dailyProgress[index].correct);
+            incorrectData.push(user.dailyProgress[index].incorrect);
+        }
+        else {
+            correctData.push(0);
+            incorrectData.push(0);
+        }
+
+    }
     return (
         <Card className="card-stats border-none">
             <CardHeader className="justify-between">
@@ -33,6 +52,7 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                 <Bar
                     options={{
                         responsive: true,
+
                         plugins: {
                             legend: {
                                 position: "top",
@@ -44,34 +64,29 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                                 },
                             },
                         },
-                        scales: {
-                            xAxis: {
-                                display: false,
-                            }
-                        }
+
                     }}
                     data={{
-                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        labels: labels,
                         datasets: [
                             {
                                 label: 'Correct',
-                                data: [1, 2, 3, 4, 5, 6, 7],
+                                data: correctData,
                                 backgroundColor: 'rgba(65, 239, 106, 0.2)',
                                 borderColor: "rgba(65, 239, 106, 1)",
                                 barThickness: 10,
                                 borderRadius: 30,
-                                barPercentage: 0.3,
+
                                 categoryPercentage: 1,
                                 borderWidth: 2
                             },
                             {
                                 label: 'Incorrect',
-                                data: [1, 2, 1, 3, 41, 2, 3],
+                                data: incorrectData,
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                                 borderColor: "rgba(255, 99, 132, 1)",
                                 barThickness: 10,
                                 borderRadius: 30,
-                                barPercentage: 0.3,
                                 categoryPercentage: 1,
                                 borderWidth: 2
                             }]

@@ -1,21 +1,21 @@
 import { saveUserData } from "@/services/user";
+import { PrepareQuestionActions } from "@/types/prepare-question";
+import { State } from "@/types/state";
 import { User } from "@/types/user";
 
-export const saveStateChange = async (state: string, isAuthenticated: boolean) => {
+export const saveStateChange = async (state: State, isAuthenticated: boolean) => {
     let data: User = {
-        state: state,
+        state: {
+            stateCode: state.code,
+            stateName: state.name,
+            attempted: 0,
+            incorrect: 0,
+            correct: 0
+        },
         dailyProgress: [],
         questionProgress: [],
         id: "",
-        overallProgress: {
-            attempted: 0,
-            correct: 0,
-            incorrect: 0,
-            mockAttempted: 0,
-            mockFailed: 0,
-            flagged: 0,
-            skipped: 0
-        }
+        testProgress: [],
     }
     let today = new Date().toLocaleDateString();
     data.dailyProgress.push({
@@ -24,5 +24,6 @@ export const saveStateChange = async (state: string, isAuthenticated: boolean) =
         correct: 0,
         incorrect: 0
     });
+
     return await saveUserData(data, isAuthenticated);
 };
