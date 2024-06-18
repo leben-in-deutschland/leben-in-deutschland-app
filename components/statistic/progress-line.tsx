@@ -36,7 +36,7 @@ export const ProgressLine = ({ user }: { user: User }) => {
     }
 
     return (
-        <div style={{ width: "18rem" }}>
+        <div>
             <Card className="card-stats border-none h-[300px]">
 
                 <CardHeader className="justify-between">

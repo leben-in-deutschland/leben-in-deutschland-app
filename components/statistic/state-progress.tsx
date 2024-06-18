@@ -8,8 +8,8 @@ export const StateProgress = ({ state, questions, onPress }: { state: UserState,
     let totalQuestion = questions.filter(element => element.num.startsWith(state.stateCode)).length;
 
     return (
-        <div style={{ width: "18rem" }}>
-            <Card className="card-stats border-none h-[300px]"
+        <div>
+            <Card className="card-stats border-none h-[300px] w-[100%]"
                 isPressable
                 onPress={onPress}>
                 <CardHeader className="justify-between">
@@ -24,7 +24,7 @@ export const StateProgress = ({ state, questions, onPress }: { state: UserState,
                             width={30}
                         /> </div>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="items-center">
                     <Doughnut
                         options={{
                             responsive: true,

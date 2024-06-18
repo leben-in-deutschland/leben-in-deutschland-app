@@ -42,7 +42,7 @@ export const NavigationBar = () => {
             <UserSetting isOpen={isSettingsClick} handleUserSettingsClose={handleUserSettingsClose} />
 
             <Navbar maxWidth="xl" position="sticky">
-                <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+                <NavbarContent className="basis-1/5" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
                         <NextLink className="flex justify-start items-center gap-1" href="/">
                             <Logo />
@@ -54,16 +54,16 @@ export const NavigationBar = () => {
                 </NavbarContent>
 
                 <NavbarContent className="basis-1 pl-4" justify="end">
-                    <Link isExternal href={siteConfig.links.github} aria-label="Github">
+                    <Link isExternal className="hidden md:flex" href={siteConfig.links.github} aria-label="Github">
                         <GithubIcon className="text-default-500" />
                     </Link>
-                    <Link isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
+                    <Link className="hidden md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
                         <BitesInByteIcon className="text-default-500" />
                     </Link>
                     <ThemeSwitch />
                     <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
                         <DonateIcon className="text-red-700" />
-                        <p className="text-red-700">Donate</p>
+                        <p className="hidden md:flex text-red-700">Donate</p>
                     </Link>
                     {!session && <Button
                         color="primary"

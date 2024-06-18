@@ -157,7 +157,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     };
     const handleFlag = () => {
         if (!flagPressed) {
-            toast.success("Question flagged successfully, you can either submit the answer or move to next question");
+            toast.success("Question flagged successfully, you can either submit the answer or move to next question", { icon: '🚩' });
         }
         setFlagPressed(!flagPressed);
         if (currentQuestion?.solution !== optionSelected) {
@@ -337,7 +337,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                             </CardBody>
                             <CardFooter className="justify-end gap-4">
                                 <Tooltip content="Flag for review">
-                                    <Button onPress={handleFlag} disableRipple variant="light" className={`${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                    <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                 </Tooltip>
                                 <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
                                 <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>

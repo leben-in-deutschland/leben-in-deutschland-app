@@ -21,13 +21,12 @@ export const UserStats = ({ showMore, user, handleStalePress, questions }: { sho
     let mockFailed = user.testProgress.filter(x => !x.passed).length;
     return (
         <div className="grid gap-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                 <NumberProgress title="Skipped" count={skipped} numberColor={""} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Skipped)} />
                 <NumberProgress title="Flagged" count={flagged} numberColor={""} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Flagged)} />
                 <NumberProgress title="Correct" count={correct} numberColor={"green-500"} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Correct)} />
                 <NumberProgress title="Incorrect" count={incorrect} numberColor={"red-700"} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Incorrect)} />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+
                 <NumberProgress title="Attempted" count={attempted} numberColor={""} isPressable={false} onPress={null} />
                 <NumberProgress title="Test Attempted" count={mockAttempted} numberColor={""} isPressable={false} onPress={null} />
                 <NumberProgress title="Test Passed" count={mockPassed} numberColor={"green-500"} isPressable={false} onPress={null} />

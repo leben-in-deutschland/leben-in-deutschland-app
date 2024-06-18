@@ -7,15 +7,15 @@ export const MockTestProgress = ({ user }: { user: User }) => {
     let passedMock = user.testProgress.filter(x => x.passed).length;
     let failedMock = user.testProgress.filter(x => !x.passed).length;
     return (
-        <div style={{ width: "18rem" }}>
+        <div>
             <Card className="card-stats border-none h-[300px]">
 
-                <CardHeader className="justify-between">
+                <CardHeader className="justify-center">
                     <h2 className="font-bold text-uppercase text-muted">
                         Mock Tests
                     </h2>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="items-center">
                     <Doughnut
                         options={{
                             responsive: true,
