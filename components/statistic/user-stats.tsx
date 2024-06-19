@@ -22,10 +22,10 @@ export const UserStats = ({ showMore, user, handleStalePress, questions }: { sho
     return (
         <div className="grid gap-y-5">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-                <NumberProgress title="Skipped" count={skipped} numberColor={""} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Skipped)} />
-                <NumberProgress title="Flagged" count={flagged} numberColor={""} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Flagged)} />
-                <NumberProgress title="Correct" count={correct} numberColor={"green-500"} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Correct)} />
-                <NumberProgress title="Incorrect" count={incorrect} numberColor={"red-700"} isPressable={true} onPress={() => handleStalePress(PrepareQuestionActions.Incorrect)} />
+                <NumberProgress title="Skipped" count={skipped} numberColor={""} isPressable={skipped > 0} onPress={() => handleStalePress(PrepareQuestionActions.Skipped)} />
+                <NumberProgress title="Flagged" count={flagged} numberColor={""} isPressable={flagged > 0} onPress={() => handleStalePress(PrepareQuestionActions.Flagged)} />
+                <NumberProgress title="Correct" count={correct} numberColor={"green-500"} isPressable={correct > 0} onPress={() => handleStalePress(PrepareQuestionActions.Correct)} />
+                <NumberProgress title="Incorrect" count={incorrect} numberColor={"red-700"} isPressable={incorrect > 0} onPress={() => handleStalePress(PrepareQuestionActions.Incorrect)} />
 
                 <NumberProgress title="Attempted" count={attempted} numberColor={""} isPressable={false} onPress={null} />
                 <NumberProgress title="Test Attempted" count={mockAttempted} numberColor={""} isPressable={false} onPress={null} />

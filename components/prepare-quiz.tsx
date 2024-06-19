@@ -86,7 +86,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
         if (prepareQuestion.action === PrepareQuestionActions.Incorrect) {
             let tempIncorrect: Question[] = [];
-            let skipped = user.questionProgress.filter(x => !x.answeredCorrectly);
+            let skipped = user.questionProgress.filter(x => !x.answeredCorrectly && x.answerSelected !== "");
             for (let i = 0; i < skipped.length; i++) {
                 let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
                 if (indexSkipped > -1) {
