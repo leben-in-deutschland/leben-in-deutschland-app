@@ -49,11 +49,11 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", enableSystem: false }}>
           <div className="relative flex flex-col">
             <NavigationBar />
-            <main className="container mx-auto max-w-7xl flex flex-grow">
+            <main className="container mx-auto flex flex-grow">
               <div><Toaster position="top-right" reverseOrder={true} /></div>
               {children}
             </main>
-            <footer className="container mx-auto max-w-7xl pt-16 px-6 flex-grow md:flex md:items-center md:justify-between md:p-6">
+            <footer className="container mx-auto pt-16 px-6 flex-grow md:flex md:items-center md:justify-between md:p-6 w-[100%]">
               <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {new Date().getFullYear()} <a href="https://www.bitesinbyte.com/" className="hover:underline font-bold">bitesinbyte</a> All Rights Reserved
               </span>
               <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">

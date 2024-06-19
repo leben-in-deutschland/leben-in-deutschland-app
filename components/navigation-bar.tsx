@@ -42,8 +42,8 @@ export const NavigationBar = () => {
         <>
             <UserSetting isOpen={isSettingsClick} handleUserSettingsClose={handleUserSettingsClose} />
 
-            <Navbar maxWidth="xl" position="sticky">
-                <NavbarContent className="basis-1/5" justify="start">
+            <Navbar className="w-[100%]" maxWidth="2xl" position="sticky" onMenuOpenChange={setIsMenuOpen} >
+                <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
                         <NextLink className="flex justify-start items-center gap-1" href="/">
                             <Logo />
@@ -145,7 +145,6 @@ export const NavigationBar = () => {
                         </Link>
                         <div className="flex justify-between"><ThemeSwitch />           <p className="font-bold">Switch Theme</p></div>
                         <Button key="settings" onClick={handleSettingClick} className="dark:text-white">My Settings</Button>
-                        <Button key="help_and_feedback" className="dark:text-white">Help & Feedback</Button>
                         <Button key="logout" className="dark:text-white" color="danger" onPress={() => signOut()}>
                             Log Out
                         </Button>
