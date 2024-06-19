@@ -148,7 +148,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                     answeredCorrectly: false,
 
                 });
-                createUserStats(user, optionSelected === currentQuestion?.solution, optionSelected, isAuthenticated, currentQuestion?.num ?? "");
+                createUserStats(user, optionSelected === currentQuestion?.solution, false, true, isAuthenticated, currentQuestion?.num ?? "");
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
                 setFlagPressed(false);
@@ -206,6 +206,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
     };
     const handleNext = () => {
+        console.log(flagPressed);
         if (flagPressed || (nextEnabled && submitDisabled && optionSelected !== "")) {
             toast("Syncing your response", { icon: '⌛' });
             let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
@@ -224,8 +225,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
             }
             setShowSolution(false);
             setBlockAnsweChange(false);
-
-            createUserStats(user, optionSelected === currentQuestion?.solution, optionSelected, isAuthenticated, currentQuestion?.num ?? "");
+            createUserStats(user, optionSelected === currentQuestion?.solution, flagPressed, false, isAuthenticated, currentQuestion?.num ?? "");
             toast.success("Successfully synced your data");
             setOptionSelected("");
             setNextEnabled(false);

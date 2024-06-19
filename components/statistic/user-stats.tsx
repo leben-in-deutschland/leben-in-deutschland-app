@@ -13,8 +13,8 @@ import { Question } from "@/types/question";
 export const UserStats = ({ showMore, user, handleStalePress, questions }: { showMore: boolean, user: User, handleStalePress: any, questions: Question[] }) => {
     let skipped = user.questionProgress.filter(x => x.skipped).length;
     let flagged = user.questionProgress.filter(x => x.flagged).length;
-    let correct = user.questionProgress.filter(x => x.answeredCorrectly).length;
-    let incorrect = user.questionProgress.filter(x => !x.answeredCorrectly).length;
+    let correct = user.questionProgress.filter(x => !x.skipped && !x.flagged && x.answeredCorrectly).length;
+    let incorrect = user.questionProgress.filter(x => !x.skipped && !x.flagged && !x.answeredCorrectly).length;
     let attempted = user.questionProgress.length;
     let mockAttempted = user.testProgress.length;
     let mockPassed = user.testProgress.filter(x => x.passed).length;
