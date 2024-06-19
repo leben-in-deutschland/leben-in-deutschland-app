@@ -7,6 +7,7 @@ import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-adsense-account" content="ca-pub-2889277787752693" />
       </head>
       <body
         className={clsx(
@@ -68,6 +70,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-0XMD5RVLHB" />
     </html >
   );
 }
