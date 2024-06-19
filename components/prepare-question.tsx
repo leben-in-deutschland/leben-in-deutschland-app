@@ -13,7 +13,7 @@ export default function PrepareQuestion({ questions, user, handleStalePress }: {
     return (
         <div className="item-center">
             <Tooltip content="Prepare questions">
-                <Card className="card-stats border-none"
+                <Card className="card-stats border-none w-[100%]"
                     isPressable
                     onPress={() => handleStalePress(PrepareQuestionActions.Prepare)}>
                     <CardHeader className="justify-between">
