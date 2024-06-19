@@ -3,9 +3,9 @@ import { TickIcon } from "@/icons/TickIcon";
 import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
-export default function MockHistory({ isAuthenticated, user }: { isAuthenticated: boolean, user: User }) {
+export default function MockHistory({ isAuthenticated, user, handleHistoryPress }: { isAuthenticated: boolean, user: User, handleHistoryPress: any }) {
     return (
-        <Card className="card-stats" >
+        <Card className="card-stats">
             <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
                     Mock Test History
@@ -14,7 +14,12 @@ export default function MockHistory({ isAuthenticated, user }: { isAuthenticated
             <CardBody>
                 <div className="overflow-y-auto scroll-auto h-44">
                     {user && user.testProgress?.length >= 0 && [...user.testProgress].reverse().map((x) => (
-                        <Card key={x.datetime} className={`mb-3 mt-3 ${x.cancelled ? "bg-gray-200" : (x.passed ? "bg-green-200" : "bg-red-200")}`} shadow="none">
+                        <Card key={x.datetime}
+                            className={`mb-3 mt-3 w-[100%] ${x.cancelled ? "bg-gray-200" : (x.passed ? "bg-green-200" : "bg-red-200")}`}
+                            shadow="none"
+                            isDisabled={x.cancelled}
+                            isPressable
+                            onPress={() => { if (!x.cancelled) { handleHistoryPress(x.datetime); } }}>
                             <CardBody>
                                 <div className="flex justify-between">
                                     <div className="bg-gray-300 rounded-xl p-2">

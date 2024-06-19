@@ -206,7 +206,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
     };
     const handleNext = () => {
-        console.log(flagPressed);
         if (flagPressed || (nextEnabled && submitDisabled && optionSelected !== "")) {
             toast("Syncing your response", { icon: '⌛' });
             let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
