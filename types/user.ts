@@ -19,6 +19,8 @@ export interface UserDailyProgress {
     correct: number;
     incorrect: number;
     attempted: number;
+    skipped: number;
+    flagged: number;
 }
 
 export interface UserQuestionProgress {

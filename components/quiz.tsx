@@ -7,6 +7,7 @@ import { saveUserData } from "@/services/user";
 import { QuizProgress } from "./quiz-progress";
 import toast from "react-hot-toast";
 import { FlagIcon } from "@/icons/FlagIcon";
+import { SubmitWarning } from "./models/submit-warning";
 
 export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user: User, questions: Question[], handleCancel: any, isAuthenticated: boolean }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
@@ -15,25 +16,34 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     const [currentMockData, setCurrentMockData] = useState<MockTestProgress>();
     const [startTime] = useState<Date>(new Date());
     const [flagPressed, setFlagPressed] = useState<boolean>(false);
-
+    const [submitModelWarning, setSubmitModelWarning] = useState<boolean>(false);
     const handleFlag = () => {
         if (!flagPressed) {
             toast.success("Question flagged successfully", { icon: '🚩' });
+        }
+        let index = currentMockData?.questions.findIndex(x => x.num === currentQuizQuestion.num) ?? -1;
+        if (index > -1 && currentMockData) {
+            currentMockData.questions[index].flagged = !flagPressed;
+            setCurrentMockData(currentMockData);
+        } else {
+            if (currentMockData) {
+                currentMockData.questions.push({
+                    answeredCorrectly: false,
+                    answerSelected: "",
+                    num: currentQuizQuestion.num,
+                    skipped: false,
+                    flagged: !flagPressed
+                });
+            }
         }
         setFlagPressed(!flagPressed);
     };
 
     useEffect(() => {
+
         let randomQuestions = generateRandomQuizQuestions(user, questions);
         setQuizQuestions(randomQuestions);
         setCurrentQuizQuestion(randomQuestions[0]);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const handleOptionSelected = (option: string) => {
-        if (!currentQuizQuestion) {
-            return;
-        }
         if (!currentMockData) {
             let tempMockData: MockTestProgress = {
                 datetime: new Date().toISOString(),
@@ -43,15 +53,23 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                 questions: []
             };
             tempMockData.questions.push({
-                answeredCorrectly: currentQuizQuestion.solution === option,
-                answerSelected: option,
-                num: currentQuizQuestion.num,
+                answeredCorrectly: false,
+                answerSelected: "",
+                num: randomQuestions[0].num,
                 skipped: false,
                 flagged: false
             });
             setCurrentMockData(tempMockData);
         }
-        else {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const handleOptionSelected = (option: string) => {
+        if (!currentQuizQuestion) {
+            return;
+        }
+
+        if (currentMockData) {
             let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
             if (index > -1) {
                 let temp = currentMockData.questions[index];
@@ -74,13 +92,33 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     };
 
     const handleNext = () => {
-        let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
-        if (indexCurrentQuestion >= 0) {
-            if (indexCurrentQuestion != quizQuestions.length - 1) {
-                let nextIndex = indexCurrentQuestion + 1;
-                setCurrentQuizQuestion(quizQuestions[nextIndex]);
-                setOptionSelected("");
+
+        if (currentMockData) {
+            let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
+            if (index > -1) {
+                let temp = currentMockData.questions[index];
+                temp.answeredCorrectly = currentQuizQuestion.solution === optionSelected;
+                temp.answerSelected = optionSelected;
+                temp.skipped = optionSelected === "";
+                temp.flagged = flagPressed;
+            } else {
+                currentMockData.questions.push({
+                    answeredCorrectly: currentQuizQuestion.solution === optionSelected,
+                    answerSelected: optionSelected,
+                    num: currentQuizQuestion.num,
+                    skipped: optionSelected === "",
+                    flagged: flagPressed
+                });
             }
+            let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
+            if (indexCurrentQuestion >= 0) {
+                if (indexCurrentQuestion != quizQuestions.length - 1) {
+                    let nextIndex = indexCurrentQuestion + 1;
+                    setCurrentQuizQuestion(quizQuestions[nextIndex]);
+                    setOptionSelected("");
+                }
+            }
+            setFlagPressed(false);
         }
     };
 
@@ -90,16 +128,36 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
 
     const handleSubmit = async () => {
         if (currentMockData) {
+            if (currentMockData.questions.filter(x => x.flagged || x.skipped).length > 0) {
+                setSubmitModelWarning(true)
+            } else {
+                await handleWarningSubmit();
+            }
+        };
+
+
+    };
+    const handleWarningClose = () => {
+        setSubmitModelWarning(false);
+    };
+
+    const handleWarningSubmit = async () => {
+        if (currentMockData) {
             currentMockData.passed = currentMockData.questions.filter(x => x.answeredCorrectly).length >= 17;
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
             await saveUserData(user, isAuthenticated);
         }
-
         handleCancel();
-    };
+    }
 
-    const handleQuizCancel = () => {
+    const handleQuizCancel = async () => {
+        if (currentMockData) {
+            currentMockData.cancelled = true;
+            currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
+            user.testProgress.push(currentMockData);
+            await saveUserData(user, isAuthenticated);
+        }
         handleCancel();
     };
 
@@ -136,9 +194,12 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     };
     const onChangeFromProgressBar = (index: number) => {
         let temp = quizQuestions[index];
-        let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
-        if (tempIndex > -1) {
-            setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "")
+        if (currentMockData) {
+            let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
+            if (tempIndex > -1) {
+                setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "");
+                setFlagPressed(currentMockData?.questions[tempIndex].flagged);
+            }
         }
         setCurrentQuizQuestion(temp);
     };
@@ -149,6 +210,7 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                 currentQuizQuestion &&
                 <div className="grid md:grid-cols-2 gap-2">
                     <div>
+                        <SubmitWarning isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
                         <Card className="h-[100%]">
                             <CardHeader className="justify-center">
                                 <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
@@ -220,10 +282,12 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                             <Countdown handleTimeComplete={handleTimeComplete} />
                         </div>
                         <div>
-                            <QuizProgress
-                                onChangeFromProgressBar={onChangeFromProgressBar}
-
-                            />
+                            {currentMockData &&
+                                <QuizProgress
+                                    questions={currentMockData.questions}
+                                    onChangeFromProgressBar={onChangeFromProgressBar}
+                                    currentQuestionIndex={quizQuestions.findIndex(x => x.num === currentQuizQuestion.num)}
+                                />}
                         </div>
 
                     </div>

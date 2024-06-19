@@ -1,12 +1,11 @@
 import { saveUserData } from "@/services/user";
-import { PrepareQuestionActions } from "@/types/prepare-question";
 import { User } from "@/types/user";
 
 export const addDaily = () => {
 
 };
 
-export const createUserStats = async (user: User, correctAnswer: boolean, optionSelected: string, isAuthenticated: boolean, lastQuestionNum: string) => {
+export const createUserStats = async (user: User, correctAnswer: boolean, flagged: boolean, skipped: boolean, isAuthenticated: boolean, lastQuestionNum: string) => {
     let today = new Date().toLocaleDateString();
     if (user.dailyProgress === undefined) {
         user.dailyProgress = [];
@@ -18,15 +17,19 @@ export const createUserStats = async (user: User, correctAnswer: boolean, option
         user.dailyProgress[todayProgressIndex] = {
             attempted: temp.attempted + 1,
             date: temp.date,
-            correct: correctAnswer ? temp.correct + 1 : temp.correct,
-            incorrect: correctAnswer ? temp.incorrect + 0 : temp.incorrect + 1
+            correct: (!skipped && !flagged) ? (correctAnswer ? temp.correct + 1 : temp.correct) : temp.correct,
+            incorrect: (!skipped && !flagged) ? (correctAnswer ? temp.incorrect + 0 : temp.incorrect + 1) : temp.incorrect,
+            skipped: skipped ? temp.skipped + 1 : temp.skipped,
+            flagged: flagged ? temp.flagged + 1 : temp.flagged
         };
     } else {
         user.dailyProgress.push({
             attempted: 1,
             date: today,
-            correct: correctAnswer ? 1 : 0,
-            incorrect: correctAnswer ? 0 : 1
+            correct: !flagged ? (correctAnswer ? 1 : 0) : 0,
+            incorrect: !flagged ? (correctAnswer ? 0 : 1) : 0,
+            skipped: skipped ? 0 : 1,
+            flagged: flagged ? 0 : 1
         });
     }
 

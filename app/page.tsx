@@ -16,6 +16,7 @@ import { State } from "@/types/state";
 import PrepareQuiz from "@/components/prepare-quiz";
 import { Quiz } from "@/components/quiz";
 import { ExamReadiness } from "@/components/exam-readiness";
+import { QuizAnswer } from "@/components/quiz-answer";
 
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -23,6 +24,9 @@ export default function Home() {
   const [user, setUser] = useState<User>();
   const [prepareQuestion, setPrepareQuestion] = useState<PrepareQuestionType>();
   const [mockExamSelected, setMockExam] = useState<boolean>(false);
+  const [showResult, setShowResult] = useState<boolean>(false);
+  const [resultDateTime, setResultDateTime] = useState<string>("");
+
   let session = useSession();
 
   useEffect(() => {
@@ -75,14 +79,22 @@ export default function Home() {
   const handleMockCancel = () => {
     setPrepareQuestion({ selected: false, action: PrepareQuestionActions.Random });
     setMockExam(false);
+    setShowResult(false);
+    setResultDateTime("");
+  };
+
+  const handleHistoryPress = (datetime: string) => {
+    setShowResult(true);
+    setResultDateTime(datetime);
   };
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       {!user?.state.stateName && <StateSelect handleSelectState={handleSelectState} />}
+      { }
       {user && prepareQuestion &&
         <>
-          <div hidden={prepareQuestion.selected || mockExamSelected}>
+          <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
             <div className="grid gap-4 md:grid-cols-2 mb-5">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="grid gap-4">
@@ -94,7 +106,7 @@ export default function Home() {
                 </div>
               </div>
               <div >
-                <MockHistory isAuthenticated={isAuthenticated} user={user} />
+                <MockHistory isAuthenticated={isAuthenticated} user={user} handleHistoryPress={handleHistoryPress} />
               </div>
             </div>
             <div>
@@ -110,6 +122,16 @@ export default function Home() {
           {mockExamSelected && <div hidden={!mockExamSelected}>
             {questions && questions.length > 0 && <Quiz questions={questions} user={user} isAuthenticated={isAuthenticated} handleCancel={handleMockCancel} />}
           </div>}
+          {showResult &&
+            <div hidden={!showResult}>
+              {
+                questions &&
+                questions.length > 0 &&
+                user &&
+                user.testProgress.findIndex(x => x.datetime === resultDateTime) > -1 &&
+                <QuizAnswer questions={questions} handleQuizCancel={handleMockCancel} mockExam={user.testProgress[user.testProgress.findIndex(x => x.datetime === resultDateTime)]} />}
+            </div>
+          }
         </>
       }
     </section >

@@ -22,7 +22,9 @@ export const saveStateChange = async (state: State, isAuthenticated: boolean) =>
         attempted: 0,
         date: today,
         correct: 0,
-        incorrect: 0
+        incorrect: 0,
+        skipped: 0,
+        flagged: 0
     });
 
     return await saveUserData(data, isAuthenticated);
