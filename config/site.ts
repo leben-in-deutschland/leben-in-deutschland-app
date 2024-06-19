@@ -2,25 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
     name: "Leben in Deutschland",
-    description: "Action Watcher is a tool to help you find and fix security vulnerabilities in your open source dependencies.",
-    navItems: [
-        {
-            label: "Home",
-            href: "/",
-        },
-        {
-            label: "Blog",
-            href: "https://blogs.bitesinbyte.com/",
-        },
-        {
-            label: "Tools",
-            href: "https://tools.bitesinbyte.com/",
-        },
-        {
-            label: "Edmx Tools",
-            href: "https://edmx.bitesinbyte.com/",
-        }
-    ],
+    description: "Test Leben in Deutschland online - free of charge and without obligation whether you would pass the Life in Germany test.",
     navMenuItems: [
     ],
     links: {
