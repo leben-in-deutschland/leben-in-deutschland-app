@@ -10,7 +10,7 @@ export default function MockTest({ isAuthenticated, user, handlePress }: { isAut
     return (
         <div className="item-center">
             <Tooltip content="Attempt mock exam">
-                <Card className={`card-stats border-none item-center`}
+                <Card className="card-stats border-none item-center w-[100%]"
                     isPressable
                     onPress={() => handlePress(PrepareQuestionActions.Mock)}>
                     <CardHeader className="justify-between">

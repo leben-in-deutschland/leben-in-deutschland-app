@@ -29,6 +29,7 @@ import UserSetting from "./settings/user-setting";
 export const NavigationBar = () => {
     const { data: session } = useSession()
     const [isSettingsClick, setSettingClicked] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleSettingClick = () => {
         setSettingClicked(true);
@@ -53,7 +54,7 @@ export const NavigationBar = () => {
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="basis-1 pl-4" justify="end">
+                <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
                     <Link isExternal className="hidden md:flex" href={siteConfig.links.github} aria-label="Github">
                         <GithubIcon className="text-default-500" />
                     </Link>
@@ -97,6 +98,59 @@ export const NavigationBar = () => {
                     </Dropdown>}
 
                 </NavbarContent>
+                <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+                    <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
+                        <DonateIcon className="text-red-700" />
+                        <p className="hidden md:flex text-red-700">Donate</p>
+                    </Link>
+                    <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+                </NavbarContent>
+                <NavbarMenu>
+                    <div className="mx-4 mt-2 flex flex-col gap-2">
+                        {!session && <Button
+                            color="primary"
+                            variant="flat"
+                            onPress={() => signIn("google")}>
+                            Sign In
+                        </Button>}
+                        {session &&
+                            <div>
+                                <div className="flex justify-between">
+                                    <div>
+                                        <p className="font-semibold dark:text-white">Signed in as</p>
+                                        <p className="font-semibold dark:text-white">{session.user.email}</p>
+                                    </div>
+                                    <div>
+                                        <Avatar
+                                            isBordered
+                                            as="button"
+                                            className="transition-transform"
+                                            color="secondary"
+                                            name={session.user.name}
+                                            size="sm"
+                                            src={session.user.image}
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        <Link isExternal className="md:flex" href={siteConfig.links.github} aria-label="Github">
+                            <GithubIcon className="text-default-500" />
+                            <p className="font-bold">GitHub</p>
+                        </Link>
+                        <Link className="md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
+                            <BitesInByteIcon className="text-default-500" />
+                            <p className="font-bold">Bitesinbyte</p>
+                        </Link>
+                        <div className="flex justify-between"><ThemeSwitch />           <p className="font-bold">Switch Theme</p></div>
+                        <Button key="settings" onClick={handleSettingClick} className="dark:text-white">My Settings</Button>
+                        <Button key="help_and_feedback" className="dark:text-white">Help & Feedback</Button>
+                        <Button key="logout" className="dark:text-white" color="danger" onPress={() => signOut()}>
+                            Log Out
+                        </Button>
+                    </div>
+                </NavbarMenu>
             </Navbar >
         </>
     );
