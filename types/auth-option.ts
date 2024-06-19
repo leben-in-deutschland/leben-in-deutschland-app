@@ -1,4 +1,3 @@
-import { getUserData } from "@/services/user";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from 'next-auth/providers/google'
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!
@@ -24,7 +23,6 @@ export const authOptions: NextAuthOptions = {
             if (!profile?.email) {
                 throw new Error('No profile')
             }
-            getUserData(true, true);
             return true
         },
         async jwt({ token, user, account, profile }) {

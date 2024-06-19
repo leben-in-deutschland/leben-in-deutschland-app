@@ -11,12 +11,17 @@ export const getUserData = async (isAuthenticated: boolean, skipLocal: boolean =
     if (isAuthenticated) {
         const response = await fetch('/api/user');
         if (response.status === 204) {
-            return null;
+            let user = readFromlocalStorage();
+            if (user) {
+                return user;
+            }
+
         }
         const user = await response.json() as User;
         saveInlocalStorage(user)
         return user;
     }
+    
     return null;
 };
 
