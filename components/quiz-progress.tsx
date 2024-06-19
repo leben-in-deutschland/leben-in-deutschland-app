@@ -13,7 +13,7 @@ export const QuizProgress = ({ questions, onChangeFromProgressBar, currentQuesti
             <div className="grid grid-cols-7 gap-1">
                 {
                     Array.from(Array(33).keys()).map((x) => (
-                        <Button key={x} className={`${currentQuestionIndex === x ? "bg-blue-500" : ""} ${questions[x]?.answerSelected ? "bg-green-500" : ""}`} size="sm" variant="bordered" disableRipple onPress={() => onChangeFromProgressBar(x)}>
+                        <Button isDisabled={x > questions.length} key={x} className={`${currentQuestionIndex === x ? "bg-blue-500" : ""} ${questions[x]?.answerSelected ? "bg-green-500" : ""}`} size="sm" variant="bordered" disableRipple onPress={() => onChangeFromProgressBar(x)}>
                             <div className="flex gap-1 items-center">
                                 <p className="font-bold">{x + 1}</p>
                                 {questions[x]?.flagged && <FlagIcon size={10} />}

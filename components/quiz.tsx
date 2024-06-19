@@ -32,7 +32,7 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                     answerSelected: "",
                     num: currentQuizQuestion.num,
                     skipped: false,
-                    flagged: true
+                    flagged: !flagPressed
                 });
             }
         }
@@ -92,14 +92,7 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     };
 
     const handleNext = () => {
-        let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
-        if (indexCurrentQuestion >= 0) {
-            if (indexCurrentQuestion != quizQuestions.length - 1) {
-                let nextIndex = indexCurrentQuestion + 1;
-                setCurrentQuizQuestion(quizQuestions[nextIndex]);
-                setOptionSelected("");
-            }
-        }
+
         if (currentMockData) {
             let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
             if (index > -1) {
@@ -117,9 +110,16 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                     flagged: flagPressed
                 });
             }
-
+            let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
+            if (indexCurrentQuestion >= 0) {
+                if (indexCurrentQuestion != quizQuestions.length - 1) {
+                    let nextIndex = indexCurrentQuestion + 1;
+                    setCurrentQuizQuestion(quizQuestions[nextIndex]);
+                    setOptionSelected("");
+                }
+            }
+            setFlagPressed(false);
         }
-        setFlagPressed(false)
     };
 
     const handleTimeComplete = () => {
@@ -151,7 +151,13 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
         handleCancel();
     }
 
-    const handleQuizCancel = () => {
+    const handleQuizCancel = async () => {
+        if (currentMockData) {
+            currentMockData.cancelled = true;
+            currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
+            user.testProgress.push(currentMockData);
+            await saveUserData(user, isAuthenticated);
+        }
         handleCancel();
     };
 
@@ -188,9 +194,12 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     };
     const onChangeFromProgressBar = (index: number) => {
         let temp = quizQuestions[index];
-        let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
-        if (tempIndex > -1) {
-            setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "")
+        if (currentMockData) {
+            let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
+            if (tempIndex > -1) {
+                setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "");
+                setFlagPressed(currentMockData?.questions[tempIndex].flagged);
+            }
         }
         setCurrentQuizQuestion(temp);
     };

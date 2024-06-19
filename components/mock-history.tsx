@@ -14,7 +14,7 @@ export default function MockHistory({ isAuthenticated, user }: { isAuthenticated
             <CardBody>
                 <div className="overflow-y-auto scroll-auto h-44">
                     {user && user.testProgress?.length >= 0 && [...user.testProgress].reverse().map((x) => (
-                        <Card key={x.datetime} className={`mb-3 mt-3 ${x.passed ? "bg-green-200" : "bg-red-200"}`} shadow="none">
+                        <Card key={x.datetime} className={`mb-3 mt-3 ${x.cancelled ? "bg-gray-200" : (x.passed ? "bg-green-200" : "bg-red-200")}`} shadow="none">
                             <CardBody>
                                 <div className="flex justify-between">
                                     <div className="bg-gray-300 rounded-xl p-2">
