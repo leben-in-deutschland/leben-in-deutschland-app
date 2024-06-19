@@ -31,7 +31,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      let tempUser = await getUserData(isAuthenticated);
+      let tempUser = await getUserData(isAuthenticated, true);
       if (tempUser !== null) {
         setUser(tempUser);
       }
