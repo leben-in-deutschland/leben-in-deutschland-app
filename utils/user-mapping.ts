@@ -1,10 +1,6 @@
 import { saveUserData } from "@/services/user";
 import { User } from "@/types/user";
 
-export const addDaily = () => {
-
-};
-
 export const createUserStats = async (user: User, correctAnswer: boolean, flagged: boolean, skipped: boolean, isAuthenticated: boolean, lastQuestionNum: string) => {
     let today = new Date().toLocaleDateString();
     if (user.dailyProgress === undefined) {

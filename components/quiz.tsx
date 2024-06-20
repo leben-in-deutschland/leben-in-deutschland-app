@@ -205,7 +205,7 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
     };
 
     return (
-        <div className="flex gap-6">
+        <div className="flex gap-6 justify-center mt-10">
             {
                 currentQuizQuestion &&
                 <div className="grid md:grid-cols-2 gap-2">

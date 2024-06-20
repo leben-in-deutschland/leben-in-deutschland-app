@@ -51,3 +51,23 @@ export async function POST(req: NextRequest): Promise<any> {
         }
     );
 }
+
+export async function DELETE(): Promise<any> {
+    const session = await getServerSession(authOptions);
+
+    if (session) {
+        await kv.del(session.user.id);
+        return NextResponse.json(
+            {
+                status: 204,
+            }
+        );
+    }
+
+    return NextResponse.json(
+        { error: "You must be sign in to view the protected content on this page." },
+        {
+            status: 403,
+        }
+    );
+}

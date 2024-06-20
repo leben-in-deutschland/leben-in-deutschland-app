@@ -25,6 +25,8 @@ import { BitesInByteIcon } from "@/icons/BitesInByteIcon";
 import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import { useState } from "react";
 import UserSetting from "./settings/user-setting";
+import { SettingIcon } from "@/icons/SettingIcon";
+import { LogoutIcon } from "@/icons/LogoutIcon";
 
 export const NavigationBar = () => {
     const { data: session } = useSession()
@@ -61,6 +63,7 @@ export const NavigationBar = () => {
                     <Link className="hidden md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
                         <BitesInByteIcon className="text-default-500" />
                     </Link>
+                    <Button style={{ backgroundColor: 'transparent' }} isIconOnly variant="light" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
                     <ThemeSwitch />
                     <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
                         <DonateIcon className="text-red-700" />
@@ -89,8 +92,7 @@ export const NavigationBar = () => {
                                 <p className="font-semibold dark:text-white">Signed in as</p>
                                 <p className="font-semibold dark:text-white">{session.user.email}</p>
                             </DropdownItem>
-                            <DropdownItem key="settings" onClick={handleSettingClick} className="dark:text-white">My Settings</DropdownItem>
-                            <DropdownItem key="help_and_feedback" className="dark:text-white">Help & Feedback</DropdownItem>
+
                             <DropdownItem key="logout" className="text-red-500" color="danger" onPress={() => signOut()}>
                                 Log Out
                             </DropdownItem>
@@ -103,7 +105,7 @@ export const NavigationBar = () => {
                         <DonateIcon className="text-red-700" />
                         <p className="hidden md:flex text-red-700">Donate</p>
                     </Link>
-                    <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+                    <NavbarMenuToggle className="dark:invert" aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 </NavbarContent>
                 <NavbarMenu>
                     <div className="mx-4 mt-2 flex flex-col gap-2">
@@ -135,19 +137,30 @@ export const NavigationBar = () => {
 
                             </div>
                         }
-                        <Link isExternal className="md:flex" href={siteConfig.links.github} aria-label="Github">
-                            <GithubIcon className="text-default-500" />
-                            <p className="font-bold">GitHub</p>
+                        <Link isExternal className="text-2xl flex justify-between bg-slate-500 p-1 pl-4 pr-4 rounded-xl" href={siteConfig.links.github} aria-label="Github">
+                            <GithubIcon className="text-black" />
+                            <p className="font-bold text-black">GitHub</p>
                         </Link>
-                        <Link className="md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
-                            <BitesInByteIcon className="text-default-500" />
-                            <p className="font-bold">Bitesinbyte</p>
+                        <Link className="text-2xl flex justify-between bg-slate-500 p-1 pl-4 pr-4 rounded-xl" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
+                            <BitesInByteIcon className="text-black" />
+                            <p className="font-bold text-black">Bitesinbyte</p>
                         </Link>
-                        <div className="flex justify-between"><ThemeSwitch />           <p className="font-bold">Switch Theme</p></div>
-                        <Button key="settings" onClick={handleSettingClick} className="dark:text-white">My Settings</Button>
-                        <Button key="logout" className="dark:text-white" color="danger" onPress={() => signOut()}>
-                            Log Out
-                        </Button>
+                        <div className="text-2xl flex justify-between bg-slate-500 p-1 pl-4 pr-4 rounded-xl">
+                            <ThemeSwitch className="text-black" />
+                            <p className="font-bold text-black">Switch Theme</p>
+                        </div>
+
+                        <Link key="settings"
+                            onPress={handleSettingClick} className="text-2xl dark:text-white-500 flex justify-between font-bold bg-slate-500 p-1 pl-4 pr-4 rounded-xl">
+                            <SettingIcon className="text-black" />
+                            <p className="font-bold text-black">My Settings</p>
+                        </Link>
+
+                        <Link key="logout"
+                            className="text-2xl dark:text-white-500 flex justify-between font-bold bg-slate-500 p-1 pl-4 pr-4 rounded-xl" color="danger" onPress={() => signOut()}>
+                            <LogoutIcon className="text-red-700" />
+                            <p className="font-bold text-red-700">Log Out</p>
+                        </Link>
                     </div>
                 </NavbarMenu>
             </Navbar >

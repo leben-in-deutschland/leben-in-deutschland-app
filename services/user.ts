@@ -15,13 +15,13 @@ export const getUserData = async (isAuthenticated: boolean, skipLocal: boolean =
             if (user) {
                 return user;
             }
-
+            return null;
         }
         const user = await response.json() as User;
         saveInlocalStorage(user)
         return user;
     }
-    
+
     return null;
 };
 
@@ -39,4 +39,13 @@ export const saveUserData = async (user: User, isAuthenticated: boolean) => {
     saveInlocalStorage(user)
     window.dispatchEvent(new Event('user'));
     return user;
+};
+
+export const deleteUserData = async (isAuthenticated: boolean) => {
+    if (isAuthenticated) {
+        await fetch('/api/user', {
+            method: 'DELETE',
+        });
+
+    }
 };
