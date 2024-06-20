@@ -89,13 +89,12 @@ export default function Home() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <>
       {!user?.state.stateName && <StateSelect handleSelectState={handleSelectState} />}
-      { }
       {user && prepareQuestion &&
         <>
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
-            <div className="grid gap-4 md:grid-cols-2 mb-5">
+            <div className="gap-4 md:grid md:grid-cols-2 mb-5">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="grid gap-4">
                   <PrepareQuestion questions={questions} user={user} handleStalePress={handleStalePress} />
@@ -134,6 +133,6 @@ export default function Home() {
           }
         </>
       }
-    </section >
+    </ >
   );
 }

@@ -4,7 +4,7 @@ import { Button, Card, CardHeader } from "@nextui-org/react";
 
 export const QuizProgress = ({ questions, onChangeFromProgressBar, currentQuestionIndex }: { questions: UserQuestionProgress[], onChangeFromProgressBar: any, currentQuestionIndex: number }) => {
     return (
-        <Card className="mt-3 p-2">
+        <Card className="p-2 justify-center mt-10">
             <CardHeader>
                 <h2 className="font-bold text-uppercase text-muted ">
                     Progress

@@ -249,7 +249,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
     };
     return (
-        <div className="grid gap-5 w-[100%]">
+        <div className="grid gap-5 w-[100%]  justify-center mt-10">
             <div className="grid grid-cols-2">
                 <div>
                     <Button startContent={<DashboardIcon size={44} />}

@@ -11,7 +11,7 @@ export const ExamReadiness = ({ user }: { user: User }) => {
         percentage = 0;
     }
     return (
-        <Card className="h-[100%] ">
+        <Card className="h-[100%]">
             <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
                     Exam Readiness

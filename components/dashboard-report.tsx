@@ -36,8 +36,9 @@ export default function DashboardReports({ isAuthenticated, user, handleStalePre
                             as={Link}
                             variant="light"
                             style={{ backgroundColor: 'transparent' }}
+                            className="text-black"
                             endContent={
-                                <ArrowRightIcon className="dark:invert" />
+                                <ArrowRightIcon />
                             }>
                             Show More
                         </Button>
@@ -47,9 +48,10 @@ export default function DashboardReports({ isAuthenticated, user, handleStalePre
                             onPress={() => setShowMoreReport(false)}
                             as={Link}
                             variant="light"
+                            className="text-black"
                             style={{ backgroundColor: 'transparent' }}
                             endContent={
-                                <ArrowRightIcon className="dark:invert" />
+                                <ArrowRightIcon />
                             }>
                             Hide
                         </Button>
