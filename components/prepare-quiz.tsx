@@ -253,7 +253,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     const openGoogleTranslate = () => {
         let text = encodeURIComponent(`${currentQuestion?.question} \n\n${currentQuestion?.a}\n${currentQuestion?.b}\n${currentQuestion?.c}\n${currentQuestion?.d}`);
         let url = `https://translate.google.com/?sl=de&tl=en&text=${text}&op=translate&u=BLANK`;
-        window.open(url, '_blank');
+        window.open(url, "_blank", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes, width=900, height=700");
     };
     return (
         <div className="grid gap-5 w-[100%]  justify-center mt-10">
