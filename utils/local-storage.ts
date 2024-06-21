@@ -25,5 +25,5 @@ export const readFromlocalStorage = () => {
 
 export const deleteFromlocalStorage = () => {
     let ls = getLocalStorageInstance();
-    let user = ls.removeItem("user");
+    ls.removeItem("user");
 };
