@@ -339,7 +339,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                     <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                 </Tooltip>
                                 <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
-                                <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>
+                                {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
                             </CardFooter>
                         </Card>
                     </div>
