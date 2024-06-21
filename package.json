@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.7",
     "@next/third-parties": "^14.2.4",
     "@nextui-org/button": "^2.0.33",
     "@nextui-org/link": "^2.0.31",
