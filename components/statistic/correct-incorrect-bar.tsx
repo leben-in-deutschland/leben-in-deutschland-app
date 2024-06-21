@@ -27,9 +27,9 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
     let incorrectData: number[] = [];
     for (let i = 29; i >= 0; i--) {
         let startDate = new Date(todayDate.getTime() - i * 24 * 60 * 60 * 1000);
-        let date = startDate.toUTCString();
+        let date = startDate.toDateString();
         labels.push(date);
-        let index = user.dailyProgress.findIndex(x => x.date === date);
+        let index = user.dailyProgress.findIndex(x => new Date(x.date).toDateString() === date);
         if (index > -1) {
             correctData.push(user.dailyProgress[index].correct);
             incorrectData.push(user.dailyProgress[index].incorrect);
