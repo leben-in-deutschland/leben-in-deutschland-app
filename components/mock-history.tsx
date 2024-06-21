@@ -55,7 +55,7 @@ export default function MockHistory({ isAuthenticated, user, handleHistoryPress 
                 <Button
                     color="primary"
                     variant="solid"
-                    onPress={() => signIn("google")}>
+                    onPress={() => signIn("auth0")}>
                     Sign In
                 </Button>
             </div>} */}
