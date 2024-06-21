@@ -9,6 +9,8 @@ import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } 
 import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
 import toast from "react-hot-toast";
+import { TranslateIcon } from "@/icons/TranslateIcon";
+
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, handleHomePress, isAuthenticated }:
     {
@@ -248,16 +250,22 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
             toast.error("Please submit you answer.");
         }
     };
+    const openGoogleTranslate = () => {
+        let text = encodeURIComponent(`${currentQuestion?.question} \n\n${currentQuestion?.a}\n${currentQuestion?.b}\n${currentQuestion?.c}\n${currentQuestion?.d}`);
+        let url = `https://translate.google.com/?sl=de&tl=en&text=${text}&op=translate&u=BLANK`;
+        window.open(url, '_blank');
+    };
     return (
         <div className="grid gap-5 w-[100%]  justify-center mt-10">
-            <div className="grid grid-cols-2">
-                <div>
+            <div className="grid grid-cols-2 gap-2">
+                <div className="flex gap-2">
                     <Button startContent={<DashboardIcon size={44} />}
                         variant="solid"
                         onPress={handleHomePress}
                         className="font-bold"
                         color="primary"
                     > Dashboard</Button>
+
                 </div>
                 <div className="flex gap-6 justify-between">
 
@@ -334,17 +342,25 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                     </div>
                                 </div>
                             </CardBody>
-                            <CardFooter className="justify-end gap-4">
-                                <Tooltip content="Flag for review">
-                                    <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                            <CardFooter className="justify-between gap-4">
+                                <Tooltip content="Translate">
+                                    <Button
+                                        onPress={openGoogleTranslate}
+                                        className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
                                 </Tooltip>
-                                <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
-                                {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                <div className="justify-end gap-4">
+                                    <Tooltip content="Flag for review">
+                                        <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                    </Tooltip>
+                                    <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
+                                    {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                </div>
                             </CardFooter>
                         </Card>
                     </div>
                 </div>
             }
         </div >
+
     );
 }
