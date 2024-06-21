@@ -29,7 +29,7 @@ export const LoginPrompt = ({
                     <Button color="danger" variant="solid" onPress={handleClose}>
                         Continue Without Login
                     </Button>
-                    <Button color="primary" variant="solid" onPress={() => signIn("google")}>
+                    <Button color="primary" variant="solid" onPress={() => signIn("auth0")}>
                         Login
                     </Button>
                 </ModalFooter>

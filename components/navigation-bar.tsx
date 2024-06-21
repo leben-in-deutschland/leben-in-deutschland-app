@@ -72,7 +72,7 @@ export const NavigationBar = () => {
                     {!session && <Button
                         color="primary"
                         variant="flat"
-                        onPress={() => signIn("google")}>
+                        onPress={() => signIn("auth0")}>
                         Sign In
                     </Button>}
                     {session && <Dropdown placement="bottom-end">
@@ -112,7 +112,7 @@ export const NavigationBar = () => {
                         {!session && <Button
                             color="primary"
                             variant="flat"
-                            onPress={() => signIn("google")}>
+                            onPress={() => signIn("auth0")}>
                             Sign In
                         </Button>}
                         {session &&

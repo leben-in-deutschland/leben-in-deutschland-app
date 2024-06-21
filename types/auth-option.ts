@@ -1,18 +1,19 @@
 import { NextAuthOptions } from "next-auth";
-import GoogleProvider from 'next-auth/providers/google'
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!
-
+import Auth0Provider from "next-auth/providers/auth0";
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID!
+const AUTH0_CLIENT_SECRET = process.env.AUTH0_CLIENT_SECRET!
+const AUTH0_ISSUER = process.env.AUTH0_ISSUER!
 
 export const authOptions: NextAuthOptions = {
     session: {
         strategy: 'jwt',
     },
     providers: [
-        GoogleProvider({
-            clientId: GOOGLE_CLIENT_ID,
-            clientSecret: GOOGLE_CLIENT_SECRET,
-        }),
+        Auth0Provider({
+            clientId: AUTH0_CLIENT_ID,
+            clientSecret: AUTH0_CLIENT_SECRET,
+            issuer: AUTH0_ISSUER
+          })
     ],
     callbacks: {
         session({ session, token, user }) {
