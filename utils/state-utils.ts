@@ -17,7 +17,7 @@ export const saveStateChange = async (state: State, isAuthenticated: boolean) =>
         id: "",
         testProgress: [],
     }
-    let today = new Date().toLocaleDateString();
+    let today = new Date().toUTCString();
     data.dailyProgress.push({
         attempted: 0,
         date: today,

@@ -2,12 +2,12 @@ import { saveUserData } from "@/services/user";
 import { User } from "@/types/user";
 
 export const createUserStats = async (user: User, correctAnswer: boolean, flagged: boolean, skipped: boolean, isAuthenticated: boolean, lastQuestionNum: string) => {
-    let today = new Date().toLocaleDateString();
+    let today = new Date().toUTCString();
     if (user.dailyProgress === undefined) {
         user.dailyProgress = [];
     }
 
-    let todayProgressIndex = user.dailyProgress.findIndex(x => x.date === today);
+    let todayProgressIndex = user.dailyProgress.findIndex(x => new Date(x.date).toUTCString() === today);
     if (todayProgressIndex >= 0) {
         let temp = user.dailyProgress[todayProgressIndex];
         user.dailyProgress[todayProgressIndex] = {
@@ -43,6 +43,5 @@ export const createUserStats = async (user: User, correctAnswer: boolean, flagge
         }
 
     }
-
     await saveUserData(user, isAuthenticated);
 };

@@ -23,7 +23,7 @@ export const ProgressLine = ({ user }: { user: User }) => {
     let data: number[] = [];
     for (let i = 14; i >= 0; i--) {
         let startDate = new Date(todayDate.getTime() - i * 24 * 60 * 60 * 1000);
-        let date = startDate.toLocaleDateString();
+        let date = startDate.toUTCString();
         labels.push(date);
         let index = user.dailyProgress.findIndex(x => x.date === date);
         if (index > -1) {

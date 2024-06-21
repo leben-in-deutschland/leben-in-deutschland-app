@@ -5,7 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const TodayProgress = ({ user }: { user: User }) => {
-    let today = new Date().toLocaleDateString();
+    let today = new Date().toUTCString();
     let correct = 0;
     let incorrect = 0;
     let skipped = 0;
