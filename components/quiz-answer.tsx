@@ -34,8 +34,6 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
             let newIndex = index + 1;
             setCurrentQuizQuestion(quizQuestions[newIndex]);
             setCurrentQuestion(mockExamAnswers[newIndex]);
-            console.log(mockExamAnswers[newIndex])
-            console.log(quizQuestions[newIndex])
         }
 
 

@@ -5,12 +5,12 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const TodayProgress = ({ user }: { user: User }) => {
-    let today = new Date().toUTCString();
+    let today = new Date().toDateString();
     let correct = 0;
     let incorrect = 0;
     let skipped = 0;
     let flagged = 0;
-    let todayProgressIndex = user.dailyProgress.findIndex(x => x.date === today);
+    let todayProgressIndex = user.dailyProgress.findIndex(x => new Date(x.date).toDateString() === today);
     if (todayProgressIndex > -1) {
         let temp = user.dailyProgress[todayProgressIndex];
 
