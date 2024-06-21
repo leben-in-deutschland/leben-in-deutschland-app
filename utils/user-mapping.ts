@@ -24,8 +24,8 @@ export const createUserStats = async (user: User, correctAnswer: boolean, flagge
             date: today,
             correct: !flagged ? (correctAnswer ? 1 : 0) : 0,
             incorrect: !flagged ? (correctAnswer ? 0 : 1) : 0,
-            skipped: skipped ? 0 : 1,
-            flagged: flagged ? 0 : 1
+            skipped: skipped ? 1 : 0,
+            flagged: flagged ? 1 : 0
         });
     }
 
