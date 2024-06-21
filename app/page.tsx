@@ -17,6 +17,7 @@ import PrepareQuiz from "@/components/prepare-quiz";
 import { Quiz } from "@/components/quiz";
 import { ExamReadiness } from "@/components/exam-readiness";
 import { QuizAnswer } from "@/components/quiz-answer";
+import { LoginPrompt } from "@/components/models/login-prompt";
 
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -93,6 +94,7 @@ export default function Home() {
       {!user?.state.stateName && <StateSelect handleSelectState={handleSelectState} />}
       {user && prepareQuestion &&
         <>
+          <LoginPrompt isModelOpen={!isAuthenticated} />
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
             <div className="gap-4 md:grid md:grid-cols-2 mb-5">
               <div className="grid gap-4 md:grid-cols-2">
