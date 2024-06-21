@@ -3,7 +3,7 @@
     "scope": "/",
     "start_url": "/",
     "name": "Leben In Deutschland",
-    "short_name": "leben_in_deutschland",
+    "short_name": "Leben In Deutschland",
     "description": "Test Leben in Deutschland online - free of charge and without obligation whether you would pass the Life in Germany test.",
     "icons": [
         {
@@ -13,7 +13,7 @@
         },
         {
             "src": "/apple-touch-icon.png",
-            "sizes": "128x128",
+            "sizes": "180x180",
             "type": "image/png"
         },
         {
