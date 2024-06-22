@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
 import toast from "react-hot-toast";
 import { TranslateIcon } from "@/icons/TranslateIcon";
+import { Translation } from "./models/translation";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, handleHomePress, isAuthenticated }:
@@ -293,117 +294,121 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
             toast.error("Please submit you answer.");
         }
     };
-    const openGoogleTranslate = () => {
-        let text = encodeURIComponent(`${currentQuestion?.question} \n\n${currentQuestion?.a}\n${currentQuestion?.b}\n${currentQuestion?.c}\n${currentQuestion?.d}`);
-        let url = `https://translate.google.com/?sl=de&tl=en&text=${text}&op=translate&u=BLANK`;
-        window.open(url, "_blank", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes, width=900, height=700");
+    const [translateOpen, setTranslateOpen] = useState<boolean>(false);
+    const openTranslate = () => {
+        setTranslateOpen(true);
+    };
+    const closeTranslation = () => {
+        setTranslateOpen(false)
     };
     return (
-        <div className="grid gap-5 w-[100%]  justify-center mt-10">
-            <div className="grid grid-cols-2 gap-2">
-                <div className="flex gap-2">
-                    <Button startContent={<DashboardIcon size={44} />}
-                        variant="solid"
-                        onPress={handleHomePress}
-                        className="font-bold"
-                        color="primary"
-                    > Dashboard</Button>
+        <>
+            {translateOpen && currentQuestion && <Translation handleClose={closeTranslation} isModelOpen={translateOpen} question={currentQuestion} />}
+            <div className="grid gap-5 w-[100%]  justify-center mt-10">
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="flex gap-2">
+                        <Button startContent={<DashboardIcon size={44} />}
+                            variant="solid"
+                            onPress={handleHomePress}
+                            className="font-bold"
+                            color="primary"
+                        > Dashboard</Button>
 
-                </div>
-                <div className="flex gap-6 justify-between">
+                    </div>
+                    <div className="flex gap-6 justify-between">
 
-                    <Button startContent={<ArrowLeftIcon />}
-                        disabled={!isPreviousEnabled}
-                        variant="solid"
-                        onPress={handlePrevious}
-                        className="font-bold"
-                        color="secondary"
-                    > Previous</Button>
-
-
-                    <Button endContent={<ArrowRightIcon />}
-                        disabled={!disableSkip}
-                        variant="solid"
-                        onPress={handleSkip}
-                        className="font-bold"
-                        color="secondary"
-                    > Skip</Button>
-
-                </div>
-            </div>
+                        <Button startContent={<ArrowLeftIcon />}
+                            disabled={!isPreviousEnabled}
+                            variant="solid"
+                            onPress={handlePrevious}
+                            className="font-bold"
+                            color="secondary"
+                        > Previous</Button>
 
 
-            {currentQuestion &&
-                <div className="flex gap-6">
-                    <div>
-                        <Card>
-                            <CardHeader className="justify-between">
-                                <div className="flex gap-3">
-                                    <p className="font-extrabold text-xl text-gray-700">{currentQuestion.num}. </p>
-                                    <p className="font-bold text-xl">{currentQuestion.question}</p>
-                                </div>
-                            </CardHeader>
-                            <CardBody>
-                                <div className="grid gap-4">
-                                    {currentQuestion.image !== "-" && <div hidden={!(currentQuestion.image !== "-")}>
-                                        <Image src={`/question/${currentQuestion.image}.png`} alt=""></Image>
-                                    </div>
-                                    }
-                                    <div className="grid gap-4 md:grid-cols-2">
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "a") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("a")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                    {currentQuestion.a}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "b") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("b")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                    {currentQuestion.b}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "c") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("c")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                    {currentQuestion.c}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "d") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("d")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                    {currentQuestion.d}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            <CardFooter className="justify-between gap-4">
-                                <Tooltip content="Translate">
-                                    <Button
-                                        onPress={openGoogleTranslate}
-                                        className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
-                                </Tooltip>
-                                <div className="justify-end gap-4">
-                                    <Tooltip content="Flag for review">
-                                        <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
-                                    </Tooltip>
-                                    <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
-                                    {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
-                                </div>
-                            </CardFooter>
-                        </Card>
+                        <Button endContent={<ArrowRightIcon />}
+                            disabled={!disableSkip}
+                            variant="solid"
+                            onPress={handleSkip}
+                            className="font-bold"
+                            color="secondary"
+                        > Skip</Button>
+
                     </div>
                 </div>
-            }
-        </div >
 
+
+                {currentQuestion &&
+                    <div className="flex gap-6">
+                        <div>
+                            <Card>
+                                <CardHeader className="justify-between">
+                                    <div className="flex gap-3">
+                                        <p className="font-extrabold text-xl text-gray-700">{currentQuestion.num}. </p>
+                                        <p className="font-bold text-xl">{currentQuestion.question}</p>
+                                    </div>
+                                </CardHeader>
+                                <CardBody>
+                                    <div className="grid gap-4">
+                                        {currentQuestion.image !== "-" && <div hidden={!(currentQuestion.image !== "-")}>
+                                            <Image src={`/question/${currentQuestion.image}.png`} alt=""></Image>
+                                        </div>
+                                        }
+                                        <div className="grid gap-4 md:grid-cols-2">
+                                            <Card isPressable className={`${showSolution ? (currentQuestion.solution === "a") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("a")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
+                                                        {currentQuestion.a}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable className={`${showSolution ? (currentQuestion.solution === "b") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("b")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
+                                                        {currentQuestion.b}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable className={`${showSolution ? (currentQuestion.solution === "c") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("c")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
+                                                        {currentQuestion.c}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable className={`${showSolution ? (currentQuestion.solution === "d") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("d")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
+                                                        {currentQuestion.d}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                        </div>
+                                    </div>
+                                </CardBody>
+                                <CardFooter className="justify-between gap-4">
+                                    <Tooltip content="Translate">
+                                        <Button
+                                            onPress={openTranslate}
+                                            className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
+                                    </Tooltip>
+                                    <div className="justify-end gap-4">
+                                        <Tooltip content="Flag for review">
+                                            <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                        </Tooltip>
+                                        <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
+                                        {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                    </div>
+                                </CardFooter>
+                            </Card>
+                        </div>
+                    </div>
+                }
+            </div >
+        </>
     );
 }
