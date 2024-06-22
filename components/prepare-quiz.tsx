@@ -46,9 +46,42 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
             setPrepareQuestions(tempQuestion);
         }
         if (prepareQuestion.action === PrepareQuestionActions.State) {
+            let stateQuestion: Question[] = [];
             let current: Question[] = questions.filter(x => x.num.startsWith(user.state.stateCode));
-            setPrepareQuestions(current);
-            setCurrentQuestion(current[0]);
+
+
+            //Incorrect
+            let incorrectStatesQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) &&
+                !x.skipped && !x.flagged && !x.answeredCorrectly);
+            for (let i = 0; i < incorrectStatesQuestion.length; i++) {
+                let incorrectQ = current.findIndex(x => x.num === incorrectStatesQuestion[i].num);
+                if (incorrectQ > -1) {
+                    stateQuestion.push(current[incorrectQ]);
+                    current.splice(incorrectQ, 1);
+                }
+            }
+            //Skipped
+            let skippedStateQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.skipped);
+            for (let i = 0; i < skippedStateQuestion.length; i++) {
+                let skippedQ = current.findIndex(x => x.num === skippedStateQuestion[i].num);
+                if (skippedQ > -1) {
+                    stateQuestion.push(current[skippedQ]);
+                    current.splice(skippedQ, 1);
+                }
+            }
+            //Flagged
+            let flaggedStateQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.flagged);
+            for (let i = 0; i < flaggedStateQuestion.length; i++) {
+                let flaggedQ = current.findIndex(x => x.num === flaggedStateQuestion[i].num);
+                if (flaggedQ > -1) {
+                    stateQuestion.push(current[flaggedQ]);
+                    current.splice(flaggedQ, 1);
+                }
+            }
+            stateQuestion.push(...current);
+
+            setPrepareQuestions(stateQuestion);
+            setCurrentQuestion(stateQuestion[0]);
         }
         if (prepareQuestion.action === PrepareQuestionActions.Skipped) {
             let tempSkipped: Question[] = [];
@@ -106,7 +139,10 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         if (currentAction !== PrepareQuestionActions.Prepare && currentAction !== PrepareQuestionActions.Incorrect) {
             let currentQuestionIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
             if (currentQuestionIndex > -1) {
-                if (!user.questionProgress[currentQuestionIndex].skipped && user.questionProgress[currentQuestionIndex].answerSelected !== "") {
+                console.log(user.questionProgress[currentQuestionIndex].skipped)
+                if (!user.questionProgress[currentQuestionIndex].skipped
+                    && user.questionProgress[currentQuestionIndex].answerSelected !== ""
+                    && user.questionProgress[currentQuestionIndex].answeredCorrectly) {
                     setShowSolution(true);
                 }
                 setOptionSelected(user.questionProgress[currentQuestionIndex].answerSelected);
@@ -142,14 +178,21 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         if (!disableSkip) {
             let newQuestion = nextQuestion();
             if (newQuestion !== null) {
-                user.questionProgress.push({
-                    num: currentQuestion?.num ?? "",
-                    skipped: true,
-                    answerSelected: "",
-                    flagged: false,
-                    answeredCorrectly: false,
+                let quesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+                if (quesIndex > -1) {
+                    let temp = user.questionProgress[quesIndex];
 
-                });
+                    temp.skipped = true;
+                } else {
+                    user.questionProgress.push({
+                        num: currentQuestion?.num ?? "",
+                        skipped: true,
+                        answerSelected: "",
+                        flagged: false,
+                        answeredCorrectly: false,
+
+                    });
+                }
                 createUserStats(user, optionSelected === currentQuestion?.solution, false, true, isAuthenticated, currentQuestion?.num ?? "");
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);

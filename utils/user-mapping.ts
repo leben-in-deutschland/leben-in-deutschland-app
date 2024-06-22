@@ -28,20 +28,5 @@ export const createUserStats = async (user: User, correctAnswer: boolean, flagge
             flagged: flagged ? 1 : 0
         });
     }
-
-    let indexOfUserProgress = user.questionProgress.findIndex(x => x.num === lastQuestionNum);
-    if (indexOfUserProgress > -1) {
-        let tempData = user.questionProgress[indexOfUserProgress];
-        if (tempData.num.startsWith(user.state.stateCode)) {
-            user.state.attempted = user.state.attempted + 1;
-            if (tempData.answerSelected && tempData.answeredCorrectly) {
-                user.state.correct = user.state.correct + 1;
-            }
-            if (tempData.answerSelected && !tempData.answeredCorrectly) {
-                user.state.incorrect = user.state.incorrect + 1;
-            }
-        }
-
-    }
     await saveUserData(user, isAuthenticated);
 };

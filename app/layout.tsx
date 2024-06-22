@@ -56,7 +56,7 @@ export default function RootLayout({
               <div><Toaster position="top-right" reverseOrder={true} /></div>
               {children}
             </main>
-            <footer className="container mx-auto flex flex-grow">
+            <footer className="container mx-auto flex flex-grow justify-between">
               <span className="text-smsm:text-center">© {new Date().getFullYear()} <a href="https://www.bitesinbyte.com/" className="hover:underline font-bold">bitesinbyte</a> All Rights Reserved
               </span>
               <ul className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">

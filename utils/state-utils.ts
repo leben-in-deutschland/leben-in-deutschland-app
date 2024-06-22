@@ -8,9 +8,6 @@ export const saveStateChange = async (state: State, isAuthenticated: boolean) =>
         state: {
             stateCode: state.code,
             stateName: state.name,
-            attempted: 0,
-            incorrect: 0,
-            correct: 0
         },
         dailyProgress: [],
         questionProgress: [],

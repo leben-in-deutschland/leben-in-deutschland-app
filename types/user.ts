@@ -34,7 +34,4 @@ export interface UserQuestionProgress {
 export interface UserState {
     stateName: string;
     stateCode: string;
-    attempted: number;
-    incorrect: number;
-    correct: number;
 }

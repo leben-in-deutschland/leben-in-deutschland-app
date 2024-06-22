@@ -2,11 +2,15 @@ import { Card, CardBody, CardHeader, Image } from "@nextui-org/react"
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Question } from "@/types/question";
-import { UserState } from "@/types/user";
+import { User } from "@/types/user";
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const StateProgress = ({ state, questions, onPress }: { state: UserState, questions: Question[], onPress: any }) => {
-    let totalQuestion = questions.filter(element => element.num.startsWith(state.stateCode)).length;
+export const StateProgress = ({ user, questions, onPress }: { user: User, questions: Question[], onPress: any }) => {
 
+    let totalAttemptedStateQuestion = user.questionProgress.filter(element => element.num.startsWith(user.state.stateCode));
+    let correct = totalAttemptedStateQuestion.filter(x => !x.skipped && !x.flagged && x.answeredCorrectly).length;
+    let incorrect = totalAttemptedStateQuestion.filter(x => !x.skipped && !x.flagged && !x.answeredCorrectly).length;
+    let skipped = totalAttemptedStateQuestion.filter(x => x.skipped).length;
+    let flagged = totalAttemptedStateQuestion.filter(x => x.flagged).length;
     return (
         <div>
             <Card className="card-stats border-none h-[300px] w-[100%]"
@@ -14,13 +18,13 @@ export const StateProgress = ({ state, questions, onPress }: { state: UserState,
                 onPress={onPress}>
                 <CardHeader className="justify-between">
                     <h2 className="font-bold text-uppercase text-muted">
-                        {state.stateName}
+                        {user.state.stateName}
                     </h2>
                     <div className="text-gray-400">
                         <Image
-                            alt={state.stateName}
+                            alt={user.state.stateName}
                             className="object-cover justify-center items-center"
-                            src={`/states/coat-of-arms/${state.stateName}.svg`}
+                            src={`/states/coat-of-arms/${user.state.stateName}.svg`}
                             width={30}
                         /> </div>
                 </CardHeader>
@@ -39,19 +43,21 @@ export const StateProgress = ({ state, questions, onPress }: { state: UserState,
                             }
                         }}
                         data={{
-                            labels: ["Correct", "Incorrect", "Not Attempted"],
+                            labels: ["Correct", "Incorrect", "Skipped", "Flagged"],
                             datasets: [
                                 {
-                                    data: [state.correct, state.incorrect, (totalQuestion - (state.correct + state.incorrect))],
+                                    data: [correct, incorrect, skipped, flagged],
                                     backgroundColor: [
                                         'rgba(65, 239, 106, 0.2)',
                                         'rgba(255, 99, 132, 0.2)',
-                                        'rgba(220,220,220,0.2)'
+                                        'rgba(220,220,220,0.2)',
+                                        'rgba(246, 246, 115, 0.2)',
                                     ],
                                     borderColor: [
                                         'rgba(65, 239, 106, 1)',
                                         'rgba(255, 99, 132, 1)',
-                                        'rgba(220,220,220,1)'
+                                        'rgba(220,220,220,1)',
+                                        'rgba(246, 246, 115, 1)',
                                     ],
                                     borderWidth: 1,
                                 },
