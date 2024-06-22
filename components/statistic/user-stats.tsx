@@ -36,7 +36,7 @@ export const UserStats = ({ showMore, user, handleStalePress, questions }: { sho
                 <TodayProgress user={user} />
                 <ProgressLine user={user} />
                 <MockTestProgress user={user} />
-                <StateProgress state={user.state} questions={questions} onPress={() => handleStalePress(PrepareQuestionActions.State)} />
+                <StateProgress user={user} questions={questions} onPress={() => handleStalePress(PrepareQuestionActions.State)} />
             </div>
             <div hidden={!showMore}>
                 <CorrectIncorrectBar user={user} />
