@@ -1,4 +1,4 @@
-// npx ts-node scripts/copy-data/copy-data.ts
+// npx ts-node scripts/copy-data.ts
 
 import fs from 'fs';
 import path from 'path';
@@ -56,6 +56,7 @@ const fetchAndConvertToJson = async (url: string) => {
                 theme: values[9],
                 image: values[10],
                 tags: values[11].split(','),
+                translation: null
             };
         });
 
