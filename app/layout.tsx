@@ -29,6 +29,21 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true
+  },
+  generator: "Next.js",
+  keywords: ["Leben in Deutschland",
+    "Leben in Deutschland Test Online",
+    "Leben in Deutschland Test",
+    "Leben in Deutschland Prüfung",
+    "Test Leben in Deutschland 33 Fragen Online",
+    "leben in deutschland app",
+    "leben in deutschland antworten",
+    "leben in deutschland english"
+  ]
 };
 
 export default function RootLayout({
