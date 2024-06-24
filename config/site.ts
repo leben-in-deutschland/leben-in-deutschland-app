@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
     name: "Leben in Deutschland",
-    description: "Leben in Deutschland - Bereiten Sie sich auf den deutschen Einbürgerungstest vor. Greifen Sie auf alle 310 Fragen in Englisch, Deutsch, Russisch, Türkisch, Ukrainisch und Hindi zu. Genießen Sie einen kostenlosen, werbefreien Service mit umfassenden Ressourcen, die Ihnen zum Erfolg verhelfen!",
+    description: "Leben in Deutschland - Bereiten Sie sich auf den deutschen Einbürgerungstest vor. Genießen Sie einen kostenlosen Service mit umfassenden Ressourcen, die Ihnen zum Erfolg verhelfen!",
     navMenuItems: [
     ],
     links: {
