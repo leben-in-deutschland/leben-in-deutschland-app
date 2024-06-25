@@ -18,6 +18,7 @@ import { Quiz } from "@/components/quiz";
 import { ExamReadiness } from "@/components/exam-readiness";
 import { QuizAnswer } from "@/components/quiz-answer";
 import { LoginPrompt } from "@/components/models/login-prompt";
+import { GoogleAdSense } from "nextjs-google-adsense";
 
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -91,6 +92,7 @@ export default function Home() {
 
   return (
     <>
+      <GoogleAdSense publisherId="ca-pub-2889277787752693" />
       {!user?.state.stateName && <StateSelect handleSelectState={handleSelectState} />}
       {user && prepareQuestion &&
         <>

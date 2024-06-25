@@ -1,4 +1,3 @@
-"use client";
 import "../styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "../config/site";
@@ -58,16 +57,6 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google-adsense-account" content="ca-pub-2889277787752693" />
-        <Script
-          id="Absence-banner"
-          async
-          strategy="afterInteractive"
-          onError={(e) => {
-            console.error('Script failed to load', e);
-          }}
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2889277787752693`}
-          crossOrigin="anonymous"
-        />
       </head>
       <body
         className={clsx(
