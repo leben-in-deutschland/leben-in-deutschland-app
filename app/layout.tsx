@@ -8,6 +8,7 @@ import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from "next/script";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -56,6 +57,16 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google-adsense-account" content="ca-pub-2889277787752693" />
+        <Script
+          id="Absence-banner"
+          async
+          strategy="afterInteractive"
+          onError={(e) => {
+            console.error('Script failed to load', e);
+          }}
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2889277787752693`}
+          crossOrigin="anonymous"
+        />
       </head>
       <body
         className={clsx(
