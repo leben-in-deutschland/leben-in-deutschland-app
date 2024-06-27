@@ -52,7 +52,14 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                 <Bar
                     options={{
                         responsive: true,
-
+                        scales: {
+                            x: {
+                                display: false
+                            },
+                            y: {
+                                display: false
+                            }
+                        },
                         plugins: {
                             legend: {
                                 position: "top",
@@ -64,7 +71,6 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                                 },
                             },
                         },
-
                     }}
                     data={{
                         labels: labels,
