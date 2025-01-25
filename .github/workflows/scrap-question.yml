@@ -1,7 +1,7 @@
 name: Sync Questions
 on:
   schedule:
-    - cron: "0 0 * * 1"
+    - cron: "0 0 */15 * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -29,13 +29,13 @@ jobs:
           cd src/scrap
           npm run prod
         env:
-          TARGET_LANGUAGES: ${{ secrets.TARGET_LANGUAGES }}
+          TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
 
       - name: Move questions and Push
         run: |
-          mv src/scrap/questions.json src/web/src/data/questions.json
+          cp src/scrap/data/question.json src/web/data/question.json
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git add src/web/src/data/questions.json
+          git add src/web/data/question.json
           git commit -m "Sync questions"
           git push
