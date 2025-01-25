@@ -1,5 +1,5 @@
-import { authOptions } from "@/src/types/auth-option";
-import { User } from "@/src/types/user";
+import { authOptions } from "@/types/auth-option";
+import { User } from "@/types/user";
 import { kv } from "@vercel/kv";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";

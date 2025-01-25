@@ -1,5 +1,5 @@
 import { Question, QuestionTranslation } from "@/types/question";
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@nextui-org/react";
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
 import { useEffect, useState } from "react";
 
 export const Translation = ({
