@@ -1,5 +1,5 @@
 "use client";
-import { getQuestions } from "@/services/question";
+
 import { getUserData, saveUserData } from "@/services/user";
 import { Question } from "@/types/question";
 import { useSession } from "next-auth/react";
@@ -19,6 +19,7 @@ import { ExamReadiness } from "@/components/exam-readiness";
 import { QuizAnswer } from "@/components/quiz-answer";
 import { LoginPrompt } from "@/components/models/login-prompt";
 import { GoogleAdSense } from "nextjs-google-adsense";
+import { questionsData } from "@/data/data";
 
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -38,7 +39,7 @@ export default function Home() {
         setUser(tempUser);
       }
 
-      let questions = await getQuestions();
+      let questions = questionsData();
       setQuestions(questions);
     })();
 

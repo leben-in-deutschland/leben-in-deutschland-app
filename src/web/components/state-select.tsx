@@ -1,4 +1,4 @@
-import { getStates } from "@/services/states";
+import { statesData } from "@/data/data";
 import { State } from "@/types/state";
 import { Card, CardBody, CardHeader, Image } from "@heroui/react";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ export default function StateSelect({ handleSelectState }: { handleSelectState: 
 
     useEffect(() => {
         (async () => {
-            let states = await getStates();
+            let states = statesData();
             setStates(states);
         })();
     }, []);

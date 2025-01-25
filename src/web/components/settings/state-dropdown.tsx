@@ -1,4 +1,4 @@
-import { getStates } from "@/services/states";
+import { statesData } from "@/data/data";
 import { State } from "@/types/state";
 import { User } from "@/types/user";
 import { Avatar, Select, SelectItem, Image } from "@heroui/react";
@@ -9,7 +9,7 @@ export default function StateDropdown({ user, handleSelectState }: { user: User,
 
     useEffect(() => {
         (async () => {
-            let states = await getStates();
+            let states = statesData();
             setStates(states);
         })();
     }, []);
