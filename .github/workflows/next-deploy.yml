@@ -33,4 +33,4 @@ jobs:
       - name: Deploy to Vercel
         run: |
           cd src/web
-          npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }} --global-config
+          npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
