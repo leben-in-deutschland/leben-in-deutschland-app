@@ -1,4 +1,4 @@
-import { State } from "@/src/types/state";
+import { State } from "@/types/state";
 
 export const getStates = async () => {
     const response = await fetch('/api/state');

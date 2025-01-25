@@ -1,8 +1,8 @@
 import { Card, CardBody, CardHeader, Image } from "@heroui/react"
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Question } from "@/src/types/question";
-import { User } from "@/src/types/user";
+import { Question } from "@/types/question";
+import { User } from "@/types/user";
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const StateProgress = ({ user, questions, onPress }: { user: User, questions: Question[], onPress: any }) => {
 

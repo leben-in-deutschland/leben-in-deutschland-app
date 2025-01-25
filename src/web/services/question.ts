@@ -1,4 +1,4 @@
-import { Question } from "@/src/types/question";
+import { Question } from "@/types/question";
 
 export const getQuestions = async () => {
     const response = await fetch('/api/question');

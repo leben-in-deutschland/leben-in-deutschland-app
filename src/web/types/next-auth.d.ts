@@ -1,4 +1,4 @@
-import NextAuth from "@/src/node_modules/next-auth"
+import NextAuth from "@/node_modules/next-auth"
 
 declare module "next-auth" {
     interface Session {

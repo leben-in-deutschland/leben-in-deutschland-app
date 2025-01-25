@@ -1,4 +1,4 @@
-import { IconSvgProps } from "@/src/types";
+import { IconSvgProps } from "@/types";
 
 export const DashboardIcon: React.FC<IconSvgProps> = ({
     size = 24,

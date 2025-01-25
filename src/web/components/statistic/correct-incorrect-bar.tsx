@@ -1,4 +1,4 @@
-import { User } from "@/src/types/user";
+import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 import {
     Chart as ChartJS,
