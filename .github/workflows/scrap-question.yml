@@ -30,11 +30,12 @@ jobs:
           npm run prod
         env:
           TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
+
       - name: Move questions and Push
         run: |
           cp src/scrap/data/question.json src/web/data/question.json
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git add src/web/src/data/question.json
+          git add src/web/data/question.json
           git commit -m "Sync questions"
           git push
