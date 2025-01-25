@@ -28,7 +28,7 @@
       ]
     }
   },
-  "remoteUser": "node",
+  "remoteUser": "root",
   "features": {
     "ghcr.io/devcontainers/features/git:1": "os-provided"
   },

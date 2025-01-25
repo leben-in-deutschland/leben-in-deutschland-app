@@ -1,0 +1,41 @@
+name: Deploy to Vercel
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+
+jobs:
+  scrap_questions:
+    name: Sync Questions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      - name: Install dependencies
+        run: |
+          cd src/scrap
+          npm install
+
+      - name: Sync questions
+        run: |
+          cd src/scrap
+          npm run prod
+        env:
+          TARGET_LANGUAGES: ${{ secrets.TARGET_LANGUAGES }}
+
+      - name: Move questions and Push
+        run: |
+          mv src/scrap/questions.json src/web/src/data/questions.json
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add src/web/src/data/questions.json
+          git commit -m "Sync questions"
+          git push
