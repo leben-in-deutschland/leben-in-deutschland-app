@@ -32,6 +32,7 @@ jobs:
           TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
 
       - name: Move questions and Push
+        continue-on-error: true
         run: |
           cp src/scrap/data/question.json src/web/data/question.json
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
