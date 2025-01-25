@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  build:
+  build_and_deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,4 +33,4 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           cd src/web
-          npx vercel --prod
+          npx vercel --prod --yes
