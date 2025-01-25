@@ -28,7 +28,8 @@ jobs:
         run: |
           cd src/scrap
           npm run prod
-
+        env:
+          TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
       - name: Move questions and Push
         run: |
           cp src/scrap/data/question.json src/web/data/question.json
