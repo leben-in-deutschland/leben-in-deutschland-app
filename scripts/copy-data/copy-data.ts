@@ -1,11 +1,11 @@
-// npx ts-node scripts/copy-data/copy-data.ts
+// npx ts-node   --esm scripts/copy-data/copy-data.ts index.ts
 
 import fs from 'fs';
 import path from 'path';
 import iconv from 'iconv-lite';
-import { Question } from "@/types/question"
+import { Question } from "@/src/types/question"
 // URL of the text file on GitHub
-const url = 'https://github.com/adalbero/LebenInDeutschland/raw/master/FragenSpider/out/questions-2023-12.txt';
+const url = 'https://github.com/adalbero/LebenInDeutschland/raw/master/FragenSpider/out/questions-2024-07-de.txt';
 
 // Function to fetch the text file and convert it to JSON
 const fetchAndConvertToJson = async (url: string) => {
