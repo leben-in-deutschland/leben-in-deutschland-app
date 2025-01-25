@@ -65,14 +65,14 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
+        <Toaster position="top-right" reverseOrder={true} />
         <Providers themeProps={{ attribute: "class", enableSystem: false }}>
           <div>
             <NavigationBar />
-            <main>
-              <div><Toaster position="top-right" reverseOrder={true} /></div>
+            <main className="container mx-auto flex flex-grow w-[100%] p-4 justify-center">
               {children}
             </main>
-            <footer className="container mx-auto flex flex-grow justify-between">
+            <footer className="container mx-auto flex flex-grow justify-between ps-4 pe-4 md:ps-2 md:pe-2">
               <span className="text-smsm:text-center">© {new Date().getFullYear()} <a href="https://www.bitesinbyte.com/" className="hover:underline font-bold">bitesinbyte</a> All Rights Reserved
               </span>
               <ul className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">

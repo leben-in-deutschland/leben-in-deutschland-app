@@ -304,19 +304,15 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     return (
         <>
             {translateOpen && currentQuestion && <Translation handleClose={closeTranslation} isModelOpen={translateOpen} question={currentQuestion} />}
-            <div className="grid gap-5 w-[100%]  justify-center mt-10">
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="flex gap-2">
-                        <Button startContent={<DashboardIcon size={44} />}
-                            variant="solid"
-                            onPress={handleHomePress}
-                            className="font-bold"
-                            color="primary"
-                        > Dashboard</Button>
-
-                    </div>
-                    <div className="flex gap-6 justify-between">
-
+            <div className="grid gap-5 w-[100%] mt-4 md:mt-10">
+                <div className="grid grid-cols-2 gap-1 md:gap-2">
+                    <Button startContent={<DashboardIcon size={44} />}
+                        variant="solid"
+                        onPress={handleHomePress}
+                        className="font-bold"
+                        color="primary"
+                    > Dashboard</Button>
+                    <div className="flex gap-4 md:gap-6 justify-between">
                         <Button startContent={<ArrowLeftIcon />}
                             disabled={!isPreviousEnabled}
                             variant="solid"

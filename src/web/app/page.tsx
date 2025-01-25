@@ -108,7 +108,7 @@ export default function Home() {
                   <ExamReadiness user={user} />
                 </div>
               </div>
-              <div >
+              <div className="mt-4 md:mt-0">
                 <MockHistory isAuthenticated={isAuthenticated} user={user} handleHistoryPress={handleHistoryPress} />
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function Home() {
               <DashboardReports isAuthenticated={isAuthenticated} user={user} handleStalePress={handleStalePress} questions={questions} />
             </div>
           </div>
-          {prepareQuestion.selected && <div hidden={!prepareQuestion.selected} >
+          {prepareQuestion.selected && <div hidden={!prepareQuestion.selected}>
             {questions && questions.length > 0 && prepareQuestion.selected && <PrepareQuiz originalQuestions={questions} user={user}
               prepareQuestion={prepareQuestion}
               handleHomePress={handleHomePress}

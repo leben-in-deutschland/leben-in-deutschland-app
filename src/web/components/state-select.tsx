@@ -14,11 +14,11 @@ export default function StateSelect({ handleSelectState }: { handleSelectState: 
     }, []);
 
     return (
-        <>
-            <div className="flex mb-10 justify-center">
+        <div>
+            <div className="mb-10 justify-center">
                 <p className="font-bold text-2xl text-black dark:text-white">Please choose a state for which you would like to practice the questions</p>
             </div>
-            <div className="flex content-center gap-3 grid grid-cols-2 sm:grid-cols-4">
+            <div className="content-center gap-3 grid grid-cols-2 sm:grid-cols-4">
                 {states && states.length > 0 && states.map((state: State) => (
                     <Card key={state.code} className="grid bg-gray-200  dark:bg-gray-700" isPressable isHoverable onPress={() => handleSelectState(state)}>
                         <CardHeader>
@@ -45,6 +45,6 @@ export default function StateSelect({ handleSelectState }: { handleSelectState: 
                     </Card>
                 ))}
             </div>
-        </>
+        </div>
     );
 }

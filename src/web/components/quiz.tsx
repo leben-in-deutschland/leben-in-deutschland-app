@@ -257,12 +257,11 @@ export const Quiz = ({ user, questions, handleCancel, isAuthenticated }: { user:
                                     </div>
                                 </div>
                             </CardBody>
-                            <CardFooter className="justify-between">
-                                <div className="flex gap-3">
+                            <CardFooter className="flex gap-2">
+                                <div className="flex gap-1">
                                     <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
                                     <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
                                     <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
-
                                 </div>
                                 <div className="flex">
                                     <Tooltip content="Cancel Mock Test">
