@@ -1,0 +1,25 @@
+{
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Leben In Deutschland",
+    "short_name": "Leben In Deutschland",
+    "description": "Test Leben in Deutschland online - free of charge and without obligation whether you would pass the Life in Germany test.",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
