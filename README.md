@@ -1,6 +1,35 @@
-# Leben In Deutschland
-npx ts-node scripts/copy-data/copy-data.ts
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://github.com/bitesinbyte/leben-in-deutschland">
+    <img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/android-chrome-512x512.png" width="256px" />
+  </a>
+</p>
+<h1 align="center">Leben In Deutschland</h1>
+
+## Description
+
+Leben In Deutschland is a project aimed at helping individuals prepare for the "Leben In Deutschland" or "Einbürgerungstest" (naturalization test) through interactive content and resources.
+
+## Features
+
+- Interactive mock tests
+- Preparation materials
+- Dashboard with statistics
+- Find the location of the exam center
+- Access to all 300 questions and state-related questions
+
+## Screenshots
+
+### Mock Test
+
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
+
+### Preparation
+
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
+
+### Dashboard Stats
+
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
 
 ## Getting Started
 
