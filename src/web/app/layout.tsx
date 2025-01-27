@@ -8,6 +8,7 @@ import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Link } from "@heroui/link";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const viewport: Viewport = {
   themeColor: [
@@ -63,6 +64,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <SpeedInsights />
         <Toaster position="top-right" reverseOrder={true} />
         <Providers themeProps={{ attribute: "class", enableSystem: false }}>
           <div className="flex flex-col min-h-screen">
