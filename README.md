@@ -21,15 +21,15 @@ Leben In Deutschland is a project aimed at helping individuals prepare for the "
 
 ### Mock Test
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
 
 ### Preparation
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
 
 ### Dashboard Stats
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
 
 ## Getting Started
 
