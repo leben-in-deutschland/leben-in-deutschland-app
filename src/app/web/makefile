@@ -2,12 +2,12 @@ install:
 	 npm install
 build:
 	 npm run build
-sync: install
+sync:
 	 npx cap sync
-sync-android: install
+sync-android:
 	npx cap sync android
-sync-ios: install
+sync-ios:
 	npx cap sync android
-build-sync: build sync
-build-start: build
+build-sync:install build sync
+build-start:install build
 	npm run start

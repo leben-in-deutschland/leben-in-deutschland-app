@@ -51,7 +51,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -78,7 +77,7 @@ export default function RootLayout({
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Link isExternal href="/privacy-policy" target="_blank" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
+                  <Link href="/privacy-policy" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
                   <Link href="mailto:hello@bitesinbyte.com" target="_blank" className="hover:underline">Contact</Link>
                 </div>
               </footer>

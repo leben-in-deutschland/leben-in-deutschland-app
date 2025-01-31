@@ -5,7 +5,8 @@ const config: CapacitorConfig = {
   appName: 'Einbürgerungstest (No Ads)',
   webDir: 'out',
   server: {
-    androidScheme: "https"
+    androidScheme: "https",
+    allowNavigation: ["lebenindeutschland.org", "bitesinbyte.com"]
   },
   plugins: {
     StatusBar: {

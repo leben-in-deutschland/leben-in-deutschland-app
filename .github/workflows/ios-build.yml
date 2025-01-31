@@ -1,0 +1,87 @@
+name: iOS Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install Dependencies
+        working-directory: src/app/web
+        run: make build-sync
+
+      - name: Install CocoaPods Dependencies
+        working-directory: src/app/ios/App
+        run: pod install
+
+      - name: Build iOS App for Universal Devices
+        working-directory: src/app/ios/App
+        run: xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean build -destination "generic/platform=iOS"
+
+      - name: Archive App
+        working-directory: src/app/ios/App
+        run: xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release archive -archivePath build/App.xcarchive
+
+      - name: Export IPA
+        working-directory: src/app/ios/App
+        run: xcodebuild -exportArchive -archivePath build/App.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build
+
+      - name: Upload IPA as an Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-App
+          path: src/app/ios/App/build/*.ipa
+
+  release:
+    needs: build-ios
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Built IPA
+        uses: actions/download-artifact@v4
+        with:
+          name: iOS-App
+          path: src/app/ios/App/build/
+
+      - name: Get Version from Package.json
+        id: get_version
+        working-directory: src/app/web
+        run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: "iOS App v${{ env.VERSION }}"
+          draft: false
+          prerelease: false
+
+      - name: Upload IPA to GitHub Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: src/app/ios/App/build/App.ipa
+          asset_name: App.ipa
+          asset_content_type: application/octet-stream
