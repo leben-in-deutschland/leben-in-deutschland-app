@@ -10,6 +10,9 @@ export default function PrivacyPolicy() {
                 <div className="mt-2 text-lg text-gray-500">Last updated January 30, 2025</div>
             </CardHeader>
             <div className="w-full md:w-3/4 lg:w-1/2 px-6 py-4 rounded-lg shadow-md mb-8 text-center">
+                <Alert color="warning" title="Note: This is not an official Einbürgerungstest. This platform is designed to help you prepare for the Einbürgerungstest." />
+                <Alert color="danger" title="This website is a private offering and not an official site of the Federal Office for Migration and Refugees (BAMF). The Einbürgerungstest can only be carried out at the BAMF." />
+
                 <h2 className="text-xl font-semibold mb-4">Table of Contents</h2>
                 <ul className="space-y-2">
                     <li><a href="#intro" className="text-blue-600 hover:underline">1. Introduction</a></li>
