@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'org.lebenindeutschland.app',
-  appName: 'Einbürgerungstest (No Ads)',
+  appName: 'Einbürgerungstest',
   webDir: 'out',
   server: {
     androidScheme: "https",
