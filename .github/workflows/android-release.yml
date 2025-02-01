@@ -49,12 +49,11 @@ jobs:
           keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           buildToolsVersion: 35.0.0
-
       - name: Upload APK as an Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Android-App
-          path: src/app/android/app/build/outputs/apk/release/*.apk
+          name: App bundle
+          path: ${{steps.sign_app.outputs.signedFile}}
 
   release:
     needs: build-android
