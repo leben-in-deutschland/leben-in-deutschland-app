@@ -30,7 +30,7 @@ jobs:
       - name: Install Java & Gradle
         uses: actions/setup-java@v3
         with:
-          distribution: "adoptopenjdk"
+          distribution: "temurin"
           java-version: "21"
 
       - name: Decode Keystore
