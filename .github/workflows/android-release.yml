@@ -32,6 +32,14 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "21"
+
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x src/app/android/gradlew
+
+      - name: Build APK and AAB
+        working-directory: src/app/android
+        run: ./gradlew assembleRelease bundleRelease
+
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
         id: sign_app
