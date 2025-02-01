@@ -2,13 +2,6 @@ apply plugin: 'com.android.application'
 android {
     namespace "org.lebenindeutschland.app"
     compileSdk rootProject.ext.compileSdkVersion
-    signingConfigs {
-        release {
-            storeFile file('release.keystore')
-            storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            keyAlias System.getenv("ANDROID_KEY_ALIAS")
-        }
-    }
     defaultConfig {
         applicationId "org.lebenindeutschland.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -24,7 +17,6 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

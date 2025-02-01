@@ -32,18 +32,14 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "21"
-
-      - name: Decode Keystore
-        working-directory: src/app/android
-        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > release.keystore
-
-      - name: Make Gradle Wrapper Executable
-        working-directory: src/app/android
-        run: chmod +x gradlew
-
-      - name: Build APK and AAB
-        working-directory: src/app/android
-        run: ./gradlew assembleRelease bundleRelease
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        id: sign_app
+        with:
+          releaseDirectory: src/app/android/app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          alias: ${{ secrets.ANDROID_KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: Upload APK as an Artifact
         uses: actions/upload-artifact@v4
