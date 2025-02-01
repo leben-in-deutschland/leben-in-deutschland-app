@@ -30,12 +30,19 @@ jobs:
       - name: Install Java & Gradle
         uses: actions/setup-java@v3
         with:
-          distribution: "temurin"
+          distribution: "adoptopenjdk"
           java-version: "21"
 
-      - name: Build Android App
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > src/app/android/release.keystore
+
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x src/app/android/gradlew
+
+      - name: Build APK and AAB
         working-directory: src/app/android
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleRelease bundleRelease
 
       - name: Upload APK as an Artifact
         uses: actions/upload-artifact@v4
@@ -62,23 +69,14 @@ jobs:
         working-directory: src/app/web
         run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           tag_name: v${{ env.VERSION }}
-          release_name: "Android App v${{ env.VERSION }}"
+          name: "Android App v${{ env.VERSION }}"
           draft: false
           prerelease: false
-
-      - name: Upload APK to GitHub Release
-        uses: actions/upload-release-asset@v1
+          files: src/app/android/app/build/outputs/apk/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: src/app/android/app/build/outputs/apk/release/app-release.apk
-          asset_name: app-release.apk
-          asset_content_type: application/vnd.android.package-archive

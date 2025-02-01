@@ -5,7 +5,6 @@ import { fontSans } from "../config/fonts";
 import { Providers } from "./provider";
 import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
-import { Toaster } from "react-hot-toast";
 import { Link } from "@heroui/link";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -64,7 +63,6 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        <Toaster position="top-right" reverseOrder={true} />
         <Providers themeProps={{ attribute: "class", enableSystem: false, defaultTheme: "light" }}>
           <div className="flex flex-col min-h-screen">
             <NavigationBar />

@@ -28,6 +28,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
+
     (async () => {
       const permission = await LocalNotifications.checkPermissions();
       //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
@@ -75,8 +79,8 @@ export default function Home() {
       }
     }
 
-    window.addEventListener('storage', handleUserChange)
-    return () => window.removeEventListener('storage', handleUserChange)
+    window.addEventListener('user', handleUserChange)
+    return () => window.removeEventListener('user', handleUserChange)
   }, []);
 
   return (
