@@ -40,13 +40,13 @@ jobs:
         working-directory: src/app/android
         run: ./gradlew assembleRelease bundleRelease
 
-      - uses: r0adkll/sign-android-release@v1
-        name: Sign app APK
+      - name: Sign App
         id: sign_app
+        uses: ilharp/sign-android-release@v1.0.4
         with:
-          releaseDirectory: src/app/android/app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          alias: ${{ secrets.ANDROID_KEY_ALIAS }}
+          releaseDir: src/app/android/app/build/outputs/apk/release
+          signingKey: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: Upload APK as an Artifact
