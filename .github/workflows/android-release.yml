@@ -38,13 +38,13 @@ jobs:
 
       - name: Build APK and AAB
         working-directory: src/app/android
-        run: ./gradlew assembleRelease bundleRelease
+        run: ./gradlew bundleRelease
 
       - name: Sign App
         id: sign_app
         uses: ilharp/sign-android-release@v1.0.4
         with:
-          releaseDir: src/app/android/app/build/outputs/apk/release
+          releaseDir: src/app/android/app/build/outputs/bundle/release
           signingKey: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Android-App
-          path: ${{steps.sign_app.outputs.signedFile}}
+          path: src/app/android/app/build/outputs/bundle/release
 
   release:
     needs: build-android
@@ -67,7 +67,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Android-App
-          path: src/app/android/app/build/outputs/apk/release/
+          path: src/app/android/app/build/outputs/bundle/release/
 
       - name: Get Version from Package.json
         id: get_version
@@ -81,6 +81,6 @@ jobs:
           name: "Android App v${{ env.VERSION }}"
           draft: false
           prerelease: false
-          files: src/app/android/app/build/outputs/apk/release/*.apk
+          files: src/app/android/app/build/outputs/apk/bundle/release/*.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
