@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   build-ios:
     runs-on: macos-latest
@@ -45,42 +49,32 @@ jobs:
           name: iOS-App
           path: src/app/ios/App/build/*.ipa
 
-  release:
-    needs: build-ios
-    runs-on: ubuntu-latest
+  # release:
+  #   needs: build-ios
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v4
 
-      - name: Download Built IPA
-        uses: actions/download-artifact@v4
-        with:
-          name: iOS-App
-          path: src/app/ios/App/build/
+  #     - name: Download Built IPA
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: iOS-App
+  #         path: src/app/ios/App/build/
 
-      - name: Get Version from Package.json
-        id: get_version
-        working-directory: src/app/web
-        run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+  #     - name: Get Version from Package.json
+  #       id: get_version
+  #       working-directory: src/app/web
+  #       run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.VERSION }}
-          release_name: "iOS App v${{ env.VERSION }}"
-          draft: false
-          prerelease: false
-
-      - name: Upload IPA to GitHub Release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: src/app/ios/App/build/App.ipa
-          asset_name: App.ipa
-          asset_content_type: application/octet-stream
+  #     - name: Release
+  #       uses: softprops/action-gh-release@v2
+  #       with:
+  #         tag_name: v${{ env.VERSION }}
+  #         name: "Einbürgerungstest iOS v${{ env.VERSION }}"
+  #         draft: false
+  #         prerelease: false
+  #         files: src/app/ios/App/build/*.ipa
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
