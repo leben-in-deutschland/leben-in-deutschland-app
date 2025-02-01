@@ -34,11 +34,12 @@ jobs:
           java-version: "21"
 
       - name: Decode Keystore
-        run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > src/app/android/release.keystore
+        working-directory: src/app/android
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > release.keystore
 
       - name: Make Gradle Wrapper Executable
-        run: chmod +x src/app/android/gradlew
+        working-directory: src/app/android
+        run: chmod +x gradlew
 
       - name: Build APK and AAB
         working-directory: src/app/android
