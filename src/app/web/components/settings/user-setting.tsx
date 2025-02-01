@@ -1,33 +1,30 @@
-import { Button, Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 import StateDropdown from "./state-dropdown";
 import { useEffect, useState } from "react";
-import { getUserData, saveUserData } from "@/services/user";
+import { getUserData } from "@/services/user";
 import { User } from "@/types/user";
 import { saveStateChange } from "@/utils/state-utils";
 import { State } from "@/types/state";
-import { DeleteWarning } from "../models/delete-warning";
-import { deleteData } from "@/utils/delete";
 
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {
     const [user, setUser] = useState<User>();
-
     useEffect(() => {
-        const handleUserChange = async () => {
-            let tempUser = await getUserData();
+        const handleUserChange = () => {
+            let tempUser = getUserData();
             if (tempUser !== null) {
                 setUser(tempUser);
             }
         }
 
         window.addEventListener('user', handleUserChange)
-        return () => window.removeEventListener('storage', handleUserChange)
+        return () => window.removeEventListener('user', handleUserChange)
     }, []);
 
     useEffect(() => {
         (async () => {
 
-            let tempUser = await getUserData();
+            let tempUser = getUserData();
             if (tempUser !== null) {
                 setUser(tempUser);
             }
@@ -42,25 +39,9 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
         setUser(userData);
     };
 
-    const [openDeleteWarning, setOpenDeleteWarning] = useState<boolean>(false);
-    const handleDataDelete = () => {
-        setOpenDeleteWarning(true);
-    };
-
-    const handleDeleteConfirmationClose = () => {
-        setOpenDeleteWarning(false);
-    };
-
-    const handleDeleteAfterConfirmation = async () => {
-        deleteData();
-        setOpenDeleteWarning(false);
-        handleUserSettingsClose();
-        window.location.reload();
-    };
 
     return (
         <>
-            <DeleteWarning isModelOpen={openDeleteWarning} handleClose={handleDeleteConfirmationClose} handleSubmit={handleDeleteAfterConfirmation} />
             <Modal isOpen={isOpen}
                 isDismissable={true}
                 onClose={handleUserSettingsClose}
@@ -76,13 +57,6 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                                 <h4 className="col-start-1 dark:text-white">Change State</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <StateDropdown user={user} handleSelectState={handleSelectState} />}
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 text-red-500">Delete Data</h4>
-                                <div className="col-start-2 justify-right">
-                                    {user && <Button variant="solid" color="danger" onPress={handleDataDelete}>Delete</Button>}
                                 </div>
                             </div>
                         </div>

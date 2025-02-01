@@ -12,7 +12,7 @@ const getLocalStorageInstance = () => {
 export const saveInlocalStorage = (user: User) => {
     let ls = getLocalStorageInstance();
     ls.setItem("user", JSON.stringify(user));
-    window.dispatchEvent(new Event('storage'));
+    window.dispatchEvent(new StorageEvent('user'));
 };
 
 export const readFromlocalStorage = () => {
@@ -27,4 +27,5 @@ export const readFromlocalStorage = () => {
 export const deleteFromlocalStorage = () => {
     let ls = getLocalStorageInstance();
     ls.removeItem("user");
+    window.dispatchEvent(new StorageEvent('user'));
 };

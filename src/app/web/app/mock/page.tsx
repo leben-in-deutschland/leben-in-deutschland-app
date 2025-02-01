@@ -20,8 +20,8 @@ export default function Mock() {
             }
         }
 
-        window.addEventListener('storage', handleUserChange)
-        return () => window.removeEventListener('storage', handleUserChange)
+        window.addEventListener('user', handleUserChange)
+        return () => window.removeEventListener('user', handleUserChange)
     }, []);
 
     useEffect(() => {

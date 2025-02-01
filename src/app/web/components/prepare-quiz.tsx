@@ -7,9 +7,9 @@ import { User } from "@/types/user";
 import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
-import toast from "react-hot-toast";
 import { TranslateIcon } from "@/icons/TranslateIcon";
 import { Translation } from "./models/translation";
+import { toast } from "react-toastify";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }:
@@ -199,9 +199,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         }
     };
     const handleFlag = () => {
-        if (!flagPressed) {
-            toast.success("Question flagged successfully, you can either submit the answer or move to next question", { icon: '🚩' });
-        }
         setFlagPressed(!flagPressed);
         if (currentQuestion?.solution !== optionSelected) {
             setNextEnabled(!flagPressed);
@@ -243,14 +240,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             setBlockAnsweChange(true);
             setSubmitDisabled(true);
             setDisableSkip(true);
-        }
-        else {
-            toast.error("Please select an answer before submitting");
-        }
-    };
-    const handleNext = () => {
-        if (flagPressed || (nextEnabled && submitDisabled && optionSelected !== "")) {
-            toast("Syncing your response", { icon: '⌛' });
             let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
             let temp = {
                 num: currentQuestion?.num ?? "",
@@ -265,10 +254,16 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             } else {
                 user.questionProgress.push(temp);
             }
+            createUserStats(user, optionSelected === currentQuestion?.solution, flagPressed, false);
+        }
+        else {
+            toast.error("Please select an answer before submitting");
+        }
+    };
+    const handleNext = () => {
+        if (flagPressed || (nextEnabled && submitDisabled && optionSelected !== "")) {
             setShowSolution(false);
             setBlockAnsweChange(false);
-            createUserStats(user, optionSelected === currentQuestion?.solution, flagPressed, false);
-            toast.success("Successfully synced your data");
             setOptionSelected("");
             setNextEnabled(false);
             setSubmitDisabled(false);
@@ -279,8 +274,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
             } else {
-                toast("You have attempted all of the questions.", {
-                    icon: '👏',
+                toast.success("You have attempted all of the questions.", {
                     style: {
                         backgroundColor: '#A9FFD8'
                     }

@@ -5,9 +5,9 @@ import { Question } from "@/types/question";
 import { useEffect, useState } from "react";
 import { saveUserData } from "@/services/user";
 import { QuizProgress } from "./quiz-progress";
-import toast from "react-hot-toast";
 import { FlagIcon } from "@/icons/FlagIcon";
 import { SubmitWarning } from "./models/submit-warning";
+import { toast } from "react-toastify";
 
 export const Quiz = ({ user, questions }: { user: User, questions: Question[] }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
@@ -18,9 +18,6 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     const [flagPressed, setFlagPressed] = useState<boolean>(false);
     const [submitModelWarning, setSubmitModelWarning] = useState<boolean>(false);
     const handleFlag = () => {
-        if (!flagPressed) {
-            toast.success("Question flagged successfully", { icon: '🚩' });
-        }
         let index = currentMockData?.questions.findIndex(x => x.num === currentQuizQuestion.num) ?? -1;
         if (index > -1 && currentMockData) {
             currentMockData.questions[index].flagged = !flagPressed;

@@ -1,4 +1,5 @@
 import { statesData } from "@/data/data";
+import { getUserData } from "@/services/user";
 import { State } from "@/types/state";
 import { User } from "@/types/user";
 import { Avatar, Select, SelectItem, Image } from "@heroui/react";
@@ -16,9 +17,10 @@ export default function StateDropdown({ user, handleSelectState }: { user: User 
             handleSelectState(states[index]);
         }
     };
+
     return (
         <>
-            {states && states.length > 0 && <Select
+            {user && states && states.length > 0 && <Select
                 label="Select state"
                 startContent={<Image alt={user?.state.stateName} src={user ? `/states/flag/${user?.state.stateName}.svg` : "/states/deutschland.jpg"} width={20} />}
                 defaultSelectedKeys={[user ? user.state.stateName : "Berlin"]}
