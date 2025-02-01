@@ -78,9 +78,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.VERSION }}
-          name: "Android App v${{ env.VERSION }}"
+          name: "Einbürgerungstest v${{ env.VERSION }}"
           draft: false
           prerelease: false
-          files: src/app/android/app/build/outputs/apk/bundle/release/*.aab
+          files: src/app/android/app/build/outputs/bundle/release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
