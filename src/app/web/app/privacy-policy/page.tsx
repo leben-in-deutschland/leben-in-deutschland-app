@@ -1,6 +1,6 @@
 "use-client";
 
-import { Card, CardBody, CardHeader, Link } from "@heroui/react";
+import { Card, CardBody, CardHeader, Link, Alert } from "@heroui/react";
 
 export default function PrivacyPolicy() {
     return (
