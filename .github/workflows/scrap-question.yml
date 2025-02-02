@@ -1,4 +1,4 @@
-name: Sync Questions
+name: Sync Questions and Prüfstellen
 on:
   schedule:
     - cron: "0 0 */15 * *"
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  scrap_questions:
+  scrap_questions_and_pruefstellen:
     name: Sync Questions
     runs-on: ubuntu-latest
     steps:
@@ -40,6 +40,7 @@ jobs:
         id: git_check
         run: |
           git add src/app/web/data/question.json
+          git add src/app/web/data/prüfstellen.json
           if git diff --cached --quiet; then
             echo "No changes detected"
             echo "changed=false" >> $GITHUB_ENV
