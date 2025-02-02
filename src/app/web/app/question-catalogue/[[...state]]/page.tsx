@@ -26,7 +26,7 @@ export default async function QuestionCatalogue({
     }
     else {
         questions = questions.filter(x => x.num.startsWith(state[0].toUpperCase()));
-        const index = stateData.findIndex(x => x.code === state[0].toUpperCase());
+        const index = stateData.findIndex(x => x.code.toUpperCase() === state[0].toUpperCase());
 
         if (index > -1) {
             stateName = stateData[index].name;

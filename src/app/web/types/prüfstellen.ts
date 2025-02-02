@@ -1,3 +1,8 @@
+export interface PrüfstellenData {
+    stateCode: string;
+    data: Prüfstellen[];
+}
+
 export interface Prüfstellen {
     regierungsbezirk: string;
     plz: string;
