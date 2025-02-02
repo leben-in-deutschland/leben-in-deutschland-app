@@ -6,7 +6,7 @@
   "containerUser": "node",
   "updateRemoteUserUID": true,
   "postCreateCommand": "bash ../../.devcontainer/scrap/postCreateCommand.sh",
-  "workspaceFolder": "/workspaces/leben-in-deutschland/src/scrap/",
+  "workspaceFolder": "/workspaces/leben-in-deutschland/src/scrap",
   "containerEnv": {
     "HOME": "/home/node"
   },

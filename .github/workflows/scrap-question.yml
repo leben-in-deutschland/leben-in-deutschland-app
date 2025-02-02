@@ -1,4 +1,4 @@
-name: Sync Questions
+name: Sync Questions and Prüfstellen
 on:
   schedule:
     - cron: "0 0 */15 * *"
@@ -7,8 +7,8 @@ permissions:
   contents: write
 
 jobs:
-  scrap_questions:
-    name: Sync Questions
+  scrap_questions_and_pruefstellen:
+    name: Sync Questions and Prüfstellen
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,21 +24,23 @@ jobs:
           cd src/scrap
           npm install
 
-      - name: Sync questions
+      - name: Sync
         run: |
           cd src/scrap
           npm run prod
         env:
           TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
 
-      - name: Move questions
+      - name: Move
         run: |
           cp src/scrap/data/question.json src/app/web/data/question.json
+          cp src/scrap/data/prüfstellen.json src/app/web/data/prüfstellen.json
 
       - name: Check for changes
         id: git_check
         run: |
           git add src/app/web/data/question.json
+          git add src/app/web/data/prüfstellen.json
           if git diff --cached --quiet; then
             echo "No changes detected"
             echo "changed=false" >> $GITHUB_ENV
@@ -49,6 +51,7 @@ jobs:
 
       - name: Bump version if changes detected
         if: env.changed == 'true'
+        working-directory: src/app/web
         run: |
           npm version minor --no-git-tag-version
 

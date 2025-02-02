@@ -12,6 +12,7 @@
   "dependencies": {
     "cheerio": "^1.0.0",
     "typescript": "^5.7.3",
-    "vite-node": "^3.0.4"
+    "vite-node": "^3.0.4",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-latest/xlsx-latest.tgz"
   }
 }

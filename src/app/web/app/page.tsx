@@ -16,7 +16,7 @@ import { v4 as uuid } from 'uuid';
 
 export default function Home() {
   const [user, setUser] = useState<User>();
-  const [states, setState] = useState<State[]>();
+  const [states, setState] = useState<State[]>(statesData());
   const router = useRouter()
   const [showLoading, setShowLoading] = useState(Capacitor.isNativePlatform());
 
@@ -115,13 +115,33 @@ export default function Home() {
             </CardBody>
           </Card>
 
+
           <Card>
             <CardHeader>
               <p className="font-bold text-2xl text-black dark:text-white">Prüfungstellen</p>
             </CardHeader>
             <CardBody>
-              <p className="text-default-500">Please select your state, the Prüfungstellen will open in a new tab.</p>
-              <StateDropdown user={user} handleSelectState={(state: State) => state && window.open(`https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Einbuergerung/Pruefstellen-${state.code.toUpperCase()}.xlsx`, "_blank")} />
+              <p className="text-default-500">Please select your state, the Prüfungstellen will open in a new tab. {states.length}</p>
+              <div className="grid grid-cols-8 gap-2">
+                {states && states.map((state: State) =>
+                  <Card key={state.code} isPressable onPress={() => router.push(`/pruefstellen/${state.code.toUpperCase()}`)}>
+                    <CardBody className="overflow-visible p-0">
+                      <Image
+                        alt={state.name}
+                        className="w-full object-cover h-[140px]"
+                        radius="lg"
+                        shadow="sm"
+                        src={`/states/flag/${state.name}.svg`}
+                        width="100%"
+                      />
+                    </CardBody>
+                    <CardFooter className="text-small justify-between">
+                      <b>{state.name}</b>
+                      <p className="text-default-500">{state.code}</p>
+                    </CardFooter>
+                  </Card>
+                )}
+              </div>
             </CardBody>
           </Card>
 
