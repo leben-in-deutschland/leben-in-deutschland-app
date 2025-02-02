@@ -18,7 +18,7 @@ export default function ScreenshotSlider() {
                     Try our mobile app!! Available only for Android
                 </span>
             </div>
-            <Slider {...settings} >
+            <Slider {...settings}>
                 <div>
                     <Image src="mobile/app-1.png" width={300} height={500} />
                 </div>
