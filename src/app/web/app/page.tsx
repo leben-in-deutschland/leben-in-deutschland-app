@@ -1,5 +1,6 @@
 "use client";
 
+import ScreenshotSlider from "@/components/screenshot-slider";
 import StateDropdown from "@/components/settings/state-dropdown";
 import { statesData } from "@/data/data";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
@@ -91,6 +92,7 @@ export default function Home() {
           <Alert color="warning" title="Note: This is not an official Einbürgerungstest. This platform is designed to help you prepare for the Einbürgerungstest." />
           <Alert color="danger" title="This website is a private offering and not an official site of the Federal Office for Migration and Refugees (BAMF). The Einbürgerungstest can only be carried out at the BAMF." />
 
+          <ScreenshotSlider />
           <Card>
             <CardHeader>
               <p className="font-bold text-2xl text-black dark:text-white">Frequently Asked Questions</p>

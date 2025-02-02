@@ -23,6 +23,58 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: siteConfig.name,
+    url: "www.lebenindeutschland.org",
+    siteName: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/mobile/app-1.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-2.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-3.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-4.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-5.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-6.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+      {
+        url: "/mobile/app-7.png",
+        width: 1200,
+        height: 2880,
+        alt: siteConfig.name,
+      },
+    ],
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -34,7 +86,9 @@ export const metadata: Metadata = {
     nocache: true
   },
   generator: "Next.js",
-  keywords: ["Leben in Deutschland",
+  keywords: [
+    "Einbürgerungstest",
+    "Leben in Deutschland",
     "Leben in Deutschland Test Online",
     "Leben in Deutschland Test",
     "Leben in Deutschland Prüfung",
