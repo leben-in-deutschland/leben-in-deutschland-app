@@ -334,7 +334,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                    <span className={optionSelected && nextEnabled ? "text-black" : "text-cyan-500"}>{currentQuestion.a}</span>
+                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.a}</span>
                                                 </div>
                                             </CardBody>
                                         </Card>
@@ -342,7 +342,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                    <span className={optionSelected && nextEnabled ? "text-black" : "text-cyan-500"}>{currentQuestion.b}</span>
+                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.b}</span>
                                                 </div>
                                             </CardBody>
                                         </Card>
@@ -350,7 +350,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                    <span className={optionSelected && nextEnabled ? "text-black" : "text-cyan-500"}>{currentQuestion.c}</span>
+                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.c}</span>
                                                 </div>
                                             </CardBody>
                                         </Card>
@@ -358,7 +358,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                             <CardBody>
                                                 <div className="flex gap-3">
                                                     <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                    <span className={optionSelected && nextEnabled ? "text-black" : "text-cyan-500"}>{currentQuestion.d}</span>
+                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.d}</span>
                                                 </div>
                                             </CardBody>
                                         </Card>
