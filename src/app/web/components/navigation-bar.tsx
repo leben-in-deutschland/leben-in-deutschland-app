@@ -71,17 +71,23 @@ export const NavigationBar = () => {
                     </Link>
                     <Button style={{ backgroundColor: 'transparent' }} isIconOnly variant="light" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
                     <ThemeSwitch />
-                    <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
-                        <DonateIcon className="text-red-700" />
-                        <p className="hidden md:flex text-red-700">Donate</p>
-                    </Link>
+                    {
+                        !Capacitor.isNativePlatform() &&
+                        <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
+                            <DonateIcon className="text-red-700" />
+                            <p className="hidden md:flex text-red-700">Donate</p>
+                        </Link>
+                    }
 
                 </NavbarContent>
                 <NavbarContent className="sm:hidden basis-1" justify="end">
-                    <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
-                        <DonateIcon className="text-red-700" />
-                        <p className="hidden md:flex text-red-700">Donate</p>
-                    </Link>
+                    {
+                        !Capacitor.isNativePlatform() &&
+                        <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
+                            <DonateIcon className="text-red-700" />
+                            <p className="hidden md:flex text-red-700">Donate</p>
+                        </Link>
+                    }
                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 </NavbarContent>
                 <NavbarMenu>
