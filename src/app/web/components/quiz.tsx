@@ -7,7 +7,8 @@ import { saveUserData } from "@/services/user";
 import { QuizProgress } from "./quiz-progress";
 import { FlagIcon } from "@/icons/FlagIcon";
 import { SubmitWarning } from "./models/submit-warning";
-import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { MockResult } from "./models/mock-result";
 
 export const Quiz = ({ user, questions }: { user: User, questions: Question[] }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
@@ -17,6 +18,9 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     const [startTime] = useState<Date>(new Date());
     const [flagPressed, setFlagPressed] = useState<boolean>(false);
     const [submitModelWarning, setSubmitModelWarning] = useState<boolean>(false);
+
+    const [resultOpen, setResultOpen] = useState<boolean>(false);
+    const router = useRouter();
     const handleFlag = () => {
         let index = currentMockData?.questions.findIndex(x => x.num === currentQuizQuestion.num) ?? -1;
         if (index > -1 && currentMockData) {
@@ -128,7 +132,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
             if (currentMockData.questions.filter(x => x.flagged || x.skipped).length > 0) {
                 setSubmitModelWarning(true)
             } else {
-                await handleWarningSubmit();
+                handleWarningSubmit();
             }
         };
 
@@ -138,14 +142,19 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
         setSubmitModelWarning(false);
     };
 
+    const handleResultCose = () => {
+        setResultOpen(false);
+        router.push("/dashboard");
+    };
+
     const handleWarningSubmit = () => {
         if (currentMockData) {
             currentMockData.passed = currentMockData.questions.filter(x => x.answeredCorrectly).length >= 17;
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
             saveUserData(user);
+            setResultOpen(true);
         }
-        //TODO: Show result
     }
 
     const handleQuizCancel = () => {
@@ -154,8 +163,8 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
             saveUserData(user);
+            setResultOpen(true);
         }
-        //TODO: Show result
     };
 
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
@@ -202,93 +211,97 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     };
 
     return (
-        <div className="flex gap-6 justify-center mt-10">
-            {
-                currentQuizQuestion &&
-                <div className="grid md:grid-cols-2 gap-2">
-                    <div>
-                        <SubmitWarning isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
-                        <Card className="h-[100%]">
-                            <CardHeader className="justify-center">
-                                <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
-                            </CardHeader>
-                            <CardBody className="justify-center">
-                                <div className="grid gap-4">
-                                    {currentQuizQuestion.image !== "-" && <div hidden={!(currentQuizQuestion.image !== "-")}>
-                                        <Image src={currentQuizQuestion.image} alt=""></Image>
-                                    </div>
-                                    }
-                                    <div className="grid gap-4 md:grid-cols-2">
-                                        <Card isPressable onPress={() => handleOptionSelected("a")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                    {currentQuizQuestion.a}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable onPress={() => handleOptionSelected("b")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                    {currentQuizQuestion.b}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable onPress={() => handleOptionSelected("c")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                    {currentQuizQuestion.c}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable onPress={() => handleOptionSelected("d")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                    {currentQuizQuestion.d}
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            <CardFooter className="flex gap-2">
-                                <div className="flex gap-1">
-                                    <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
-                                    <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
-                                    <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
-                                </div>
-                                <div className="flex">
-                                    <Tooltip content="Cancel Mock Test">
-                                        <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
-                                    </Tooltip>
-                                    <Tooltip content="Flag for review">
-                                        <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
-                                    </Tooltip>
-                                    {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
-                                    {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
-                                </div>
-                            </CardFooter>
-                        </Card>
-                    </div>
-                    <div className="grid">
-                        <div className="">
-                            <Countdown handleTimeComplete={handleTimeComplete} />
-                        </div>
-                        <div>
-                            {currentMockData &&
-                                <QuizProgress
-                                    questions={currentMockData.questions}
-                                    onChangeFromProgressBar={onChangeFromProgressBar}
-                                    currentQuestionIndex={quizQuestions.findIndex(x => x.num === currentQuizQuestion.num)}
-                                />}
-                        </div>
+        <>
+            {resultOpen && currentMockData && <MockResult testProgress={currentMockData} isModelOpen={resultOpen} handleClose={() => handleResultCose()} />}
+            <div className="flex gap-6 justify-center mt-10">
 
+                {
+                    currentQuizQuestion &&
+                    <div className="grid md:grid-cols-2 gap-2">
+                        <div>
+                            <SubmitWarning isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
+                            <Card className="h-[100%]">
+                                <CardHeader className="justify-center">
+                                    <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
+                                </CardHeader>
+                                <CardBody className="justify-center">
+                                    <div className="grid gap-4">
+                                        {currentQuizQuestion.image !== "-" && <div hidden={!(currentQuizQuestion.image !== "-")}>
+                                            <Image src={currentQuizQuestion.image} alt=""></Image>
+                                        </div>
+                                        }
+                                        <div className="grid gap-4 md:grid-cols-2">
+                                            <Card isPressable onPress={() => handleOptionSelected("a")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
+                                                        {currentQuizQuestion.a}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable onPress={() => handleOptionSelected("b")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
+                                                        {currentQuizQuestion.b}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable onPress={() => handleOptionSelected("c")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
+                                                        {currentQuizQuestion.c}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                            <Card isPressable onPress={() => handleOptionSelected("d")}>
+                                                <CardBody>
+                                                    <div className="flex gap-3">
+                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
+                                                        {currentQuizQuestion.d}
+                                                    </div>
+                                                </CardBody>
+                                            </Card>
+                                        </div>
+                                    </div>
+                                </CardBody>
+                                <CardFooter className="flex gap-2">
+                                    <div className="flex gap-1">
+                                        <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
+                                        <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
+                                        <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
+                                    </div>
+                                    <div className="flex">
+                                        <Tooltip content="Cancel Mock Test">
+                                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
+                                        </Tooltip>
+                                        <Tooltip content="Flag for review">
+                                            <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                        </Tooltip>
+                                        {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                        {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
+                                    </div>
+                                </CardFooter>
+                            </Card>
+                        </div>
+                        <div className="grid">
+                            <div className="">
+                                <Countdown handleTimeComplete={handleTimeComplete} />
+                            </div>
+                            <div>
+                                {currentMockData &&
+                                    <QuizProgress
+                                        questions={currentMockData.questions}
+                                        onChangeFromProgressBar={onChangeFromProgressBar}
+                                        currentQuestionIndex={quizQuestions.findIndex(x => x.num === currentQuizQuestion.num)}
+                                    />}
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-            }
-        </div >
+                }
+            </div >
+        </>
     );
 };
