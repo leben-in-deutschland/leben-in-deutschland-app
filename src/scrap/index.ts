@@ -170,10 +170,8 @@ async function scrapeData() {
         // Write the JSON data to a file
         fs.writeFileSync(filePath, JSON.stringify(allQuestion, null, 2), { encoding: 'utf8' });
         console.log(`Data scraped and saved to ${filePath}`);
-        process.exit(0);
     } catch (error) {
         console.error('Error scraping data:', error);
-        process.exit(1);
     }
 }
 
@@ -242,12 +240,21 @@ async function scrapPrüfstellen() {
         // Write the JSON data to a file
         fs.writeFileSync(filePath, JSON.stringify(allPrüfstellen, null, 2), { encoding: 'utf8' });
         console.log(`Data scraped and saved to ${filePath}`);
-        process.exit(0);
+
     } catch (error) {
         console.error('Error scraping data:', error);
-        process.exit(1);
     }
 }
 
-scrapeData();
-scrapPrüfstellen();
+const scrapAllSources = async () => {
+    await scrapeData();
+    await scrapPrüfstellen();
+};
+
+scrapAllSources().then(() => {
+    console.log('Scraping completed successfully');
+    process.exit(0);
+}).catch((err) => {
+    console.error('Error scraping data:', err);
+    process.exit(1);
+});
