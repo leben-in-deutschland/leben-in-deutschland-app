@@ -35,10 +35,10 @@ export default async function Pruefstellen({
                 <Image alt={stateRelatedData?.code} src={`/states/coat-of-arms/${stateRelatedData?.name}.svg`} width={50} />
             </CardHeader>
             <CardBody>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col gap-2 md:grid md:grid-cols-2 md:gap-4">
                     {
                         state && statePlaces && statePlaces.length > 0 && statePlaces.map((place: Prüfstellen) =>
-                            <Card key={place.telefon}>
+                            <Card key={place.straße + place.plz} className="p-2">
                                 <CardBody>
                                     <p className="font-bold">{place.regierungsbezirk}</p>
                                     <p className="font-bold">{place.einrichtung}</p>
