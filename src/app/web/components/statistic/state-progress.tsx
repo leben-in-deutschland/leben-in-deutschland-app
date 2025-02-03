@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react"
+import { Link, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react"
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Question } from "@/types/question";
@@ -66,7 +66,7 @@ export const StateProgress = ({ user, questions, onPress }: { user: User, questi
                     />
                 </CardBody>
                 <CardFooter className="justify-end">
-                    <Button variant="bordered" color="primary" onPress={() => window.open(`/pruefstellen/${user.state.stateCode.toUpperCase()}`, "_blank")}>Prüfstellen</Button>
+                    <Link color="primary" className="mr-4 hover:underline md:mr-6" href={`/pruefstellen/${user.state.stateCode.toUpperCase()}`}>Prüfstellen</Link>
                 </CardFooter>
             </Card>
         </div>
