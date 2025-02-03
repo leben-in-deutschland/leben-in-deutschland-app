@@ -36,6 +36,18 @@ jobs:
       - name: Make Gradle Wrapper Executable
         run: chmod +x src/app/android/gradlew
 
+      - name: Get Version from Package.json
+        id: get_version
+        working-directory: src/app/web
+        run: |
+          echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - uses: DoubleSymmetry/android-version-actions@v1.3
+        with:
+          gradlePath: src/app/android/app/build.gradle
+          versionCode: ${{github.run_number}}
+          versionName: ${{ env.VERSION }}
+
       - name: Build APK and AAB
         working-directory: src/app/android
         run: ./gradlew bundleRelease
