@@ -42,7 +42,8 @@ jobs:
         run: |
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
-      - uses: DoubleSymmetry/android-version-actions@v1.3
+      - name: Bump version
+        uses: chkfung/android-version-actions@v1.2.2
         with:
           gradlePath: src/app/android/app/build.gradle
           versionCode: ${{github.run_number}}
