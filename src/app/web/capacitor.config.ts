@@ -11,6 +11,9 @@ const config: CapacitorConfig = {
   plugins: {
     StatusBar: {
       overlaysWebView: false
+    },
+    LocalNotifications: {
+      smallIcon: "ic_stat_android_chrome_192x192"
     }
   },
   android: {

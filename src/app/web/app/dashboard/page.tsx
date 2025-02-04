@@ -13,6 +13,8 @@ import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-que
 import { ExamReadiness } from "@/components/exam-readiness";
 import { QuizAnswer } from "@/components/quiz-answer";
 import { questionsData } from "@/data/data";
+import { LocalNotifications } from "@capacitor/local-notifications";
+import { Capacitor } from "@capacitor/core";
 
 export default function Dashboard() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -22,6 +24,37 @@ export default function Dashboard() {
   const [showResult, setShowResult] = useState<boolean>(false);
   const [resultDateTime, setResultDateTime] = useState<string>("");
 
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
+
+    (async () => {
+      const permission = await LocalNotifications.checkPermissions();
+      //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
+      if (permission.display === "granted") {
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              title: "Don´t forget to study",
+              body: "Continue your preparation for the Einbürgerungstest",
+              id: Math.floor(Math.random() * 1000000),
+              schedule: {
+                every: "hour",
+                count: 10,
+                allowWhileIdle: true
+              },
+            }
+          ]
+        });
+        return;
+      }
+
+      else if (permission.display === "prompt" || permission.display === "prompt-with-rationale") {
+        await LocalNotifications.requestPermissions();
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     let tempUser = getUserData();
