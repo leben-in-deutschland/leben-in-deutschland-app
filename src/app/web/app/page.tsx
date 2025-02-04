@@ -1,66 +1,21 @@
 "use client";
 
 import ScreenshotSlider from "@/components/screenshot-slider";
-import StateDropdown from "@/components/settings/state-dropdown";
 import { statesData } from "@/data/data";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { getUserData } from "@/services/user";
 import { State } from "@/types/state";
 import { User } from "@/types/user";
 import { Capacitor } from "@capacitor/core";
-import { LocalNotifications } from "@capacitor/local-notifications";
 import { Alert, Card, CardBody, CardFooter, CardHeader, Image, Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { v4 as uuid } from 'uuid';
 
 export default function Home() {
   const [user, setUser] = useState<User>();
   const [states, setState] = useState<State[]>(statesData());
   const router = useRouter()
   const [showLoading, setShowLoading] = useState(Capacitor.isNativePlatform());
-
-  const getNextNotificationTime = () => {
-    const now = new Date();
-    const nextNotification = new Date(now);
-    nextNotification.setDate(now.getDate() + 1);
-    nextNotification.setHours(9, 0, 0, 0); // Example: schedule for 9 AM next day
-    return nextNotification;
-  };
-
-  useEffect(() => {
-    if (!Capacitor.isNativePlatform()) {
-      return;
-    }
-
-    (async () => {
-      const permission = await LocalNotifications.checkPermissions();
-      //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
-      if (permission.display === "granted") {
-        LocalNotifications.schedule({
-          notifications: [
-            {
-              title: "Don´t forget to study",
-              body: "Continue your preparation for the Einbürgerungstest",
-              id: uuid(),
-              largeIcon: "splash",
-              schedule: {
-                at: getNextNotificationTime(),
-                repeats: true,
-                every: "day",
-                allowWhileIdle: true
-              },
-            }
-          ]
-        });
-        return;
-      }
-
-      else if (permission.display === "prompt" || permission.display === "prompt-with-rationale") {
-        await LocalNotifications.requestPermissions();
-      }
-    })();
-  }, []);
 
   useEffect(() => {
     if (Capacitor.isNativePlatform()) {
