@@ -3,13 +3,14 @@ import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { FlagIcon } from "@/icons/FlagIcon";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { Question } from "@/types/question";
-import { User } from "@/types/user";
+import { User, UserQuestionProgress } from "@/types/user";
 import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
 import { TranslateIcon } from "@/icons/TranslateIcon";
 import { Translation } from "./models/translation";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }:
@@ -22,7 +23,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     const [questions, setPrepareQuestions] = useState<Question[]>(originalQuestions.filter(x => x.num.startsWith(user.state.stateCode) || isNumeric(x.num)));
     const [currentQuestion, setCurrentQuestion] = useState<Question>();
     const [isPreviousEnabled, setPreviousEnable] = useState<boolean>(false);
-    const [optionSelected, setOptionSelected] = useState<string>("");
+    const [optionSelected, setOptionSelected] = useState<string | null>(null);
     const [showSolution, setShowSolution] = useState<boolean>(false);
     const [nextEnabled, setNextEnabled] = useState<boolean>(false);
     const [submitDisabled, setSubmitDisabled] = useState<boolean>(true);
@@ -30,7 +31,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     const [flagPressed, setFlagPressed] = useState<boolean>(false);
     const [disableSkip, setDisableSkip] = useState<boolean>(false);
     const [currentAction, setCurrentAction] = useState<PrepareQuestionActions>(prepareQuestion.action);
-
+    const router = useRouter();
     useEffect(() => {
         if (currentAction === PrepareQuestionActions.Prepare) {
             let tempQuestion: Question[] = [];
@@ -198,12 +199,30 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             }
         }
     };
+
     const handleFlag = () => {
-        setFlagPressed(!flagPressed);
+        const tempFlagData = !flagPressed;
+        setFlagPressed(tempFlagData);
         if (currentQuestion?.solution !== optionSelected) {
-            setNextEnabled(!flagPressed);
+            setNextEnabled(tempFlagData);
         }
-        setDisableSkip(!flagPressed);
+        setDisableSkip(tempFlagData);
+
+        let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+        let temp: UserQuestionProgress = {
+            num: currentQuestion?.num ?? "",
+            skipped: false,
+            answerSelected: null,
+            flagged: tempFlagData,
+            answeredCorrectly: null
+        };
+        if (currentQuesIndex > -1) {
+            user.questionProgress[currentQuesIndex] = temp;
+
+        } else {
+            user.questionProgress.push(temp);
+        }
+        createUserStats(user, optionSelected === currentQuestion?.solution, !tempFlagData, false);
     };
 
     const handlePrevious = () => {
@@ -279,6 +298,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                         backgroundColor: '#A9FFD8'
                     }
                 });
+                router.push("/dashboard");
             }
         } else {
             toast.error("Please submit you answer.");

@@ -20,25 +20,25 @@ export default function ScreenshotSlider() {
             </div>
             <Slider {...settings}>
                 <div>
-                    <Image src="mobile/app-1.png" width={300} height={500} />
+                    <Image alt="img1" src="mobile/app-1.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-2.png" width={300} height={500} />
+                    <Image alt="img2" src="mobile/app-2.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-3.png" width={300} height={500} />
+                    <Image alt="img3" src="mobile/app-3.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-4.png" width={300} height={500} />
+                    <Image alt="img4" src="mobile/app-4.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-5.png" width={300} height={500} />
+                    <Image alt="img5" src="mobile/app-5.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-6.png" width={300} height={500} />
+                    <Image alt="img6" src="mobile/app-6.png" width={300} height={500} />
                 </div>
                 <div>
-                    <Image src="mobile/app-7.png" width={300} height={500} />
+                    <Image alt="img7" src="mobile/app-7.png" width={300} height={500} />
                 </div>
             </Slider>
         </>

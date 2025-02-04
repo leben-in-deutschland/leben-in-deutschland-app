@@ -25,9 +25,9 @@ export interface UserDailyProgress {
 
 export interface UserQuestionProgress {
     num: string;
-    answeredCorrectly: boolean;
+    answeredCorrectly: boolean | null;
     skipped: boolean;
-    answerSelected: string;
+    answerSelected: string | null;
     flagged: boolean;
 }
 
