@@ -7,7 +7,7 @@ export const AppUpdate = () => {
     useEffect(() => {
         (async () => {
             const result = await AppUpdatePlugin.getAppUpdateInfo();
-            setIsModelOpen(result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE);
+            setIsModelOpen(result.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE);
         })();
     }, []);
 
