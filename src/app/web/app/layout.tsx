@@ -128,7 +128,7 @@ export default function RootLayout({
                     © {new Date().getFullYear()} <a href="https://www.bitesinbyte.com/" className="hover:underline font-bold">bitesinbyte</a> All Rights Reserved
                   </span>
                 </div>
-                <div className="flex items-center">
+                <div className="items-center hidden md:flex">
                   <Link href="/privacy-policy" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
                   <Link href="mailto:hello@bitesinbyte.com" target="_blank" className="hover:underline">Contact</Link>
                 </div>

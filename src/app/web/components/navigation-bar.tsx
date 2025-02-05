@@ -110,6 +110,12 @@ export const NavigationBar = () => {
                             <SettingIcon className="text-black dark:text-white" />
                             <p className="font-bold text-black dark:text-white">My Settings</p>
                         </Link>
+                        <Link className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href="/privacy-policy" aria-label="privacy">
+                            <p className="font-bold text-black dark:text-white">Privacy Policy</p>
+                        </Link>
+                        <Link className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact">
+                            <p className="font-bold text-black dark:text-white">Contact</p>
+                        </Link>
                     </div>
                 </NavbarMenu>
             </Navbar >
