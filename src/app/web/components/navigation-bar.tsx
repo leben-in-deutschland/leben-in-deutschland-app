@@ -42,7 +42,7 @@ export const NavigationBar = () => {
         <>
             <UserSetting isOpen={isSettingsClick} handleUserSettingsClose={handleUserSettingsClose} />
 
-            <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={setIsMenuOpen} >
+            <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} >
                 <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
                         <NextLink className="flex justify-start items-center gap-1" href={Capacitor.isNativePlatform() ? "/dashboard" : "/"}>
@@ -110,7 +110,9 @@ export const NavigationBar = () => {
                             <SettingIcon className="text-black dark:text-white" />
                             <p className="font-bold text-black dark:text-white">My Settings</p>
                         </Link>
-                        <Link className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href="/privacy-policy" aria-label="privacy">
+                        <Link onPress={() => setIsMenuOpen(false)}
+                            className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white"
+                            href="/privacy-policy" aria-label="privacy">
                             <p className="font-bold text-black dark:text-white">Privacy Policy</p>
                         </Link>
                         <Link className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact">
