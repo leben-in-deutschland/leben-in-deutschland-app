@@ -15,6 +15,7 @@ import { QuizAnswer } from "@/components/quiz-answer";
 import { questionsData } from "@/data/data";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
+import { AppUpdate } from "@/components/app-update";
 
 export default function Dashboard() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -98,6 +99,7 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto">
+      {Capacitor.isNativePlatform() && <AppUpdate />}
       {!user?.state.stateName && <StateSelect />}
       {user && prepareQuestion &&
         <>

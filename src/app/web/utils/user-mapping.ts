@@ -1,32 +1,78 @@
 import { saveUserData } from "@/services/user";
-import { User } from "@/types/user";
+import { User, UserQuestionProgress } from "@/types/user";
 
-export const createUserStats = (user: User, correctAnswer: boolean, flagged: boolean, skipped: boolean) => {
-    let today = new Date().toDateString();
-    if (user.dailyProgress === undefined) {
-        user.dailyProgress = [];
+export const createUserStats = (
+    newProgress: UserQuestionProgress,
+    oldProgress: UserQuestionProgress | undefined,
+    user: User,
+    action: "SKIP" | "FLAG" | "SUBMIT"
+) => {
+    const safeOld: UserQuestionProgress = oldProgress || {
+        num: newProgress.num,
+        answeredCorrectly: false,
+        skipped: false,
+        answerSelected: null,
+        flagged: false,
+    };
+
+    user.dailyProgress ||= [];
+    const today = new Date().toDateString();
+    let dailyStats = user.dailyProgress.find(
+        (dp) => new Date(dp.date).toDateString() === today
+    );
+    if (!dailyStats) {
+        dailyStats = { date: today, attempted: 0, correct: 0, incorrect: 0, skipped: 0, flagged: 0 };
+        user.dailyProgress.push(dailyStats);
     }
 
-    let todayProgressIndex = user.dailyProgress.findIndex(x => new Date(x.date).toDateString() === today);
-    if (todayProgressIndex >= 0) {
-        let temp = user.dailyProgress[todayProgressIndex];
-        user.dailyProgress[todayProgressIndex] = {
-            attempted: temp.attempted + 1,
-            date: new Date(temp.date).toDateString(),
-            correct: (!skipped && !flagged) ? (correctAnswer ? temp.correct + 1 : temp.correct) : temp.correct,
-            incorrect: (!skipped && !flagged) ? (correctAnswer ? temp.incorrect + 0 : temp.incorrect + 1) : temp.incorrect,
-            skipped: skipped ? temp.skipped + 1 : temp.skipped,
-            flagged: flagged ? temp.flagged + 1 : temp.flagged
-        };
-    } else {
-        user.dailyProgress.push({
-            attempted: 1,
-            date: today,
-            correct: !flagged ? (correctAnswer ? 1 : 0) : 0,
-            incorrect: !flagged ? (correctAnswer ? 0 : 1) : 0,
-            skipped: skipped ? 1 : 0,
-            flagged: flagged ? 1 : 0
-        });
+    let attemptedDelta = 0,
+        correctDelta = 0,
+        incorrectDelta = 0,
+        skippedDelta = 0,
+        flaggedDelta = 0;
+
+    switch (action) {
+        case "SKIP":
+            attemptedDelta = 1;
+            skippedDelta = 1;
+            break;
+        case "FLAG":
+            attemptedDelta = 1;
+            flaggedDelta = newProgress.flagged ? 1 : -1;
+            if (!newProgress.flagged && newProgress.answeredCorrectly === null) {
+                skippedDelta = 1;
+            }
+            break;
+        case "SUBMIT":
+            attemptedDelta = 1;
+            if (newProgress.answeredCorrectly) {
+                if (!safeOld.answeredCorrectly) {
+                    correctDelta = 1;
+                    if (safeOld.answeredCorrectly === false) {
+                        incorrectDelta = -1;
+                    }
+                }
+            } else {
+                if (safeOld.answeredCorrectly) {
+                    correctDelta = -1;
+                    incorrectDelta = 1;
+                } else {
+                    incorrectDelta = 1;
+                }
+            }
+            if (newProgress.flagged !== safeOld.flagged) {
+                flaggedDelta = newProgress.flagged ? 1 : -1;
+            }
+            if (!newProgress.flagged && newProgress.answeredCorrectly !== null) {
+                skippedDelta = -1;
+            }
+            break;
     }
+    dailyStats.attempted = Math.max(0, dailyStats.attempted + attemptedDelta);
+    dailyStats.correct = Math.max(0, dailyStats.correct + correctDelta);
+    dailyStats.incorrect = Math.max(0, dailyStats.incorrect + incorrectDelta);
+    dailyStats.skipped = Math.max(0, dailyStats.skipped + skippedDelta);
+    dailyStats.flagged = Math.max(0, dailyStats.flagged + flaggedDelta);
+
     saveUserData(user);
 };

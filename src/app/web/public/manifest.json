@@ -31,12 +31,6 @@
       "purpose": "any maskable"
     },
     {
-      "src": "../icons/icon-192.webp",
-      "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any maskable"
-    },
-    {
       "src": "../icons/icon-256.webp",
       "type": "image/png",
       "sizes": "256x256",

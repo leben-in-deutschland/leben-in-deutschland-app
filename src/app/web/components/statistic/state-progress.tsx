@@ -5,12 +5,15 @@ import { Question } from "@/types/question";
 import { User } from "@/types/user";
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const StateProgress = ({ user, questions, onPress }: { user: User, questions: Question[], onPress: any }) => {
-
     let totalAttemptedStateQuestion = user.questionProgress.filter(element => element.num.startsWith(user.state.stateCode));
-    let correct = totalAttemptedStateQuestion.filter(x => !x.skipped && !x.flagged && x.answeredCorrectly).length;
-    let incorrect = totalAttemptedStateQuestion.filter(x => !x.skipped && !x.flagged && !x.answeredCorrectly).length;
+
     let skipped = totalAttemptedStateQuestion.filter(x => x.skipped).length;
+    let otherSkipped = totalAttemptedStateQuestion.filter(x => x.answeredCorrectly === null && !x.flagged).length;
+    skipped += otherSkipped;
     let flagged = totalAttemptedStateQuestion.filter(x => x.flagged).length;
+    let correct = totalAttemptedStateQuestion.filter(x => x.answeredCorrectly !== null && x.answeredCorrectly).length;
+    let incorrect = totalAttemptedStateQuestion.filter(x => x.answeredCorrectly !== null && !x.answeredCorrectly).length;
+
     return (
         <div>
             <Card className="card-stats border-none h-[300px] w-[100%]"

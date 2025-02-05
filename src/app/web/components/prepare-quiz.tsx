@@ -48,10 +48,8 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             let stateQuestion: Question[] = [];
             let current: Question[] = questions.filter(x => x.num.startsWith(user.state.stateCode));
 
-
             //Incorrect
-            let incorrectStatesQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) &&
-                !x.skipped && !x.flagged && !x.answeredCorrectly);
+            let incorrectStatesQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && !x.answeredCorrectly);
             for (let i = 0; i < incorrectStatesQuestion.length; i++) {
                 let incorrectQ = current.findIndex(x => x.num === incorrectStatesQuestion[i].num);
                 if (incorrectQ > -1) {
@@ -61,6 +59,8 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             }
             //Skipped
             let skippedStateQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.skipped);
+            let otherSkipped = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.answeredCorrectly === null && !x.flagged);
+            skippedStateQuestion = [...skippedStateQuestion, ...otherSkipped];
             for (let i = 0; i < skippedStateQuestion.length; i++) {
                 let skippedQ = current.findIndex(x => x.num === skippedStateQuestion[i].num);
                 if (skippedQ > -1) {
@@ -84,7 +84,9 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         }
         if (prepareQuestion.action === PrepareQuestionActions.Skipped) {
             let tempSkipped: Question[] = [];
+            let otherSkipped = user.questionProgress.filter(x => x.answeredCorrectly === null && !x.flagged);
             let skipped = user.questionProgress.filter(x => x.skipped);
+            skipped = [...otherSkipped, ...skipped];
             for (let i = 0; i < skipped.length; i++) {
                 let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
                 if (indexSkipped > -1) {
@@ -138,7 +140,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         if (currentAction !== PrepareQuestionActions.Prepare && currentAction !== PrepareQuestionActions.Incorrect) {
             let currentQuestionIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
             if (currentQuestionIndex > -1) {
-                console.log(user.questionProgress[currentQuestionIndex].skipped)
                 if (!user.questionProgress[currentQuestionIndex].skipped
                     && user.questionProgress[currentQuestionIndex].answerSelected !== ""
                     && user.questionProgress[currentQuestionIndex].answeredCorrectly) {
@@ -179,20 +180,22 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             if (newQuestion !== null) {
                 let quesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
                 if (quesIndex > -1) {
-                    let temp = user.questionProgress[quesIndex];
-
-                    temp.skipped = true;
+                    const oldProgress = user.questionProgress[quesIndex];
+                    const newProgress = user.questionProgress[quesIndex];
+                    newProgress.skipped = true;
+                    createUserStats(newProgress, oldProgress, user, "SKIP");
                 } else {
-                    user.questionProgress.push({
+                    const newProgress: UserQuestionProgress = {
                         num: currentQuestion?.num ?? "",
                         skipped: true,
                         answerSelected: "",
                         flagged: false,
                         answeredCorrectly: false,
 
-                    });
+                    };
+                    user.questionProgress.push(newProgress);
+                    createUserStats(newProgress, newProgress, user, "SKIP");
                 }
-                createUserStats(user, optionSelected === currentQuestion?.solution, false, true);
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
                 setFlagPressed(false);
@@ -209,20 +212,24 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         setDisableSkip(tempFlagData);
 
         let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
-        let temp: UserQuestionProgress = {
-            num: currentQuestion?.num ?? "",
-            skipped: false,
-            answerSelected: null,
-            flagged: tempFlagData,
-            answeredCorrectly: null
-        };
-        if (currentQuesIndex > -1) {
-            user.questionProgress[currentQuesIndex] = temp;
 
+        if (currentQuesIndex > -1) {
+            const oldProgress = user.questionProgress[currentQuesIndex];
+            const newProgress = user.questionProgress[currentQuesIndex];
+            newProgress.flagged = tempFlagData;
+            user.questionProgress[currentQuesIndex] = newProgress;
+            createUserStats(newProgress, oldProgress, user, "FLAG");
         } else {
-            user.questionProgress.push(temp);
+            let newProgress: UserQuestionProgress = {
+                num: currentQuestion?.num ?? "",
+                skipped: false,
+                answerSelected: null,
+                flagged: tempFlagData,
+                answeredCorrectly: null
+            };
+            user.questionProgress.push(newProgress);
+            createUserStats(newProgress, newProgress, user, "FLAG");
         }
-        createUserStats(user, optionSelected === currentQuestion?.solution, !tempFlagData, false);
     };
 
     const handlePrevious = () => {
@@ -260,7 +267,8 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             setSubmitDisabled(true);
             setDisableSkip(true);
             let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
-            let temp = {
+            const oldProgress = user.questionProgress[currentQuesIndex];
+            let newProgress: UserQuestionProgress = {
                 num: currentQuestion?.num ?? "",
                 skipped: false,
                 answerSelected: optionSelected,
@@ -268,12 +276,12 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 answeredCorrectly: optionSelected === currentQuestion?.solution
             };
             if (currentQuesIndex > -1) {
-                user.questionProgress[currentQuesIndex] = temp;
+                user.questionProgress[currentQuesIndex] = newProgress;
 
             } else {
-                user.questionProgress.push(temp);
+                user.questionProgress.push(newProgress);
             }
-            createUserStats(user, optionSelected === currentQuestion?.solution, flagPressed, false);
+            createUserStats(newProgress, oldProgress, user, "SUBMIT");
         }
         else {
             toast.error("Please select an answer before submitting");
