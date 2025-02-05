@@ -7,16 +7,17 @@ import { MockTestProgress } from "./mock-test-progress";
 import { NumberProgress } from "./number-progress";
 import { StateProgress } from "./state-progress";
 import { User } from "@/types/user";
-import { PrepareQuestionActions } from "@/types/prepare-question";
 import { Question } from "@/types/question";
 import { useRouter } from "next/navigation";
 
 export const UserStats = ({ showMore, user, questions }: { showMore: boolean, user: User, questions: Question[] }) => {
     const router = useRouter();
     let skipped = user.questionProgress.filter(x => x.skipped).length;
+    let otherSkipped = user.questionProgress.filter(x => x.answeredCorrectly === null && !x.flagged).length;
+    skipped += otherSkipped;
     let flagged = user.questionProgress.filter(x => x.flagged).length;
-    let correct = user.questionProgress.filter(x => !x.skipped && !x.flagged && x.answeredCorrectly).length;
-    let incorrect = user.questionProgress.filter(x => !x.skipped && !x.flagged && !x.answeredCorrectly).length;
+    let correct = user.questionProgress.filter(x => x.answeredCorrectly !== null && x.answeredCorrectly).length;
+    let incorrect = user.questionProgress.filter(x => x.answeredCorrectly !== null && !x.answeredCorrectly).length;
     let attempted = user.questionProgress.length;
     let mockAttempted = user.testProgress.length;
     let mockPassed = user.testProgress.filter(x => x.passed).length;
