@@ -41,9 +41,11 @@ export default function Dashboard() {
               body: "Continue your preparation for the Einbürgerungstest",
               id: Math.floor(Math.random() * 1000000),
               schedule: {
-                every: "hour",
-                count: 10,
-                allowWhileIdle: true
+                allowWhileIdle: true,
+                on: {
+                  hour: 12,
+                  minute: 0
+                }
               },
             }
           ]
