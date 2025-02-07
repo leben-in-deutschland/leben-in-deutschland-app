@@ -17,5 +17,8 @@ project(':capacitor-local-notifications').projectDir = new File('../web/node_mod
 include ':capacitor-status-bar'
 project(':capacitor-status-bar').projectDir = new File('../web/node_modules/@capacitor/status-bar/android')
 
+include ':capawesome-capacitor-android-edge-to-edge-support'
+project(':capawesome-capacitor-android-edge-to-edge-support').projectDir = new File('../web/node_modules/@capawesome/capacitor-android-edge-to-edge-support/android')
+
 include ':capawesome-capacitor-app-update'
 project(':capawesome-capacitor-app-update').projectDir = new File('../web/node_modules/@capawesome/capacitor-app-update/android')

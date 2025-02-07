@@ -7,6 +7,7 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { Switch } from "@heroui/switch";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 
 export const ThemeSwitch = () => {
     const { theme, setTheme } = useTheme();
@@ -20,12 +21,9 @@ export const ThemeSwitch = () => {
         if (Capacitor.isNativePlatform()) {
             const style = theme === "light" ? Style.Light : Style.Dark;
             const backgroundColor = theme === "light" ? "#FFFFFF" : "#000000";
-            StatusBar.setBackgroundColor({
-                color: backgroundColor
-            });
-            StatusBar.setStyle({
-                style: style
-            });
+            EdgeToEdge.setBackgroundColor({ color: backgroundColor });
+            StatusBar.setBackgroundColor({ color: backgroundColor });
+            StatusBar.setStyle({ style: style });
         };
     }, [theme]);
 
