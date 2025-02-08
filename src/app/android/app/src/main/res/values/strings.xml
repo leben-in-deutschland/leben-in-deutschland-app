@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Einbürgerungstest (No Ads)</string>
-    <string name="title_activity_main">Einbürgerungstest (No Ads)</string>
+    <string name="app_name">Einbürgerungstest</string>
+    <string name="title_activity_main">Einbürgerungstest</string>
     <string name="package_name">org.lebenindeutschland.app</string>
     <string name="custom_url_scheme">org.lebenindeutschland.app</string>
 </resources>
