@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
                         <h3 className="text-xl font-semibold">1. Introduction</h3>
                     </CardHeader>
                     <div className="p-6">
-                        <p>Thank you for choosing to be part of our community at bitesinbyte, doing business as lebenindeutschland.org/Einbürgerungstest (&quot;lebenindeutschland,Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello@bitesinbyte.com.</p>
+                        <p>Thank you for choosing to be part of our community at bitesinbyte, doing business as lebenindeutschland.org/Einbürgerungstest (&quot;lebenindeutschland&quot;,&quot;Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello@bitesinbyte.com.</p>
                     </div>
                 </Card>
                 <Card id="info-collection" className="shadow-md rounded-lg">
