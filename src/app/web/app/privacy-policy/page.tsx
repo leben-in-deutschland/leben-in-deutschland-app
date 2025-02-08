@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
     return (
         <Card className="flex flex-col items-center justify-center gap-8 py-8 md:py-12 lg:py-16">
             <CardHeader className="flex flex-col text-center text-3xl font-bold text-gray-800 dark:text-white">
-                <span><span className="text-indigo-600">lebenindeutschland.org / Einbürgerungstest (No Ads) </span>Privacy Notice</span>
+                <span><span className="text-indigo-600">lebenindeutschland.org / Einbürgerungstest </span>Privacy Notice</span>
                 <div className="mt-2 text-lg text-gray-500">Last updated January 30, 2025</div>
             </CardHeader>
             <div className="w-full md:w-3/4 lg:w-1/2 px-6 py-4 rounded-lg shadow-md mb-8 text-center">
@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
                         <h3 className="text-xl font-semibold">1. Introduction</h3>
                     </CardHeader>
                     <div className="p-6">
-                        <p>Thank you for choosing to be part of our community at bitesinbyte, doing business as lebenindeutschland.org/Einbürgerungstest (No Ads) (&quot;lebenindeutschland,Einbürgerungstest (No Ads)&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello@bitesinbyte.com.</p>
+                        <p>Thank you for choosing to be part of our community at bitesinbyte, doing business as lebenindeutschland.org/Einbürgerungstest (&quot;lebenindeutschland,Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello@bitesinbyte.com.</p>
                     </div>
                 </Card>
                 <Card id="info-collection" className="shadow-md rounded-lg">
@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                     <div className="p-6">
                         <p>This privacy notice explains how we handle your information if you:</p>
                         <ul className="list-inside list-disc pl-6">
-                            <li>Download and use our mobile application — Einbürgerungstest (No Ads)</li>
+                            <li>Download and use our mobile application — Einbürgerungstest</li>
                             <li>Use our web application — lebenindeutschland.org</li>
                             <li>Interact with us in other ways, including sales, marketing, or events.</li>
                         </ul>
