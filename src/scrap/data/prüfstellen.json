@@ -403,10 +403,10 @@
         "regierungsbezirk": "Stadtkreis",
         "plz": 89073,
         "ort": "Ulm",
-        "einrichtung": "Ulmer VHS",
+        "einrichtung": "Ulmer Volkshochschule",
         "straße": "EinsteinHaus, Kornhausplatz 5",
-        "telefon": "0731-153033",
-        "email": "maier@vh-ulm.de"
+        "telefon": "0731-15300",
+        "email": "info@vh-ulm.de"
       },
       {
         "regierungsbezirk": "Stadtkreis",
@@ -869,8 +869,8 @@
         "ort": "München",
         "einrichtung": "Bildungsinstitut Kavalchuk",
         "straße": "Landwehrstr. 61",
-        "telefon": "089-21086845",
-        "email": "info@bik-courses.de"
+        "telefon": "",
+        "email": "einbuergerungstest@bik-courses.de "
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -1246,9 +1246,9 @@
         "plz": 86609,
         "ort": "Donauwörth",
         "einrichtung": "VHS Donauwörth",
-        "straße": "Reichsstr. 6",
+        "straße": "Spindeltal 5",
         "telefon": "0906-8070",
-        "email": "boeswald@vhs-don.de"
+        "email": "info@vhs-don.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -1840,7 +1840,7 @@
         "plz": 97318,
         "ort": "Kitzingen",
         "einrichtung": "Volkshochschule Kitzingen",
-        "straße": "Hindenburgring Süd 3",
+        "straße": "Paul-Eber-Haus, Schulhof 1",
         "telefon": "09321-92994545",
         "email": "vhs@stadt-kitzingen.de"
       },
