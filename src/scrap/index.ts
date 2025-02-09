@@ -298,7 +298,9 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
         }
 
         const data = await response.json();
-        return data.choices[0].message.content;
+        const category = data.choices[0].message.content;
+        console.log(`Found category for question ${question.num}: ${category}`);
+        return category;
     } catch (err) {
         console.error('Error translating text:', err);
         return null;
