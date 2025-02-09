@@ -162,7 +162,10 @@ async function scrapeData() {
         }
 
         for (let i = 0; i < allQuestion.length; i++) {
-            allQuestion[i].category = await findCategory(questions[i]);
+            if (!allQuestion[i].question) {
+                continue;
+            }
+            allQuestion[i].category = await findCategory(allQuestion[i]);
         }
 
         const dir = './data';
