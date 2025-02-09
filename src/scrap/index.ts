@@ -46,7 +46,8 @@ const scrap = async (url: string, state: string) => {
             d: '',
             solution: '',
             image: '-',
-            translation: {}
+            translation: {},
+            category: null
         };
         question.question = pageData(element).find("strong.font-semibold").text().trim();
         if (pageData(element).find("img").length > 0) {
@@ -160,6 +161,10 @@ async function scrapeData() {
             allQuestion[i] = await translate(allQuestion[i]);
         }
 
+        for (let i = 0; i < allQuestion.length; i++) {
+            allQuestion[i].category = await findCategory(questions[i]);
+        }
+
         const dir = './data';
         const filePath = path.join(dir, 'question.json');
 
@@ -243,6 +248,60 @@ async function scrapPrüfstellen() {
 
     } catch (error) {
         console.error('Error scraping data:', error);
+    }
+
+}
+
+async function findCategory(question: Question): Promise<"Rights & Freedoms" |
+    "Education & Religion" |
+    "Law & Governance" |
+    "Democracy & Politics" |
+    "Economy & Employment" |
+    "History & Geography" |
+    "Elections" |
+    "Press Freedom" |
+    "Assembly & Protests" |
+    "Federal System" |
+    "Constitution"> {
+    const systemPromptTemplate = `You are given a task to find category for below question. \
+    Your response should be only category from below list.\
+    'Rights & Freedoms', 'Education & Religion', 'Law & Governance',\
+    'Democracy & Politics', 'Economy & Employment', 'History & Geography',\
+    'Elections', 'Press Freedom', 'Assembly & Protests', 'Federal System', 'Constitution'\
+    <Question> \
+    Question - ${question.question}\
+    a:   ${question.a}\
+    b:   ${question.b}\
+    c:   ${question.c}\
+    d:   ${question.d}\
+    </Question>`
+    const url = process.env.AI_URL;
+    const headers = {
+        'api-key': process.env.AI_KEY,
+        'Content-Type': 'application/json'
+    };
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": systemPromptTemplate
+                    }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content;
+    } catch (err) {
+        console.error('Error translating text:', err);
+        return null;
     }
 }
 
