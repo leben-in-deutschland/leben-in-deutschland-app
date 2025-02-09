@@ -24,27 +24,36 @@ export default function Dashboard() {
   const [mockExamSelected, setMockExam] = useState<boolean>(false);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [resultDateTime, setResultDateTime] = useState<string>("");
+  const [permission, setPermission] = useState<string>("");
 
   useEffect(() => {
     if (!Capacitor.isNativePlatform()) {
       return;
     }
+    LocalNotifications.checkPermissions().then((permission) => {
+      setPermission(permission.display);
+    });
+  }, []);
 
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
     (async () => {
-      const permission = await LocalNotifications.checkPermissions();
       //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
-      if (permission.display === "granted") {
-        LocalNotifications.schedule({
+      if (permission === "granted") {
+        await LocalNotifications.schedule({
           notifications: [
             {
               title: "Don´t forget to study",
               body: "Continue your preparation for the Einbürgerungstest",
-              id: Math.floor(Math.random() * 1000000),
+              id: 65241,
               schedule: {
                 allowWhileIdle: true,
                 on: {
-                  hour: 12,
-                  minute: 0
+                  hour: 8,
+                  minute: 0,
+                  second: 0,
                 }
               },
             }
@@ -52,12 +61,12 @@ export default function Dashboard() {
         });
         return;
       }
-
-      else if (permission.display === "prompt" || permission.display === "prompt-with-rationale") {
-        await LocalNotifications.requestPermissions();
+      else if (permission === "prompt" || permission === "prompt-with-rationale") {
+        const resp = await LocalNotifications.requestPermissions();
+        setPermission(resp.display);
       }
     })();
-  }, []);
+  }, [permission]);
 
   useEffect(() => {
     let tempUser = getUserData();
