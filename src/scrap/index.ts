@@ -302,7 +302,7 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
         console.log(`Found category for question ${question.num}: ${category}`);
         return category;
     } catch (err) {
-        console.error('Error translating text:', err);
+        console.error('Error Category:', err);
         return null;
     }
 }
