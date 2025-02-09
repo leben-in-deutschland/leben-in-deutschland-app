@@ -262,7 +262,8 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
     "Press Freedom" |
     "Assembly & Protests" |
     "Federal System" |
-    "Constitution"> {
+    "Constitution" |
+    "General"> {
     const systemPromptTemplate = `You are given a task to find category for below question. \
     Your response should be only category from below list.\
     'Rights & Freedoms', 'Education & Religion', 'Law & Governance',\
@@ -303,7 +304,7 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
         return category;
     } catch (err) {
         console.error('Error Category:', err);
-        return null;
+        return "General";
     }
 }
 
