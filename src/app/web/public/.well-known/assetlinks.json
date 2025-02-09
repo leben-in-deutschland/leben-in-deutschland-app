@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls",
+            "delegate_permission/common.get_login_creds"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "org.lebenindeutschland.app",
+            "sha256_cert_fingerprints": [
+                "D7:A0:09:A1:1C:D7:15:83:C9:1B:B1:45:0B:62:AD:7B:DF:8E:45:05:B6:AF:2C:33:B0:4B:A9:9C:46:2D:D9:89"
+            ]
+        }
+    }
+]
