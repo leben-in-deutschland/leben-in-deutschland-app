@@ -9,6 +9,7 @@ import { StateProgress } from "./state-progress";
 import { User } from "@/types/user";
 import { Question } from "@/types/question";
 import { useRouter } from "next/navigation";
+import { CategoryStats } from "./category-progress";
 
 export const UserStats = ({ showMore, user, questions }: { showMore: boolean, user: User, questions: Question[] }) => {
     const router = useRouter();
@@ -41,9 +42,12 @@ export const UserStats = ({ showMore, user, questions }: { showMore: boolean, us
                 <MockTestProgress user={user} />
                 <StateProgress user={user} questions={questions} onPress={() => router.push("/prepare?action=state")} />
             </div>
-            <div hidden={!showMore}>
-                <CorrectIncorrectBar user={user} />
-            </div>
+            {showMore &&
+                <div hidden={!showMore}>
+                    <CategoryStats questions={questions} user={user} />
+                    <CorrectIncorrectBar user={user} />
+                </div>
+            }
         </div>
 
     );
