@@ -17,7 +17,6 @@ export default async function QuestionCatalogue({
 }) {
     const { state } = await params;
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
-    console.log("state", state);
     let questions = questionsData();
     const stateData = statesData();
     let stateName = "";
