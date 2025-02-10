@@ -49,7 +49,7 @@ export const CategoryStats = ({ user, questions }: { user: User, questions: Ques
             <CardBody>
                 <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:justify-between">
                     {data.map((categoryData, index) =>
-                        <Card className="card-stats border-none h-[300px]">
+                        <Card key={index} className="card-stats border-none h-[300px]">
                             <CardHeader className="flex justify-between">
                                 <span>{categoryData.key}</span>
                                 <Chip>{categoryData.totalQuestion}</Chip>
