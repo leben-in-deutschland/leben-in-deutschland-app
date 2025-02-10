@@ -1,3 +1,11 @@
+export const categories = ["Rights & Freedoms",
+    "Education & Religion", "Law & Governance",
+    "Democracy & Politics", "Economy & Employment",
+    "History & Geography", "Elections",
+    "Press Freedom", "Assembly & Protests",
+    "Federal System", "Constitution",
+    "General"];
+
 export interface Question {
     num: string;
     question: string;

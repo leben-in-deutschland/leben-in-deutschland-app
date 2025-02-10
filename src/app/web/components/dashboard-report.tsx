@@ -12,30 +12,15 @@ export default function DashboardReports({ user, questions }: { user: User, ques
             <div>
                 <UserStats showMore={showMoreReport} user={user} questions={questions} />
             </div>
-            <div hidden={showMoreReport} className="text-end">
+
+            <div className="text-end mt-2">
                 <Button
-                    onPress={() => setShowMoreReport(true)}
-                    as={Link}
-                    variant="light"
-                    style={{ backgroundColor: 'transparent' }}
-                    className="text-black"
+                    variant="bordered"
+                    onPress={() => setShowMoreReport(!showMoreReport)}
                     endContent={
                         <ArrowRightIcon />
                     }>
-                    Show More
-                </Button>
-            </div>
-            <div hidden={!showMoreReport} className="text-end">
-                <Button
-                    onPress={() => setShowMoreReport(false)}
-                    as={Link}
-                    variant="light"
-                    className="text-black"
-                    style={{ backgroundColor: 'transparent' }}
-                    endContent={
-                        <ArrowRightIcon />
-                    }>
-                    Hide
+                    {showMoreReport ? "Hide" : "Show More"}
                 </Button>
             </div>
         </div>
