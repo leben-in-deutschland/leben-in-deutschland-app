@@ -13,11 +13,11 @@ export async function generateStaticParams() {
 export default async function QuestionCatalogue({
     params,
 }: {
-    params: Promise<{ state: string }>
+    params: Promise<{ state: string }>,
 }) {
-    const { state } = await params
+    const { state } = await params;
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
-
+    console.log("state", state);
     let questions = questionsData();
     const stateData = statesData();
     let stateName = "";
@@ -43,8 +43,14 @@ export default async function QuestionCatalogue({
             <div className="flex flex-col gap-4">
                 {questions && questions.length > 0 &&
                     questions.map((question: Question) => <Card key={question.num}>
-                        <CardHeader>
+                        <CardHeader className="flex flex-col md:flex-row md:justify-between">
+                            <div className="md:hidden">
+                                {question.category && <Chip variant="dot" color="secondary">{question.category}</Chip>}
+                            </div>
                             <p className="font-bold text-xl">{question.num}. {question.question}</p>
+                            <div className="hidden md:flex">
+                                {question.category && <Chip variant="dot" color="secondary">{question.category}</Chip>}
+                            </div>
                         </CardHeader>
                         <CardBody className="justify-center">
                             <div className="grid gap-4">

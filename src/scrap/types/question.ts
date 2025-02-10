@@ -13,7 +13,8 @@ export interface Question {
     "Democracy & Politics" | "Economy & Employment" |
     "History & Geography" | "Elections" |
     "Press Freedom" | "Assembly & Protests" |
-    "Federal System" | "Constitution";
+    "Federal System" | "Constitution" |
+    "General";
 }
 export interface QuestionTranslation {
     question: string;

@@ -162,7 +162,10 @@ async function scrapeData() {
         }
 
         for (let i = 0; i < allQuestion.length; i++) {
-            allQuestion[i].category = await findCategory(questions[i]);
+            if (!allQuestion[i].question) {
+                continue;
+            }
+            allQuestion[i].category = await findCategory(allQuestion[i]);
         }
 
         const dir = './data';
@@ -262,7 +265,8 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
     "Press Freedom" |
     "Assembly & Protests" |
     "Federal System" |
-    "Constitution"> {
+    "Constitution" |
+    "General"> {
     const systemPromptTemplate = `You are given a task to find category for below question. \
     Your response should be only category from below list.\
     'Rights & Freedoms', 'Education & Religion', 'Law & Governance',\
@@ -298,10 +302,12 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
         }
 
         const data = await response.json();
-        return data.choices[0].message.content;
+        const category = data.choices[0].message.content;
+        console.log(`Found category for question ${question.num}: ${category}`);
+        return category;
     } catch (err) {
-        console.error('Error translating text:', err);
-        return null;
+        console.error('Error Category:', err);
+        return "General";
     }
 }
 

@@ -30,6 +30,8 @@ jobs:
           npm run prod
         env:
           TRANSLATOR_KEY: ${{ secrets.TRANSLATOR_KEY }}
+          AI_URL: ${{ secrets.AI_URL }}
+          AI_KEY: ${{ secrets.AI_KEY }}
 
       - name: Move
         run: |
