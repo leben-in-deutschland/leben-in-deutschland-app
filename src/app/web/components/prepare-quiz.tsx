@@ -345,10 +345,16 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 <div className="flex gap-6">
                     {currentQuestion &&
                         <Card>
-                            <CardHeader className="justify-between">
+                            <CardHeader className="flex flex-col md:flex-row md:justify-between">
+                                <div className="md:hidden">
+                                    {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
+                                </div>
                                 <div className="flex gap-3">
                                     <p className="font-extrabold text-xl">{currentQuestion.num}. </p>
                                     <p className="font-bold text-xl">{currentQuestion.question}</p>
+                                </div>
+                                <div className="hidden md:flex">
+                                    {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
                                 </div>
                             </CardHeader>
                             <CardBody>
