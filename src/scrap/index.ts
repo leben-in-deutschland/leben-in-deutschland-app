@@ -47,7 +47,8 @@ const scrap = async (url: string, state: string) => {
             solution: '',
             image: '-',
             translation: {},
-            category: null
+            category: null,
+            context: ''
         };
         question.question = pageData(element).find("strong.font-semibold").text().trim();
         if (pageData(element).find("img").length > 0) {
@@ -129,7 +130,8 @@ const translate = async (question: Question) => {
             { text: question.a },
             { text: question.b },
             { text: question.c },
-            { text: question.d }
+            { text: question.d },
+            { text: question.context }
         ];
 
         const translatedResults = await translateText(inputs, 'de', TARGET_LANGUAGES);
@@ -141,6 +143,7 @@ const translate = async (question: Question) => {
                 b: translatedResults[2].translations.find((t: any) => t.to === lang)?.text || '',
                 c: translatedResults[3].translations.find((t: any) => t.to === lang)?.text || '',
                 d: translatedResults[4].translations.find((t: any) => t.to === lang)?.text || '',
+                context: translatedResults[5].translations.find((t: any) => t.to === lang)?.text || ''
             };
         }
         question.translation = translations;
@@ -158,16 +161,13 @@ async function scrapeData() {
         const allQuestion = [...questions, ...stateQuestion];
 
         for (let i = 0; i < allQuestion.length; i++) {
-            allQuestion[i] = await translate(allQuestion[i]);
-        }
-
-        for (let i = 0; i < allQuestion.length; i++) {
             if (!allQuestion[i].question) {
                 continue;
             }
             allQuestion[i].category = await findCategory(allQuestion[i]);
+            allQuestion[i].context = await getContext(allQuestion[i]);
+            allQuestion[i] = await translate(allQuestion[i]);
         }
-
         const dir = './data';
         const filePath = path.join(dir, 'question.json');
 
@@ -255,6 +255,49 @@ async function scrapPrüfstellen() {
 
 }
 
+async function getContext(question: Question) {
+    const systemPromptTemplate = `You are given a task to find context for below question. \
+    Give context so that it will help understand the question.\
+    The generated text should not be more then 100 words.\
+    <Question> \
+        Question - ${question.question}\
+        a:   ${question.a}\
+        b:   ${question.b}\
+        c:   ${question.c}\
+        d:   ${question.d}\
+    </Question>`;
+    const url = process.env.AI_URL;
+    const headers = {
+        'api-key': process.env.AI_KEY,
+        'Content-Type': 'application/json'
+    };
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": systemPromptTemplate
+                    }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const category = data.choices[0].message.content;
+        console.log(`Fetched Context ${question.num}`);
+        return category;
+    } catch (err) {
+        console.error('Error Category:', err);
+        return "General";
+    }
+}
+
 async function findCategory(question: Question): Promise<"Rights & Freedoms" |
     "Education & Religion" |
     "Law & Governance" |
@@ -278,7 +321,7 @@ async function findCategory(question: Question): Promise<"Rights & Freedoms" |
     b:   ${question.b}\
     c:   ${question.c}\
     d:   ${question.d}\
-    </Question>`
+    </Question>`;
     const url = process.env.AI_URL;
     const headers = {
         'api-key': process.env.AI_KEY,

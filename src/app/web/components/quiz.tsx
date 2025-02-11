@@ -22,7 +22,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     const [resultOpen, setResultOpen] = useState<boolean>(false);
     const router = useRouter();
     const handleFlag = () => {
-        let index = currentMockData?.questions.findIndex(x => x.num === currentQuizQuestion.num) ?? -1;
+        let index = currentMockData?.questions.findIndex(x => x?.num === currentQuizQuestion?.num) ?? -1;
         if (index > -1 && currentMockData) {
             currentMockData.questions[index].flagged = !flagPressed;
             setCurrentMockData(currentMockData);
@@ -31,7 +31,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                 currentMockData.questions.push({
                     answeredCorrectly: false,
                     answerSelected: "",
-                    num: currentQuizQuestion.num,
+                    num: currentQuizQuestion?.num,
                     skipped: false,
                     flagged: !flagPressed
                 });
@@ -56,7 +56,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
             tempMockData.questions.push({
                 answeredCorrectly: false,
                 answerSelected: "",
-                num: randomQuestions[0].num,
+                num: randomQuestions[0]?.num,
                 skipped: false,
                 flagged: false
             });
@@ -71,18 +71,18 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
         }
 
         if (currentMockData) {
-            let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
+            let index = currentMockData.questions.findIndex(x => x?.num === currentQuizQuestion?.num);
             if (index > -1) {
                 let temp = currentMockData.questions[index];
                 temp.answeredCorrectly = currentQuizQuestion.solution === option;
                 temp.answerSelected = option;
-                temp.num = currentQuizQuestion.num;
+                temp.num = currentQuizQuestion?.num;
             }
             else {
                 currentMockData.questions.push({
                     answeredCorrectly: currentQuizQuestion.solution === option,
                     answerSelected: option,
-                    num: currentQuizQuestion.num,
+                    num: currentQuizQuestion?.num,
                     skipped: false,
                     flagged: false
                 });
@@ -95,7 +95,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     const handleNext = () => {
 
         if (currentMockData) {
-            let index = currentMockData.questions.findIndex(x => x.num === currentQuizQuestion.num);
+            let index = currentMockData.questions.findIndex(x => x?.num === currentQuizQuestion?.num);
             if (index > -1) {
                 let temp = currentMockData.questions[index];
                 temp.answeredCorrectly = currentQuizQuestion.solution === optionSelected;
@@ -106,12 +106,12 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                 currentMockData.questions.push({
                     answeredCorrectly: currentQuizQuestion.solution === optionSelected,
                     answerSelected: optionSelected,
-                    num: currentQuizQuestion.num,
+                    num: currentQuizQuestion?.num,
                     skipped: optionSelected === "",
                     flagged: flagPressed
                 });
             }
-            let indexCurrentQuestion = quizQuestions.findIndex((e) => e.num === currentQuizQuestion.num);
+            let indexCurrentQuestion = quizQuestions.findIndex((e) => e?.num === currentQuizQuestion?.num);
             if (indexCurrentQuestion >= 0) {
                 if (indexCurrentQuestion != quizQuestions.length - 1) {
                     let nextIndex = indexCurrentQuestion + 1;
@@ -169,12 +169,12 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
 
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
     const checkIfQuestionAlreadyPresentInArray = (questions: Question[], current: Question) => {
-        return questions.findIndex(x => x.num === current.num) > -1;
+        return questions.findIndex(x => x?.num === current?.num) > -1;
     };
 
     const generateRandomQuizQuestions = (user: User, questions: Question[]) => {
-        let allNonStateQuestions = questions.filter(x => isNumeric(x.num));
-        let allStateQuestions = questions.filter(x => x.num.startsWith(user.state.stateCode));
+        let allNonStateQuestions = questions.filter(x => isNumeric(x?.num));
+        let allStateQuestions = questions.filter(x => x?.num.startsWith(user.state.stateCode));
 
 
         let tempQuestions: Question[] = [];
@@ -201,7 +201,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
     const onChangeFromProgressBar = (index: number) => {
         let temp = quizQuestions[index];
         if (currentMockData) {
-            let tempIndex = currentMockData?.questions.findIndex(x => x.num === temp.num) ?? -1;
+            let tempIndex = currentMockData?.questions.findIndex(x => x?.num === temp?.num) ?? -1;
             if (tempIndex > -1) {
                 setOptionSelected(currentMockData?.questions[tempIndex].answerSelected ?? "");
                 setFlagPressed(currentMockData?.questions[tempIndex].flagged);
@@ -268,7 +268,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                                 </CardBody>
                                 <CardFooter className="flex gap-2">
                                     <div className="flex gap-1">
-                                        <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
+                                        <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x?.num === currentQuizQuestion.num) + 1}</p>
                                         <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
                                         <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
                                     </div>
@@ -279,8 +279,8 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                                         <Tooltip content="Flag for review">
                                             <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                         </Tooltip>
-                                        {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
-                                        {quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
+                                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                        {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
                                     </div>
                                 </CardFooter>
                             </Card>
@@ -294,7 +294,7 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                                     <QuizProgress
                                         questions={currentMockData.questions}
                                         onChangeFromProgressBar={onChangeFromProgressBar}
-                                        currentQuestionIndex={quizQuestions.findIndex(x => x.num === currentQuizQuestion.num)}
+                                        currentQuestionIndex={quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num)}
                                     />}
                             </div>
 

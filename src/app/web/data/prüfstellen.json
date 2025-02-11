@@ -419,6 +419,15 @@
       },
       {
         "regierungsbezirk": "Ostalbkreis",
+        "plz": 73492,
+        "ort": "Rainau",
+        "einrichtung": "VHS Ostalb e.V.",
+        "straße": "Strutrain 2",
+        "telefon": "07961-876-915",
+        "email": "silvia.Freitag@vhs-ostalb.de"
+      },
+      {
+        "regierungsbezirk": "Ostalbkreis",
         "plz": 73430,
         "ort": "Aalen",
         "einrichtung": "VHS Aalen",
@@ -3292,6 +3301,15 @@
         "email": "John.Nichol@Hannover-Stadt.de"
       },
       {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30159,
+        "ort": "Hannover",
+        "einrichtung": "Sprachakademie (VIB e.V.)",
+        "straße": "Goseriede 12d",
+        "telefon": "0511-51533441",
+        "email": "info@sprachakademie.org"
+      },
+      {
         "regierungsbezirk": "Lüneburg",
         "plz": 21335,
         "ort": "Lüneburg",
@@ -4492,6 +4510,15 @@
         "straße": "Lindenplatz 1",
         "telefon": "02303-103734",
         "email": "zib-vhs@stadt-unna.de"
+      },
+      {
+        "regierungsbezirk": "Ennepe-Ruhr-Kreis",
+        "plz": 58452,
+        "ort": "Witten",
+        "einrichtung": "Lernimpulse Witten e.V.",
+        "straße": "Berliner Str. 7",
+        "telefon": "02302-27863",
+        "email": "info@lernimpulse.de"
       },
       {
         "regierungsbezirk": "Ennepe-Ruhr-Kreis",

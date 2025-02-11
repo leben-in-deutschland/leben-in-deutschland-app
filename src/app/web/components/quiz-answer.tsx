@@ -15,7 +15,7 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
         let mockExamQuestions: Question[] = [];
         let tempAnswers: UserQuestionProgress[] = [];
         for (let i = 0; i < mockExam.questions.length; i++) {
-            let indexOfQuestion = questions.findIndex(x => x.num === mockExam.questions[i].num);
+            let indexOfQuestion = questions.findIndex(x => x?.num === mockExam.questions[i]?.num);
             if (indexOfQuestion > -1) {
                 mockExamQuestions.push(questions[indexOfQuestion]);
                 tempAnswers.push(mockExam.questions[i]);
@@ -29,7 +29,7 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
     }, []);
 
     const handleNext = () => {
-        let index = mockExamAnswers.findIndex(x => x.num === currentQuestion.num);
+        let index = mockExamAnswers.findIndex(x => x?.num === currentQuestion?.num);
         if (index > -1) {
             let newIndex = index + 1;
             setCurrentQuizQuestion(quizQuestions[newIndex]);
@@ -39,7 +39,7 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
 
     };
     const handleBack = () => {
-        let index = mockExamAnswers.findIndex(x => x.num === currentQuestion.num);
+        let index = mockExamAnswers.findIndex(x => x?.num === currentQuestion?.num);
         if (index > 0) {
             let newIndex = index - 1;
             setCurrentQuizQuestion(quizQuestions[newIndex]);
@@ -110,8 +110,8 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
                         <Tooltip content="Cancel Mock Test">
                             <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
                         </Tooltip>
-                        {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === 0) && <Button variant="solid" color="primary" onPress={handleBack}>Back</Button>}
-                        {!(quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === 0) && <Button variant="solid" color="primary" onPress={handleBack}>Back</Button>}
+                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
                     </div>
                 </CardFooter>
             </Card>

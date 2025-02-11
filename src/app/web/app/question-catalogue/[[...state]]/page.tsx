@@ -21,11 +21,11 @@ export default async function QuestionCatalogue({
     const stateData = statesData();
     let stateName = "";
     if (!state) {
-        questions = questions.filter(x => isNumeric(x.num));
+        questions = questions.filter(x => isNumeric(x?.num));
     }
     else {
-        questions = questions.filter(x => x.num.startsWith(state[0].toUpperCase()));
-        const index = stateData.findIndex(x => x.code.toUpperCase() === state[0].toUpperCase());
+        questions = questions.filter(x => x?.num.startsWith(state[0].toUpperCase()));
+        const index = stateData.findIndex(x => x?.code.toUpperCase() === state[0].toUpperCase());
 
         if (index > -1) {
             stateName = stateData[index].name;

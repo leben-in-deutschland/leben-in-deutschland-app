@@ -21,12 +21,12 @@ export const CategoryStats = ({ user, questions }: { user: User, questions: Ques
             skipped: 0,
             flagged: 0
         };
-        const totalQuestion = questions.filter((question) => question.category === category);
+        const totalQuestion = questions.filter((question) => question?.category === category);
         categoryData.totalQuestion = totalQuestion.length;
         const totalAttemptedQuestions: UserQuestionProgress[] = [];
 
         for (let question of totalQuestion) {
-            let questionData = user.questionProgress.find(x => x.num === question.num);
+            let questionData = user.questionProgress.find(x => x?.num === question?.num);
             if (questionData) {
                 totalAttemptedQuestions.push(questionData);
             }

@@ -64,14 +64,14 @@ export const Translation = ({
                         items={targetLanguages}
                         multiple={false}
                         selectedKeys={[currentLanguage]}
-
+                        className="w-1/2"
                         onChange={(e) => setCurrentLanguage(e.target.value)}
                     >
                         {(lang) => <SelectItem key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
                     </Select>
                 </ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white"><span className="font-bold">{question.num}.</span>  {currentLangTranslation?.question}</p>
+                    <p className="dark:text-white"><span className="font-bold">{question?.num}.</span>  {currentLangTranslation?.question}</p>
                     <p className="dark:text-white"><span className="font-bold">A.</span>  {currentLangTranslation?.a}</p>
                     <p className="dark:text-white"><span className="font-bold">B.</span>  {currentLangTranslation?.b}</p>
                     <p className="dark:text-white"><span className="font-bold">C.</span>  {currentLangTranslation?.c}</p>

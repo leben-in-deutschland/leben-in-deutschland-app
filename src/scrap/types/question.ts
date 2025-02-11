@@ -8,6 +8,7 @@ export interface Question {
     solution: string;
     image: string;
     translation: { [key: string]: QuestionTranslation } | null;
+    context: string;
     category: undefined | null | "Rights & Freedoms" |
     "Education & Religion" | "Law & Governance" |
     "Democracy & Politics" | "Economy & Employment" |
@@ -22,4 +23,5 @@ export interface QuestionTranslation {
     b: string;
     c: string;
     d: string;
+    context: string;
 }
