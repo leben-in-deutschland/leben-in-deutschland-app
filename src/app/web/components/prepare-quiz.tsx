@@ -11,6 +11,8 @@ import { TranslateIcon } from "@/icons/TranslateIcon";
 import { Translation } from "./models/translation";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { QuestionContext } from "./models/question-context";
+import { AssistantIcon } from "@/icons/AssistantIcon";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }:
@@ -20,7 +22,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         prepareQuestion: PrepareQuestionType,
     }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
-    const [questions, setPrepareQuestions] = useState<Question[]>(originalQuestions.filter(x => x.num.startsWith(user.state.stateCode) || isNumeric(x.num)));
+    const [questions, setPrepareQuestions] = useState<Question[]>(originalQuestions.filter(x => x?.num.startsWith(user.state.stateCode) || isNumeric(x?.num)));
     const [currentQuestion, setCurrentQuestion] = useState<Question>();
     const [isPreviousEnabled, setPreviousEnable] = useState<boolean>(false);
     const [optionSelected, setOptionSelected] = useState<string | null>(null);
@@ -36,7 +38,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         if (currentAction === PrepareQuestionActions.Prepare) {
             let tempQuestion: Question[] = [];
             for (let i = 0; i < questions.length; i++) {
-                if (user.questionProgress.findIndex(x => x.num === questions[i].num) > -1) {
+                if (user.questionProgress.findIndex(x => x?.num === questions[i]?.num) > -1) {
                     continue;
                 }
                 tempQuestion.push(questions[i]);
@@ -46,32 +48,32 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         }
         if (prepareQuestion.action === PrepareQuestionActions.State) {
             let stateQuestion: Question[] = [];
-            let current: Question[] = questions.filter(x => x.num.startsWith(user.state.stateCode));
+            let current: Question[] = questions.filter(x => x?.num.startsWith(user.state.stateCode));
 
             //Incorrect
-            let incorrectStatesQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && !x.answeredCorrectly);
+            let incorrectStatesQuestion = user.questionProgress.filter(x => x?.num.startsWith(user.state.stateCode) && !x.answeredCorrectly);
             for (let i = 0; i < incorrectStatesQuestion.length; i++) {
-                let incorrectQ = current.findIndex(x => x.num === incorrectStatesQuestion[i].num);
+                let incorrectQ = current.findIndex(x => x?.num === incorrectStatesQuestion[i]?.num);
                 if (incorrectQ > -1) {
                     stateQuestion.push(current[incorrectQ]);
                     current.splice(incorrectQ, 1);
                 }
             }
             //Skipped
-            let skippedStateQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.skipped);
-            let otherSkipped = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.answeredCorrectly === null && !x.flagged);
+            let skippedStateQuestion = user.questionProgress.filter(x => x?.num.startsWith(user.state.stateCode) && x.skipped);
+            let otherSkipped = user.questionProgress.filter(x => x?.num.startsWith(user.state.stateCode) && x.answeredCorrectly === null && !x.flagged);
             skippedStateQuestion = [...skippedStateQuestion, ...otherSkipped];
             for (let i = 0; i < skippedStateQuestion.length; i++) {
-                let skippedQ = current.findIndex(x => x.num === skippedStateQuestion[i].num);
+                let skippedQ = current.findIndex(x => x?.num === skippedStateQuestion[i]?.num);
                 if (skippedQ > -1) {
                     stateQuestion.push(current[skippedQ]);
                     current.splice(skippedQ, 1);
                 }
             }
             //Flagged
-            let flaggedStateQuestion = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) && x.flagged);
+            let flaggedStateQuestion = user.questionProgress.filter(x => x?.num.startsWith(user.state.stateCode) && x.flagged);
             for (let i = 0; i < flaggedStateQuestion.length; i++) {
-                let flaggedQ = current.findIndex(x => x.num === flaggedStateQuestion[i].num);
+                let flaggedQ = current.findIndex(x => x?.num === flaggedStateQuestion[i]?.num);
                 if (flaggedQ > -1) {
                     stateQuestion.push(current[flaggedQ]);
                     current.splice(flaggedQ, 1);
@@ -88,7 +90,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             let skipped = user.questionProgress.filter(x => x.skipped);
             skipped = [...otherSkipped, ...skipped];
             for (let i = 0; i < skipped.length; i++) {
-                let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
+                let indexSkipped = questions.findIndex(x => x?.num === skipped[i]?.num);
                 if (indexSkipped > -1) {
                     tempSkipped.push(questions[indexSkipped]);
                 }
@@ -100,7 +102,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             let tempFlagged: Question[] = [];
             let skipped = user.questionProgress.filter(x => x.flagged);
             for (let i = 0; i < skipped.length; i++) {
-                let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
+                let indexSkipped = questions.findIndex(x => x?.num === skipped[i]?.num);
                 if (indexSkipped > -1) {
                     tempFlagged.push(questions[indexSkipped]);
                 }
@@ -112,7 +114,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             let tempCorrect: Question[] = [];
             let skipped = user.questionProgress.filter(x => x.answeredCorrectly);
             for (let i = 0; i < skipped.length; i++) {
-                let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
+                let indexSkipped = questions.findIndex(x => x?.num === skipped[i]?.num);
                 if (indexSkipped > -1) {
                     tempCorrect.push(questions[indexSkipped]);
                 }
@@ -124,7 +126,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             let tempIncorrect: Question[] = [];
             let skipped = user.questionProgress.filter(x => !x.answeredCorrectly && x.answerSelected !== "");
             for (let i = 0; i < skipped.length; i++) {
-                let indexSkipped = questions.findIndex(x => x.num === skipped[i].num);
+                let indexSkipped = questions.findIndex(x => x?.num === skipped[i]?.num);
                 if (indexSkipped > -1) {
                     tempIncorrect.push(questions[indexSkipped]);
                 }
@@ -138,7 +140,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
 
     useEffect(() => {
         if (currentAction !== PrepareQuestionActions.Prepare && currentAction !== PrepareQuestionActions.Incorrect) {
-            let currentQuestionIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+            let currentQuestionIndex = user.questionProgress.findIndex(x => x?.num === currentQuestion?.num);
             if (currentQuestionIndex > -1) {
                 if (!user.questionProgress[currentQuestionIndex].skipped
                     && user.questionProgress[currentQuestionIndex].answerSelected !== ""
@@ -164,7 +166,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     };
 
     const nextQuestion = () => {
-        let indexCurrentQuestion = questions.findIndex((e) => e.num === currentQuestion?.num);
+        let indexCurrentQuestion = questions.findIndex((e) => e?.num === currentQuestion?.num);
         if (indexCurrentQuestion >= 0) {
             if (indexCurrentQuestion != questions.length - 1) {
                 let nextIndex = indexCurrentQuestion + 1;
@@ -178,7 +180,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         if (!disableSkip) {
             let newQuestion = nextQuestion();
             if (newQuestion !== null) {
-                let quesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+                let quesIndex = user.questionProgress.findIndex(x => x?.num === currentQuestion?.num);
                 if (quesIndex > -1) {
                     const oldProgress = user.questionProgress[quesIndex];
                     const newProgress = user.questionProgress[quesIndex];
@@ -211,7 +213,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
         }
         setDisableSkip(tempFlagData);
 
-        let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+        let currentQuesIndex = user.questionProgress.findIndex(x => x?.num === currentQuestion?.num);
 
         if (currentQuesIndex > -1) {
             const oldProgress = user.questionProgress[currentQuesIndex];
@@ -233,13 +235,13 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     };
 
     const handlePrevious = () => {
-        let indexCurrentQuestion = questions.findIndex((e) => e.num === currentQuestion?.num);
+        let indexCurrentQuestion = questions.findIndex((e) => e?.num === currentQuestion?.num);
         if (indexCurrentQuestion >= 0) {
             if (indexCurrentQuestion != 0) {
                 let prevIndex = indexCurrentQuestion - 1;
                 let prevQuestion = questions[prevIndex];
                 setCurrentQuestion(prevQuestion);
-                let historyIndex = user.questionProgress.findIndex((x) => x.num === prevQuestion.num);
+                let historyIndex = user.questionProgress.findIndex((x) => x?.num === prevQuestion?.num);
                 if (historyIndex > -1) {
                     if (!user.questionProgress[historyIndex].skipped) {
                         if (user.questionProgress[historyIndex].answerSelected !== "") {
@@ -266,7 +268,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             setBlockAnsweChange(true);
             setSubmitDisabled(true);
             setDisableSkip(true);
-            let currentQuesIndex = user.questionProgress.findIndex(x => x.num === currentQuestion?.num);
+            let currentQuesIndex = user.questionProgress.findIndex(x => x?.num === currentQuestion?.num);
             const oldProgress = user.questionProgress[currentQuesIndex];
             let newProgress: UserQuestionProgress = {
                 num: currentQuestion?.num ?? "",
@@ -319,8 +321,17 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     const closeTranslation = () => {
         setTranslateOpen(false)
     };
+
+    const [questionContextOpen, setQuestionContext] = useState<boolean>(false);
+    const openQuestionContext = () => {
+        setQuestionContext(true);
+    };
+    const closeQuestionContext = () => {
+        setQuestionContext(false)
+    };
     return (
         <>
+            {questionContextOpen && currentQuestion && <QuestionContext handleClose={closeQuestionContext} isModelOpen={questionContextOpen} question={currentQuestion} />}
             {translateOpen && currentQuestion && <Translation handleClose={closeTranslation} isModelOpen={translateOpen} question={currentQuestion} />}
             <div className="flex flex-col items-center gap-4 p-4">
                 <div className="flex gap-4 md:gap-6">
@@ -345,16 +356,11 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 <div className="flex gap-6">
                     {currentQuestion &&
                         <Card>
-                            <CardHeader className="flex flex-col md:flex-row md:justify-between">
-                                <div className="md:hidden">
-                                    {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
-                                </div>
+                            <CardHeader className="flex flex-col">
+                                {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
                                 <div className="flex gap-3">
-                                    <p className="font-extrabold text-xl">{currentQuestion.num}. </p>
+                                    <p className="font-extrabold text-xl">{currentQuestion?.num}. </p>
                                     <p className="font-bold text-xl">{currentQuestion.question}</p>
-                                </div>
-                                <div className="hidden md:flex">
-                                    {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
                                 </div>
                             </CardHeader>
                             <CardBody>
@@ -404,6 +410,11 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                     <Button
                                         onPress={openTranslate}
                                         className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
+                                </Tooltip>
+                                <Tooltip content="More Information - AI Generated">
+                                    <Button
+                                        onPress={openQuestionContext}
+                                        className="dark:invert" color="primary" variant="light" startContent={<AssistantIcon size={44} />}></Button>
                                 </Tooltip>
                                 <div className="flex justify-end gap-1 md:gap-4">
                                     <Tooltip content="Flag for review">

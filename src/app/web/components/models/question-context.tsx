@@ -1,8 +1,8 @@
 import { Question, QuestionTranslation } from "@/types/question";
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
+import { Alert, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
 import { useEffect, useState } from "react";
 
-export const Translation = ({
+export const QuestionContext = ({
     handleClose, isModelOpen, question }:
     {
         isModelOpen: boolean
@@ -10,6 +10,10 @@ export const Translation = ({
         question: Question
     }) => {
     const targetLanguages = [
+        {
+            langCode: 'de',
+            displayName: 'Deutsch'
+        },
         {
             langCode: 'en',
             displayName: 'English'
@@ -40,11 +44,15 @@ export const Translation = ({
         }
     ];
 
-    const [currentLangTranslation, setCurrentLangTranslation] = useState<QuestionTranslation | null>(question.translation ? question.translation["en"] : null);
-    const [currentLanguage, setCurrentLanguage] = useState<string>("en");
+    const [currentQuestionContext, setCurrentQuestionContext] = useState<string | null>(question.context);
+    const [currentLanguage, setCurrentLanguage] = useState<string>("de");
     useEffect(() => {
+        if (currentLanguage === "de") {
+            setCurrentQuestionContext(question.context);
+            return;
+        }
         if (question.translation) {
-            setCurrentLangTranslation(question.translation[currentLanguage])
+            setCurrentQuestionContext(question.translation[currentLanguage]?.context)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentLanguage]);
@@ -71,12 +79,11 @@ export const Translation = ({
                     </Select>
                 </ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white"><span className="font-bold">{question?.num}.</span>  {currentLangTranslation?.question}</p>
-                    <p className="dark:text-white"><span className="font-bold">A.</span>  {currentLangTranslation?.a}</p>
-                    <p className="dark:text-white"><span className="font-bold">B.</span>  {currentLangTranslation?.b}</p>
-                    <p className="dark:text-white"><span className="font-bold">C.</span>  {currentLangTranslation?.c}</p>
-                    <p className="dark:text-white"><span className="font-bold">D.</span>  {currentLangTranslation?.d}</p>
+                    <p className="dark:text-white">{currentQuestionContext}</p>
                 </ModalBody>
+                <ModalFooter>
+                    <Alert description="This article contains AI-generated text and may include errors. Please verify information and use your judgment." title="AI-Generated Content Disclaimer" color="warning" variant="bordered" />
+                </ModalFooter>
             </ModalContent>
 
         </Modal>

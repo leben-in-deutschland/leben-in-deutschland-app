@@ -9,8 +9,8 @@ import { useRouter } from "next/navigation";
 export default function PrepareQuestion({ questions, user }: { questions: Question[], user: User }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
 
-    let allQuestions = questions.filter(x => x.num.startsWith(user.state.stateCode) || isNumeric(x.num)).length;
-    let attempted = user.questionProgress.filter(x => x.num.startsWith(user.state.stateCode) || isNumeric(x.num)).length;
+    let allQuestions = questions.filter(x => x?.num.startsWith(user.state.stateCode) || isNumeric(x?.num)).length;
+    let attempted = user.questionProgress.filter(x => x?.num.startsWith(user.state.stateCode) || isNumeric(x?.num)).length;
 
     const router = useRouter()
     return (
