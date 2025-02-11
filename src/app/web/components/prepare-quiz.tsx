@@ -146,14 +146,15 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                     && user.questionProgress[currentQuestionIndex].answerSelected !== ""
                     && user.questionProgress[currentQuestionIndex].answeredCorrectly) {
                     setShowSolution(true);
+                    setNextEnabled(true);
                 }
                 setOptionSelected(user.questionProgress[currentQuestionIndex].answerSelected);
                 if (user.questionProgress[currentQuestionIndex].answeredCorrectly) {
                     setSubmitDisabled(true);
+                    setNextEnabled(true);
                 }
                 setFlagPressed(user.questionProgress[currentQuestionIndex].flagged);
             }
-            setNextEnabled(true);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentAction, currentQuestion]);
@@ -420,7 +421,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                     <Tooltip content="Flag for review">
                                         <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                     </Tooltip>
-                                    <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>
+                                    {!nextEnabled && <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>}
                                     {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
                                 </div>
                             </CardFooter>
