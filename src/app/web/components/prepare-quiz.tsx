@@ -245,7 +245,8 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 let historyIndex = user.questionProgress.findIndex((x) => x?.num === prevQuestion?.num);
                 if (historyIndex > -1) {
                     if (!user.questionProgress[historyIndex].skipped) {
-                        if (user.questionProgress[historyIndex].answerSelected !== "") {
+                        if (user.questionProgress[historyIndex].answerSelected !== "" &&
+                            user.questionProgress[historyIndex].answerSelected !== null) {
                             setOptionSelected(user.questionProgress[historyIndex].answerSelected);
                             setShowSolution(true);
                             setNextEnabled(true);
