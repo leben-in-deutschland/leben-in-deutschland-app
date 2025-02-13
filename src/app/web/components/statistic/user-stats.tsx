@@ -13,9 +13,7 @@ import { CategoryStats } from "./category-progress";
 
 export const UserStats = ({ showMore, user, questions }: { showMore: boolean, user: User, questions: Question[] }) => {
     const router = useRouter();
-    let skipped = user.questionProgress.filter(x => x.skipped).length;
-    let otherSkipped = user.questionProgress.filter(x => x.answeredCorrectly === null && !x.flagged).length;
-    skipped += otherSkipped;
+
     let flagged = user.questionProgress.filter(x => x.flagged).length;
     let correct = user.questionProgress.filter(x => x.answeredCorrectly !== null && x.answeredCorrectly).length;
     let incorrect = user.questionProgress.filter(x => x.answeredCorrectly !== null && !x.answeredCorrectly).length;
@@ -23,6 +21,17 @@ export const UserStats = ({ showMore, user, questions }: { showMore: boolean, us
     let mockAttempted = user.testProgress.length;
     let mockPassed = user.testProgress.filter(x => x.passed).length;
     let mockFailed = user.testProgress.filter(x => !x.passed).length;
+    const getSkipped = () => {
+        let skipped = user.questionProgress.filter(x => x.skipped);
+        let otherSkipped = user.questionProgress.filter(x => x.answeredCorrectly === null && !x.flagged);
+        for (let i = 0; i < otherSkipped.length; i++) {
+            if (!skipped.find(x => x.num === otherSkipped[i].num)) {
+                skipped.push(otherSkipped[i]);
+            }
+        }
+        return skipped.length;
+    };
+    let skipped = getSkipped();
     return (
         <div className="grid gap-y-5">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5">

@@ -191,9 +191,9 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                     const newProgress: UserQuestionProgress = {
                         num: currentQuestion?.num ?? "",
                         skipped: true,
-                        answerSelected: "",
+                        answerSelected: null,
                         flagged: false,
-                        answeredCorrectly: false,
+                        answeredCorrectly: null,
 
                     };
                     user.questionProgress.push(newProgress);
@@ -201,7 +201,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 }
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
-                setFlagPressed(false);
             }
         }
     };
@@ -209,11 +208,6 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
     const handleFlag = () => {
         const tempFlagData = !flagPressed;
         setFlagPressed(tempFlagData);
-        if (currentQuestion?.solution !== optionSelected) {
-            setNextEnabled(tempFlagData);
-        }
-        setDisableSkip(tempFlagData);
-
         let currentQuesIndex = user.questionProgress.findIndex(x => x?.num === currentQuestion?.num);
 
         if (currentQuesIndex > -1) {
