@@ -10,7 +10,7 @@ import {
     Legend,
 } from 'chart.js';
 
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -19,7 +19,7 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-export const CorrectIncorrectBar = ({ user }: { user: User }) => {
+export const CorrectIncorrectLine = ({ user }: { user: User }) => {
     let todayDate = new Date();
 
     let labels: string[] = [];
@@ -49,7 +49,7 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                 <h6 className="text-gray-400"> Past 30 days</h6>
             </CardHeader>
             <CardBody>
-                <Bar
+                <Line
                     options={{
                         responsive: true,
                         scales: {
@@ -63,12 +63,10 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                         plugins: {
                             legend: {
                                 position: "top",
-                                align: "start",
-                                labels: {
-                                    boxWidth: 7,
-                                    usePointStyle: true,
-                                    pointStyle: "circle"
-                                },
+                            },
+                            title: {
+                                display: true,
+                                text: 'Correct vs Incorrect',
                             },
                         },
                     }}
@@ -80,20 +78,14 @@ export const CorrectIncorrectBar = ({ user }: { user: User }) => {
                                 data: correctData,
                                 backgroundColor: 'rgba(65, 239, 106, 0.2)',
                                 borderColor: "rgba(65, 239, 106, 1)",
-                                barThickness: 10,
-                                borderRadius: 30,
-
-                                categoryPercentage: 1,
                                 borderWidth: 2
+
                             },
                             {
                                 label: 'Incorrect',
                                 data: incorrectData,
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                                 borderColor: "rgba(255, 99, 132, 1)",
-                                barThickness: 10,
-                                borderRadius: 30,
-                                categoryPercentage: 1,
                                 borderWidth: 2
                             }]
                     }

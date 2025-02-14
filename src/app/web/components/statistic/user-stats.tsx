@@ -2,7 +2,7 @@
 
 import { ProgressLine } from "./progress-line";
 import { TodayProgress } from "./today-progress";
-import { CorrectIncorrectBar } from "./correct-incorrect-bar";
+import { CorrectIncorrectLine } from "./correct-incorrect-line";
 import { MockTestProgress } from "./mock-test-progress";
 import { NumberProgress } from "./number-progress";
 import { StateProgress } from "./state-progress";
@@ -54,7 +54,7 @@ export const UserStats = ({ showMore, user, questions }: { showMore: boolean, us
             {showMore &&
                 <div hidden={!showMore}>
                     <CategoryStats questions={questions} user={user} />
-                    <CorrectIncorrectBar user={user} />
+                    <CorrectIncorrectLine user={user} />
                 </div>
             }
         </div>

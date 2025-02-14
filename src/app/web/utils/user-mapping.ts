@@ -44,30 +44,24 @@ export const createUserStats = (
             }
             break;
         case "SUBMIT":
-            attemptedDelta = 1;
-            if (newProgress.answeredCorrectly) {
-                if (!safeOld.answeredCorrectly) {
-                    correctDelta = 1;
-                    if (safeOld.answeredCorrectly === false) {
-                        incorrectDelta = -1;
+            if (newProgress.answeredCorrectly !== null) {
+                if (newProgress.answeredCorrectly) {
+                    if (!safeOld.answeredCorrectly) {
+                        correctDelta = 1;
+                    }
+                } else {
+                    if (safeOld.answeredCorrectly) {
+                        correctDelta = -1;
+                        incorrectDelta = 1;
+                    } else {
+                        incorrectDelta = 1;
                     }
                 }
-            } else {
-                if (safeOld.answeredCorrectly) {
-                    correctDelta = -1;
-                    incorrectDelta = 1;
-                } else {
-                    incorrectDelta = 1;
-                }
-            }
-            if (newProgress.flagged !== safeOld.flagged) {
-                flaggedDelta = newProgress.flagged ? 1 : -1;
-            }
-            if (!newProgress.flagged && newProgress.answeredCorrectly !== null) {
-                skippedDelta = -1;
+                attemptedDelta = 1;
             }
             break;
     }
+
     dailyStats.attempted = Math.max(0, dailyStats.attempted + attemptedDelta);
     dailyStats.correct = Math.max(0, dailyStats.correct + correctDelta);
     dailyStats.incorrect = Math.max(0, dailyStats.incorrect + incorrectDelta);
