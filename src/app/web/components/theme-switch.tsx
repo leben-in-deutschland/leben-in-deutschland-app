@@ -4,41 +4,58 @@ import { MoonFilledIcon } from "@/icons/MoonFilledIcon";
 import { SunFilledIcon } from "@/icons/SunFilledIcon";
 import { Capacitor } from "@capacitor/core";
 import { StatusBar, Style } from "@capacitor/status-bar";
-import { Switch } from "@heroui/switch";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
+import { Button } from "@heroui/button";
+import { SunMoonIcon } from "@/icons/SunMoonIcon";
+import { useEffect } from "react";
 
 export const ThemeSwitch = () => {
     const { theme, setTheme } = useTheme();
-    const [isSelected, setIsSelected] = useState(!(theme === "light"));
-    const onChange = () => {
-        theme === "light" ? setTheme("dark") : setTheme("light");
-        setIsSelected(theme === "light");
+
+    const onChange = (newTheme: string) => {
+        setTheme(newTheme)
     };
 
     useEffect(() => {
         if (Capacitor.isNativePlatform()) {
-            const style = theme === "light" ? Style.Light : Style.Dark;
-            const backgroundColor = theme === "light" ? "#FFFFFF" : "#000000";
+            let tempTheme = theme;
+            if (theme === "system") {
+                const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+                tempTheme = darkModePreference.matches ? "dark" : "light";
+            }
+            const style = tempTheme === "light" ? Style.Light : Style.Dark;
+            const backgroundColor = tempTheme === "light" ? "#FFFFFF" : "#000000";
             EdgeToEdge.setBackgroundColor({ color: backgroundColor });
             StatusBar.setBackgroundColor({ color: backgroundColor });
             StatusBar.setStyle({ style: style });
-        };
+        }
     }, [theme]);
 
     return (
-        <div className="h-auto bg-transparent rounded-lg justify-center group-data-[selected=true]:bg-transparent !text-default-500">
-            <Switch
-                defaultSelected
-                size="lg"
-                color="success"
-                startContent={<SunFilledIcon />}
-                endContent={<MoonFilledIcon />}
-                isSelected={isSelected}
-                onChange={onChange}
-            >
-            </Switch>
+        <div className="flex gap-1">
+            {theme &&
+                <>
+                    <Button
+                        variant={theme === "light" ? "bordered" : "light"}
+                        color={theme === "light" ? "primary" : "default"}
+                        onPress={() => onChange("light")}
+                        isIconOnly
+                        startContent={<SunFilledIcon />} />
+                    <Button
+                        variant={theme === "system" ? "bordered" : "light"}
+                        color={theme === "system" ? "primary" : "default"}
+                        onPress={() => onChange("system")}
+                        isIconOnly
+                        startContent={<SunMoonIcon />} />
+                    <Button
+                        variant={theme === "dark" ? "bordered" : "light"}
+                        color={theme === "dark" ? "primary" : "default"}
+                        onPress={() => onChange("dark")}
+                        isIconOnly
+                        startContent={<MoonFilledIcon />} />
+                </>
+            }
         </div>
     );
 };

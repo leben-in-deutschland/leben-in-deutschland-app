@@ -108,7 +108,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-adsense-account" content="ca-pub-2889277787752693" />
       </head>
       <body
         className={clsx(
@@ -117,7 +116,7 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        <Providers themeProps={{ attribute: "class", enableSystem: false, defaultTheme: "light" }}>
+        <Providers themeProps={{ attribute: "class", enableSystem: true }}>
           <div className="flex flex-col min-h-screen">
             <NavigationBar />
             <main className="container mx-auto flex flex-col flex-grow w-full p-4">
