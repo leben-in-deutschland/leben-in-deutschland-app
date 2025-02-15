@@ -4,6 +4,7 @@ export interface User {
     dailyProgress: UserDailyProgress[];
     questionProgress: UserQuestionProgress[];
     testProgress: MockTestProgress[];
+    appLanguage: string;
 }
 
 export interface MockTestProgress {

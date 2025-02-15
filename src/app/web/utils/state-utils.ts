@@ -12,6 +12,7 @@ export const saveStateChange = (state: State) => {
         questionProgress: [],
         id: "",
         testProgress: [],
+        appLanguage: "de",
     }
     let today = new Date().toDateString();
     data.dailyProgress.push({
