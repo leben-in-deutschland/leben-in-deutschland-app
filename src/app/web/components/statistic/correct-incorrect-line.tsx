@@ -19,7 +19,7 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-export const CorrectIncorrectLine = ({ user }: { user: User }) => {
+export const CorrectIncorrectLine = ({ user, translation }: { user: User, translation: any }) => {
     let todayDate = new Date();
 
     let labels: string[] = [];
@@ -44,9 +44,9 @@ export const CorrectIncorrectLine = ({ user }: { user: User }) => {
         <Card className="card-stats border-none">
             <CardHeader className="justify-between">
                 <h2 className="font-bold text-uppercase text-muted">
-                    Report
+                    {translation.correct_incorrect_title}
                 </h2>
-                <h6 className="text-gray-400"> Past 30 days</h6>
+                <h6 className="text-gray-400">{translation.correct_incorrect_subtitle}</h6>
             </CardHeader>
             <CardBody>
                 <Line
@@ -66,7 +66,7 @@ export const CorrectIncorrectLine = ({ user }: { user: User }) => {
                             },
                             title: {
                                 display: true,
-                                text: 'Correct vs Incorrect',
+                                text: `${translation.correct_incorrect_title}`,
                             },
                         },
                     }}
@@ -74,7 +74,7 @@ export const CorrectIncorrectLine = ({ user }: { user: User }) => {
                         labels: labels,
                         datasets: [
                             {
-                                label: 'Correct',
+                                label: `${translation.correct}`,
                                 data: correctData,
                                 backgroundColor: 'rgba(65, 239, 106, 0.2)',
                                 borderColor: "rgba(65, 239, 106, 1)",
@@ -82,7 +82,7 @@ export const CorrectIncorrectLine = ({ user }: { user: User }) => {
 
                             },
                             {
-                                label: 'Incorrect',
+                                label: `${translation.incorrect}`,
                                 data: incorrectData,
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                                 borderColor: "rgba(255, 99, 132, 1)",

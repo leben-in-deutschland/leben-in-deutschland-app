@@ -5,7 +5,7 @@ import { MockTestProgress, UserQuestionProgress } from "@/types/user";
 import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Image, Tooltip } from "@heroui/react";
 import { useEffect, useState } from "react";
 
-export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam: MockTestProgress, questions: Question[], handleQuizCancel: any }) => {
+export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel }: { translation: any, mockExam: MockTestProgress, questions: Question[], handleQuizCancel: any }) => {
     const [currentQuestion, setCurrentQuestion] = useState<UserQuestionProgress>(mockExam.questions[0]);
     const [mockExamAnswers, setMockExamAnswer] = useState<UserQuestionProgress[]>(mockExam.questions);
     const [currentQuizQuestion, setCurrentQuizQuestion] = useState<Question>(questions[0]);
@@ -108,10 +108,10 @@ export const QuizAnswer = ({ mockExam, questions, handleQuizCancel }: { mockExam
                     </div>
                     <div className="flex">
                         <Tooltip content="Cancel Mock Test">
-                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
+                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>{translation.cancel}</Button>
                         </Tooltip>
-                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === 0) && <Button variant="solid" color="primary" onPress={handleBack}>Back</Button>}
-                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === 0) && <Button variant="solid" color="primary" onPress={handleBack}>{translation.back}</Button>}
+                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>{translation.next}</Button>}
                     </div>
                 </CardFooter>
             </Card>

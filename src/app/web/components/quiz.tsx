@@ -10,7 +10,7 @@ import { SubmitWarning } from "./models/submit-warning";
 import { useRouter } from "next/navigation";
 import { MockResult } from "./models/mock-result";
 
-export const Quiz = ({ user, questions }: { user: User, questions: Question[] }) => {
+export const Quiz = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
     const [currentQuizQuestion, setCurrentQuizQuestion] = useState<Question>(quizQuestions[0]);
     const [optionSelected, setOptionSelected] = useState<string>("");
@@ -42,7 +42,6 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
 
     useEffect(() => {
         let randomQuestions = generateRandomQuizQuestions(user, questions);
-        console.log(randomQuestions);
         setQuizQuestions(randomQuestions);
         setCurrentQuizQuestion(randomQuestions[0]);
         if (!currentMockData) {
@@ -274,24 +273,25 @@ export const Quiz = ({ user, questions }: { user: User, questions: Question[] })
                                     </div>
                                     <div className="flex">
                                         <Tooltip content="Cancel Mock Test">
-                                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>Cancel</Button>
+                                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>{translation.cancel}</Button>
                                         </Tooltip>
                                         <Tooltip content="Flag for review">
                                             <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                         </Tooltip>
-                                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>Next</Button>}
-                                        {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>Submit</Button>}
+                                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>{translation.next}</Button>}
+                                        {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>{translation.submit}</Button>}
                                     </div>
                                 </CardFooter>
                             </Card>
                         </div>
                         <div className="grid">
                             <div className="">
-                                <Countdown handleTimeComplete={handleTimeComplete} />
+                                <Countdown handleTimeComplete={handleTimeComplete} translation={translation} />
                             </div>
                             <div>
                                 {currentMockData &&
                                     <QuizProgress
+                                        translation={translation}
                                         questions={currentMockData.questions}
                                         onChangeFromProgressBar={onChangeFromProgressBar}
                                         currentQuestionIndex={quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num)}

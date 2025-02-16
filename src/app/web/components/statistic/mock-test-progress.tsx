@@ -2,7 +2,7 @@ import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 import { Doughnut } from "react-chartjs-2";
 
-export const MockTestProgress = ({ user }: { user: User }) => {
+export const MockTestProgress = ({ user, translation }: { user: User, translation: any }) => {
     let cancelledMock = user.testProgress.filter(x => x.cancelled).length;
     let passedMock = user.testProgress.filter(x => x.passed).length;
     let failedMock = user.testProgress.filter(x => !x.passed).length;
@@ -12,7 +12,7 @@ export const MockTestProgress = ({ user }: { user: User }) => {
 
                 <CardHeader className="justify-center">
                     <h2 className="font-bold text-uppercase text-muted">
-                        Mock Tests
+                        {translation.main_mock_title}
                     </h2>
                 </CardHeader>
                 <CardBody className="items-center">
@@ -30,7 +30,7 @@ export const MockTestProgress = ({ user }: { user: User }) => {
                             }
                         }}
                         data={{
-                            labels: ["Passed", "Failed", "Cancelled"],
+                            labels: [`${translation.passed}`, `${translation.failed}`, `${translation.cancelled}`],
                             datasets: [
                                 {
                                     data: [passedMock, failedMock, cancelledMock],

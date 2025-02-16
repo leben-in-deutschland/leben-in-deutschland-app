@@ -6,7 +6,7 @@ import { saveStateChange } from "@/utils/state-utils";
 import { Card, CardBody, CardHeader, Image } from "@heroui/react";
 import { useEffect, useState } from "react";
 
-export default function StateSelect() {
+export default function StateSelect({ translation }: { translation: any }) {
     const [states, setStates] = useState<State[]>([]);
 
     useEffect(() => {
@@ -21,8 +21,8 @@ export default function StateSelect() {
     return (
         <div className="content-center">
             <div className="mb-10 text-center">
-                <p className="font-bold text-2xl text-black dark:text-white">Select your state</p>
-                <p className="text-xl text-black dark:text-white">The test contains specific questions for your state</p>
+                <p className="font-bold text-2xl text-black dark:text-white">{translation.state_title}</p>
+                <p className="text-xl text-black dark:text-white">{translation.state_subtitle}</p>
             </div>
             <div className="content-center gap-3 grid grid-cols-2 sm:grid-cols-4">
                 {states && states.length > 0 && states.map((state: State) => (

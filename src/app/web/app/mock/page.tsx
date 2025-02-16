@@ -2,7 +2,7 @@
 
 import { Quiz } from "@/components/quiz";
 import StateSelect from "@/components/state-select";
-import { questionsData } from "@/data/data";
+import { getTranslations, questionsData } from "@/data/data";
 import { getUserData } from "@/services/user";
 import { Question } from "@/types/question";
 import { User } from "@/types/user";
@@ -35,11 +35,11 @@ export default function Mock() {
         let questions = questionsData();
         setQuestions(questions);
     }, []);
-
+    const allTranslations = getTranslations(user?.appLanguage ?? "de");
     return (
         <div className="content-center">
-            {!user?.state.stateName && <StateSelect />}
-            {user && questions && questions.length > 0 && <Quiz questions={questions} user={user} />}
+            {!user?.state.stateName && <StateSelect translation={allTranslations} />}
+            {user && questions && questions.length > 0 && <Quiz questions={questions} user={user} translation={allTranslations} />}
         </div>
     );
 }

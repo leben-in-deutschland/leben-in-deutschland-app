@@ -2,7 +2,7 @@
 
 import PrepareQuiz from "@/components/prepare-quiz";
 import StateSelect from "@/components/state-select";
-import { questionsData } from "@/data/data";
+import { getTranslations, questionsData } from "@/data/data";
 import { getUserData } from "@/services/user";
 import { PrepareQuestionActions } from "@/types/prepare-question";
 import { Question } from "@/types/question";
@@ -55,12 +55,15 @@ export default function Prepare() {
         let questions = questionsData();
         setQuestions(questions);
     }, []);
-
+    const allTranslations = getTranslations(user?.appLanguage ?? "de");
     return (
         <div className="content-center">
-            {!user?.state.stateName && <StateSelect />}
+            {!user?.state.stateName && <StateSelect translation={allTranslations} />}
             {questions && questions.length > 0 && user &&
-                <PrepareQuiz originalQuestions={questions} user={user}
+                <PrepareQuiz
+                    translations={allTranslations}
+                    originalQuestions={questions}
+                    user={user}
                     prepareQuestion={{ selected: false, action: getAction(action) }} />
             }
         </div>

@@ -6,7 +6,7 @@ import { Doughnut } from "react-chartjs-2";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { useRouter } from "next/navigation";
 
-export default function PrepareQuestion({ questions, user }: { questions: Question[], user: User }) {
+export default function PrepareQuestion({ questions, user, translation }: { questions: Question[], user: User, translation: any }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
 
     let allQuestions = questions.filter(x => x?.num.startsWith(user.state.stateCode) || isNumeric(x?.num)).length;
@@ -22,7 +22,7 @@ export default function PrepareQuestion({ questions, user }: { questions: Questi
                     <CardHeader className="justify-between">
                         <div className="flex gap-10 ">
                             <h2 className="font-bold text-uppercase text-muted">
-                                Prepare
+                                {translation.dashboard_prepate_button_text}
                             </h2>
                             <p className="flex">
                                 <Tooltip content="Attempted">

@@ -3,12 +3,12 @@ import { TickIcon } from "@/icons/TickIcon";
 import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 
-export default function MockHistory({ user, handleHistoryPress }: { user: User, handleHistoryPress: any }) {
+export default function MockHistory({ user, handleHistoryPress, translation }: { user: User, handleHistoryPress: any, translation: any }) {
     return (
         <Card className="card-stats">
             <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
-                    Mock Test History
+                    {translation.dashboard_mock_test_history}
                 </h2>
             </CardHeader>
             <CardBody>
@@ -27,19 +27,19 @@ export default function MockHistory({ user, handleHistoryPress }: { user: User, 
                                         <p className="font-bold text-[5%] text-gray-500">{new Date(x.datetime).toLocaleTimeString()}</p>
                                     </div>
                                     <div className="bg-gray-300 rounded-xl p-2">
-                                        <p className="text-black font-bold">Time Taken</p>
-                                        <p className="text-black">{(Number(x.timeTake) / 60).toFixed(2)} <span className="font-bold text-[5%] text-gray-500">minutes</span></p>
+                                        <p className="text-black font-bold">{translation.time_taken}</p>
+                                        <p className="text-black">{(Number(x.timeTake) / 60).toFixed(2)} <span className="font-bold text-[5%] text-gray-500">{translation.minutes}</span></p>
                                     </div>
                                     <div className="bg-green-400 rounded-xl p-2">
-                                        <p className="text-black font-bold">Correct</p>
+                                        <p className="text-black font-bold">{translation.correct}</p>
                                         <p className="font-extrabold">{x.questions.filter(x => x.answeredCorrectly).length}</p>
                                     </div>
                                     <div className="bg-red-400 rounded-xl p-2">
-                                        <p className="text-black font-bold">Incorrect</p>
+                                        <p className="text-black font-bold">{translation.incorrect}</p>
                                         <p className="font-extrabold">{x.questions.filter(x => !x.answeredCorrectly).length}</p>
                                     </div>
                                     <div className="bg-gray-400 rounded-xl p-2">
-                                        <p className="text-black font-bold">Result</p>
+                                        <p className="text-black font-bold">{translation.result}</p>
                                         {x.passed ? <p className="text-center text-green-700"><TickIcon /> </p> : <p className="text-center text-red-700"><CrossIcon /> </p>}
 
                                     </div>

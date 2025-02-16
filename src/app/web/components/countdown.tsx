@@ -1,7 +1,7 @@
 import { CardHeader, Card, CardBody } from "@heroui/react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-export const Countdown = ({ handleTimeComplete }: { handleTimeComplete: any }) => {
+export const Countdown = ({ handleTimeComplete, translation }: { handleTimeComplete: any, translation: any }) => {
     const hourSeconds = 3600;
 
     const renderTime = ({ remainingTime }) => {
@@ -24,7 +24,7 @@ export const Countdown = ({ handleTimeComplete }: { handleTimeComplete: any }) =
         <Card>
             <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
-                    Time Remaining
+                    {translation.time_remaining}
                 </h2>
             </CardHeader>
             <CardBody className="items-center">

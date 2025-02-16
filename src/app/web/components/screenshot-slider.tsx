@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Image } from "@heroui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-export default function ScreenshotSlider() {
+export default function ScreenshotSlider({ title }: { title: string }) {
     var settings = {
         dots: true,
         infinite: true,
@@ -15,7 +15,7 @@ export default function ScreenshotSlider() {
         <>
             <div style={{ textAlign: "center", marginBottom: "20px" }}>
                 <span className="font-extrabold flashing-text" style={{ fontSize: "24px", color: "#ff5722" }}>
-                    Try our mobile app!! Available only for Android
+                    {title}
                 </span>
             </div>
             <Slider {...settings}>

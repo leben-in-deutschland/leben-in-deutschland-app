@@ -15,11 +15,12 @@ import { QuestionContext } from "./models/question-context";
 import { AssistantIcon } from "@/icons/AssistantIcon";
 
 
-export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }:
+export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, translations }:
     {
         originalQuestions: Question[],
         user: User,
         prepareQuestion: PrepareQuestionType,
+        translations: any
     }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
     const [questions, setPrepareQuestions] = useState<Question[]>(originalQuestions.filter(x => x?.num.startsWith(user.state.stateCode) || isNumeric(x?.num)));
@@ -282,7 +283,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
             createUserStats(newProgress, oldProgress, user, "SUBMIT");
         }
         else {
-            toast.error("Please select an answer before submitting");
+            toast.error(translations.prepare_alert_answer_submit);
         }
     };
     const handleNext = () => {
@@ -299,7 +300,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
             } else {
-                toast.success("You have attempted all of the questions.", {
+                toast.success(translations.prepare_alert_attempted_all, {
                     style: {
                         backgroundColor: '#A9FFD8'
                     }
@@ -307,7 +308,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                 router.push("/dashboard");
             }
         } else {
-            toast.error("Please submit you answer.");
+            toast.error(translations.prepare_alert_submit);
         }
     };
     const [translateOpen, setTranslateOpen] = useState<boolean>(false);
@@ -337,7 +338,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                         onPress={handlePrevious}
                         className="font-bold"
                         color="secondary"
-                    > Previous</Button>
+                    > {translations.previous}</Button>
 
 
                     <Button endContent={<ArrowRightIcon />}
@@ -346,7 +347,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                         onPress={handleSkip}
                         className="font-bold"
                         color="secondary"
-                    > Skip</Button>
+                    > {translations.skip}</Button>
                 </div>
 
                 <div className="flex gap-6">
@@ -416,8 +417,8 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion }
                                     <Tooltip content="Flag for review">
                                         <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
                                     </Tooltip>
-                                    {!nextEnabled && <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>Submit</Button>}
-                                    {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>Next</Button>}
+                                    {!nextEnabled && <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>{translations.submit}</Button>}
+                                    {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>{translations.next}</Button>}
                                 </div>
                             </CardFooter>
                         </Card>

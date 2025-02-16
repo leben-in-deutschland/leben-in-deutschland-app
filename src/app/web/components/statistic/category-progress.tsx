@@ -10,7 +10,7 @@ type CategoryData = {
     "skipped": number,
     "flagged": number
 }
-export const CategoryStats = ({ user, questions }: { user: User, questions: Question[] }) => {
+export const CategoryStats = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
     let data: CategoryData[] = [];
     for (let category of categories) {
         let categoryData: CategoryData = {
@@ -44,14 +44,14 @@ export const CategoryStats = ({ user, questions }: { user: User, questions: Ques
     return (
         <Card className="mt-4 mb-4">
             <CardHeader>
-                <h2 className="font-bold text-uppercase text-muted">Category Progress</h2>
+                <h2 className="font-bold text-uppercase text-muted">{translation.category_progress}</h2>
             </CardHeader>
             <CardBody>
                 <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:justify-between">
                     {data.map((categoryData, index) =>
                         <Card key={index} className="card-stats border-none h-[300px]">
                             <CardHeader className="flex justify-between">
-                                <span>{categoryData.key}</span>
+                                <span>{translation[categoryData.key.trim()]}</span>
                                 <Chip>{categoryData.totalQuestion}</Chip>
                             </CardHeader>
                             <CardBody className="items-center">
@@ -71,7 +71,7 @@ export const CategoryStats = ({ user, questions }: { user: User, questions: Ques
                                         }
                                     }}
                                     data={{
-                                        labels: ["Total", "Correct", "Incorrect", "Skipped", "Flagged"],
+                                        labels: [`${translation.total}`, `${translation.correct}`, `${translation.incorrect}`, `${translation.skipped}`, `${translation.flagged}`],
                                         datasets: [
                                             {
                                                 data: [categoryData.totalQuestion, categoryData.correct, categoryData.incorrect, categoryData.skipped, categoryData.flagged],
