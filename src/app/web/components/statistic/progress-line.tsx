@@ -16,7 +16,7 @@ ChartJS.register(
 );
 import { Line } from "react-chartjs-2";
 
-export const ProgressLine = ({ user }: { user: User }) => {
+export const ProgressLine = ({ user, translation }: { user: User, translation: any }) => {
     let todayDate = new Date();
 
     let labels: string[] = [];
@@ -41,9 +41,9 @@ export const ProgressLine = ({ user }: { user: User }) => {
 
                 <CardHeader className="justify-between">
                     <h2 className="font-bold text-uppercase text-muted">
-                        Daily Progress
+                        {translation.progress_line_title}
                     </h2>
-                    <h6 className="text-gray-400"> Past 15 days</h6>
+                    <h6 className="text-gray-400">{translation.progress_line_subtitle}</h6>
                 </CardHeader>
                 <CardBody>
                     <Line
@@ -94,7 +94,7 @@ export const ProgressLine = ({ user }: { user: User }) => {
                     />
                 </CardBody>
                 <CardFooter>
-                    <span className="text-xs text-nowrap">Number of Questions Attempted Over Time</span>
+                    <span className="text-xs text-nowrap">{translation.progress_line_footer}</span>
                 </CardFooter>
             </Card>
         </div >

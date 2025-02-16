@@ -1,5 +1,5 @@
 import { User } from "@/types/user";
-import { deleteFromlocalStorage, readFromlocalStorage, saveInlocalStorage } from "@/utils/local-storage";
+import { readFromlocalStorage, saveInlocalStorage } from "@/utils/local-storage";
 
 export const getUserData = () => {
     let user = readFromlocalStorage();

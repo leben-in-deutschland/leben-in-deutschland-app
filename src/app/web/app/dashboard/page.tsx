@@ -12,7 +12,7 @@ import StateSelect from "@/components/state-select";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { ExamReadiness } from "@/components/exam-readiness";
 import { QuizAnswer } from "@/components/quiz-answer";
-import { questionsData } from "@/data/data";
+import { getTranslations, questionsData } from "@/data/data";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
 import { AppUpdate } from "@/components/app-update";
@@ -107,23 +107,40 @@ export default function Dashboard() {
     setShowResult(true);
     setResultDateTime(datetime);
   };
-
+  const allTranslations = getTranslations(user?.appLanguage ?? "de");
   return (
     <div className="container mx-auto">
-      {Capacitor.isNativePlatform() && <AppUpdate />}
-      {!user?.state.stateName && <StateSelect />}
+      {Capacitor.isNativePlatform() && <AppUpdate
+        translation={allTranslations}
+      />}
+      {!user?.state.stateName && <StateSelect
+        translation={allTranslations}
+      />}
       {user && prepareQuestion &&
         <>
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
             <div className="flex flex-col gap-2">
-              <PrepareQuestion questions={questions} user={user} />
-              <MockTest user={user} />
-              <ExamReadiness user={user} />
+              <PrepareQuestion
+                questions={questions}
+                user={user}
+                translation={allTranslations} />
+              <MockTest
+                user={user}
+                translation={allTranslations} />
+              <ExamReadiness
+                user={user}
+                translation={allTranslations} />
               {
                 user && user.testProgress?.length > 0 &&
-                <MockHistory user={user} handleHistoryPress={handleHistoryPress} />
+                <MockHistory
+                  user={user}
+                  handleHistoryPress={handleHistoryPress}
+                  translation={allTranslations} />
               }
-              <DashboardReports user={user} questions={questions} />
+              <DashboardReports
+                user={user}
+                questions={questions}
+                translation={allTranslations} />
             </div>
           </div>
           {showResult &&
@@ -133,7 +150,11 @@ export default function Dashboard() {
                 questions.length > 0 &&
                 user &&
                 user.testProgress.findIndex(x => x.datetime === resultDateTime) > -1 &&
-                <QuizAnswer questions={questions} handleQuizCancel={handleMockCancel} mockExam={user.testProgress[user.testProgress.findIndex(x => x.datetime === resultDateTime)]} />}
+                <QuizAnswer
+                  translation={allTranslations}
+                  questions={questions}
+                  handleQuizCancel={handleMockCancel}
+                  mockExam={user.testProgress[user.testProgress.findIndex(x => x.datetime === resultDateTime)]} />}
             </div>
           }
         </>

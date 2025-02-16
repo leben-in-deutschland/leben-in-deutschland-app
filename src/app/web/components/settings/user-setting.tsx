@@ -5,6 +5,8 @@ import { getUserData } from "@/services/user";
 import { User } from "@/types/user";
 import { saveStateChange } from "@/utils/state-utils";
 import { State } from "@/types/state";
+import { LanguageSwitch } from "../language-switch";
+import { saveInlocalStorage } from "@/utils/local-storage";
 
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {
@@ -22,15 +24,10 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
     }, []);
 
     useEffect(() => {
-        (async () => {
-
-            let tempUser = getUserData();
-            if (tempUser !== null) {
-                setUser(tempUser);
-            }
-
-        })();
-
+        let tempUser = getUserData();
+        if (tempUser !== null) {
+            setUser(tempUser);
+        }
     }, []);
 
 
@@ -39,6 +36,12 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
         setUser(userData);
     };
 
+    const handleAppLanguageChange = async (language: string) => {
+        if (!user) return;
+        user.appLanguage = language;
+        setUser(user);
+        saveInlocalStorage(user);
+    };
 
     return (
         <>
@@ -57,6 +60,12 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                                 <h4 className="col-start-1 dark:text-white">Change State</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <StateDropdown user={user} handleSelectState={handleSelectState} />}
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <h4 className="col-start-1 dark:text-white">App Language</h4>
+                                <div className="col-start-2 justify-right">
+                                    {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import { Card, CardHeader, Tooltip } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { Doughnut } from "react-chartjs-2";
 
-export default function MockTest({ user }: { user: User }) {
+export default function MockTest({ user, translation }: { user: User, translation: any }) {
     const router = useRouter()
     let passed = user.testProgress.filter(x => x.passed).length;
     let failed = user.testProgress.filter(x => !x.passed).length;
@@ -17,7 +17,7 @@ export default function MockTest({ user }: { user: User }) {
                     <CardHeader className="justify-between">
                         <div className="flex gap-10 ">
                             <h2 className="font-bold text-uppercase text-muted">
-                                Mock Test
+                                {translation.dashboard_mock_button_text}
                             </h2>
                             <p className="flex">
                                 <Tooltip content="Passed">

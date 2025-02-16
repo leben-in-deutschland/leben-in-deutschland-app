@@ -2,12 +2,13 @@ import { FlagIcon } from "@/icons/FlagIcon";
 import { UserQuestionProgress } from "@/types/user";
 import { Button, Card, CardHeader } from "@heroui/react";
 
-export const QuizProgress = ({ questions, onChangeFromProgressBar, currentQuestionIndex }: { questions: UserQuestionProgress[], onChangeFromProgressBar: any, currentQuestionIndex: number }) => {
+export const QuizProgress = ({ questions, onChangeFromProgressBar, currentQuestionIndex, translation }:
+    { questions: UserQuestionProgress[], onChangeFromProgressBar: any, currentQuestionIndex: number, translation: any }) => {
     return (
         <Card className="p-4 md:p-2 mt-2">
             <CardHeader>
                 <h2 className="font-bold text-uppercase text-muted">
-                    Progress
+                    {translation.progress}
                 </h2>
             </CardHeader>
             <div className="grid grid-cols-4 md:grid-cols-7">

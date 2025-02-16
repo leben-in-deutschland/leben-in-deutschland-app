@@ -2,7 +2,7 @@ import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from
 import { useEffect, useState } from "react";
 import { AppUpdateAvailability, AppUpdate as AppUpdatePlugin } from '@capawesome/capacitor-app-update';
 
-export const AppUpdate = () => {
+export const AppUpdate = ({ translation }: { translation: any }) => {
     const [isModelOpen, setIsModelOpen] = useState(false);
     useEffect(() => {
         (async () => {
@@ -34,17 +34,17 @@ export const AppUpdate = () => {
                 backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
             }}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">Update Available!!!</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.app_update_title}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">We have found new version. Would you like to update?</p>
-                    <p className="text-danger">This will restart the app!</p>
+                    <p className="dark:text-white">{translation.app_update_subtitle1}</p>
+                    <p className="text-danger">{translation.app_update_subtitle2}</p>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" onPress={() => setIsModelOpen(false)}>
-                        Close
+                        {translation.close}
                     </Button>
                     <Button color="success" onPress={HandleUpdateConfirm}>
-                        Yes Please!!!
+                        {translation.app_update_yes}
                     </Button>
                 </ModalFooter>
             </ModalContent>

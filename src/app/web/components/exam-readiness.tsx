@@ -3,7 +3,7 @@ import { TickIcon } from "@/icons/TickIcon";
 import { User } from "@/types/user";
 import { Card, CardBody, CardFooter, CardHeader, Tooltip } from "@heroui/react";
 
-export const ExamReadiness = ({ user }: { user: User }) => {
+export const ExamReadiness = ({ user, translation }: { user: User, translation: any }) => {
     let passed = user.testProgress.filter(x => x.passed).length;
     let totalSubmitted = user.testProgress.filter(x => !x.cancelled).length;
     let percentage = (passed / totalSubmitted);
@@ -14,11 +14,11 @@ export const ExamReadiness = ({ user }: { user: User }) => {
         <Card className="h-[100%]">
             <CardHeader className="justify-center">
                 <h2 className="font-bold text-uppercase text-muted">
-                    Exam Readiness
+                    {translation.exam_readines_title}
                 </h2>
             </CardHeader>
             <CardBody className="items-center">
-                <Tooltip content={`${percentage >= 75 ? "You are ready for the exam, Good Luck" : "You are not ready for the exam, please practice more."}`}>
+                <Tooltip content={percentage >= 75 ? translation.exam_readines_tooltip_read : translation.exam_readines_tooltip_notread}>
                     {
                         percentage >= 75 ?
 
@@ -33,7 +33,7 @@ export const ExamReadiness = ({ user }: { user: User }) => {
             </CardBody>
             <CardFooter className="justify-center">
                 <p className="text-muted text-gray-500 text-xs">
-                    Readiness is determined by your mock test scores. To be considered ready, you must have passed more than <span className="font-bold">75%</span> of the submitted mock exams and have submitted at least <span className="font-bold">8</span> exams.
+                    {translation.exam_readines_subtext}
                 </p>
             </CardFooter>
         </Card >

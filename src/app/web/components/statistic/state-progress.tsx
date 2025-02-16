@@ -4,7 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Question } from "@/types/question";
 import { User } from "@/types/user";
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const StateProgress = ({ user, questions, onPress }: { user: User, questions: Question[], onPress: any }) => {
+export const StateProgress = ({ user, questions, onPress, translation }: { user: User, questions: Question[], onPress: any, translation: any }) => {
     let totalAttemptedStateQuestion = user.questionProgress.filter(element => element?.num.startsWith(user.state.stateCode));
 
     let skipped = totalAttemptedStateQuestion.filter(x => x.skipped).length;
@@ -46,7 +46,7 @@ export const StateProgress = ({ user, questions, onPress }: { user: User, questi
                             }
                         }}
                         data={{
-                            labels: ["Correct", "Incorrect", "Skipped", "Flagged"],
+                            labels: [`${translation.correct}`, `${translation.incorrect}`, `${translation.skipped}`, `${translation.flagged}`],
                             datasets: [
                                 {
                                     data: [correct, incorrect, skipped, flagged],
@@ -69,7 +69,7 @@ export const StateProgress = ({ user, questions, onPress }: { user: User, questi
                     />
                 </CardBody>
                 <CardFooter className="justify-end">
-                    <Link color="primary" className="mr-4 hover:underline md:mr-6" href={`/pruefstellen/${user.state.stateCode.toUpperCase()}`}>Prüfstellen</Link>
+                    <Link color="primary" className="mr-4 hover:underline md:mr-6" href={`/pruefstellen/${user.state.stateCode.toUpperCase()}`}>{translation.test_center}</Link>
                 </CardFooter>
             </Card>
         </div>

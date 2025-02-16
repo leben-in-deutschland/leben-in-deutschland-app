@@ -4,7 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-export const TodayProgress = ({ user }: { user: User }) => {
+export const TodayProgress = ({ user, translation }: { user: User, translation: any }) => {
     let today = new Date().toDateString();
     let correct = 0;
     let incorrect = 0;
@@ -26,7 +26,7 @@ export const TodayProgress = ({ user }: { user: User }) => {
 
                 <CardHeader className="justify-center">
                     <h2 className="font-bold text-uppercase text-muted">
-                        Today
+                        {translation.today}
                     </h2>
                 </CardHeader>
                 <CardBody className="items-center">
@@ -44,7 +44,7 @@ export const TodayProgress = ({ user }: { user: User }) => {
                             }
                         }}
                         data={{
-                            labels: ["Correct", "Incorrect", "Skipped", "Flagged"],
+                            labels: [`${translation.correct}`, `${translation.incorrect}`, `${translation.skipped}`, `${translation.flagged}`],
                             datasets: [
                                 {
                                     data: [correct, incorrect, skipped, flagged],
