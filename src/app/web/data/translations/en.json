@@ -92,5 +92,10 @@
     "skip": "Skip",
     "prepare_alert_answer_submit": "Please select an answer before submitting",
     "prepare_alert_attempted_all": "You have attempted all of the questions.",
-    "prepare_alert_submit": "Please submit you answer."
+    "prepare_alert_submit": "Please submit you answer.",
+    "settings": "Settings",
+    "change_state": "Change State",
+    "app_language": "App Language",
+    "import": "Import Data",
+    "export": "Export Data"
 }

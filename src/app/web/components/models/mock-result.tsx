@@ -14,13 +14,10 @@ export const MockResult = ({
     return (
         <Modal
             isOpen={isModelOpen}
-            backdrop="opaque"
+            backdrop="transparent"
             isDismissable={true}
             hideCloseButton={false}
-            onClose={handleClose}
-            classNames={{
-                backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
-            }}>
+            onClose={handleClose}>
             <ModalContent>
                 <ModalHeader className="flex flex-col gap-1 dark:text-white">Result</ModalHeader>
                 <ModalBody>

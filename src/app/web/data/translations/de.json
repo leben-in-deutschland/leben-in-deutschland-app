@@ -92,5 +92,10 @@
     "skip": "Überspringen",
     "prepare_alert_answer_submit": "Bitte wählen Sie vor dem Absenden eine Antwort aus",
     "prepare_alert_attempted_all": "Sie haben alle Fragen beantwortet.",
-    "prepare_alert_submit": "Bitte reichen Sie Ihre Antwort ein."
+    "prepare_alert_submit": "Bitte reichen Sie Ihre Antwort ein.",
+    "settings": "Einstellungen",
+    "change_state": "Bundesland ändern",
+    "app_language": "App sprache",
+    "import": "Daten importieren",
+    "export": "Daten exportieren"
 }

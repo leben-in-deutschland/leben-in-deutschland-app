@@ -16,6 +16,8 @@ import { getTranslations, questionsData } from "@/data/data";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
 import { AppUpdate } from "@/components/app-update";
+import { Filesystem } from "@capacitor/filesystem";
+import { FilePicker } from "@capawesome/capacitor-file-picker";
 
 export default function Dashboard() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -25,6 +27,8 @@ export default function Dashboard() {
   const [showResult, setShowResult] = useState<boolean>(false);
   const [resultDateTime, setResultDateTime] = useState<string>("");
   const [permission, setPermission] = useState<string>("");
+  const [filePermission, setFilePermission] = useState<string>("");
+  const [filePickerPermission, setFilePickerPermission] = useState<string>("");
 
   useEffect(() => {
     if (!Capacitor.isNativePlatform()) {
@@ -33,7 +37,45 @@ export default function Dashboard() {
     LocalNotifications.checkPermissions().then((permission) => {
       setPermission(permission.display);
     });
+    Filesystem.checkPermissions().then((permission) => {
+      setFilePermission(permission.publicStorage);
+    });
+    FilePicker.checkPermissions().then((permission) => {
+      setFilePickerPermission(permission.readExternalStorage);
+    });
   }, []);
+
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
+    (async () => {
+      if (filePickerPermission === "prompt" || filePickerPermission === "prompt-with-rationale") {
+        const resp = await FilePicker.requestPermissions();
+        setPermission(resp.readExternalStorage);
+      }
+      if (filePickerPermission === "denied") {
+        FilePicker.requestPermissions();
+      }
+    }
+    )();
+  }, [filePickerPermission]);
+
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
+    (async () => {
+      if (filePermission === "prompt" || filePermission === "prompt-with-rationale") {
+        const resp = await Filesystem.requestPermissions();
+        setPermission(resp.publicStorage);
+      }
+      if (filePermission === "denied") {
+        Filesystem.requestPermissions();
+      }
+    }
+    )();
+  }, [filePermission]);
 
   useEffect(() => {
     if (!Capacitor.isNativePlatform()) {
@@ -64,6 +106,9 @@ export default function Dashboard() {
       else if (permission === "prompt" || permission === "prompt-with-rationale") {
         const resp = await LocalNotifications.requestPermissions();
         setPermission(resp.display);
+      }
+      if (permission === "denied") {
+        LocalNotifications.requestPermissions();
       }
     })();
   }, [permission]);
