@@ -1,4 +1,4 @@
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
+import { Button, Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 import StateDropdown from "./state-dropdown";
 import { useEffect, useState } from "react";
 import { getUserData } from "@/services/user";
@@ -7,6 +7,10 @@ import { saveStateChange } from "@/utils/state-utils";
 import { State } from "@/types/state";
 import { LanguageSwitch } from "../language-switch";
 import { saveInlocalStorage } from "@/utils/local-storage";
+import { getTranslations } from "@/data/data";
+import { ImportIcon } from "@/icons/ImportIcon";
+import { ExportIcon } from "@/icons/ExportIcon";
+import { exportData, importData } from "@/services/file";
 
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {
@@ -42,31 +46,41 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
         setUser(user);
         saveInlocalStorage(user);
     };
-
+    const allTranslations = getTranslations(user?.appLanguage ?? "de");
     return (
         <>
             <Modal isOpen={isOpen}
                 isDismissable={true}
                 onClose={handleUserSettingsClose}
-                backdrop="opaque"
-                classNames={{
-                    backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
-                }}>
+                backdrop="transparent">
                 <ModalContent>
-                    <ModalHeader className="flex flex-col gap-1 dark:text-white">Settings</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1 dark:text-white">{allTranslations.settings}</ModalHeader>
                     <ModalBody>
                         <div className="grid grid-cols-1 gap-4">
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">Change State</h4>
+                                <h4 className="col-start-1 dark:text-white">{allTranslations.change_state}</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <StateDropdown user={user} handleSelectState={handleSelectState} />}
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">App Language</h4>
+                                <h4 className="col-start-1 dark:text-white">{allTranslations.app_language}</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
                                 </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <Button
+                                    onPress={() => importData()}
+                                    startContent={<ImportIcon className="dark:invert" />}
+                                    className="w-full"
+                                    variant="bordered">{allTranslations.import}</Button>
+                                <Button
+                                    onPress={() => exportData()}
+                                    startContent={<ExportIcon className="dark:invert" />}
+                                    className="w-full"
+                                    variant="bordered">{allTranslations.export}</Button>
+
                             </div>
                         </div>
                     </ModalBody>
