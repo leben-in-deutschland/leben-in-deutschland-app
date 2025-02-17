@@ -7,6 +7,7 @@ import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
 import { Link } from "@heroui/link";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { keywords } from "@/data/keyword";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -86,17 +87,7 @@ export const metadata: Metadata = {
     nocache: true
   },
   generator: "Next.js",
-  keywords: [
-    "Einbürgerungstest",
-    "Leben in Deutschland",
-    "Leben in Deutschland Test Online",
-    "Leben in Deutschland Test",
-    "Leben in Deutschland Prüfung",
-    "Test Leben in Deutschland 33 Fragen Online",
-    "leben in deutschland app",
-    "leben in deutschland antworten",
-    "leben in deutschland english"
-  ]
+  keywords: keywords,
 };
 
 export default function RootLayout({
