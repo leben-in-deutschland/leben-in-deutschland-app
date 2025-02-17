@@ -222,10 +222,4 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://lebenindeutschland.org/mobile-app</loc>
-        <lastmod>2025-02-16T00:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
 </urlset>
