@@ -58,7 +58,9 @@ export default function Home() {
             </CardBody>
           </Card>
 
-          <ScreenshotSlider title={allTranslations.screenshotTitle} />
+          <div id="mobile_app">
+            <ScreenshotSlider title={allTranslations.screenshotTitle} />
+          </div>
           <Card>
             <CardHeader>
               <p className="font-bold text-2xl text-black dark:text-white">{allTranslations.faq_title}</p>
