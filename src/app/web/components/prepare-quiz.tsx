@@ -328,7 +328,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     };
     return (
         <>
-            {questionContextOpen && currentQuestion && <QuestionContext handleClose={closeQuestionContext} isModelOpen={questionContextOpen} question={currentQuestion} />}
+            {questionContextOpen && currentQuestion && <QuestionContext translation={translations} handleClose={closeQuestionContext} isModelOpen={questionContextOpen} question={currentQuestion} />}
             {translateOpen && currentQuestion && <Translation handleClose={closeTranslation} isModelOpen={translateOpen} question={currentQuestion} />}
             <div className="flex flex-col items-center gap-4 p-4">
                 <div className="flex gap-4 md:gap-6">
