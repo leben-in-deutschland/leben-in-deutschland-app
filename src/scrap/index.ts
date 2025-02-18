@@ -174,7 +174,7 @@ async function scrapeData() {
                 continue;
             }
             allQuestion[i].id = generateId(allQuestion[i]);
-            const existing = oldQuestion.findIndex((q) => q.id === allQuestion[i].id);
+            const existing = oldQuestion.findIndex((q) => q && q.id === allQuestion[i].id);
             if (existing !== -1) {
                 allQuestion[i].translation = oldQuestion[existing].translation;
                 allQuestion[i].category = oldQuestion[existing].category;
