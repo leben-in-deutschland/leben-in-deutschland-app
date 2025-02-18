@@ -38,6 +38,7 @@
     "next": "Next",
     "submit": "Submit",
     "close": "Close",
+    "date": "Date",
     "app_update_title": "Update Available!!!",
     "app_update_subtitle1": "We have found a new version. Would you like to update?",
     "app_update_subtitle2": "This will restart the app!",
@@ -97,5 +98,13 @@
     "change_state": "Change State",
     "app_language": "App Language",
     "import": "Import Data",
-    "export": "Export Data"
+    "export": "Export Data",
+    "start_over": "Start Over",
+    "are_you_sure": "Are you sure?",
+    "start_over_alert": "Are you sure you want to start over? All your progress will be lost.",
+    "start_over_yes": "Yes, Start Over",
+    "start_over_no": "No, Cancel",
+    "submit_alert": "You have a few flagged or unanswered questions. Would you like to continue?",
+    "ai_warning_description": "This article contains AI-generated text and may include errors. Please verify information and use your judgment.",
+    "ai_warning_title": "AI-Generated Content Disclaimer"
 }

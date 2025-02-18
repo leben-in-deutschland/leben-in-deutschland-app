@@ -211,14 +211,14 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
 
     return (
         <>
-            {resultOpen && currentMockData && <MockResult testProgress={currentMockData} isModelOpen={resultOpen} handleClose={() => handleResultCose()} />}
+            {resultOpen && currentMockData && <MockResult translation={translation} testProgress={currentMockData} isModelOpen={resultOpen} handleClose={() => handleResultCose()} />}
             <div className="flex gap-6 justify-center mt-10">
 
                 {
                     currentQuizQuestion &&
                     <div className="grid md:grid-cols-2 gap-2">
                         <div>
-                            <SubmitWarning isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
+                            <SubmitWarning translation={translation} isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
                             <Card className="h-[100%]">
                                 <CardHeader className="justify-center">
                                     <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
