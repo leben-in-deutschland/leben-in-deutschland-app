@@ -4,6 +4,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as XLSX from 'xlsx';
 import { Prüfstellen } from './types/prüfstellen';
+import { createHash } from 'crypto';
+import existingQuestionJson from './data/question.json';
 
 const BASE_URL = 'https://www.einbuergerungstest-online.de';
 const BASE_URL_BAMF = "https://www.bamf.de"
@@ -48,7 +50,8 @@ const scrap = async (url: string, state: string) => {
             image: '-',
             translation: {},
             category: null,
-            context: ''
+            context: '',
+            id: ''
         };
         question.question = pageData(element).find("strong.font-semibold").text().trim();
         if (pageData(element).find("img").length > 0) {
@@ -153,9 +156,15 @@ const translate = async (question: Question) => {
     }
 };
 
+const generateId = (question: Question) => {
+    const text = question.question + question.a + question.b + question.c + question.d;
+    const crypt = createHash('sha256').update(text).digest('hex')
+    return crypt;
+};
+
 async function scrapeData() {
     try {
-
+        const oldQuestion = JSON.parse(JSON.stringify(existingQuestionJson)) as Question[]
         let questions = await scrapAll();
         let stateQuestion = await scrapStates();
         const allQuestion = [...questions, ...stateQuestion];
@@ -164,9 +173,17 @@ async function scrapeData() {
             if (!allQuestion[i].question) {
                 continue;
             }
-            allQuestion[i].category = await findCategory(allQuestion[i]);
-            allQuestion[i].context = await getContext(allQuestion[i]);
-            allQuestion[i] = await translate(allQuestion[i]);
+            allQuestion[i].id = generateId(allQuestion[i]);
+            const existing = oldQuestion.findIndex((q) => q.id === allQuestion[i].id);
+            if (existing !== -1) {
+                allQuestion[i].translation = oldQuestion[existing].translation;
+                allQuestion[i].category = oldQuestion[existing].category;
+                allQuestion[i].context = oldQuestion[existing].context;
+            } else {
+                allQuestion[i].category = await findCategory(allQuestion[i]);
+                allQuestion[i].context = await getContext(allQuestion[i]);
+                allQuestion[i] = await translate(allQuestion[i]);
+            }
         }
         const dir = './data';
         const filePath = path.join(dir, 'question.json');
