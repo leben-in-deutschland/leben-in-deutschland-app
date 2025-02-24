@@ -15,10 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+        
       - name: Install Vercel CLI
         working-directory: src/app/web
         run: npm install --global vercel@latest
+
+      - name: Vercel Pull
+        working-directory: src/app/web
+        run: vercel pull --yes  --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
         
       - name: Build Project Artifacts
         working-directory: src/app/web
