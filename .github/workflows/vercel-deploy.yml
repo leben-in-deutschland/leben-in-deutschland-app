@@ -17,13 +17,13 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Install Vercel CLI
+        working-directory: src/app/web
         run: npm install --global vercel@latest
         
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes  --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
-        
       - name: Build Project Artifacts
+        working-directory: src/app/web
         run: vercel build --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
         
       - name: Deploy Project Artifacts to Vercel
+        working-directory: src/app/web
         run: vercel deploy --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
