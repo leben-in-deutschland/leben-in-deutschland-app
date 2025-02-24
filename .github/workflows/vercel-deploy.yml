@@ -21,7 +21,6 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Vercel Pull
-        working-directory: src/app/web
         run: vercel pull --yes  --token=${{ secrets.VERCEL_DEPLOY_TOKEN }}
         
       - name: Build Project Artifacts
