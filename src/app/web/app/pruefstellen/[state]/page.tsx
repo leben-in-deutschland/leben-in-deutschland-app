@@ -9,6 +9,7 @@ export async function generateStaticParams() {
     const stateData = statesData();
     return [
         ...stateData.map((state) => ({ state: state.code.toUpperCase() })),
+        ...stateData.map((state) => ({ state: state.code.toLocaleLowerCase() })),
     ];
 }
 

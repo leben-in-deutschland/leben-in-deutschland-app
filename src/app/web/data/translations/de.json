@@ -58,6 +58,7 @@
     "result": "Ergebnis",
     "skipped": "Übersprungen",
     "flagged": "Markiert",
+    "date": "Datum",
     "attempted": "Versuchtes",
     "test_attempted": "Versuchter Test",
     "test_passed": "Test bestanden",
@@ -96,6 +97,14 @@
     "settings": "Einstellungen",
     "change_state": "Bundesland ändern",
     "app_language": "App sprache",
-    "import": "Daten importieren",
-    "export": "Daten exportieren"
+    "import": "Importieren",
+    "export": "Exportieren",
+    "start_over": "Von vorne beginnen",
+    "are_you_sure": "Sind Sie sicher?",
+    "start_over_alert": "Sind Sie sicher, dass Sie von vorne beginnen möchten? Ihr gesamter Fortschritt geht verloren.",
+    "start_over_yes": "Ja, von vorne beginnen",
+    "start_over_no": "Nein, Abbrechen",
+    "submit_alert": "Sie haben einige Fragen markiert oder nicht beantwortet. Möchten Sie fortfahren?",
+    "ai_warning_description": "Dieser Inhalt wurde von einer KI generiert und kann Ungenauigkeiten enthalten. Bitte überprüfen Sie die Informationen sorgfältig und konsultieren Sie offizielle Quellen, wenn Sie sich nicht sicher sind.",
+    "ai_warning_title": "Hinweis zur KI-generierten Texte"
 }

@@ -11,6 +11,8 @@ import { getTranslations } from "@/data/data";
 import { ImportIcon } from "@/icons/ImportIcon";
 import { ExportIcon } from "@/icons/ExportIcon";
 import { exportData, importData } from "@/services/file";
+import { TimeBackIcon } from "@/icons/TimeBackIcon";
+import { StartOverWarning } from "../models/start-over-warning";
 
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {
@@ -46,9 +48,24 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
         setUser(user);
         saveInlocalStorage(user);
     };
+    const [isStartOverWarningOpen, setIsStartOverWarningOpen] = useState(false);
+    const handleStartOverWarningClose = () => {
+        setIsStartOverWarningOpen(false);
+    };
+    const handleStartOverSubmit = () => {
+        setIsStartOverWarningOpen(false);
+        let userData = getUserData();
+        if (userData) {
+            userData.questionProgress = [];
+            userData.testProgress = [];
+            setUser(userData);
+            saveInlocalStorage(userData);
+        }
+    };
     const allTranslations = getTranslations(user?.appLanguage ?? "de");
     return (
         <>
+            {isStartOverWarningOpen && <StartOverWarning isModelOpen={isStartOverWarningOpen} handleClose={handleStartOverWarningClose} handleSubmit={handleStartOverSubmit} translation={allTranslations} />}
             <Modal isOpen={isOpen}
                 isDismissable={true}
                 onClose={handleUserSettingsClose}
@@ -69,7 +86,7 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                                     {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
                                 </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-2">
                                 <Button
                                     onPress={() => importData()}
                                     startContent={<ImportIcon className="dark:invert" />}
@@ -80,6 +97,15 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                                     startContent={<ExportIcon className="dark:invert" />}
                                     className="w-full"
                                     variant="bordered">{allTranslations.export}</Button>
+
+                            </div>
+                            <div className="grid grid-cols-1">
+                                <Button
+                                    onPress={() => setIsStartOverWarningOpen(true)}
+                                    color="danger"
+                                    startContent={<TimeBackIcon className="text-red-600" />}
+                                    className="w-full"
+                                    variant="bordered">{allTranslations.start_over}</Button>
 
                             </div>
                         </div>

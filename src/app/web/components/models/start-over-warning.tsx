@@ -1,6 +1,6 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@heroui/react";
 
-export const SubmitWarning = ({
+export const StartOverWarning = ({
     handleSubmit, handleClose, isModelOpen, translation }:
     {
         isModelOpen: boolean
@@ -17,14 +17,14 @@ export const SubmitWarning = ({
             <ModalContent>
                 <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.are_you_sure}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{translation.submit_alert}</p>
+                    <p className="dark:text-white">{translation.start_over_alert}</p>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="default" variant="light" onPress={handleClose}>
-                        {translation.close}
+                    <Button color="success" variant="bordered" onPress={handleClose}>
+                        {translation.start_over_no}
                     </Button>
-                    <Button color="danger" variant="light" onPress={handleSubmit}>
-                        {translation.submit}
+                    <Button color="danger" variant="bordered" onPress={handleSubmit}>
+                        {translation.start_over_yes}
                     </Button>
                 </ModalFooter>
             </ModalContent>

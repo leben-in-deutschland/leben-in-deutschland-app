@@ -3,11 +3,12 @@ import { Alert, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader
 import { useEffect, useState } from "react";
 
 export const QuestionContext = ({
-    handleClose, isModelOpen, question }:
+    handleClose, isModelOpen, question, translation }:
     {
         isModelOpen: boolean
         handleClose: any,
-        question: Question
+        question: Question,
+        translation: any
     }) => {
     const targetLanguages = [
         {
@@ -79,7 +80,7 @@ export const QuestionContext = ({
                     <p className="dark:text-white">{currentQuestionContext}</p>
                 </ModalBody>
                 <ModalFooter>
-                    <Alert description="This article contains AI-generated text and may include errors. Please verify information and use your judgment." title="AI-Generated Content Disclaimer" color="warning" variant="bordered" />
+                    <Alert description={translation.ai_warning_description} title={translation.ai_warning_title} color="warning" variant="bordered" />
                 </ModalFooter>
             </ModalContent>
 
