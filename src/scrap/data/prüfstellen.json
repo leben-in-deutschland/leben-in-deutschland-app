@@ -2547,6 +2547,15 @@
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 22767,
         "ort": "Hamburg",
+        "einrichtung": "Akademikerbund Hamburg e.V.",
+        "straße": "Große Bergstrße 6a",
+        "telefon": "040-63737260",
+        "email": "altona@abh-kurse.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22767,
+        "ort": "Hamburg",
         "einrichtung": "Türkische Gemeinde in Hamburg und Umgebung e.V.",
         "straße": "Hospitalstr. 111",
         "telefon": "040-4136609-13",
@@ -2919,8 +2928,8 @@
         "ort": "Wolfenbüttel",
         "einrichtung": "KVHS Wolfenbüttel",
         "straße": "Harzstr.2-5",
-        "telefon": "05331/84 157 oder ab Jan.09 05331/84 158",
-        "email": "d.eicke@lkwf.de"
+        "telefon": "05331-84-898 oder84-153",
+        "email": "biz-infopoint@lk-wf.de"
       },
       {
         "regierungsbezirk": "Verden",
