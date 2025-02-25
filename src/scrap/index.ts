@@ -149,8 +149,7 @@ const translate = async (question: Question) => {
                 context: translatedResults[5].translations.find((t: any) => t.to === lang)?.text || ''
             };
         }
-        question.translation = translations;
-        return question;
+        return translations;
     } catch (err) {
         console.error('Error processing questions:', err);
     }
@@ -180,9 +179,9 @@ async function scrapeData() {
                 allQuestion[i].category = oldQuestion[existing].category;
                 allQuestion[i].context = oldQuestion[existing].context;
             } else {
+                allQuestion[i].translation = await translate(allQuestion[i]);
                 allQuestion[i].category = await findCategory(allQuestion[i]);
                 allQuestion[i].context = await getContext(allQuestion[i]);
-                allQuestion[i] = await translate(allQuestion[i]);
             }
         }
         const dir = './data';
