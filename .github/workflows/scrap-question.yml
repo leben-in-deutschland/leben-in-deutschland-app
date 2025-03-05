@@ -55,7 +55,7 @@ jobs:
         if: env.changed == 'true'
         working-directory: src/app/web
         run: |
-          npm version minor --no-git-tag-version
+          npm version patch --no-git-tag-version
 
       - name: Commit and Push Changes
         if: env.changed == 'true'
