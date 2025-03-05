@@ -1909,8 +1909,8 @@
         "ort": "Bremerhaven",
         "einrichtung": "VHS Bremerhaven",
         "straße": "Lloydstr. 15",
-        "telefon": "0471-590-4747/-4746",
-        "email": "susanne.weis@vhs.bremerhaven.de"
+        "telefon": "0471-590-4736-4705",
+        "email": "katarzyna.geldner@vhs.bremerhaven.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -1918,8 +1918,8 @@
         "ort": "Bremen",
         "einrichtung": "VHS Bremen",
         "straße": "Faulenstr. 67 - 69",
-        "telefon": "0421/361-18165",
-        "email": "ricarda.knabe@vhs-bremen.de"
+        "telefon": "0421/361-3624",
+        "email": "jens.grund@vhs-bremen.de"
       }
     ]
   },
@@ -3815,8 +3815,8 @@
         "ort": "Bochum",
         "einrichtung": "VHS Bochum",
         "straße": "Gustav-Heinemann-Platz 2-6",
-        "telefon": "0234/9102869",
-        "email": "Htimmermann@bochum.de"
+        "telefon": "0234/9102818",
+        "email": "rherzog@bochum.de"
       },
       {
         "regierungsbezirk": "Recklinghausen",
@@ -5216,6 +5216,15 @@
         "einrichtung": "Königstr. 61",
         "straße": "06343-9253038",
         "telefon": "integration@vhs-bergzabern.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "901402",
+        "plz": "Bad Kreuznach",
+        "ort": "Sprachenschule Gamp und Léus",
+        "einrichtung": "Hochstraße 11",
+        "straße": "0178 5343532",
+        "telefon": "SprachenschuleGampundLeus@web.de",
         "email": ""
       },
       {
