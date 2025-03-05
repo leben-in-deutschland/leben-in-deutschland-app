@@ -13,7 +13,7 @@ export const NumberProgress = ({ title, count, numberColor = "", onPress, isPres
                     </h2>
                 </CardHeader>
                 <CardBody>
-                    <p className={`font-extrabold text-center ${numberColor !== "" ? "text-" + numberColor : ""} ${count >= 100 ? "text-4xl" : "text-8xl"}`}>
+                    <p className={`font-extrabold text-center h-20 text-6xl ${numberColor !== "" ? "text-" + numberColor : ""}`}>
                         {count}
                     </p>
                 </CardBody>
