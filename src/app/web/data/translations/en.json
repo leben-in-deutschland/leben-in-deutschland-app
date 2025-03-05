@@ -60,6 +60,7 @@
     "skipped": "Skipped",
     "flagged": "Flagged",
     "attempted": "Attempted",
+    "notAttempted": "Not Attempted",
     "test_attempted": "Test Attempted",
     "test_passed": "Test Passed",
     "test_failed": "Test Failed",

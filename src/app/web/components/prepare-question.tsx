@@ -50,7 +50,7 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
                                     labels: ["Attempted", "AllQuestions"],
                                     datasets: [
                                         {
-                                            data: [attempted, allQuestions],
+                                            data: [attempted, (allQuestions - attempted)],
                                             borderWidth: 1,
                                             backgroundColor: [
                                                 'rgba(45, 192, 84, 0.2)',
