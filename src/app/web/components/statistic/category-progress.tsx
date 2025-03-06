@@ -54,7 +54,6 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
                         <Card key={index} className="card-stats border-none h-[300px]">
                             <CardHeader className="flex justify-between">
                                 <span>{translation[categoryData.key.trim()]}</span>
-                                <Chip>{categoryData.totalQuestion}</Chip>
                             </CardHeader>
                             <CardBody className="items-center">
                                 <Doughnut
