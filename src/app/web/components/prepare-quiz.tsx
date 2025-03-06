@@ -351,7 +351,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                 </div>
 
                 <div className="flex gap-6">
-                    {currentQuestion &&
+                    {currentQuestion ?
                         <Card>
                             <CardHeader className="flex flex-col">
                                 {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
@@ -421,7 +421,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                     {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>{translations.next}</Button>}
                                 </div>
                             </CardFooter>
-                        </Card>
+                        </Card> : <>{translations.prepare_alert_attempted_all}</>
                     }
                 </div>
             </div >

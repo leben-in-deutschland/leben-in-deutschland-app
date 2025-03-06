@@ -14,14 +14,14 @@ export default function MockTest({ user, translation }: { user: User, translatio
                 <Card className="card-stats border-none item-center w-[100%]"
                     isPressable
                     onPress={() => router.push("/mock?action=mock")}>
-                    <CardHeader className="justify-between">
-                        <div className="flex gap-10 ">
+                    <CardHeader className="flex justify-between">
+                        <div className="flex gap-2 md:gap-10">
                             <h2 className="font-bold text-uppercase text-muted">
                                 {translation.dashboard_mock_button_text}
                             </h2>
                             <p className="flex">
                                 <Tooltip content="Passed">
-                                    <h2 className="text-green-400 font-extrabold text-4xl">{passed}</h2>
+                                    <h2 className="text-green-400 font-extrabold md:text-4xl">{passed}</h2>
                                 </Tooltip>
                                 /
                                 <Tooltip content="Failed">
