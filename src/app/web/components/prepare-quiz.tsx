@@ -421,7 +421,12 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                     {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>{translations.next}</Button>}
                                 </div>
                             </CardFooter>
-                        </Card> : <>{translations.prepare_alert_attempted_all}</>
+                        </Card> :
+                        <div className="flex flex-col gap-4">
+                            <p> {translations.prepare_alert_attempted_all}</p>
+                            <p> {translations.prepare_alert_attempted_all_next_step_1}</p>
+                            <p> {translations.prepare_alert_attempted_all_next_step_2}</p>
+                        </div>
                     }
                 </div>
             </div >

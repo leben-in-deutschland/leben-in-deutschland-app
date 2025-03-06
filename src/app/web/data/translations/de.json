@@ -107,5 +107,7 @@
     "start_over_no": "Nein, Abbrechen",
     "submit_alert": "Sie haben einige Fragen markiert oder nicht beantwortet. Möchten Sie fortfahren?",
     "ai_warning_description": "Dieser Inhalt wurde von einer KI generiert und kann Ungenauigkeiten enthalten. Bitte überprüfen Sie die Informationen sorgfältig und konsultieren Sie offizielle Quellen, wenn Sie sich nicht sicher sind.",
-    "ai_warning_title": "Hinweis zur KI-generierten Texte"
+    "ai_warning_title": "Hinweis zur KI-generierten Texte",
+    "prepare_alert_attempted_all_next_step_1": "Sie können von vorne beginnen My Settings > Von vorne beginnen",
+    "prepare_alert_attempted_all_next_step_2": "Oder Sie können versuchen, die Probeprüfung zu absolvieren"
 }
