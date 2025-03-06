@@ -8,8 +8,7 @@ type CategoryData = {
     "correct": number,
     "incorrect": number,
     "skipped": number,
-    "flagged": number,
-    "notAttempted": number
+    "flagged": number
 }
 export const CategoryStats = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
     let data: CategoryData[] = [];
@@ -21,7 +20,6 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
             incorrect: 0,
             skipped: 0,
             flagged: 0,
-            notAttempted: 0
         };
         const totalQuestion = questions.filter((question) => question?.category === category);
 
@@ -43,7 +41,6 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
         categoryData.incorrect = totalAttemptedQuestions.filter((question) => question.answeredCorrectly !== null && !question.answeredCorrectly).length
 
         categoryData.totalQuestion = totalQuestion.length;
-        categoryData.notAttempted = totalQuestion.length - categoryData.skipped - categoryData.flagged - categoryData.correct - categoryData.incorrect;
         data.push(categoryData);
     }
     return (
@@ -76,20 +73,17 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
                                         }
                                     }}
                                     data={{
-                                        labels: [`${translation.notAttempted}`, `${translation.correct}`, `${translation.incorrect}`, `${translation.skipped}`, `${translation.flagged}`],
+                                        labels: [`${translation.correct}`, `${translation.incorrect}`, `${translation.skipped}`, `${translation.flagged}`],
                                         datasets: [
                                             {
-                                                data: [categoryData.notAttempted, categoryData.correct, categoryData.incorrect, categoryData.skipped, categoryData.flagged],
+                                                data: [categoryData.correct, categoryData.incorrect, categoryData.skipped, categoryData.flagged],
                                                 backgroundColor: [
-                                                    'rgba(220,220,220,0.2)',
                                                     'rgba(65, 239, 106, 0.2)',
                                                     'rgba(255, 99, 132, 0.2)',
                                                     'rgba(220,220,220,0.2)',
                                                     'rgba(246, 246, 115, 0.2)',
                                                 ],
                                                 borderColor: [
-                                                    'rgba(220,220,220,1)',
-                                                    'rgba(65, 239, 106, 1)',
                                                     'rgba(65, 239, 106, 1)',
                                                     'rgba(255, 99, 132, 1)',
                                                     'rgba(220,220,220,1)',
