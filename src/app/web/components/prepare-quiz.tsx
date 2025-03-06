@@ -125,11 +125,11 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
         if (prepareQuestion.action === PrepareQuestionActions.Incorrect) {
             let tempIncorrect: Question[] = [];
-            let skipped = user.questionProgress.filter(x => !x.answeredCorrectly && x.answerSelected !== "");
-            for (let i = 0; i < skipped.length; i++) {
-                let indexSkipped = questions.findIndex(x => x?.num === skipped[i]?.num);
-                if (indexSkipped > -1) {
-                    tempIncorrect.push(questions[indexSkipped]);
+            let incorrect = user.questionProgress.filter(x => x.answeredCorrectly !== null && !x.answeredCorrectly);
+            for (let i = 0; i < incorrect.length; i++) {
+                let indexIncorrect = questions.findIndex(x => x?.num === incorrect[i]?.num);
+                if (indexIncorrect > -1) {
+                    tempIncorrect.push(questions[indexIncorrect]);
                 }
             }
             setPrepareQuestions(tempIncorrect);

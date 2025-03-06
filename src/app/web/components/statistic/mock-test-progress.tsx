@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 export const MockTestProgress = ({ user, translation }: { user: User, translation: any }) => {
     let cancelledMock = user.testProgress.filter(x => x.cancelled).length;
     let passedMock = user.testProgress.filter(x => x.passed).length;
-    let failedMock = user.testProgress.filter(x => !x.passed).length;
+    let failedMock = user.testProgress.filter(x => !x.passed).filter(x => !x.cancelled).length;
     return (
         <div>
             <Card className="card-stats border-none h-[300px]">
