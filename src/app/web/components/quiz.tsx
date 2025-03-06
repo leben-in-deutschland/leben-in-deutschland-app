@@ -134,8 +134,6 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
                 handleWarningSubmit();
             }
         };
-
-
     };
     const handleWarningClose = () => {
         setSubmitModelWarning(false);

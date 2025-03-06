@@ -20,7 +20,8 @@ export const UserStats = ({ showMore, user, questions, translation }: { showMore
     let attempted = user.questionProgress.length;
     let mockAttempted = user.testProgress.length;
     let mockPassed = user.testProgress.filter(x => x.passed).length;
-    let mockFailed = user.testProgress.filter(x => !x.passed).length;
+    let mockFailed = user.testProgress.filter(x => !x.passed).filter(x => !x.cancelled).length;
+
     const getSkipped = () => {
         let skipped = user.questionProgress.filter(x => x.skipped);
         let otherSkipped = user.questionProgress.filter(x => x.answeredCorrectly === null && !x.flagged);
