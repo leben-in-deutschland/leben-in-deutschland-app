@@ -68,7 +68,7 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                                 <CardBody>
                                     <div className="flex gap-3">
                                         <Chip variant="bordered" color="primary" className={`${currentQuestion.answerSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                        {currentQuizQuestion.a}
+                                        <span className="text-black">{currentQuizQuestion.a}</span>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -76,7 +76,7 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                                 <CardBody>
                                     <div className="flex gap-3">
                                         <Chip variant="bordered" color="primary" className={`${currentQuestion.answerSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                        {currentQuizQuestion.b}
+                                        <span className="text-black">{currentQuizQuestion.b}</span>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -84,7 +84,7 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                                 <CardBody>
                                     <div className="flex gap-3">
                                         <Chip variant="bordered" color="primary" className={`${currentQuestion.answerSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                        {currentQuizQuestion.c}
+                                        <span className="text-black">{currentQuizQuestion.c}</span>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -92,7 +92,7 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                                 <CardBody>
                                     <div className="flex gap-3">
                                         <Chip variant="bordered" color="primary" className={`${currentQuestion.answerSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                        {currentQuizQuestion.d}
+                                        <span className="text-black">{currentQuizQuestion.d}</span>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -102,7 +102,6 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                 <CardFooter className="justify-between">
                     <div className="flex gap-3">
                         <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
-                        <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
                         <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
 
                     </div>

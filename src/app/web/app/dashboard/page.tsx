@@ -11,13 +11,13 @@ import MockTest from "@/components/mock-test";
 import StateSelect from "@/components/state-select";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { ExamReadiness } from "@/components/exam-readiness";
-import { QuizAnswer } from "@/components/quiz-answer";
 import { getTranslations, questionsData } from "@/data/data";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
 import { AppUpdate } from "@/components/app-update";
 import { Filesystem } from "@capacitor/filesystem";
 import { FilePicker } from "@capawesome/capacitor-file-picker";
+import { QuizAnswer } from "@/components/quiz-answer";
 
 export default function Dashboard() {
   const [questions, setQuestions] = useState<Question[]>([]);
