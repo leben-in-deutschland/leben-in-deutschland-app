@@ -32,6 +32,9 @@ project(':capawesome-capacitor-android-dark-mode-support').projectDir = new File
 include ':capawesome-capacitor-android-edge-to-edge-support'
 project(':capawesome-capacitor-android-edge-to-edge-support').projectDir = new File('../web/node_modules/@capawesome/capacitor-android-edge-to-edge-support/android')
 
+include ':capawesome-capacitor-app-review'
+project(':capawesome-capacitor-app-review').projectDir = new File('../web/node_modules/@capawesome/capacitor-app-review/android')
+
 include ':capawesome-capacitor-app-update'
 project(':capawesome-capacitor-app-update').projectDir = new File('../web/node_modules/@capawesome/capacitor-app-update/android')
 

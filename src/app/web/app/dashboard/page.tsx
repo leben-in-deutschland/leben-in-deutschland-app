@@ -18,6 +18,7 @@ import { AppUpdate } from "@/components/app-update";
 import { Filesystem } from "@capacitor/filesystem";
 import { FilePicker } from "@capawesome/capacitor-file-picker";
 import { QuizAnswer } from "@/components/quiz-answer";
+import { InAppReview } from "@/components/modals/in-app-review";
 
 export default function Dashboard() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -137,6 +138,9 @@ export default function Dashboard() {
     let tempUser = getUserData();
     if (tempUser !== null) {
       tempUser = syncUserCorrectIncorrectWithMock(tempUser);
+      if (!tempUser.appFirstTimeOpenDateTime) {
+        tempUser.appFirstTimeOpenDateTime = new Date(Date.now());
+      }
       setUser(tempUser);
       saveUserData(tempUser);
     }
@@ -183,6 +187,9 @@ export default function Dashboard() {
       {!user?.state.stateName && <StateSelect
         translation={allTranslations}
       />}
+      {Capacitor.isNativePlatform() &&
+        user && <InAppReview translation={allTranslations} user={user} />
+      }
       {user && prepareQuestion &&
         <>
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>

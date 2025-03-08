@@ -12,7 +12,7 @@ import { ImportIcon } from "@/icons/ImportIcon";
 import { ExportIcon } from "@/icons/ExportIcon";
 import { exportData, importData } from "@/services/file";
 import { TimeBackIcon } from "@/icons/TimeBackIcon";
-import { StartOverWarning } from "../models/start-over-warning";
+import { StartOverWarning } from "../modals/start-over-warning";
 
 
 export default function UserSetting({ handleUserSettingsClose, isOpen }: { handleUserSettingsClose: any, isOpen: boolean }) {

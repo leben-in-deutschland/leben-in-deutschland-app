@@ -23,6 +23,7 @@
     "@capacitor/status-bar": "^7.0.0",
     "@capawesome/capacitor-android-dark-mode-support": "^7.0.0",
     "@capawesome/capacitor-android-edge-to-edge-support": "^7.0.0",
+    "@capawesome/capacitor-app-review": "^7.0.1",
     "@capawesome/capacitor-app-update": "^7.0.1",
     "@capawesome/capacitor-file-picker": "^7.0.1",
     "@heroui/button": "^2.0.33",
