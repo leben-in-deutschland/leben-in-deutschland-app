@@ -3,6 +3,8 @@ import { Question } from "@/types/question";
 import { Alert, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
 import { SoundOffIcon } from "@/icons/SoundOffIcon";
 import { SoundIcon } from "@/icons/SoundIcon";
+import { remark } from 'remark';
+import html from 'remark-html';
 
 export const QuestionContext = ({
     handleClose, isModelOpen, question, translation }:
@@ -31,14 +33,24 @@ export const QuestionContext = ({
     const [TextToSpeech, setTextToSpeech] = useState<any>(null);
     const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
     useEffect(() => {
-        stopSpeak();
-        if (currentLanguage === "de") {
-            setCurrentQuestionContext(question.context);
-            return;
-        }
-        if (question.translation) {
-            setCurrentQuestionContext(question.translation[currentLanguage]?.context);
-        }
+        (async () => {
+            await stopSpeak();
+            if (currentLanguage === "de") {
+                const processedContent = await remark()
+                    .use(html)
+                    .process(question.context);
+                const contentHtml = processedContent.toString();
+                setCurrentQuestionContext(contentHtml);
+                return;
+            }
+            if (question.translation) {
+                const processedContent = await remark()
+                    .use(html)
+                    .process(question.translation[currentLanguage]?.context);
+                const contentHtml = processedContent.toString();
+                setCurrentQuestionContext(contentHtml);
+            }
+        })();
     }, [currentLanguage]);
 
     useEffect(() => {
@@ -56,6 +68,7 @@ export const QuestionContext = ({
     }, []);
 
     useEffect(() => {
+        if (!isCapacitorNative || !currentLanguage) return;
         (async () => {
             const targetLang = targetLanguages.find(lang => lang.langCode === currentLanguage);
             if (targetLang) {
@@ -118,7 +131,7 @@ export const QuestionContext = ({
                     )}
                 </ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{currentQuestionContext}</p>
+                    <div className="dark:text-white" dangerouslySetInnerHTML={{ __html: currentQuestionContext ?? "" }} />
                 </ModalBody>
                 <ModalFooter>
                     <Alert

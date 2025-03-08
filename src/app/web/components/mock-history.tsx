@@ -12,10 +12,10 @@ export default function MockHistory({ user, handleHistoryPress, translation }: {
                 </h2>
             </CardHeader>
             <CardBody>
-                <div className="overflow-y-auto scroll-auto h-44">
-                    {user && user.testProgress?.length >= 0 && [...user.testProgress].reverse().map((x) => (
+                <div className="overflow-y-auto scroll-auto h-44" key="history">
+                    {user && user.testProgress?.length >= 0 && [...user.testProgress].reverse().map((x, i) => (
                         <>
-                            <Card key={x.datetime + "1"}
+                            <Card key={x.datetime + i + "1"}
                                 className={`hidden md:flex mb-3 mt-3 w-[100%] ${x.cancelled ? "bg-gray-200" : (x.passed ? "bg-green-200" : "bg-red-200")}`}
                                 shadow="none"
                                 isDisabled={x.cancelled}
@@ -47,7 +47,7 @@ export default function MockHistory({ user, handleHistoryPress, translation }: {
                                     </div>
                                 </CardBody>
                             </Card>
-                            <Card key={x.datetime + "2"}
+                            <Card key={x.datetime + i + "2"}
                                 className={`md:hidden mt-3 w-[100%] ${x.cancelled ? "bg-gray-200" : (x.passed ? "bg-green-200" : "bg-red-200")}`}
                                 shadow="none"
                                 isDisabled={x.cancelled}

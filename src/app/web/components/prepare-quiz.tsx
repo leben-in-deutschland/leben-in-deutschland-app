@@ -8,10 +8,10 @@ import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } 
 import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
 import { TranslateIcon } from "@/icons/TranslateIcon";
-import { Translation } from "./models/translation";
+import { Translation } from "./modals/translation";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { QuestionContext } from "./models/question-context";
+import { QuestionContext } from "./modals/question-context";
 import { AssistantIcon } from "@/icons/AssistantIcon";
 
 

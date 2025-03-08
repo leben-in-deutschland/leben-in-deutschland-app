@@ -13,6 +13,10 @@ export const saveStateChange = (state: State) => {
         id: "",
         testProgress: [],
         appLanguage: "de",
+        appFirstTimeOpenDateTime: new Date(Date.now()),
+        lastReviewPromptDateTime: null,
+        reviewNoCount: 0,
+        userReviewed: false
     }
     let today = new Date().toDateString();
     data.dailyProgress.push({

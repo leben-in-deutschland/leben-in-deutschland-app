@@ -109,5 +109,9 @@
     "ai_warning_description": "This article contains AI-generated text and may include errors. Please verify information and use your judgment.",
     "ai_warning_title": "AI-Generated Content Disclaimer",
     "prepare_alert_attempted_all_next_step_1": "You can rest everything from My Settings > Start Over",
-    "prepare_alert_attempted_all_next_step_2": "Or you can try attempting the mock exam"
+    "prepare_alert_attempted_all_next_step_2": "Or you can try attempting the mock exam",
+    "in_app_review_header": "Enjoying Our App?",
+    "in_app_review_alert": "Is this app helping you prepare for your exam? We'd love to hear your feedback!",
+    "in_app_review_no": "Not really",
+    "in_app_review_yes": "Yes, I love it!"
 }

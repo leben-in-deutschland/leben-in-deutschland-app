@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { saveUserData } from "@/services/user";
 import { QuizProgress } from "./quiz-progress";
 import { FlagIcon } from "@/icons/FlagIcon";
-import { SubmitWarning } from "./models/submit-warning";
+import { SubmitWarning } from "./modals/submit-warning";
 import { useRouter } from "next/navigation";
-import { MockResult } from "./models/mock-result";
+import { MockResult } from "./modals/mock-result";
 
 export const Quiz = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);

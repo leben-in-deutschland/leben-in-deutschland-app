@@ -5,6 +5,10 @@ export interface User {
     questionProgress: UserQuestionProgress[];
     testProgress: MockTestProgress[];
     appLanguage: string;
+    appFirstTimeOpenDateTime: Date;
+    lastReviewPromptDateTime: Date | null;
+    reviewNoCount: number;
+    userReviewed: boolean;
 }
 
 export interface MockTestProgress {
