@@ -18,11 +18,14 @@ export const viewport: Viewport = {
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.lebenindeutschland.org'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  manifest: "/manifest.json",
   description: siteConfig.description,
   openGraph: {
     type: "website",
@@ -33,43 +36,43 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/mobile/app-1.png",
+        url: "./mobile/app-1.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-2.png",
+        url: "./mobile/app-2.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-3.png",
+        url: "./mobile/app-3.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-4.png",
+        url: "./mobile/app-4.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-5.png",
+        url: "./mobile/app-5.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-6.png",
+        url: "./mobile/app-6.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,
       },
       {
-        url: "/mobile/app-7.png",
+        url: "./mobile/app-7.png",
         width: 1200,
         height: 2880,
         alt: siteConfig.name,

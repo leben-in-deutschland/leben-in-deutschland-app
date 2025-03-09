@@ -126,6 +126,15 @@ export default function Dashboard() {
                   user.questionProgress[tempQuestionIndex].answeredCorrectly = question.answeredCorrectly;
                 }
               }
+              else {
+                user.questionProgress.push({
+                  num: question.num,
+                  answeredCorrectly: question.answeredCorrectly,
+                  skipped: false,
+                  answerSelected: question.answerSelected,
+                  flagged: false
+                });
+              }
             }
           }
         }

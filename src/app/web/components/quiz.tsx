@@ -144,11 +144,37 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
         router.push("/dashboard");
     };
 
+    const changeQuestionState = (userData: User) => {
+        const today = new Date().toDateString();
+        let dailyStats = userData.dailyProgress.find(
+            (dp) => new Date(dp.date).toDateString() === today
+        );
+        if (!dailyStats) {
+            dailyStats = { date: today, attempted: 0, correct: 0, incorrect: 0, skipped: 0, flagged: 0 };
+            userData.dailyProgress.push(dailyStats);
+        }
+        if (currentMockData?.questions) {
+            for (let question of currentMockData?.questions) {
+                dailyStats.attempted++;
+                if (question.answerSelected) {
+                    if (question.answeredCorrectly) {
+                        dailyStats.correct++;
+                    }
+                    else {
+                        dailyStats.incorrect++;
+                    }
+                }
+            }
+        }
+        return userData;
+    };
+
     const handleWarningSubmit = () => {
         if (currentMockData) {
             currentMockData.passed = currentMockData.questions.filter(x => x.answeredCorrectly).length >= 17;
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
+            user = changeQuestionState(user);
             saveUserData(user);
             setResultOpen(true);
         }
@@ -159,6 +185,7 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
             currentMockData.cancelled = true;
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
+            user = changeQuestionState(user);
             saveUserData(user);
             setResultOpen(true);
         }
