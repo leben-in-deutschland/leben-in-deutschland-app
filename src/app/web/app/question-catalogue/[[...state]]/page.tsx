@@ -31,7 +31,7 @@ export async function generateMetadata(
     const stateRelatedData = stateData.find(x => x.code.toUpperCase() === state[0].toUpperCase());
     return {
         title: `Fragenkatalog Einbürgerungstest oder Leben in Deutschland für  ${state[0].toUpperCase()} - ${stateRelatedData?.name}`,
-        description: `Fragenkatalog Einbürgerungstest oder Leben in Deutschland, Alle 10 fragen mit antworten kostenlos für ${stateRelatedData ? `Prüfstellen in ${stateRelatedData.name}` : `Prüfstellen in ${state[0].toUpperCase()}`} `,
+        description: `Fragenkatalog Einbürgerungstest oder Leben in Deutschland, Alle 10 fragen mit antworten kostenlos für ${stateRelatedData ? `${stateRelatedData.name}` : `${state[0].toUpperCase()}`} `,
     }
 }
 
