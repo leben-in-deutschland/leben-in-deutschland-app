@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Question } from "@/types/question";
-import { Alert, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
+import { Alert, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem, Image } from "@heroui/react";
 import { SoundOffIcon } from "@/icons/SoundOffIcon";
 import { SoundIcon } from "@/icons/SoundIcon";
 import { remark } from 'remark';
@@ -15,14 +15,14 @@ export const QuestionContext = ({
         translation: any
     }) => {
     const targetLanguages = [
-        { langCode: 'de', displayName: 'Deutsch', isoLangCode: 'de-DE' },
-        { langCode: 'en', displayName: 'English', isoLangCode: 'en-US' },
-        { langCode: 'tr', displayName: 'Türkçe', isoLangCode: 'tr-TR' },
-        { langCode: 'ru', displayName: 'Русский', isoLangCode: 'ru-RU' },
-        { langCode: 'fr', displayName: 'Français', isoLangCode: 'fr-FR' },
-        { langCode: 'ar', displayName: 'العربية', isoLangCode: 'ar-AE' },
-        { langCode: 'uk', displayName: 'Українська', isoLangCode: 'uk-UA' },
-        { langCode: 'hi', displayName: 'हिन्दी', isoLangCode: 'hi-IN' }
+        { langCode: 'de', displayName: 'Deutsch', isoLangCode: 'de-DE', img: "https://www.geonames.org/flags/x/de.gif" },
+        { langCode: 'en', displayName: 'English', isoLangCode: 'en-US', img: "https://www.geonames.org/flags/x/gb.gif" },
+        { langCode: 'tr', displayName: 'Türkçe', isoLangCode: 'tr-TR', img: "https://www.geonames.org/flags/x/tr.gif" },
+        { langCode: 'ru', displayName: 'Русский', isoLangCode: 'ru-RU', img: "https://www.geonames.org/flags/x/ru.gif" },
+        { langCode: 'fr', displayName: 'Français', isoLangCode: 'fr-FR', img: "https://www.geonames.org/flags/x/fr.gif" },
+        { langCode: 'ar', displayName: 'العربية', isoLangCode: 'ar-AE', img: "https://www.flagsarenotlanguages.com/flags/arab_league.png" },
+        { langCode: 'uk', displayName: 'Українська', isoLangCode: 'uk-UA', img: "https://www.geonames.org/flags/x/ua.gif", },
+        { langCode: 'hi', displayName: 'हिन्दी', isoLangCode: 'hi-IN', img: "https://www.geonames.org/flags/x/in.gif" }
     ];
 
     const [doesSupportLanguage, setDoesSupportLanguage] = useState<boolean>(true);
@@ -121,7 +121,7 @@ export const QuestionContext = ({
                         className="w-1/2"
                         onChange={(e) => setCurrentLanguage(e.target.value)}
                     >
-                        {(lang) => <SelectItem key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
+                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} />} key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
                     </Select>
                     {doesSupportLanguage && isCapacitorNative && TextToSpeech && (
                         isSpeaking ?

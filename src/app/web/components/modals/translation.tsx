@@ -1,5 +1,5 @@
 import { Question, QuestionTranslation } from "@/types/question";
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem } from "@heroui/react";
+import { Button, Modal, ModalBody, ModalContent, Image, ModalHeader, Select, SelectItem } from "@heroui/react";
 import { useEffect, useState } from "react";
 
 export const Translation = ({
@@ -12,31 +12,38 @@ export const Translation = ({
     const targetLanguages = [
         {
             langCode: 'en',
-            displayName: 'English'
+            displayName: 'English',
+            img: "https://www.geonames.org/flags/x/gb.gif"
         },
         {
             langCode: 'tr',
-            displayName: 'Türkçe'
+            displayName: 'Türkçe',
+            img: "https://www.geonames.org/flags/x/tr.gif"
         },
         {
             langCode: 'ru',
-            displayName: 'Русский'
+            displayName: 'Русский',
+            img: "https://www.geonames.org/flags/x/ru.gif"
         },
         {
             langCode: 'fr',
-            displayName: 'Français'
+            displayName: 'Français',
+            img: "https://www.geonames.org/flags/x/fr.gif"
         },
         {
             langCode: 'ar',
-            displayName: 'العربية'
+            displayName: 'العربية',
+            img: "https://www.flagsarenotlanguages.com/flags/arab_league.png"
         },
         {
             langCode: 'uk',
-            displayName: 'Українська'
+            displayName: 'Українська',
+            img: "https://www.geonames.org/flags/x/ua.gif",
         },
         {
             langCode: 'hi',
-            displayName: 'हिन्दी'
+            displayName: 'हिन्दी',
+            img: "https://www.geonames.org/flags/x/in.gif",
         }
     ];
 
@@ -64,7 +71,7 @@ export const Translation = ({
                         className="w-1/2"
                         onChange={(e) => setCurrentLanguage(e.target.value)}
                     >
-                        {(lang) => <SelectItem key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
+                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} />} key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
                     </Select>
                 </ModalHeader>
                 <ModalBody>
