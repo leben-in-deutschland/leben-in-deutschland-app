@@ -6,7 +6,7 @@ import { Card, CardBody, CardFooter, CardHeader, Tooltip } from "@heroui/react";
 export const ExamReadiness = ({ user, translation }: { user: User, translation: any }) => {
     let passed = user.testProgress.filter(x => x.passed).length;
     let totalSubmitted = user.testProgress.filter(x => !x.cancelled).length;
-    let percentage = (passed / totalSubmitted);
+    let percentage = totalSubmitted > 0 ? (passed / totalSubmitted) * 100 : 0;
     if (user.testProgress.filter(x => !x.cancelled).length <= 8) {
         percentage = 0;
     }
