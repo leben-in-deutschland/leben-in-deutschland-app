@@ -67,6 +67,5 @@ export const createUserStats = (
     dailyStats.incorrect = Math.max(0, dailyStats.incorrect + incorrectDelta);
     dailyStats.skipped = Math.max(0, dailyStats.skipped + skippedDelta);
     dailyStats.flagged = Math.max(0, dailyStats.flagged + flaggedDelta);
-
     saveUserData(user);
 };

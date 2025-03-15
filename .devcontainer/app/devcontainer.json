@@ -1,8 +1,5 @@
 {
   "name": "leben-in-deutschland-app",
-  "runArgs": [
-    "--userns=keep-id:uid=1000,gid=1000"
-  ],
   "containerUser": "node",
   "updateRemoteUserUID": true,
   "workspaceFolder": "/workspaces/leben-in-deutschland/src/app/",

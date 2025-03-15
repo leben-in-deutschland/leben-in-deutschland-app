@@ -114,39 +114,9 @@ export default function Dashboard() {
     })();
   }, [permission]);
 
-  const syncUserCorrectIncorrectWithMock = (user: User) => {
-    if (user) {
-      if (user.testProgress && user.testProgress.length > 0) {
-        for (let mock of user.testProgress) {
-          if (mock.questions && mock.questions.length > 0) {
-            for (let question of mock.questions) {
-              let tempQuestionIndex = user.questionProgress.findIndex(x => x.num === question.num);
-              if (tempQuestionIndex > -1) {
-                if (question.answeredCorrectly !== null) {
-                  user.questionProgress[tempQuestionIndex].answeredCorrectly = question.answeredCorrectly;
-                }
-              }
-              else {
-                user.questionProgress.push({
-                  num: question.num,
-                  answeredCorrectly: question.answeredCorrectly,
-                  skipped: false,
-                  answerSelected: question.answerSelected,
-                  flagged: false
-                });
-              }
-            }
-          }
-        }
-      }
-    }
-    return user;
-  };
-
   useEffect(() => {
     let tempUser = getUserData();
     if (tempUser !== null) {
-      tempUser = syncUserCorrectIncorrectWithMock(tempUser);
       if (!tempUser.appFirstTimeOpenDateTime) {
         tempUser.appFirstTimeOpenDateTime = new Date(Date.now());
       }

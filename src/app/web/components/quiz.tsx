@@ -126,6 +126,31 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
         handleSubmit();
     };
 
+    const syncUserCorrectIncorrectWithMock = (user: User, currentMockData: MockTestProgress) => {
+        if (user) {
+            if (currentMockData.questions && currentMockData.questions.length > 0) {
+                for (let question of currentMockData.questions) {
+                    let tempQuestionIndex = user.questionProgress.findIndex(x => x.num === question.num);
+                    if (tempQuestionIndex > -1) {
+                        if (question.answeredCorrectly !== null) {
+                            user.questionProgress[tempQuestionIndex].answeredCorrectly = question.answeredCorrectly;
+                        }
+                    }
+                    else {
+                        user.questionProgress.push({
+                            num: question.num,
+                            answeredCorrectly: question.answeredCorrectly,
+                            skipped: false,
+                            answerSelected: question.answerSelected,
+                            flagged: false
+                        });
+                    }
+                }
+            }
+        }
+        return user;
+    };
+
     const handleSubmit = async () => {
         if (currentMockData) {
             if (currentMockData.questions.filter(x => x.flagged || x.skipped).length > 0) {
@@ -175,6 +200,7 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
             user = changeQuestionState(user);
+            user = syncUserCorrectIncorrectWithMock(user, currentMockData);
             saveUserData(user);
             setResultOpen(true);
         }
@@ -186,6 +212,7 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
             currentMockData.timeTake = Math.floor((new Date().getTime() - startTime.getTime()) / 1000) + "";
             user.testProgress.push(currentMockData);
             user = changeQuestionState(user);
+            user = syncUserCorrectIncorrectWithMock(user, currentMockData);
             saveUserData(user);
             setResultOpen(true);
         }
