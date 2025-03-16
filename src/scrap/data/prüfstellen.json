@@ -193,8 +193,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin Friedrichshain-Kreuzberg",
         "straße": "Wassertorstr. 4",
-        "telefon": "030-2219 5518",
-        "email": "Mmartin.fleschenberger@ba-tk.berlin.de, info@vhs-fk.de, deutsch@vhs-fk.de"
+        "telefon": "030-902984600",
+        "email": "info@vhs-fk.de"
       },
       {
         "regierungsbezirk": " ",
@@ -203,34 +203,7 @@
         "einrichtung": "VHS Berlin Lichtenberg",
         "straße": "Paul-Junius-Str. 71",
         "telefon": "030-902965983",
-        "email": "sybille.schoenwald@lichtenberg.berlin.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 10627,
-        "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Charlottenburg City West",
-        "straße": "Pestalozzistr. 40/41",
-        "telefon": "030-902928848",
-        "email": "peter.hagemeister@charlottenburg-wilmersdorf.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 10781,
-        "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Tempelhof-Schöneberg",
-        "straße": "Barbarossaplatz 5",
-        "telefon": "030/75606990",
-        "email": "helga.senden@ba-ts.berlin.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 12053,
-        "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Neukölln Otto Suhr",
-        "straße": "Boddinstr. 34",
-        "telefon": "030-68093390",
-        "email": "jochen.mainka@bezirksamt-neukoelln.de"
+        "email": "vhs.deutsch@lichtenberg.berlin.de"
       },
       {
         "regierungsbezirk": " ",
@@ -238,8 +211,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin Steglitz-Zehlendorf",
         "straße": "Goethestr. 9/11",
-        "telefon": "030/902992242",
-        "email": "laude-kennert@vhssz.de"
+        "telefon": "030/902992657",
+        "email": "deutschkurse@vhssz.de"
       },
       {
         "regierungsbezirk": " ",
@@ -248,7 +221,16 @@
         "einrichtung": "VHS Berlin Treptow-Köpenick",
         "straße": "Baumschulenstr. 79/81",
         "telefon": "030-902974064",
-        "email": "dr.kerstin.rehmer@ba-tk.berlin.de"
+        "email": "vhs.deutsch@ba-tk.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 10627,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Charlottenburg City West",
+        "straße": "Pestalozzistr. 40/41",
+        "telefon": "",
+        "email": "vhs@charlottenburg-wilmersdorf.de"
       },
       {
         "regierungsbezirk": " ",
@@ -256,17 +238,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Marzahn-Hellersdorf",
         "straße": "Mark-Twain-Str. 27",
-        "telefon": "030-902932586",
-        "email": "karin.leuthoff@ba-mh.verwalt-berlin.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 13405,
-        "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Pankow",
-        "straße": "Prenzlauer Allee 227/228",
-        "telefon": "030-902953928",
-        "email": "baumbach@vhspankow.de"
+        "telefon": "030-902932580",
+        "email": "infovhs@ba-mh.berlin.de"
       },
       {
         "regierungsbezirk": " ",
@@ -274,8 +247,26 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Mitte",
         "straße": "Antonstr. 37",
-        "telefon": "030-200947414",
-        "email": "jens.hoeft@ba-mitte.berlin.de"
+        "telefon": "030-901837474",
+        "email": "deutsch@vhsmitte.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 12053,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Neukölln Otto Suhr",
+        "straße": "Boddinstr. 34",
+        "telefon": "030-68093390",
+        "email": "vhsinfo@Bezirksamt-neukoelln.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13405,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Pankow",
+        "straße": "Prenzlauer Allee 227/228",
+        "telefon": "030-902953932",
+        "email": "vhs.deutsch@ba-pankow.berlin.de"
       },
       {
         "regierungsbezirk": " ",
@@ -283,8 +274,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Reinickendorf",
         "straße": "Am Borsigturm 6",
-        "telefon": "030-90294-4802",
-        "email": "gabriele.prauss@reinickendorf.berlin.de"
+        "telefon": "030-902944800",
+        "email": "vhs@reinickendorf.berlin.de"
       },
       {
         "regierungsbezirk": " ",
@@ -292,8 +283,17 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Spandau",
         "straße": "Carl-Schurz-Str. 17",
-        "telefon": "030-902795022",
-        "email": "r.lange@ba-spandau.berlin.de"
+        "telefon": "030-902795000",
+        "email": "info@vhs-spandau.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 10781,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Tempelhof-Schöneberg",
+        "straße": "Barbarossaplatz 5",
+        "telefon": "030/902773000",
+        "email": "einbuergerungstest@ba-ts.berlin.de"
       }
     ]
   },
@@ -702,8 +702,8 @@
         "ort": "Reutlingen",
         "einrichtung": "VHS Reutlingen",
         "straße": "Spendhausstr. 6",
-        "telefon": "07121-336-160",
-        "email": "fmayer@vhsrt.de"
+        "telefon": "07121-336-100",
+        "email": "anmeldung@vhsrt.de"
       },
       {
         "regierungsbezirk": "Lörrach",
@@ -2768,6 +2768,15 @@
         "straße": "Burgallee 6",
         "telefon": "05363-70840-0",
         "email": "wolfsburg@aul-nds-de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38446,
+        "ort": "Wolfsburg",
+        "einrichtung": "Bildungswerk der Niedersächsischen Wirtschaft GmbH",
+        "straße": "Benzstraße 27",
+        "telefon": "05361-46468",
+        "email": "monika.strauch-ackermann@bnw.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -4964,6 +4973,15 @@
         "einrichtung": "Nagelstraße 10",
         "straße": "0651-97561-13",
         "telefon": "Trier@eso.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55118",
+        "plz": "Mainz",
+        "ort": "Akademisches Bildungs-Center e.V.",
+        "einrichtung": "Rabanusstraße 5",
+        "straße": "06131-720276",
+        "telefon": "m.cagrici@abc-mainz.de",
         "email": ""
       },
       {
