@@ -24,7 +24,7 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        working-directory: src/app/web
+        working-directory: src/web
         run: make build-sync
 
       - name: Install Java & Gradle
@@ -34,30 +34,30 @@ jobs:
           java-version: "21"
 
       - name: Make Gradle Wrapper Executable
-        run: chmod +x src/app/android/gradlew
+        run: chmod +x src/android/gradlew
 
       - name: Get Version from Package.json
         id: get_version
-        working-directory: src/app/web
+        working-directory: src/web
         run: |
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
       - name: Bump version
         uses: chkfung/android-version-actions@v1.2.2
         with:
-          gradlePath: src/app/android/app/build.gradle
+          gradlePath: src/android/app/build.gradle
           versionCode: ${{github.run_number}}
           versionName: ${{ env.VERSION }}
 
       - name: Build APK and AAB
-        working-directory: src/app/android
+        working-directory: src/android
         run: ./gradlew bundleRelease
 
       - name: Sign App
         id: sign_app
         uses: ilharp/sign-android-release@v1.0.4
         with:
-          releaseDir: src/app/android/app/build/outputs/bundle/release
+          releaseDir: src/android/app/build/outputs/bundle/release
           signingKey: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -66,7 +66,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Android-App
-          path: src/app/android/app/build/outputs/bundle/release
+          path: src/android/app/build/outputs/bundle/release
 
   release:
     needs: build-android
@@ -80,11 +80,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Android-App
-          path: src/app/android/app/build/outputs/bundle/release/
+          path: src/android/app/build/outputs/bundle/release/
 
       - name: Get Version from Package.json
         id: get_version
-        working-directory: src/app/web
+        working-directory: src/web
         run: |
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
       - name: Release
@@ -94,6 +94,6 @@ jobs:
           name: "Einbürgerungstest v${{ env.VERSION }}"
           draft: false
           prerelease: false
-          files: src/app/android/app/build/outputs/bundle/release/*.aab
+          files: src/android/app/build/outputs/bundle/release/*.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

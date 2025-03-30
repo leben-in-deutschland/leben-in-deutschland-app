@@ -1,0 +1,6283 @@
+[
+  {
+    "stateCode": "bb",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": 16227,
+        "ort": "Eberswalde",
+        "einrichtung": "KVHS Barnim",
+        "straße": "Fritz-Weineck-Str. 36",
+        "telefon": "03334-34597",
+        "email": "info@kvhs-barnim.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "15711",
+        "ort": "Königs Wusterhausen",
+        "einrichtung": "VHS Dahme-Spreewald / Königs Wusterhausen",
+        "straße": "Schulweg 1b",
+        "telefon": "03375-262526",
+        "email": "vhs@dahme-spreewald.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 4910,
+        "ort": "Elsterwerda",
+        "einrichtung": "KVHS Elbe-Elster",
+        "straße": "Schloßplatz 1a",
+        "telefon": "03533-6208520",
+        "email": "vhs.hz@lkee.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "14612",
+        "ort": "Falkensee",
+        "einrichtung": "VHS Havelland",
+        "straße": "Poststr. 15",
+        "telefon": "03321-403-6712",
+        "email": "kathrin.royek@havelland.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 14772,
+        "ort": "Brandenburg an der Havel",
+        "einrichtung": "VHS Brandenburg an der Havel",
+        "straße": "Upstallstraße 25",
+        "telefon": "03381-250442",
+        "email": "auskunft@vhs-brandenburg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 15344,
+        "ort": "Strausberg",
+        "einrichtung": "ZEM Volkshochschule Märkisch-Oderland",
+        "straße": "Wriezener Str. 30",
+        "telefon": "03346-8506840",
+        "email": "volkshochschule@lankreismol.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 16515,
+        "ort": "Oranienburg",
+        "einrichtung": "Volksschule Oberhavel (Hauptgeschäftsstelle)",
+        "straße": "Havelstr. 18",
+        "telefon": "03301 6015752",
+        "email": "vhs@oberhavel.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "01968",
+        "ort": "Senftenberg",
+        "einrichtung": "KVHS-Oberspreewald-Lausitz",
+        "straße": "Jahnstr. 32",
+        "telefon": "03573/810314",
+        "email": "gross@vhs-osl.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "15517",
+        "ort": "Fürstenwalde /Spree",
+        "einrichtung": "Volkshochschule Landkreis Oder-Spree",
+        "straße": "Frankfurter Str. 70",
+        "telefon": "03361-2783",
+        "email": "fuerstenwalde@vhs-los.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "15890",
+        "ort": "Eisenhüttenstadt",
+        "einrichtung": "VHS Eisenhüttenstadt",
+        "straße": "Waldstr. 10",
+        "telefon": "03364-280734",
+        "email": "eisenhuettenstadt@vhs-los-eh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 16816,
+        "ort": "Neuruppin",
+        "einrichtung": "KVHS Neuruppin ",
+        "straße": "Altruppiner Allee 39",
+        "telefon": "03391-769160",
+        "email": "volkshochschule@o-p-r.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "14532",
+        "ort": "Kleinmachnow /  Belzig",
+        "einrichtung": "KVHS Potsdam-Mittelmark",
+        "straße": "Am Weinberg 20 / Puschkinstr. 13",
+        "telefon": "033203-803710",
+        "email": "kleinmachnow@kvhs-pm.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 19348,
+        "ort": "Perleberg",
+        "einrichtung": "KVHS Prignitz",
+        "straße": "Berliner Str. 49",
+        "telefon": "03876-785165",
+        "email": "kvhs.prignitz@web.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "03149",
+        "ort": "Forst (Lausitz)",
+        "einrichtung": "KVHS Spree-Neiße",
+        "straße": "Heinrich-Heine-Str. 14",
+        "telefon": "03562-699766",
+        "email": "kvhs@lkspn.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "03046",
+        "ort": "Cottbus",
+        "einrichtung": "VHS im Lernzentrum Cottbus",
+        "straße": "Berliner Str. 13/14",
+        "telefon": "0355-38060-50",
+        "email": "volkshochschule@cottbus.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "14467",
+        "ort": "Potsdam",
+        "einrichtung": "VHS \"A. Einstein\" der Stadt Potsdam",
+        "straße": "Dortustr. 37",
+        "telefon": "0331/289-4562",
+        "email": "Susanne.Herrmann@rathaus.potsdam.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "15230",
+        "ort": "Frankfurt (Oder)",
+        "einrichtung": "VHS Frankfurt (Oder)",
+        "straße": "Gartenstr. 1",
+        "telefon": "0335-542025",
+        "email": "christen@vhs-frankfurt-oder.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 14943,
+        "ort": "Luckenwalde",
+        "einrichtung": "VHS Teltow-Fläming",
+        "straße": "Am Nuthefließ 2",
+        "telefon": "03371-6083141",
+        "email": "kvhs@teltow-flaeming.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "16303",
+        "ort": "Schwedt/Oder",
+        "einrichtung": "VHS Schwedt/Oder",
+        "straße": "Berliner Str. 52e",
+        "telefon": "03332-834911",
+        "email": "vhs.stadt@schwedt.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17291,
+        "ort": "Prenzlau",
+        "einrichtung": "KVHS Uckermark",
+        "straße": "Brüssower Allee 48",
+        "telefon": "03984-2551",
+        "email": "info@kvhs-uckermark.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "be",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": 10969,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin Friedrichshain-Kreuzberg",
+        "straße": "Wassertorstr. 4",
+        "telefon": "030-902984600",
+        "email": "info@vhs-fk.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 10369,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin Lichtenberg",
+        "straße": "Paul-Junius-Str. 71",
+        "telefon": "030-902965983",
+        "email": "vhs.deutsch@lichtenberg.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 12207,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin Steglitz-Zehlendorf",
+        "straße": "Goethestr. 9/11",
+        "telefon": "030/902992657",
+        "email": "deutschkurse@vhssz.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 12437,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin Treptow-Köpenick",
+        "straße": "Baumschulenstr. 79/81",
+        "telefon": "030-902974064",
+        "email": "vhs.deutsch@ba-tk.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 10627,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Charlottenburg City West",
+        "straße": "Pestalozzistr. 40/41",
+        "telefon": "",
+        "email": "vhs@charlottenburg-wilmersdorf.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 12627,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Marzahn-Hellersdorf",
+        "straße": "Mark-Twain-Str. 27",
+        "telefon": "030-902932580",
+        "email": "infovhs@ba-mh.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13347,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Mitte",
+        "straße": "Antonstr. 37",
+        "telefon": "030-901837474",
+        "email": "deutsch@vhsmitte.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 12053,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Neukölln Otto Suhr",
+        "straße": "Boddinstr. 34",
+        "telefon": "030-68093390",
+        "email": "vhsinfo@Bezirksamt-neukoelln.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13405,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Pankow",
+        "straße": "Prenzlauer Allee 227/228",
+        "telefon": "030-902953932",
+        "email": "vhs.deutsch@ba-pankow.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13507,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Reinickendorf",
+        "straße": "Am Borsigturm 6",
+        "telefon": "030-902944800",
+        "email": "vhs@reinickendorf.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13597,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Spandau",
+        "straße": "Carl-Schurz-Str. 17",
+        "telefon": "030-902795000",
+        "email": "info@vhs-spandau.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 10781,
+        "ort": "Berlin",
+        "einrichtung": "VHS Berlin-Tempelhof-Schöneberg",
+        "straße": "Barbarossaplatz 5",
+        "telefon": "030/902773000",
+        "email": "einbuergerungstest@ba-ts.berlin.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "bw",
+    "data": [
+      {
+        "regierungsbezirk": "Konstanz",
+        "plz": 88045,
+        "ort": "Friedrichshafen",
+        "einrichtung": "Inlingua Sprachcenter Friedrichshafen",
+        "straße": "Bahnhofplatz 1",
+        "telefon": "07541-2868-11",
+        "email": "info@inlingua-friedrichshafen.de"
+      },
+      {
+        "regierungsbezirk": "Ortenaukreis",
+        "plz": 77652,
+        "ort": "Offenburg",
+        "einrichtung": "Institut für deutsche Sprache Offenburg (ids)",
+        "straße": " Wilhelm-Bauer-Str. 16",
+        "telefon": "0781/9364420",
+        "email": "regina.nagel@vhs-offenburg.de"
+      },
+      {
+        "regierungsbezirk": "Schwäbisch Hall",
+        "plz": 74564,
+        "ort": "Crailsheim",
+        "einrichtung": "Kompetenz & Bildung, Kunert & Buckel",
+        "straße": "Gerhard-Storz-Weg 24, Schwäbisch Hall",
+        "telefon": "0791-94078191",
+        "email": "marcus.buckel@kompetenzundbildung.de"
+      },
+      {
+        "regierungsbezirk": "Schwäbisch Hall",
+        "plz": 74523,
+        "ort": "Schwäbisch Hall",
+        "einrichtung": "Kompetenz & Bildung, Kunert & Buckel",
+        "straße": "Gerhard-Storz-Weg 24, Schwäbisch Hall",
+        "telefon": "0791-94078191",
+        "email": "marcus.buckel@kompetenzundbildung.de"
+      },
+      {
+        "regierungsbezirk": "Freudenstadt",
+        "plz": 72250,
+        "ort": "Freudenstadt",
+        "einrichtung": "KVHS Freudenstadt",
+        "straße": "Geschäftsstelle FDS, Landhausstr. 4",
+        "telefon": "07441/9201400",
+        "email": "vogt@vhs-kreisfds.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 68161,
+        "ort": "Mannheim",
+        "einrichtung": "Mannheimer Abendakademie und VHS GmbH",
+        "straße": "U 1, 16-19",
+        "telefon": "0621-1076-0",
+        "email": "deutsch@abendakademie-mannheim.de"
+      },
+      {
+        "regierungsbezirk": "Ludwigsburg",
+        "plz": 71638,
+        "ort": "Ludwigsburg",
+        "einrichtung": "Schiller-VHS Kreis Ludwigsburg",
+        "straße": "Robert-Franck-Allee 9",
+        "telefon": "07141-1441668",
+        "email": "tausche@schiller-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Lörrach",
+        "plz": 79539,
+        "ort": "Lörrach",
+        "einrichtung": "Stadt Lörrach, Volkshochschule",
+        "straße": "Wallbrunnstraße 2",
+        "telefon": "07621-95673-40",
+        "email": "vhs@loerrach.de"
+      },
+      {
+        "regierungsbezirk": "Buchen",
+        "plz": 74722,
+        "ort": "Buchen",
+        "einrichtung": "Volkshochschule Buchen e.V.",
+        "straße": "Kellereistr. 48",
+        "telefon": "06281-557930",
+        "email": "info@vhs-buchen"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 76133,
+        "ort": "Karlsruhe ",
+        "einrichtung": "Städtische VHS Karlsruhe",
+        "straße": "Studienhaus, Kaiserallee 12e",
+        "telefon": "0721-98575-21",
+        "email": "bittner@vhs.karlsruhe.de"
+      },
+      {
+        "regierungsbezirk": "Schwäbisch Hall",
+        "plz": 74564,
+        "ort": "Crailsheim",
+        "einrichtung": "Städtische Volkshochschule Crailsheim",
+        "straße": "Spitalstr. 2a",
+        "telefon": "07951-9480-18",
+        "email": "kadri.peterson@crailsheim.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 89073,
+        "ort": "Ulm",
+        "einrichtung": "Ulmer Volkshochschule",
+        "straße": "EinsteinHaus, Kornhausplatz 5",
+        "telefon": "0731-15300",
+        "email": "info@vh-ulm.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 79098,
+        "ort": "Freiburg",
+        "einrichtung": "Verte GmbH Inlingua Freiburg",
+        "straße": "Friedrichstraße 45",
+        "telefon": "0761-21688714",
+        "email": "dos@inlingua-freiburg.de"
+      },
+      {
+        "regierungsbezirk": "Ostalbkreis",
+        "plz": 73492,
+        "ort": "Rainau",
+        "einrichtung": "VHS Ostalb e.V.",
+        "straße": "Strutrain 2",
+        "telefon": "07961-876-915",
+        "email": "silvia.Freitag@vhs-ostalb.de"
+      },
+      {
+        "regierungsbezirk": "Ostalbkreis",
+        "plz": 73430,
+        "ort": "Aalen",
+        "einrichtung": "VHS Aalen",
+        "straße": "Im Torhaus, Gmünder Str. 9",
+        "telefon": "07361-95830",
+        "email": "schumm@vhs-aalen.de"
+      },
+      {
+        "regierungsbezirk": "Rems-Murr-Kreis",
+        "plz": 71522,
+        "ort": "Backnang",
+        "einrichtung": "VHS Backnang",
+        "straße": "Etzwiesenberg 11",
+        "telefon": "07191/9667-16",
+        "email": "info@vhs-backnang.de"
+      },
+      {
+        "regierungsbezirk": "Waldshut",
+        "plz": 79713,
+        "ort": "Bad Säckingen",
+        "einrichtung": "VHS Bad Säckingen",
+        "straße": "Friedrichstr. 33",
+        "telefon": "07761-2101",
+        "email": "verwaltung@vhs-bad-saeckingen.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 76532,
+        "ort": "Baden-Baden",
+        "einrichtung": "VHS Baden-Baden",
+        "straße": "Jägerweg 10",
+        "telefon": "07221/9965-360",
+        "email": "info@vhs-baden-baden.de"
+      },
+      {
+        "regierungsbezirk": "Zollernalbkreis",
+        "plz": 72336,
+        "ort": "Balingen",
+        "einrichtung": "VHS Balingen",
+        "straße": "Wilhelmstr. 36",
+        "telefon": "07433-9080-0",
+        "email": "ottmar.erath@vhs-balingen.de"
+      },
+      {
+        "regierungsbezirk": "Biberach/Riß",
+        "plz": 88400,
+        "ort": "Biberach",
+        "einrichtung": "VHS Biberach a. d. Riß",
+        "straße": "Obere Schranne, Schulstr. 8",
+        "telefon": "07351-51-246",
+        "email": "cstern@biberach-riss.de"
+      },
+      {
+        "regierungsbezirk": "Böblingen",
+        "plz": 71032,
+        "ort": "Böblingen",
+        "einrichtung": "VHS Böblingen-Sindelfingen",
+        "straße": "Im Höfle, Pestalozzistr. 4",
+        "telefon": "07031-640046",
+        "email": "mailto:michael.hoffmann@vhs-aktuell.de"
+      },
+      {
+        "regierungsbezirk": "Bodenseekreis",
+        "plz": 88045,
+        "ort": "Friedrichshafen",
+        "einrichtung": "VHS Bodenseekreis",
+        "straße": "Glärnischstraße 1-3",
+        "telefon": "07541 2045468",
+        "email": "vhs-zentrale@bodenseekreis.de"
+      },
+      {
+        "regierungsbezirk": "Calw",
+        "plz": 75365,
+        "ort": "Calw",
+        "einrichtung": "VHS Calw e.V.",
+        "straße": "Kirchplatz 3",
+        "telefon": "07051/9365-0",
+        "email": "mail@vhs-calw.de"
+      },
+      {
+        "regierungsbezirk": "Esslingen",
+        "plz": 73728,
+        "ort": "Esslingen",
+        "einrichtung": "VHS Esslingen",
+        "straße": "Mettingerstr. 125",
+        "telefon": "0711-55021-0",
+        "email": "info@vhs-esslingen.de "
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 79098,
+        "ort": "Freiburg",
+        "einrichtung": "VHS Freiburg",
+        "straße": "Rotteckring 12",
+        "telefon": "0761-3689510",
+        "email": "lebfromm@vhs-freiburg.de"
+      },
+      {
+        "regierungsbezirk": "Bodenseekreis",
+        "plz": 88045,
+        "ort": "Friedrichshafen",
+        "einrichtung": "VHS Friedrichshafen",
+        "straße": "Charlottenstr. 12/2",
+        "telefon": "07541-2033407",
+        "email": "info@vhs-fn.de"
+      },
+      {
+        "regierungsbezirk": "Tuttlingen",
+        "plz": 78532,
+        "ort": "Tuttlingen",
+        "einrichtung": "VHS für Stadt und Kreis Tuttlingen",
+        "straße": "Schulstr. 6",
+        "telefon": "07461-96910",
+        "email": "schlagowsky@vhs-tuttlingen.de"
+      },
+      {
+        "regierungsbezirk": "Göppingen",
+        "plz": 73312,
+        "ort": "Geislingen a.d.Steige",
+        "einrichtung": "VHS Geislingen a. d. Steige",
+        "straße": "In der MAG, Schillerstr. 2",
+        "telefon": "07331-24269",
+        "email": "vhs@geislingen.de"
+      },
+      {
+        "regierungsbezirk": "Südwürtemberg",
+        "plz": 72379,
+        "ort": "Hechingen",
+        "einrichtung": "VHS Hechingen",
+        "straße": "Münzgasse 4/1",
+        "telefon": "07471-5188",
+        "email": "vhs@vhs-hechingen.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 69115,
+        "ort": "Heidelberg",
+        "einrichtung": "VHS Heidelberg",
+        "straße": "Bergheimer Str. 76",
+        "telefon": "06221-911911",
+        "email": "vhs@vhs-hd.de"
+      },
+      {
+        "regierungsbezirk": "Heidenheim",
+        "plz": 89522,
+        "ort": "Heidenheim",
+        "einrichtung": "VHS Heidenheim",
+        "straße": "Am Wedelgraben 1-5 \"Rieger am Markt\"",
+        "telefon": "07321-327-4430",
+        "email": "info@vhs-heidenheim.de"
+      },
+      {
+        "regierungsbezirk": "Heilbronn",
+        "plz": 74072,
+        "ort": "Heilbronn",
+        "einrichtung": "VHS Heilbronn",
+        "straße": "Im Deutschhof",
+        "telefon": "07131-996544",
+        "email": "persson@vhs-heilbronn.de"
+      },
+      {
+        "regierungsbezirk": "Esslingen",
+        "plz": 73230,
+        "ort": "Kirchheim u.Teck",
+        "einrichtung": "VHS Kirchheim u. Teck",
+        "straße": "Max-Eyth-Str. 18",
+        "telefon": "07021-973030",
+        "email": "info@vhskirchheim.de"
+      },
+      {
+        "regierungsbezirk": "Konstanz",
+        "plz": 78462,
+        "ort": "Konstanz",
+        "einrichtung": "VHS Konstanz-Singen",
+        "straße": "Hauptstelle Konstanz, Katzgasse 7",
+        "telefon": "07731-9581-57",
+        "email": "pacilli@vhs-konstanz-singen.de"
+      },
+      {
+        "regierungsbezirk": "Rastatt",
+        "plz": 76437,
+        "ort": "Rastatt",
+        "einrichtung": "VHS Landkreis Rastatt",
+        "straße": "Am Schlossplatz 5",
+        "telefon": "07222/3813516",
+        "email": "rastatt@vhs-landkreis-rastatt.de"
+      },
+      {
+        "regierungsbezirk": "Main-Tauber-Kreis",
+        "plz": 97941,
+        "ort": "Tauberbischofsheim",
+        "einrichtung": "VHS Mittleres Taubertal",
+        "straße": "Struwepfad 2",
+        "telefon": "09341-1691",
+        "email": "vhs-mittleres-taubertal@t-online.de"
+      },
+      {
+        "regierungsbezirk": "Mosbach",
+        "plz": 74821,
+        "ort": "Mosbach",
+        "einrichtung": "VHS Mosbach",
+        "straße": "Hauptstr. 96",
+        "telefon": "06261-12077",
+        "email": "wilder@vhs-mosbach.de"
+      },
+      {
+        "regierungsbezirk": "Neckarsulm",
+        "plz": 74172,
+        "ort": "Neckarsulm",
+        "einrichtung": "VHS Neckarsulm",
+        "straße": "Seestraße 15",
+        "telefon": "087132-353502",
+        "email": "Dr.SabineRivier@neckarsulm.de"
+      },
+      {
+        "regierungsbezirk": "Emmendingen",
+        "plz": 79312,
+        "ort": "Emmendingen",
+        "einrichtung": "VHS Nördlicher Breisgau",
+        "straße": "Am Gaswerk 3",
+        "telefon": "07641-9225-27",
+        "email": "integration@vhs-em.de"
+      },
+      {
+        "regierungsbezirk": "Calw",
+        "plz": 72202,
+        "ort": "Nagold",
+        "einrichtung": "VHS Oberes Nagoldtal",
+        "straße": "Vorstadtplatz 15",
+        "telefon": "07452-93150",
+        "email": "sylvia.ehmann-oulad@vhs-nagold.de"
+      },
+      {
+        "regierungsbezirk": "Esslingen",
+        "plz": 73760,
+        "ort": "Ostfildern",
+        "einrichtung": "VHS Ostfildern",
+        "straße": "Esslinger Straße 26",
+        "telefon": "0711-3404802",
+        "email": "A.Koerfer-Naujoks@Ostfildern.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 75172,
+        "ort": "Pforzheim",
+        "einrichtung": "VHS Pforzheim-Enzkreis",
+        "straße": "Zerrenerstr. 29",
+        "telefon": "07231-380062",
+        "email": "schuster@vhs-pforzheim.de"
+      },
+      {
+        "regierungsbezirk": "Sigmaringen",
+        "plz": 88630,
+        "ort": "Pfullendorf",
+        "einrichtung": "VHS Pfullendorf",
+        "straße": "Kirchplatz 1",
+        "telefon": "0 75 52 / 25-1132",
+        "email": "hermine.reiter@stadt-pfullendorf.de"
+      },
+      {
+        "regierungsbezirk": "Ravensburg",
+        "plz": 88212,
+        "ort": "Ravensburg",
+        "einrichtung": "VHS Ravensburg",
+        "straße": "Wilhelmschule, Wilhelmstr. 5",
+        "telefon": "0751-36199-17",
+        "email": "vhs-rv@web.de"
+      },
+      {
+        "regierungsbezirk": "Reutlingen",
+        "plz": 72764,
+        "ort": "Reutlingen",
+        "einrichtung": "VHS Reutlingen",
+        "straße": "Spendhausstr. 6",
+        "telefon": "07121-336-100",
+        "email": "anmeldung@vhsrt.de"
+      },
+      {
+        "regierungsbezirk": "Lörrach",
+        "plz": 79618,
+        "ort": "Rheinfelden",
+        "einrichtung": "VHS Rheinfelden",
+        "straße": "Hardtstr. 6",
+        "telefon": "07623-7240-0",
+        "email": "info@vhs-rheinfelden.de"
+      },
+      {
+        "regierungsbezirk": "Rottenburg",
+        "plz": 84056,
+        "ort": "Rottenburg",
+        "einrichtung": "VHS Rottenburg a.d. Laaber e.V.",
+        "straße": "Georg-Pöschl-Straße 16",
+        "telefon": "08781-201511",
+        "email": "info@vhs-rottenburg-laaber.de"
+      },
+      {
+        "regierungsbezirk": "Rottweil",
+        "plz": 78713,
+        "ort": "Schramberg",
+        "einrichtung": "VHS Schramberg",
+        "straße": "Hauptstr. 25",
+        "telefon": "07422-29256",
+        "email": "vhs@schramberg.de"
+      },
+      {
+        "regierungsbezirk": "Ostalbkreis",
+        "plz": 73525,
+        "ort": "Schwäbisch Gmünd",
+        "einrichtung": "VHS Schwäbisch Gmünd",
+        "straße": "Am Münsterplatz 5",
+        "telefon": "07171-92515-0",
+        "email": "hschwimmbeck@gmuender-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Schwäbisch Hall",
+        "plz": 74523,
+        "ort": "Schwäbisch Hall",
+        "einrichtung": "VHS Schwäbisch Hall",
+        "straße": "Salinenstr. 6-10 Haus der Bildung",
+        "telefon": "0791-97066-17",
+        "email": "m.miara@vhs-sha.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Neckar-Kreis",
+        "plz": 74889,
+        "ort": "Sinsheim",
+        "einrichtung": "VHS Sinsheim",
+        "straße": "Werderstr. 1",
+        "telefon": "07261-6577-0",
+        "email": "info@VHS-Sinsheim.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 70174,
+        "ort": "Stuttgart",
+        "einrichtung": "VHS Stuttgart",
+        "straße": "Fritz-Elsas-Str. 46-48",
+        "telefon": "0711/1873-748",
+        "email": "agnieszka.schulze@vhs-stuttgart.de"
+      },
+      {
+        "regierungsbezirk": "Tübingen",
+        "plz": 72072,
+        "ort": "Tübingen",
+        "einrichtung": "VHS Tübingen",
+        "straße": "Katharinenstr. 18",
+        "telefon": "07071-560326",
+        "email": "integration@vhs-tuebingen.de"
+      },
+      {
+        "regierungsbezirk": "Rems-Murr-Kreis",
+        "plz": 71332,
+        "ort": "Waiblingen",
+        "einrichtung": "VHS Unteres Remstal",
+        "straße": "Bürgermühlenweg 4",
+        "telefon": "07151-95880-0",
+        "email": "info@vhs-unteres-remstal.de"
+      },
+      {
+        "regierungsbezirk": "Schwarzwald-Baar-Kreis",
+        "plz": 78054,
+        "ort": "Villingen-Schwenningen",
+        "einrichtung": "VHS Villingen-Schwenningen",
+        "straße": "Metzgergasse 8",
+        "telefon": "07720-822276",
+        "email": "vhs@villingen-schwenningen.de"
+      },
+      {
+        "regierungsbezirk": "Wangen",
+        "plz": 88239,
+        "ort": "Wangen",
+        "einrichtung": "VHS Wangen",
+        "straße": "Zunfthausgasse 4",
+        "telefon": "07522 74242",
+        "email": "vhs@wangen.de"
+      },
+      {
+        "regierungsbezirk": "Hohenlohekreis",
+        "plz": 74613,
+        "ort": "Öhringen",
+        "einrichtung": "Volkshochschule Öhringen",
+        "straße": "Uhlandstraße 23",
+        "telefon": "07941-68-4250/4260",
+        "email": "volkshochschule@oehringen.de"
+      },
+      {
+        "regierungsbezirk": "Hohenlohekreis",
+        "plz": 74653,
+        "ort": "Künzelsau",
+        "einrichtung": "Zweckverband VHS Künzelsau",
+        "straße": "Kirchplatz 9",
+        "telefon": "079409219-0",
+        "email": "info@vhskuen.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "by",
+    "data": [
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 90443,
+        "ort": "Nürnberg",
+        "einrichtung": "Akademia Zentrum für Kommunikation und Bildung GmbH - Nürnberg",
+        "straße": "Bahnhofsplatz 6",
+        "telefon": "0911-240562-0",
+        "email": "service@linguademia.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80809,
+        "ort": "München",
+        "einrichtung": "Anderwerk Deutschkurse",
+        "straße": "Hamburger Straße 32",
+        "telefon": "089-45104024",
+        "email": "deutschkurse@anderwerk.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 81379,
+        "ort": "München",
+        "einrichtung": "Bayerisches Rotes Kreuz",
+        "straße": "Boschetsriederstraße 67",
+        "telefon": "089-3090406-33",
+        "email": "integrationskurse@brk-muenchen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 87700,
+        "ort": "Memmingen",
+        "einrichtung": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft (bfz)",
+        "straße": "Jägerndorfer Str. 1",
+        "telefon": "08331 95840",
+        "email": "info-ubo@bfz.de"
+      },
+      {
+        "regierungsbezirk": "Donau-Ries",
+        "plz": 86609,
+        "ort": "Donauwörth",
+        "einrichtung": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft gGmbH, bfz-Donauwörth-Ulm-Aalen",
+        "straße": "Dr. Friedrich-Drechsler-Str. 14",
+        "telefon": "0906-70677-0",
+        "email": "info-dua@bfz.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80336,
+        "ort": "München",
+        "einrichtung": "Bildungsinstitut Kavalchuk",
+        "straße": "Landwehrstr. 61",
+        "telefon": "",
+        "email": "einbuergerungstest@bik-courses.de "
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 90403,
+        "ort": "Nürnberg",
+        "einrichtung": "Bildungszentrum Stadt Nürnberg",
+        "straße": "Gewerbemuseumsplatz 1",
+        "telefon": "0911 231-3147",
+        "email": "bz-info@stadt.nuernberg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80335,
+        "ort": "München",
+        "einrichtung": "Deutsche Angestellten-Akademie GmbH ",
+        "straße": "Marsstraße 42",
+        "telefon": "089-544302-0",
+        "email": "info.muenchen@daa.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 90429,
+        "ort": "Nürnberg",
+        "einrichtung": "Euro-Bildungswerk Nürnberg/Euro-Schulen Nordbayern",
+        "straße": "Solgerstr. 16a/18",
+        "telefon": "0911/2870750",
+        "email": "info@ebw.nuernberg.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 63739,
+        "ort": "Aschaffenburg",
+        "einrichtung": "Euro-Schulen Aschaffenburg",
+        "straße": "Goldbacher Str. 6",
+        "telefon": "06142-966076",
+        "email": "mayer.michaele@es.aschaffenburg.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 97070,
+        "ort": "Würzburg",
+        "einrichtung": "Euro-Schulen Nordbayern",
+        "straße": "Herzogenstr. 8",
+        "telefon": "0931/29991-0",
+        "email": "info@es.nordby.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80335,
+        "ort": "München",
+        "einrichtung": "Hilfe von Mensch zu Mensch",
+        "straße": "Marsstr. 25",
+        "telefon": "089-189179822",
+        "email": "naim.aladjuz@hvmzm.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 85049,
+        "ort": "Ingolstadt",
+        "einrichtung": "inlingua Sprachenschule e. K. ",
+        "straße": "Ludwigstraße 18",
+        "telefon": "0841-885185-0",
+        "email": "info@inlingua-ingolstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80336,
+        "ort": "München",
+        "einrichtung": "Inlingua Sprachschule U.&C. Bernau GmbH",
+        "straße": "Sendlinger Torplatz 6",
+        "telefon": "089-2311530",
+        "email": "info@inlingua-muenchen.de"
+      },
+      {
+        "regierungsbezirk": "Amberg-Sulzbach",
+        "plz": 92224,
+        "ort": "Amberg",
+        "einrichtung": "ISE Sprach -und Berufsbildungszentrum GmbH",
+        "straße": "Kaiser-Ludwig-Ring 9",
+        "telefon": "09661-8147-0",
+        "email": "info@ise-berufsbildung.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 85049,
+        "ort": "Ingolstadt",
+        "einrichtung": "Kolping Akademie Ingolstadt gGmbH",
+        "straße": "Johannesstraße 11",
+        "telefon": "0841 / 933010",
+        "email": "info@kolping-ingolstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 94032,
+        "ort": "Passau",
+        "einrichtung": "Kommunaler Zweckverband der Volkshochschule Passau",
+        "straße": "Nikolastr. 18",
+        "telefon": "0851-9598028",
+        "email": "info@vhs-passau.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 80337,
+        "ort": "München",
+        "einrichtung": "MAS Sprachschule München",
+        "straße": "Lindwurmstr. 109",
+        "telefon": "089-46139464",
+        "email": "info@mas-sprachschule.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 81667,
+        "ort": "München",
+        "einrichtung": "Münchner VHS GmbH",
+        "straße": "Rosenheimer Str. 5",
+        "telefon": "089-48006-6169",
+        "email": "renate.aumueller@mvhs.de"
+      },
+      {
+        "regierungsbezirk": "Oberallgäu",
+        "plz": 87527,
+        "ort": "Sonthofen",
+        "einrichtung": "Oberallgäuer VHS",
+        "straße": "Hindelanger Str. 37",
+        "telefon": "08321-667345",
+        "email": "te@oa-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 63739,
+        "ort": "Aschaffenburg",
+        "einrichtung": "VHS  Aschaffenburg",
+        "straße": "Luitpoldstr. 2",
+        "telefon": "06021-38688-55",
+        "email": "nitsche@vhs-aschaffenburg.de"
+      },
+      {
+        "regierungsbezirk": "Aichach-Friedberg",
+        "plz": 86551,
+        "ort": "Aichach",
+        "einrichtung": "VHS Aichach-Friedberg e.V.",
+        "straße": "Steubstr. 3",
+        "telefon": "08251-8737-14",
+        "email": "gyoergyi.derdak@vhs-aichach-friedberg.de"
+      },
+      {
+        "regierungsbezirk": "Altötting",
+        "plz": 84503,
+        "ort": "Altötting",
+        "einrichtung": "VHS Alt-/Neuötting und Töging e. V.",
+        "straße": "Neuöttinger Str. 32",
+        "telefon": "08671-12077",
+        "email": "vhs.Alt-Neuoetting@t-online.de"
+      },
+      {
+        "regierungsbezirk": "Regen",
+        "plz": 94209,
+        "ort": "Regen",
+        "einrichtung": "VHS ARBERLAND",
+        "straße": "Amtsgerichtstr. 6 - 8",
+        "telefon": "09921-96054400",
+        "email": "info@vhs-arberland.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 86153,
+        "ort": "Augsburg",
+        "einrichtung": "VHS Augsburg e.V.",
+        "straße": "Willy-Brandt-Platz 3a",
+        "telefon": "0821-50265-35",
+        "email": "loibl_eberhardt@vhs-augsburg.de"
+      },
+      {
+        "regierungsbezirk": "Berchtesgadener Land",
+        "plz": 83435,
+        "ort": "Bad Reichenhall",
+        "einrichtung": "VHS Bad Reichenhall",
+        "straße": "Aegidiplatz 3",
+        "telefon": "08651-63054",
+        "email": "werner@vhs-reichenhall.de"
+      },
+      {
+        "regierungsbezirk": "Bamberg",
+        "plz": 96052,
+        "ort": "Bamberg",
+        "einrichtung": "VHS Bamberg",
+        "straße": "Tränkgasse 4",
+        "telefon": "0951-871108",
+        "email": "thomas.riegg@vhs-bamberg.de"
+      },
+      {
+        "regierungsbezirk": "Bamberg",
+        "plz": 96052,
+        "ort": "Bamberg",
+        "einrichtung": "VHS Bamberg-Land e.V.",
+        "straße": "Ludwigstraße 25",
+        "telefon": "0951-85759 od. 760",
+        "email": "info@vhs-bamberg-land.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 95444,
+        "ort": "Bayreuth",
+        "einrichtung": "VHS Bayreuth",
+        "straße": "Richard-Wagner-Str. 21",
+        "telefon": "0921-50703840",
+        "email": "volkshochschule@stadt.bayreuth.de "
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 94327,
+        "ort": "Bogen",
+        "einrichtung": "VHS Straubing -Bogen",
+        "straße": "Klosterhof 2",
+        "telefon": "09422-505600",
+        "email": "vhs@vhs-bildungszentrum.de"
+      },
+      {
+        "regierungsbezirk": "Eichstätt",
+        "plz": 92339,
+        "ort": "Beilngries",
+        "einrichtung": "VHS Beilngries e.V.",
+        "straße": "Ringstr. 16",
+        "telefon": "08461-266",
+        "email": "bildung@vhs-beilngries.de"
+      },
+      {
+        "regierungsbezirk": "Ostallgäu",
+        "plz": 86807,
+        "ort": "Buchloe",
+        "einrichtung": "VHS Buchloe e.V.",
+        "straße": "Bahnhofstr. 60",
+        "telefon": "08241-90233",
+        "email": "info@vhs-buchloe.de"
+      },
+      {
+        "regierungsbezirk": "Altötting",
+        "plz": 84489,
+        "ort": "Burghausen",
+        "einrichtung": "VHS Burghausen-Burgkirchen e. V.",
+        "straße": "Marktler Str. 16",
+        "telefon": "08677-98778-0",
+        "email": "hr@vhs-burghausen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 96450,
+        "ort": "Coburg",
+        "einrichtung": "VHS Coburg  gGmbH",
+        "straße": "Löwenstr. 15",
+        "telefon": "09561-8825-70",
+        "email": "helga.kolbenschlag@vhs-coburg.de"
+      },
+      {
+        "regierungsbezirk": "Roth",
+        "plz": 91161,
+        "ort": "Hilpoltstein",
+        "einrichtung": "VHS d.Lkrs. Roth e.V.",
+        "straße": "Maria-Dorothea-Str. 8",
+        "telefon": "09174-474932",
+        "email": "roth@vhs-bayern.de"
+      },
+      {
+        "regierungsbezirk": "Dachau",
+        "plz": 85221,
+        "ort": "Dachau",
+        "einrichtung": "VHS Dachau GmbH",
+        "straße": "Dr.-Engert-Str. 4",
+        "telefon": "08131-352460",
+        "email": "matthias.buschhaus@vhs-dachau.de"
+      },
+      {
+        "regierungsbezirk": "Deggendorf",
+        "plz": 94469,
+        "ort": "Deggendorf",
+        "einrichtung": "VHS Deggendorfer Land e. V.",
+        "straße": "Amanstr. 11",
+        "telefon": "0991/ 32015 56",
+        "email": "info@vhs-deggendorf.de"
+      },
+      {
+        "regierungsbezirk": "Roth",
+        "plz": 91154,
+        "ort": "Roth",
+        "einrichtung": "VHS der Gemeinden im Landkreis Roth",
+        "straße": "Hilpoltsteiner Str. 2a",
+        "telefon": "09174-474940",
+        "email": "integration@vhs-roth.de"
+      },
+      {
+        "regierungsbezirk": "Landsberg-Lech",
+        "plz": 86899,
+        "ort": "Landsberg am Lech",
+        "einrichtung": "VHS der Stadt Landsberg/Lech",
+        "straße": "Hubert-von-Herkomer-Str. 110",
+        "telefon": "08191-128-111 od. -112",
+        "email": "s_frey_wegele@landsberg.de"
+      },
+      {
+        "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
+        "plz": 95615,
+        "ort": "Marktredwitz",
+        "einrichtung": "VHS der Stadt Marktredwitz",
+        "straße": "Fikentscherstr. 19",
+        "telefon": "09231-5115",
+        "email": "vhs@marktredwitz.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 97421,
+        "ort": "Schweinfurt",
+        "einrichtung": "VHS der Stadt Schweinfurt",
+        "straße": "Markt 1",
+        "telefon": "09721/51538",
+        "email": "vhs@schweinfurt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 91522,
+        "ort": "Ansbach",
+        "einrichtung": "VHS des Landkreises Ansbach",
+        "straße": "Crailsheimstr. 1",
+        "telefon": "0981 468 6111",
+        "email": "kontakt@vhs-lkr-ansbach.de"
+      },
+      {
+        "regierungsbezirk": "Forchheim",
+        "plz": 91301,
+        "ort": "Forchheim",
+        "einrichtung": "VHS des Landkreises Forchheim",
+        "straße": "Hornschuchallee 20",
+        "telefon": "09191-861043",
+        "email": "silvia.bessler@vhs-forchheim.de"
+      },
+      {
+        "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
+        "plz": 95632,
+        "ort": "Wunsiedel",
+        "einrichtung": "VHS des Landkreises Wunsiedel",
+        "straße": "Jean-Paul-Str. 9",
+        "telefon": "09232-80375",
+        "email": "vhs@landkreis-wunsiedel.de"
+      },
+      {
+        "regierungsbezirk": "Freyung-Grafenau",
+        "plz": 94481,
+        "ort": "Grafenau",
+        "einrichtung": "VHS des LK Freyung-Grafenau",
+        "straße": "Frauenberg 17",
+        "telefon": "08552-9665-0",
+        "email": "info@vhs-freyung-grafenau.de"
+      },
+      {
+        "regierungsbezirk": "Dillingen",
+        "plz": 89407,
+        "ort": "Dillingen a. d. Donau",
+        "einrichtung": "VHS Dillingen e. V.",
+        "straße": "Königstraße 37/38",
+        "telefon": "09071-54-195",
+        "email": "schmiedl@dillingen-donau.de"
+      },
+      {
+        "regierungsbezirk": "Dingolfing-Landau",
+        "plz": 84130,
+        "ort": "Dingolfing",
+        "einrichtung": "VHS Dingolfing e. V.",
+        "straße": "Stadionstr. 50",
+        "telefon": "08731-329491",
+        "email": "spies@vhs-dingolfing.de"
+      },
+      {
+        "regierungsbezirk": "Donau-Ries",
+        "plz": 86609,
+        "ort": "Donauwörth",
+        "einrichtung": "VHS Donauwörth",
+        "straße": "Spindeltal 5",
+        "telefon": "0906-8070",
+        "email": "info@vhs-don.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 91054,
+        "ort": "Erlangen",
+        "einrichtung": "VHS Erlangen",
+        "straße": "Friedrichstr. 19/21",
+        "telefon": "09131-862667",
+        "email": "alexandra.rauhtaeschlein@stadt.erlangen.de"
+      },
+      {
+        "regierungsbezirk": "Regensburg",
+        "plz": 93073,
+        "ort": "Neutraubling",
+        "einrichtung": "VHS f. d. Landkreis Regensburg e. V.",
+        "straße": "Pommernstr. 4",
+        "telefon": "09401-5255-12",
+        "email": "info@vhs-regensburg-land.de"
+      },
+      {
+        "regierungsbezirk": "Freising",
+        "plz": 85354,
+        "ort": "Freising",
+        "einrichtung": "VHS Freising e.V.",
+        "straße": "Kammergasse 12",
+        "telefon": "08161-490744",
+        "email": "isolde.wagner@vhs-freising.org"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 90762,
+        "ort": "Fürth",
+        "einrichtung": "VHS Fürth gGmbH",
+        "straße": "Hirschenstr. 27/29",
+        "telefon": "0911-974-1702",
+        "email": "info@vhs-fuerth.de"
+      },
+      {
+        "regierungsbezirk": "Garmisch-Partenkirchen",
+        "plz": 82467,
+        "ort": "Garmisch-Partenkirchen",
+        "einrichtung": "VHS Garmisch-Partenkirchen e.V.",
+        "straße": "Burgstr. 21",
+        "telefon": "08821/9590-40",
+        "email": "info@vhs-gap.de"
+      },
+      {
+        "regierungsbezirk": "Fürstenfeldbruck",
+        "plz": 82110,
+        "ort": "Germering",
+        "einrichtung": "VHS Germering e.V.",
+        "straße": "Therese-Giehse-Platz 6",
+        "telefon": "089-8414146",
+        "email": "integration@vhs-germering.de"
+      },
+      {
+        "regierungsbezirk": "Ebersberg",
+        "plz": 85375,
+        "ort": "Neufahrn",
+        "einrichtung": "VHS Geschäftsstelle Neufarn-Hallbergmoos",
+        "straße": "Bahnhofstraße 32",
+        "telefon": "08165-9751260",
+        "email": "office@vhs-neufahrn.de"
+      },
+      {
+        "regierungsbezirk": "Ebersberg",
+        "plz": 85567,
+        "ort": "Grafing b. München",
+        "einrichtung": "VHS Grafing bei München",
+        "straße": "Griesstr. 27",
+        "telefon": "08092-8195-14",
+        "email": "info@vhs-grafing.de"
+      },
+      {
+        "regierungsbezirk": "Fürstenfeldbruck",
+        "plz": 82194,
+        "ort": "Gröbenzell",
+        "einrichtung": "VHS Gröbenzell e.V.",
+        "straße": "Rathausstr. 1",
+        "telefon": "08142-540529",
+        "email": "info@vhs-groebenzell.de"
+      },
+      {
+        "regierungsbezirk": "Weißenburg-Gunzenhausen",
+        "plz": 91710,
+        "ort": "Gunzenhausen",
+        "einrichtung": "VHS Gunzenhausen e.V.",
+        "straße": "Dr.-Martin-Luther-Platz 4",
+        "telefon": "09831-80666",
+        "email": "info@vhs-gunzenhausen.de"
+      },
+      {
+        "regierungsbezirk": "Starnberg",
+        "plz": 82211,
+        "ort": "Herrsching",
+        "einrichtung": "VHS Herrsching",
+        "straße": "Kienbachstr. 3",
+        "telefon": "08152-4250",
+        "email": "info@vhs-herrsching.de"
+      },
+      {
+        "regierungsbezirk": "Erlangen Höchstadt",
+        "plz": 91074,
+        "ort": "Herzogenaurach",
+        "einrichtung": "VHS Herzogenaurach",
+        "straße": "Badgasse 4",
+        "telefon": "09132-901324",
+        "email": "vhs@herzogenaurach.de"
+      },
+      {
+        "regierungsbezirk": "Neumarkt i.d. Oberpfalz",
+        "plz": 92318,
+        "ort": "Neumarkt i.d.OPf.",
+        "einrichtung": "VHS im Ldkr. Neumarkt/Opf.",
+        "straße": "Gartenstr. 1",
+        "telefon": "09181-2595-14",
+        "email": "info@vhs-neumarkt.de"
+      },
+      {
+        "regierungsbezirk": "München",
+        "plz": 85748,
+        "ort": "Garching b. München",
+        "einrichtung": "VHS im Norden des Landkreises München",
+        "straße": "Bürgermeister-Wagner-Str. 3",
+        "telefon": "089-550517-95",
+        "email": "info@vhs-nord.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 85049,
+        "ort": "Ingolstadt",
+        "einrichtung": "VHS Ingolstadt",
+        "straße": "Hallstr. 5",
+        "telefon": "0841-305-1854",
+        "email": "info@ingolstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 87600,
+        "ort": "Kaufbeuren",
+        "einrichtung": "VHS Kaufbeuren e.V.",
+        "straße": "Spitaltor 5",
+        "telefon": "08341-8399",
+        "email": "wendlinger@vhs-kaufbeuren.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 87435,
+        "ort": "Kempten (Allgäu)",
+        "einrichtung": "VHS Kempten",
+        "straße": "Bodmanstr. 2",
+        "telefon": "0831-70496513",
+        "email": "roth@vhs-kempten.de"
+      },
+      {
+        "regierungsbezirk": "Kronach",
+        "plz": 96317,
+        "ort": "Kronach",
+        "einrichtung": "VHS Kreis Kronach e.V.",
+        "straße": "Kulmbacher Str. 1",
+        "telefon": "09261-606016",
+        "email": "info@vhs-kronach.de"
+      },
+      {
+        "regierungsbezirk": "Amberg-Sulzbach",
+        "plz": 92237,
+        "ort": "Sulzbach-Rosenberg",
+        "einrichtung": "VHS Landkreis Amberg-Sulzbach",
+        "straße": "Obere Gartenstr. 3",
+        "telefon": "09661-80294",
+        "email": "info@vhs-as.de"
+      },
+      {
+        "regierungsbezirk": "Pfaffenhofen a.d. Ilm",
+        "plz": 85276,
+        "ort": "Pfaffenhofen",
+        "einrichtung": "VHS Landkreis Pfaffenhofen a. d. Ilm",
+        "straße": "Ingolstädter Str. 3",
+        "telefon": "08441-490480",
+        "email": "vhs@landratsamt-paf.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 84028,
+        "ort": "Landshut",
+        "einrichtung": "VHS Landshut e.V.",
+        "straße": "Ländgasse 41",
+        "telefon": "0871-92292-510",
+        "email": "anmeldung@vhs-landshut.de"
+      },
+      {
+        "regierungsbezirk": "Lindau (Bodensee)",
+        "plz": 88131,
+        "ort": "Lindau",
+        "einrichtung": "VHS Lindau",
+        "straße": "Uferweg 7",
+        "telefon": "08382-27748-16",
+        "email": "vhs@lindau.de"
+      },
+      {
+        "regierungsbezirk": "Main-Spessart",
+        "plz": 97816,
+        "ort": "Lohr a. Main",
+        "einrichtung": "VHS Lohr-Gemünden",
+        "straße": "Ludwigstraße 16",
+        "telefon": "09352-848-480",
+        "email": "vhs@lohr.de"
+      },
+      {
+        "regierungsbezirk": "Kehlheim",
+        "plz": 84048,
+        "ort": "Mainburg",
+        "einrichtung": "VHS Mainburg e. V.",
+        "straße": "Mitterweg 8",
+        "telefon": "08751-8778-15",
+        "email": "integration@vhs-mainburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 87700,
+        "ort": "Memmingen",
+        "einrichtung": "VHS Memmingen",
+        "straße": "Ulmer Str. 19",
+        "telefon": "08331-850-139",
+        "email": "vhs@memmingen.de"
+      },
+      {
+        "regierungsbezirk": "Freising",
+        "plz": 85368,
+        "ort": "Moosburg",
+        "einrichtung": "VHS Moosburg e.V.",
+        "straße": "Stadtplatz 2",
+        "telefon": "08761-7225-11",
+        "email": "zeljka.tomic@vhs-moosburg.de"
+      },
+      {
+        "regierungsbezirk": "Mühldorf am Inn",
+        "plz": 84453,
+        "ort": "Mühldorf a. Inn",
+        "einrichtung": "VHS Mühldorf e. V.",
+        "straße": "Schlörstr. 1",
+        "telefon": "08631-990314",
+        "email": "info@vhs-muehldorf.de"
+      },
+      {
+        "regierungsbezirk": "Neuburg-Schrobenhausen",
+        "plz": 86633,
+        "ort": "Neuburg",
+        "einrichtung": "VHS Neuburg/Donau e.V.",
+        "straße": "Franziskanerstr. 200",
+        "telefon": "08431-9119",
+        "email": "vhsneuburg@gmx.de"
+      },
+      {
+        "regierungsbezirk": "Miesbach",
+        "plz": 83714,
+        "ort": "Miesbach",
+        "einrichtung": "VHS Oberland e.V. /Holzkirchen",
+        "straße": "Wallenburger Str. 16a",
+        "telefon": "08024-4678982",
+        "email": "integration-miesbach@vhs-oberland.de"
+      },
+      {
+        "regierungsbezirk": "Oberschleißheim",
+        "plz": 85764,
+        "ort": "Oberschleißheim",
+        "einrichtung": "VHS Oberschleißheim e. V.",
+        "straße": "Theodor-Heuss-Str. 27",
+        "telefon": "089-3153806",
+        "email": "kontakt@vhs.de"
+      },
+      {
+        "regierungsbezirk": "Fürstenfeldbruck",
+        "plz": 82178,
+        "ort": "Puchheim",
+        "einrichtung": "VHS Puchheim e.V.",
+        "straße": "Am Grünen Markt 7",
+        "telefon": "089-8072999",
+        "email": "info@vhs-puchheim.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 83022,
+        "ort": "Rosenheim",
+        "einrichtung": "VHS Rosenheim",
+        "straße": "Innsbrucker Str. 3",
+        "telefon": "08031-361456",
+        "email": "bianca.stein-steffan@rosenheim.de"
+      },
+      {
+        "regierungsbezirk": "Rottal-Inn",
+        "plz": 84307,
+        "ort": "Eggenfelden",
+        "einrichtung": "VHS Rottal-Inn West, Geschäftsstelle Eggenfelden",
+        "straße": "Rathausplatz 1",
+        "telefon": "08721-1626",
+        "email": "info@vhs-rottalinn-west.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 91126,
+        "ort": "Schwabach",
+        "einrichtung": "VHS Schwabach",
+        "straße": "Königsplatz 29a",
+        "telefon": "09122-860-204",
+        "email": "vhs@schwabach.de"
+      },
+      {
+        "regierungsbezirk": "Nürnberger Land",
+        "plz": 90610,
+        "ort": "Winkelhaid",
+        "einrichtung": "VHS Schwarzachtal",
+        "straße": "Penzenhofener Str. 1",
+        "telefon": "09187-972034",
+        "email": "info@vhs-schwarzachtal.de"
+      },
+      {
+        "regierungsbezirk": "Neuburg-Schrobenhausen",
+        "plz": 86529,
+        "ort": "Schrobenhausen",
+        "einrichtung": "VHS Schrobenhausen e.V.",
+        "straße": "Lenbachstraße 22",
+        "telefon": "08252-89400",
+        "email": "vhs-sob.de"
+      },
+      {
+        "regierungsbezirk": "Fürstenfeldbruck",
+        "plz": 82256,
+        "ort": "Fürstenfeldbruck",
+        "einrichtung": "VHS Stadt Fürstenfeldbruck e.V.",
+        "straße": "Niederbronnerweg 5",
+        "telefon": "08141-5014221",
+        "email": "cr@vhs-ffb.de"
+      },
+      {
+        "regierungsbezirk": "Schwandorf",
+        "plz": 93142,
+        "ort": "Maxhütte-Haidhof",
+        "einrichtung": "VHS Städtedreieck e.V.",
+        "straße": "Bahnhofstr. 44",
+        "telefon": "09471-30065",
+        "email": "meier@vhs-staedtedreieck.de"
+      },
+      {
+        "regierungsbezirk": "Starnberg",
+        "plz": 82319,
+        "ort": "Starnberg",
+        "einrichtung": "VHS Starnberger See e. V.",
+        "straße": "Bahnhofplatz 14",
+        "telefon": "08151-918497",
+        "email": "heeren@vhs-starnberger-see.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 94315,
+        "ort": "Straubing",
+        "einrichtung": "VHS Straubing gGmbH",
+        "straße": "Steinweg 56",
+        "telefon": "09421-8457-0",
+        "email": "info@vhs-straubing.de"
+      },
+      {
+        "regierungsbezirk": "München",
+        "plz": 82024,
+        "ort": "Taufkirchen",
+        "einrichtung": "VHS Taufkirchen",
+        "straße": "Ahornring 121",
+        "telefon": "089-614514-0",
+        "email": "info@vhs-taufkirchen.de "
+      },
+      {
+        "regierungsbezirk": "Traunstein",
+        "plz": 83301,
+        "ort": "Traunreut",
+        "einrichtung": "VHS Traunreut e. V.",
+        "straße": "Marienstr. 20",
+        "telefon": "08669-864814",
+        "email": "nicola.fastner@vhs-traunreut.de"
+      },
+      {
+        "regierungsbezirk": "Traunstein",
+        "plz": 83278,
+        "ort": "Traunstein",
+        "einrichtung": "VHS Traunstein e. V.",
+        "straße": "Stadtplatz 38a",
+        "telefon": "0861-9097166-13",
+        "email": "c.feil@vhs-traunstein.de"
+      },
+      {
+        "regierungsbezirk": "Traunstein",
+        "plz": 83308,
+        "ort": "Trostberg",
+        "einrichtung": "VHS Trostberg e.V.",
+        "straße": "Heinrich-Braun-Str. 6",
+        "telefon": "08621-6493914",
+        "email": "wieneke@vhs-trostberg.de"
+      },
+      {
+        "regierungsbezirk": "München",
+        "plz": 82008,
+        "ort": "Unterhaching",
+        "einrichtung": "VHS Unterhaching e.V.",
+        "straße": "Jahnstr. 1",
+        "telefon": "089-66547610 bzw. 16",
+        "email": "gora@vhs-unterhaching.de"
+      },
+      {
+        "regierungsbezirk": "Dingolfing-Landau",
+        "plz": 94405,
+        "ort": "Landau",
+        "einrichtung": "VHS Verband Landau e.V.",
+        "straße": "Fleischgasse 60",
+        "telefon": "09951-90180",
+        "email": "info@vhs-landau.de"
+      },
+      {
+        "regierungsbezirk": "Landshut",
+        "plz": 84137,
+        "ort": "Vilsbiburg",
+        "einrichtung": "VHS Vilsbiburg",
+        "straße": "Stadtplatz 30",
+        "telefon": "08741/2503",
+        "email": "janner@vhs-vilsbiburg.de"
+      },
+      {
+        "regierungsbezirk": "Mühldorf am Inn",
+        "plz": 84478,
+        "ort": "Waldkraiburg",
+        "einrichtung": "VHS Waldkraiburg e.V.",
+        "straße": "Am Kalander 1",
+        "telefon": "08638-889367",
+        "email": "alexander.rahm@vhs-waldkraiburg.de"
+      },
+      {
+        "regierungsbezirk": "Rosenheim",
+        "plz": 83512,
+        "ort": "Wasserburg a. Inn",
+        "einrichtung": "VHS Wasserburg / Inn e.V.",
+        "straße": "Salzburger Str. 19",
+        "telefon": "08071-4873",
+        "email": "info@vhs-wasserburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 92637,
+        "ort": "Weiden i.d.OPf.",
+        "einrichtung": "VHS Weiden-Neustadt gGmbH / Weiden i.d.Opf.",
+        "straße": "Luitpoldstr. 24",
+        "telefon": "0961-481780",
+        "email": "info@vhs-weiden-neustadt.de.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 97070,
+        "ort": "Würzburg",
+        "einrichtung": "VHS Würzburg",
+        "straße": "Juliuspromenade 68",
+        "telefon": "0931-35593-16",
+        "email": "info@vhs-wuerzburg.de"
+      },
+      {
+        "regierungsbezirk": "Kehlheim",
+        "plz": 93309,
+        "ort": "Kelheim",
+        "einrichtung": "vhs-Weiterbildungsakademie Kehlheim e.V.",
+        "straße": "Lederergasse 2",
+        "telefon": "09441-1750980",
+        "email": "stefanie.Kristlbauer@vhs-weiterbildungsakademie.de"
+      },
+      {
+        "regierungsbezirk": "Nürnberger Land",
+        "plz": 91207,
+        "ort": "Lauf",
+        "einrichtung": "VHS-ZV Unteres Pegnitztal",
+        "straße": "Spitalstraße 5",
+        "telefon": "09123-184170",
+        "email": "info@vhs-lauf.de"
+      },
+      {
+        "regierungsbezirk": "Rottal-Inn",
+        "plz": 84347,
+        "ort": "Pfarrkirchen",
+        "einrichtung": "Volksbildungswerk Pfarrkirchen",
+        "straße": "Stadtplatz 2",
+        "telefon": "08561-30680",
+        "email": "volksbildungswerk@pfarrkirchen.de"
+      },
+      {
+        "regierungsbezirk": "Rottal-Inn",
+        "plz": 94424,
+        "ort": "Arnstorf",
+        "einrichtung": "Volkshochschule Arnstorf",
+        "straße": "Marktplatz 8",
+        "telefon": "08723-9791965",
+        "email": "vhs@arnstorf.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 91522,
+        "ort": "Ansbach",
+        "einrichtung": "Volkshochschule der Stadt Ansbach",
+        "straße": "Kannenstraße 16",
+        "telefon": "0981-51-311",
+        "email": "vhs@ansbach.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 93047,
+        "ort": "Regensburg",
+        "einrichtung": "Volkshochschule der Stadt Regensburg",
+        "straße": "Haidplatz 8",
+        "telefon": "0941-5071436",
+        "email": "service.vhs@regensburg.de"
+      },
+      {
+        "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
+        "plz": 95100,
+        "ort": "Selb",
+        "einrichtung": "Volkshochschule der Stadt Selb",
+        "straße": "Lessingstr. 8",
+        "telefon": "09287-760121",
+        "email": "volkshochschule@vhs-selb.de"
+      },
+      {
+        "regierungsbezirk": "Tirschenreuth",
+        "plz": 95643,
+        "ort": "Tirschenreuth",
+        "einrichtung": "Volkshochschule des Landkreises Tirschenreuth",
+        "straße": "Mähringer Str. 9",
+        "telefon": "09631-88204",
+        "email": "vhs@tirschenreuth.de"
+      },
+      {
+        "regierungsbezirk": "Freising",
+        "plz": 85386,
+        "ort": "Eching",
+        "einrichtung": "Volkshochschule Eching e.V. ",
+        "straße": "Roßbergstr. 8",
+        "telefon": "089-541955-150",
+        "email": "office@vhs-eching-de"
+      },
+      {
+        "regierungsbezirk": "Günzburg",
+        "plz": 89312,
+        "ort": "Günzburg",
+        "einrichtung": "Volkshochschule Günzburg",
+        "straße": "Bgm.-Landmann-Platz 2",
+        "telefon": "08221-3686-0",
+        "email": "nathalie.charlet@vhs-guenzburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 95028,
+        "ort": "Hof",
+        "einrichtung": "Volkshochschule Hofer Land e.V.",
+        "straße": "Ludwigstraße 7",
+        "telefon": "09281-71450",
+        "email": "info@vhs-landkreis-hof.de"
+      },
+      {
+        "regierungsbezirk": "Cham",
+        "plz": 93413,
+        "ort": "Cham",
+        "einrichtung": "Volkshochschule im Landkreis Cham e.V.",
+        "straße": "Pfarrer-Seidl-Str. 1",
+        "telefon": "09971-8501-17",
+        "email": "Info@vhs-cham.de"
+      },
+      {
+        "regierungsbezirk": "Unterallgäu",
+        "plz": 87719,
+        "ort": "Mindelheim",
+        "einrichtung": "Volkshochschule im Landkreis Unterallgäu e.V.",
+        "straße": "Maximilianstr. 60",
+        "telefon": "08261-9124",
+        "email": "info@vhs-ua.de"
+      },
+      {
+        "regierungsbezirk": "Main-Spessart",
+        "plz": 97753,
+        "ort": "Karlstadt",
+        "einrichtung": "Volkshochschule Karlstadt",
+        "straße": "Langgasse 17",
+        "telefon": 93538612,
+        "email": "info@vhs-karlstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kitzingen",
+        "plz": 97318,
+        "ort": "Kitzingen",
+        "einrichtung": "Volkshochschule Kitzingen",
+        "straße": "Paul-Eber-Haus, Schulhof 1",
+        "telefon": "09321-92994545",
+        "email": "vhs@stadt-kitzingen.de"
+      },
+      {
+        "regierungsbezirk": "Straubing-Bogen",
+        "plz": 94327,
+        "ort": "Bogen",
+        "einrichtung": "Volkshochschule Straubing-Bogen gGmbH",
+        "straße": "Klosterhof 2",
+        "telefon": "09422-505600",
+        "email": "vhs@vhs-straubing-bogen.de"
+      },
+      {
+        "regierungsbezirk": "München",
+        "plz": 85521,
+        "ort": "Ottobrunn",
+        "einrichtung": "Volkshochschule Südost im Lkr. München",
+        "straße": "Haidgraben 1c",
+        "telefon": "089-4423890",
+        "email": "deutsch@vhs-suedost.de"
+      },
+      {
+        "regierungsbezirk": "Freising",
+        "plz": 85356,
+        "ort": "Freising",
+        "einrichtung": "wbb GmbH",
+        "straße": "Erdingerstraße 26",
+        "telefon": "08161-538990",
+        "email": "maren.lang@wbb-kuchler.de"
+      },
+      {
+        "regierungsbezirk": "Erding",
+        "plz": 85435,
+        "ort": "Erding",
+        "einrichtung": "Zweckverband VHS im Landkreis Erding",
+        "straße": "Lethnerstr. 13",
+        "telefon": "08122-9787-0",
+        "email": "info@vhs-erding.de"
+      },
+      {
+        "regierungsbezirk": "Landshut",
+        "plz": "84056 ",
+        "ort": "Rottenburg a.d.Laaber",
+        "einrichtung": "Volkshochschule Rottenburg an der Laaber e.V.",
+        "straße": "Georg-Pöschl-Straße 16",
+        "telefon": "08781/201511",
+        "email": "info@vhs-rottenburg-laaber.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "hb",
+    "data": [
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "27568",
+        "ort": "Bremerhaven",
+        "einrichtung": "VHS Bremerhaven",
+        "straße": "Lloydstr. 15",
+        "telefon": "0471-590-4736-4705",
+        "email": "katarzyna.geldner@vhs.bremerhaven.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "28195",
+        "ort": "Bremen",
+        "einrichtung": "VHS Bremen",
+        "straße": "Faulenstr. 67 - 69",
+        "telefon": "0421/361-3624",
+        "email": "jens.grund@vhs-bremen.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "he",
+    "data": [
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "BENGI e.V.",
+        "straße": "Die Freiheit 14",
+        "telefon": "0561-50958",
+        "email": "bengi-ks@t-online.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": 34117,
+        "ort": "Kassel",
+        "einrichtung": "Akademische Bildungsplattform e.V.",
+        "straße": "Wilhelmstraße 6",
+        "telefon": "0561-890202",
+        "email": "cigdem.dumlu@abplattform.de"
+      },
+      {
+        "regierungsbezirk": "Main-Kinzig-Kreis",
+        "plz": "63571",
+        "ort": "Gelnhausen",
+        "einrichtung": "Bildungspartner Main-Kinzig GmbH - Volkshochschule",
+        "straße": "Frankfurter Straße 30",
+        "telefon": "06051-91679 0",
+        "email": "vhs@bildungspartner-mk.de"
+      },
+      {
+        "regierungsbezirk": "Fulda",
+        "plz": "36041",
+        "ort": "Fulda",
+        "einrichtung": "Bildungsverein Kreidekreis e.V.",
+        "straße": "Agnes-Huenninger-Str. 12",
+        "telefon": "0661/78450",
+        "email": "bvkk@gmx.de"
+      },
+      {
+        "regierungsbezirk": "Lahn-Dill-Kreis",
+        "plz": "35576",
+        "ort": "Wetzlar",
+        "einrichtung": "Curantis-Akademie",
+        "straße": "Charlotte-Bamberg-Str. 6",
+        "telefon": "06441-30990",
+        "email": "h.taub@curantes.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "Das Spracheninstitut DSI",
+        "straße": "Untere Königsstraße 58",
+        "telefon": "09561-72987-109",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "Das Sprachinstitut DSI",
+        "straße": "Untere Königsstr. 58",
+        "telefon": "056172987109",
+        "email": "info@spracheninstitut.com"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34121",
+        "ort": "Kassel",
+        "einrichtung": "DIALOG-Institut Dr. Kilian",
+        "straße": "Tischbeinstr. 32",
+        "telefon": "0561-710586",
+        "email": "institut@dialog-kilian.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 35039,
+        "ort": "Marburg",
+        "einrichtung": "Diwan-Marburg Akademie",
+        "straße": "Neue Kasseler Straße 2",
+        "telefon": "06421-9839100",
+        "email": "info@diwan-marburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "65185",
+        "ort": "Wiesbaden",
+        "einrichtung": "Euro-Schulen Wiesbaden",
+        "straße": "Luisenstr. 28",
+        "telefon": "0611-99208-12",
+        "email": "info@es.wiesbaden.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "60388",
+        "ort": "Frankfurt am Main",
+        "einrichtung": "Grone Bildungszentren Hessen gGmbH",
+        "straße": "Gerbermühlstr. 11",
+        "telefon": "069-408998752",
+        "email": "deutsch-frankfurt@grone.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 60329,
+        "ort": "Frankfurt am Main",
+        "einrichtung": "BBZ Sprachenschule GmbH",
+        "straße": "Gutleutstraße 34-36",
+        "telefon": "069-348771460",
+        "email": "info@bbz-sprachschule.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 60313,
+        "ort": "Frankfurt am Main",
+        "einrichtung": "Lernstudio H&G Frankfurt UG",
+        "straße": "Bleichstraße 38a",
+        "telefon": "069-36603637",
+        "email": "lernstudiofrankfurt@gmail.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 60313,
+        "ort": "Frankfurt am Main",
+        "einrichtung": "Avicenna Institut e.V.",
+        "straße": "Zeil 41",
+        "telefon": "069-71712874",
+        "email": "integration@avicenna-ev.de"
+      },
+      {
+        "regierungsbezirk": "Fulda",
+        "plz": 36037,
+        "ort": "Fulda",
+        "einrichtung": "Inlingua Sprachschule Fulda",
+        "straße": "Rabanusstraße 40-42",
+        "telefon": "0661-90272401",
+        "email": "info@inlingua-fulda.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34125",
+        "ort": "Kassel",
+        "einrichtung": "Institut für Sprachen",
+        "straße": "Die Freiheit 19",
+        "telefon": "0561-2860020",
+        "email": "info@ifs-kassel.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "Kasseler Sprachen- und Wirtschaftsschulen",
+        "straße": "Fünffensterstr. 4",
+        "telefon": "0561-7126630",
+        "email": "info@kasselersprachenschule.de"
+      },
+      {
+        "regierungsbezirk": "Groß-Gerau",
+        "plz": "64521",
+        "ort": "Groß-Gerau",
+        "einrichtung": "Kreisvolkshochschule Groß-Gerau",
+        "straße": "Hauptstr. 1",
+        "telefon": "06152/1870-406",
+        "email": "info@KVHSGG.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34127",
+        "ort": "Kassel",
+        "einrichtung": "Kulturzentrum Schlachthof",
+        "straße": "Mombachstr. 12",
+        "telefon": "0561-983500",
+        "email": "g.pause@schlachthof-kassel.de"
+      },
+      {
+        "regierungsbezirk": "Bergstr.",
+        "plz": 64653,
+        "ort": "Lorsch",
+        "einrichtung": "KVHS Bergstr.",
+        "straße": "Marktplatz 1",
+        "telefon": "06251-1729666",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Limburg-Weilburg",
+        "plz": "65549",
+        "ort": "Limburg",
+        "einrichtung": "KVHS Kreis Limburg-Weilburg",
+        "straße": "Diezer Str. 35",
+        "telefon": "06431-911614",
+        "email": "heimbuch@vhs-Limburg-Weilburg.de"
+      },
+      {
+        "regierungsbezirk": "Waldeck-Frankenberg",
+        "plz": "34497",
+        "ort": "Korbach",
+        "einrichtung": "KVHS Waldeck-Frankenberg",
+        "straße": "Briloner Landstraße 36",
+        "telefon": "05631 9773-0",
+        "email": "info@vhs-waldeck-frankenberg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "65185",
+        "ort": "Wiesbaden",
+        "einrichtung": "Lern-Planet",
+        "straße": "Rheinstr. 95",
+        "telefon": "0611 3417341",
+        "email": "info@lern-planet.de"
+      },
+      {
+        "regierungsbezirk": "Groß-Gerau",
+        "plz": "65428",
+        "ort": "Rüsselsheim",
+        "einrichtung": "Lernportal",
+        "straße": "Grabenstr. 30",
+        "telefon": "06142-738828",
+        "email": "info@das-lernportal.com"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 35260,
+        "ort": "Stadtallendorf",
+        "einrichtung": "Lingua Oeconomicus e.V.",
+        "straße": "Schlesierstr. 30",
+        "telefon": "06428-4416626",
+        "email": "wiegand@lingua-oeconomicus.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 35390,
+        "ort": "Gießen",
+        "einrichtung": "Sprache & Bildung GmbH",
+        "straße": "Katharinenstr. 19",
+        "telefon": "0641-9717693",
+        "email": "v.prax@sprache-und-bildung.de"
+      },
+      {
+        "regierungsbezirk": "Lahn-Dill-Kreis",
+        "plz": "35576",
+        "ort": "Wetzlar",
+        "einrichtung": "Sprache & Bildung GmbH",
+        "straße": "Philipsstr. 2",
+        "telefon": "06441-48760",
+        "email": "wetzlar@sprache-und-bildung.de"
+      },
+      {
+        "regierungsbezirk": "Lahn-Dill-Kreis",
+        "plz": "35578",
+        "ort": "Wetzlar",
+        "einrichtung": "Sprachportal GmbH",
+        "straße": "Willy- brandt-Platz 7",
+        "telefon": "06441-87202441",
+        "email": "info@sprachportal-wetzlar.de"
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "SÜZ Sprachen- und Übersetzungszentrum",
+        "straße": "Garde-du-Corps-Str. 1",
+        "telefon": "0561-5214868 + 69",
+        "email": "Suuezentrum@aol.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "64283",
+        "ort": "Darmstadt",
+        "einrichtung": "VHS - Kulturinstitute der Stadt Darmstadt",
+        "straße": "Große Bachgasse 2",
+        "telefon": "06151-133254",
+        "email": "karin.hock@darmstadt.de"
+      },
+      {
+        "regierungsbezirk": "Hochtaunus",
+        "plz": 61348,
+        "ort": "Bad Homburg",
+        "einrichtung": "VHS Bad Homburg",
+        "straße": "Elisabethenstr. 4-8",
+        "telefon": "",
+        "email": "info.vhs@bad-homburg.de"
+      },
+      {
+        "regierungsbezirk": "Darmstadt-Dieburg",
+        "plz": "64807",
+        "ort": "Dieburg",
+        "einrichtung": "VHS Darmstadt-Dieburg",
+        "straße": "Albinistr. 23",
+        "telefon": "06071-8812301",
+        "email": "f.marx@ladadi.de"
+      },
+      {
+        "regierungsbezirk": "Fulda",
+        "plz": "36037",
+        "ort": "Fulda",
+        "einrichtung": "VHS der Stadt Fulda",
+        "straße": "Unterm-Heilig-Kreuz 1",
+        "telefon": "0661/1021474",
+        "email": "Heidemarie.Franzmann@fulda.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 35394,
+        "ort": "Gießen",
+        "einrichtung": "VHS der Stadt Gießen",
+        "straße": "Fröbelstr. 65",
+        "telefon": "0641-3061469",
+        "email": "birgit.lesch-koenig@giessen.de"
+      },
+      {
+        "regierungsbezirk": "Main-Kinzing-Kreis",
+        "plz": "63452",
+        "ort": "Hanau",
+        "einrichtung": "VHS der Stadt Hanau",
+        "straße": "Ulanenplatz 4",
+        "telefon": "06181-92380-30",
+        "email": "eva.hintner@vhs-hanau.de"
+      },
+      {
+        "regierungsbezirk": "Marburg-Biedenkopf",
+        "plz": "35037",
+        "ort": "Marburg",
+        "einrichtung": "VHS der Stadt Marburg",
+        "straße": "Deutschhausstr. 38",
+        "telefon": "06421-201464",
+        "email": "kristine.umland@marburg-stadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "63065",
+        "ort": "Offenbach am Main",
+        "einrichtung": "VHS der Stadt Offenbach",
+        "straße": "Berliner Str. 77",
+        "telefon": "069-8065-3823",
+        "email": "Pia.Glueck@offenbach.de"
+      },
+      {
+        "regierungsbezirk": "Groß-Gerau",
+        "plz": "65428",
+        "ort": "Rüsselsheim",
+        "einrichtung": "VHS der Stadt Rüsselsheim",
+        "straße": "Am Treff 1",
+        "telefon": "06142-832737",
+        "email": "anmeldung@kultur123ruesselsheim.de"
+      },
+      {
+        "regierungsbezirk": "Gießen",
+        "plz": "35423",
+        "ort": "Lich",
+        "einrichtung": "VHS des Landkreises Gießen",
+        "straße": "Kreuzweg 33",
+        "telefon": "06404-916323",
+        "email": "werner.leipold@lkgi.de"
+      },
+      {
+        "regierungsbezirk": "Hersfeld-Rotenburg",
+        "plz": 36251,
+        "ort": "Bad Hersfeld",
+        "einrichtung": "VHS des Landkreises Hersfeld-Rotenburg",
+        "straße": "Leinenweberstr. 5",
+        "telefon": "06621-640929",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Schwalm-Eder-Kreis",
+        "plz": "34576",
+        "ort": "Homberg (Efze)",
+        "einrichtung": "VHS des Schwalm-Eder-Kreises",
+        "straße": "Parkstr. 6",
+        "telefon": "05681-775404 od.-401",
+        "email": "vhs@schwalm-eder-kreis.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "60439",
+        "ort": "Frankfurt am Main",
+        "einrichtung": "VHS Frankfurt am Main",
+        "straße": "Tituscorso 7",
+        "telefon": "069-212-33378/\n069-212-45667",
+        "email": "maria.debarros-bruckner.vhs@stadt-frankfurt.de"
+      },
+      {
+        "regierungsbezirk": "Offenbach",
+        "plz": "63303",
+        "ort": "Dreieich",
+        "einrichtung": "VHS Kreis Offenbach",
+        "straße": "Frankfurter Str. 160-166, Haus 1",
+        "telefon": "06103-31311313",
+        "email": "vhs@kreis-offenbach.de"
+      },
+      {
+        "regierungsbezirk": "Lahn-Dill-Kreis",
+        "plz": "35683",
+        "ort": "Dillenburg",
+        "einrichtung": "VHS Lahn-Dill-Kreis",
+        "straße": "Bahnhofstr. 10",
+        "telefon": "02771/407-758",
+        "email": "info@lahn-dill-akademie.de"
+      },
+      {
+        "regierungsbezirk": "Bergstr.",
+        "plz": 68623,
+        "ort": "Lampertheim",
+        "einrichtung": "VHS Lampertheim",
+        "straße": "Haus am Römer",
+        "telefon": "06206-935364",
+        "email": "vhs@lampertheim.de"
+      },
+      {
+        "regierungsbezirk": "Main-Taunus-Kreis",
+        "plz": "65719",
+        "ort": "Hofheim am Taunus",
+        "einrichtung": "VHS Main-Taunus-Kreis",
+        "straße": "Pfarrgasse 38",
+        "telefon": "06192-990118",
+        "email": "seibel@vhs-mtk.de"
+      },
+      {
+        "regierungsbezirk": "Marburg-Biedenkopf",
+        "plz": "35039",
+        "ort": "Marburg",
+        "einrichtung": "VHS Marburg-Biedenkopf",
+        "straße": "Hermann-Jacobsohn-Weg 1",
+        "telefon": "06421-405-6721",
+        "email": "BendelC@Marburg-Biedenkopf.de"
+      },
+      {
+        "regierungsbezirk": "Odenwaldkreis",
+        "plz": "64711",
+        "ort": "Erbach",
+        "einrichtung": "VHS Odenwaldkreis",
+        "straße": "Michelstädter Str. 12",
+        "telefon": "06062 70-1733",
+        "email": "m.doerr@odenwaldkreis.de "
+      },
+      {
+        "regierungsbezirk": "Kassel",
+        "plz": "34117",
+        "ort": "Kassel",
+        "einrichtung": "VHS Region- Kassel",
+        "straße": "Wilhelmshöher Allee 19-21",
+        "telefon": "0561-10030",
+        "email": "katharina-seewald@landkreiskassel.de"
+      },
+      {
+        "regierungsbezirk": "Rheingau-Taunus-Kreis",
+        "plz": "65232",
+        "ort": "Taunusstein",
+        "einrichtung": "VHS Rheingau-Taunus",
+        "straße": "Erich-Kästner-Str. 5",
+        "telefon": "06128-9277-11",
+        "email": "hellermann@vhs-rtk.de"
+      },
+      {
+        "regierungsbezirk": "Bergstr.",
+        "plz": 68519,
+        "ort": "Viernheim",
+        "einrichtung": "VHS Viernheim",
+        "straße": "Bürgerhaus, Kreuzstr. 2-4",
+        "telefon": "06204-963611",
+        "email": "vhs@viernheim.de"
+      },
+      {
+        "regierungsbezirk": "Lahn-Dill-Kreis",
+        "plz": "35578",
+        "ort": "Wetzlar",
+        "einrichtung": "VHS Wetzlar",
+        "straße": "Bahnhofstraße 3",
+        "telefon": "06441-9943",
+        "email": "daf@wetzlar.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "65197",
+        "ort": "Wiesbaden",
+        "einrichtung": "VHS Wiesbaden e.V.",
+        "straße": "Alcide-de-Gasperi-Str. 4/5",
+        "telefon": "0611-9889130",
+        "email": "hschott@vhs-wiesbaden.de"
+      },
+      {
+        "regierungsbezirk": "Hochtaunus",
+        "plz": 61440,
+        "ort": "Oberursel (Taunus)",
+        "einrichtung": "VHS-Kreis d. Hochtaunuskreises",
+        "straße": "Füllerstr. 1",
+        "telefon": "06171-5848-0",
+        "email": "info@vhs-hochtaunus.de"
+      },
+      {
+        "regierungsbezirk": "Vogelsbergkreis",
+        "plz": "36304",
+        "ort": "Alsfeld",
+        "einrichtung": "VHS-Volkshochschule des Vogelsbergkreises",
+        "straße": "Färbergasse 1",
+        "telefon": "06631-792-770 o.-776",
+        "email": "monika.schenker@vogelsbergkreis.de"
+      },
+      {
+        "regierungsbezirk": "",
+        "plz": 64625,
+        "ort": "Bensheim",
+        "einrichtung": "Volkshochschule Bensheim",
+        "straße": "Hauptstraße 39",
+        "telefon": "06251-58263-76",
+        "email": "vhs@bensheim.de"
+      },
+      {
+        "regierungsbezirk": "Wetteraukreis",
+        "plz": "61169",
+        "ort": "Friedberg (Hessen)",
+        "einrichtung": "Volkshochschule des Wetteraukreises",
+        "straße": "Friedenstraße 18",
+        "telefon": "06031-83-6630",
+        "email": "deutsch-info@vhs-wetterau.de"
+      },
+      {
+        "regierungsbezirk": "Werra-Meißner",
+        "plz": "37269",
+        "ort": "Eschwege",
+        "einrichtung": "Volkshochschule Jugend, Freizeit Werra-Meißner",
+        "straße": "Vor dem Berge 1",
+        "telefon": "05651-7429-15",
+        "email": "info@vhs-eschwege.de"
+      },
+      {
+        "regierungsbezirk": "Rheingau-Taunus-Kreis",
+        "plz": 65591,
+        "ort": "Lorch",
+        "einrichtung": "welcome gGmbH",
+        "straße": "Wisperstraße 37",
+        "telefon": "0163-9268832",
+        "email": "a.takhsh@welcome-ggmbh.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 65185,
+        "ort": "Wiesbaden",
+        "einrichtung": "Caritasverband Wiesbaden-Rheingau-Taunus e.V.",
+        "straße": "Friedrichstraße 26-28",
+        "telefon": "0611-174-129",
+        "email": "ersoy.goeksen@caritas-wirt.de"
+      },
+      {
+        "regierungsbezirk": "Hochtaunus",
+        "plz": 61440,
+        "ort": "Oberursel (Taunus)",
+        "einrichtung": "Omega Institut",
+        "straße": "Holzweg-Passage 12",
+        "telefon": "06171 923 90 30",
+        "email": "info@omega-institut.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "hh",
+    "data": [
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 20459,
+        "ort": "Hamburg",
+        "einrichtung": "Arab World IC GmbH",
+        "straße": "Michaelispassage 1",
+        "telefon": "040-35772946",
+        "email": "kontakt@arabworld-ic.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 20099,
+        "ort": "Hamburg",
+        "einrichtung": "Arbeit, Bildung, Integration (ABI) e.V",
+        "straße": "Steindamm 9",
+        "telefon": "040-53789960",
+        "email": "abihh@t-online.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22083,
+        "ort": "Hamburg",
+        "einrichtung": "DAA Deutsche Angestellten-Akademie GmbH / Hamburg",
+        "straße": "Hamburgret Straße 181",
+        "telefon": "040-251529-0",
+        "email": "info.hamburg@daa.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 20535,
+        "ort": "Hamburg",
+        "einrichtung": "FITS job konzepte GmbH",
+        "straße": "Bürgerweide 4",
+        "telefon": "040-3789030",
+        "email": "info@fits.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": "20357",
+        "ort": "Hamburg",
+        "einrichtung": "Hamburger Volkshochschule",
+        "straße": "Schanzenstr. 75-77",
+        "telefon": "040-60929-5080 ",
+        "email": "daf@vhs-hamburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22089,
+        "ort": "Hamburg",
+        "einrichtung": "Interkulturelle Bildung Hamburg IBH e.V",
+        "straße": "Conventstraße 14",
+        "telefon": "040-2530625-0",
+        "email": "info@ibhev.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22525,
+        "ort": "Hamburg",
+        "einrichtung": "KOM gemeinnützige Gesellschaft für berufliche Kompetenzentwicklung mbH",
+        "straße": "Kieler Straße 208",
+        "telefon": "040-3199160-16",
+        "email": "olga.debus@kom-bildung.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22767,
+        "ort": "Hamburg",
+        "einrichtung": "Akademikerbund Hamburg e.V.",
+        "straße": "Große Bergstrße 6a",
+        "telefon": "040-63737260",
+        "email": "altona@abh-kurse.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 22767,
+        "ort": "Hamburg",
+        "einrichtung": "Türkische Gemeinde in Hamburg und Umgebung e.V.",
+        "straße": "Hospitalstr. 111",
+        "telefon": "040-4136609-13",
+        "email": "einbuergerungstest@tghamburg.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "mv",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": 19288,
+        "ort": "Ludwigslust",
+        "einrichtung": "Kreisvolkshochschule Ludwigslust-Parchim Geschäftsstelle Ludwigslust",
+        "straße": "Garnisonstr. 1",
+        "telefon": "03871-7224301",
+        "email": "vhs@kreis-lup.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 19370,
+        "ort": "Parchim",
+        "einrichtung": "Kreisvolkshochschule Ludwigslust-Parchim Geschäftsstelle Parchim",
+        "straße": "Ziegendorfer Chaussee 11",
+        "telefon": "03871-7224303",
+        "email": "vhs@kreis-lup.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17235,
+        "ort": "Neustrelitz",
+        "einrichtung": "VHS des Landkreises Mecklenburg-Strelitz",
+        "straße": "Hittenkofer Str. 28",
+        "telefon": "03981/205262",
+        "email": "kvhs-mst@t-online.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17033,
+        "ort": "Neubrandenburg",
+        "einrichtung": "Volkshochschule Mecklenburgische Seenplatte Geschäftstelle Neubrandenburg",
+        "straße": "Bienenweg 1",
+        "telefon": "0395-3517200",
+        "email": "vhs@lk-seenplatte.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17192,
+        "ort": "Waren",
+        "einrichtung": "Volkshochschule  Mecklenburgische Seenplatte Außenstelle Waren",
+        "straße": "Güstrower Str. 11",
+        "telefon": "03991/125617",
+        "email": "vhs@lk-seenplatte.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 23966,
+        "ort": "Wismar",
+        "einrichtung": "Kreisvolkshochschule Nordwestmecklenburg Standort Wismar",
+        "straße": "Badstaven 20",
+        "telefon": "03841/32670",
+        "email": "oswald@vhs-nwm.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18209,
+        "ort": "Bad Doberan",
+        "einrichtung": "Volkshochschule des Landkreises Rostock Außenstelle Bad Doberan",
+        "straße": "Neue Reihe 50",
+        "telefon": "038203/751250",
+        "email": "vhs@lkros.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18273,
+        "ort": "Güstrow",
+        "einrichtung": "Volkshochschule Landkreis Rostock Regionalstandort Güstrow",
+        "straße": "John-Brinkmann-Straße 4",
+        "telefon": "03843  755540201",
+        "email": "vhs@guestrow@rostock.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18057,
+        "ort": "Rostock",
+        "einrichtung": "Volkshochschule der Hanse- und Universitätsstadt Rostock",
+        "straße": "Am Kabutzenhof 20a",
+        "telefon": "0381-3814324",
+        "email": "petra.suleiman@rostock.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 19055,
+        "ort": "Schwerin",
+        "einrichtung": "VHS \"Ehm Welk\" d. Landeshauptstadt Schwerin",
+        "straße": "Puschkinstr. 13",
+        "telefon": "0385-591270",
+        "email": "info-@vhs-schwerin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 19061,
+        "ort": "Schwerin",
+        "einrichtung": "Volkshochschulverband Mecklenburg-Vorpommern e.V.",
+        "straße": "Bertha-von-Suttner-Str. 5",
+        "telefon": "0385/3031550",
+        "email": "info@vhs-verband-mv.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 19055,
+        "ort": "Schwerin",
+        "einrichtung": "Agentur der Wirtschaft GmbH",
+        "straße": "Wismarsche Str. 302",
+        "telefon": "0385/477330",
+        "email": "info@adwi.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17389,
+        "ort": "Anklam",
+        "einrichtung": " Volkshochschulen Vorpommern-Greifswald Standort Anklam",
+        "straße": "Markt 7",
+        "telefon": "03834/87604820",
+        "email": "vhs-anklam@kreis-vg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17489,
+        "ort": "Greifswald",
+        "einrichtung": "Volkshochschulen Vorpommern-Greifswald Standort Greifswald",
+        "straße": "Martin-Luther-Str. 7a",
+        "telefon": "03834/87604830",
+        "email": "vhs-greifswald@kreis-vg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 17309,
+        "ort": "Pasewalk",
+        "einrichtung": "Volkshochschulen Vorpommern-Greifswald Standort Pasewalk",
+        "straße": "Gemeindewiesenweg 8",
+        "telefon": "03834/87604810",
+        "email": "vhs-pasewalk@kreis-vg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18528,
+        "ort": "Bergen auf Rügen",
+        "einrichtung": "Kreisvolkshochschule Vorpommern-Rügen Regionalstelle Rügen",
+        "straße": "Schulstr. 2",
+        "telefon": "03838-200580",
+        "email": "liliana.heim@lk-vr.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18507,
+        "ort": "Grimmen",
+        "einrichtung": "Kreisvolkshochschule Vorpommern-Rügen Regionalstelle Grimmen",
+        "straße": "Tribseeser Chaussee 4",
+        "telefon": "038326/80020",
+        "email": "irene.melzer@lk-vr.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 18437,
+        "ort": "Stralsund",
+        "einrichtung": "Kreisvolkshochschule Vorpommern-Rügen Regionalstelle Stralsund",
+        "straße": "Tribseer Damm 76",
+        "telefon": "03831/482310",
+        "email": "volkshochschule@lk-vr.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "18055 ",
+        "ort": "Rostock",
+        "einrichtung": "inlingua Rostock",
+        "straße": "Herweghstraße 1",
+        "telefon": "0381 24 29 225",
+        "email": "info@inlingua-rostock.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "ni",
+    "data": [
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 37081,
+        "ort": "Göttingen",
+        "einrichtung": "Alpha Zentrum e.V.",
+        "straße": "Jonaplatz 6",
+        "telefon": "0551-3070999",
+        "email": "info@alpha-zentrum.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 37073,
+        "ort": "Göttingen",
+        "einrichtung": "Arbeit und Leben Niedersachsen gGmbh -Göttingen",
+        "straße": "Lange-Geismarstr. 72-73",
+        "telefon": "0551-49507-0",
+        "email": "goettingen@aul-nds.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38446,
+        "ort": "Wolfsburg",
+        "einrichtung": "Arbeit und Leben Niedersachsen gGmbh -Wolfsburg",
+        "straße": "Burgallee 6",
+        "telefon": "05363-70840-0",
+        "email": "wolfsburg@aul-nds-de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38446,
+        "ort": "Wolfsburg",
+        "einrichtung": "Bildungswerk der Niedersächsischen Wirtschaft GmbH",
+        "straße": "Benzstraße 27",
+        "telefon": "05361-46468",
+        "email": "monika.strauch-ackermann@bnw.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30161,
+        "ort": "Hannover",
+        "einrichtung": "Bildungsverein Soziales Lernen und Kommunikation e.V.",
+        "straße": "Stadtstraße 17",
+        "telefon": "0511-344144",
+        "email": "info@bildungsverein.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30167,
+        "ort": "Hannover",
+        "einrichtung": "Arbeit und Leben Niedersachsen gGmbH ",
+        "straße": "Arndtstraße 20",
+        "telefon": "0511-12105-40",
+        "email": "integrationsbuero@aul-nds.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38440,
+        "ort": "Wolfsburg",
+        "einrichtung": "Bildungszentrum Wolfsburger Volkshochschule gGmbH",
+        "straße": "Hugo-Junkers-Weg 5",
+        "telefon": "05361-28-3900",
+        "email": "deutsch@bildungshaus-wolfburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 26122,
+        "ort": "Oldenburg",
+        "einrichtung": "Euro-Schulen Oldenburg",
+        "straße": "Staulinie 11",
+        "telefon": "0441-21840-0",
+        "email": "info@es.oldenburg.eso.de"
+      },
+      {
+        "regierungsbezirk": "Ammerland",
+        "plz": 26655,
+        "ort": "Westerstede",
+        "einrichtung": "KVHS Ammerland",
+        "straße": "Am Röttgen 60",
+        "telefon": "04488-5651001",
+        "email": "kvhs-sprachen@ammerland.de"
+      },
+      {
+        "regierungsbezirk": "Aurich",
+        "plz": 26605,
+        "ort": "Norden",
+        "einrichtung": "KVHS Aurich-Norden gGmbH Standort Norden",
+        "straße": "Uffenstraße 1",
+        "telefon": "04931-1870520",
+        "email": "info@kvhs-norden.de"
+      },
+      {
+        "regierungsbezirk": "Gifhorn",
+        "plz": 38518,
+        "ort": "Gifhorn",
+        "einrichtung": "KVHS Gifhorn",
+        "straße": "Freiherr-vom-Stein-Str. 24",
+        "telefon": "05371-9459-636",
+        "email": "inte@kvhs-gifhorn.de"
+      },
+      {
+        "regierungsbezirk": "Goslar",
+        "plz": 38640,
+        "ort": "Goslar",
+        "einrichtung": "KVHS Goslar",
+        "straße": "Klubgartenstr. 6",
+        "telefon": "05321-76431",
+        "email": "kvhs@landkreis-goslar.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 37083,
+        "ort": "Göttingen",
+        "einrichtung": "KVHS Göttingen",
+        "straße": "Reinhäuser Landstr. 4 /Hinter den Höfen 14",
+        "telefon": "05541-903611",
+        "email": "greve@kvhs-goettingen.de"
+      },
+      {
+        "regierungsbezirk": "Helmstedt",
+        "plz": 38350,
+        "ort": "Helmstedt",
+        "einrichtung": "KVHS Helmstedt",
+        "straße": "Bötticherstr. 2",
+        "telefon": "05351-120410",
+        "email": "info@kvhs-helmstedt.de"
+      },
+      {
+        "regierungsbezirk": "Holzminden",
+        "plz": 37603,
+        "ort": "Holzminden",
+        "einrichtung": "KVHS Holzminden",
+        "straße": "Neue Str.7",
+        "telefon": "05531 - 707 343",
+        "email": "krystyna.tessmann@landkreis-holzminden.de"
+      },
+      {
+        "regierungsbezirk": "Harburg",
+        "plz": 21220,
+        "ort": "Seevetal-Maschen",
+        "einrichtung": "KVHS Landkreis Harburg",
+        "straße": "Schulkamp 11A",
+        "telefon": "04105 / 5 99 40 - 14",
+        "email": "p.larsen@lkharburg.de"
+      },
+      {
+        "regierungsbezirk": "Northeim",
+        "plz": 37154,
+        "ort": "Northeim",
+        "einrichtung": "KVHS Northeim",
+        "straße": "Wallstr. 40",
+        "telefon": "05561 933261",
+        "email": "info@kvhs-northeim.de"
+      },
+      {
+        "regierungsbezirk": "Peine",
+        "plz": 31224,
+        "ort": "Peine",
+        "einrichtung": "KVHS Peine",
+        "straße": "Stederdorfer Str.8/9",
+        "telefon": "05171/401- 3240",
+        "email": "jboesel@kvhs-peine.de"
+      },
+      {
+        "regierungsbezirk": "Uelzen",
+        "plz": 29525,
+        "ort": "Uelzen",
+        "einrichtung": "KVHS Uelzen / Lüchow-Dannenberg",
+        "straße": "Veerßer Str. 2",
+        "telefon": "0581/976490 oder 9764912",
+        "email": "becker@allesbildung.de"
+      },
+      {
+        "regierungsbezirk": "Vechta",
+        "plz": 49377,
+        "ort": "Vechta",
+        "einrichtung": "KVHS Vechta",
+        "straße": "Bahnhofstr.1",
+        "telefon": "04441-9377814",
+        "email": "s.hagl@kvhs-vechta.de"
+      },
+      {
+        "regierungsbezirk": "Wesermarsch",
+        "plz": 26919,
+        "ort": "Brake",
+        "einrichtung": "KVHS Wesermarsch GmbH",
+        "straße": "Postplatz 1",
+        "telefon": "04401-938910 / 04401-936582",
+        "email": "h.boening@kvhs-wesermarsch.de "
+      },
+      {
+        "regierungsbezirk": "Wolfenbüttel",
+        "plz": 38300,
+        "ort": "Wolfenbüttel",
+        "einrichtung": "KVHS Wolfenbüttel",
+        "straße": "Harzstr.2-5",
+        "telefon": "05331-84-898 oder84-153",
+        "email": "biz-infopoint@lk-wf.de"
+      },
+      {
+        "regierungsbezirk": "Verden",
+        "plz": 27283,
+        "ort": "Verden (Aller)",
+        "einrichtung": "KVHS-Verden",
+        "straße": "Artilleriestr. 8",
+        "telefon": "04231-15160",
+        "email": "Kvhs-deutschprojekte@landkreis-verden.de"
+      },
+      {
+        "regierungsbezirk": "Hannover",
+        "plz": 30880,
+        "ort": "Laatzen",
+        "einrichtung": "Leine-VHS",
+        "straße": "Senefelderstr. 19",
+        "telefon": "0511-89886235",
+        "email": "ermisch@leine-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Oldenburg",
+        "plz": 27777,
+        "ort": "Ganderkesee",
+        "einrichtung": "regioVHS Ganderkesee-Hude",
+        "straße": "Rathausstr. 24",
+        "telefon": "04222 - 44444",
+        "email": "info@regiovhs.de"
+      },
+      {
+        "regierungsbezirk": "Harburg",
+        "plz": 21423,
+        "ort": "Winsen (Luhe)",
+        "einrichtung": "Sprachkompetenz und Bildung oHG",
+        "straße": "Plankenstr. 3",
+        "telefon": "04171-7884919",
+        "email": "s-bgbr@web.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38226,
+        "ort": "Salzgitter",
+        "einrichtung": "Städtische VHS Salzgitter",
+        "straße": "Thiestr. 26",
+        "telefon": "05341- 839 3689",
+        "email": "juergen.grundmann@stadt.salzgitter.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38100,
+        "ort": "Braunschweig",
+        "einrichtung": "VHS Braunschweig GmbH",
+        "straße": "Alte Waage 15",
+        "telefon": "0531 2412-200",
+        "email": "info@vhsinternational.de"
+      },
+      {
+        "regierungsbezirk": "Stade",
+        "plz": 21614,
+        "ort": "Buxtehude",
+        "einrichtung": "VHS Buxtehude",
+        "straße": "Bertha-von-Suttner-Allee 9",
+        "telefon": "04161-743432",
+        "email": "vhs@stadt.buxtehude.de"
+      },
+      {
+        "regierungsbezirk": "Celle",
+        "plz": 29221,
+        "ort": "Celle",
+        "einrichtung": "VHS Celle e.V.",
+        "straße": "Trift 20",
+        "telefon": "0 51 41 / 92 98 50",
+        "email": "info@vhs-celle.de"
+      },
+      {
+        "regierungsbezirk": "Cloppenburg",
+        "plz": 49661,
+        "ort": "Cloppenburg",
+        "einrichtung": "VHS Cloppenburg",
+        "straße": "Altes Stadttor 16",
+        "telefon": "04471-9469 0",
+        "email": "anmeldung@vhs-cloppenburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 27749,
+        "ort": "Delmenhorst",
+        "einrichtung": "VHS Delmenhorst gGmbH",
+        "straße": "Am Turbinenhaus 11",
+        "telefon": "04221 - 98 180-0",
+        "email": "deutsch@vhs-delmenhorst.de"
+      },
+      {
+        "regierungsbezirk": "Cuxhaven",
+        "plz": 27474,
+        "ort": "Cuxhaven",
+        "einrichtung": "VHS der Stadt Cuxhaven",
+        "straße": "Abendrothstr. 16",
+        "telefon": "04721-73 5225",
+        "email": "info@vhs-cuxhaven.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 49076,
+        "ort": "Osnabrück",
+        "einrichtung": "VHS der Stadt Osnabrück",
+        "straße": "Bergstr. 8",
+        "telefon": "0541/7506029",
+        "email": "mueller.be@vhs-osnabrueck.de"
+      },
+      {
+        "regierungsbezirk": "Diepholz",
+        "plz": 28857,
+        "ort": "Syke",
+        "einrichtung": "VHS des Landkreises Diepholz",
+        "straße": "Nienburger Str. 5",
+        "telefon": "05541- 9761917",
+        "email": "vhs@vhs-diepholz.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 26721,
+        "ort": "Emden",
+        "einrichtung": "VHS Emden",
+        "straße": "An der Berufsschule 3",
+        "telefon": "04921-915546",
+        "email": "r.jenkins@vhs-emden.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 37520,
+        "ort": "Göttingen",
+        "einrichtung": "VHS Göttingen Osterode gGmbH",
+        "straße": "Neustädter Tor 1-3",
+        "telefon": "05522-960 4454",
+        "email": "faridani@vhs-goettingen.de"
+      },
+      {
+        "regierungsbezirk": "Grafschaft Bentheim",
+        "plz": 48529,
+        "ort": "Nordhorn",
+        "einrichtung": "VHS Grafschaft Bentheim",
+        "straße": "Bernhard-Niehues-Str. 49",
+        "telefon": "Tel.: 05921/83 65 0",
+        "email": "info@vhs-grafschaft-bentheim.de"
+      },
+      {
+        "regierungsbezirk": "Hameln-Pyrmont",
+        "plz": 31785,
+        "ort": "Hameln",
+        "einrichtung": "VHS Hameln-Pyrmont",
+        "straße": "Sedanstr. 11",
+        "telefon": "05151 948224",
+        "email": "gorkow@vhs-hameln-pyrmont.de"
+      },
+      {
+        "regierungsbezirk": "Hannover",
+        "plz": 31535,
+        "ort": "Neustadt",
+        "einrichtung": "VHS Hannover Land",
+        "straße": "Suttorfer Str. 8",
+        "telefon": "05032 981985 (vormittags) 0511 3942298",
+        "email": "lachmund@vhs-hannover-land.de"
+      },
+      {
+        "regierungsbezirk": "Soltau-Fallingbostel",
+        "plz": 29664,
+        "ort": "Walsrode",
+        "einrichtung": "VHS Heidekreis gGmbH",
+        "straße": "Kirchplatz 4",
+        "telefon": "05161 948884",
+        "email": "aengler@vhs-heidekreis.de"
+      },
+      {
+        "regierungsbezirk": "Hildesheim",
+        "plz": 31134,
+        "ort": "Hildesheim",
+        "einrichtung": "VHS Hildesheim",
+        "straße": "Pfaffenstieg 4 – 5",
+        "telefon": "05121-9361921",
+        "email": "zerrath@vhs-hildesheim.de"
+      },
+      {
+        "regierungsbezirk": "Cuxhaven",
+        "plz": 27607,
+        "ort": "Langen",
+        "einrichtung": "VHS im Landkreis Cuxhaven",
+        "straße": "Debstedter Str. 5a",
+        "telefon": "04743-922-123",
+        "email": "i.weber@vhs-lk-cux.de"
+      },
+      {
+        "regierungsbezirk": "Hannover",
+        "plz": 30853,
+        "ort": "Langenhagen",
+        "einrichtung": "VHS Langenhagen",
+        "straße": "Stadtparkallee 35",
+        "telefon": "0511/7307-9708",
+        "email": "blauert@vhs-langenhagen.de"
+      },
+      {
+        "regierungsbezirk": "Hannover",
+        "plz": 31275,
+        "ort": "Lehrte",
+        "einrichtung": "VHS Ostkreis Hannover",
+        "straße": "Rathausplatz 2",
+        "telefon": "05132-500012",
+        "email": "vhs-ostkreis-hannover.de"
+      },
+      {
+        "regierungsbezirk": "Leer",
+        "plz": 26789,
+        "ort": "Leer",
+        "einrichtung": "VHS Leer",
+        "straße": "Haneburgallee 8",
+        "telefon": "0491-9299221",
+        "email": "eysteinsdottir@vhs-leer.de"
+      },
+      {
+        "regierungsbezirk": "Osterholz",
+        "plz": 28865,
+        "ort": "Lilienthal",
+        "einrichtung": "VHS Lilienthal-Grasberg-Ritterhude-Worpswede",
+        "straße": "Klosterstr. 25",
+        "telefon": "04298-929237",
+        "email": "vhs@lilienthal.de"
+      },
+      {
+        "regierungsbezirk": "Emsland",
+        "plz": 49808,
+        "ort": "Lingen",
+        "einrichtung": "VHS Lingen",
+        "straße": "Am Pulverturm",
+        "telefon": "0591 91202300",
+        "email": "info@vhs-lingen.de"
+      },
+      {
+        "regierungsbezirk": "Emsland",
+        "plz": 49716,
+        "ort": "Meppen",
+        "einrichtung": "VHS Meppen gGmbH",
+        "straße": "Herzog-Arenberg-Str. 7",
+        "telefon": "05931 93 73-22",
+        "email": "marie-anne.horstmann@vhs-meppen.de"
+      },
+      {
+        "regierungsbezirk": "Nienburg (Weser)",
+        "plz": 31582,
+        "ort": "Nienburg",
+        "einrichtung": "VHS Nienburg",
+        "straße": "Rühmkorffstr. 12",
+        "telefon": "05021 967 617",
+        "email": "vhs@kreis-ni.de"
+      },
+      {
+        "regierungsbezirk": "Aurich",
+        "plz": 26506,
+        "ort": "Norden",
+        "einrichtung": "VHS Norden",
+        "straße": "Gartenweg 21",
+        "telefon": "04931-924149",
+        "email": "info@vhs-norden.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 26122,
+        "ort": "Oldenburg",
+        "einrichtung": "VHS Oldenburg",
+        "straße": "Wallstr. 17",
+        "telefon": "0441 92391-26",
+        "email": "hagen@vhs-ol.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 49082,
+        "ort": "Osnabrück",
+        "einrichtung": "VHS Osnabrücker Land",
+        "straße": "Am Schölerberg 1",
+        "telefon": "0541 501 4022",
+        "email": "quappen@lkos.de"
+      },
+      {
+        "regierungsbezirk": "Osterholz",
+        "plz": 27710,
+        "ort": "Osterholz-Scharmbeck",
+        "einrichtung": "VHS Osterholz-Scharmbeck-Hambergen",
+        "straße": "Marktplatz 10",
+        "telefon": "04791-962323",
+        "email": "info@vhs-osterholz-scharmbeck.de"
+      },
+      {
+        "regierungsbezirk": "Emsland",
+        "plz": 26871,
+        "ort": "Papenburg",
+        "einrichtung": "VHS Papenburg gGmbH",
+        "straße": "Hauptkanal rechts 72",
+        "telefon": "04961/82312",
+        "email": "hermann.schade@vhs-papenburg.de"
+      },
+      {
+        "regierungsbezirk": "Rotenburg (Wümme)",
+        "plz": 27356,
+        "ort": "Rotenburg(W)",
+        "einrichtung": "VHS Rotenburg",
+        "straße": "Am Kirchhof 10",
+        "telefon": "04261 / 91 45 13",
+        "email": "Pfeiffer-ubadi@rotenburg-wuemme.de"
+      },
+      {
+        "regierungsbezirk": "Schaumburg",
+        "plz": 31737,
+        "ort": "Rinteln",
+        "einrichtung": "Arbeit und Leben Niedersachsen gGmbH",
+        "straße": "Riemengasse 1",
+        "telefon": "05751-9552650",
+        "email": "rinteln@aul-nds.de"
+      },
+      {
+        "regierungsbezirk": "Schaumburg",
+        "plz": 31675,
+        "ort": "Bückeburg",
+        "einrichtung": "VHS Schaumburg",
+        "straße": "Schloss 3c",
+        "telefon": "05722-95730",
+        "email": "ziert@vhs-schaumburg.de"
+      },
+      {
+        "regierungsbezirk": "Stade",
+        "plz": 21682,
+        "ort": "Stade",
+        "einrichtung": "VHS Stade e. V.",
+        "straße": "Wallstr. 17",
+        "telefon": "04141/4099-0",
+        "email": "meyer@vhs-stade.de"
+      },
+      {
+        "regierungsbezirk": "Wittmund",
+        "plz": 26409,
+        "ort": "Wittmund",
+        "einrichtung": "VHS und Musikschule Friesland-Wittmund gGmbH",
+        "straße": "Finkenburgstraße 9",
+        "telefon": "04462 863341",
+        "email": "info-vhs@vhs-frieslandwittmund.de"
+      },
+      {
+        "regierungsbezirk": "Oldenburg",
+        "plz": 27793,
+        "ort": "Wildeshausen",
+        "einrichtung": "VHS Wildeshausen",
+        "straße": "Wittekindstr. 9",
+        "telefon": "04431 - 71622",
+        "email": "info@vhs-wildeshausen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 26382,
+        "ort": "Wilhelmshaven",
+        "einrichtung": "VHS Wilhelmshaven gGmbH ",
+        "straße": "Virchowstr. 29",
+        "telefon": "04421 161479",
+        "email": "michael.hoecke@vhs-whv.de "
+      },
+      {
+        "regierungsbezirk": "Rotenburg (Wümme)",
+        "plz": 27404,
+        "ort": "Zeven",
+        "einrichtung": "VHS Zeven",
+        "straße": "Lindenstr. 6",
+        "telefon": "04281-936314",
+        "email": "mf@vhs-zeven.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30159,
+        "ort": "Hannover",
+        "einrichtung": "Volkshochschule Hannover",
+        "straße": "Burgstraße 14",
+        "telefon": "0511-168 44 787",
+        "email": "John.Nichol@Hannover-Stadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30159,
+        "ort": "Hannover",
+        "einrichtung": "Sprachakademie (VIB e.V.)",
+        "straße": "Goseriede 12d",
+        "telefon": "0511-51533441",
+        "email": "info@sprachakademie.org"
+      },
+      {
+        "regierungsbezirk": "Lüneburg",
+        "plz": 21335,
+        "ort": "Lüneburg",
+        "einrichtung": "Volkshochschule REGION Lüneburg",
+        "straße": "Haagestr. 4",
+        "telefon": "04131 - 1566125",
+        "email": "birgit.borchert@vhs.lueneburg.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "nw",
+    "data": [
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53840,
+        "ort": "Troisdorf",
+        "einrichtung": "Academia Espanola de Formacion e.V.",
+        "straße": "Viktoriastraße 5",
+        "telefon": "02241-2615610",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 46499,
+        "ort": "Hamminkeln",
+        "einrichtung": "Akademie Klausenhof",
+        "straße": "Klausenhofstr. 100",
+        "telefon": "02852-890",
+        "email": "spannhake@akademie-klausenhof.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 52062,
+        "ort": "Aachen",
+        "einrichtung": "Akademischer Verein zu Euregio e.V.",
+        "straße": "Harscampstraße 15-17",
+        "telefon": "0241-402568",
+        "email": "info@akademie-bildung.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44787,
+        "ort": "Bochum",
+        "einrichtung": "AKF Auslandskorrespondenten-Fachschule ",
+        "straße": "Kortumstr. 69-71",
+        "telefon": "0234-12910",
+        "email": "akf.bochum@gmx.de"
+      },
+      {
+        "regierungsbezirk": "Heinsberg",
+        "plz": 52525,
+        "ort": "Heinsberg",
+        "einrichtung": "Anton-Heinen-Volkshochschule des Kreises Heinsberg",
+        "straße": "Valkenburger Str. 45",
+        "telefon": "02452/13-4319",
+        "email": "vhs@kreis-heinsberg.de"
+      },
+      {
+        "regierungsbezirk": "Düsseldorf",
+        "plz": 40227,
+        "ort": "Düsseldorf",
+        "einrichtung": "ASG-Bildungsforum",
+        "straße": "Werdener Straße 4",
+        "telefon": "0211-17401611",
+        "email": "asg@asg-bildungsforum.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44002,
+        "ort": "Dortmund",
+        "einrichtung": "Auslandsgesellschaft.de gGmbH",
+        "straße": "Steinstraße 48",
+        "telefon": "0231-83800-0",
+        "email": "info@auslandsgesellschaft.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42651,
+        "ort": "Solingen",
+        "einrichtung": "Bergische VHS-Solingen",
+        "straße": "Birkenweiher 66",
+        "telefon": "0212-2903252",
+        "email": "info@bergische-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42103,
+        "ort": "Wuppertal",
+        "einrichtung": "Bergische VHS-ZV Bergische Volkshochschule der Städte Solingen und Wuppertal",
+        "straße": "Auer Schulstr.20",
+        "telefon": "0202-563-2251",
+        "email": "info@bbb-ev.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44787,
+        "ort": "Bochum",
+        "einrichtung": "Bochumer Bildungszentrum e.V. ",
+        "straße": "Westring 11",
+        "telefon": "0234-9128497",
+        "email": "w.elayadi@bbz-ev.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45768,
+        "ort": "Marl",
+        "einrichtung": "die insel VHS Marl",
+        "straße": "Bergstr. 230",
+        "telefon": "02365/99-4220",
+        "email": "marina.chatziioannidou@marl.de"
+      },
+      {
+        "regierungsbezirk": "Paderborn",
+        "plz": 33106,
+        "ort": "Paderborn",
+        "einrichtung": "Die Sprachwerkstatt",
+        "straße": "Stettiner Str. 40-42",
+        "telefon": "05251/77999-0",
+        "email": "u.piepenbreier@die-sprachwerkstatt.de"
+      },
+      {
+        "regierungsbezirk": "Oberbergischer Kreis",
+        "plz": 51645,
+        "ort": "Gummersbach",
+        "einrichtung": "Dr. Bénédict Sprachen- und Wirtschaftsschule",
+        "straße": "Vollmerhauser Str. 30",
+        "telefon": "2261-500880",
+        "email": "info@benedict-gm.de"
+      },
+      {
+        "regierungsbezirk": "Düsseldorf",
+        "plz": 40210,
+        "ort": "Düsseldorf",
+        "einrichtung": "DÜS Eckert Spracheninstitut GmbH",
+        "straße": "Immermannstraße 64c",
+        "telefon": "0211-2718200",
+        "email": "mail@dues-eckert.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47051,
+        "ort": "Duisburg",
+        "einrichtung": "EuBIA Rhein Ruhr Ost GmbH / Duisburg",
+        "straße": "Gallenkampstr.20",
+        "telefon": "0203-72839520",
+        "email": "duisburg@eubia.de"
+      },
+      {
+        "regierungsbezirk": "Borken",
+        "plz": 48599,
+        "ort": "Gronau (Westf.)",
+        "einrichtung": "Euregio-Volkshochschule Gronau",
+        "straße": "Von-Keppel-Str. 10",
+        "telefon": "02565  404080",
+        "email": "vhs@gronau.de"
+      },
+      {
+        "regierungsbezirk": "Viersen",
+        "plz": 41748,
+        "ort": "Viersen",
+        "einrichtung": "Euro-Schulen Niederrhein/Viersen",
+        "straße": "Hormesfeld 9b",
+        "telefon": "02162-351040",
+        "email": "info@es.viersen.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40227,
+        "ort": "Düsseldorf",
+        "einrichtung": "Euro-Schulen NRW Ost GmbH",
+        "straße": "Kruppstr. 82-84",
+        "telefon": "02051-28700",
+        "email": "info@es.duesseldorf.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 53111,
+        "ort": "Bonn",
+        "einrichtung": "Euro-Schulen Rheinland-GmbH",
+        "straße": "Maximilianstr. 20",
+        "telefon": "0228-97635480",
+        "email": "info@eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45468,
+        "ort": "Mühlheim a.d. Ruhr",
+        "einrichtung": "Forum bildungszentrum / Neues Innovatives Lernzentrum e.V.",
+        "straße": "Wallstraße 2",
+        "telefon": "0208-9952777",
+        "email": "dindar@forum-bz.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 48143,
+        "ort": "Münster",
+        "einrichtung": "German Language Academy",
+        "straße": "Bahnhofstraße 3",
+        "telefon": "0251 / 2707680",
+        "email": "info@german-language-academy.com"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45479,
+        "ort": "Mülheim an der Ruhr",
+        "einrichtung": "Heinrich-Thöne-Volkshochschule",
+        "straße": "Bergstr. 1/3",
+        "telefon": "0208/4554313",
+        "email": "ulrike.voss-schulz@stadt-mh.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 46485,
+        "ort": "Wesel",
+        "einrichtung": "IB West gGmbH",
+        "straße": "Schillwiese 13",
+        "telefon": "0281-98409-13",
+        "email": "andreas. kolloechter@ib.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42119,
+        "ort": "Wuppertal",
+        "einrichtung": "IEC-International Education Centers GmbH",
+        "straße": "Lise-Meitner-Straße 5 - 9",
+        "telefon": "0202 / 26158770",
+        "email": "info@internationaleducationcenters.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45127,
+        "ort": "Essen",
+        "einrichtung": "inlingua Center Essen",
+        "straße": "Flachsmarkt 1",
+        "telefon": "0201 / 810130",
+        "email": "info@inlingua-essen.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58636,
+        "ort": "Iserlohn",
+        "einrichtung": "Inlingua Iserlohn",
+        "straße": "In der Bredde 37",
+        "telefon": "02371-25724",
+        "email": "info@inlingua-iserlohn.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42651,
+        "ort": "Solingen",
+        "einrichtung": "Internationaler Bund (IB) Solingen",
+        "straße": "Am Neumarkt 50a",
+        "telefon": "0212-38212961",
+        "email": "Micha.Thom@ib.de"
+      },
+      {
+        "regierungsbezirk": "Düren",
+        "plz": 52348,
+        "ort": "Düren",
+        "einrichtung": "KreisVHS Düren",
+        "straße": "Bismarckstr. 16",
+        "telefon": "02421-222824/222836",
+        "email": "vhs@kreis-dueren.de"
+      },
+      {
+        "regierungsbezirk": "Hochsauerlandkreis",
+        "plz": 59872,
+        "ort": "Meschede",
+        "einrichtung": "KreisVHS Hochsauerland",
+        "straße": "Steinstraße 27",
+        "telefon": "02974-833096",
+        "email": "hesse@vhs-hsk.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 58239,
+        "ort": "Schwerte",
+        "einrichtung": "Kultur- und Weiterbildungsbetrieb der Stadt Schwerte VHS",
+        "straße": "Am Markt 11",
+        "telefon": "02304-104858",
+        "email": "klaus.dieter.tiffert@kuwebe.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 48565,
+        "ort": "Steinfurt-Burgsteinfurt",
+        "einrichtung": "KulturForum Steinfurt-VHS",
+        "straße": "An der Hohen Schule 14",
+        "telefon": "02551/14820",
+        "email": "info@vhs-steinfurt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40764,
+        "ort": "Langenfeld (Rheinland)",
+        "einrichtung": "Primus NRW Osr GmbH-Euro-Schulen Langenfeld",
+        "straße": "Gladbacher Str. 3-5",
+        "telefon": "02173-8546582",
+        "email": "balk.ute@eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45127,
+        "ort": "Essen",
+        "einrichtung": "Primus NRW Ost GmbH-Euro-Schulen -Essen",
+        "straße": "Hängebank 7",
+        "telefon": "0201-2248556",
+        "email": "Kraemer.Marlies@eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40822,
+        "ort": "Mettmann",
+        "einrichtung": "Primus NRW Ost GmbH-Euro-Schulen Mettmann",
+        "straße": "Oststr. 6-12",
+        "telefon": "02051-28700",
+        "email": "info@es.velbert.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40789,
+        "ort": "Mohnheim",
+        "einrichtung": "Primus NRW Ost GmbH-Euro-Schulen Monheim am Rhein",
+        "straße": "Friedenauer Str. 17 II EKI-Haus",
+        "telefon": "02051-28700",
+        "email": "info@es.velbert.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40880,
+        "ort": "Ratingen",
+        "einrichtung": "Primus NRW Ost GmbH-Euro-Schulen Ratingen",
+        "straße": "Harkortstr. 25",
+        "telefon": "02102-883715",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42551,
+        "ort": "Velbert",
+        "einrichtung": "Primus NRW Ost GmbH-Euro-Schulen Velbert",
+        "straße": "Oststraße  15",
+        "telefon": "02051/2870-0",
+        "email": "info@es. Velbert.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42103,
+        "ort": "Wuppertal",
+        "einrichtung": "Primus NRW Ost-GmbH-Euro-Schulen Wuppertal",
+        "straße": "Luisenstr. 64",
+        "telefon": "02051-28700",
+        "email": "info@es.velbert.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 50933,
+        "ort": "Köln",
+        "einrichtung": "Primus Rheinland GmbH - Euro-Schulen Köln",
+        "straße": "Widdersdorfer Str. 399",
+        "telefon": "0221-9496680",
+        "email": "reiswich.elena@es.koeln.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 51379,
+        "ort": "Leverkusen",
+        "einrichtung": "Primus Rheinland GmbH - Euro-Schulen Leverkusen",
+        "straße": "Bahnhofstr. 3",
+        "telefon": "02171-4047320",
+        "email": "info@es.leverkusen.eso.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 47059,
+        "ort": "Duisburg",
+        "einrichtung": "Rhein Ruhr Bildungsverein e.V.",
+        "straße": "Weidenweg 87",
+        "telefon": "0203/299665",
+        "email": "info@rrb-ev.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47167,
+        "ort": "Duisburg",
+        "einrichtung": "Gemeinnützige Gesellschaft für Beschäftigungsförderung",
+        "straße": "Usedomerstr.17",
+        "telefon": "0203-54424-190",
+        "email": "info@gfb-duisburg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47166,
+        "ort": "Duisburg",
+        "einrichtung": "Rheinischer Dialog-und Bildungsverein e.V.",
+        "straße": "Kantstr. 30",
+        "telefon": "0203-4680280",
+        "email": "sprachkurse@rdub.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42289,
+        "ort": "Wuppertal",
+        "einrichtung": "Schulungscenter Wuppertal",
+        "straße": "Albertstraße 47",
+        "telefon": "0202-453131",
+        "email": "info@schulungscenter-wuppertal.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47058,
+        "ort": "Duisburg",
+        "einrichtung": "SfS Schulungsgesellschaft mbH",
+        "straße": "Königsberger Allee 69",
+        "telefon": "0203-300850",
+        "email": "info@sfs.nrw"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40595,
+        "ort": "Düsseldorf",
+        "einrichtung": "SPUTNIK-SÜD",
+        "straße": "Wolfgang-Döring-Str. 4",
+        "telefon": "021117053011",
+        "email": "sputniki@arcor.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58791,
+        "ort": "Werdohl",
+        "einrichtung": "VHS  Lennetal",
+        "straße": "Brüderstr. 33",
+        "telefon": "02392-918311",
+        "email": "integration@vhs-lennetal.de"
+      },
+      {
+        "regierungsbezirk": "Höxter",
+        "plz": 33014,
+        "ort": "Bad Driburg",
+        "einrichtung": "VHS - ZV Bad Driburg-Brakel-Nieheim-Steinheim",
+        "straße": "Am Hellweg 9",
+        "telefon": "05253-97407-0",
+        "email": "info@vhs-driburg.de"
+      },
+      {
+        "regierungsbezirk": "Borken",
+        "plz": 48683,
+        "ort": "Ahaus",
+        "einrichtung": "VHS Ahaus",
+        "straße": "Hof zum Ahaus 4",
+        "telefon": "02561-95370",
+        "email": "info@vhs-aktuellesforum.de"
+      },
+      {
+        "regierungsbezirk": "Minden-Lübbecke",
+        "plz": 32545,
+        "ort": "Bad Oeynhausen",
+        "einrichtung": "VHS Bad Oeynhausen",
+        "straße": "Kaiserstr. 14",
+        "telefon": "05731-142626",
+        "email": "ujvari@vhs-badoeynhausen.de"
+      },
+      {
+        "regierungsbezirk": "Warendorf",
+        "plz": 59269,
+        "ort": "Beckum",
+        "einrichtung": "VHS Beckum-Wadersloh",
+        "straße": "Paterweg 10",
+        "telefon": "02521-29700",
+        "email": "vhs@beckum.de"
+      },
+      {
+        "regierungsbezirk": "Rheinisch-Bergischer Kreis",
+        "plz": 42929,
+        "ort": "Wermelskirchen",
+        "einrichtung": "VHS Bergisch-Land",
+        "straße": "Rot-Kreuz-Straße 8a",
+        "telefon": "02196/94704-12",
+        "email": "ulrike.langholz@vhs-bergisch-land.de"
+      },
+      {
+        "regierungsbezirk": "Borken",
+        "plz": 46397,
+        "ort": "Bocholt",
+        "einrichtung": "VHS Bocholt-Rhede-Isselburg",
+        "straße": "Südwall 4a",
+        "telefon": "02871/252232",
+        "email": "vhs@mail.bocholt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44787,
+        "ort": "Bochum",
+        "einrichtung": "VHS Bochum",
+        "straße": "Gustav-Heinemann-Platz 2-6",
+        "telefon": "0234/9102818",
+        "email": "rherzog@bochum.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 44575,
+        "ort": "Castrop-Rauxel",
+        "einrichtung": "VHS Castrop-Rauxel",
+        "straße": "Europaplatz 1",
+        "telefon": "02305-1062646",
+        "email": "vhs@castrop-rauxel.de"
+      },
+      {
+        "regierungsbezirk": "Coesfeld",
+        "plz": 48653,
+        "ort": "Coesfeld",
+        "einrichtung": "VHS Coesfeld",
+        "straße": "Osterwicker Str. 29",
+        "telefon": "02541-9481-18",
+        "email": "vhs@coesfeld.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45711,
+        "ort": "Datteln",
+        "einrichtung": "VHS Datteln",
+        "straße": "Kolpingstr. 1",
+        "telefon": "02363-107-230",
+        "email": "vhs@stadt-datteln.de"
+      },
+      {
+        "regierungsbezirk": "Lippe",
+        "plz": 32657,
+        "ort": "Lemgo",
+        "einrichtung": "VHS der Alten Hansestadt Lemgo",
+        "straße": "Breitestr. 10",
+        "telefon": "05261-213-278 o. 226",
+        "email": "z.thiemann@lemgo.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 52062,
+        "ort": "Aachen",
+        "einrichtung": "VHS der Stadt Aachen",
+        "straße": "Peterstr. 21/25",
+        "telefon": "0241-47920/4792-127",
+        "email": "winfried.casteel@mail.aachen.de"
+      },
+      {
+        "regierungsbezirk": "Warendorf",
+        "plz": 59227,
+        "ort": "Ahlen",
+        "einrichtung": "VHS der Stadt Ahlen",
+        "straße": "Markt 15",
+        "telefon": "02382-59409",
+        "email": "vhs@stadt.ahlen.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 59192,
+        "ort": "Bergkamen",
+        "einrichtung": "VHS der Stadt Bergkamen",
+        "straße": "Rathausplatz 1",
+        "telefon": "02307/284954",
+        "email": "vhs@bergkamen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 53111,
+        "ort": "Bonn",
+        "einrichtung": "VHS der Stadt Bonn",
+        "straße": "Wilhelmstr. 34",
+        "telefon": "0228/775634",
+        "email": "marion.bachert@bonn.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 46236,
+        "ort": "Bottrop",
+        "einrichtung": "VHS der Stadt Bottrop",
+        "straße": "Böckenhoffstr. 30",
+        "telefon": "02041/703843",
+        "email": "info@vhs-bottrop.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47049,
+        "ort": "Duisburg",
+        "einrichtung": "VHS der Stadt Duisburg",
+        "straße": "Königstr. 47",
+        "telefon": "0203-283-3372",
+        "email": "g.boellert@stadt-duisburg.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40699,
+        "ort": "Erkrath",
+        "einrichtung": "VHS der Stadt Erkrath",
+        "straße": "Sedentaler Str. 105/107",
+        "telefon": "0211-2407-4301",
+        "email": "elvira.finkelmeier@erkrath.de"
+      },
+      {
+        "regierungsbezirk": "Kleve",
+        "plz": 47533,
+        "ort": "Kleve",
+        "einrichtung": "VHs der Stadt Kleve",
+        "straße": "Hagsch Poort 22",
+        "telefon": "02821-7231-0",
+        "email": "renate.schmitz@kleve.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 50670,
+        "ort": "Köln",
+        "einrichtung": "VHS der Stadt Köln",
+        "straße": "Im MediaPark 7",
+        "telefon": "0221-221 23638",
+        "email": "ingrid.pehl@stadt-koeln.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40789,
+        "ort": "Monheim am Rhein",
+        "einrichtung": "VHS der Stadt Monheim",
+        "straße": "Tempelhofer Str. 15",
+        "telefon": "02173/951741",
+        "email": "VHS@monheim.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 59379,
+        "ort": "Selm",
+        "einrichtung": "VHS der Stadt Selm Bürgerhaus",
+        "straße": "Willy-Brandt-Platz 2",
+        "telefon": "02592-9220",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 59368,
+        "ort": "Werne",
+        "einrichtung": "VHS der Stadt Werne",
+        "straße": "Bahnhofstr. 8",
+        "telefon": "02389-71539",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Viersen",
+        "plz": 41747,
+        "ort": "Viersen",
+        "einrichtung": "VHS des Kreises Viersen",
+        "straße": "Willy-Brandt-Ring 40",
+        "telefon": "02162-9348-14",
+        "email": "helga.gisbertz@kreis-viersen.de"
+      },
+      {
+        "regierungsbezirk": "Lippe",
+        "plz": 32756,
+        "ort": "Detmold",
+        "einrichtung": "VHS Detmold",
+        "straße": "Krumme Str. 20",
+        "telefon": "05231-977259",
+        "email": "purrmann@vhs-detmold.de"
+      },
+      {
+        "regierungsbezirk": "Neuss",
+        "plz": 41539,
+        "ort": "Dormagen",
+        "einrichtung": "VHS Dormagen",
+        "straße": "Langemarkstr. 1/3",
+        "telefon": "02133-257304",
+        "email": "claudia.stawicki@vhsdormagen.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 46282,
+        "ort": "Dorsten",
+        "einrichtung": "VHS Dorsten",
+        "straße": "Im Werth 6",
+        "telefon": "02362-664183",
+        "email": "petra.duda@dorsten.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44137,
+        "ort": "Dortmund",
+        "einrichtung": "VHS Dortmund",
+        "straße": "Hansastr. 2/4",
+        "telefon": "0231-50-24710",
+        "email": "rbommert@stadtdo.de"
+      },
+      {
+        "regierungsbezirk": "Coesfeld",
+        "plz": 48249,
+        "ort": "Dülmen",
+        "einrichtung": "VHS Dülmen-Haltern-Havixbeck",
+        "straße": "Münsterstr. 29",
+        "telefon": "02364-933-440",
+        "email": "vhs@haltern.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40227,
+        "ort": "Düsseldorf",
+        "einrichtung": "VHS Düsseldorf",
+        "straße": "Bertha-von-Suttner-Platz 1",
+        "telefon": "211-8994996",
+        "email": "joanna.fuhrberg@duesseldorf.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 48282,
+        "ort": "Emsdetten",
+        "einrichtung": "VHS Emsdetten-Greven-Saerbeck",
+        "straße": "Kirchstr. 20",
+        "telefon": "02572-960370",
+        "email": "kontakt@vhs-e-g-s.de"
+      },
+      {
+        "regierungsbezirk": "Ennepe-Ruhr-Kreis",
+        "plz": 58285,
+        "ort": "Gevelsberg",
+        "einrichtung": "VHS Ennepe-Ruhr-Süd",
+        "straße": "Mittelstr. 86/88",
+        "telefon": "02332/9186121",
+        "email": "vhs@vhs-en-sued.de"
+      },
+      {
+        "regierungsbezirk": "Aachen",
+        "plz": 52249,
+        "ort": "Eschweiler",
+        "einrichtung": "VHS Eschweiler",
+        "straße": "Kaiserstr. 4a",
+        "telefon": "02403-70270",
+        "email": "vhs@eschweiler.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45127,
+        "ort": "Essen",
+        "einrichtung": "VHS Essen",
+        "straße": "Burgplatz 1",
+        "telefon": "0201-8843215",
+        "email": "Nikolaos.Georgakis@vhs.essen.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53840,
+        "ort": "Troisdorf",
+        "einrichtung": "VHS für Troisdorf und Niederkassel",
+        "straße": "Kölner Str. 2",
+        "telefon": "02241/87 44 72",
+        "email": "schwarzbach@vhs-tdf-ndk.de"
+      },
+      {
+        "regierungsbezirk": "Kleve",
+        "plz": 47608,
+        "ort": "Geldern",
+        "einrichtung": "VHS Gelderland",
+        "straße": "Kapuzinerstr. 34",
+        "telefon": "02831/937517",
+        "email": "guenter.marciniak@vhs-gelderland.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 45875,
+        "ort": "Gelsenkirchen",
+        "einrichtung": "VHS Gelsenkirchen",
+        "straße": "Ebertstr. 19",
+        "telefon": "0209/1692413",
+        "email": "vhs@gelsenkirchen.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53332,
+        "ort": "Bornheim",
+        "einrichtung": "VHS Gemeinde Alfter und Stadt Bornheim",
+        "straße": "Alter Weiher 2",
+        "telefon": "02222/945463",
+        "email": "vhs@stadt-bornheim.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45964,
+        "ort": "Gladbeck",
+        "einrichtung": "VHS Gladbeck",
+        "straße": "Friedrichstr. 55",
+        "telefon": "02043/992455",
+        "email": "vhs@stadt-gladbeck.de"
+      },
+      {
+        "regierungsbezirk": "Neuss",
+        "plz": 41515,
+        "ort": "Grevenbroich",
+        "einrichtung": "VHS Grevenbroich",
+        "straße": "Waagehaus, Stadtparkinsel",
+        "telefon": "02181-608 353",
+        "email": "monika.born-moebius@Grevenbroich.de"
+      },
+      {
+        "regierungsbezirk": "Oberbergischer Kreis",
+        "plz": 51643,
+        "ort": "Gummersbach",
+        "einrichtung": "VHS Gummersbach",
+        "straße": "Rathausplatz 1",
+        "telefon": "02261-871539",
+        "email": "annelie.roggendorff@stadt-gummersbach.de"
+      },
+      {
+        "regierungsbezirk": "Gütersloh",
+        "plz": 33330,
+        "ort": "Gütersloh",
+        "einrichtung": "VHS Gütersloh",
+        "straße": "Hohenzollernstr. 43",
+        "telefon": "05241-82-2926",
+        "email": "Birgit.Osterwald@gt-net.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 58095,
+        "ort": "Hagen",
+        "einrichtung": "Prisma Bildungsplattform e.V. Hagen",
+        "straße": "Sparkassen-Karree 8",
+        "telefon": "02331-3486477",
+        "email": "f.karafil@prisma-bp.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 58089,
+        "ort": "Hagen",
+        "einrichtung": "VHS Hagen",
+        "straße": "Schwanenstr. 6-10",
+        "telefon": "02331/207-3745",
+        "email": "vhs@stadt-hagen.de"
+      },
+      {
+        "regierungsbezirk": "Gütersloh",
+        "plz": 33758,
+        "ort": "Schloß Holte-Stukenbrock",
+        "einrichtung": "VHS Harsewinkel-Schloß Holte-Stukenbrock-Verl",
+        "straße": "Kirchstr. 2",
+        "telefon": "05207-9174 - 12",
+        "email": "josef.lieneke@gt-net.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 44649,
+        "ort": "Herne",
+        "einrichtung": "VHS Herne",
+        "straße": "Wilhelmstr. 37",
+        "telefon": "02323/16-2841",
+        "email": "vhs@herne.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 49477,
+        "ort": "Ibbenbüren",
+        "einrichtung": "Bildungswerk Ibbenbüren",
+        "straße": "Am Heidenturm 15",
+        "telefon": "05451-96730",
+        "email": "info@bildungswerk-ibbenbueren.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 49477,
+        "ort": "Ibbenbüren",
+        "einrichtung": "VHS Ibbenbüren",
+        "straße": "Oststr. 28",
+        "telefon": "05451-931768",
+        "email": "ursula.neissner@ibbenbueren.de"
+      },
+      {
+        "regierungsbezirk": "Herford",
+        "plz": 32052,
+        "ort": "Herford",
+        "einrichtung": "VHS im Kreis Herford",
+        "straße": "Münsterkirchplatz 1",
+        "telefon": "05221/5905-28",
+        "email": "remin@vhsimkreisherford.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58644,
+        "ort": "Iserlohn",
+        "einrichtung": "VHS Iserlohn",
+        "straße": "im Stadtbahnhof - Bahnhofsplatz 2",
+        "telefon": "02371/217-1945",
+        "email": "vhs@iserlohn.de"
+      },
+      {
+        "regierungsbezirk": "Düren",
+        "plz": 52428,
+        "ort": "Jülich",
+        "einrichtung": "VHS Jülicher Land",
+        "straße": "Am Aachener Tor 16",
+        "telefon": "02461-632-19",
+        "email": "vhs@juelich.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 47798,
+        "ort": "Krefeld",
+        "einrichtung": "VHS Krefeld",
+        "straße": "Von-der-Leyen-Platz 2",
+        "telefon": "02151/862658",
+        "email": "doris.schlimnat@krefeld.de"
+      },
+      {
+        "regierungsbezirk": "Euskirchen",
+        "plz": 53879,
+        "ort": "Euskirchen",
+        "einrichtung": "VHS Kreis Euskirchen",
+        "straße": "Baumstr. 2",
+        "telefon": "02251/6507425",
+        "email": "vanessa.becker@kreis-euskirchen.de"
+      },
+      {
+        "regierungsbezirk": "Siegen-Wittgenstein",
+        "plz": 57072,
+        "ort": "Siegen",
+        "einrichtung": "VHS Kreis Siegen-Wittgenstein",
+        "straße": "Koblenzer Str. 73",
+        "telefon": "0271-333-1526",
+        "email": "m_dumitrache@siegen-wittgenstein.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40764,
+        "ort": "Langenfeld (Rheinland)",
+        "einrichtung": "VHS Langenfeld",
+        "straße": "Konrad-Adenauer-Platz 1",
+        "telefon": "02173-794 4555",
+        "email": "vhs@langenfeld.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 49525,
+        "ort": "Lengerich",
+        "einrichtung": "VHS Lengerich",
+        "straße": "Bahnhofstr. 108",
+        "telefon": "05481-93880",
+        "email": "info@vhs-lengerich.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 51373,
+        "ort": "Leverkusen",
+        "einrichtung": "VHS Leverkusen",
+        "straße": "Am Büchelter Hof 9",
+        "telefon": "0214/406-4189",
+        "email": "vera.strittmatter@vhs-leverkusen.de"
+      },
+      {
+        "regierungsbezirk": "Lippe",
+        "plz": 32816,
+        "ort": "Schieder-Schwalenberg",
+        "einrichtung": "VHS Lippe-Ost",
+        "straße": "Parkallee 7",
+        "telefon": "05282-9804-0",
+        "email": "info@vhslippe-ost.de"
+      },
+      {
+        "regierungsbezirk": "Lippe",
+        "plz": 32791,
+        "ort": "Lage",
+        "einrichtung": "VHS Lippe-West",
+        "straße": "Lange Str. 124",
+        "telefon": "05232/9550-0",
+        "email": "heider@vhs-lw.de"
+      },
+      {
+        "regierungsbezirk": "Soest",
+        "plz": 59557,
+        "ort": "Lippstadt",
+        "einrichtung": "VHS Lippstadt",
+        "straße": "Barthstr. 2",
+        "telefon": "02941-2895-12 o.23",
+        "email": "vhs@stadt-lippstadt.de"
+      },
+      {
+        "regierungsbezirk": "Herford",
+        "plz": 32584,
+        "ort": "Löhne",
+        "einrichtung": "VHS Löhne ",
+        "straße": "Werretalhalle Alte Bünder Str. 14",
+        "telefon": "05732-100-588",
+        "email": "vhs@loehne.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58706,
+        "ort": "Menden",
+        "einrichtung": "VHS Menden-Hemer-Balve",
+        "straße": "Untere Promenade 28",
+        "telefon": "02373-903-8407",
+        "email": "m.wirtz@vhs-mhb.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 47441,
+        "ort": "Moers",
+        "einrichtung": "VHS Moers",
+        "straße": "Kastell 5",
+        "telefon": "02841/201559",
+        "email": "ulrich.steuten@moers.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 48143,
+        "ort": "Münster",
+        "einrichtung": "VHS Münster",
+        "straße": "Aegidiimarkt 3",
+        "telefon": "0251/4924362",
+        "email": "vhs@stadt-muenster.de"
+      },
+      {
+        "regierungsbezirk": "Aachen",
+        "plz": 52477,
+        "ort": "Alsdorf",
+        "einrichtung": "VHS Nordkreis Aachen",
+        "straße": "Übacher Weg 36",
+        "telefon": "02406/666413",
+        "email": "waltraud.pennartz@vhs-nordkreis-aachen.de"
+      },
+      {
+        "regierungsbezirk": "Oberbergischer Kreis",
+        "plz": 51645,
+        "ort": "Gummersbach",
+        "einrichtung": "VHS Oberbergischer Kreis",
+        "straße": "Mühlenbergweg 3",
+        "telefon": "02261-819015",
+        "email": "renee.scheer@vhs.obk.de"
+      },
+      {
+        "regierungsbezirk": "Paderborn",
+        "plz": 33098,
+        "ort": "Paderborn",
+        "einrichtung": "VHS Paderborn",
+        "straße": "Kamp 43",
+        "telefon": "05251-881262",
+        "email": "regina.brinkmann@paderborn.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40878,
+        "ort": "Ratingen",
+        "einrichtung": "VHS Ratingen",
+        "straße": "Lintorfer Str. 3",
+        "telefon": "02102-550-4301",
+        "email": "vhs@ratingen.de"
+      },
+      {
+        "regierungsbezirk": "Gütersloh",
+        "plz": 33790,
+        "ort": "Halle (Westf.)",
+        "einrichtung": "VHS Ravensberg",
+        "straße": "Kiskerstr. 2",
+        "telefon": "05201/8109-0",
+        "email": "post@vhs-ravensberg.de"
+      },
+      {
+        "regierungsbezirk": "Gütersloh",
+        "plz": 33378,
+        "ort": "Rheda-Wiedenbrück",
+        "einrichtung": "VHS Reckenberg-Ems",
+        "straße": "Kirchplatz 2",
+        "telefon": "05242-9030-102",
+        "email": "petra.bobbenkamp@vhs-re.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45657,
+        "ort": "Recklinghausen",
+        "einrichtung": "VHS Recklinghausen",
+        "straße": "Herzogswall 17",
+        "telefon": "02361/501996",
+        "email": "ulrich.gogolin@recklinghausen.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 48431,
+        "ort": "Rheine",
+        "einrichtung": "VHS Rheine",
+        "straße": "Mühlenstr. 31",
+        "telefon": "05971-939-128",
+        "email": "britta.hermes@rheine.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Erft-Kreis",
+        "plz": 50321,
+        "ort": "Brühl",
+        "einrichtung": "VHS Rhein-Erft",
+        "straße": "An der Synagoge 2",
+        "telefon": "02232-945070",
+        "email": "vhs@vhs-rhein-erft.de"
+      },
+      {
+        "regierungsbezirk": "Düren",
+        "plz": 52349,
+        "ort": "Düren",
+        "einrichtung": "VHS Rur-Eifel",
+        "straße": "Violengasse 2",
+        "telefon": "02421-252579",
+        "email": "g.resch@dueren.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53639,
+        "ort": "Königswinter",
+        "einrichtung": "VHS Siebengebirge",
+        "straße": "Dollendorfer Str. 39",
+        "telefon": "02244-889254",
+        "email": "hedwig.roos-schumacher@koenigswinter.de"
+      },
+      {
+        "regierungsbezirk": "Soest",
+        "plz": 59494,
+        "ort": "Soest",
+        "einrichtung": "VHS Soest",
+        "straße": "Nöttenstr. 29",
+        "telefon": "02921-103113",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Aachen",
+        "plz": 52222,
+        "ort": "Stolberg (Rhld.)",
+        "einrichtung": "VHS Stolberg",
+        "straße": "Frankentalstr. 3",
+        "telefon": "02402-8624-57",
+        "email": "vhs@stolberg.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58566,
+        "ort": "Kierspe",
+        "einrichtung": "VHS Volmetal",
+        "straße": "Friedrich-Ebert-Str. 380",
+        "telefon": "02359-4644",
+        "email": "vhs@vhs-volmetal.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45731,
+        "ort": "Waltrop",
+        "einrichtung": "VHS Waltrop",
+        "straße": "Ziegeleistr. 14",
+        "telefon": "02309-9626-0",
+        "email": "vhs@vhs-waltrop.de"
+      },
+      {
+        "regierungsbezirk": "Warendorf",
+        "plz": 48231,
+        "ort": "Warendorf",
+        "einrichtung": "VHS Warendorf",
+        "straße": "Freckenhorster Str. 43",
+        "telefon": "02581-93840",
+        "email": "post@vhs-warendorf.de"
+      },
+      {
+        "regierungsbezirk": "Soest",
+        "plz": 59457,
+        "ort": "Werl",
+        "einrichtung": "VHS Werl-Wickede(Ruhr)-Ense",
+        "straße": "Kirchplatz 5",
+        "telefon": "02922-972411",
+        "email": "info@vhs-werl.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 46483,
+        "ort": "Wesel",
+        "einrichtung": "VHS Wesel-Hamminkeln-Schermbeck",
+        "straße": "Ritterstr. 10/14",
+        "telefon": "0281-203-2366",
+        "email": "vhs@wesel.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42103,
+        "ort": "Wuppertal",
+        "einrichtung": "VHS Wuppertal",
+        "straße": "Auer Schulstr.20",
+        "telefon": "020-563-2251\n0202-563-2854",
+        "email": "barbara.simoleit@bergische-vhs.de\nbeate.zwingmann@bergische-vhs.de"
+      },
+      {
+        "regierungsbezirk": "Lippe",
+        "plz": 32816,
+        "ort": "Schieder-Schwalenberg",
+        "einrichtung": "VHS ZV Lippe-Ost",
+        "straße": "Schloß Schieder",
+        "telefon": "05235-97956",
+        "email": "lemm@vhslippe-ost.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 59423,
+        "ort": "Unna",
+        "einrichtung": "VHS ZV Unna-Fröndenberg-Holzwickende",
+        "straße": "Lindenplatz 1",
+        "telefon": "02303-103734",
+        "email": "zib-vhs@stadt-unna.de"
+      },
+      {
+        "regierungsbezirk": "Ennepe-Ruhr-Kreis",
+        "plz": 58452,
+        "ort": "Witten",
+        "einrichtung": "Lernimpulse Witten e.V.",
+        "straße": "Berliner Str. 7",
+        "telefon": "02302-27863",
+        "email": "info@lernimpulse.de"
+      },
+      {
+        "regierungsbezirk": "Ennepe-Ruhr-Kreis",
+        "plz": "58452/ 58453",
+        "ort": "Witten",
+        "einrichtung": "VHS ZV Witten-Wetter-Herdecke",
+        "straße": "Ruhrstr. 86/ neu Holzkampstr. 7",
+        "telefon": "02302-9105015/ 023025818610",
+        "email": "info@vhs-wwh.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Erft-Kreis",
+        "plz": 50126,
+        "ort": "Bergheim",
+        "einrichtung": "VHS Zweckverb. Bergheim",
+        "straße": "Bethlehemer Str. 25",
+        "telefon": "02271-4760-0",
+        "email": "info@vhs-bergheim.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 46535,
+        "ort": "Dinslaken",
+        "einrichtung": "VHS Zweckverband Dinslaken - Voerde - Hünxe",
+        "straße": "Friedrich-Ebert-Str. 84",
+        "telefon": "02064-41350",
+        "email": "integration@vhs-dinslaken.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 42549,
+        "ort": "Velbert",
+        "einrichtung": "VHS Zweckverband Velbert/Heiligenhaus",
+        "straße": "Nedderstr. 50",
+        "telefon": "02051/949618",
+        "email": "Flasspoehler@vhs-vh.de"
+      },
+      {
+        "regierungsbezirk": "Coesfeld",
+        "plz": 59348,
+        "ort": "Lüdinghausen",
+        "einrichtung": "VHSKreis Lüdinghausen",
+        "straße": "Amthaus 12",
+        "telefon": "02591-926345",
+        "email": "vhs-zellin@stadt-luedinghausen.de"
+      },
+      {
+        "regierungsbezirk": "Wesel",
+        "plz": 47495,
+        "ort": "Rheinberg",
+        "einrichtung": "VHS-ZV Alpen-Rheinberg - Sonsbeck-Xanten",
+        "straße": "Lützenhofstr. 9",
+        "telefon": "02843-90740-17",
+        "email": "Elisabeth.Keggenhoff-Ehrlich@vhs-rheinberg.de"
+      },
+      {
+        "regierungsbezirk": "Neuss",
+        "plz": 41564,
+        "ort": "Kaarst",
+        "einrichtung": "VHS-ZV Kaarst-Korschenbroich",
+        "straße": "Am Schulzentrum 18",
+        "telefon": "02131 - 963 941",
+        "email": "a.laacks@vhs-kk.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53721,
+        "ort": "Siegburg",
+        "einrichtung": "VHS-ZV Rhein-Sieg",
+        "straße": "Ringstr. 24",
+        "telefon": "02241-309746",
+        "email": "alexandra.haas@vhs-rhein-sieg.de"
+      },
+      {
+        "regierungsbezirk": "Hochsauerlandkreis",
+        "plz": 59929,
+        "ort": "Brilon",
+        "einrichtung": "VHS-Zweckverband Brilon-Marsberg-Olsberg",
+        "straße": "Kreuziger Mauer 31",
+        "telefon": "02961/6416",
+        "email": "brilon@vhs-bmo.de"
+      },
+      {
+        "regierungsbezirk": "Höxter",
+        "plz": 34414,
+        "ort": "Warburg",
+        "einrichtung": "VHS-Zweckverband Diemel-Egge-Weser",
+        "straße": "Rathaus zwischen den Städten",
+        "telefon": "05273 / 392-125",
+        "email": "andreas.knoblauch-flach@beverungen.de"
+      },
+      {
+        "regierungsbezirk": "Kleve",
+        "plz": 47574,
+        "ort": "Goch",
+        "einrichtung": "VHS-Zweckverband Goch",
+        "straße": "Roggenstraße 39",
+        "telefon": "02823-973 118",
+        "email": "monique.kling@vhs-goch.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 59174,
+        "ort": "Kamen",
+        "einrichtung": "VHS-Zweckverband Kamen-Bönen",
+        "straße": "Am Geist 1",
+        "telefon": "02307-92420-52",
+        "email": "vhs@stadt-kamen.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53359,
+        "ort": "Rheinbach",
+        "einrichtung": "VHS-Zweckverband Meckenheim-Rheinbach-Swisttal-Wachtberg",
+        "straße": "Schweigelstr. 21",
+        "telefon": "02226/921920",
+        "email": "info@vhs-rheinbach.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Sieg-Kreis",
+        "plz": 53359,
+        "ort": "Rheinbach",
+        "einrichtung": "VHS-Zweckverband Voreifel",
+        "straße": "Koblenzer Str. 6",
+        "telefon": "0226-9219-25",
+        "email": "integration@vhs-voreifel.de"
+      },
+      {
+        "regierungsbezirk": "Rheinisch-Bergischer Kreis",
+        "plz": 51465,
+        "ort": "Bergisch Gladbach",
+        "einrichtung": "Volkshochschule Bergisch Gladbach",
+        "straße": "Buchmühlenstr. 12",
+        "telefon": "02202-14-2279",
+        "email": "k.zalwert@stadt-gl.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 33602,
+        "ort": "Bielefeld",
+        "einrichtung": "IB West gGmbH für Bildung und soziale Dienste",
+        "straße": "Herforder Straße 14",
+        "telefon": "0521-260725-19",
+        "email": "sprachinstitut-bielefeld@ib.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 33607,
+        "ort": "Bielefeld",
+        "einrichtung": "Volkshochschule Bielefeld",
+        "straße": "Ravensberger Park 1",
+        "telefon": "0521/516629",
+        "email": "annette.waedlich@bielefeld.de"
+      },
+      {
+        "regierungsbezirk": "Borken",
+        "plz": 46325,
+        "ort": "Borken",
+        "einrichtung": "Volkshochschule Borken",
+        "straße": "Im Piepershagen 17a",
+        "telefon": "02861/030238",
+        "email": "vhs@borken.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 59065,
+        "ort": "Hamm",
+        "einrichtung": "Volkshochschule der Stadt Hamm",
+        "straße": "Platz der Deutschen Einheit 1",
+        "telefon": "02381-175648",
+        "email": "Horst.Streibhardt@stadt.hamm.de"
+      },
+      {
+        "regierungsbezirk": "Ennepe-Ruhr-Kreis",
+        "plz": 45525,
+        "ort": "Hattingen",
+        "einrichtung": "Volkshochschule der Stadt Hattingen",
+        "straße": "Bredenscheider Str. 19",
+        "telefon": "02324/204-2344",
+        "email": "B.Hloch@hattingen.de"
+      },
+      {
+        "regierungsbezirk": "Unna",
+        "plz": 44534,
+        "ort": "Lünen",
+        "einrichtung": "Volkshochschule der Stadt Lünen",
+        "straße": "Cappenberger Str. 34",
+        "telefon": "02306/104-2722",
+        "email": "vhs@luenen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 46045,
+        "ort": "Oberhausen",
+        "einrichtung": "Volkshochschule der Stadt Oberhausen",
+        "straße": "Langemarkstr. 19/21",
+        "telefon": "0208/825-2895",
+        "email": "traudel.kleinpass@oberhausen.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45739,
+        "ort": "Oer-Erkenschwick",
+        "einrichtung": "Volkshochschule der Stadt Oer-Erkenschwick",
+        "straße": "Stimbergstr. 169",
+        "telefon": "02368/987111",
+        "email": "vhs@vhs-oe.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40822,
+        "ort": "Mettmann",
+        "einrichtung": "Volkshochschule der Städte Mettmann und Wülfrath",
+        "straße": "Schwarzbachstr. 28",
+        "telefon": "02104/139240",
+        "email": "wauschkuhn@vhs-mettmann.de"
+      },
+      {
+        "regierungsbezirk": "Olpe",
+        "plz": 57462,
+        "ort": "Olpe /Biggesee",
+        "einrichtung": "Volkshochschule des Kreises Olpe",
+        "straße": "Kurfürst-Heinrich-Str. 34",
+        "telefon": "02761/923630",
+        "email": "info@vhs-kreis-olpe.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Erft-Kreis",
+        "plz": 50374,
+        "ort": "Erftstadt",
+        "einrichtung": "Volkshochschule Erftstadt",
+        "straße": "Carl-Schurz-Str. 23",
+        "telefon": "02235-409272",
+        "email": "info@vhs-erftstadt.de"
+      },
+      {
+        "regierungsbezirk": "Rhein-Erft-Kreis",
+        "plz": 50226,
+        "ort": "Frechen",
+        "einrichtung": "Volkshochschule Frechen",
+        "straße": "Hauptstr. 110/112",
+        "telefon": "02234/501252",
+        "email": "buero@vhs-frechen.de"
+      },
+      {
+        "regierungsbezirk": "Recklinghausen",
+        "plz": 45699,
+        "ort": "Herten",
+        "einrichtung": "Volkshochschule Herten",
+        "straße": "Resser Weg 1",
+        "telefon": "02366/303515",
+        "email": "vhs@herten.de"
+      },
+      {
+        "regierungsbezirk": "Höxter",
+        "plz": 37671,
+        "ort": "Höxter",
+        "einrichtung": "Volkshochschule Höxter-Marienmünster",
+        "straße": "Möllingerstr. 9",
+        "telefon": "05271/963182",
+        "email": "schwiete@vhs-hoexter.de"
+      },
+      {
+        "regierungsbezirk": "Minden-Lübbecke",
+        "plz": 32339,
+        "ort": "Espelkamp",
+        "einrichtung": "Volkshochschule Lübbecker Land",
+        "straße": "Wilhelm-Kern-Platz 4",
+        "telefon": "05772-97710",
+        "email": "steinhauer@vhs-altkreis-luebbecke.de"
+      },
+      {
+        "regierungsbezirk": "Märkischer Kreis",
+        "plz": 58511,
+        "ort": "Lüdenscheid",
+        "einrichtung": "Volkshochschule Lüdenscheid",
+        "straße": "Alte Rathausstr. 1",
+        "telefon": "02351/171471",
+        "email": "volkshochschule@luedenscheid.de"
+      },
+      {
+        "regierungsbezirk": "Neuss",
+        "plz": 40670,
+        "ort": "Meerbusch",
+        "einrichtung": "Volkshochschule Meerbusch",
+        "straße": "Hochstr. 14",
+        "telefon": "02159/916-504",
+        "email": "volkshochschule@meerbusch.de"
+      },
+      {
+        "regierungsbezirk": "Minden-Lübbecke",
+        "plz": 32423,
+        "ort": "Minden",
+        "einrichtung": "Volkshochschule Minden",
+        "straße": "Königswall 99",
+        "telefon": "0571/83766-14",
+        "email": "riemanns@vhs-minden.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 41061,
+        "ort": "Mönchengladbach",
+        "einrichtung": "Volkshochschule Mönchengladbach",
+        "straße": "Lüpertzender Str. 85",
+        "telefon": "02161/25-6410",
+        "email": "cleopatra.altanis@moenchengladbach.de"
+      },
+      {
+        "regierungsbezirk": "Neuss",
+        "plz": 41460,
+        "ort": "Neuss",
+        "einrichtung": "Volkshochschule Neuss",
+        "straße": "Hafenstr. 29",
+        "telefon": "02131/904103",
+        "email": "info@vhs-neuss.de"
+      },
+      {
+        "regierungsbezirk": "Warendorf",
+        "plz": 59302,
+        "ort": "Oelde",
+        "einrichtung": "Volkshochschule Oelde-Ennigerloh",
+        "straße": "Herrenstr. 7",
+        "telefon": "02522/72724",
+        "email": "vhs@oelde.de"
+      },
+      {
+        "regierungsbezirk": "Rheinisch-Bergischer Kreis",
+        "plz": 51491,
+        "ort": "Overath",
+        "einrichtung": "Volkshochschule Overath-Rösrath",
+        "straße": "Schulstr. 15",
+        "telefon": "02204- 972317",
+        "email": "sr@vhsor.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42849,
+        "ort": "Remscheid",
+        "einrichtung": "Volkshochschule Remscheid",
+        "straße": "Scharffstraße 4 - 6",
+        "telefon": "02191-16-2786",
+        "email": "volkshochschule@remscheid.de"
+      },
+      {
+        "regierungsbezirk": "Siegen-Wittgenstein",
+        "plz": 57072,
+        "ort": "Siegen",
+        "einrichtung": "Volkshochschule Siegen",
+        "straße": "Markt 25",
+        "telefon": "0271/404-3046",
+        "email": "u_berens@siegen.de"
+      },
+      {
+        "regierungsbezirk": "Steinfurt",
+        "plz": 48607,
+        "ort": "Ochtrup",
+        "einrichtung": "Volkshochschule ZV Ochtrup",
+        "straße": "Winkelstr. 1",
+        "telefon": "02553/939815",
+        "email": "info@vhs-ochtrup.de"
+      },
+      {
+        "regierungsbezirk": "Mettmann",
+        "plz": 40721,
+        "ort": "Hilden",
+        "einrichtung": "Volkshochschul-Zweckverband Hilden-Haan",
+        "straße": "Gerresheimer Str. 20",
+        "telefon": "02103/500537",
+        "email": "fragemann@vhs-hilden-haan.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 48143,
+        "ort": "Münster",
+        "einrichtung": "Werkstatt für Bildung und Kultur",
+        "straße": "Servatiiplatz 9",
+        "telefon": "0251-981141-10",
+        "email": "info@deutschwerkstatt.de"
+      },
+      {
+        "regierungsbezirk": "Rheinisch-Bergischer Kreis",
+        "plz": 51469,
+        "ort": "Bergisch Gladbach",
+        "einrichtung": "Wirtschaftsakademie Küster gmbH",
+        "straße": "De-Gaspari-Str. 5",
+        "telefon": "02202-9576252",
+        "email": "pduppach@wa-kuester.com"
+      },
+      {
+        "regierungsbezirk": "Hochsauerlandkreis",
+        "plz": 59755,
+        "ort": "Arnsberg",
+        "einrichtung": "ZV VHS Arnsberg/Sundern",
+        "straße": "Werler Str. 2a - Möhnepark",
+        "telefon": "02932-972814",
+        "email": "vhs@arnsberg.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 40233,
+        "ort": "Düsseldorf",
+        "einrichtung": "Bénédict GmbH & Co. KG",
+        "straße": "Ackerstraße 3",
+        "telefon": "0211 355940-142",
+        "email": "malgorzata.pramor@benedict-schulen.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "rp",
+    "data": [
+      {
+        "regierungsbezirk": "56068",
+        "plz": "Koblenz",
+        "ort": "Bénédict-Akademie Koblenz",
+        "einrichtung": "Löhrstr. 127",
+        "straße": "026137654",
+        "telefon": "cburkhardt@benedict-akademie-koblenz.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55116",
+        "plz": "Mainz",
+        "ort": "Dr. Ridder, Private Berufsfachschule für Sprache, EDV und Fremdsprachenkorrespondenten",
+        "einrichtung": "Neubrunnenstr. 8",
+        "straße": "06131 25210",
+        "telefon": "sekretariat@dr-ridder.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54290",
+        "plz": "Trier",
+        "ort": "Euro Schulen für Rheinland-Pfalz GmbH (Euroschulen Trier)",
+        "einrichtung": "Nagelstraße 10",
+        "straße": "0651-97561-13",
+        "telefon": "Trier@eso.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55118",
+        "plz": "Mainz",
+        "ort": "Akademisches Bildungs-Center e.V.",
+        "einrichtung": "Rabanusstraße 5",
+        "straße": "06131-720276",
+        "telefon": "m.cagrici@abc-mainz.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55122",
+        "plz": "Mainz",
+        "ort": "Euro-Schulen Mainz",
+        "einrichtung": "Wallstr. 11",
+        "straße": "06131-58844-0",
+        "telefon": "info@es.mainz.eso.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67547",
+        "plz": "Worms",
+        "ort": "IBLA Germany GmbH",
+        "einrichtung": "Prinz-Carl-Anlage 3",
+        "straße": "06241/304149",
+        "telefon": "ibla-germany@web.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "57627",
+        "plz": "Hachenburg",
+        "ort": "Institut für Bildung und Beruf",
+        "einrichtung": "Adolf-Kolping-Str. 3",
+        "straße": "02662-9428146",
+        "telefon": "ibbhachenburg@t-online.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76726",
+        "plz": "Germersheim",
+        "ort": "Internationaler Bund (IB)",
+        "einrichtung": "Glacisstr. 9",
+        "straße": "07274702535",
+        "telefon": "bz-germersheim@internationaler-bund.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56068",
+        "plz": "Koblenz",
+        "ort": "ISL Sprachschule Koblenz Annette Friedl & David O'Callaghan",
+        "einrichtung": "Rizzastr. 35",
+        "straße": "0261-98823440",
+        "telefon": "koblenz@isl-sprachschule.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56070",
+        "plz": "Koblenz",
+        "ort": "Kölner Wirtschaftsfachschule GmbH",
+        "einrichtung": "Kurfürst-Schönborn-Str. 55",
+        "straße": "",
+        "telefon": "singerhoff@wifa.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "53474",
+        "plz": "Bad Neuenahr-Ahrweiler",
+        "ort": "Kreisvolkshochschule Ahrweiler",
+        "einrichtung": "Wilhelmstraße 23",
+        "straße": "02641-912339-0",
+        "telefon": "info@kvhs-ahrweiler.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "57610",
+        "plz": "Altenkirchen",
+        "ort": "Kreisvolkshochschule Altenkirchen",
+        "einrichtung": "Rathausstr. 12",
+        "straße": "02681- 812211 ",
+        "telefon": "kvhs@kreis-ak.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55232",
+        "plz": "Alzey",
+        "ort": "Kreisvolkshochschule Alzey-Worms",
+        "einrichtung": "Theodor-Heuss-Ring 2",
+        "straße": "06731-408 6740",
+        "telefon": "kvhs@alzey-worms.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67098",
+        "plz": "Bad Dürkheim",
+        "ort": "Kreisvolkshochschule Bad Dürkheim",
+        "einrichtung": "Philipp-Fauth-Str. 11",
+        "straße": "06322/961-2402",
+        "telefon": "kvhs@kreis-bad-duerkheim.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55765",
+        "plz": "Birkenfeld",
+        "ort": "Kreisvolkshochschule Birkenfeld",
+        "einrichtung": "Schneewiesenstr. 25",
+        "straße": "0678-15105",
+        "telefon": "vhs@landkreis-birkenfeld.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54634",
+        "plz": "Bitburg",
+        "ort": "Kreisvolkshochschule Bitburg-Prüm",
+        "einrichtung": "Trierer Str. 1",
+        "straße": "(0 65 61) 15 13 80",
+        "telefon": "kvhs@bitburg-pruem.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56812",
+        "plz": "Cochem",
+        "ort": "Kreisvolkshochschule Cochem-Zell",
+        "einrichtung": "Ravenestr. 17",
+        "straße": "02671-61465",
+        "telefon": "kvhs@cochem-zell.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67292",
+        "plz": "Kirchheimbolanden",
+        "ort": "Kreisvolkshochschule Donnersbergkreis",
+        "einrichtung": "Uhlandstr. 2",
+        "straße": "06352-710-108",
+        "telefon": "kvhs@donnersberg.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76726",
+        "plz": "Germersheim",
+        "ort": "Kreisvolkshochschule Germersheim",
+        "einrichtung": "Ritter von Schmauß-Str./Ecke Paradeplatz",
+        "straße": "07274 - 53 334",
+        "telefon": "vhs@kreis-germersheim.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67657",
+        "plz": "Kaiserslautern",
+        "ort": "Kreisvolkshochschule Kaiserslautern",
+        "einrichtung": "Lauterstr. 8",
+        "straße": "0631-7105-395",
+        "telefon": "carola.wuertz@kaiserslautern-kreis.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "66869",
+        "plz": "Kusel",
+        "ort": "Kreisvolkshochschule Kusel",
+        "einrichtung": "Lehnstr. 16",
+        "straße": "06381-917530-10",
+        "telefon": "kvhs@kv-kus.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55218",
+        "plz": "Ingelheim am Rhein",
+        "ort": "Kreisvolkshochschule Mainz-Bingen e.V.",
+        "einrichtung": "Georg-Rückert-Str. 11",
+        "straße": "06132-/7877100/-7102",
+        "telefon": "info@kvhs-mainz-bingen.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56564",
+        "plz": "Neuwied",
+        "ort": "Kreisvolkshochschule Neuwied",
+        "einrichtung": "Beverwijker Ring 5",
+        "straße": "02631- 347813",
+        "telefon": "info@kvhs-neuwied.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76829",
+        "plz": "Landau",
+        "ort": "Kreisvolkshochschule Südliche Weinstr.",
+        "einrichtung": "An der Kreuzmühle 2",
+        "straße": "06341-940188",
+        "telefon": "vhs@suedliche-weinstrasse.de ",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "66953",
+        "plz": "Pirmasens",
+        "ort": "Kreisvolkshochschule Südwestpfalz e.V.",
+        "einrichtung": "Unterer Sommerwaldweg 40/42",
+        "straße": "06331-809336",
+        "telefon": "info@kvhs-swp.de, f.rossard@lksuedwestpflaz.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56410",
+        "plz": "Montabaur",
+        "ort": "Kreisvolkshochschule Westerwald e.V.",
+        "einrichtung": "Peter-Altmeier-Platz 1",
+        "straße": "02602-124420",
+        "telefon": "info@vhs-ww.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55593",
+        "plz": "Rüdesheim (Nahe)",
+        "ort": "KUNZ Institut für Betriebswirtschaftliche Aus- und Weiterbildung",
+        "einrichtung": "Am Schlittweg 8",
+        "straße": "0671-40733",
+        "telefon": "info@kunz-institut.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76829",
+        "plz": "Landau in der Pfalz",
+        "ort": "ProfeS Gesellschaft für Bildung & Kommunikation mbH",
+        "einrichtung": "Max-von-Laue-Str. 3",
+        "straße": "06341-1414433",
+        "telefon": "info@profes-gmbh.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55545",
+        "plz": "Bad Kreuznach",
+        "ort": "Sprachenschule Gamp und Anheuser",
+        "einrichtung": "Rüdesheimer Str. 34",
+        "straße": "067143199",
+        "telefon": "kanheuser@web.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56068",
+        "plz": "Koblenz",
+        "ort": "TSI Training Sprache Integration",
+        "einrichtung": "Schloßstr. 48",
+        "straße": "0261-12714",
+        "telefon": "info@tsi-koblenz.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56626",
+        "plz": "Andernach",
+        "ort": "Volkshochschule Andernach",
+        "einrichtung": "Am Stadtgraben 29",
+        "straße": "02632-922276",
+        "telefon": "vhs@andernach.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76887",
+        "plz": "Bad Bergzabern",
+        "ort": "Volkshochschule Bad Bergzabern",
+        "einrichtung": "Königstr. 61",
+        "straße": "06343-9253038",
+        "telefon": "integration@vhs-bergzabern.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "901402",
+        "plz": "Bad Kreuznach",
+        "ort": "Sprachenschule Gamp und Léus",
+        "einrichtung": "Hochstraße 11",
+        "straße": "0178 5343532",
+        "telefon": "SprachenschuleGampundLeus@web.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55543",
+        "plz": "Bad Kreuznach",
+        "ort": "Volkshochschule Bad Kreuznach",
+        "einrichtung": "Kornmarkt 5",
+        "straße": "0671/800766",
+        "telefon": "vhs@bad-kreuznach.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55411",
+        "plz": "Bingen am Rhein",
+        "ort": "Volkshochschule Bingen e.V",
+        "einrichtung": "Gaustr. 20",
+        "straße": "06721-991103",
+        "telefon": "service@vhs-bingen.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54634",
+        "plz": "Bitburg",
+        "ort": "Volkshochschule Bitburg",
+        "einrichtung": "Rathausplatz 3/4",
+        "straße": "06561-6001-241",
+        "telefon": "vhs@bitburg.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56154",
+        "plz": "Boppard",
+        "ort": "Volkshochschule Boppard",
+        "einrichtung": "Oberstraße 141",
+        "straße": "06742-898866",
+        "telefon": "info@vhs-boppard.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54550",
+        "plz": "Daun",
+        "ort": "Volkshochschule Daun",
+        "einrichtung": "Leopoldstr. 29",
+        "straße": "(0 65 92) 93 92 15",
+        "telefon": "volkshochschule@stadt-daun.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67547",
+        "plz": "Worms",
+        "ort": "Volkshochschule der Stadt Worms",
+        "einrichtung": "Willy-Brandt-Ring 11",
+        "straße": "06241/8534256",
+        "telefon": "vhs@worms.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67227",
+        "plz": "Frankenthal (Pfalz)",
+        "ort": "Volkshochschule Frankenthal e. V.",
+        "einrichtung": "Stephan-Cosacchi-Platz 1",
+        "straße": "06233-349203",
+        "telefon": "info@vhs-ft.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54568",
+        "plz": "Gerolstein",
+        "ort": "Volkshochschule Gerolstein",
+        "einrichtung": "Rathaus, Kyllweg 1,",
+        "straße": "0659-131166",
+        "telefon": "heike.bowi@gerolstein.de, vhs@gerolstein.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55481",
+        "plz": "Kirchberg (Hunsrück)",
+        "ort": "Volkshochschule Hunsrück",
+        "einrichtung": "Auf der Mauer 8",
+        "straße": "06763-910-155",
+        "telefon": "vhs@kirchberg-hunsrueck.de, info@kirchberg-hunsrueck.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67655",
+        "plz": "Kaiserslautern",
+        "ort": "Volkshochschule Kaiserslautern e.V.",
+        "einrichtung": "Kanalstr. 3",
+        "straße": "0631-3625823",
+        "telefon": "info@vhs-kaiserslautern.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76870",
+        "plz": "Kandel",
+        "ort": "Volkshochschule Kandel e.V.",
+        "einrichtung": "Hauptstr. 61",
+        "straße": "(0 72 75) 9 52 73",
+        "telefon": "vhs.kandel@web.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "76829",
+        "plz": "Landau in der Pfalz",
+        "ort": "Volkshochschule Landau",
+        "einrichtung": "Maximilianstr. 7",
+        "straße": "06341-134992",
+        "telefon": "sigrid.gensheimer@landau.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67059",
+        "plz": "Ludwigshafen am Rhein",
+        "ort": "Volkshochschule Ludwigshafen",
+        "einrichtung": "Bürgerhof ",
+        "straße": "0621-504-2587",
+        "telefon": "Siegbert.Aichele@ludwigshafen.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "55116",
+        "plz": "Mainz",
+        "ort": "Volkshochschule Mainz",
+        "einrichtung": "Karmeliterplatz 1",
+        "straße": "06131/2625-150",
+        "telefon": "vhs@vhs-mainz.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56410",
+        "plz": "Montabaur",
+        "ort": "Volkshochschule Montabaur",
+        "einrichtung": "Konrad-Adenauer-Platz 9",
+        "straße": "02602-126105",
+        "telefon": "uprobst@montabaur.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67433",
+        "plz": "Neustadt an der Weinstr.",
+        "ort": "Volkshochschule Neustadt an der Weinstr.",
+        "einrichtung": "Lindenstraße 15",
+        "straße": "06321-855-1877",
+        "telefon": "nicolette.schuster@neustadt.eu",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56564",
+        "plz": "Neuwied",
+        "ort": "Volkshochschule Neuwied \"Die Brücke\"",
+        "einrichtung": "Heddesdorfer Str. 33",
+        "straße": "02631-8025510",
+        "telefon": "anmeldung@vhs-neuwied.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "66955",
+        "plz": "Pirmasens",
+        "ort": "Volkshochschule Pirmasens",
+        "einrichtung": "Hans-Sachs-Str. 2",
+        "straße": "06331-213687",
+        "telefon": "volkshochschule@pirmasens.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54595",
+        "plz": "Prüm",
+        "ort": "Volkshochschule Prüm",
+        "einrichtung": "Rathaus, Tiergartenstr. 54",
+        "straße": " 0 65 51- 943119",
+        "telefon": "vhs@vg-pruem.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67063",
+        "plz": "Ludwigshafen am Rhein",
+        "ort": "Volkshochschule Rhein-Pfalz-Kreis",
+        "einrichtung": "Europaplatz 5",
+        "straße": "0621-5909-246",
+        "telefon": "kvhs-geschaeftsstelle@vhs-rpk.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "67346",
+        "plz": "Speyer",
+        "ort": "Volkshochschule Speyer",
+        "einrichtung": "Bahnhofstr. 54",
+        "straße": "06232-106-203",
+        "telefon": "vhs@stadt-speyer.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "56841",
+        "plz": "Traben-Trarbach",
+        "ort": "Volkshochschule Traben-Trarbach",
+        "einrichtung": "Am Markt 3",
+        "straße": "06541-708-28",
+        "telefon": "team@vhs-traben-trarbach.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54290",
+        "plz": "Trier",
+        "ort": "Volkshochschule Trier",
+        "einrichtung": "Domfreihof 1b",
+        "straße": "0651-718-1437",
+        "telefon": " manuela.zeilinger@trier.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54516",
+        "plz": "Wittlich",
+        "ort": "Volkshochschule Wittlich Stadt und Land e.V.",
+        "einrichtung": "Kurfürstenstr. 1",
+        "straße": "06571-10739",
+        "telefon": "wfeltes@vg-wittlich-land.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "66482",
+        "plz": "Zweibrücken",
+        "ort": "Volkshochschule Zweibrücken",
+        "einrichtung": "Johann-Schwebel-Str. 1",
+        "straße": "06332-209747",
+        "telefon": "info@vhs-zweibruecken.de",
+        "email": ""
+      }
+    ]
+  },
+  {
+    "stateCode": "sh",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": 24103,
+        "ort": "Kiel",
+        "einrichtung": "Landesverband der Volkshochschulen Schleswig-Holsteins e.V.",
+        "straße": "Holstenbrücke 7",
+        "telefon": "0431-97984-13",
+        "email": "pz@vhs-sh.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "sl",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": 66663,
+        "ort": "Merzig",
+        "einrichtung": "VHS Merzig-Wadern e. V.",
+        "straße": "Gutenbergstr. 14",
+        "telefon": "06861-82910-0",
+        "email": "info@vhs-merzig-wadern.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66538,
+        "ort": "Neunkirchen",
+        "einrichtung": "VHS Neunkirchen",
+        "straße": "Marienstr. 2",
+        "telefon": "06821-2900611",
+        "email": "bierbrauer@nk-kultur.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66557,
+        "ort": "Illingen",
+        "einrichtung": "VHS Illingen/Saar e. V.",
+        "straße": "Kirchenstr. 12",
+        "telefon": "06825-4060290",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66740,
+        "ort": "Saarlouis",
+        "einrichtung": "VHS der Stadt Saarlouis",
+        "straße": "Lothringer Str. 13",
+        "telefon": "06831-40220",
+        "email": "jakobs@vhs-saarlouis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66763,
+        "ort": "Dillingen",
+        "einrichtung": "VHS Dillingen e. V.",
+        "straße": "De-Lenoncourt-Str. 5",
+        "telefon": "06831-7506",
+        "email": "info@vhs-dillingen.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66386,
+        "ort": "St. Ingbert",
+        "einrichtung": "VHS St. Ingbert",
+        "straße": "Kulturhaus, Annastr. 30",
+        "telefon": "06894-38795-12",
+        "email": "vhsigb@t-online.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66424,
+        "ort": "Homburg",
+        "einrichtung": "VHS der Stadt Homburg e.V.",
+        "straße": "Am Forum 5",
+        "telefon": "06841-101106",
+        "email": "vhs@homburg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66440,
+        "ort": "Blieskastel",
+        "einrichtung": "KVHS Saarpfalz-Kreis",
+        "straße": "Am Schloß 11",
+        "telefon": "06842-924310",
+        "email": "kvhs@saarpfalz-kreis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66606,
+        "ort": "St. Wendel",
+        "einrichtung": "KVHS St. Wendel",
+        "straße": "Werschweilerstr. 14",
+        "telefon": "06851-801-4010",
+        "email": "kvhs@lkwnd.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66606,
+        "ort": "St. Wendel",
+        "einrichtung": "VHS St. Wendeler e.V.",
+        "straße": "Schloßstr. 7",
+        "telefon": "06851-809132",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66119,
+        "ort": "Saarbrücken",
+        "einrichtung": "VHS Regionalverband Saarbrücken",
+        "straße": "Am Schlossplatz  2",
+        "telefon": "0681-5064350",
+        "email": "vhs-integration@rvsbr.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66280,
+        "ort": "Sulzbach",
+        "einrichtung": "VHS der Stadt Sulzbach/Saar/Salzherrenhaus",
+        "straße": "Auf der Schmelz ",
+        "telefon": "06897-9248310",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 66333,
+        "ort": "Völklingen",
+        "einrichtung": "VHS Völklingen",
+        "straße": "Bismarckstr. 1",
+        "telefon": "06898-132590",
+        "email": "k.schaeffner@vhs-voelklingen.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "sn",
+    "data": [
+      {
+        "regierungsbezirk": "Anhalt-Bitterfeld",
+        "plz": 6803,
+        "ort": "Bitterfeld-Wolfen",
+        "einrichtung": "ESO Education Group",
+        "straße": "Wasserturmstraße 1",
+        "telefon": "03493 / 73600",
+        "email": "info@es.wolfen.eso.de "
+      },
+      {
+        "regierungsbezirk": "Erzgebirgskreis",
+        "plz": "09456",
+        "ort": "Annaberg-Buchholz",
+        "einrichtung": "VHS Annaberg",
+        "straße": "Bärensteiner Str. 2",
+        "telefon": "03733-426224",
+        "email": "info@vhs-annaberg.de"
+      },
+      {
+        "regierungsbezirk": "Erzgebirgskreis",
+        "plz": "08280",
+        "ort": "Aue",
+        "einrichtung": "VHS Erzgebirgskreis",
+        "straße": "Rudolf-Breitscheid-Str. 27",
+        "telefon": "03771-597210 oder 11",
+        "email": "susanne.schmidt@kreis-erz.de"
+      },
+      {
+        "regierungsbezirk": "Nordsachsen",
+        "plz": "04860",
+        "ort": "Torgau",
+        "einrichtung": "VHS Nordsachsen",
+        "straße": "Puschkinstraße 3",
+        "telefon": "03423-700440",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Vogtlandkreis",
+        "plz": "08527",
+        "ort": "Plauen",
+        "einrichtung": "Volkshochschule Plauen",
+        "straße": "Stresemannstr. 92",
+        "telefon": "03741-22 44 25",
+        "email": "boh@vhs-plauen.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09113",
+        "ort": "Chemnitz",
+        "einrichtung": "Sächsischer Volkshochschulverband e.V.",
+        "straße": "Bergstraße 61",
+        "telefon": "0371-35427-54",
+        "email": "info@vhs-sachsen.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09111",
+        "ort": "Chemnitz",
+        "einrichtung": "VHS Chemnitz",
+        "straße": "Moritzstr. 20",
+        "telefon": "0371/ 488-4338",
+        "email": "deutsch@vhs-chemnitz.de\" "
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09111",
+        "ort": "Chemnitz",
+        "einrichtung": "Euro-Schulen West-Sachsen GmbH",
+        "straße": "Am alten Bad 1",
+        "telefon": "0371-3356230",
+        "email": "chemnitz@eso.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09112",
+        "ort": "Chemnitz",
+        "einrichtung": "inlingua Sprachcenter Chemnitz",
+        "straße": "Barbarossastr. 2",
+        "telefon": "0371 / 517000",
+        "email": "chemnitz@inlingua.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": 9112,
+        "ort": "Chemnitz",
+        "einrichtung": "MIQR GmbH Chemnitz",
+        "straße": "Barbarossastr. 2",
+        "telefon": "0371-404665-20",
+        "email": "deutschkurse-chemnitz@miqr.de"
+      },
+      {
+        "regierungsbezirk": "Vogtlandkreis",
+        "plz": "08209",
+        "ort": "Auerbach /Vogtl.",
+        "einrichtung": "Volkshochschule desVogtlandkreises",
+        "straße": "Am Feldschlößchen 14",
+        "telefon": "037421-23770",
+        "email": "service@vhs-vogtlandkreis.de"
+      },
+      {
+        "regierungsbezirk": "Zwickau",
+        "plz": "08056",
+        "ort": "Zwickau",
+        "einrichtung": "Bénédict School Zwickau",
+        "straße": "Alte Reichenbacher Str. 2",
+        "telefon": "0375-27766-0",
+        "email": "benedict@fuu-sachsen.de"
+      },
+      {
+        "regierungsbezirk": "Zwickau",
+        "plz": "08056",
+        "ort": "Zwickau",
+        "einrichtung": "Euro-Schulen West-Sachsen GmbH Zwickau",
+        "straße": "Max-Pechstein-Sttraße 29",
+        "telefon": "0375-2713430",
+        "email": "info@es.zwickau.eso.de"
+      },
+      {
+        "regierungsbezirk": "Bautzen",
+        "plz": "02625",
+        "ort": "Bautzen",
+        "einrichtung": "Kreisvolkshochschule Bauzen",
+        "straße": "Postplatz 3",
+        "telefon": "03591 27229-13",
+        "email": "andrea.siebert@kvhsbautzen.de "
+      },
+      {
+        "regierungsbezirk": "Bautzen",
+        "plz": "02977",
+        "ort": "Hoyerswerda",
+        "einrichtung": "Zoo, Kultur und Bildung gGmbH - Volkshochschule Hoyerswerda",
+        "straße": "Lausitzer Platz 4",
+        "telefon": "03571-6079943",
+        "email": "U.Grun@vhs-hy.de"
+      },
+      {
+        "regierungsbezirk": "Görlitz",
+        "plz": "02826",
+        "ort": "Görlitz",
+        "einrichtung": "Euro-Schulen GmbH, Euro-Schulen Görlitz-Zittau",
+        "straße": "Straßburg-Passage ",
+        "telefon": "03581-76460",
+        "email": "l.vater@eso-goerlitz.de"
+      },
+      {
+        "regierungsbezirk": "Görlitz",
+        "plz": "02943",
+        "ort": "Weißwasser /O.L.",
+        "einrichtung": "Volkshochschule Dreiländereck",
+        "straße": "Jahnstr. 50",
+        "telefon": "03576-2783-0",
+        "email": "info@vhs-dle.de"
+      },
+      {
+        "regierungsbezirk": "Meißen",
+        "plz": "01591",
+        "ort": "Riesa",
+        "einrichtung": "Euro-Schulen Riesa/Meißen",
+        "straße": "Paul-Greifzu-Str. 30",
+        "telefon": "03525 / 501311",
+        "email": "info@es.riesa.eso.de"
+      },
+      {
+        "regierungsbezirk": "Sächsische Schweiz-Osterzgebirge",
+        "plz": "01796",
+        "ort": "Pirna",
+        "einrichtung": "VHS Sächsische Schweiz-Osterzgebirge e.V.",
+        "straße": "Geschwister-Scholl-Str. 2",
+        "telefon": "03501-710990",
+        "email": "info@vhs-ssoe.de"
+      },
+      {
+        "regierungsbezirk": "Görlitz",
+        "plz": "02826",
+        "ort": "Görlitz",
+        "einrichtung": "VHS Görlitz e. V.",
+        "straße": "Langenstr. 23",
+        "telefon": "03581-4209828",
+        "email": "sprachen@vhs-goerlitz.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01237",
+        "ort": "Dresden",
+        "einrichtung": "VHS Dresden e. V.",
+        "straße": "Schilfweg 3",
+        "telefon": "0351-2544037",
+        "email": "jana.moebius@vhs-dresden.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01127",
+        "ort": "Dresden",
+        "einrichtung": "Die Sprachwerkstatt GmbH",
+        "straße": "Großenhainer Str. 99",
+        "telefon": "0351 / 8975940",
+        "email": "dresden@die-sprachwerkstatt.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01277",
+        "ort": "Dresden",
+        "einrichtung": "inlingua Sprachschule Dresden GmbH & Co.",
+        "straße": "Karcherallee 41",
+        "telefon": "0351 / 494460",
+        "email": "german@inlingua-dresden.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01069",
+        "ort": "Dresden",
+        "einrichtung": "Euro-Schulen Dresden",
+        "straße": "Wiener Platz 6",
+        "telefon": "0351 / 4763680",
+        "email": "info@es.dresden.eso.de"
+      },
+      {
+        "regierungsbezirk": "Bautzen",
+        "plz": "02625",
+        "ort": "Bautzen",
+        "einrichtung": "VHS-Kreis Bautzen",
+        "straße": "Dr.-Peter-Jordan-Str. 21",
+        "telefon": "03591/ 272290",
+        "email": "info@kvhsbautzen.de"
+      },
+      {
+        "regierungsbezirk": "Leipzig",
+        "plz": "04552",
+        "ort": "Borna",
+        "einrichtung": "VHS Landkreis Leipzig",
+        "straße": "Jahnstr. 24a",
+        "telefon": "0343 / 374463328",
+        "email": "sabine.garbe@vhs-lkl.de "
+      },
+      {
+        "regierungsbezirk": "Leipzig",
+        "plz": "04808",
+        "ort": "Wurzen",
+        "einrichtung": "VHS Muldental",
+        "straße": "Lüptitzer Str. 2",
+        "telefon": "0342 / 5/90470",
+        "email": "wurzen@volkshochschule-muldental.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04105",
+        "ort": "Leipzig",
+        "einrichtung": "VHS Stadt Leipzig",
+        "straße": "Löhrstr. 3/7",
+        "telefon": "0341/1236023/069",
+        "email": "vhs@leipzig.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04103",
+        "ort": "Leipzig",
+        "einrichtung": "Learn and Speak Leipzig Wolpert Schulungszentrum Sprachschule Leipzig GmbH",
+        "straße": "Gutenbergplatz 1a-e",
+        "telefon": "0341 222 88 77 0",
+        "email": "info@las-leipzig.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04103",
+        "ort": "Leipzig",
+        "einrichtung": "Euro-Schulen Leipzig",
+        "straße": "Rosa-Luxemburg-Str. 23",
+        "telefon": "0341/ 962 99 37",
+        "email": "info@es.leipzig.eso.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04107",
+        "ort": "Leipzig",
+        "einrichtung": "language coach institute Leipzig",
+        "straße": "Emilienstr. 17",
+        "telefon": "0341/3085506",
+        "email": "thiessen@languagecoach.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04249",
+        "ort": "Leipzig",
+        "einrichtung": "Leipziger Gesellschaft für Bildung und Arbeit",
+        "straße": "Anton-Zickmantel-Str. 41",
+        "telefon": "0341/ 4273770",
+        "email": "info@lehmbaugruppe.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04107",
+        "ort": "Leipzig",
+        "einrichtung": "zu Hause e.V.",
+        "straße": "Hohe Straße 9/13",
+        "telefon": "0341 / 52 91 72 48",
+        "email": "info@zuhause-ev.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "st",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": "29410",
+        "ort": "Salzwedel",
+        "einrichtung": "VHS Altmarkkreis Salzwedel",
+        "straße": "Karl-Marx-Str. 15",
+        "telefon": "03901-422031",
+        "email": "salzwedel@vhs-salzwedel.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06749",
+        "ort": "Bitterfeld",
+        "einrichtung": "VHS-Kreis Anhalt-Bitterfeld",
+        "straße": "Lindenstr. 12 a",
+        "telefon": "03496-12033",
+        "email": "service@kvhs-abi.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39340",
+        "ort": "Haldensleben",
+        "einrichtung": "KVHS Börde",
+        "straße": "Warmsdorfer Str. 20",
+        "telefon": "03904-42271",
+        "email": "kvhs@boerdekreis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39340",
+        "ort": "Haldensleben",
+        "einrichtung": "Euro-Schulen Sachsen-Anhalt GmbH",
+        "straße": "Hafenstr. 6",
+        "telefon": "039047258117",
+        "email": "info@es.haldensleben.eso.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06712",
+        "ort": "Zeitz",
+        "einrichtung": "VHS Burgenlandkreis",
+        "straße": "Domherrenstr. 1",
+        "telefon": "03441-212465",
+        "email": "info@vhs-burgenlandkreis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06844",
+        "ort": "Dessau-Roßlau",
+        "einrichtung": "VHS Dessau-Roßlau",
+        "straße": "Erdmannsdorffstr. 3",
+        "telefon": "0340-24005542",
+        "email": "info@vhs.dessau-rosslau.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06842",
+        "ort": "Dessau-Roßlau",
+        "einrichtung": "inlingua Sprachschule Dessau OHG",
+        "straße": "Franzstr. 85",
+        "telefon": "0340-260260",
+        "email": "info@inlingua-dessau.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06484",
+        "ort": "Quedlinburg",
+        "einrichtung": "KVHS Harz GmbH   ",
+        "straße": "Heiligegeiststraße 8",
+        "telefon": "03946-524039",
+        "email": "info@kvhs-harz.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "38820",
+        "ort": "Halberstadt",
+        "einrichtung": "AFU Privates Bildungsinstitut GmbH",
+        "straße": "Rudolf-Diesel-Str. 14",
+        "telefon": "039416789507",
+        "email": "info@afu-gmbh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39288",
+        "ort": "Burg",
+        "einrichtung": "KVHS Jerichower Land",
+        "straße": "Magdeburger Str. 24-26",
+        "telefon": "03921-9494310",
+        "email": "kvhs@lkjl.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06128",
+        "ort": "Halle (Saale)",
+        "einrichtung": "VHS Adolf Reichwein in Halle (Saale)",
+        "straße": "Oleariusstraße 7",
+        "telefon": "0345 221-3389",
+        "email": "info@vhs-halle.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06112",
+        "ort": "Halle (Saale)",
+        "einrichtung": "AEB GmbH",
+        "straße": "Thüringer Str. 30",
+        "telefon": "0345-2900452",
+        "email": "buero@aeb-sachse.com"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06110",
+        "ort": "Halle (Saale)",
+        "einrichtung": "Euro-Schulen Halle",
+        "straße": "Philipp-Müller-Straße 57",
+        "telefon": "0345-61406-0",
+        "email": "info@es.halle.eso.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06108",
+        "ort": "Halle (Saale)",
+        "einrichtung": "Wolpert Schulungszentrum Sprachschule Halle GmbH",
+        "straße": "Marktplatz 7",
+        "telefon": "0340-260260",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39104",
+        "ort": "Magdeburg",
+        "einrichtung": "Städtische VHS Magdeburg",
+        "straße": "Leibnizstr. 23",
+        "telefon": "0391-53547715",
+        "email": "info@vhs.magdeburg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39104",
+        "ort": "Magdeburg",
+        "einrichtung": "ARA Sprachschule",
+        "straße": "Leiterstr. 6",
+        "telefon": "0391/4002845",
+        "email": "mail@ara-sprachschule.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39108",
+        "ort": "Magdeburg",
+        "einrichtung": "Europäisches Bildungswerk für Beruf und Gesellschaft gGmbH",
+        "straße": "Maxim-Gorki-Str. 14",
+        "telefon": "0391-5419829",
+        "email": "sprachen-magdeburg@ebg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06526",
+        "ort": "Sangerhausen",
+        "einrichtung": "KVHS Mansfeld-Südharz e. V.   ",
+        "straße": "Karl-Liebknecht-Str. 31",
+        "telefon": "03464-572407",
+        "email": "service@vhs-sgh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06295",
+        "ort": "Lutherstadt Eisleben",
+        "einrichtung": "Sprachschule 2000 GmbH",
+        "straße": "Markt 57",
+        "telefon": "03475-250353",
+        "email": "info@sprachschule2000.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06217",
+        "ort": "Merseburg",
+        "einrichtung": "KVHS Saalekreis                        ",
+        "straße": "Am Saalehang 1",
+        "telefon": "03461-2590880",
+        "email": "kvhs@saalekreis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06217",
+        "ort": "Merseburg",
+        "einrichtung": "BVU GmbH",
+        "straße": "Geusaer Straße 81 g",
+        "telefon": "03461-8215-0",
+        "email": "merseburg@bvu-gmbh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06268",
+        "ort": "Querfurt",
+        "einrichtung": "IEB Schulungsgesellschaft mbH",
+        "straße": "Birkenweg 6",
+        "telefon": "03461/289673",
+        "email": "ieb-querfurt@das-ieb.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 6406,
+        "ort": "Bernburg",
+        "einrichtung": "KVHS Salzlandkreis",
+        "straße": "Vor dem Nienburger Tor 13a",
+        "telefon": "03471-352073",
+        "email": "kvhs@kreis-slk.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 39418,
+        "ort": "Staßfurt",
+        "einrichtung": "Staßfurter URANIA e.V.",
+        "straße": "Prinzenberg 18",
+        "telefon": "03925-624295",
+        "email": "info@stassfurter-urania.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39576",
+        "ort": "Stendal",
+        "einrichtung": "VHS-Kreis Stendal",
+        "straße": "Hospitalstraße 1 - 2",
+        "telefon": "03931-608080",
+        "email": "kvhs@landkreis-stendal.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39576",
+        "ort": "Stendal",
+        "einrichtung": "Städtische VHS Stendal",
+        "straße": "Hallstr. 35",
+        "telefon": "03931-64880",
+        "email": "vhs_stendal@t-online.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06886",
+        "ort": "Lutherstadt Wittenberg",
+        "einrichtung": "KVHS Wittenberg",
+        "straße": "Falkstraße 83",
+        "telefon": "03491-41810",
+        "email": "kvhs@bzl-wb.de"
+      }
+    ]
+  },
+  {
+    "stateCode": "th",
+    "data": [
+      {
+        "regierungsbezirk": " ",
+        "plz": "98646",
+        "ort": "Hildburghausen",
+        "einrichtung": "KVHS Hildburghausen",
+        "straße": "Obere Marktstr. 44",
+        "telefon": "03685-709285",
+        "email": "vhs.hildburghausen@t-online.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99510",
+        "ort": "Apolda",
+        "einrichtung": "KVHS Weimarer Land",
+        "straße": "Ackerwand 13/15",
+        "telefon": "03644-554841",
+        "email": "olga.vitzthum@kvhs-weimarerland.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99817",
+        "ort": "Eisenach",
+        "einrichtung": "Sprache und Bildung GmbH Geschäftsstelle Eisenach",
+        "straße": "Bahnhofstr. 27",
+        "telefon": "03691/785337",
+        "email": "eisenach@sprache-und-bildung.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99974",
+        "ort": "Mühlhausen /Thüringen",
+        "einrichtung": "Sprache und Bildung GmbH Geschäftsstelle Mühlhausen",
+        "straße": "Alter Blobach 49",
+        "telefon": "03601/449117",
+        "email": "muehlhausen@sprache-und-bildung.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "07743",
+        "ort": "Jena",
+        "einrichtung": "Thüringer Volkshochschulverband e.V.",
+        "straße": "Saalbahnhofstr. 27",
+        "telefon": "03641/5342310",
+        "email": "landesverband@vhs-th.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "04600",
+        "ort": "Altenburg",
+        "einrichtung": "VHS Altenburger Land",
+        "straße": "Hospitalplatz 6",
+        "telefon": "03447-507928",
+        "email": "vhs-altenburg@altenburgerland.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "98617",
+        "ort": "Meiningen",
+        "einrichtung": "VHS des Landkreises Schmalkalden-Meiningen",
+        "straße": "Klostergasse 1",
+        "telefon": "03693-50180",
+        "email": "anette.luempert@vhs-th.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "96515",
+        "ort": "Sonneberg",
+        "einrichtung": "VHS des Landkreises Sonneberg",
+        "straße": "Coburger Str. 32a",
+        "telefon": "03675-754223",
+        "email": "jutta.arsenova@vhs-sonneberg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99817",
+        "ort": "Eisenach",
+        "einrichtung": "VHS Eisenach",
+        "straße": "Schmelzerstr. 19",
+        "telefon": "03691-29320",
+        "email": "vhs@eisenach.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99974",
+        "ort": "Mühlhausen /Thüringen",
+        "einrichtung": "VHS Unstrut-Hainich-Kreis",
+        "straße": "Friedrich-Naumann-Str. 26",
+        "telefon": "03601-812691",
+        "email": "info@vhs-uh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99734",
+        "ort": "Nordhausen",
+        "einrichtung": "VHS-Kreis Nordhausen",
+        "straße": "Grimmelallee 60",
+        "telefon": "03631-6091-27",
+        "email": "beate.walzel@vhs-nordhausen.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 99092,
+        "ort": "Erfurt",
+        "einrichtung": "Mitteldeutsches Institut für Qualif. Und ber. Reha. MIQR",
+        "straße": "Heinrichstraße 89",
+        "telefon": "0361-511503-340",
+        "email": "hatem.ayadi@miqr.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "99084",
+        "ort": "Erfurt",
+        "einrichtung": "Volkshochschule Erfurt",
+        "straße": "Schottenstr. 7",
+        "telefon": "0361-6552950",
+        "email": "volkshochschule@erfurt.de"
+      }
+    ]
+  }
+]
