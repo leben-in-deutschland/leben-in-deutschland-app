@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve@latest out",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "npm run prepare && next build"
   },
   "dependencies": {
     "@capacitor-community/text-to-speech": "^6.0.0",
