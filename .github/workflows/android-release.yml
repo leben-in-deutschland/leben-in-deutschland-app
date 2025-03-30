@@ -24,7 +24,7 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        working-directory: src/web
+        working-directory: src
         run: make build-sync
 
       - name: Install Java & Gradle
