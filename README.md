@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/bitesinbyte/leben-in-deutschland">
-    <img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/android-chrome-512x512.png" width="256px" />
+    <img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/android-chrome-512x512.png" width="256px" />
   </a>
 </p>
 <h1 align="center">Leben In Deutschland</h1>
