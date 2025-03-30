@@ -39,7 +39,7 @@ jobs:
 
       - name: Bump version if changes detected
         if: env.changed == 'true'
-        working-directory: src/app/web
+        working-directory: src/web
         run: |
           npm version patch --no-git-tag-version
 
