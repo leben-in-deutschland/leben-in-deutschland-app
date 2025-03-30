@@ -22,26 +22,26 @@ Leben In Deutschland is a project aimed at helping individuals prepare for the "
 ### Mobile App
 
 <p>
-  <img src="src/app/web/public/mobile/app-1.png" alt="app1" width="150px"/>
-  <img src="src/app/web/public/mobile/app-2.png" alt="app2" width="150px"/>
-  <img src="src/app/web/public/mobile/app-3.png" alt="app3" width="150px"/>
-  <img src="src/app/web/public/mobile/app-4.png" alt="app4" width="150px"/>
-  <img src="src/app/web/public/mobile/app-5.png" alt="app5" width="150px"/>
-  <img src="src/app/web/public/mobile/app-6.png" alt="app6" width="150px"/>
-  <img src="src/app/web/public/mobile/app-7.png" alt="app7" width="150px"/>
+  <img src="src/web/public/mobile/app-1.png" alt="app1" width="150px"/>
+  <img src="src/web/public/mobile/app-2.png" alt="app2" width="150px"/>
+  <img src="src/web/public/mobile/app-3.png" alt="app3" width="150px"/>
+  <img src="src/web/public/mobile/app-4.png" alt="app4" width="150px"/>
+  <img src="src/web/public/mobile/app-5.png" alt="app5" width="150px"/>
+  <img src="src/web/public/mobile/app-6.png" alt="app6" width="150px"/>
+  <img src="src/web/public/mobile/app-7.png" alt="app7" width="150px"/>
 </p>
 
 ### Mock Test
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
 
 ### Preparation
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
 
 ### Dashboard Stats
 
-<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/app/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
+<img src="https://raw.githubusercontent.com/bitesinbyte/leben-in-deutschland/refs/heads/main/src/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
 
 ## Getting Started
 
