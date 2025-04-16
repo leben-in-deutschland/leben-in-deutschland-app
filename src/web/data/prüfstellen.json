@@ -598,6 +598,15 @@
         "email": "info@vhs-heidenheim.de"
       },
       {
+        "regierungsbezirk": "Schwarzwald-Baar-Kreis",
+        "plz": 79822,
+        "ort": "Titisee-Neustadt",
+        "einrichtung": "VHS Hochschwarzwald e.V.",
+        "straße": "Sebastian-Kneipp-Anlage 2",
+        "telefon": "17651-1363",
+        "email": "info@vhs-hochschwarzwald.de"
+      },
+      {
         "regierungsbezirk": "Heilbronn",
         "plz": 74072,
         "ort": "Heilbronn",
@@ -641,6 +650,15 @@
         "straße": "Struwepfad 2",
         "telefon": "09341-1691",
         "email": "vhs-mittleres-taubertal@t-online.de"
+      },
+      {
+        "regierungsbezirk": "Hochschwarzwald",
+        "plz": 79379,
+        "ort": "Müllheim",
+        "einrichtung": "VHS Markgräflerland",
+        "straße": "Gerbergasse 8",
+        "telefon": "07631-16581",
+        "email": "info@vhs-markgraeflerland.de"
       },
       {
         "regierungsbezirk": "Mosbach",
@@ -1344,10 +1362,10 @@
         "regierungsbezirk": "Ebersberg",
         "plz": 85567,
         "ort": "Grafing b. München",
-        "einrichtung": "VHS Grafing bei München",
+        "einrichtung": "VHS Ebersberger Land / Grafing bei München",
         "straße": "Griesstr. 27",
         "telefon": "08092-8195-14",
-        "email": "info@vhs-grafing.de"
+        "email": "info@vhs-ebersberger-land.de"
       },
       {
         "regierungsbezirk": "Fürstenfeldbruck",
@@ -2206,6 +2224,15 @@
         "email": "info@sprachportal-wetzlar.de"
       },
       {
+        "regierungsbezirk": "Main-Kinzing-Kreis",
+        "plz": 63450,
+        "ort": "Hanau",
+        "einrichtung": "Brüder Grimm Bildungszentrum",
+        "straße": "Langstr. 60",
+        "telefon": "06181-12506",
+        "email": "info@bruedergrimm.net"
+      },
+      {
         "regierungsbezirk": "Kassel",
         "plz": "34117",
         "ort": "Kassel",
@@ -2802,7 +2829,7 @@
         "ort": "Wolfsburg",
         "einrichtung": "Bildungswerk der Niedersächsischen Wirtschaft GmbH",
         "straße": "Benzstraße 27",
-        "telefon": "05361-46468",
+        "telefon": "05361-46468-27",
         "email": "monika.strauch-ackermann@bnw.de"
       },
       {
@@ -2827,10 +2854,10 @@
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 38440,
         "ort": "Wolfsburg",
-        "einrichtung": "Bildungszentrum Wolfsburger Volkshochschule gGmbH",
+        "einrichtung": "Stadt Wolfsburg / Bildungshaus / Volkshochschule Wolfsburg",
         "straße": "Hugo-Junkers-Weg 5",
         "telefon": "05361-28-3900",
-        "email": "deutsch@bildungshaus-wolfburg.de"
+        "email": "deutsch@bildungshaus-wolfsburg.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -2874,8 +2901,8 @@
         "ort": "Goslar",
         "einrichtung": "KVHS Goslar",
         "straße": "Klubgartenstr. 6",
-        "telefon": "05321-76431",
-        "email": "kvhs@landkreis-goslar.de"
+        "telefon": "05321-767543",
+        "email": "deutsch@vhs-goslar.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -3180,8 +3207,8 @@
         "ort": "Leer",
         "einrichtung": "VHS Leer",
         "straße": "Haneburgallee 8",
-        "telefon": "0491-9299221",
-        "email": "eysteinsdottir@vhs-leer.de"
+        "telefon": "0491-9299220",
+        "email": "info@vhs-leer.de"
       },
       {
         "regierungsbezirk": "Osterholz",
@@ -3216,7 +3243,7 @@
         "ort": "Nienburg",
         "einrichtung": "VHS Nienburg",
         "straße": "Rühmkorffstr. 12",
-        "telefon": "05021 967 617",
+        "telefon": "05021 967 614",
         "email": "vhs@kreis-ni.de"
       },
       {
@@ -4942,6 +4969,15 @@
         "straße": "Gerresheimer Str. 20",
         "telefon": "02103/500537",
         "email": "fragemann@vhs-hilden-haan.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 46145,
+        "ort": "Oberhausen",
+        "einrichtung": "Millenium Bildungsverein e.V.",
+        "straße": "Ramgestraße 6",
+        "telefon": "0208-6351988",
+        "email": "info@millenium-ev.org"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
