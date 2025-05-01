@@ -476,7 +476,7 @@
         "plz": 76532,
         "ort": "Baden-Baden",
         "einrichtung": "VHS Baden-Baden",
-        "straße": "Jägerweg 10",
+        "straße": "Jägerweg 12",
         "telefon": "07221/9965-360",
         "email": "info@vhs-baden-baden.de"
       },
@@ -1224,6 +1224,15 @@
         "email": "vhs@marktredwitz.de"
       },
       {
+        "regierungsbezirk": "Hammelburg",
+        "plz": 97688,
+        "ort": "Bad Kissingen",
+        "einrichtung": "VHS Bad Kisingen und Hammelburg",
+        "straße": "Rathausplatz 1",
+        "telefon": "0971-807-4211",
+        "email": "integration@vhs-kisshab,de"
+      },
+      {
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 97421,
         "ort": "Schweinfurt",
@@ -1320,7 +1329,7 @@
         "einrichtung": "VHS Freising e.V.",
         "straße": "Kammergasse 12",
         "telefon": "08161-490744",
-        "email": "isolde.wagner@vhs-freising.org"
+        "email": "deutsch@vhs-freising.org"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -1417,8 +1426,8 @@
         "plz": 85748,
         "ort": "Garching b. München",
         "einrichtung": "VHS im Norden des Landkreises München",
-        "straße": "Bürgermeister-Wagner-Str. 3",
-        "telefon": "089-550517-95",
+        "straße": "Telschowstraße 5-7",
+        "telefon": "089-550517-0",
         "email": "info@vhs-nord.de"
       },
       {
@@ -3107,9 +3116,9 @@
         "plz": 28857,
         "ort": "Syke",
         "einrichtung": "VHS des Landkreises Diepholz",
-        "straße": "Nienburger Str. 5",
-        "telefon": "05541- 9761917",
-        "email": "vhs@vhs-diepholz.de"
+        "straße": "Am Petermoor 1B",
+        "telefon": "04242-9764012",
+        "email": "deutsch-lernen@vhs-diepholz.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -3610,6 +3619,15 @@
         "straße": "Lise-Meitner-Straße 5 - 9",
         "telefon": "0202 / 26158770",
         "email": "info@internationaleducationcenters.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42283,
+        "ort": "Wuppertal",
+        "einrichtung": "Akzentschule / Wuppertal",
+        "straße": "Friedrich-Engels-Allee 355",
+        "telefon": "0202-2574100",
+        "email": "akzentschule@web.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -4497,10 +4515,10 @@
         "regierungsbezirk": "Rhein-Sieg-Kreis",
         "plz": 53639,
         "ort": "Königswinter",
-        "einrichtung": "VHS Siebengebirge",
-        "straße": "Dollendorfer Str. 39",
-        "telefon": "02244-889254",
-        "email": "hedwig.roos-schumacher@koenigswinter.de"
+        "einrichtung": "VHS Siebengebirge (Reg.-Bezirk Kln)",
+        "straße": "Boserother Str. 74",
+        "telefon": "02244-889-202",
+        "email": "integration@vhs-siebengebirge.de.de"
       },
       {
         "regierungsbezirk": "Soest",
