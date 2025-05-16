@@ -910,15 +910,6 @@
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
-        "plz": 80336,
-        "ort": "München",
-        "einrichtung": "Bildungsinstitut Kavalchuk",
-        "straße": "Landwehrstr. 61",
-        "telefon": "",
-        "email": "einbuergerungstest@bik-courses.de "
-      },
-      {
-        "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 90403,
         "ort": "Nürnberg",
         "einrichtung": "Bildungszentrum Stadt Nürnberg",
@@ -2485,13 +2476,13 @@
         "email": "monika.schenker@vogelsbergkreis.de"
       },
       {
-        "regierungsbezirk": "",
-        "plz": 64625,
-        "ort": "Bensheim",
-        "einrichtung": "Volkshochschule Bensheim",
-        "straße": "Hauptstraße 39",
-        "telefon": "06251-58263-76",
-        "email": "vhs@bensheim.de"
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 64653,
+        "ort": "Lorsch",
+        "einrichtung": "KVHS Bergstraße",
+        "straße": "Marktpl. 1",
+        "telefon": "06251-177815",
+        "email": "bjoern.brandhorst@bensheim.de"
       },
       {
         "regierungsbezirk": "Wetteraukreis",
