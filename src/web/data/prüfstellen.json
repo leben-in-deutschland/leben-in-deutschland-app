@@ -2642,16 +2642,16 @@
         "regierungsbezirk": " ",
         "plz": 17235,
         "ort": "Neustrelitz",
-        "einrichtung": "VHS des Landkreises Mecklenburg-Strelitz",
+        "einrichtung": "Volkshochschule Mecklenburgische Seenplatte Außenstelle Neustrelitz",
         "straße": "Hittenkofer Str. 28",
         "telefon": "03981/205262",
-        "email": "kvhs-mst@t-online.de"
+        "email": "vhs@lk-seenplatte.de"
       },
       {
         "regierungsbezirk": " ",
         "plz": 17033,
         "ort": "Neubrandenburg",
-        "einrichtung": "Volkshochschule Mecklenburgische Seenplatte Geschäftstelle Neubrandenburg",
+        "einrichtung": "Volkshochschule Mecklenburgische Seenplatte Geschäftsstelle Neubrandenburg",
         "straße": "Bienenweg 1",
         "telefon": "0395-3517200",
         "email": "vhs@lk-seenplatte.de"
@@ -3655,6 +3655,15 @@
         "straße": "Bismarckstr. 16",
         "telefon": "02421-222824/222836",
         "email": "vhs@kreis-dueren.de"
+      },
+      {
+        "regierungsbezirk": "Düren",
+        "plz": 52349,
+        "ort": "Düren",
+        "einrichtung": "Ideal Bildungsverein e.V. ",
+        "straße": "Paradiesplatz 11",
+        "telefon": "02421-209540",
+        "email": "info@ideal-bv.de"
       },
       {
         "regierungsbezirk": "Hochsauerlandkreis",
