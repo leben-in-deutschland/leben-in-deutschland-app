@@ -292,8 +292,17 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Tempelhof-Schöneberg",
         "straße": "Barbarossaplatz 5",
-        "telefon": "030/902773000",
+        "telefon": "030-435570585",
         "email": "einbuergerungstest@ba-ts.berlin.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 13507,
+        "ort": "Berlin",
+        "einrichtung": "Euro-Schulen Berlin",
+        "straße": "Berliner Str. 66",
+        "telefon": "030-435570585",
+        "email": "berlin@eso.de"
       }
     ]
   },
