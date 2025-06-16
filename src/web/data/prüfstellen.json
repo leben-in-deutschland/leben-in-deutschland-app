@@ -294,15 +294,6 @@
         "straße": "Barbarossaplatz 5",
         "telefon": "030-435570585",
         "email": "einbuergerungstest@ba-ts.berlin.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 13507,
-        "ort": "Berlin",
-        "einrichtung": "Euro-Schulen Berlin",
-        "straße": "Berliner Str. 66",
-        "telefon": "030-435570585",
-        "email": "berlin@eso.de"
       }
     ]
   },
@@ -2858,6 +2849,15 @@
         "straße": "Arndtstraße 20",
         "telefon": "0511-12105-40",
         "email": "integrationsbuero@aul-nds.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 38100,
+        "ort": "Braunschweig",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Waisenhausdamm 7",
+        "telefon": "0531-125313",
+        "email": "braunschweig@berlitz.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
