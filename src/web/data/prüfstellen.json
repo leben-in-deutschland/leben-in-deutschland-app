@@ -810,7 +810,7 @@
         "ort": "Tübingen",
         "einrichtung": "VHS Tübingen",
         "straße": "Katharinenstr. 18",
-        "telefon": "07071-560326",
+        "telefon": "07071-560329",
         "email": "integration@vhs-tuebingen.de"
       },
       {
@@ -1069,6 +1069,15 @@
         "straße": "Amtsgerichtstr. 6 - 8",
         "telefon": "09921-96054400",
         "email": "info@vhs-arberland.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 86916,
+        "ort": "Kaufering",
+        "einrichtung": "VHS Kaufering",
+        "straße": "Albert-Schweizer-Str.4a",
+        "telefon": "08191-664-220",
+        "email": "vhs@kaufering.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -1481,8 +1490,8 @@
         "ort": "Landshut",
         "einrichtung": "VHS Landshut e.V.",
         "straße": "Ländgasse 41",
-        "telefon": "0871-92292-510",
-        "email": "anmeldung@vhs-landshut.de"
+        "telefon": "0871-92292-0",
+        "email": "sprachen@vhs-landshut.de"
       },
       {
         "regierungsbezirk": "Lindau (Bodensee)",
@@ -2667,6 +2676,15 @@
       },
       {
         "regierungsbezirk": " ",
+        "plz": 17109,
+        "ort": "Demmin",
+        "einrichtung": "Volkshochschule Mecklenburgische Seebplatte Außenstelle Demmin",
+        "straße": "Saar Str. 22d",
+        "telefon": "03998/2585864",
+        "email": "vhs@lk-seenplatte.de"
+      },
+      {
+        "regierungsbezirk": " ",
         "plz": 23966,
         "ort": "Wismar",
         "einrichtung": "Kreisvolkshochschule Nordwestmecklenburg Standort Wismar",
@@ -3459,6 +3477,15 @@
         "email": "asg@asg-bildungsforum.de"
       },
       {
+        "regierungsbezirk": "Düsseldorf",
+        "plz": 40210,
+        "ort": "Düsseldorf",
+        "einrichtung": "Study.on",
+        "straße": "Immermannstraße 19",
+        "telefon": "0211-98595070",
+        "email": "d.mursal@studyon.de"
+      },
+      {
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 44002,
         "ort": "Dortmund",
@@ -3574,6 +3601,15 @@
         "straße": "Maximilianstr. 20",
         "telefon": "0228-97635480",
         "email": "info@eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 53111,
+        "ort": "Bonn",
+        "einrichtung": "Bonner Bildungs Center e.V.",
+        "straße": "Dietkirchstraße 30-32",
+        "telefon": "0228-3695541",
+        "email": "info@bbc-bonn.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -3835,6 +3871,15 @@
         "straße": "Wolfgang-Döring-Str. 4",
         "telefon": "021117053011",
         "email": "sputniki@arcor.de"
+      },
+      {
+        "regierungsbezirk": "Soest",
+        "plz": 59494,
+        "ort": "Soest",
+        "einrichtung": "Kolping-Bildungswerk Paderborn gGmbH",
+        "straße": "Nottebohmweg 2-8",
+        "telefon": "02921-3623-28",
+        "email": "oksana.kojuschna@kolping-paderborn.de"
       },
       {
         "regierungsbezirk": "Viersen",
