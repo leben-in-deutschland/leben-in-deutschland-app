@@ -891,15 +891,6 @@
         "email": "integrationskurse@brk-muenchen.de"
       },
       {
-        "regierungsbezirk": "Kreisfreie Stadt",
-        "plz": 87700,
-        "ort": "Memmingen",
-        "einrichtung": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft (bfz)",
-        "straße": "Jägerndorfer Str. 1",
-        "telefon": "08331 95840",
-        "email": "info-ubo@bfz.de"
-      },
-      {
         "regierungsbezirk": "Donau-Ries",
         "plz": 86609,
         "ort": "Donauwörth",
@@ -2797,8 +2788,8 @@
         "ort": "Stralsund",
         "einrichtung": "Kreisvolkshochschule Vorpommern-Rügen Regionalstelle Stralsund",
         "straße": "Tribseer Damm 76",
-        "telefon": "03831/482310",
-        "email": "volkshochschule@lk-vr.de"
+        "telefon": "03831/482311",
+        "email": "sabine.koppe@lk-vr.de"
       },
       {
         "regierungsbezirk": " ",
@@ -2849,6 +2840,15 @@
         "straße": "Benzstraße 27",
         "telefon": "05361-46468-27",
         "email": "monika.strauch-ackermann@bnw.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30159,
+        "ort": "Hannover",
+        "einrichtung": "Inlingua Sprachschule Hannover GmbH",
+        "straße": "Andreaestr. 3",
+        "telefon": "0511-324580",
+        "email": "info@inlingua-hannover.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -3655,6 +3655,15 @@
         "straße": "Lise-Meitner-Straße 5 - 9",
         "telefon": "0202 / 26158770",
         "email": "info@internationaleducationcenters.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 42103,
+        "ort": "Wuppertal",
+        "einrichtung": "WIPA Wuppertal GmbH",
+        "straße": "Alte Freiheit 5",
+        "telefon": "0202-69800770",
+        "email": "info@wipa-wuppertal.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
