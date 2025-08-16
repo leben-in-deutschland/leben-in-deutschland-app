@@ -202,8 +202,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin Lichtenberg",
         "straße": "Paul-Junius-Str. 71",
-        "telefon": "030-902965983",
-        "email": "vhs.deutsch@lichtenberg.berlin.de"
+        "telefon": "030-902965971",
+        "email": "vhs@lichtenberg.berlin.de"
       },
       {
         "regierungsbezirk": " ",
@@ -211,7 +211,7 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin Steglitz-Zehlendorf",
         "straße": "Goethestr. 9/11",
-        "telefon": "030/902992657",
+        "telefon": "030/902996156",
         "email": "deutschkurse@vhssz.de"
       },
       {
@@ -220,16 +220,16 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin Treptow-Köpenick",
         "straße": "Baumschulenstr. 79/81",
-        "telefon": "030-902974064",
-        "email": "vhs.deutsch@ba-tk.berlin.de"
+        "telefon": "030-902974055",
+        "email": "post@vhstk.de"
       },
       {
         "regierungsbezirk": " ",
         "plz": 10627,
         "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Charlottenburg City West",
+        "einrichtung": "VHS Berlin-Charlottenburg City West Wilmersdorf",
         "straße": "Pestalozzistr. 40/41",
-        "telefon": "",
+        "telefon": "030-9029-28873",
         "email": "vhs@charlottenburg-wilmersdorf.de"
       },
       {
@@ -254,10 +254,10 @@
         "regierungsbezirk": " ",
         "plz": 12053,
         "ort": "Berlin",
-        "einrichtung": "VHS Berlin-Neukölln Otto Suhr",
+        "einrichtung": "VHS Berlin-Neukölln",
         "straße": "Boddinstr. 34",
-        "telefon": "030-68093390",
-        "email": "vhsinfo@Bezirksamt-neukoelln.de"
+        "telefon": "030-90239-2433",
+        "email": "vhsinfo@bezirksamt-neukoelln.de"
       },
       {
         "regierungsbezirk": " ",
@@ -265,8 +265,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Pankow",
         "straße": "Prenzlauer Allee 227/228",
-        "telefon": "030-902953932",
-        "email": "vhs.deutsch@ba-pankow.berlin.de"
+        "telefon": "030-90295-1700",
+        "email": "post@vhspankow.de"
       },
       {
         "regierungsbezirk": " ",
@@ -292,8 +292,8 @@
         "ort": "Berlin",
         "einrichtung": "VHS Berlin-Tempelhof-Schöneberg",
         "straße": "Barbarossaplatz 5",
-        "telefon": "030-435570585",
-        "email": "einbuergerungstest@ba-ts.berlin.de"
+        "telefon": "030-90277-3000",
+        "email": "vhs@ba-ts.berlin.de"
       }
     ]
   },
@@ -886,9 +886,9 @@
         "plz": 81379,
         "ort": "München",
         "einrichtung": "Bayerisches Rotes Kreuz",
-        "straße": "Boschetsriederstraße 67",
-        "telefon": "089-3090406-33",
-        "email": "integrationskurse@brk-muenchen.de"
+        "straße": "Goethestr. 53",
+        "telefon": "089-2373-7421",
+        "email": "ebt@brk-muenchen.de"
       },
       {
         "regierungsbezirk": "Donau-Ries",
@@ -3392,6 +3392,15 @@
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 49074,
+        "ort": "Osnabrück",
+        "einrichtung": "Eleganz Bildungsplattform",
+        "straße": "Johannisstr. 98-99",
+        "telefon": "0541-57509",
+        "email": "info@eleganz-bp.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 30159,
         "ort": "Hannover",
         "einrichtung": "Volkshochschule Hannover",
@@ -5765,105 +5774,6 @@
     "stateCode": "sn",
     "data": [
       {
-        "regierungsbezirk": "Anhalt-Bitterfeld",
-        "plz": 6803,
-        "ort": "Bitterfeld-Wolfen",
-        "einrichtung": "ESO Education Group",
-        "straße": "Wasserturmstraße 1",
-        "telefon": "03493 / 73600",
-        "email": "info@es.wolfen.eso.de "
-      },
-      {
-        "regierungsbezirk": "Erzgebirgskreis",
-        "plz": "09456",
-        "ort": "Annaberg-Buchholz",
-        "einrichtung": "VHS Annaberg",
-        "straße": "Bärensteiner Str. 2",
-        "telefon": "03733-426224",
-        "email": "info@vhs-annaberg.de"
-      },
-      {
-        "regierungsbezirk": "Erzgebirgskreis",
-        "plz": "08280",
-        "ort": "Aue",
-        "einrichtung": "VHS Erzgebirgskreis",
-        "straße": "Rudolf-Breitscheid-Str. 27",
-        "telefon": "03771-597210 oder 11",
-        "email": "susanne.schmidt@kreis-erz.de"
-      },
-      {
-        "regierungsbezirk": "Nordsachsen",
-        "plz": "04860",
-        "ort": "Torgau",
-        "einrichtung": "VHS Nordsachsen",
-        "straße": "Puschkinstraße 3",
-        "telefon": "03423-700440",
-        "email": ""
-      },
-      {
-        "regierungsbezirk": "Vogtlandkreis",
-        "plz": "08527",
-        "ort": "Plauen",
-        "einrichtung": "Volkshochschule Plauen",
-        "straße": "Stresemannstr. 92",
-        "telefon": "03741-22 44 25",
-        "email": "boh@vhs-plauen.de"
-      },
-      {
-        "regierungsbezirk": "kreisfreie Stadt",
-        "plz": "09113",
-        "ort": "Chemnitz",
-        "einrichtung": "Sächsischer Volkshochschulverband e.V.",
-        "straße": "Bergstraße 61",
-        "telefon": "0371-35427-54",
-        "email": "info@vhs-sachsen.de"
-      },
-      {
-        "regierungsbezirk": "kreisfreie Stadt",
-        "plz": "09111",
-        "ort": "Chemnitz",
-        "einrichtung": "VHS Chemnitz",
-        "straße": "Moritzstr. 20",
-        "telefon": "0371/ 488-4338",
-        "email": "deutsch@vhs-chemnitz.de\" "
-      },
-      {
-        "regierungsbezirk": "kreisfreie Stadt",
-        "plz": "09111",
-        "ort": "Chemnitz",
-        "einrichtung": "Euro-Schulen West-Sachsen GmbH",
-        "straße": "Am alten Bad 1",
-        "telefon": "0371-3356230",
-        "email": "chemnitz@eso.de"
-      },
-      {
-        "regierungsbezirk": "kreisfreie Stadt",
-        "plz": "09112",
-        "ort": "Chemnitz",
-        "einrichtung": "inlingua Sprachcenter Chemnitz",
-        "straße": "Barbarossastr. 2",
-        "telefon": "0371 / 517000",
-        "email": "chemnitz@inlingua.de"
-      },
-      {
-        "regierungsbezirk": "kreisfreie Stadt",
-        "plz": 9112,
-        "ort": "Chemnitz",
-        "einrichtung": "MIQR GmbH Chemnitz",
-        "straße": "Barbarossastr. 2",
-        "telefon": "0371-404665-20",
-        "email": "deutschkurse-chemnitz@miqr.de"
-      },
-      {
-        "regierungsbezirk": "Vogtlandkreis",
-        "plz": "08209",
-        "ort": "Auerbach /Vogtl.",
-        "einrichtung": "Volkshochschule desVogtlandkreises",
-        "straße": "Am Feldschlößchen 14",
-        "telefon": "037421-23770",
-        "email": "service@vhs-vogtlandkreis.de"
-      },
-      {
         "regierungsbezirk": "Zwickau",
         "plz": "08056",
         "ort": "Zwickau",
@@ -5871,87 +5781,6 @@
         "straße": "Alte Reichenbacher Str. 2",
         "telefon": "0375-27766-0",
         "email": "benedict@fuu-sachsen.de"
-      },
-      {
-        "regierungsbezirk": "Zwickau",
-        "plz": "08056",
-        "ort": "Zwickau",
-        "einrichtung": "Euro-Schulen West-Sachsen GmbH Zwickau",
-        "straße": "Max-Pechstein-Sttraße 29",
-        "telefon": "0375-2713430",
-        "email": "info@es.zwickau.eso.de"
-      },
-      {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02625",
-        "ort": "Bautzen",
-        "einrichtung": "Kreisvolkshochschule Bauzen",
-        "straße": "Postplatz 3",
-        "telefon": "03591 27229-13",
-        "email": "andrea.siebert@kvhsbautzen.de "
-      },
-      {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02977",
-        "ort": "Hoyerswerda",
-        "einrichtung": "Zoo, Kultur und Bildung gGmbH - Volkshochschule Hoyerswerda",
-        "straße": "Lausitzer Platz 4",
-        "telefon": "03571-6079943",
-        "email": "U.Grun@vhs-hy.de"
-      },
-      {
-        "regierungsbezirk": "Görlitz",
-        "plz": "02826",
-        "ort": "Görlitz",
-        "einrichtung": "Euro-Schulen GmbH, Euro-Schulen Görlitz-Zittau",
-        "straße": "Straßburg-Passage ",
-        "telefon": "03581-76460",
-        "email": "l.vater@eso-goerlitz.de"
-      },
-      {
-        "regierungsbezirk": "Görlitz",
-        "plz": "02943",
-        "ort": "Weißwasser /O.L.",
-        "einrichtung": "Volkshochschule Dreiländereck",
-        "straße": "Jahnstr. 50",
-        "telefon": "03576-2783-0",
-        "email": "info@vhs-dle.de"
-      },
-      {
-        "regierungsbezirk": "Meißen",
-        "plz": "01591",
-        "ort": "Riesa",
-        "einrichtung": "Euro-Schulen Riesa/Meißen",
-        "straße": "Paul-Greifzu-Str. 30",
-        "telefon": "03525 / 501311",
-        "email": "info@es.riesa.eso.de"
-      },
-      {
-        "regierungsbezirk": "Sächsische Schweiz-Osterzgebirge",
-        "plz": "01796",
-        "ort": "Pirna",
-        "einrichtung": "VHS Sächsische Schweiz-Osterzgebirge e.V.",
-        "straße": "Geschwister-Scholl-Str. 2",
-        "telefon": "03501-710990",
-        "email": "info@vhs-ssoe.de"
-      },
-      {
-        "regierungsbezirk": "Görlitz",
-        "plz": "02826",
-        "ort": "Görlitz",
-        "einrichtung": "VHS Görlitz e. V.",
-        "straße": "Langenstr. 23",
-        "telefon": "03581-4209828",
-        "email": "sprachen@vhs-goerlitz.de"
-      },
-      {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "01237",
-        "ort": "Dresden",
-        "einrichtung": "VHS Dresden e. V.",
-        "straße": "Schilfweg 3",
-        "telefon": "0351-2544037",
-        "email": "jana.moebius@vhs-dresden.de"
       },
       {
         "regierungsbezirk": "Stadtkreis",
@@ -5963,13 +5792,13 @@
         "email": "dresden@die-sprachwerkstatt.de"
       },
       {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "01277",
-        "ort": "Dresden",
-        "einrichtung": "inlingua Sprachschule Dresden GmbH & Co.",
-        "straße": "Karcherallee 41",
-        "telefon": "0351 / 494460",
-        "email": "german@inlingua-dresden.de"
+        "regierungsbezirk": "Anhalt-Bitterfeld",
+        "plz": 6803,
+        "ort": "Bitterfeld-Wolfen",
+        "einrichtung": "ESO Education Group",
+        "straße": "Wasserturmstraße 1",
+        "telefon": "03493 / 73600",
+        "email": "info@es.wolfen.eso.de "
       },
       {
         "regierungsbezirk": "Stadtkreis",
@@ -5981,13 +5810,166 @@
         "email": "info@es.dresden.eso.de"
       },
       {
+        "regierungsbezirk": "Görlitz",
+        "plz": "02826",
+        "ort": "Görlitz",
+        "einrichtung": "Euro-Schulen GmbH, Euro-Schulen Görlitz-Zittau",
+        "straße": "Straßburg-Passage ",
+        "telefon": "03581-76460",
+        "email": "l.vater@eso-goerlitz.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04103",
+        "ort": "Leipzig",
+        "einrichtung": "Euro-Schulen Leipzig",
+        "straße": "Rosa-Luxemburg-Str. 23",
+        "telefon": "0341/ 962 99 37",
+        "email": "info@es.leipzig.eso.de"
+      },
+      {
+        "regierungsbezirk": "Meißen",
+        "plz": "01591",
+        "ort": "Riesa",
+        "einrichtung": "Euro-Schulen Riesa/Meißen",
+        "straße": "Paul-Greifzu-Str. 30",
+        "telefon": "03525 / 501311",
+        "email": "info@es.riesa.eso.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09111",
+        "ort": "Chemnitz",
+        "einrichtung": "Euro-Schulen West-Sachsen GmbH",
+        "straße": "Am alten Bad 1",
+        "telefon": "0371-3356230",
+        "email": "chemnitz@eso.de"
+      },
+      {
+        "regierungsbezirk": "Zwickau",
+        "plz": "08056",
+        "ort": "Zwickau",
+        "einrichtung": "Euro-Schulen West-Sachsen GmbH Zwickau",
+        "straße": "Max-Pechstein-Sttraße 29",
+        "telefon": "0375-2713430",
+        "email": "info@es.zwickau.eso.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09112",
+        "ort": "Chemnitz",
+        "einrichtung": "inlingua Sprachcenter Chemnitz",
+        "straße": "Barbarossastr. 2",
+        "telefon": "0371 / 517000",
+        "email": "chemnitz@inlingua.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01277",
+        "ort": "Dresden",
+        "einrichtung": "inlingua Sprachschule Dresden GmbH & Co.",
+        "straße": "Karcherallee 41",
+        "telefon": "0351 / 494460",
+        "email": "german@inlingua-dresden.de"
+      },
+      {
         "regierungsbezirk": "Bautzen",
         "plz": "02625",
         "ort": "Bautzen",
-        "einrichtung": "VHS-Kreis Bautzen",
-        "straße": "Dr.-Peter-Jordan-Str. 21",
-        "telefon": "03591/ 272290",
-        "email": "info@kvhsbautzen.de"
+        "einrichtung": "Kreisvolkshochschule Bauzen",
+        "straße": "Postplatz 3",
+        "telefon": "03591 27229-13",
+        "email": "andrea.siebert@kvhsbautzen.de "
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04107",
+        "ort": "Leipzig",
+        "einrichtung": "language coach institute Leipzig",
+        "straße": "Emilienstr. 17",
+        "telefon": "0341/3085506",
+        "email": "thiessen@languagecoach.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04103",
+        "ort": "Leipzig",
+        "einrichtung": "Learn and Speak Leipzig Wolpert Schulungszentrum Sprachschule Leipzig GmbH",
+        "straße": "Gutenbergplatz 1a-e",
+        "telefon": "0341 222 88 77 0",
+        "email": "info@las-leipzig.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "04249",
+        "ort": "Leipzig",
+        "einrichtung": "Leipziger Gesellschaft für Bildung und Arbeit",
+        "straße": "Anton-Zickmantel-Str. 41",
+        "telefon": "0341/ 4273770",
+        "email": "info@lehmbaugruppe.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": 9112,
+        "ort": "Chemnitz",
+        "einrichtung": "MIQR GmbH Chemnitz",
+        "straße": "Barbarossastr. 2",
+        "telefon": "0371-404665-20",
+        "email": "deutschkurse-chemnitz@miqr.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09113",
+        "ort": "Chemnitz",
+        "einrichtung": "Sächsischer Volkshochschulverband e.V.",
+        "straße": "Bergstraße 61",
+        "telefon": "0371-35427-54",
+        "email": "info@vhs-sachsen.de"
+      },
+      {
+        "regierungsbezirk": "Erzgebirgskreis",
+        "plz": "09456",
+        "ort": "Annaberg-Buchholz",
+        "einrichtung": "VHS Annaberg",
+        "straße": "Bärensteiner Str. 2",
+        "telefon": "03733-426224",
+        "email": "info@vhs-annaberg.de"
+      },
+      {
+        "regierungsbezirk": "kreisfreie Stadt",
+        "plz": "09111",
+        "ort": "Chemnitz",
+        "einrichtung": "VHS Chemnitz",
+        "straße": "Moritzstr. 20",
+        "telefon": "0371/ 488-4338",
+        "email": "deutsch@vhs-chemnitz.de\" "
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": "01237",
+        "ort": "Dresden",
+        "einrichtung": "VHS Dresden e. V.",
+        "straße": "Schilfweg 3",
+        "telefon": "0351-2544037",
+        "email": "jana.moebius@vhs-dresden.de"
+      },
+      {
+        "regierungsbezirk": "Erzgebirgskreis",
+        "plz": "08280",
+        "ort": "Aue",
+        "einrichtung": "VHS Erzgebirgskreis",
+        "straße": "Rudolf-Breitscheid-Str. 27",
+        "telefon": "03771-597210 oder 11",
+        "email": "susanne.schmidt@kreis-erz.de"
+      },
+      {
+        "regierungsbezirk": "Görlitz",
+        "plz": "02826",
+        "ort": "Görlitz",
+        "einrichtung": "VHS Görlitz e. V.",
+        "straße": "Langenstr. 23",
+        "telefon": "03581-4209828",
+        "email": "sprachen@vhs-goerlitz.de"
       },
       {
         "regierungsbezirk": "Leipzig",
@@ -6008,49 +5990,76 @@
         "email": "wurzen@volkshochschule-muldental.de"
       },
       {
+        "regierungsbezirk": "Nordsachsen",
+        "plz": "04860",
+        "ort": "Torgau",
+        "einrichtung": "VHS Nordsachsen",
+        "straße": "Puschkinstraße 3",
+        "telefon": "03423-700440",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "Sächsische Schweiz-Osterzgebirge",
+        "plz": "01796",
+        "ort": "Pirna",
+        "einrichtung": "VHS Sächsische Schweiz-Osterzgebirge e.V.",
+        "straße": "Geschwister-Scholl-Str. 2",
+        "telefon": "03501-710990",
+        "email": "info@vhs-ssoe.de"
+      },
+      {
         "regierungsbezirk": "Stadtkreis",
         "plz": "04105",
         "ort": "Leipzig",
         "einrichtung": "VHS Stadt Leipzig",
         "straße": "Löhrstr. 3/7",
-        "telefon": "0341/1236023/069",
-        "email": "vhs@leipzig.de"
+        "telefon": "0341/123-6000",
+        "email": "vhs-service@leipzig.de"
       },
       {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "04103",
-        "ort": "Leipzig",
-        "einrichtung": "Learn and Speak Leipzig Wolpert Schulungszentrum Sprachschule Leipzig GmbH",
-        "straße": "Gutenbergplatz 1a-e",
-        "telefon": "0341 222 88 77 0",
-        "email": "info@las-leipzig.de"
+        "regierungsbezirk": "Bautzen",
+        "plz": "02625",
+        "ort": "Bautzen",
+        "einrichtung": "VHS-Kreis Bautzen",
+        "straße": "Dr.-Peter-Jordan-Str. 21",
+        "telefon": "03591/ 272290",
+        "email": "info@kvhsbautzen.de"
       },
       {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "04103",
-        "ort": "Leipzig",
-        "einrichtung": "Euro-Schulen Leipzig",
-        "straße": "Rosa-Luxemburg-Str. 23",
-        "telefon": "0341/ 962 99 37",
-        "email": "info@es.leipzig.eso.de"
+        "regierungsbezirk": "Vogtlandkreis",
+        "plz": "08209",
+        "ort": "Auerbach /Vogtl.",
+        "einrichtung": "Volkshochschule desVogtlandkreises",
+        "straße": "Am Feldschlößchen 14",
+        "telefon": "037421-23770",
+        "email": "service@vhs-vogtlandkreis.de"
       },
       {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "04107",
-        "ort": "Leipzig",
-        "einrichtung": "language coach institute Leipzig",
-        "straße": "Emilienstr. 17",
-        "telefon": "0341/3085506",
-        "email": "thiessen@languagecoach.de"
+        "regierungsbezirk": "Görlitz",
+        "plz": "02943",
+        "ort": "Weißwasser /O.L.",
+        "einrichtung": "Volkshochschule Dreiländereck",
+        "straße": "Jahnstr. 50",
+        "telefon": "03576-2783-0",
+        "email": "info@vhs-dle.de"
       },
       {
-        "regierungsbezirk": "Stadtkreis",
-        "plz": "04249",
-        "ort": "Leipzig",
-        "einrichtung": "Leipziger Gesellschaft für Bildung und Arbeit",
-        "straße": "Anton-Zickmantel-Str. 41",
-        "telefon": "0341/ 4273770",
-        "email": "info@lehmbaugruppe.de"
+        "regierungsbezirk": "Vogtlandkreis",
+        "plz": "08527",
+        "ort": "Plauen",
+        "einrichtung": "Volkshochschule Plauen",
+        "straße": "Stresemannstr. 92",
+        "telefon": "03741-22 44 25",
+        "email": "boh@vhs-plauen.de"
+      },
+      {
+        "regierungsbezirk": "Bautzen",
+        "plz": "02977",
+        "ort": "Hoyerswerda",
+        "einrichtung": "Zoo, Kultur und Bildung gGmbH - Volkshochschule Hoyerswerda",
+        "straße": "Lausitzer Platz 4",
+        "telefon": "03571-6079943",
+        "email": "U.Grun@vhs-hy.de"
       },
       {
         "regierungsbezirk": "Stadtkreis",
