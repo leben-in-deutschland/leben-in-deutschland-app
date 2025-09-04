@@ -94,6 +94,6 @@ jobs:
           name: "Einbürgerungstest v${{ env.VERSION }}"
           draft: false
           prerelease: false
-          files: src/android/app/build/outputs/bundle/release/*.aab
+          files: src/android/app/build/outputs/bundle/release/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
