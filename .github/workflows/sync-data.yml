@@ -22,12 +22,10 @@ jobs:
       - name: Download JSON files
         run: |
           curl -o src/web/data/prüfstellen.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/main/data/prüfstellen.json
-          curl -o src/web/data/question.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/main/data/question.json
 
       - name: Check for changes
         id: git_check
         run: |
-          git add src/web/data/question.json
           git add src/web/data/prüfstellen.json
           if git diff --cached --quiet; then
             echo "No changes detected"
