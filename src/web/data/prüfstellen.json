@@ -562,6 +562,15 @@
         "email": "schlagowsky@vhs-tuttlingen.de"
       },
       {
+        "regierungsbezirk": "Esslingen",
+        "plz": 72622,
+        "ort": "Nürtingen",
+        "einrichtung": "VHS Stadt Nürtingen",
+        "straße": "Schloßgartenstr. 2",
+        "telefon": "07022-75330",
+        "email": "kontakt@vhs-nuertingen.de"
+      },
+      {
         "regierungsbezirk": "Göppingen",
         "plz": 73312,
         "ort": "Geislingen a.d.Steige",
@@ -1537,6 +1546,15 @@
         "straße": "Schlörstr. 1",
         "telefon": "08631-990314",
         "email": "info@vhs-muehldorf.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 86720,
+        "ort": "Nördlingen",
+        "einrichtung": "VHS Rieser Nördlingen e.V.",
+        "straße": "Marktplatz 20",
+        "telefon": "09081-84182",
+        "email": "vhs@noerdlingen.de"
       },
       {
         "regierungsbezirk": "Neuburg-Schrobenhausen",
