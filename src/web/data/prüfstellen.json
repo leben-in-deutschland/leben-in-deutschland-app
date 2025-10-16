@@ -719,9 +719,9 @@
         "plz": 75172,
         "ort": "Pforzheim",
         "einrichtung": "VHS Pforzheim-Enzkreis",
-        "straße": "Zerrenerstr. 29",
-        "telefon": "07231-380062",
-        "email": "schuster@vhs-pforzheim.de"
+        "straße": "Zerrennerstr. 29",
+        "telefon": "07231-380000",
+        "email": "info@vhs-pforzheim.de"
       },
       {
         "regierungsbezirk": "Sigmaringen",
@@ -1170,15 +1170,6 @@
         "email": "helga.kolbenschlag@vhs-coburg.de"
       },
       {
-        "regierungsbezirk": "Roth",
-        "plz": 91161,
-        "ort": "Hilpoltstein",
-        "einrichtung": "VHS d.Lkrs. Roth e.V.",
-        "straße": "Maria-Dorothea-Str. 8",
-        "telefon": "09174-474932",
-        "email": "roth@vhs-bayern.de"
-      },
-      {
         "regierungsbezirk": "Dachau",
         "plz": 85221,
         "ort": "Dachau",
@@ -1198,10 +1189,10 @@
       },
       {
         "regierungsbezirk": "Roth",
-        "plz": 91154,
-        "ort": "Roth",
+        "plz": 91161,
+        "ort": "Hilpoldstein",
         "einrichtung": "VHS der Gemeinden im Landkreis Roth",
-        "straße": "Hilpoltsteiner Str. 2a",
+        "straße": "Maria-Dorothea-Str. 8",
         "telefon": "09174-474940",
         "email": "integration@vhs-roth.de"
       },
@@ -3419,6 +3410,15 @@
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30161,
+        "ort": "Hannover",
+        "einrichtung": "Euro-Schulen Hannover",
+        "straße": "Hamburger 26",
+        "telefon": "0511-33617930",
+        "email": "hannover@eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 30159,
         "ort": "Hannover",
         "einrichtung": "Volkshochschule Hannover",
@@ -4985,7 +4985,7 @@
         "ort": "Lüdenscheid",
         "einrichtung": "Volkshochschule Lüdenscheid",
         "straße": "Alte Rathausstr. 1",
-        "telefon": "02351/171471",
+        "telefon": "02351/171217",
         "email": "volkshochschule@luedenscheid.de"
       },
       {
