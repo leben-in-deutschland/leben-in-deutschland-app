@@ -3909,6 +3909,15 @@
         "email": "sputniki@arcor.de"
       },
       {
+        "regierungsbezirk": "Mettmann",
+        "plz": 42551,
+        "ort": "Velbert",
+        "einrichtung": "WIPA GmbH",
+        "straße": "Südstr. 38",
+        "telefon": "02051-288415",
+        "email": "sprachkurs@wipa.de"
+      },
+      {
         "regierungsbezirk": "Soest",
         "plz": 59494,
         "ort": "Soest",
@@ -5133,8 +5142,8 @@
         "plz": "Koblenz",
         "ort": "Bénédict-Akademie Koblenz",
         "einrichtung": "Löhrstr. 127",
-        "straße": "026137654",
-        "telefon": "cburkhardt@benedict-akademie-koblenz.de",
+        "straße": "0261-9148270",
+        "telefon": "jschneider@benedict-akademie-koblenz.de",
         "email": ""
       },
       {
