@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import { Card, CardBody, CardHeader, Link, Alert } from "@heroui/react";
 
