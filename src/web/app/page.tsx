@@ -15,19 +15,26 @@ export default function Home() {
   const [user, setUser] = useState<User>();
   const [states, setState] = useState<State[]>(statesData());
   const router = useRouter()
-  const [showLoading, setShowLoading] = useState(Capacitor.isNativePlatform());
+  const [showLoading, setShowLoading] = useState(true);
   const allTranslations = getTranslations(user?.appLanguage ?? "de");
   useEffect(() => {
     if (Capacitor.isNativePlatform()) {
-      setShowLoading(false);
       router.push("/dashboard");
+    } else {
+      setShowLoading(false);
     }
-    setShowLoading(false);
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const stateData = statesData();
     setState(stateData);
+    // Load user data on mount
+    let tempUser = getUserData();
+    if (tempUser !== null) {
+      setUser(tempUser);
+    }
+
+    // Listen for user changes
     const handleUserChange = () => {
       let tempUser = getUserData();
       if (tempUser !== null) {

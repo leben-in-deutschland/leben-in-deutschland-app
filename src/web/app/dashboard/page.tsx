@@ -30,6 +30,11 @@ export default function Dashboard() {
   const [permission, setPermission] = useState<string>("");
   const [filePermission, setFilePermission] = useState<string>("");
   const [filePickerPermission, setFilePickerPermission] = useState<string>("");
+  const [isNative, setIsNative] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsNative(Capacitor.isNativePlatform());
+  }, []);
 
   useEffect(() => {
     if (!Capacitor.isNativePlatform()) {
@@ -160,13 +165,13 @@ export default function Dashboard() {
   const allTranslations = getTranslations(user?.appLanguage ?? "de");
   return (
     <div className="container mx-auto">
-      {Capacitor.isNativePlatform() && <AppUpdate
+      {isNative && <AppUpdate
         translation={allTranslations}
       />}
       {!user?.state.stateName && <StateSelect
         translation={allTranslations}
       />}
-      {Capacitor.isNativePlatform() &&
+      {isNative &&
         user && <InAppReview translation={allTranslations} user={user} />
       }
       {user && prepareQuestion &&
