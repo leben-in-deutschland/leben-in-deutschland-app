@@ -8,10 +8,15 @@ import { useTheme } from "next-themes";
 import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { Button } from "@heroui/button";
 import { SunMoonIcon } from "@/icons/SunMoonIcon";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const ThemeSwitch = () => {
     const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const onChange = (newTheme: string) => {
         setTheme(newTheme)
@@ -34,7 +39,7 @@ export const ThemeSwitch = () => {
 
     return (
         <div className="flex gap-1">
-            {theme &&
+            {mounted &&
                 <>
                     <Button
                         variant={theme === "light" ? "bordered" : "light"}

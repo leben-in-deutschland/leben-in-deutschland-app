@@ -16,7 +16,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "noImplicitAny": false,
     "downlevelIteration": true,
@@ -37,6 +37,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "environment.d.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
