@@ -8,17 +8,22 @@ import { useTheme } from "next-themes";
 import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { Button } from "@heroui/button";
 import { SunMoonIcon } from "@/icons/SunMoonIcon";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const ThemeSwitch = () => {
     const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const onChange = (newTheme: string) => {
         setTheme(newTheme)
     };
 
     useEffect(() => {
-        if (Capacitor.isNativePlatform()) {
+        if (Capacitor.isNativePlatform() && mounted) {
             let tempTheme = theme;
             if (theme === "system") {
                 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
@@ -30,32 +35,33 @@ export const ThemeSwitch = () => {
             StatusBar.setBackgroundColor({ color: backgroundColor });
             StatusBar.setStyle({ style: style });
         }
-    }, [theme]);
+    }, [theme, mounted]);
+
+    // Prevent hydration mismatch by not rendering until mounted
+    if (!mounted) {
+        return <div className="flex gap-1" style={{ width: '120px' }} />;
+    }
 
     return (
         <div className="flex gap-1">
-            {theme &&
-                <>
-                    <Button
-                        variant={theme === "light" ? "bordered" : "light"}
-                        color={theme === "light" ? "primary" : "default"}
-                        onPress={() => onChange("light")}
-                        isIconOnly
-                        startContent={<SunFilledIcon />} />
-                    <Button
-                        variant={theme === "system" ? "bordered" : "light"}
-                        color={theme === "system" ? "primary" : "default"}
-                        onPress={() => onChange("system")}
-                        isIconOnly
-                        startContent={<SunMoonIcon />} />
-                    <Button
-                        variant={theme === "dark" ? "bordered" : "light"}
-                        color={theme === "dark" ? "primary" : "default"}
-                        onPress={() => onChange("dark")}
-                        isIconOnly
-                        startContent={<MoonFilledIcon />} />
-                </>
-            }
+            <Button
+                variant={theme === "light" ? "bordered" : "light"}
+                color={theme === "light" ? "primary" : "default"}
+                onPress={() => onChange("light")}
+                isIconOnly
+                startContent={<SunFilledIcon />} />
+            <Button
+                variant={theme === "system" ? "bordered" : "light"}
+                color={theme === "system" ? "primary" : "default"}
+                onPress={() => onChange("system")}
+                isIconOnly
+                startContent={<SunMoonIcon />} />
+            <Button
+                variant={theme === "dark" ? "bordered" : "light"}
+                color={theme === "dark" ? "primary" : "default"}
+                onPress={() => onChange("dark")}
+                isIconOnly
+                startContent={<MoonFilledIcon />} />
         </div>
     );
 };
