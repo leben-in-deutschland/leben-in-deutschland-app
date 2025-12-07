@@ -43,10 +43,16 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
     };
 
     const handleAppLanguageChange = async (language: string) => {
-        if (!user) return;
-        user.appLanguage = language;
-        setUser(user);
-        saveInlocalStorage(user);
+        const updatedUser: User = user ?? {
+            state: { code: "de", name: "Deutschland" },
+            appLanguage: "de",
+            questionProgress: [],
+            testProgress: []
+        };
+        updatedUser.appLanguage = language;
+        setUser(updatedUser);
+        saveInlocalStorage(updatedUser);
+        window.location.reload();
     };
     const [isStartOverWarningOpen, setIsStartOverWarningOpen] = useState(false);
     const handleStartOverWarningClose = () => {
@@ -83,7 +89,7 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                             <div className="grid grid-cols-2 gap-4">
                                 <h4 className="col-start-1 dark:text-white">{allTranslations.app_language}</h4>
                                 <div className="col-start-2 justify-right">
-                                    {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
+                                    <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-2">

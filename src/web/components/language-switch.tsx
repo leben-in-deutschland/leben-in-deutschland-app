@@ -4,20 +4,24 @@ import { Select, SelectItem } from "@heroui/react";
 import { GermanFlagIcon } from "@/icons/GermanFlagIcon";
 import { UnitedKingdomIcon } from "@/icons/UnitedKingdomIcon";
 import { User } from "@/types/user";
+import { useState } from "react";
 
 export const LanguageSwitch = ({ user, handleAppLanguageChange }: { user: User | undefined, handleAppLanguageChange: any }) => {
+    const [selectedLang, setSelectedLang] = useState(user?.appLanguage ?? "de");
 
     const handleSelectionChange = (e: any) => {
-        handleAppLanguageChange(e.target.value);
+        const lang = e.target.value;
+        setSelectedLang(lang);
+        handleAppLanguageChange(lang);
     };
 
     return (
         <Select
             className="max-w-xs"
-            defaultSelectedKeys={[user?.appLanguage === "en" ? "en" : "de"]}
+            selectedKeys={[selectedLang]}
             label="App Language"
             placeholder="Select App Language"
-            startContent={user?.appLanguage === "en" ? <UnitedKingdomIcon /> : <GermanFlagIcon />}
+            startContent={selectedLang === "en" ? <UnitedKingdomIcon /> : <GermanFlagIcon />}
             onChange={handleSelectionChange}
         >
             <SelectItem key="de" startContent={<GermanFlagIcon />}>Deutsch</SelectItem>
