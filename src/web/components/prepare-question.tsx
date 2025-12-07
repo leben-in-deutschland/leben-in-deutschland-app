@@ -24,15 +24,15 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
                             <h2 className="font-bold text-uppercase text-muted">
                                 {translation.dashboard_prepate_button_text}
                             </h2>
-                            <p className="flex">
+                            <div className="flex">
                                 <Tooltip content="Attempted">
-                                    <h2 className="text-green-400 font-extrabold md:text-4xl">{attempted}</h2>
+                                    <span className="text-green-400 font-extrabold md:text-4xl">{attempted}</span>
                                 </Tooltip>
                                 /
                                 <Tooltip content="All Questions">
-                                    <h2 className="text-yellow-500 font-bold">{allQuestions}</h2>
+                                    <span className="text-yellow-500 font-bold">{allQuestions}</span>
                                 </Tooltip>
-                            </p>
+                            </div>
 
                         </div>
                         <div style={{ width: "5rem" }}>
