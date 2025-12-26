@@ -2870,6 +2870,15 @@
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 30159,
+        "ort": "Hannover",
+        "einrichtung": "Bergmann Bildungsinstitut",
+        "straße": "Otto-Brenner-Str. 7",
+        "telefon": "0511-5696-4170",
+        "email": "info@bergmann-institut.org"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 30167,
         "ort": "Hannover",
         "einrichtung": "Arbeit und Leben Niedersachsen gGmbH ",
