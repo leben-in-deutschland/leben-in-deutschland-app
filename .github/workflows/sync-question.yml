@@ -1,14 +1,12 @@
-name: Sync Prüfstellen
+name: Sync Questions
 on:
-  schedule:
-    - cron: "0 3 */15 * *"
   workflow_dispatch:
 permissions:
   contents: write
 
 jobs:
-  scrap_pruefstellen:
-    name: Sync Prüfstellen
+  scrap_questions:
+    name: Sync Questions
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,12 +19,12 @@ jobs:
 
       - name: Download JSON files
         run: |
-          curl -o src/web/data/prüfstellen.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/main/data/prüfstellen.json
+          curl -o src/web/data/question.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/main/data/question.json
 
       - name: Check for changes
         id: git_check
         run: |
-          git add src/web/data/prüfstellen.json
+          git add src/web/data/question.json
           if git diff --cached --quiet; then
             echo "No changes detected"
             echo "changed=false" >> $GITHUB_ENV
