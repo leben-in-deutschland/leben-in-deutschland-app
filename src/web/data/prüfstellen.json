@@ -810,8 +810,8 @@
         "ort": "Stuttgart",
         "einrichtung": "VHS Stuttgart",
         "straße": "Fritz-Elsas-Str. 46-48",
-        "telefon": "0711/1873-748",
-        "email": "agnieszka.schulze@vhs-stuttgart.de"
+        "telefon": "0711/1873-895",
+        "email": "nadine.czaja@vhs-stuttgart.de"
       },
       {
         "regierungsbezirk": "Tübingen",
@@ -848,6 +848,15 @@
         "straße": "Zunfthausgasse 4",
         "telefon": "07522 74242",
         "email": "vhs@wangen.de"
+      },
+      {
+        "regierungsbezirk": "Emmendingen",
+        "plz": 79183,
+        "ort": "Waldkirch",
+        "einrichtung": "Volkshochschule Waldkirch e.V.",
+        "straße": "LangeStraße 12",
+        "telefon": "07681-474149",
+        "email": "integrationskurse@vhs-waldkirch.de"
       },
       {
         "regierungsbezirk": "Hohenlohekreis",
@@ -1208,11 +1217,11 @@
       {
         "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
         "plz": 95615,
-        "ort": "Marktredwitz",
-        "einrichtung": "VHS der Stadt Marktredwitz",
-        "straße": "Fikentscherstr. 19",
-        "telefon": "09231-5115",
-        "email": "vhs@marktredwitz.de"
+        "ort": "Selb",
+        "einrichtung": "VHS Fichtelgebirge",
+        "straße": "Ludwigsmühle 10",
+        "telefon": "09287-8005110",
+        "email": "info@vhs-fichtelgebirge.de"
       },
       {
         "regierungsbezirk": "Hammelburg",
@@ -3409,6 +3418,15 @@
         "email": "mf@vhs-zeven.de"
       },
       {
+        "regierungsbezirk": "Hannover",
+        "plz": 31275,
+        "ort": "Lehrte",
+        "einrichtung": "Volkshochschule Ostkreis Hannover",
+        "straße": "Rathausplatz 2",
+        "telefon": "05132-50000",
+        "email": "info@vhs-ostkreis-hannover.de"
+      },
+      {
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 49074,
         "ort": "Osnabrück",
@@ -3853,6 +3871,15 @@
         "straße": "Widdersdorfer Str. 399",
         "telefon": "0221-9496680",
         "email": "reiswich.elena@es.koeln.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 50667,
+        "ort": "Köln",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Schildergasse 72-74",
+        "telefon": "0221-277390",
+        "email": "koeln@berlitz.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -5136,10 +5163,19 @@
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 40233,
         "ort": "Düsseldorf",
-        "einrichtung": "Bénédict GmbH & Co. KG",
+        "einrichtung": "Bénédict GmbH",
         "straße": "Ackerstraße 3",
         "telefon": "0211 355940-142",
         "email": "malgorzata.pramor@benedict-schulen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 41061,
+        "ort": "Mönchengladbach",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Berliner Platz 12",
+        "telefon": "02161-17077",
+        "email": "moenchengladbach@berlitz.de"
       }
     ]
   },
