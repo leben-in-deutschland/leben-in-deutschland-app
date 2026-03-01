@@ -341,9 +341,9 @@
         "plz": 74523,
         "ort": "Schwäbisch Hall",
         "einrichtung": "Kompetenz & Bildung, Kunert & Buckel",
-        "straße": "Gerhard-Storz-Weg 24, Schwäbisch Hall",
+        "straße": "Im Hardt 82",
         "telefon": "0791-94078191",
-        "email": "marcus.buckel@kompetenzundbildung.de"
+        "email": "test@kompetenzundbildung.de"
       },
       {
         "regierungsbezirk": "Freudenstadt",
@@ -2114,6 +2114,24 @@
         "straße": "Zeil 41",
         "telefon": "069-71712874",
         "email": "integration@avicenna-ev.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 64625,
+        "ort": "Bensheim",
+        "einrichtung": "Caritas Zentrum Franziskushaus",
+        "straße": "Klostergasse 5a",
+        "telefon": "06251-854250",
+        "email": "migration.bergstrasse@caritas-darmstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 60326,
+        "ort": "Frankfurt am Main",
+        "einrichtung": "DRK-Sozialdienste Frankfurt am Main",
+        "straße": "Mainzer Landstraße 349",
+        "telefon": "069-26923349",
+        "email": "sbz-pruefungen@drkfrankfurt.de "
       },
       {
         "regierungsbezirk": "Fulda",
@@ -5131,15 +5149,6 @@
         "straße": "Ramgestraße 6",
         "telefon": "0208-6351988",
         "email": "info@millenium-ev.org"
-      },
-      {
-        "regierungsbezirk": "Kreisfreie Stadt",
-        "plz": 48143,
-        "ort": "Münster",
-        "einrichtung": "Werkstatt für Bildung und Kultur",
-        "straße": "Servatiiplatz 9",
-        "telefon": "0251-981141-10",
-        "email": "info@deutschwerkstatt.de"
       },
       {
         "regierungsbezirk": "Rheinisch-Bergischer Kreis",
