@@ -2454,8 +2454,8 @@
         "ort": "Kassel",
         "einrichtung": "VHS Region- Kassel",
         "straße": "Wilhelmshöher Allee 19-21",
-        "telefon": "0561-10030",
-        "email": "katharina-seewald@landkreiskassel.de"
+        "telefon": "0561-1003 1005",
+        "email": "vhs-integration@landkreiskassel.de"
       },
       {
         "regierungsbezirk": "Rheingau-Taunus-Kreis",
@@ -5954,15 +5954,6 @@
         "email": "german@inlingua-dresden.de"
       },
       {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02625",
-        "ort": "Bautzen",
-        "einrichtung": "Kreisvolkshochschule Bauzen",
-        "straße": "Postplatz 3",
-        "telefon": "03591-27229-13",
-        "email": "andrea.siebert@kvhsbautzen.de "
-      },
-      {
         "regierungsbezirk": "Stadtkreis",
         "plz": "04107",
         "ort": "Leipzig",
@@ -6114,15 +6105,6 @@
         "straße": "Löhrstr. 3/7",
         "telefon": "0341-123-6000",
         "email": "vhs-service@leipzig.de"
-      },
-      {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02625",
-        "ort": "Bautzen",
-        "einrichtung": "VHS-Kreis Bautzen",
-        "straße": "Dr.-Peter-Jordan-Str. 21",
-        "telefon": "03591-272290",
-        "email": "info@kvhsbautzen.de"
       },
       {
         "regierungsbezirk": "Vogtlandkreis",
