@@ -21,7 +21,7 @@ import { DonateIcon } from "../icons/DonateIcon";
 import { Logo } from "../icons/Logo";
 import { GithubIcon } from "../icons/GithubIcon";
 import { BitesInByteIcon } from "@/icons/BitesInByteIcon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserSetting from "./settings/user-setting";
 import { SettingIcon } from "@/icons/SettingIcon";
 import { DashboardIcon } from "@/icons/DashboardIcon";
@@ -30,6 +30,11 @@ import { Capacitor } from "@capacitor/core";
 export const NavigationBar = () => {
     const [isSettingsClick, setSettingClicked] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isNative, setIsNative] = useState(false);
+
+    useEffect(() => {
+        setIsNative(Capacitor.isNativePlatform());
+    }, []);
 
     const handleSettingClick = () => {
         setSettingClicked(true);
@@ -45,14 +50,14 @@ export const NavigationBar = () => {
             <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} >
                 <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
-                        <NextLink className="flex justify-start items-center gap-1" href={Capacitor.isNativePlatform() ? "/dashboard" : "/"}>
+                        <NextLink className="flex justify-start items-center gap-1" href={isNative ? "/dashboard" : "/"}>
                             <Logo />
                             <p className="font-bold dark:text-white" >Leben</p>
                             <p className="font-bold text-red-500"> in </p>
                             <p className="font-bold text-yellow-400">Deutschland </p>
                         </NextLink>
                         {
-                            !Capacitor.isNativePlatform() &&
+                            !isNative &&
                             <NextLink className="md:flex" href="/dashboard" aria-label="dashboard">
                                 <Tooltip content="Dashboard">
                                     <DashboardIcon className="text-default-500" />
@@ -72,7 +77,7 @@ export const NavigationBar = () => {
                     <Button style={{ backgroundColor: 'transparent' }} isIconOnly variant="light" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
                     <ThemeSwitch />
                     {
-                        !Capacitor.isNativePlatform() &&
+                        !isNative &&
                         <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
                             <DonateIcon className="text-red-700" />
                             <p className="hidden md:flex text-red-700">Donate</p>
@@ -82,7 +87,7 @@ export const NavigationBar = () => {
                 </NavbarContent>
                 <NavbarContent className="sm:hidden basis-1" justify="end">
                     {
-                        !Capacitor.isNativePlatform() &&
+                        !isNative &&
                         <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
                             <DonateIcon className="text-red-700" />
                             <p className="hidden md:flex text-red-700">Donate</p>

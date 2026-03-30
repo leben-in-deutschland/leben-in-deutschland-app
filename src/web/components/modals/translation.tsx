@@ -71,7 +71,7 @@ export const Translation = ({
                         className="w-1/2"
                         onChange={(e) => setCurrentLanguage(e.target.value)}
                     >
-                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} />} key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
+                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} alt={lang.displayName} />} key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
                     </Select>
                 </ModalHeader>
                 <ModalBody>

@@ -1,0 +1,52 @@
+name: Sync Evaluation Data
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+
+jobs:
+  sync_evaluation:
+    name: Sync Current Evaluation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      - name: Download evaluation JSON
+        run: |
+          curl -o src/web/data/current-evaluation.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/refs/heads/main/data/current-evaluation.json
+
+      - name: Check for changes
+        id: git_check
+        run: |
+          git add src/web/data/current-evaluation.json
+          if git diff --cached --quiet; then
+            echo "No changes detected"
+            echo "changed=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected"
+            echo "changed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Bump version if changes detected
+        if: env.changed == 'true'
+        working-directory: src/web
+        run: |
+          npm version patch --no-git-tag-version
+
+      - name: Commit and Push Changes
+        if: env.changed == 'true'
+        run: |
+          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
+          git add .
+          git commit -m "Sync evaluation data & bump version"
+          git push

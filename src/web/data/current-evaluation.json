@@ -1,0 +1,94 @@
+{
+  "examDate": "03.03.2026",
+  "lastSyncAt": "30.03.2026 13:48:05",
+  "history": [
+    {
+      "examDate": "17.03.2025",
+      "checkedAt": "01.06.2025"
+    },
+    {
+      "examDate": "24.03.2025",
+      "checkedAt": "16.06.2025"
+    },
+    {
+      "examDate": "22.04.2025",
+      "checkedAt": "01.07.2025"
+    },
+    {
+      "examDate": "07.05.2025",
+      "checkedAt": "16.07.2025"
+    },
+    {
+      "examDate": "23.05.2025",
+      "checkedAt": "31.07.2025"
+    },
+    {
+      "examDate": "10.06.2025",
+      "checkedAt": "16.08.2025"
+    },
+    {
+      "examDate": "23.06.2025",
+      "checkedAt": "31.08.2025"
+    },
+    {
+      "examDate": "18.07.2025",
+      "checkedAt": "16.09.2025"
+    },
+    {
+      "examDate": "27.08.2025",
+      "checkedAt": "01.10.2025"
+    },
+    {
+      "examDate": "22.09.2025",
+      "checkedAt": "16.10.2025"
+    },
+    {
+      "examDate": "10.10.2025",
+      "checkedAt": "31.10.2025"
+    },
+    {
+      "examDate": "21.10.2025",
+      "checkedAt": "16.11.2025"
+    },
+    {
+      "examDate": "30.10.2025",
+      "checkedAt": "01.12.2025"
+    },
+    {
+      "examDate": "10.11.2025",
+      "checkedAt": "16.12.2025"
+    },
+    {
+      "examDate": "19.11.2025",
+      "checkedAt": "26.12.2025"
+    },
+    {
+      "examDate": "20.11.2025",
+      "checkedAt": "31.12.2025"
+    },
+    {
+      "examDate": "28.11.2025",
+      "checkedAt": "16.01.2026"
+    },
+    {
+      "examDate": "30.12.2025",
+      "checkedAt": "31.01.2026"
+    },
+    {
+      "examDate": "16.01.2026",
+      "checkedAt": "16.02.2026"
+    },
+    {
+      "examDate": "02.02.2026",
+      "checkedAt": "01.03.2026"
+    },
+    {
+      "examDate": "17.02.2026",
+      "checkedAt": "16.03.2026"
+    },
+    {
+      "examDate": "03.03.2026",
+      "checkedAt": "30.03.2026"
+    }
+  ]
+}

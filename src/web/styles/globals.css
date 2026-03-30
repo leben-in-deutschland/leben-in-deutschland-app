@@ -9,9 +9,540 @@
   }
 }
 
+/* Hero gradient text - German flag colors */
+.hero-gradient-text {
+  background: linear-gradient(135deg, #dd0000 0%, #ffcc00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .hero-gradient-text {
+  background: linear-gradient(135deg, #ff4444 0%, #ffdd44 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scroll-triggered fade-in-up animation */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation-delay: 0.1s;
+}
+.animate-fade-in-up-delay-2 {
+  animation-delay: 0.2s;
+}
+.animate-fade-in-up-delay-3 {
+  animation-delay: 0.3s;
+}
+.animate-fade-in-up-delay-4 {
+  animation-delay: 0.4s;
+}
+.animate-fade-in-up-delay-5 {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger children animation for grids */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(9) { animation-delay: 0.45s; }
+.stagger-children > *:nth-child(10) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(11) { animation-delay: 0.55s; }
+.stagger-children > *:nth-child(12) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(13) { animation-delay: 0.65s; }
+.stagger-children > *:nth-child(14) { animation-delay: 0.7s; }
+.stagger-children > *:nth-child(15) { animation-delay: 0.75s; }
+.stagger-children > *:nth-child(16) { animation-delay: 0.8s; }
+.stagger-children > *:nth-child(17) { animation-delay: 0.85s; }
+
+/* Floating decorative animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(6px) rotate(-1deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out 2s infinite;
+}
+
+/* Subtle scale on scroll for sections */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  opacity: 0;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Number counter pulse */
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-count-pulse:hover {
+  animation: countPulse 0.6s ease-in-out;
+}
+
+/* Glass morphism card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient border animation on hover */
+.gradient-border-hover {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.gradient-border-hover:hover {
+  box-shadow: 0 0 0 2px rgba(221, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.dark .gradient-border-hover:hover {
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.3), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Step connector line for "How it works" */
+.step-connector {
+  position: relative;
+}
+
+.step-connector::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: calc(100% + 4px);
+  width: calc(100% - 48px);
+  height: 2px;
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.3), transparent);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .step-connector::after {
+    display: block;
+  }
+}
+
+/* Slick carousel overrides */
 .slick-prev:before,
 .slick-next:before {
-  color: red!important;
+  color: red !important;
+}
+
+.slick-dots li button:before {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-scale-in,
+  .stagger-children > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-float,
+  .animate-float-delayed,
+  .hero-ambient-glow,
+  .hero-ring,
+  .hero-ring-inner,
+  .hero-orb-1,
+  .hero-orb-2,
+  .hero-orb-3,
+  .hero-orb-4,
+  .hero-orb-5 {
+    animation: none !important;
+  }
+
+  .hero-morph-text {
+    animation: none !important;
+  }
+
+  .hero-morph-desc {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hero morph text animation – cycles between two terms */
+@keyframes morphTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes morphTextOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    filter: blur(4px);
+  }
+}
+
+.hero-morph-enter {
+  animation: morphTextIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-morph-exit {
+  animation: morphTextOut 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+/* Connector line pulse between the two hero terms */
+@keyframes connectorPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.hero-connector-pulse {
+  animation: connectorPulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect for hero badge */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Hero 3D floating geometry background ─── */
+
+/* Scene container – sets up 3D perspective */
+.hero-3d-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+  transform-style: preserve-3d;
+}
+
+/* Ambient glow – large soft radial behind everything */
+.hero-ambient-glow {
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(221, 0, 0, 0.08) 0%,
+    rgba(255, 204, 0, 0.05) 30%,
+    transparent 65%
+  );
+  animation: ambientPulse 6s ease-in-out infinite;
+}
+
+:is(.dark) .hero-ambient-glow {
+  background: radial-gradient(
+    circle,
+    rgba(255, 68, 68, 0.07) 0%,
+    rgba(255, 221, 68, 0.04) 30%,
+    transparent 65%
+  );
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* Large rotating ring – torus illusion via border-radius + border */
+.hero-ring-wrapper {
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+.hero-ring {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 2px solid rgba(221, 0, 0, 0.12);
+  animation: ringOrbit 20s linear infinite;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+:is(.dark) .hero-ring {
+  border-color: rgba(255, 100, 100, 0.15);
+}
+
+.hero-ring-inner {
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 204, 0, 0.10);
+  animation: ringOrbitReverse 15s linear infinite;
+}
+
+:is(.dark) .hero-ring-inner {
+  border-color: rgba(255, 221, 68, 0.12);
+}
+
+@keyframes ringOrbit {
+  0%   { transform: rotateX(65deg) rotateZ(0deg); }
+  100% { transform: rotateX(65deg) rotateZ(360deg); }
+}
+
+@keyframes ringOrbitReverse {
+  0%   { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(-360deg); }
+}
+
+@media (min-width: 640px) {
+  .hero-ring {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-ring {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+/* Floating orbs – glassy spheres with gradient and pseudo-3D highlight */
+.hero-orb {
+  transform-style: preserve-3d;
+}
+
+.hero-orb-sphere {
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Highlight/shine on each orb */
+.hero-orb-sphere::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 35%;
+  height: 25%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  filter: blur(4px);
+}
+
+:is(.dark) .hero-orb-sphere::after {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Orb color variants – light mode */
+.hero-orb-red {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 120, 120, 0.5), rgba(221, 0, 0, 0.25) 60%, rgba(180, 0, 0, 0.15));
+  box-shadow: 0 8px 32px rgba(221, 0, 0, 0.15), inset 0 -4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-orb-gold {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 230, 120, 0.6), rgba(255, 204, 0, 0.3) 60%, rgba(200, 160, 0, 0.15));
+  box-shadow: 0 8px 32px rgba(255, 204, 0, 0.15), inset 0 -4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.hero-orb-dark {
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle at 35% 35%, rgba(120, 120, 120, 0.4), rgba(40, 40, 40, 0.2) 60%, rgba(0, 0, 0, 0.15));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-orb-red-sm {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 150, 150, 0.5), rgba(221, 0, 0, 0.2));
+  box-shadow: 0 4px 16px rgba(221, 0, 0, 0.12);
+}
+
+.hero-orb-gold-sm {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 235, 150, 0.6), rgba(255, 204, 0, 0.25));
+  box-shadow: 0 4px 16px rgba(255, 204, 0, 0.12);
+}
+
+/* Dark mode orb overrides */
+:is(.dark) .hero-orb-red {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 140, 140, 0.45), rgba(255, 68, 68, 0.25) 60%, rgba(200, 0, 0, 0.12));
+  box-shadow: 0 8px 32px rgba(255, 68, 68, 0.2), inset 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+:is(.dark) .hero-orb-gold {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 240, 150, 0.5), rgba(255, 221, 68, 0.25) 60%, rgba(200, 170, 0, 0.12));
+  box-shadow: 0 8px 32px rgba(255, 221, 68, 0.2), inset 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+:is(.dark) .hero-orb-dark {
+  background: radial-gradient(circle at 35% 35%, rgba(200, 200, 200, 0.2), rgba(140, 140, 140, 0.1) 60%, rgba(80, 80, 80, 0.08));
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05), inset 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+:is(.dark) .hero-orb-red-sm {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 160, 160, 0.4), rgba(255, 68, 68, 0.18));
+  box-shadow: 0 4px 16px rgba(255, 68, 68, 0.15);
+}
+
+:is(.dark) .hero-orb-gold-sm {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 240, 170, 0.45), rgba(255, 221, 68, 0.2));
+  box-shadow: 0 4px 16px rgba(255, 221, 68, 0.15);
+}
+
+/* Orb positioning and float animation */
+.hero-orb-1 {
+  top: 12%;
+  right: 8%;
+  animation: orbFloat1 10s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+  bottom: 18%;
+  left: 10%;
+  animation: orbFloat2 12s ease-in-out 1s infinite;
+}
+
+.hero-orb-3 {
+  top: 40%;
+  right: 15%;
+  animation: orbFloat3 14s ease-in-out 2s infinite;
+}
+
+.hero-orb-4 {
+  top: 25%;
+  left: 18%;
+  animation: orbFloat4 11s ease-in-out 3s infinite;
+}
+
+.hero-orb-5 {
+  bottom: 28%;
+  right: 22%;
+  animation: orbFloat5 13s ease-in-out 0.5s infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  25%      { transform: translate3d(-15px, 20px, 40px) scale(1.05); }
+  50%      { transform: translate3d(10px, -15px, 80px) scale(0.95); }
+  75%      { transform: translate3d(20px, 10px, 30px) scale(1.02); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  30%      { transform: translate3d(20px, -25px, 60px) scale(1.08); }
+  60%      { transform: translate3d(-10px, 15px, 30px) scale(0.96); }
+  80%      { transform: translate3d(15px, -10px, 50px) scale(1.03); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  20%      { transform: translate3d(-20px, -10px, 50px) scale(1.04); }
+  50%      { transform: translate3d(15px, 20px, 70px) scale(0.92); }
+  80%      { transform: translate3d(-5px, -15px, 20px) scale(1.06); }
+}
+
+@keyframes orbFloat4 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  35%      { transform: translate3d(12px, -18px, 30px) scale(1.1); }
+  65%      { transform: translate3d(-8px, 12px, 50px) scale(0.9); }
+}
+
+@keyframes orbFloat5 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  40%      { transform: translate3d(-14px, 16px, 45px) scale(1.06); }
+  70%      { transform: translate3d(10px, -20px, 25px) scale(0.94); }
+}
+
+/* Perspective grid floor – vanishing into distance */
+.hero-grid-floor {
+  transform: translateX(-50%) rotateX(68deg);
+  transform-origin: center top;
+  background-image:
+    linear-gradient(0deg, rgba(221, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 204, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 80%);
+}
+
+:is(.dark) .hero-grid-floor {
+  background-image:
+    linear-gradient(0deg, rgba(255, 100, 100, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 221, 68, 0.04) 1px, transparent 1px);
 }
 
 @layer base {
@@ -68,5 +599,36 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+}
+
+/* ── BAMF Evaluation Timeline ── */
+.eval-timeline-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--heroui-default-300)) transparent;
+}
+.eval-timeline-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.eval-timeline-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.eval-timeline-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--heroui-default-300));
+  border-radius: 3px;
+}
+
+.eval-node-pulse {
+  animation: evalNodePulse 2s ease-in-out infinite;
+}
+
+@keyframes evalNodePulse {
+  0%, 100% { r: 7; opacity: 1; }
+  50% { r: 9; opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eval-node-pulse {
+    animation: none;
   }
 }
