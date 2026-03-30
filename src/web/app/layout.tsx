@@ -6,21 +6,25 @@ import { Providers } from "./provider";
 import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
 import { Link } from "@heroui/link";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { keywords } from "@/data/keyword";
+import { Footer } from "@/components/footer";
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-}
-
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.lebenindeutschland.org'),
+  metadataBase: new URL("https://www.lebenindeutschland.org"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
+    languages: {
+      de: "/",
+      en: "/",
+    },
   },
   title: {
     default: siteConfig.name,
@@ -29,55 +33,38 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "de_DE",
+    alternateLocale: "en_US",
     title: siteConfig.name,
-    url: "www.lebenindeutschland.org",
+    url: "https://www.lebenindeutschland.org",
     siteName: siteConfig.name,
-    description: siteConfig.description,
+    description: siteConfig.descriptionEn,
     images: [
       {
-        url: "./mobile/app-1.png",
+        url: "/mobile/app-1.png",
         width: 1200,
         height: 2880,
-        alt: siteConfig.name,
+        alt: "Leben in Deutschland - Einbürgerungstest App Dashboard",
       },
       {
-        url: "./mobile/app-2.png",
+        url: "/mobile/app-2.png",
         width: 1200,
         height: 2880,
-        alt: siteConfig.name,
+        alt: "Übungsfragen für den Einbürgerungstest",
       },
       {
-        url: "./mobile/app-3.png",
+        url: "/mobile/app-3.png",
         width: 1200,
         height: 2880,
-        alt: siteConfig.name,
-      },
-      {
-        url: "./mobile/app-4.png",
-        width: 1200,
-        height: 2880,
-        alt: siteConfig.name,
-      },
-      {
-        url: "./mobile/app-5.png",
-        width: 1200,
-        height: 2880,
-        alt: siteConfig.name,
-      },
-      {
-        url: "./mobile/app-6.png",
-        width: 1200,
-        height: 2880,
-        alt: siteConfig.name,
-      },
-      {
-        url: "./mobile/app-7.png",
-        width: 1200,
-        height: 2880,
-        alt: siteConfig.name,
+        alt: "Probeprüfung mit Timer",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.descriptionEn,
+    images: ["/mobile/app-1.png"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -87,10 +74,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   generator: "Next.js",
   keywords: keywords,
+  category: "Education",
+  applicationName: "Leben in Deutschland",
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "Leben in DE",
+  },
 };
 
 export default function RootLayout({
@@ -99,37 +100,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="de" suppressHydrationWarning={true}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
         className={clsx(
-          "bg-background font-sans antialiased",
-          fontSans.variable
+          "bg-background font-sans antialiased overflow-x-hidden",
+          fontSans.variable,
         )}
       >
         <SpeedInsights />
         <Providers themeProps={{ attribute: "class", enableSystem: true }}>
           <div className="flex flex-col min-h-screen">
             <NavigationBar />
-            <main className="container mx-auto flex flex-col flex-grow w-full p-4">
+            <main className="container mx-auto flex flex-col flex-grow w-full px-4 sm:px-6 py-4">
               {children}
-              <footer className="mt-auto flex p-4 bg-background justify-between items-center">
-                <div className="flex items-center">
-                  <span className="sm:text-center">
-                    © {new Date().getFullYear()} <a href="https://www.bitesinbyte.com/" className="hover:underline font-bold">bitesinbyte</a> All Rights Reserved
-                  </span>
-                </div>
-                <div className="items-center hidden md:flex">
-                  <Link href="/privacy-policy" className="mr-4 hover:underline md:mr-6">Privacy Policy</Link>
-                  <Link href="mailto:hello@bitesinbyte.com" target="_blank" className="hover:underline">Contact</Link>
-                </div>
-              </footer>
             </main>
+            <Footer />
           </div>
         </Providers>
       </body>
-    </html >
+    </html>
   );
 }
