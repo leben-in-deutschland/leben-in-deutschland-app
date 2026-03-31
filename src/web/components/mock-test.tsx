@@ -10,7 +10,7 @@ export default function MockTest({ user, translation }: { user: User, translatio
     let failed = user.testProgress.filter(x => !x.passed).length;
     return (
         <div className="item-center">
-            <Tooltip content="Attempt mock exam">
+            <Tooltip content={translation.attempt_mock_exam ?? "Attempt mock exam"}>
                 <Card className="card-stats border-none item-center w-[100%]"
                     isPressable
                     onPress={() => router.push("/mock?action=mock")}>
@@ -20,11 +20,11 @@ export default function MockTest({ user, translation }: { user: User, translatio
                                 {translation.dashboard_mock_button_text}
                             </h2>
                             <p className="flex">
-                                <Tooltip content="Passed">
+                                <Tooltip content={translation.passed ?? "Passed"}>
                                     <h2 className="text-green-400 font-extrabold md:text-4xl">{passed}</h2>
                                 </Tooltip>
                                 /
-                                <Tooltip content="Failed">
+                                <Tooltip content={translation.failed ?? "Failed"}>
                                     <h2 className="text-red-500 font-bold">{failed}</h2>
                                 </Tooltip>
                             </p>
@@ -42,7 +42,7 @@ export default function MockTest({ user, translation }: { user: User, translatio
                                     }
                                 }}
                                 data={{
-                                    labels: ["Passed", "Failed"],
+                                    labels: [translation.passed ?? "Passed", translation.failed ?? "Failed"],
                                     datasets: [
                                         {
                                             data: [passed, failed],

@@ -101,12 +101,12 @@ export const QuizAnswer = ({ translation, mockExam, questions, handleQuizCancel 
                 </CardBody>
                 <CardFooter className="justify-between">
                     <div className="flex gap-3">
-                        <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
-                        <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
+                        <p className="bg-yellow-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.findIndex(x => x.num === currentQuizQuestion.num) + 1}</p>
+                        <p className="bg-red-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.length}</p>
 
                     </div>
                     <div className="flex">
-                        <Tooltip content="Cancel Mock Test">
+                        <Tooltip content={translation.cancel_mock_test ?? "Cancel Mock Test"}>
                             <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>{translation.cancel}</Button>
                         </Tooltip>
                         {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === 0) && <Button variant="solid" color="primary" onPress={handleBack}>{translation.back}</Button>}

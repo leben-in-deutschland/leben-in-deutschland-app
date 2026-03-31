@@ -15,9 +15,9 @@ export const StartOverWarning = ({
             isDismissable={true}
             hideCloseButton={true}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.are_you_sure}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 text-foreground">{translation.are_you_sure}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{translation.start_over_alert}</p>
+                    <p className="text-foreground">{translation.start_over_alert}</p>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="success" variant="bordered" onPress={handleClose}>

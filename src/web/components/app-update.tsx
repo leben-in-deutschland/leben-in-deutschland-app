@@ -34,9 +34,9 @@ export const AppUpdate = ({ translation }: { translation: any }) => {
                 backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
             }}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.app_update_title}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 text-foreground">{translation.app_update_title}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{translation.app_update_subtitle1}</p>
+                    <p className="text-foreground">{translation.app_update_subtitle1}</p>
                     <p className="text-danger">{translation.app_update_subtitle2}</p>
                 </ModalBody>
                 <ModalFooter>

@@ -10,12 +10,13 @@ import { Button } from "@heroui/button";
 import { SunMoonIcon } from "@/icons/SunMoonIcon";
 import { useEffect, useState } from "react";
 
-export const ThemeSwitch = () => {
+export const ThemeSwitch = ({ onThemeChange }: { onThemeChange?: () => void } = {}) => {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     const onChange = (newTheme: string) => {
-        setTheme(newTheme)
+        setTheme(newTheme);
+        onThemeChange?.();
     };
 
     useEffect(() => {
@@ -55,18 +56,21 @@ export const ThemeSwitch = () => {
                 color={theme === "light" ? "primary" : "default"}
                 onPress={() => onChange("light")}
                 isIconOnly
+                aria-label="Light theme"
                 startContent={<SunFilledIcon />} />
             <Button
                 variant={theme === "system" ? "bordered" : "light"}
                 color={theme === "system" ? "primary" : "default"}
                 onPress={() => onChange("system")}
                 isIconOnly
+                aria-label="System theme"
                 startContent={<SunMoonIcon />} />
             <Button
                 variant={theme === "dark" ? "bordered" : "light"}
                 color={theme === "dark" ? "primary" : "default"}
                 onPress={() => onChange("dark")}
                 isIconOnly
+                aria-label="Dark theme"
                 startContent={<MoonFilledIcon />} />
         </div>
     );

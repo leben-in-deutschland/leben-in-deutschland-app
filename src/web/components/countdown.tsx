@@ -10,7 +10,7 @@ export const Countdown = ({ handleTimeComplete, translation }: { handleTimeCompl
         const seconds = remainingTime % 60
         return (
             <div className="text-center">
-                <div>{`${minutes} Min ${seconds} Sec`}</div>
+                <div>{`${minutes} ${translation.min ?? "Min"} ${seconds} ${translation.sec ?? "Sec"}`}</div>
             </div>
         );
 

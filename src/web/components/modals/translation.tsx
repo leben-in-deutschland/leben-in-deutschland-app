@@ -63,7 +63,7 @@ export const Translation = ({
             hideCloseButton={false}
             onClose={handleClose}>
             <ModalContent>
-                <ModalHeader className="dark:text-white">
+                <ModalHeader className="text-foreground">
                     <Select
                         items={targetLanguages}
                         multiple={false}
@@ -71,15 +71,15 @@ export const Translation = ({
                         className="w-1/2"
                         onChange={(e) => setCurrentLanguage(e.target.value)}
                     >
-                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} alt={lang.displayName} />} key={lang.langCode} className="dark:text-white">{lang.displayName}</SelectItem>}
+                        {(lang) => <SelectItem startContent={<Image src={lang.img} width={20} alt={lang.displayName} />} key={lang.langCode} className="text-foreground">{lang.displayName}</SelectItem>}
                     </Select>
                 </ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white"><span className="font-bold">{question?.num}.</span>  {currentLangTranslation?.question}</p>
-                    <p className="dark:text-white"><span className="font-bold">A.</span>  {currentLangTranslation?.a}</p>
-                    <p className="dark:text-white"><span className="font-bold">B.</span>  {currentLangTranslation?.b}</p>
-                    <p className="dark:text-white"><span className="font-bold">C.</span>  {currentLangTranslation?.c}</p>
-                    <p className="dark:text-white"><span className="font-bold">D.</span>  {currentLangTranslation?.d}</p>
+                    <p className="text-foreground"><span className="font-bold">{question?.num}.</span>  {currentLangTranslation?.question}</p>
+                    <p className="text-foreground"><span className="font-bold">A.</span>  {currentLangTranslation?.a}</p>
+                    <p className="text-foreground"><span className="font-bold">B.</span>  {currentLangTranslation?.b}</p>
+                    <p className="text-foreground"><span className="font-bold">C.</span>  {currentLangTranslation?.c}</p>
+                    <p className="text-foreground"><span className="font-bold">D.</span>  {currentLangTranslation?.d}</p>
                 </ModalBody>
             </ModalContent>
 

@@ -319,16 +319,16 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
                                 </CardBody>
                                 <CardFooter className="flex gap-2">
                                     <div className="flex gap-1">
-                                        <p className="bg-yellow-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.findIndex(x => x?.num === currentQuizQuestion.num) + 1}</p>
-                                        <p className="p-[5%] dark:text-white font-extrabold text-center">/</p>
-                                        <p className="bg-red-400 rounded-xl p-2 dark:text-white font-bold">{quizQuestions.length}</p>
+                                        <p className="bg-yellow-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.findIndex(x => x?.num === currentQuizQuestion.num) + 1}</p>
+                                        <p className="p-[5%] text-foreground font-extrabold text-center">/</p>
+                                        <p className="bg-red-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.length}</p>
                                     </div>
                                     <div className="flex">
-                                        <Tooltip content="Cancel Mock Test">
+                                        <Tooltip content={translation.cancel_mock_test ?? "Cancel Mock Test"}>
                                             <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>{translation.cancel}</Button>
                                         </Tooltip>
-                                        <Tooltip content="Flag for review">
-                                            <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                        <Tooltip content={translation.flag_for_review ?? "Flag for review"}>
+                                            <Button onPress={handleFlag} disableRipple variant="light" aria-label={translation.flag_for_review ?? "Flag for review"} className={`dark:invert ${flagPressed ? "text-red-600" : "text-foreground"}`} startContent={<FlagIcon />} />
                                         </Tooltip>
                                         {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>{translation.next}</Button>}
                                         {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>{translation.submit}</Button>}

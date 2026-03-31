@@ -61,8 +61,8 @@ export default async function QuestionCatalogue({
     return (
         <div className="content-center">
             <div className="mb-10 text-center">
-                <p className="font-bold text-2xl text-black dark:text-white">Question Catalogue</p>
-                {stateName && <p className="text-xl text-black dark:text-white">These questions are for <span className="font-bold">{stateName}</span></p>}
+                <p className="font-bold text-2xl text-foreground">Question Catalogue</p>
+                {stateName && <p className="text-xl text-foreground">These questions are for <span className="font-bold">{stateName}</span></p>}
             </div>
             <div className="flex flex-col gap-4">
                 {questions && questions.length > 0 &&

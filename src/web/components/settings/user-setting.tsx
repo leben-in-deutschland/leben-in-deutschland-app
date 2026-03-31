@@ -71,17 +71,17 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                 onClose={handleUserSettingsClose}
                 backdrop="transparent">
                 <ModalContent>
-                    <ModalHeader className="flex flex-col gap-1 dark:text-white">{allTranslations.settings}</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1 text-foreground">{allTranslations.settings}</ModalHeader>
                     <ModalBody>
                         <div className="grid grid-cols-1 gap-4">
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">{allTranslations.change_state}</h4>
+                                <h4 className="col-start-1 text-foreground">{allTranslations.change_state}</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <StateDropdown user={user} handleSelectState={handleSelectState} />}
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">{allTranslations.app_language}</h4>
+                                <h4 className="col-start-1 text-foreground">{allTranslations.app_language}</h4>
                                 <div className="col-start-2 justify-right">
                                     {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
                                 </div>

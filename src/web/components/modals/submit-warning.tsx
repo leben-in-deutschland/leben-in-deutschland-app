@@ -15,9 +15,9 @@ export const SubmitWarning = ({
             isDismissable={true}
             hideCloseButton={true}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.are_you_sure}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 text-foreground">{translation.are_you_sure}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{translation.submit_alert}</p>
+                    <p className="text-foreground">{translation.submit_alert}</p>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="default" variant="light" onPress={handleClose}>

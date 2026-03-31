@@ -7,7 +7,7 @@ import {
     NavbarBrand,
     NavbarMenuItem,
 } from "@heroui/navbar";
-import { Tooltip } from "@heroui/react";
+import { Divider, Tooltip } from "@heroui/react";
 import { Button } from "@heroui/button";
 import { Link, LinkIcon } from "@heroui/link";
 
@@ -21,6 +21,8 @@ import { DonateIcon } from "../icons/DonateIcon";
 import { Logo } from "../icons/Logo";
 import { GithubIcon } from "../icons/GithubIcon";
 import { BitesInByteIcon } from "@/icons/BitesInByteIcon";
+import { ShieldIcon } from "@/icons/ShieldIcon";
+import { MailIcon } from "@/icons/MailIcon";
 import { useState, useEffect } from "react";
 import UserSetting from "./settings/user-setting";
 import { SettingIcon } from "@/icons/SettingIcon";
@@ -37,22 +39,30 @@ export const NavigationBar = () => {
     }, []);
 
     const handleSettingClick = () => {
+        setIsMenuOpen(false);
         setSettingClicked(true);
     };
     const handleUserSettingsClose = () => {
         setSettingClicked(false);
     };
 
+    const handleMenuOpenChange = (open: boolean) => {
+        setIsMenuOpen(open);
+        if (open) {
+            window.scrollTo({ top: 0 });
+        }
+    };
+
     return (
         <>
             <UserSetting isOpen={isSettingsClick} handleUserSettingsClose={handleUserSettingsClose} />
 
-            <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} >
+            <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={handleMenuOpenChange} isMenuOpen={isMenuOpen} >
                 <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
                         <NextLink className="flex justify-start items-center gap-1" href={isNative ? "/dashboard" : "/"}>
                             <Logo />
-                            <p className="font-bold dark:text-white" >Leben</p>
+                            <p className="font-bold text-foreground" >Leben</p>
                             <p className="font-bold text-red-500"> in </p>
                             <p className="font-bold text-yellow-400">Deutschland </p>
                         </NextLink>
@@ -62,7 +72,7 @@ export const NavigationBar = () => {
                                 <Tooltip content="Dashboard">
                                     <DashboardIcon className="text-default-500" />
                                 </Tooltip>
-                                <p className="hidden md:flex text-black dark:text-white">Dashboard</p>
+                                <p className="hidden md:flex text-foreground">Dashboard</p>
                             </NextLink>
                         }
                     </NavbarBrand>
@@ -74,7 +84,7 @@ export const NavigationBar = () => {
                     <Link className="hidden md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
                         <BitesInByteIcon className="text-default-500" />
                     </Link>
-                    <Button style={{ backgroundColor: 'transparent' }} isIconOnly variant="light" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
+                    <Button isIconOnly variant="light" aria-label="Settings" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
                     <ThemeSwitch />
                     {
                         !isNative &&
@@ -96,33 +106,48 @@ export const NavigationBar = () => {
                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 </NavbarContent>
                 <NavbarMenu>
-                    <div className="mx-4 mt-2 flex flex-col gap-2">
-                        <Link isExternal className="text-2xl flex justify-between p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href={siteConfig.links.github} aria-label="Github">
-                            <GithubIcon className="text-black dark:text-white" />
-                            <p className="font-bold text-black dark:text-white">GitHub</p>
-                        </Link>
-                        <Link className="text-2xl flex justify-between p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
-                            <BitesInByteIcon className="text-black dark:text-white" />
-                            <p className="font-bold text-black dark:text-white">Bitesinbyte</p>
-                        </Link>
-                        <div className="text-2xl flex justify-between p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white">
-                            <ThemeSwitch />
-                            <p className="font-bold text-black dark:text-white">Switch Theme</p>
-                        </div>
-
-                        <Link key="settings"
-                            onPress={handleSettingClick} className="text-2xl dark:text-white-500 flex justify-between border-2 font-bold p-1 pl-4 pr-4 rounded-xl border-black dark:border-white">
-                            <SettingIcon className="text-black dark:text-white" />
-                            <p className="font-bold text-black dark:text-white">My Settings</p>
-                        </Link>
-                        <Link onPress={() => setIsMenuOpen(false)}
-                            className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white"
-                            href="/privacy-policy" aria-label="privacy">
-                            <p className="font-bold text-black dark:text-white">Privacy Policy</p>
-                        </Link>
-                        <Link className="text-2xl flex justify-center p-1 pl-4 pr-4 rounded-xl border-2 border-black dark:border-white" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact">
-                            <p className="font-bold text-black dark:text-white">Contact</p>
-                        </Link>
+                    <div className="mx-4 mt-2 flex flex-col gap-3">
+                        <NavbarMenuItem>
+                            <Link isExternal className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href={siteConfig.links.github} aria-label="Github" onPress={() => setIsMenuOpen(false)}>
+                                <GithubIcon className="text-foreground" />
+                                <p className="font-bold text-foreground">GitHub</p>
+                            </Link>
+                        </NavbarMenuItem>
+                        <NavbarMenuItem>
+                            <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte" onPress={() => setIsMenuOpen(false)}>
+                                <BitesInByteIcon className="text-foreground" />
+                                <p className="font-bold text-foreground">Bitesinbyte</p>
+                            </Link>
+                        </NavbarMenuItem>
+                        <Divider />
+                        <NavbarMenuItem>
+                            <div className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider">
+                                <ThemeSwitch onThemeChange={() => setIsMenuOpen(false)} />
+                                <p className="font-bold text-foreground">Switch Theme</p>
+                            </div>
+                        </NavbarMenuItem>
+                        <NavbarMenuItem>
+                            <Link
+                                onPress={handleSettingClick} className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider cursor-pointer">
+                                <SettingIcon className="text-foreground" />
+                                <p className="font-bold text-foreground">My Settings</p>
+                            </Link>
+                        </NavbarMenuItem>
+                        <Divider />
+                        <NavbarMenuItem>
+                            <Link onPress={() => setIsMenuOpen(false)}
+                                className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider"
+                                href="/privacy-policy" aria-label="privacy">
+                                <ShieldIcon className="text-foreground" />
+                                <p className="font-bold text-foreground">Privacy Policy</p>
+                            </Link>
+                        </NavbarMenuItem>
+                        <NavbarMenuItem>
+                            <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact" onPress={() => setIsMenuOpen(false)}>
+                                <MailIcon className="text-foreground" />
+                                <p className="font-bold text-foreground">Contact</p>
+                            </Link>
+                        </NavbarMenuItem>
                     </div>
                 </NavbarMenu>
             </Navbar >

@@ -49,7 +49,7 @@ export default async function Pruefstellen({
 
         <Card className="p-2">
             <CardHeader className="flex justify-between">
-                <p className="text-xl text-black dark:text-white">Prüfstellen in <span className="font-bold">{stateRelatedData?.name}</span></p>
+                <p className="text-xl text-foreground">Prüfstellen in <span className="font-bold">{stateRelatedData?.name}</span></p>
                 <Image alt={stateRelatedData?.code} src={`/states/coat-of-arms/${stateRelatedData?.name}.svg`} width={50} />
             </CardHeader>
             <CardBody>

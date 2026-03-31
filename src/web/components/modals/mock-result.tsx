@@ -19,7 +19,7 @@ export const MockResult = ({
             hideCloseButton={false}
             onClose={handleClose}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.result}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 text-foreground">{translation.result}</ModalHeader>
                 <ModalBody>
                     <div className="flex flex-col gap-2">
                         <div className="flex bg-gray-300 rounded-xl p-2 justify-between">

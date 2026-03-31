@@ -403,19 +403,21 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                 </div>
                             </CardBody>
                             <CardFooter className="flex justify-between gap-2 md:gap-4">
-                                <Tooltip content="Translate">
+                                <Tooltip content={translations.translate ?? "Translate"}>
                                     <Button
                                         onPress={openTranslate}
+                                        aria-label={translations.translate ?? "Translate"}
                                         className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
                                 </Tooltip>
-                                <Tooltip content="More Information - AI Generated">
+                                <Tooltip content={translations.more_info_ai ?? "More Information - AI Generated"}>
                                     <Button
                                         onPress={openQuestionContext}
+                                        aria-label={translations.more_info_ai ?? "More Information - AI Generated"}
                                         className="dark:invert" color="primary" variant="light" startContent={<AssistantIcon size={44} />}></Button>
                                 </Tooltip>
                                 <div className="flex justify-end gap-1 md:gap-4">
-                                    <Tooltip content="Flag for review">
-                                        <Button onPress={handleFlag} disableRipple variant="light" className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} style={{ backgroundColor: 'transparent' }} startContent={<FlagIcon />} />
+                                    <Tooltip content={translations.flag_for_review ?? "Flag for review"}>
+                                        <Button onPress={handleFlag} disableRipple variant="light" aria-label={translations.flag_for_review ?? "Flag for review"} className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} startContent={<FlagIcon />} />
                                     </Tooltip>
                                     {!nextEnabled && <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>{translations.submit}</Button>}
                                     {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>{translations.next}</Button>}

@@ -15,7 +15,7 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
     const router = useRouter()
     return (
         <div className="item-center">
-            <Tooltip content="Prepare questions">
+            <Tooltip content={translation.prepare_questions ?? "Prepare questions"}>
                 <Card className="card-stats border-none w-[100%]"
                     isPressable
                     onPress={() => router.push("/prepare?action=prepare")}>
@@ -25,11 +25,11 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
                                 {translation.dashboard_prepate_button_text}
                             </h2>
                             <p className="flex">
-                                <Tooltip content="Attempted">
+                                <Tooltip content={translation.attempted ?? "Attempted"}>
                                     <h2 className="text-green-400 font-extrabold md:text-4xl">{attempted}</h2>
                                 </Tooltip>
                                 /
-                                <Tooltip content="All Questions">
+                                <Tooltip content={translation.all_questions ?? "All Questions"}>
                                     <h2 className="text-yellow-500 font-bold">{allQuestions}</h2>
                                 </Tooltip>
                             </p>
@@ -47,7 +47,7 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
                                     }
                                 }}
                                 data={{
-                                    labels: ["Attempted", "AllQuestions"],
+                                    labels: [translation.attempted ?? "Attempted", translation.all_questions ?? "AllQuestions"],
                                     datasets: [
                                         {
                                             data: [attempted, (allQuestions - attempted)],
