@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve@latest out",
+    "build:android": "next build && bash scripts/prepare-android.sh && npx cap sync android",
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest"
