@@ -341,9 +341,9 @@
         "plz": 74523,
         "ort": "Schwäbisch Hall",
         "einrichtung": "Kompetenz & Bildung, Kunert & Buckel",
-        "straße": "Gerhard-Storz-Weg 24, Schwäbisch Hall",
+        "straße": "Im Hardt 82",
         "telefon": "0791-94078191",
-        "email": "marcus.buckel@kompetenzundbildung.de"
+        "email": "test@kompetenzundbildung.de"
       },
       {
         "regierungsbezirk": "Freudenstadt",
@@ -810,8 +810,8 @@
         "ort": "Stuttgart",
         "einrichtung": "VHS Stuttgart",
         "straße": "Fritz-Elsas-Str. 46-48",
-        "telefon": "0711/1873-748",
-        "email": "agnieszka.schulze@vhs-stuttgart.de"
+        "telefon": "0711/1873-895",
+        "email": "nadine.czaja@vhs-stuttgart.de"
       },
       {
         "regierungsbezirk": "Tübingen",
@@ -848,6 +848,15 @@
         "straße": "Zunfthausgasse 4",
         "telefon": "07522 74242",
         "email": "vhs@wangen.de"
+      },
+      {
+        "regierungsbezirk": "Emmendingen",
+        "plz": 79183,
+        "ort": "Waldkirch",
+        "einrichtung": "Volkshochschule Waldkirch e.V.",
+        "straße": "LangeStraße 12",
+        "telefon": "07681-474149",
+        "email": "integrationskurse@vhs-waldkirch.de"
       },
       {
         "regierungsbezirk": "Hohenlohekreis",
@@ -1208,11 +1217,11 @@
       {
         "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
         "plz": 95615,
-        "ort": "Marktredwitz",
-        "einrichtung": "VHS der Stadt Marktredwitz",
-        "straße": "Fikentscherstr. 19",
-        "telefon": "09231-5115",
-        "email": "vhs@marktredwitz.de"
+        "ort": "Selb",
+        "einrichtung": "VHS Fichtelgebirge",
+        "straße": "Ludwigsmühle 10",
+        "telefon": "09287-8005110",
+        "email": "info@vhs-fichtelgebirge.de"
       },
       {
         "regierungsbezirk": "Hammelburg",
@@ -2107,6 +2116,24 @@
         "email": "integration@avicenna-ev.de"
       },
       {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 64625,
+        "ort": "Bensheim",
+        "einrichtung": "Caritas Zentrum Franziskushaus",
+        "straße": "Klostergasse 5a",
+        "telefon": "06251-854250",
+        "email": "migration.bergstrasse@caritas-darmstadt.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 60326,
+        "ort": "Frankfurt am Main",
+        "einrichtung": "DRK-Sozialdienste Frankfurt am Main",
+        "straße": "Mainzer Landstraße 349",
+        "telefon": "069-26923349",
+        "email": "sbz-pruefungen@drkfrankfurt.de "
+      },
+      {
         "regierungsbezirk": "Fulda",
         "plz": 36037,
         "ort": "Fulda",
@@ -2427,8 +2454,8 @@
         "ort": "Kassel",
         "einrichtung": "VHS Region- Kassel",
         "straße": "Wilhelmshöher Allee 19-21",
-        "telefon": "0561-10030",
-        "email": "katharina-seewald@landkreiskassel.de"
+        "telefon": "0561-1003 1005",
+        "email": "vhs-integration@landkreiskassel.de"
       },
       {
         "regierungsbezirk": "Rheingau-Taunus-Kreis",
@@ -3409,6 +3436,15 @@
         "email": "mf@vhs-zeven.de"
       },
       {
+        "regierungsbezirk": "Hannover",
+        "plz": 31275,
+        "ort": "Lehrte",
+        "einrichtung": "Volkshochschule Ostkreis Hannover",
+        "straße": "Rathausplatz 2",
+        "telefon": "05132-50000",
+        "email": "info@vhs-ostkreis-hannover.de"
+      },
+      {
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 49074,
         "ort": "Osnabrück",
@@ -3511,6 +3547,15 @@
         "straße": "Werdener Straße 4",
         "telefon": "0211-17401611",
         "email": "asg@asg-bildungsforum.de"
+      },
+      {
+        "regierungsbezirk": "Düsseldorf",
+        "plz": 40215,
+        "ort": "Düsseldorf",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Hüttenstraße 4",
+        "telefon": "0211-3027210",
+        "email": "duesseldorf@berlitz.de"
       },
       {
         "regierungsbezirk": "Düsseldorf",
@@ -3643,7 +3688,7 @@
         "plz": 53111,
         "ort": "Bonn",
         "einrichtung": "Bonner Bildungs Center e.V.",
-        "straße": "Dietkirchstraße 30-32",
+        "straße": "Dietkirchenstraße 30-32",
         "telefon": "0228-3695541",
         "email": "info@bbc-bonn.de"
       },
@@ -3853,6 +3898,15 @@
         "straße": "Widdersdorfer Str. 399",
         "telefon": "0221-9496680",
         "email": "reiswich.elena@es.koeln.eso.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 50667,
+        "ort": "Köln",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Schildergasse 72-74",
+        "telefon": "0221-277390",
+        "email": "koeln@berlitz.de"
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
@@ -5106,15 +5160,6 @@
         "email": "info@millenium-ev.org"
       },
       {
-        "regierungsbezirk": "Kreisfreie Stadt",
-        "plz": 48143,
-        "ort": "Münster",
-        "einrichtung": "Werkstatt für Bildung und Kultur",
-        "straße": "Servatiiplatz 9",
-        "telefon": "0251-981141-10",
-        "email": "info@deutschwerkstatt.de"
-      },
-      {
         "regierungsbezirk": "Rheinisch-Bergischer Kreis",
         "plz": 51469,
         "ort": "Bergisch Gladbach",
@@ -5136,10 +5181,19 @@
         "regierungsbezirk": "Kreisfreie Stadt",
         "plz": 40233,
         "ort": "Düsseldorf",
-        "einrichtung": "Bénédict GmbH & Co. KG",
+        "einrichtung": "Bénédict GmbH",
         "straße": "Ackerstraße 3",
         "telefon": "0211 355940-142",
         "email": "malgorzata.pramor@benedict-schulen.de"
+      },
+      {
+        "regierungsbezirk": "Kreisfreie Stadt",
+        "plz": 41061,
+        "ort": "Mönchengladbach",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Berliner Platz 12",
+        "telefon": "02161-17077",
+        "email": "moenchengladbach@berlitz.de"
       }
     ]
   },
@@ -5824,7 +5878,7 @@
         "ort": "Dresden",
         "einrichtung": "Die Sprachwerkstatt GmbH",
         "straße": "Großenhainer Str. 99",
-        "telefon": "0351 / 8975940",
+        "telefon": "0351-8975940",
         "email": "dresden@die-sprachwerkstatt.de"
       },
       {
@@ -5833,7 +5887,7 @@
         "ort": "Bitterfeld-Wolfen",
         "einrichtung": "ESO Education Group",
         "straße": "Wasserturmstraße 1",
-        "telefon": "03493 / 73600",
+        "telefon": "03493-73600",
         "email": "info@es.wolfen.eso.de "
       },
       {
@@ -5842,7 +5896,7 @@
         "ort": "Dresden",
         "einrichtung": "Euro-Schulen Dresden",
         "straße": "Wiener Platz 6",
-        "telefon": "0351 / 4763680",
+        "telefon": "0351-4763680",
         "email": "info@es.dresden.eso.de"
       },
       {
@@ -5860,7 +5914,7 @@
         "ort": "Leipzig",
         "einrichtung": "Euro-Schulen Leipzig",
         "straße": "Rosa-Luxemburg-Str. 23",
-        "telefon": "0341/ 962 99 37",
+        "telefon": "0341-962 99 37",
         "email": "info@es.leipzig.eso.de"
       },
       {
@@ -5869,7 +5923,7 @@
         "ort": "Riesa",
         "einrichtung": "Euro-Schulen Riesa/Meißen",
         "straße": "Paul-Greifzu-Str. 30",
-        "telefon": "03525 / 501311",
+        "telefon": "03525-501311",
         "email": "info@es.riesa.eso.de"
       },
       {
@@ -5896,7 +5950,7 @@
         "ort": "Chemnitz",
         "einrichtung": "inlingua Sprachcenter Chemnitz",
         "straße": "Barbarossastr. 2",
-        "telefon": "0371 / 517000",
+        "telefon": "0371-517000",
         "email": "chemnitz@inlingua.de"
       },
       {
@@ -5905,17 +5959,8 @@
         "ort": "Dresden",
         "einrichtung": "inlingua Sprachschule Dresden GmbH & Co.",
         "straße": "Karcherallee 41",
-        "telefon": "0351 / 494460",
+        "telefon": "0351-494460",
         "email": "german@inlingua-dresden.de"
-      },
-      {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02625",
-        "ort": "Bautzen",
-        "einrichtung": "Kreisvolkshochschule Bauzen",
-        "straße": "Postplatz 3",
-        "telefon": "03591 27229-13",
-        "email": "andrea.siebert@kvhsbautzen.de "
       },
       {
         "regierungsbezirk": "Stadtkreis",
@@ -5923,7 +5968,7 @@
         "ort": "Leipzig",
         "einrichtung": "language coach institute Leipzig",
         "straße": "Emilienstr. 17",
-        "telefon": "0341/3085506",
+        "telefon": "0341-3085506",
         "email": "thiessen@languagecoach.de"
       },
       {
@@ -5932,7 +5977,7 @@
         "ort": "Leipzig",
         "einrichtung": "Learn and Speak Leipzig Wolpert Schulungszentrum Sprachschule Leipzig GmbH",
         "straße": "Gutenbergplatz 1a-e",
-        "telefon": "0341 222 88 77 0",
+        "telefon": "0341-222 88 77 0",
         "email": "info@las-leipzig.de"
       },
       {
@@ -5941,7 +5986,7 @@
         "ort": "Leipzig",
         "einrichtung": "Leipziger Gesellschaft für Bildung und Arbeit",
         "straße": "Anton-Zickmantel-Str. 41",
-        "telefon": "0341/ 4273770",
+        "telefon": "0341-4273770",
         "email": "info@lehmbaugruppe.de"
       },
       {
@@ -5977,17 +6022,26 @@
         "ort": "Chemnitz",
         "einrichtung": "VHS Chemnitz",
         "straße": "Moritzstr. 20",
-        "telefon": "0371/ 488-4338",
+        "telefon": "0371-488-4338",
         "email": "deutsch@vhs-chemnitz.de\" "
       },
       {
         "regierungsbezirk": "Stadtkreis",
-        "plz": "01237",
+        "plz": 1067,
         "ort": "Dresden",
         "einrichtung": "VHS Dresden e. V.",
-        "straße": "Schilfweg 3",
+        "straße": "Annenstraße 10",
         "telefon": "0351-2544037",
         "email": "jana.moebius@vhs-dresden.de"
+      },
+      {
+        "regierungsbezirk": "Stadtkreis",
+        "plz": 1097,
+        "ort": "Dresden",
+        "einrichtung": "FremdSprachenSchule for everyone GmbH",
+        "straße": "Leipziger Str. 33",
+        "telefon": "0351-3281976",
+        "email": "info@fremdsprachenschule-foreveryone.de"
       },
       {
         "regierungsbezirk": "Erzgebirgskreis",
@@ -6013,7 +6067,7 @@
         "ort": "Borna",
         "einrichtung": "VHS Landkreis Leipzig",
         "straße": "Jahnstr. 24a",
-        "telefon": "0343 / 374463328",
+        "telefon": "0343-374463328",
         "email": "sabine.garbe@vhs-lkl.de "
       },
       {
@@ -6022,8 +6076,17 @@
         "ort": "Wurzen",
         "einrichtung": "VHS Muldental",
         "straße": "Lüptitzer Str. 2",
-        "telefon": "0342 / 5/90470",
+        "telefon": "0342-5/90470",
         "email": "wurzen@volkshochschule-muldental.de"
+      },
+      {
+        "regierungsbezirk": "Landkreis Meißen",
+        "plz": 1445,
+        "ort": "Radebeul",
+        "einrichtung": "VHS Meißen",
+        "straße": "Sidonienstr.1a",
+        "telefon": "0351-8304788",
+        "email": "info@vhs-Lkmeissen.de"
       },
       {
         "regierungsbezirk": "Nordsachsen",
@@ -6032,7 +6095,7 @@
         "einrichtung": "VHS Nordsachsen",
         "straße": "Puschkinstraße 3",
         "telefon": "03423-700440",
-        "email": ""
+        "email": "info@vhs-nordsachsen.de"
       },
       {
         "regierungsbezirk": "Sächsische Schweiz-Osterzgebirge",
@@ -6049,17 +6112,8 @@
         "ort": "Leipzig",
         "einrichtung": "VHS Stadt Leipzig",
         "straße": "Löhrstr. 3/7",
-        "telefon": "0341/123-6000",
+        "telefon": "0341-123-6000",
         "email": "vhs-service@leipzig.de"
-      },
-      {
-        "regierungsbezirk": "Bautzen",
-        "plz": "02625",
-        "ort": "Bautzen",
-        "einrichtung": "VHS-Kreis Bautzen",
-        "straße": "Dr.-Peter-Jordan-Str. 21",
-        "telefon": "03591/ 272290",
-        "email": "info@kvhsbautzen.de"
       },
       {
         "regierungsbezirk": "Vogtlandkreis",
@@ -6113,21 +6167,102 @@
     "data": [
       {
         "regierungsbezirk": " ",
-        "plz": "29410",
-        "ort": "Salzwedel",
-        "einrichtung": "VHS Altmarkkreis Salzwedel",
-        "straße": "Karl-Marx-Str. 15",
-        "telefon": "03901-422031",
-        "email": "salzwedel@vhs-salzwedel.de"
+        "plz": "06112",
+        "ort": "Halle (Saale)",
+        "einrichtung": "AEB GmbH",
+        "straße": "Thüringer Str. 30",
+        "telefon": "0345-2900452",
+        "email": "buero@aeb-sachse.com"
       },
       {
         "regierungsbezirk": " ",
-        "plz": "06749",
-        "ort": "Bitterfeld",
-        "einrichtung": "VHS-Kreis Anhalt-Bitterfeld",
-        "straße": "Lindenstr. 12 a",
-        "telefon": "03496-12033",
-        "email": "service@kvhs-abi.de"
+        "plz": "38820",
+        "ort": "Halberstadt",
+        "einrichtung": "AFU Privates Bildungsinstitut GmbH",
+        "straße": "Rudolf-Diesel-Str. 14",
+        "telefon": "039416789507",
+        "email": "info@afu-gmbh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39104",
+        "ort": "Magdeburg",
+        "einrichtung": "ARA Sprachschule",
+        "straße": "Leiterstr. 6",
+        "telefon": "0391/4002845",
+        "email": "mail@ara-sprachschule.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06217",
+        "ort": "Merseburg",
+        "einrichtung": "BVU GmbH",
+        "straße": "Geusaer Straße 81 g",
+        "telefon": "03461-8215-0",
+        "email": "merseburg@bvu-gmbh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 6116,
+        "ort": "Halle (Saale)",
+        "einrichtung": "CFN Corporate Future Network",
+        "straße": "Fiete-Schulze-Straße 13",
+        "telefon": "0511-149249450",
+        "email": "hannover@cfn-web.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39108",
+        "ort": "Magdeburg",
+        "einrichtung": "Europäisches Bildungswerk für Beruf und Gesellschaft gGmbH",
+        "straße": "Maxim-Gorki-Str. 14",
+        "telefon": "0391-5419829",
+        "email": "sprachen-magdeburg@ebg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06110",
+        "ort": "Halle (Saale)",
+        "einrichtung": "Euro-Schulen Halle",
+        "straße": "Philipp-Müller-Straße 57",
+        "telefon": "0345-61406-0",
+        "email": "info@es.halle.eso.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39340",
+        "ort": "Haldensleben",
+        "einrichtung": "Euro-Schulen Sachsen-Anhalt GmbH",
+        "straße": "Hafenstr. 6",
+        "telefon": 39047258117,
+        "email": "info@es.haldensleben.eso.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 6803,
+        "ort": "Bitterfeld-Wolfen",
+        "einrichtung": "Euro-Schulen Bitterfeld-Wolfen",
+        "straße": "Wasserturmstraße 1",
+        "telefon": "03494-798480",
+        "email": "bitterfeld-wolfen@eso.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06268",
+        "ort": "Querfurt",
+        "einrichtung": "IEB Schulungsgesellschaft mbH",
+        "straße": "Birkenweg 6",
+        "telefon": "03461/289673",
+        "email": "ieb-querfurt@das-ieb.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06842",
+        "ort": "Dessau-Roßlau",
+        "einrichtung": "inlingua Sprachschule Dessau OHG",
+        "straße": "Franzstr. 85",
+        "telefon": "0340-260260",
+        "email": "info@inlingua-dessau.de"
       },
       {
         "regierungsbezirk": " ",
@@ -6140,12 +6275,111 @@
       },
       {
         "regierungsbezirk": " ",
-        "plz": "39340",
-        "ort": "Haldensleben",
-        "einrichtung": "Euro-Schulen Sachsen-Anhalt GmbH",
-        "straße": "Hafenstr. 6",
-        "telefon": "039047258117",
-        "email": "info@es.haldensleben.eso.de"
+        "plz": "06484",
+        "ort": "Quedlinburg",
+        "einrichtung": "KVHS Harz GmbH   ",
+        "straße": "Heiligegeiststraße 8",
+        "telefon": "03946-524039",
+        "email": "info@kvhs-harz.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39288",
+        "ort": "Burg",
+        "einrichtung": "KVHS Jerichower Land",
+        "straße": "Magdeburger Str. 24-26",
+        "telefon": "03921-9494310",
+        "email": "kvhs@lkjl.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06526",
+        "ort": "Sangerhausen",
+        "einrichtung": "KVHS Mansfeld-Südharz e. V.   ",
+        "straße": "Karl-Liebknecht-Str. 31",
+        "telefon": "03464-572407",
+        "email": "service@vhs-sgh.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06217",
+        "ort": "Merseburg",
+        "einrichtung": "KVHS Saalekreis                        ",
+        "straße": "Am Saalehang 1",
+        "telefon": "03461-2590880",
+        "email": "kvhs@saalekreis.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 6406,
+        "ort": "Bernburg",
+        "einrichtung": "KVHS Salzlandkreis",
+        "straße": "Vor dem Nienburger Tor 13a",
+        "telefon": "03471-352073",
+        "email": "kvhs@kreis-slk.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06886",
+        "ort": "Lutherstadt Wittenberg",
+        "einrichtung": "KVHS Wittenberg",
+        "straße": "Falkstraße 83",
+        "telefon": "03491-41810",
+        "email": "kvhs@bzl-wb.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06295",
+        "ort": "Lutherstadt Eisleben",
+        "einrichtung": "Sprachschule 2000 GmbH",
+        "straße": "Markt 57",
+        "telefon": "03475-250353",
+        "email": "info@sprachschule2000.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39104",
+        "ort": "Magdeburg",
+        "einrichtung": "Städtische VHS Magdeburg",
+        "straße": "Leibnizstr. 23",
+        "telefon": "0391-53547715",
+        "email": "info@vhs.magdeburg.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "39576",
+        "ort": "Stendal",
+        "einrichtung": "Städtische VHS Stendal",
+        "straße": "Hallstr. 35",
+        "telefon": "03931-64880",
+        "email": "vhs_stendal@t-online.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": 39418,
+        "ort": "Staßfurt",
+        "einrichtung": "Staßfurter URANIA e.V.",
+        "straße": "Prinzenberg 18",
+        "telefon": "03925-624295",
+        "email": "info@stassfurter-urania.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "06128",
+        "ort": "Halle (Saale)",
+        "einrichtung": "VHS Adolf Reichwein in Halle (Saale)",
+        "straße": "Oleariusstraße 7",
+        "telefon": "0345 221-3389",
+        "email": "info@vhs-halle.de"
+      },
+      {
+        "regierungsbezirk": " ",
+        "plz": "29410",
+        "ort": "Salzwedel",
+        "einrichtung": "VHS Altmarkkreis Salzwedel",
+        "straße": "Karl-Marx-Str. 15",
+        "telefon": "03901-422031",
+        "email": "salzwedel@vhs-salzwedel.de"
       },
       {
         "regierungsbezirk": " ",
@@ -6167,165 +6401,12 @@
       },
       {
         "regierungsbezirk": " ",
-        "plz": "06842",
-        "ort": "Dessau-Roßlau",
-        "einrichtung": "inlingua Sprachschule Dessau OHG",
-        "straße": "Franzstr. 85",
-        "telefon": "0340-260260",
-        "email": "info@inlingua-dessau.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06484",
-        "ort": "Quedlinburg",
-        "einrichtung": "KVHS Harz GmbH   ",
-        "straße": "Heiligegeiststraße 8",
-        "telefon": "03946-524039",
-        "email": "info@kvhs-harz.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "38820",
-        "ort": "Halberstadt",
-        "einrichtung": "AFU Privates Bildungsinstitut GmbH",
-        "straße": "Rudolf-Diesel-Str. 14",
-        "telefon": "039416789507",
-        "email": "info@afu-gmbh.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "39288",
-        "ort": "Burg",
-        "einrichtung": "KVHS Jerichower Land",
-        "straße": "Magdeburger Str. 24-26",
-        "telefon": "03921-9494310",
-        "email": "kvhs@lkjl.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06128",
-        "ort": "Halle (Saale)",
-        "einrichtung": "VHS Adolf Reichwein in Halle (Saale)",
-        "straße": "Oleariusstraße 7",
-        "telefon": "0345 221-3389",
-        "email": "info@vhs-halle.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06112",
-        "ort": "Halle (Saale)",
-        "einrichtung": "AEB GmbH",
-        "straße": "Thüringer Str. 30",
-        "telefon": "0345-2900452",
-        "email": "buero@aeb-sachse.com"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06110",
-        "ort": "Halle (Saale)",
-        "einrichtung": "Euro-Schulen Halle",
-        "straße": "Philipp-Müller-Straße 57",
-        "telefon": "0345-61406-0",
-        "email": "info@es.halle.eso.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06108",
-        "ort": "Halle (Saale)",
-        "einrichtung": "Wolpert Schulungszentrum Sprachschule Halle GmbH",
-        "straße": "Marktplatz 7",
-        "telefon": "0340-260260",
-        "email": ""
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "39104",
-        "ort": "Magdeburg",
-        "einrichtung": "Städtische VHS Magdeburg",
-        "straße": "Leibnizstr. 23",
-        "telefon": "0391-53547715",
-        "email": "info@vhs.magdeburg.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "39104",
-        "ort": "Magdeburg",
-        "einrichtung": "ARA Sprachschule",
-        "straße": "Leiterstr. 6",
-        "telefon": "0391/4002845",
-        "email": "mail@ara-sprachschule.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "39108",
-        "ort": "Magdeburg",
-        "einrichtung": "Europäisches Bildungswerk für Beruf und Gesellschaft gGmbH",
-        "straße": "Maxim-Gorki-Str. 14",
-        "telefon": "0391-5419829",
-        "email": "sprachen-magdeburg@ebg.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06526",
-        "ort": "Sangerhausen",
-        "einrichtung": "KVHS Mansfeld-Südharz e. V.   ",
-        "straße": "Karl-Liebknecht-Str. 31",
-        "telefon": "03464-572407",
-        "email": "service@vhs-sgh.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06295",
-        "ort": "Lutherstadt Eisleben",
-        "einrichtung": "Sprachschule 2000 GmbH",
-        "straße": "Markt 57",
-        "telefon": "03475-250353",
-        "email": "info@sprachschule2000.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06217",
-        "ort": "Merseburg",
-        "einrichtung": "KVHS Saalekreis                        ",
-        "straße": "Am Saalehang 1",
-        "telefon": "03461-2590880",
-        "email": "kvhs@saalekreis.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06217",
-        "ort": "Merseburg",
-        "einrichtung": "BVU GmbH",
-        "straße": "Geusaer Straße 81 g",
-        "telefon": "03461-8215-0",
-        "email": "merseburg@bvu-gmbh.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06268",
-        "ort": "Querfurt",
-        "einrichtung": "IEB Schulungsgesellschaft mbH",
-        "straße": "Birkenweg 6",
-        "telefon": "03461/289673",
-        "email": "ieb-querfurt@das-ieb.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 6406,
-        "ort": "Bernburg",
-        "einrichtung": "KVHS Salzlandkreis",
-        "straße": "Vor dem Nienburger Tor 13a",
-        "telefon": "03471-352073",
-        "email": "kvhs@kreis-slk.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": 39418,
-        "ort": "Staßfurt",
-        "einrichtung": "Staßfurter URANIA e.V.",
-        "straße": "Prinzenberg 18",
-        "telefon": "03925-624295",
-        "email": "info@stassfurter-urania.de"
+        "plz": "06749",
+        "ort": "Bitterfeld",
+        "einrichtung": "VHS-Kreis Anhalt-Bitterfeld",
+        "straße": "Lindenstr. 12 a",
+        "telefon": "03496-12033",
+        "email": "service@kvhs-abi.de"
       },
       {
         "regierungsbezirk": " ",
@@ -6338,21 +6419,12 @@
       },
       {
         "regierungsbezirk": " ",
-        "plz": "39576",
-        "ort": "Stendal",
-        "einrichtung": "Städtische VHS Stendal",
-        "straße": "Hallstr. 35",
-        "telefon": "03931-64880",
-        "email": "vhs_stendal@t-online.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "06886",
-        "ort": "Lutherstadt Wittenberg",
-        "einrichtung": "KVHS Wittenberg",
-        "straße": "Falkstraße 83",
-        "telefon": "03491-41810",
-        "email": "kvhs@bzl-wb.de"
+        "plz": "06108",
+        "ort": "Halle (Saale)",
+        "einrichtung": "Wolpert Schulungszentrum Sprachschule Halle GmbH",
+        "straße": "Marktplatz 7",
+        "telefon": "0340-260260",
+        "email": "info@las-halle.de"
       }
     ]
   },
