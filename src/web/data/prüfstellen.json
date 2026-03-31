@@ -3550,6 +3550,15 @@
       },
       {
         "regierungsbezirk": "Düsseldorf",
+        "plz": 40215,
+        "ort": "Düsseldorf",
+        "einrichtung": "Berlitz Deutschland GmbH",
+        "straße": "Hüttenstraße 4",
+        "telefon": "0211-3027210",
+        "email": "duesseldorf@berlitz.de"
+      },
+      {
+        "regierungsbezirk": "Düsseldorf",
         "plz": 40210,
         "ort": "Düsseldorf",
         "einrichtung": "Study.on",
@@ -3679,7 +3688,7 @@
         "plz": 53111,
         "ort": "Bonn",
         "einrichtung": "Bonner Bildungs Center e.V.",
-        "straße": "Dietkirchstraße 30-32",
+        "straße": "Dietkirchenstraße 30-32",
         "telefon": "0228-3695541",
         "email": "info@bbc-bonn.de"
       },
