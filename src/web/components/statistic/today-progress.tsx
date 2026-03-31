@@ -2,6 +2,7 @@ import { User } from '@/types/user';
 import { Card, CardBody, CardHeader } from '@heroui/react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { CalendarIcon } from '@/icons/CalendarIcon';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const TodayProgress = ({ user, translation }: { user: User, translation: any }) => {
@@ -24,7 +25,10 @@ export const TodayProgress = ({ user, translation }: { user: User, translation: 
         <div>
             <Card className="card-stats border-none h-[300px]">
 
-                <CardHeader className="justify-center">
+                <CardHeader className="justify-center gap-2">
+                    <div className="bg-primary/10 dark:bg-primary/20 rounded-lg p-1.5 text-primary">
+                        <CalendarIcon size={16} />
+                    </div>
                     <h2 className="font-bold text-uppercase text-muted">
                         {translation.today}
                     </h2>

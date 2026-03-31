@@ -1,5 +1,6 @@
 import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@heroui/react";
+import { ClipboardCheckIcon } from "@/icons/ClipboardCheckIcon";
 import { Doughnut } from "react-chartjs-2";
 
 export const MockTestProgress = ({ user, translation }: { user: User, translation: any }) => {
@@ -10,7 +11,10 @@ export const MockTestProgress = ({ user, translation }: { user: User, translatio
         <div>
             <Card className="card-stats border-none h-[300px]">
 
-                <CardHeader className="justify-center">
+                <CardHeader className="justify-center gap-2">
+                    <div className="bg-secondary/10 dark:bg-secondary/20 rounded-lg p-1.5 text-secondary">
+                        <ClipboardCheckIcon size={16} />
+                    </div>
                     <h2 className="font-bold text-uppercase text-muted">
                         {translation.main_mock_title}
                     </h2>

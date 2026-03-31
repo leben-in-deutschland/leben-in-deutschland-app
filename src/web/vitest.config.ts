@@ -9,7 +9,8 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: "node",
+    environment: "jsdom",
+    pool: "forks",
     include: ["__tests__/**/*.{test,spec}.{ts,tsx}"],
     exclude: ["node_modules", ".next"],
   },

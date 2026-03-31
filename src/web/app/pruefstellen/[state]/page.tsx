@@ -60,10 +60,10 @@ export default async function Pruefstellen({
                                 <CardBody>
                                     <p className="font-bold">{place.regierungsbezirk}</p>
                                     <p className="font-bold">{place.einrichtung}</p>
-                                    <span className="flex gap-1"><MapIcon className="dark:invert" /><p>{place.straße}</p></span>
-                                    <span className="flex gap-1"><MapIcon className="dark:invert" /> <p>{place.plz} {place.ort}</p></span>
-                                    <span className="flex gap-1"><PhoneIcon className="dark:invert" /><p>{place.telefon}</p></span>
-                                    <span className="flex gap-1"><MailIcon className="dark:invert" /><Link href={`mailto:${place.email}`} target="_blank" className="hover:underline">{place.email}</Link></span>
+                                    <span className="flex gap-1"><MapIcon className="text-foreground" /><p>{place.straße}</p></span>
+                                    <span className="flex gap-1"><MapIcon className="text-foreground" /> <p>{place.plz} {place.ort}</p></span>
+                                    <span className="flex gap-1"><PhoneIcon className="text-foreground" /><p>{place.telefon}</p></span>
+                                    <span className="flex gap-1"><MailIcon className="text-foreground" /><Link href={`mailto:${place.email}`} target="_blank" className="hover:underline">{place.email}</Link></span>
                                 </CardBody>
                             </Card>
                         )

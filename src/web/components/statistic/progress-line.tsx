@@ -1,5 +1,6 @@
 import { User } from "@/types/user";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
+import { TrendingUpIcon } from "@/icons/TrendingUpIcon";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -40,10 +41,15 @@ export const ProgressLine = ({ user, translation }: { user: User, translation: a
             <Card className="card-stats border-none h-[300px]">
 
                 <CardHeader className="justify-between">
-                    <h2 className="font-bold text-uppercase text-muted">
-                        {translation.progress_line_title}
-                    </h2>
-                    <h6 className="text-gray-400">{translation.progress_line_subtitle}</h6>
+                    <div className="flex items-center gap-2">
+                        <div className="bg-success/10 dark:bg-success/20 rounded-lg p-1.5 text-success">
+                            <TrendingUpIcon size={16} />
+                        </div>
+                        <h2 className="font-bold text-uppercase text-muted">
+                            {translation.progress_line_title}
+                        </h2>
+                    </div>
+                    <h6 className="text-foreground/60 text-xs">{translation.progress_line_subtitle}</h6>
                 </CardHeader>
                 <CardBody>
                     <Line

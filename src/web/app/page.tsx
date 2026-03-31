@@ -127,7 +127,7 @@ function HeroMorphText({ t }: { t: Record<string, string> }) {
       <div className="flex items-center gap-2 hero-connector-pulse">
         <span className={`h-2 w-2 rounded-full ${activeIndex === 0 ? "bg-foreground" : "bg-default-300"} transition-colors`} />
         <span className="text-xs text-default-400 font-medium">{t.hero_transition_connector}</span>
-        <span className={`h-2 w-2 rounded-full ${activeIndex === 1 ? "bg-red-500" : "bg-default-300"} transition-colors`} />
+        <span className={`h-2 w-2 rounded-full ${activeIndex === 1 ? "bg-danger" : "bg-default-300"} transition-colors`} />
       </div>
     </div>
   );
@@ -651,7 +651,7 @@ export default function Home() {
       return;
     }
     setShowLoading(false);
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const stateData = statesData();
@@ -804,7 +804,9 @@ export default function Home() {
 
         {/* ─── BAMF Evaluation Status ─── */}
         <AnimatedSection>
-          <BamfEvaluationSection t={t} data={evalData} />
+          <div id="bamf-evaluation">
+            <BamfEvaluationSection t={t} data={evalData} />
+          </div>
         </AnimatedSection>
 
         {/* ─── Feature Cards (primary 3) ─── */}

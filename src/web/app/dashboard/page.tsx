@@ -4,6 +4,7 @@ import { getUserData, saveUserData } from "@/services/user";
 import { Question } from "@/types/question";
 import { useEffect, useState } from "react";
 import DashboardReports from "@/components/dashboard-report";
+import DashboardGreeting from "@/components/dashboard-greeting";
 import { User, UserState } from "@/types/user";
 import MockHistory from "@/components/mock-history";
 import PrepareQuestion from "@/components/prepare-question";
@@ -12,6 +13,7 @@ import StateSelect from "@/components/state-select";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { ExamReadiness } from "@/components/exam-readiness";
 import { getTranslations, questionsData } from "@/data/data";
+import { filterQuestionsForUser } from "@/utils/prepare-logic";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
 import { AppUpdate } from "@/components/app-update";
@@ -31,6 +33,7 @@ export default function Dashboard() {
   const [filePermission, setFilePermission] = useState<string>("");
   const [filePickerPermission, setFilePickerPermission] = useState<string>("");
   const [isNative, setIsNative] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setIsNative(Capacitor.isNativePlatform());
@@ -90,11 +93,12 @@ export default function Dashboard() {
     (async () => {
       //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
       if (permission === "granted") {
+        const notifTranslations = getTranslations(user?.appLanguage ?? "de");
         await LocalNotifications.schedule({
           notifications: [
             {
-              title: "Don´t forget to study",
-              body: "Continue your preparation for the Einbürgerungstest",
+              title: notifTranslations.notification_title,
+              body: notifTranslations.notification_body,
               id: 65241,
               schedule: {
                 allowWhileIdle: true,
@@ -117,7 +121,7 @@ export default function Dashboard() {
         LocalNotifications.requestPermissions();
       }
     })();
-  }, [permission]);
+  }, [permission, user?.appLanguage]);
 
   useEffect(() => {
     let tempUser = getUserData();
@@ -128,6 +132,7 @@ export default function Dashboard() {
       setUser(tempUser);
       saveUserData(tempUser);
     }
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -168,7 +173,7 @@ export default function Dashboard() {
       {isNative && <AppUpdate
         translation={allTranslations}
       />}
-      {!user?.state.stateName && <StateSelect
+      {loaded && !user?.state.stateName && <StateSelect
         translation={allTranslations}
       />}
       {isNative &&
@@ -177,7 +182,13 @@ export default function Dashboard() {
       {user && prepareQuestion &&
         <>
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
+              <div className="dashboard-section-enter dashboard-section-enter-1">
+                <DashboardGreeting
+                  user={user}
+                  totalQuestions={filterQuestionsForUser(questions, user.state.stateCode).length}
+                  translation={allTranslations} />
+              </div>
               <PrepareQuestion
                 questions={questions}
                 user={user}

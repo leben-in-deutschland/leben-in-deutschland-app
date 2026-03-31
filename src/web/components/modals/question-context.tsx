@@ -127,8 +127,8 @@ export const QuestionContext = ({
                     </Select>
                     {doesSupportLanguage && isCapacitorNative && TextToSpeech && (
                         isSpeaking ?
-                            <Button variant="light" isIconOnly aria-label="Stop speaking" startContent={<SoundOffIcon />} onPress={stopSpeak} />
-                            : <Button variant="light" isIconOnly aria-label="Read aloud" startContent={<SoundIcon />} onPress={speakText} />
+                            <Button variant="light" isIconOnly aria-label={translation.stop_speaking ?? "Stop speaking"} startContent={<SoundOffIcon />} onPress={stopSpeak} />
+                            : <Button variant="light" isIconOnly aria-label={translation.read_aloud ?? "Read aloud"} startContent={<SoundIcon />} onPress={speakText} />
 
                     )}
                 </ModalHeader>

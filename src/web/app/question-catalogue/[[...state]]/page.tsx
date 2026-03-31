@@ -83,7 +83,7 @@ export default async function QuestionCatalogue({
                                 </div>
                                 }
                                 <div className="grid gap-4 md:grid-cols-2">
-                                    <Card className={question.solution === "a" ? "bg-green-200 text-black" : ""}>
+                                    <Card className={question.solution === "a" ? "bg-success/10 dark:bg-success/20 text-foreground" : ""}>
                                         <CardBody>
                                             <div className="flex gap-3">
                                                 <Chip variant="bordered" color="primary">A</Chip>
@@ -91,7 +91,7 @@ export default async function QuestionCatalogue({
                                             </div>
                                         </CardBody>
                                     </Card>
-                                    <Card className={question.solution === "b" ? "bg-green-200 text-black" : ""}>
+                                    <Card className={question.solution === "b" ? "bg-success/10 dark:bg-success/20 text-foreground" : ""}>
                                         <CardBody>
                                             <div className="flex gap-3">
                                                 <Chip variant="bordered" color="primary">B</Chip>
@@ -99,7 +99,7 @@ export default async function QuestionCatalogue({
                                             </div>
                                         </CardBody>
                                     </Card>
-                                    <Card className={question.solution === "c" ? "bg-green-200 text-black" : ""}>
+                                    <Card className={question.solution === "c" ? "bg-success/10 dark:bg-success/20 text-foreground" : ""}>
                                         <CardBody>
                                             <div className="flex gap-3">
                                                 <Chip variant="bordered" color="primary">C</Chip>
@@ -107,7 +107,7 @@ export default async function QuestionCatalogue({
                                             </div>
                                         </CardBody>
                                     </Card>
-                                    <Card className={question.solution === "d" ? "bg-green-200 text-black" : ""}>
+                                    <Card className={question.solution === "d" ? "bg-success/10 dark:bg-success/20 text-foreground" : ""}>
                                         <CardBody>
                                             <div className="flex gap-3">
                                                 <Chip variant="bordered" color="primary">D</Chip>

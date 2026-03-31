@@ -9,6 +9,7 @@ import { FlagIcon } from "@/icons/FlagIcon";
 import { SubmitWarning } from "./modals/submit-warning";
 import { useRouter } from "next/navigation";
 import { MockResult } from "./modals/mock-result";
+import { ClipboardCheckIcon } from "@/icons/ClipboardCheckIcon";
 
 export const Quiz = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
     const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
@@ -264,92 +265,94 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
     return (
         <>
             {resultOpen && currentMockData && <MockResult translation={translation} testProgress={currentMockData} isModelOpen={resultOpen} handleClose={() => handleResultCose()} />}
-            <div className="flex gap-6 justify-center mt-10">
+            <div className="flex gap-4 md:gap-6 justify-center mt-6 md:mt-10 px-2 md:px-0 quiz-fade-in">
 
                 {
                     currentQuizQuestion &&
-                    <div className="grid md:grid-cols-2 gap-2">
+                    <div className="grid md:grid-cols-2 gap-3 md:gap-4 w-full max-w-6xl">
                         <div>
                             <SubmitWarning translation={translation} isModelOpen={submitModelWarning} handleClose={handleWarningClose} handleSubmit={handleWarningSubmit} />
-                            <Card className="h-[100%]">
-                                <CardHeader className="justify-center">
-                                    <p className="font-bold text-xl">{currentQuizQuestion.question}</p>
+                            <Card className="h-[100%] shadow-sm">
+                                <CardHeader className="flex-col items-start gap-3 pb-2">
+                                    <div className="flex items-center gap-2">
+                                        <div className="bg-secondary/10 dark:bg-secondary/20 rounded-lg p-1.5 text-secondary">
+                                            <ClipboardCheckIcon size={16} />
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <Chip size="sm" variant="flat" color="warning" className="font-bold">{quizQuestions.findIndex(x => x?.num === currentQuizQuestion.num) + 1}</Chip>
+                                            <span className="text-foreground/40 text-sm">/</span>
+                                            <Chip size="sm" variant="flat" color="danger" className="font-bold">{quizQuestions.length}</Chip>
+                                        </div>
+                                    </div>
+                                    <p className="font-bold text-lg md:text-xl text-foreground leading-snug">{currentQuizQuestion.question}</p>
                                 </CardHeader>
-                                <CardBody className="justify-center">
+                                <CardBody className="justify-center pt-2">
                                     <div className="grid gap-4">
                                         {currentQuizQuestion.image !== "-" && <div hidden={!(currentQuizQuestion.image !== "-")}>
-                                            <Image src={currentQuizQuestion.image} alt=""></Image>
+                                            <Image src={currentQuizQuestion.image} alt="" className="rounded-xl"></Image>
                                         </div>
                                         }
-                                        <div className="grid gap-4 md:grid-cols-2">
-                                            <Card isPressable onPress={() => handleOptionSelected("a")}>
-                                                <CardBody>
-                                                    <div className="flex gap-3">
-                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                        {currentQuizQuestion.a}
-                                                    </div>
-                                                </CardBody>
-                                            </Card>
-                                            <Card isPressable onPress={() => handleOptionSelected("b")}>
-                                                <CardBody>
-                                                    <div className="flex gap-3">
-                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                        {currentQuizQuestion.b}
-                                                    </div>
-                                                </CardBody>
-                                            </Card>
-                                            <Card isPressable onPress={() => handleOptionSelected("c")}>
-                                                <CardBody>
-                                                    <div className="flex gap-3">
-                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                        {currentQuizQuestion.c}
-                                                    </div>
-                                                </CardBody>
-                                            </Card>
-                                            <Card isPressable onPress={() => handleOptionSelected("d")}>
-                                                <CardBody>
-                                                    <div className="flex gap-3">
-                                                        <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                        {currentQuizQuestion.d}
-                                                    </div>
-                                                </CardBody>
-                                            </Card>
+                                        <div className="grid gap-3 md:grid-cols-2">
+                                            {(["a", "b", "c", "d"] as const).map((option) => (
+                                                <Card
+                                                    key={option}
+                                                    isPressable
+                                                    onPress={() => handleOptionSelected(option)}
+                                                    className={`transition-all duration-200 ${optionSelected === option
+                                                        ? "bg-primary/10 dark:bg-primary/20 ring-2 ring-primary shadow-sm"
+                                                        : "hover:bg-default-100 dark:hover:bg-default-50"
+                                                        }`}
+                                                >
+                                                    <CardBody>
+                                                        <div className="flex gap-3 items-start">
+                                                            <Chip
+                                                                variant={optionSelected === option ? "solid" : "bordered"}
+                                                                color="primary"
+                                                                size="sm"
+                                                                className={`min-w-[28px] ${optionSelected === option ? "" : ""}`}
+                                                            >
+                                                                {option.toUpperCase()}
+                                                            </Chip>
+                                                            <span className="text-foreground text-sm md:text-base">{currentQuizQuestion[option]}</span>
+                                                        </div>
+                                                    </CardBody>
+                                                </Card>
+                                            ))}
                                         </div>
                                     </div>
                                 </CardBody>
-                                <CardFooter className="flex gap-2">
-                                    <div className="flex gap-1">
-                                        <p className="bg-yellow-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.findIndex(x => x?.num === currentQuizQuestion.num) + 1}</p>
-                                        <p className="p-[5%] text-foreground font-extrabold text-center">/</p>
-                                        <p className="bg-red-400 rounded-xl p-2 text-foreground font-bold">{quizQuestions.length}</p>
-                                    </div>
-                                    <div className="flex">
-                                        <Tooltip content={translation.cancel_mock_test ?? "Cancel Mock Test"}>
-                                            <Button disableRipple variant="solid" color="danger" onPress={handleQuizCancel}>{translation.cancel}</Button>
-                                        </Tooltip>
+                                <CardFooter className="flex justify-between items-center gap-2 pt-2 border-t border-divider">
+                                    <Tooltip content={translation.cancel_mock_test ?? "Cancel Mock Test"}>
+                                        <Button variant="flat" color="danger" size="sm" onPress={handleQuizCancel}>{translation.cancel}</Button>
+                                    </Tooltip>
+                                    <div className="flex items-center gap-1">
                                         <Tooltip content={translation.flag_for_review ?? "Flag for review"}>
-                                            <Button onPress={handleFlag} disableRipple variant="light" aria-label={translation.flag_for_review ?? "Flag for review"} className={`dark:invert ${flagPressed ? "text-red-600" : "text-foreground"}`} startContent={<FlagIcon />} />
+                                            <Button
+                                                onPress={handleFlag}
+                                                disableRipple
+                                                variant="light"
+                                                size="sm"
+                                                isIconOnly
+                                                aria-label={translation.flag_for_review ?? "Flag for review"}
+                                                className={`transition-colors ${flagPressed ? "text-danger" : "text-foreground/50 hover:text-foreground"}`}
+                                                startContent={<FlagIcon />}
+                                            />
                                         </Tooltip>
-                                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" onPress={handleNext}>{translation.next}</Button>}
-                                        {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" onPress={handleSubmit}>{translation.submit}</Button>}
+                                        {!(quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1)) && <Button variant="solid" color="primary" size="sm" onPress={handleNext}>{translation.next}</Button>}
+                                        {quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num) === (quizQuestions.length - 1) && <Button variant="solid" color="success" size="sm" onPress={handleSubmit}>{translation.submit}</Button>}
                                     </div>
                                 </CardFooter>
                             </Card>
                         </div>
-                        <div className="grid">
-                            <div className="">
-                                <Countdown handleTimeComplete={handleTimeComplete} translation={translation} />
-                            </div>
-                            <div>
-                                {currentMockData &&
-                                    <QuizProgress
-                                        translation={translation}
-                                        questions={currentMockData.questions}
-                                        onChangeFromProgressBar={onChangeFromProgressBar}
-                                        currentQuestionIndex={quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num)}
-                                    />}
-                            </div>
-
+                        <div className="flex flex-col gap-3">
+                            <Countdown handleTimeComplete={handleTimeComplete} translation={translation} />
+                            {currentMockData &&
+                                <QuizProgress
+                                    translation={translation}
+                                    questions={currentMockData.questions}
+                                    onChangeFromProgressBar={onChangeFromProgressBar}
+                                    currentQuestionIndex={quizQuestions.findIndex(x => x?.num === currentQuizQuestion?.num)}
+                                />}
                         </div>
                     </div>
                 }

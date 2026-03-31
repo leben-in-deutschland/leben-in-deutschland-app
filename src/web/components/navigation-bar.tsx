@@ -9,7 +9,7 @@ import {
 } from "@heroui/navbar";
 import { Divider, Tooltip } from "@heroui/react";
 import { Button } from "@heroui/button";
-import { Link, LinkIcon } from "@heroui/link";
+import { Link } from "@heroui/link";
 
 import { siteConfig } from "../config/site";
 import NextLink from "next/link";
@@ -27,15 +27,32 @@ import { useState, useEffect } from "react";
 import UserSetting from "./settings/user-setting";
 import { SettingIcon } from "@/icons/SettingIcon";
 import { DashboardIcon } from "@/icons/DashboardIcon";
+import { ClipboardStatusIcon } from "@/icons/ClipboardStatusIcon";
 import { Capacitor } from "@capacitor/core";
+import { getTranslations } from "@/data/data";
+import { getUserData } from "@/services/user";
+import { User } from "@/types/user";
 
 export const NavigationBar = () => {
     const [isSettingsClick, setSettingClicked] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isNative, setIsNative] = useState(false);
+    const [user, setUser] = useState<User>();
+    const t = getTranslations(user?.appLanguage ?? "de");
 
     useEffect(() => {
         setIsNative(Capacitor.isNativePlatform());
+        const tempUser = getUserData();
+        if (tempUser !== null) setUser(tempUser);
+    }, []);
+
+    useEffect(() => {
+        const handleUserChange = () => {
+            const tempUser = getUserData();
+            if (tempUser !== null) setUser(tempUser);
+        };
+        window.addEventListener("user", handleUserChange);
+        return () => window.removeEventListener("user", handleUserChange);
     }, []);
 
     const handleSettingClick = () => {
@@ -69,10 +86,10 @@ export const NavigationBar = () => {
                         {
                             !isNative &&
                             <NextLink className="md:flex" href="/dashboard" aria-label="dashboard">
-                                <Tooltip content="Dashboard">
+                                <Tooltip content={t.nav_dashboard}>
                                     <DashboardIcon className="text-default-500" />
                                 </Tooltip>
-                                <p className="hidden md:flex text-foreground">Dashboard</p>
+                                <p className="hidden md:flex text-foreground">{t.nav_dashboard}</p>
                             </NextLink>
                         }
                     </NavbarBrand>
@@ -84,13 +101,17 @@ export const NavigationBar = () => {
                     <Link className="hidden md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
                         <BitesInByteIcon className="text-default-500" />
                     </Link>
-                    <Button isIconOnly variant="light" aria-label="Settings" startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
-                    <ThemeSwitch />
+                    <Link isExternal className="hidden md:flex gap-1 items-center" href={isNative ? `${siteConfig.links.website}/#bamf-evaluation` : "/#bamf-evaluation"} aria-label={t.nav_bamf_evaluation}>
+                            <ClipboardStatusIcon size={20} className="text-default-500" />
+                            <p className="text-foreground text-sm">{t.nav_bamf_evaluation}</p>
+                        </Link>
+                    <Button isIconOnly variant="light" aria-label={t.settings} startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
+                    <ThemeSwitch translation={t} />
                     {
                         !isNative &&
-                        <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
-                            <DonateIcon className="text-red-700" />
-                            <p className="hidden md:flex text-red-700">Donate</p>
+                        <Link isExternal href={siteConfig.links.sponsor} className="gap-2">
+                            <DonateIcon className="text-danger" />
+                            <p className="hidden md:flex text-danger">{t.nav_donate}</p>
                         </Link>
                     }
 
@@ -98,12 +119,12 @@ export const NavigationBar = () => {
                 <NavbarContent className="sm:hidden basis-1" justify="end">
                     {
                         !isNative &&
-                        <Link isExternal as={Link} href={siteConfig.links.sponsor} className="gap-2">
-                            <DonateIcon className="text-red-700" />
-                            <p className="hidden md:flex text-red-700">Donate</p>
+                        <Link isExternal href={siteConfig.links.sponsor} className="gap-2">
+                            <DonateIcon className="text-danger" />
+                            <p className="hidden md:flex text-danger">{t.nav_donate}</p>
                         </Link>
                     }
-                    <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+                    <NavbarMenuToggle aria-label={isMenuOpen ? t.nav_close_menu : t.nav_open_menu} />
                 </NavbarContent>
                 <NavbarMenu>
                     <div className="mx-4 mt-2 flex flex-col gap-3">
@@ -119,18 +140,24 @@ export const NavigationBar = () => {
                                 <p className="font-bold text-foreground">Bitesinbyte</p>
                             </Link>
                         </NavbarMenuItem>
+                        <NavbarMenuItem>
+                                <Link isExternal className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href={isNative ? `${siteConfig.links.website}/#bamf-evaluation` : "/#bamf-evaluation"} aria-label={t.nav_bamf_evaluation} onPress={() => setIsMenuOpen(false)}>
+                                    <ClipboardStatusIcon className="text-foreground" />
+                                    <p className="font-bold text-foreground">{t.nav_bamf_evaluation}</p>
+                                </Link>
+                            </NavbarMenuItem>
                         <Divider />
                         <NavbarMenuItem>
                             <div className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider">
-                                <ThemeSwitch onThemeChange={() => setIsMenuOpen(false)} />
-                                <p className="font-bold text-foreground">Switch Theme</p>
+                                <ThemeSwitch onThemeChange={() => setIsMenuOpen(false)} translation={t} />
+                                <p className="font-bold text-foreground">{t.nav_switch_theme}</p>
                             </div>
                         </NavbarMenuItem>
                         <NavbarMenuItem>
                             <Link
                                 onPress={handleSettingClick} className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider cursor-pointer">
                                 <SettingIcon className="text-foreground" />
-                                <p className="font-bold text-foreground">My Settings</p>
+                                <p className="font-bold text-foreground">{t.nav_my_settings}</p>
                             </Link>
                         </NavbarMenuItem>
                         <Divider />
@@ -139,13 +166,13 @@ export const NavigationBar = () => {
                                 className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider"
                                 href="/privacy-policy" aria-label="privacy">
                                 <ShieldIcon className="text-foreground" />
-                                <p className="font-bold text-foreground">Privacy Policy</p>
+                                <p className="font-bold text-foreground">{t.nav_privacy_policy}</p>
                             </Link>
                         </NavbarMenuItem>
                         <NavbarMenuItem>
                             <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact" onPress={() => setIsMenuOpen(false)}>
                                 <MailIcon className="text-foreground" />
-                                <p className="font-bold text-foreground">Contact</p>
+                                <p className="font-bold text-foreground">{t.nav_contact}</p>
                             </Link>
                         </NavbarMenuItem>
                     </div>

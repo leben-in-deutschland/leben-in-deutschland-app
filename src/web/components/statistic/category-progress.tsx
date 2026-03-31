@@ -1,7 +1,8 @@
 import { User, UserQuestionProgress } from "@/types/user";
 import { categories, Question } from "@/types/question";
-import { Card, CardBody, CardHeader, Chip } from "@heroui/react";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import { Doughnut } from "react-chartjs-2";
+import { LayersIcon } from "@/icons/LayersIcon";
 type CategoryData = {
     "key": string,
     "totalQuestion": number,
@@ -45,7 +46,10 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
     }
     return (
         <Card className="mt-4 mb-4">
-            <CardHeader>
+            <CardHeader className="gap-2">
+                <div className="bg-default-200 dark:bg-default-100 rounded-lg p-1.5 text-foreground/60">
+                    <LayersIcon size={16} />
+                </div>
                 <h2 className="font-bold text-uppercase text-muted">{translation.category_progress}</h2>
             </CardHeader>
             <CardBody>

@@ -1,5 +1,6 @@
 import { User } from "@/types/user";
 import { Card, CardBody, CardHeader } from "@heroui/react";
+import { ChartBarIcon } from "@/icons/ChartBarIcon";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -41,12 +42,17 @@ export const CorrectIncorrectLine = ({ user, translation }: { user: User, transl
 
     }
     return (
-        <Card className="card-stats border-none">
+        <Card className="card-stats border-none mt-4">
             <CardHeader className="justify-between">
-                <h2 className="font-bold text-uppercase text-muted">
-                    {translation.correct_incorrect_title}
-                </h2>
-                <h6 className="text-gray-400">{translation.correct_incorrect_subtitle}</h6>
+                <div className="flex items-center gap-2">
+                    <div className="bg-danger/10 dark:bg-danger/20 rounded-lg p-1.5 text-danger">
+                        <ChartBarIcon size={16} />
+                    </div>
+                    <h2 className="font-bold text-uppercase text-muted">
+                        {translation.correct_incorrect_title}
+                    </h2>
+                </div>
+                <h6 className="text-foreground/60 text-xs">{translation.correct_incorrect_subtitle}</h6>
             </CardHeader>
             <CardBody>
                 <Line

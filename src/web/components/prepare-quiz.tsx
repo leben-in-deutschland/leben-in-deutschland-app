@@ -1,10 +1,11 @@
 import { ArrowLeftIcon } from "@/icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { FlagIcon } from "@/icons/FlagIcon";
+import { BookOpenIcon } from "@/icons/BookOpenIcon";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { Question } from "@/types/question";
 import { User, UserQuestionProgress } from "@/types/user";
-import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Tooltip, Image, Alert } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { createUserStats } from "@/utils/user-mapping";
 import { TranslateIcon } from "@/icons/TranslateIcon";
@@ -13,6 +14,8 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { QuestionContext } from "./modals/question-context";
 import { AssistantIcon } from "@/icons/AssistantIcon";
+import { remark } from 'remark';
+import html from 'remark-html';
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, translations }:
@@ -34,6 +37,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     const [flagPressed, setFlagPressed] = useState<boolean>(false);
     const [disableSkip, setDisableSkip] = useState<boolean>(false);
     const [currentAction, setCurrentAction] = useState<PrepareQuestionActions>(prepareQuestion.action);
+    const [contextHtml, setContextHtml] = useState<string | null>(null);
     const router = useRouter();
     useEffect(() => {
         if (currentAction === PrepareQuestionActions.Prepare) {
@@ -159,6 +163,21 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentAction, currentQuestion]);
+
+    useEffect(() => {
+        if (showSolution && currentQuestion?.context) {
+            const lang = user.appLanguage ?? "de";
+            const rawContext = lang === "de"
+                ? currentQuestion.context
+                : currentQuestion.translation?.[lang]?.context ?? currentQuestion.context;
+            (async () => {
+                const processed = await remark().use(html).process(rawContext);
+                setContextHtml(processed.toString());
+            })();
+        } else {
+            setContextHtml(null);
+        }
+    }, [showSolution, currentQuestion, user.appLanguage]);
 
     const handleOptionSelected = (option: string) => {
         if (!blockAnserChange) {
@@ -300,11 +319,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                 setCurrentQuestion(newQuestion);
                 setPreviousEnable(true);
             } else {
-                toast.success(translations.prepare_alert_attempted_all, {
-                    style: {
-                        backgroundColor: '#A9FFD8'
-                    }
-                });
+                toast.success(translations.prepare_alert_attempted_all);
                 router.push("/dashboard");
             }
         } else {
@@ -363,43 +378,67 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                             <CardBody>
                                 <div className="grid gap-4">
                                     {currentQuestion.image !== "-" && <div hidden={!(currentQuestion.image !== "-")}>
-                                        <Image src={currentQuestion.image} alt=""></Image>
+                                        <Image src={currentQuestion.image} alt="" className="rounded-xl"></Image>
                                     </div>
                                     }
-                                    <div className="grid gap-4 md:grid-cols-2">
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "a") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("a")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "a" ? "bg-cyan-500" : ""}`}>A</Chip>
-                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.a}</span>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "b") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("b")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "b" ? "bg-cyan-500" : ""}`}>B</Chip>
-                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.b}</span>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "c") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("c")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "c" ? "bg-cyan-500" : ""}`}>C</Chip>
-                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.c}</span>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                        <Card isPressable className={`${showSolution ? (currentQuestion.solution === "d") ? "bg-green-200" : "bg-red-200" : ""}`} onPress={() => handleOptionSelected("d")}>
-                                            <CardBody>
-                                                <div className="flex gap-3">
-                                                    <Chip variant="bordered" color="primary" className={`${optionSelected === "d" ? "bg-cyan-500" : ""}`}>D</Chip>
-                                                    <span className={showSolution ? "text-black" : ""}>{currentQuestion.d}</span>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
+                                    <div className="grid gap-3 md:grid-cols-2">
+                                        {(["a", "b", "c", "d"] as const).map((option) => {
+                                            const isCorrect = currentQuestion.solution === option;
+                                            const isSelected = optionSelected === option;
+                                            return (
+                                                <Card
+                                                    key={option}
+                                                    isPressable
+                                                    onPress={() => handleOptionSelected(option)}
+                                                    className={`transition-all duration-200 ${showSolution
+                                                        ? isCorrect
+                                                            ? "bg-success/10 dark:bg-success/20 ring-1 ring-success/30"
+                                                            : "bg-danger/10 dark:bg-danger/20 ring-1 ring-danger/30"
+                                                        : ""
+                                                        } ${!showSolution && isSelected ? "bg-primary/20 dark:bg-primary/30 ring-2 ring-primary" : ""}`}
+                                                >
+                                                    <CardBody>
+                                                        <div className="flex gap-3 items-start">
+                                                            <Chip
+                                                                variant={isSelected ? "solid" : "bordered"}
+                                                                color="primary"
+                                                                size="sm"
+                                                                className="min-w-[28px]"
+                                                            >
+                                                                {option.toUpperCase()}
+                                                            </Chip>
+                                                            <span className="text-foreground text-sm md:text-base">{currentQuestion[option]}</span>
+                                                        </div>
+                                                    </CardBody>
+                                                </Card>
+                                            );
+                                        })}
                                     </div>
+                                    {showSolution && contextHtml && (
+                                        <div className="explanation-reveal mt-2">
+                                            <Card className="bg-primary/5 dark:bg-primary/10 shadow-none border border-divider">
+                                                <CardBody className="gap-3">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="bg-primary/10 dark:bg-primary/20 rounded-lg p-1.5 text-primary">
+                                                            <BookOpenIcon size={16} />
+                                                        </div>
+                                                        <span className="font-semibold text-sm text-foreground">{translations.explanation ?? "Explanation"}</span>
+                                                    </div>
+                                                    <div
+                                                        className="text-foreground/80 text-sm leading-relaxed prose prose-sm dark:prose-invert max-w-none"
+                                                        dangerouslySetInnerHTML={{ __html: contextHtml }}
+                                                    />
+                                                    <Alert
+                                                        description={translations.ai_warning_description}
+                                                        title={translations.ai_warning_title}
+                                                        color="warning"
+                                                        variant="bordered"
+                                                        className="text-xs"
+                                                    />
+                                                </CardBody>
+                                            </Card>
+                                        </div>
+                                    )}
                                 </div>
                             </CardBody>
                             <CardFooter className="flex justify-between gap-2 md:gap-4">
@@ -407,17 +446,17 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                                     <Button
                                         onPress={openTranslate}
                                         aria-label={translations.translate ?? "Translate"}
-                                        className="dark:invert" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
+                                        className="text-foreground" color="primary" variant="light" startContent={<TranslateIcon size={44} />}></Button>
                                 </Tooltip>
                                 <Tooltip content={translations.more_info_ai ?? "More Information - AI Generated"}>
                                     <Button
                                         onPress={openQuestionContext}
                                         aria-label={translations.more_info_ai ?? "More Information - AI Generated"}
-                                        className="dark:invert" color="primary" variant="light" startContent={<AssistantIcon size={44} />}></Button>
+                                        className="text-foreground" color="primary" variant="light" startContent={<AssistantIcon size={44} />}></Button>
                                 </Tooltip>
                                 <div className="flex justify-end gap-1 md:gap-4">
                                     <Tooltip content={translations.flag_for_review ?? "Flag for review"}>
-                                        <Button onPress={handleFlag} disableRipple variant="light" aria-label={translations.flag_for_review ?? "Flag for review"} className={`dark:invert ${flagPressed ? "text-red-600" : "text-white"}`} startContent={<FlagIcon />} />
+                                        <Button onPress={handleFlag} disableRipple variant="light" aria-label={translations.flag_for_review ?? "Flag for review"} className={`${flagPressed ? "text-danger" : "text-foreground"}`} startContent={<FlagIcon />} />
                                     </Tooltip>
                                     {!nextEnabled && <Button variant="solid" color="primary" onPress={handleSubmit} disabled={submitDisabled}>{translations.submit}</Button>}
                                     {nextEnabled && <Button disabled={!nextEnabled} variant="solid" color="primary" onPress={handleNext}>{translations.next}</Button>}

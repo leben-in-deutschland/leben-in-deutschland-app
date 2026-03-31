@@ -10,6 +10,7 @@ export const siteConfig = {
         github: "https://github.com/bitesinbyte/leben-in-deutschland",
         bitesinbyte: "https://links.bitesinbyte.com/",
         sponsor: "https://ko-fi.com/bitesinbyte",
-        playStore: "https://play.google.com/store/apps/details?id=org.lebenindeutschland.app"
+        playStore: "https://play.google.com/store/apps/details?id=org.lebenindeutschland.app",
+        website: "https://www.lebenindeutschland.org",
     }
 };

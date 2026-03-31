@@ -5,7 +5,7 @@ import { GermanFlagIcon } from "@/icons/GermanFlagIcon";
 import { UnitedKingdomIcon } from "@/icons/UnitedKingdomIcon";
 import { User } from "@/types/user";
 
-export const LanguageSwitch = ({ user, handleAppLanguageChange }: { user: User | undefined, handleAppLanguageChange: any }) => {
+export const LanguageSwitch = ({ user, handleAppLanguageChange, translation }: { user: User | undefined, handleAppLanguageChange: any, translation?: any }) => {
 
     const handleSelectionChange = (e: any) => {
         handleAppLanguageChange(e.target.value);
@@ -15,8 +15,8 @@ export const LanguageSwitch = ({ user, handleAppLanguageChange }: { user: User |
         <Select
             className="max-w-xs"
             defaultSelectedKeys={[user?.appLanguage === "en" ? "en" : "de"]}
-            label="App Language"
-            placeholder="Select App Language"
+            label={translation?.app_language ?? "App Language"}
+            placeholder={translation?.select_state ?? "Select App Language"}
             startContent={user?.appLanguage === "en" ? <UnitedKingdomIcon /> : <GermanFlagIcon />}
             onChange={handleSelectionChange}
         >
