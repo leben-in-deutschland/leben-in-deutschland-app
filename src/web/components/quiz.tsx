@@ -8,6 +8,7 @@ import { QuizProgress } from "./quiz-progress";
 import { FlagIcon } from "@/icons/FlagIcon";
 import { SubmitWarning } from "./modals/submit-warning";
 import { useRouter } from "next/navigation";
+import { navigateTo } from "@/utils/navigation";
 import { MockResult } from "./modals/mock-result";
 import { ClipboardCheckIcon } from "@/icons/ClipboardCheckIcon";
 
@@ -167,7 +168,7 @@ export const Quiz = ({ user, questions, translation }: { user: User, questions: 
 
     const handleResultCose = () => {
         setResultOpen(false);
-        router.push("/dashboard");
+        navigateTo("/dashboard", router.push);
     };
 
     const changeQuestionState = (userData: User) => {

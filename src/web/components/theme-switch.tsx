@@ -33,6 +33,8 @@ export const ThemeSwitch = ({ onThemeChange, translation }: { onThemeChange?: ()
             const style = tempTheme === "light" ? Style.Light : Style.Dark;
             const backgroundColor = tempTheme === "light" ? "#FFFFFF" : "#000000";
             EdgeToEdge.setBackgroundColor({ color: backgroundColor });
+            StatusBar.setOverlaysWebView({ overlay: true });
+            StatusBar.hide();
             StatusBar.setBackgroundColor({ color: backgroundColor });
             StatusBar.setStyle({ style: style });
         }

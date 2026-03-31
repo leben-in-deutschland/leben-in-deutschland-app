@@ -5,6 +5,7 @@ import { SoundOffIcon } from "@/icons/SoundOffIcon";
 import { SoundIcon } from "@/icons/SoundIcon";
 import { remark } from 'remark';
 import html from 'remark-html';
+import { loadQuestionContext } from "@/utils/question-loader";
 
 const targetLanguages = [
     { langCode: 'de', displayName: 'Deutsch', isoLangCode: 'de-DE', img: "https://www.geonames.org/flags/x/de.gif" },
@@ -27,7 +28,7 @@ export const QuestionContext = ({
     }) => {
 
     const [doesSupportLanguage, setDoesSupportLanguage] = useState<boolean>(true);
-    const [currentQuestionContext, setCurrentQuestionContext] = useState<string | null>(question.context);
+    const [currentQuestionContext, setCurrentQuestionContext] = useState<string | null>(null);
     const [currentLanguage, setCurrentLanguage] = useState<string>("de");
     const [currentIsoLanguage, setCurrentIsoLanguage] = useState<string>("de-DE");
     const [isCapacitorNative, setIsCapacitorNative] = useState<boolean>(false);
@@ -43,23 +44,18 @@ export const QuestionContext = ({
     useEffect(() => {
         (async () => {
             await stopSpeak();
-            if (currentLanguage === "de") {
+            const rawContext = await loadQuestionContext(question.num, currentLanguage);
+            if (rawContext) {
                 const processedContent = await remark()
                     .use(html)
-                    .process(question.context);
+                    .process(rawContext);
                 const contentHtml = processedContent.toString();
                 setCurrentQuestionContext(contentHtml);
-                return;
-            }
-            if (question.translation) {
-                const processedContent = await remark()
-                    .use(html)
-                    .process(question.translation[currentLanguage]?.context);
-                const contentHtml = processedContent.toString();
-                setCurrentQuestionContext(contentHtml);
+            } else {
+                setCurrentQuestionContext(null);
             }
         })();
-    }, [currentLanguage, question.context, question.translation, stopSpeak]);
+    }, [currentLanguage, question.num, stopSpeak]);
 
     useEffect(() => {
         (async () => {

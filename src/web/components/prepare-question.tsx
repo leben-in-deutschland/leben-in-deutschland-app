@@ -5,6 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
 import { BookOpenIcon } from "@/icons/BookOpenIcon";
 import { useRouter } from "next/navigation";
+import { navigateTo } from "@/utils/navigation";
 
 export default function PrepareQuestion({ questions, user, translation }: { questions: Question[], user: User, translation: any }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
@@ -18,7 +19,7 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
             <Tooltip content={translation.prepare_questions ?? "Prepare questions"}>
                 <Card className="group card-stats border-none w-[100%] hover:shadow-md transition-shadow"
                     isPressable
-                    onPress={() => router.push("/prepare?action=prepare")}>
+                    onPress={() => navigateTo("/prepare?action=prepare", router.push)}>
                     <CardHeader className="flex justify-between items-center">
                         <div className="flex gap-3 md:gap-6 items-center">
                             <div className="bg-primary/10 dark:bg-primary/20 rounded-xl p-2.5 text-primary">

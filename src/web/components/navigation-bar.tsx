@@ -77,7 +77,7 @@ export const NavigationBar = () => {
             <Navbar maxWidth="2xl" position="sticky" onMenuOpenChange={handleMenuOpenChange} isMenuOpen={isMenuOpen} >
                 <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
                     <NavbarBrand as="li" className="gap-3 max-w-fit">
-                        <NextLink className="flex justify-start items-center gap-1" href={isNative ? "/dashboard" : "/"}>
+                        <NextLink className="flex justify-start items-center gap-1" href={isNative ? "/dashboard.html" : "/"}>
                             <Logo />
                             <p className="font-bold text-foreground" >Leben</p>
                             <p className="font-bold text-red-500"> in </p>

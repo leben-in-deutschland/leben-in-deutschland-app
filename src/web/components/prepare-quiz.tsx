@@ -12,10 +12,12 @@ import { TranslateIcon } from "@/icons/TranslateIcon";
 import { Translation } from "./modals/translation";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { navigateTo } from "@/utils/navigation";
 import { QuestionContext } from "./modals/question-context";
 import { AssistantIcon } from "@/icons/AssistantIcon";
 import { remark } from 'remark';
 import html from 'remark-html';
+import { loadQuestionContext } from "@/utils/question-loader";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, translations }:
@@ -165,14 +167,16 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
     }, [currentAction, currentQuestion]);
 
     useEffect(() => {
-        if (showSolution && currentQuestion?.context) {
+        if (showSolution && currentQuestion) {
             const lang = user.appLanguage ?? "de";
-            const rawContext = lang === "de"
-                ? currentQuestion.context
-                : currentQuestion.translation?.[lang]?.context ?? currentQuestion.context;
             (async () => {
-                const processed = await remark().use(html).process(rawContext);
-                setContextHtml(processed.toString());
+                const rawContext = await loadQuestionContext(currentQuestion.num, lang);
+                if (rawContext) {
+                    const processed = await remark().use(html).process(rawContext);
+                    setContextHtml(processed.toString());
+                } else {
+                    setContextHtml(null);
+                }
             })();
         } else {
             setContextHtml(null);
@@ -320,7 +324,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                 setPreviousEnable(true);
             } else {
                 toast.success(translations.prepare_alert_attempted_all);
-                router.push("/dashboard");
+                navigateTo("/dashboard", router.push);
             }
         } else {
             toast.error(translations.prepare_alert_submit);

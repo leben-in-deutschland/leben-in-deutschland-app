@@ -1,6 +1,6 @@
 import { State } from '@/types/state';
 import statesJson from './states.json';
-import questionsJson from './question.json';
+import questionsJson from './questions-core.json';
 import pruefstellenJson from './prüfstellen.json';
 import evaluationJson from './current-evaluation.json';
 import enJson from './translations/en.json';

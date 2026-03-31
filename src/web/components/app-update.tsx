@@ -6,23 +6,27 @@ export const AppUpdate = ({ translation }: { translation: any }) => {
     const [isModelOpen, setIsModelOpen] = useState(false);
     useEffect(() => {
         (async () => {
-            const result = await AppUpdatePlugin.getAppUpdateInfo();
-            setIsModelOpen(result.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE);
+            try {
+                const result = await AppUpdatePlugin.getAppUpdateInfo();
+                setIsModelOpen(result.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE);
+            } catch { /* plugin unavailable */ }
         })();
     }, []);
 
     const HandleUpdateConfirm = async () => {
-        const result = await AppUpdatePlugin.getAppUpdateInfo();
-        if (result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE) {
-            return;
-        }
-        if (result.immediateUpdateAllowed) {
-            await AppUpdatePlugin.performImmediateUpdate();
-        }
-        else if (result.flexibleUpdateAllowed) {
-            await AppUpdatePlugin.startFlexibleUpdate();
-            await AppUpdatePlugin.completeFlexibleUpdate();
-        }
+        try {
+            const result = await AppUpdatePlugin.getAppUpdateInfo();
+            if (result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE) {
+                return;
+            }
+            if (result.immediateUpdateAllowed) {
+                await AppUpdatePlugin.performImmediateUpdate();
+            }
+            else if (result.flexibleUpdateAllowed) {
+                await AppUpdatePlugin.startFlexibleUpdate();
+                await AppUpdatePlugin.completeFlexibleUpdate();
+            }
+        } catch { /* plugin unavailable */ }
     };
     return (
         <Modal

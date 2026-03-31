@@ -9,8 +9,13 @@ import { User } from "@/types/user";
 import { MapPinIcon } from "@/icons/MapPinIcon";
 import { Capacitor } from "@capacitor/core";
 import { siteConfig } from "@/config/site";
+import { useState, useEffect } from "react";
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const StateProgress = ({ user, questions, onPress, translation }: { user: User, questions: Question[], onPress: any, translation: any }) => {
+    const [isNative, setIsNative] = useState(false);
+    useEffect(() => {
+        setIsNative(Capacitor.isNativePlatform());
+    }, []);
     let totalAttemptedStateQuestion = user.questionProgress.filter(element => element?.num.startsWith(user.state.stateCode));
 
     let skipped = totalAttemptedStateQuestion.filter(x => x.skipped).length;
@@ -80,7 +85,7 @@ export const StateProgress = ({ user, questions, onPress, translation }: { user:
                     />
                 </CardBody>
                 <CardFooter className="justify-end">
-                    {Capacitor.isNativePlatform() ? (
+                    {isNative ? (
                         <Button
                             as={Link}
                             isExternal

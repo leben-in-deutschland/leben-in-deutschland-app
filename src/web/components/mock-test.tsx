@@ -3,6 +3,7 @@ import { ClipboardCheckIcon } from "@/icons/ClipboardCheckIcon";
 import { User } from "@/types/user";
 import { Card, CardHeader, Tooltip } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { navigateTo } from "@/utils/navigation";
 import { Doughnut } from "react-chartjs-2";
 
 export default function MockTest({ user, translation }: { user: User, translation: any }) {
@@ -14,7 +15,7 @@ export default function MockTest({ user, translation }: { user: User, translatio
             <Tooltip content={translation.attempt_mock_exam ?? "Attempt mock exam"}>
                 <Card className="group card-stats border-none item-center w-[100%] hover:shadow-md transition-shadow"
                     isPressable
-                    onPress={() => router.push("/mock?action=mock")}>
+                    onPress={() => navigateTo("/mock?action=mock", router.push)}>
                     <CardHeader className="flex justify-between items-center">
                         <div className="flex gap-3 md:gap-6 items-center">
                             <div className="bg-secondary/10 dark:bg-secondary/20 rounded-xl p-2.5 text-secondary">

@@ -630,7 +630,8 @@ export default function Home() {
   const [user, setUser] = useState<User>();
   const [states, setState] = useState<State[]>(statesData());
   const router = useRouter();
-  const [showLoading, setShowLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const t = getTranslations(user?.appLanguage ?? "de");
   const evalData = useMemo(() => evaluationData(), []);
   const avgWait = useMemo(() => {
@@ -645,13 +646,13 @@ export default function Home() {
   }, [evalData]);
 
   useEffect(() => {
+    setMounted(true);
     if (Capacitor.isNativePlatform()) {
-      setShowLoading(true);
-      router.push("/dashboard");
+      window.location.replace("/dashboard.html");
       return;
     }
     setShowLoading(false);
-  }, [router]);
+  }, []);
 
   useEffect(() => {
     const stateData = statesData();
@@ -665,7 +666,7 @@ export default function Home() {
   }, []);
 
   /* ---- native-app redirect spinner ---- */
-  if (showLoading) {
+  if (!mounted || showLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <Spinner size="lg" />

@@ -21,10 +21,15 @@ jobs:
         run: |
           curl -o src/web/data/question.json https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/main/data/question.json
 
+      - name: Split question data into optimized chunks
+        working-directory: src/web
+        run: |
+          node scripts/split-questions.js
+
       - name: Check for changes
         id: git_check
         run: |
-          git add src/web/data/question.json
+          git add src/web/data/question.json src/web/data/questions-core.json src/web/public/data/
           if git diff --cached --quiet; then
             echo "No changes detected"
             echo "changed=false" >> $GITHUB_ENV

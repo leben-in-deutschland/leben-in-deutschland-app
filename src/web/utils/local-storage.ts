@@ -1,10 +1,8 @@
 import { User } from "@/types/user";
 
 const getLocalStorageInstance = () => {
-    while (true) {
-        if (typeof window !== 'undefined') {
-            break;
-        }
+    if (typeof window === 'undefined') {
+        throw new Error('localStorage is not available in this environment');
     }
     return localStorage;
 };

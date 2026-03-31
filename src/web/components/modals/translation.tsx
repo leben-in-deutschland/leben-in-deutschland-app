@@ -1,6 +1,7 @@
 import { Question, QuestionTranslation } from "@/types/question";
 import { Button, Modal, ModalBody, ModalContent, Image, ModalHeader, Select, SelectItem } from "@heroui/react";
 import { useEffect, useState } from "react";
+import { loadQuestionTranslation } from "@/utils/question-loader";
 
 export const Translation = ({
     handleClose, isModelOpen, question }:
@@ -47,14 +48,14 @@ export const Translation = ({
         }
     ];
 
-    const [currentLangTranslation, setCurrentLangTranslation] = useState<QuestionTranslation | null>(question.translation ? question.translation["en"] : null);
+    const [currentLangTranslation, setCurrentLangTranslation] = useState<QuestionTranslation | null>(null);
     const [currentLanguage, setCurrentLanguage] = useState<string>("en");
     useEffect(() => {
-        if (question.translation) {
-            setCurrentLangTranslation(question.translation[currentLanguage])
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentLanguage]);
+        (async () => {
+            const translation = await loadQuestionTranslation(question.num, currentLanguage);
+            setCurrentLangTranslation(translation);
+        })();
+    }, [currentLanguage, question.num]);
     return (
         <Modal
             isOpen={isModelOpen}

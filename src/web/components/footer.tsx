@@ -7,12 +7,18 @@ import { Logo } from "@/icons/Logo";
 import { GithubIcon } from "@/icons/GithubIcon";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
+import { Capacitor } from "@capacitor/core";
 import { useEffect, useState } from "react";
 import { User } from "@/types/user";
 
 export const Footer = () => {
   const [user, setUser] = useState<User>();
   const t = getTranslations(user?.appLanguage ?? "de");
+  const [isNative, setIsNative] = useState(false);
+
+  useEffect(() => {
+    setIsNative(Capacitor.isNativePlatform());
+  }, []);
 
   useEffect(() => {
     const handleUserChange = () => {
@@ -25,6 +31,8 @@ export const Footer = () => {
   }, []);
 
   const currentYear = new Date().getFullYear();
+
+  if (isNative) return null;
 
   return (
     <footer className="border-t border-default-200 dark:border-default-100 bg-default-50 dark:bg-default-50/5 mt-auto">
