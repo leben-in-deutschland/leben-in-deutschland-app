@@ -1,6 +1,6 @@
 {
   "name": "leben-in-deutschland",
-  "version": "1.17.33",
+  "version": "1.17.34",
   "private": true,
   "scripts": {
     "dev": "next dev",
