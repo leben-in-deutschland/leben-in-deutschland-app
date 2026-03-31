@@ -1,10 +1,21 @@
-import { Link, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react"
+import { Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react"
+import { Button } from "@heroui/button"
+import { Link } from "@heroui/link"
+import NextLink from "next/link"
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Question } from "@/types/question";
 import { User } from "@/types/user";
+import { MapPinIcon } from "@/icons/MapPinIcon";
+import { Capacitor } from "@capacitor/core";
+import { siteConfig } from "@/config/site";
+import { useState, useEffect } from "react";
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const StateProgress = ({ user, questions, onPress, translation }: { user: User, questions: Question[], onPress: any, translation: any }) => {
+    const [isNative, setIsNative] = useState(false);
+    useEffect(() => {
+        setIsNative(Capacitor.isNativePlatform());
+    }, []);
     let totalAttemptedStateQuestion = user.questionProgress.filter(element => element?.num.startsWith(user.state.stateCode));
 
     let skipped = totalAttemptedStateQuestion.filter(x => x.skipped).length;
@@ -20,10 +31,15 @@ export const StateProgress = ({ user, questions, onPress, translation }: { user:
                 isPressable
                 onPress={onPress}>
                 <CardHeader className="justify-between">
-                    <h2 className="font-bold text-uppercase text-muted">
-                        {user.state.stateName}
-                    </h2>
-                    <div className="text-gray-400">
+                    <div className="flex items-center gap-2">
+                        <div className="bg-warning/10 dark:bg-warning/20 rounded-lg p-1.5 text-warning">
+                            <MapPinIcon size={16} />
+                        </div>
+                        <h2 className="font-bold text-uppercase text-muted">
+                            {user.state.stateName}
+                        </h2>
+                    </div>
+                    <div className="text-foreground/60">
                         <Image
                             alt={user.state.stateName}
                             className="object-cover justify-center items-center"
@@ -69,7 +85,30 @@ export const StateProgress = ({ user, questions, onPress, translation }: { user:
                     />
                 </CardBody>
                 <CardFooter className="justify-end">
-                    <Link color="primary" className="mr-4 hover:underline md:mr-6" href={`/pruefstellen/${user.state.stateCode.toUpperCase()}`}>{translation.test_center}</Link>
+                    {isNative ? (
+                        <Button
+                            as={Link}
+                            isExternal
+                            href={`${siteConfig.links.website}/pruefstellen/${user.state.stateCode.toUpperCase()}`}
+                            variant="flat"
+                            color="primary"
+                            size="sm"
+                            startContent={<MapPinIcon size={14} />}
+                        >
+                            {translation.test_center}
+                        </Button>
+                    ) : (
+                        <Button
+                            as={NextLink}
+                            href={`/pruefstellen/${user.state.stateCode.toUpperCase()}`}
+                            variant="flat"
+                            color="primary"
+                            size="sm"
+                            startContent={<MapPinIcon size={14} />}
+                        >
+                            {translation.test_center}
+                        </Button>
+                    )}
                 </CardFooter>
             </Card>
         </div>

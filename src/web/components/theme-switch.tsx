@@ -10,12 +10,13 @@ import { Button } from "@heroui/button";
 import { SunMoonIcon } from "@/icons/SunMoonIcon";
 import { useEffect, useState } from "react";
 
-export const ThemeSwitch = () => {
+export const ThemeSwitch = ({ onThemeChange, translation }: { onThemeChange?: () => void, translation?: any } = {}) => {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     const onChange = (newTheme: string) => {
-        setTheme(newTheme)
+        setTheme(newTheme);
+        onThemeChange?.();
     };
 
     useEffect(() => {
@@ -32,6 +33,8 @@ export const ThemeSwitch = () => {
             const style = tempTheme === "light" ? Style.Light : Style.Dark;
             const backgroundColor = tempTheme === "light" ? "#FFFFFF" : "#000000";
             EdgeToEdge.setBackgroundColor({ color: backgroundColor });
+            StatusBar.setOverlaysWebView({ overlay: true });
+            StatusBar.hide();
             StatusBar.setBackgroundColor({ color: backgroundColor });
             StatusBar.setStyle({ style: style });
         }
@@ -55,18 +58,21 @@ export const ThemeSwitch = () => {
                 color={theme === "light" ? "primary" : "default"}
                 onPress={() => onChange("light")}
                 isIconOnly
+                aria-label={translation?.theme_light ?? "Light theme"}
                 startContent={<SunFilledIcon />} />
             <Button
                 variant={theme === "system" ? "bordered" : "light"}
                 color={theme === "system" ? "primary" : "default"}
                 onPress={() => onChange("system")}
                 isIconOnly
+                aria-label={translation?.theme_system ?? "System theme"}
                 startContent={<SunMoonIcon />} />
             <Button
                 variant={theme === "dark" ? "bordered" : "light"}
                 color={theme === "dark" ? "primary" : "default"}
                 onPress={() => onChange("dark")}
                 isIconOnly
+                aria-label={translation?.theme_dark ?? "Dark theme"}
                 startContent={<MoonFilledIcon />} />
         </div>
     );

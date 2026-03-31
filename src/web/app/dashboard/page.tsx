@@ -4,6 +4,7 @@ import { getUserData, saveUserData } from "@/services/user";
 import { Question } from "@/types/question";
 import { useEffect, useState } from "react";
 import DashboardReports from "@/components/dashboard-report";
+import DashboardGreeting from "@/components/dashboard-greeting";
 import { User, UserState } from "@/types/user";
 import MockHistory from "@/components/mock-history";
 import PrepareQuestion from "@/components/prepare-question";
@@ -12,11 +13,10 @@ import StateSelect from "@/components/state-select";
 import { PrepareQuestionActions, PrepareQuestionType } from "@/types/prepare-question";
 import { ExamReadiness } from "@/components/exam-readiness";
 import { getTranslations, questionsData } from "@/data/data";
+import { filterQuestionsForUser } from "@/utils/prepare-logic";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { Capacitor } from "@capacitor/core";
 import { AppUpdate } from "@/components/app-update";
-import { Filesystem } from "@capacitor/filesystem";
-import { FilePicker } from "@capawesome/capacitor-file-picker";
 import { QuizAnswer } from "@/components/quiz-answer";
 import { InAppReview } from "@/components/modals/in-app-review";
 
@@ -28,9 +28,8 @@ export default function Dashboard() {
   const [showResult, setShowResult] = useState<boolean>(false);
   const [resultDateTime, setResultDateTime] = useState<string>("");
   const [permission, setPermission] = useState<string>("");
-  const [filePermission, setFilePermission] = useState<string>("");
-  const [filePickerPermission, setFilePickerPermission] = useState<string>("");
   const [isNative, setIsNative] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setIsNative(Capacitor.isNativePlatform());
@@ -42,82 +41,47 @@ export default function Dashboard() {
     }
     LocalNotifications.checkPermissions().then((permission) => {
       setPermission(permission.display);
-    });
-    Filesystem.checkPermissions().then((permission) => {
-      setFilePermission(permission.publicStorage);
-    });
-    FilePicker.checkPermissions().then((permission) => {
-      setFilePickerPermission(permission.readExternalStorage);
-    });
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (!Capacitor.isNativePlatform()) {
+    if (!Capacitor.isNativePlatform() || !loaded) {
       return;
     }
     (async () => {
-      if (filePickerPermission === "prompt" || filePickerPermission === "prompt-with-rationale") {
-        const resp = await FilePicker.requestPermissions();
-        setPermission(resp.readExternalStorage);
-      }
-      if (filePickerPermission === "denied") {
-        FilePicker.requestPermissions();
-      }
-    }
-    )();
-  }, [filePickerPermission]);
-
-  useEffect(() => {
-    if (!Capacitor.isNativePlatform()) {
-      return;
-    }
-    (async () => {
-      if (filePermission === "prompt" || filePermission === "prompt-with-rationale") {
-        const resp = await Filesystem.requestPermissions();
-        setPermission(resp.publicStorage);
-      }
-      if (filePermission === "denied") {
-        Filesystem.requestPermissions();
-      }
-    }
-    )();
-  }, [filePermission]);
-
-  useEffect(() => {
-    if (!Capacitor.isNativePlatform()) {
-      return;
-    }
-    (async () => {
-      //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
-      if (permission === "granted") {
-        await LocalNotifications.schedule({
-          notifications: [
-            {
-              title: "Don´t forget to study",
-              body: "Continue your preparation for the Einbürgerungstest",
-              id: 65241,
-              schedule: {
-                allowWhileIdle: true,
-                on: {
-                  hour: 8,
-                  minute: 0,
-                  second: 0,
-                }
-              },
-            }
-          ]
-        });
-        return;
-      }
-      else if (permission === "prompt" || permission === "prompt-with-rationale") {
-        const resp = await LocalNotifications.requestPermissions();
-        setPermission(resp.display);
-      }
-      if (permission === "denied") {
-        LocalNotifications.requestPermissions();
-      }
+      try {
+        //'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
+        if (permission === "granted") {
+          const notifTranslations = getTranslations(user?.appLanguage ?? "de");
+          await LocalNotifications.schedule({
+            notifications: [
+              {
+                title: notifTranslations.notification_title,
+                body: notifTranslations.notification_body,
+                id: 65241,
+                schedule: {
+                  allowWhileIdle: true,
+                  on: {
+                    hour: 8,
+                    minute: 0,
+                    second: 0,
+                  }
+                },
+              }
+            ]
+          });
+          return;
+        }
+        else if (permission === "prompt" || permission === "prompt-with-rationale") {
+          const resp = await LocalNotifications.requestPermissions();
+          setPermission(resp.display);
+        }
+        if (permission === "denied") {
+          LocalNotifications.requestPermissions();
+        }
+      } catch { /* plugin unavailable */ }
     })();
-  }, [permission]);
+  }, [permission, user?.appLanguage, loaded]);
 
   useEffect(() => {
     let tempUser = getUserData();
@@ -128,6 +92,7 @@ export default function Dashboard() {
       setUser(tempUser);
       saveUserData(tempUser);
     }
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -168,7 +133,7 @@ export default function Dashboard() {
       {isNative && <AppUpdate
         translation={allTranslations}
       />}
-      {!user?.state.stateName && <StateSelect
+      {loaded && !user?.state.stateName && <StateSelect
         translation={allTranslations}
       />}
       {isNative &&
@@ -177,7 +142,13 @@ export default function Dashboard() {
       {user && prepareQuestion &&
         <>
           <div hidden={prepareQuestion.selected || mockExamSelected || showResult}>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
+              <div className="dashboard-section-enter dashboard-section-enter-1">
+                <DashboardGreeting
+                  user={user}
+                  totalQuestions={filterQuestionsForUser(questions, user.state.stateCode).length}
+                  translation={allTranslations} />
+              </div>
               <PrepareQuestion
                 questions={questions}
                 user={user}

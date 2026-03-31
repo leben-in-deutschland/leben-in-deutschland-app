@@ -27,6 +27,10 @@ jobs:
         working-directory: src
         run: make build-sync
 
+      - name: Run Tests
+        working-directory: src/web
+        run: npm test
+
       - name: Install Java & Gradle
         uses: actions/setup-java@v3
         with:

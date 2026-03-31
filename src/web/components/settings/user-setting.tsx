@@ -71,30 +71,30 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                 onClose={handleUserSettingsClose}
                 backdrop="transparent">
                 <ModalContent>
-                    <ModalHeader className="flex flex-col gap-1 dark:text-white">{allTranslations.settings}</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1 text-foreground">{allTranslations.settings}</ModalHeader>
                     <ModalBody>
                         <div className="grid grid-cols-1 gap-4">
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">{allTranslations.change_state}</h4>
+                                <h4 className="col-start-1 text-foreground">{allTranslations.change_state}</h4>
                                 <div className="col-start-2 justify-right">
-                                    {user && <StateDropdown user={user} handleSelectState={handleSelectState} />}
+                                    {user && <StateDropdown user={user} handleSelectState={handleSelectState} translation={allTranslations} />}
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <h4 className="col-start-1 dark:text-white">{allTranslations.app_language}</h4>
+                                <h4 className="col-start-1 text-foreground">{allTranslations.app_language}</h4>
                                 <div className="col-start-2 justify-right">
-                                    {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} />}
+                                    {user && <LanguageSwitch user={user} handleAppLanguageChange={handleAppLanguageChange} translation={allTranslations} />}
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-2">
                                 <Button
                                     onPress={() => importData()}
-                                    startContent={<ImportIcon className="dark:invert" />}
+                                    startContent={<ImportIcon className="text-foreground" />}
                                     className="w-full"
                                     variant="bordered">{allTranslations.import}</Button>
                                 <Button
                                     onPress={() => exportData()}
-                                    startContent={<ExportIcon className="dark:invert" />}
+                                    startContent={<ExportIcon className="text-foreground" />}
                                     className="w-full"
                                     variant="bordered">{allTranslations.export}</Button>
 
@@ -103,7 +103,7 @@ export default function UserSetting({ handleUserSettingsClose, isOpen }: { handl
                                 <Button
                                     onPress={() => setIsStartOverWarningOpen(true)}
                                     color="danger"
-                                    startContent={<TimeBackIcon className="text-red-600" />}
+                                    startContent={<TimeBackIcon className="text-danger" />}
                                     className="w-full"
                                     variant="bordered">{allTranslations.start_over}</Button>
 

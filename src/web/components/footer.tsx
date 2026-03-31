@@ -7,12 +7,18 @@ import { Logo } from "@/icons/Logo";
 import { GithubIcon } from "@/icons/GithubIcon";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
+import { Capacitor } from "@capacitor/core";
 import { useEffect, useState } from "react";
 import { User } from "@/types/user";
 
 export const Footer = () => {
   const [user, setUser] = useState<User>();
   const t = getTranslations(user?.appLanguage ?? "de");
+  const [isNative, setIsNative] = useState(false);
+
+  useEffect(() => {
+    setIsNative(Capacitor.isNativePlatform());
+  }, []);
 
   useEffect(() => {
     const handleUserChange = () => {
@@ -25,6 +31,8 @@ export const Footer = () => {
   }, []);
 
   const currentYear = new Date().getFullYear();
+
+  if (isNative) return null;
 
   return (
     <footer className="border-t border-default-200 dark:border-default-100 bg-default-50 dark:bg-default-50/5 mt-auto">
@@ -58,7 +66,7 @@ export const Footer = () => {
                 isExternal
                 href={siteConfig.links.sponsor}
                 aria-label="Support on Ko-fi"
-                className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-red-500 hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
+                className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-danger hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
@@ -79,7 +87,7 @@ export const Footer = () => {
                 isExternal
                 href={siteConfig.links.playStore}
                 aria-label="Download on Google Play"
-                className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-green-500 hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
+                className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-success hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.803-2.302 2.803-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/>
@@ -158,12 +166,12 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link isExternal href={siteConfig.links.sponsor} className="text-sm text-default-500 hover:text-red-500 transition-colors">
+                <Link isExternal href={siteConfig.links.sponsor} className="text-sm text-default-500 hover:text-danger transition-colors">
                   Ko-fi (Donate)
                 </Link>
               </li>
               <li>
-                <Link isExternal href={siteConfig.links.playStore} className="text-sm text-default-500 hover:text-green-500 transition-colors inline-flex items-center gap-1">
+                <Link isExternal href={siteConfig.links.playStore} className="text-sm text-default-500 hover:text-success transition-colors inline-flex items-center gap-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.803-2.302 2.803-2.302zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/>
                   </svg>

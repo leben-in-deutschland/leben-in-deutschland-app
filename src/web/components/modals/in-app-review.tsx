@@ -64,9 +64,9 @@ export const InAppReview = ({ user, translation }:
             isDismissable={true}
             hideCloseButton={true}>
             <ModalContent>
-                <ModalHeader className="flex flex-col gap-1 dark:text-white">{translation.in_app_review_header}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1 text-foreground">{translation.in_app_review_header}</ModalHeader>
                 <ModalBody>
-                    <p className="dark:text-white">{translation.in_app_review_alert}</p>
+                    <p className="text-foreground">{translation.in_app_review_alert}</p>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" variant="bordered" onPress={() => onUserSaysNo()}>

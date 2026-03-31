@@ -127,7 +127,7 @@ function HeroMorphText({ t }: { t: Record<string, string> }) {
       <div className="flex items-center gap-2 hero-connector-pulse">
         <span className={`h-2 w-2 rounded-full ${activeIndex === 0 ? "bg-foreground" : "bg-default-300"} transition-colors`} />
         <span className="text-xs text-default-400 font-medium">{t.hero_transition_connector}</span>
-        <span className={`h-2 w-2 rounded-full ${activeIndex === 1 ? "bg-red-500" : "bg-default-300"} transition-colors`} />
+        <span className={`h-2 w-2 rounded-full ${activeIndex === 1 ? "bg-danger" : "bg-default-300"} transition-colors`} />
       </div>
     </div>
   );
@@ -630,7 +630,8 @@ export default function Home() {
   const [user, setUser] = useState<User>();
   const [states, setState] = useState<State[]>(statesData());
   const router = useRouter();
-  const [showLoading, setShowLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const t = getTranslations(user?.appLanguage ?? "de");
   const evalData = useMemo(() => evaluationData(), []);
   const avgWait = useMemo(() => {
@@ -645,9 +646,9 @@ export default function Home() {
   }, [evalData]);
 
   useEffect(() => {
+    setMounted(true);
     if (Capacitor.isNativePlatform()) {
-      setShowLoading(true);
-      router.push("/dashboard");
+      window.location.replace("/dashboard.html");
       return;
     }
     setShowLoading(false);
@@ -665,7 +666,7 @@ export default function Home() {
   }, []);
 
   /* ---- native-app redirect spinner ---- */
-  if (showLoading) {
+  if (!mounted || showLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <Spinner size="lg" />
@@ -804,7 +805,9 @@ export default function Home() {
 
         {/* ─── BAMF Evaluation Status ─── */}
         <AnimatedSection>
-          <BamfEvaluationSection t={t} data={evalData} />
+          <div id="bamf-evaluation">
+            <BamfEvaluationSection t={t} data={evalData} />
+          </div>
         </AnimatedSection>
 
         {/* ─── Feature Cards (primary 3) ─── */}

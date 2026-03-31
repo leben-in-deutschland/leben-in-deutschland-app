@@ -1,10 +1,11 @@
-import { PrepareQuestionActions } from "@/types/prepare-question";
 import { User } from "@/types/user";
-import { Card, Tooltip, CardHeader, CardFooter } from "@heroui/react";
+import { Card, Tooltip, CardHeader } from "@heroui/react";
 import { Question } from "@/types/question";
 import { Doughnut } from "react-chartjs-2";
 import { ArrowRightIcon } from "@/icons/ArrowRightIcon";
+import { BookOpenIcon } from "@/icons/BookOpenIcon";
 import { useRouter } from "next/navigation";
+import { navigateTo } from "@/utils/navigation";
 
 export default function PrepareQuestion({ questions, user, translation }: { questions: Question[], user: User, translation: any }) {
     const isNumeric = (val: string): boolean => !isNaN(Number(val));
@@ -14,59 +15,65 @@ export default function PrepareQuestion({ questions, user, translation }: { ques
 
     const router = useRouter()
     return (
-        <div className="item-center">
-            <Tooltip content="Prepare questions">
-                <Card className="card-stats border-none w-[100%]"
+        <div className="item-center dashboard-section-enter dashboard-section-enter-2">
+            <Tooltip content={translation.prepare_questions ?? "Prepare questions"}>
+                <Card className="group card-stats border-none w-[100%] hover:shadow-md transition-shadow"
                     isPressable
-                    onPress={() => router.push("/prepare?action=prepare")}>
-                    <CardHeader className="flex justify-between">
-                        <div className="flex gap-2 md:gap-10">
-                            <h2 className="font-bold text-uppercase text-muted">
-                                {translation.dashboard_prepate_button_text}
-                            </h2>
-                            <p className="flex">
-                                <Tooltip content="Attempted">
-                                    <h2 className="text-green-400 font-extrabold md:text-4xl">{attempted}</h2>
-                                </Tooltip>
-                                /
-                                <Tooltip content="All Questions">
-                                    <h2 className="text-yellow-500 font-bold">{allQuestions}</h2>
-                                </Tooltip>
-                            </p>
-
+                    onPress={() => navigateTo("/prepare?action=prepare", router.push)}>
+                    <CardHeader className="flex justify-between items-center">
+                        <div className="flex gap-3 md:gap-6 items-center">
+                            <div className="bg-primary/10 dark:bg-primary/20 rounded-xl p-2.5 text-primary">
+                                <BookOpenIcon size={22} className="dashboard-section-icon" />
+                            </div>
+                            <div className="flex flex-col">
+                                <h2 className="font-bold text-uppercase text-muted text-sm">
+                                    {translation.dashboard_prepate_button_text}
+                                </h2>
+                                <div className="flex items-baseline gap-0.5">
+                                    <Tooltip content={translation.attempted ?? "Attempted"}>
+                                        <span className="text-success font-extrabold text-xl md:text-3xl">{attempted}</span>
+                                    </Tooltip>
+                                    <span className="text-foreground/40">/</span>
+                                    <Tooltip content={translation.all_questions ?? "All Questions"}>
+                                        <span className="text-warning font-bold text-sm">{allQuestions}</span>
+                                    </Tooltip>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{ width: "5rem" }}>
-                            <Doughnut
-                                options={{
-                                    responsive: true,
-                                    aspectRatio: 1.2,
-                                    plugins: {
-                                        legend: {
-                                            display: false,
+                        <div className="flex items-center gap-3">
+                            <div style={{ width: "4.5rem" }}>
+                                <Doughnut
+                                    options={{
+                                        responsive: true,
+                                        aspectRatio: 1,
+                                        plugins: {
+                                            legend: {
+                                                display: false,
+                                            }
                                         }
-                                    }
-                                }}
-                                data={{
-                                    labels: ["Attempted", "AllQuestions"],
-                                    datasets: [
-                                        {
-                                            data: [attempted, (allQuestions - attempted)],
-                                            borderWidth: 1,
-                                            backgroundColor: [
-                                                'rgba(45, 192, 84, 0.2)',
-                                                'rgba(244, 230, 168, 0.2)',
-                                            ],
-                                            borderColor: [
-                                                'rgba(45, 192, 84, 1)',
-                                                'rgba(244, 230, 168, 1)',
-                                            ],
-                                        },
-                                    ],
-                                }}
-                            />
-                        </div>
-                        <div className="justify-end">
-                            <ArrowRightIcon size={40} />
+                                    }}
+                                    data={{
+                                        labels: [translation.attempted ?? "Attempted", translation.all_questions ?? "AllQuestions"],
+                                        datasets: [
+                                            {
+                                                data: [attempted, (allQuestions - attempted)],
+                                                borderWidth: 1,
+                                                backgroundColor: [
+                                                    'rgba(45, 192, 84, 0.2)',
+                                                    'rgba(244, 230, 168, 0.2)',
+                                                ],
+                                                borderColor: [
+                                                    'rgba(45, 192, 84, 1)',
+                                                    'rgba(244, 230, 168, 1)',
+                                                ],
+                                            },
+                                        ],
+                                    }}
+                                />
+                            </div>
+                            <div className="text-foreground/40 group-hover:text-foreground transition-colors">
+                                <ArrowRightIcon size={28} />
+                            </div>
                         </div>
                     </CardHeader>
                 </Card >

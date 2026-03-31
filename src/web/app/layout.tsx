@@ -6,7 +6,6 @@ import { Providers } from "./provider";
 import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
 import { Link } from "@heroui/link";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { keywords } from "@/data/keyword";
 import { Footer } from "@/components/footer";
 
@@ -110,9 +109,8 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <SpeedInsights />
         <Providers themeProps={{ attribute: "class", enableSystem: true }}>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen safe-area-padding">
             <NavigationBar />
             <main className="container mx-auto flex flex-col flex-grow w-full px-4 sm:px-6 py-4">
               {children}

@@ -16,10 +16,10 @@ export const AssistantIcon: React.FC<IconSvgProps> = ({
             xmlnsXlink="http://www.w3.org/1999/xlink"
             {...props}
         >
-            <circle cx="66" cy="70" r="44" stroke="#000000" strokeWidth="12" />
-            <circle cx="138" cy="148" r="18" stroke="#000000" strokeWidth="12" />
-            <circle cx="167" cy="73" r="9" fill="#000000" />
-            <circle cx="138" cy="97" r="13" stroke="#000000" strokeWidth="12" />
+            <circle cx="66" cy="70" r="44" stroke="currentColor" strokeWidth="12" />
+            <circle cx="138" cy="148" r="18" stroke="currentColor" strokeWidth="12" />
+            <circle cx="167" cy="73" r="9" fill="currentColor" />
+            <circle cx="138" cy="97" r="13" stroke="currentColor" strokeWidth="12" />
         </svg>
 
     );
