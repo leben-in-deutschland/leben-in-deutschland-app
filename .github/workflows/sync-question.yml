@@ -52,4 +52,8 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
           git add .
           git commit -m "Sync questions & bump version"
-          git push
+          for i in 1 2 3; do
+            git push && break
+            echo "Push attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
