@@ -6541,6 +6541,15 @@
       },
       {
         "regierungsbezirk": " ",
+        "plz": 99085,
+        "ort": "Erfurt",
+        "einrichtung": "Internationaler Bund (IB) gGmbH für Bildung und soziale Dienste",
+        "straße": "Hallesche Straße 20a",
+        "telefon": "0361-5983124",
+        "email": "alexander.schuchardt@ib.de"
+      },
+      {
+        "regierungsbezirk": " ",
         "plz": "99084",
         "ort": "Erfurt",
         "einrichtung": "Volkshochschule Erfurt",
