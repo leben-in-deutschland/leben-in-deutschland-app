@@ -386,7 +386,7 @@
         "plz": 79539,
         "ort": "Lörrach",
         "einrichtung": "Stadt Lörrach, Volkshochschule",
-        "straße": "Wallbrunnstraße 2",
+        "straße": "Untere Wallbrunnstraße 2",
         "telefon": "07621-95673-40",
         "email": "vhs@loerrach.de"
       },
@@ -5964,10 +5964,10 @@
       },
       {
         "regierungsbezirk": "Stadtkreis",
-        "plz": "04107",
+        "plz": 4103,
         "ort": "Leipzig",
-        "einrichtung": "language coach institute Leipzig",
-        "straße": "Emilienstr. 17",
+        "einrichtung": "language coach institute",
+        "straße": "Bauhofstraße 3-5",
         "telefon": "0341-3085506",
         "email": "thiessen@languagecoach.de"
       },
