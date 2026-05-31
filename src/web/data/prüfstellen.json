@@ -901,11 +901,11 @@
       },
       {
         "regierungsbezirk": "Kreisfreie Stadt",
-        "plz": 81379,
+        "plz": 80336,
         "ort": "München",
         "einrichtung": "Bayerisches Rotes Kreuz",
         "straße": "Goethestr. 53",
-        "telefon": "089-2373-7421",
+        "telefon": "089-2373-7420",
         "email": "ebt@brk-muenchen.de"
       },
       {
@@ -6433,39 +6433,12 @@
     "data": [
       {
         "regierungsbezirk": " ",
-        "plz": "98646",
-        "ort": "Hildburghausen",
-        "einrichtung": "KVHS Hildburghausen",
-        "straße": "Obere Marktstr. 44",
-        "telefon": "03685-709285",
-        "email": "vhs.hildburghausen@t-online.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99510",
-        "ort": "Apolda",
-        "einrichtung": "KVHS Weimarer Land",
-        "straße": "Ackerwand 13/15",
-        "telefon": "03644-554841",
-        "email": "olga.vitzthum@kvhs-weimarerland.de"
-      },
-      {
-        "regierungsbezirk": " ",
         "plz": "99817",
         "ort": "Eisenach",
         "einrichtung": "Sprache und Bildung GmbH Geschäftsstelle Eisenach",
         "straße": "Bahnhofstr. 27",
         "telefon": "03691/785337",
         "email": "eisenach@sprache-und-bildung.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99974",
-        "ort": "Mühlhausen /Thüringen",
-        "einrichtung": "Sprache und Bildung GmbH Geschäftsstelle Mühlhausen",
-        "straße": "Alter Blobach 49",
-        "telefon": "03601/449117",
-        "email": "muehlhausen@sprache-und-bildung.de"
       },
       {
         "regierungsbezirk": " ",
@@ -6478,66 +6451,12 @@
       },
       {
         "regierungsbezirk": " ",
-        "plz": "04600",
-        "ort": "Altenburg",
-        "einrichtung": "VHS Altenburger Land",
-        "straße": "Hospitalplatz 6",
-        "telefon": "03447-507928",
-        "email": "vhs-altenburg@altenburgerland.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "98617",
-        "ort": "Meiningen",
-        "einrichtung": "VHS des Landkreises Schmalkalden-Meiningen",
-        "straße": "Klostergasse 1",
-        "telefon": "03693-50180",
-        "email": "anette.luempert@vhs-th.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "96515",
-        "ort": "Sonneberg",
-        "einrichtung": "VHS des Landkreises Sonneberg",
-        "straße": "Coburger Str. 32a",
-        "telefon": "03675-754223",
-        "email": "jutta.arsenova@vhs-sonneberg.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99817",
-        "ort": "Eisenach",
-        "einrichtung": "VHS Eisenach",
-        "straße": "Schmelzerstr. 19",
-        "telefon": "03691-29320",
-        "email": "vhs@eisenach.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99974",
-        "ort": "Mühlhausen /Thüringen",
-        "einrichtung": "VHS Unstrut-Hainich-Kreis",
-        "straße": "Friedrich-Naumann-Str. 26",
-        "telefon": "03601-812691",
-        "email": "info@vhs-uh.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99734",
-        "ort": "Nordhausen",
-        "einrichtung": "VHS-Kreis Nordhausen",
-        "straße": "Grimmelallee 60",
-        "telefon": "03631-6091-27",
-        "email": "beate.walzel@vhs-nordhausen.de"
-      },
-      {
-        "regierungsbezirk": " ",
         "plz": 99092,
         "ort": "Erfurt",
         "einrichtung": "Mitteldeutsches Institut für Qualif. Und ber. Reha. MIQR",
         "straße": "Heinrichstraße 89",
         "telefon": "0361-511503-340",
-        "email": "hatem.ayadi@miqr.de"
+        "email": "info@miqr.de"
       },
       {
         "regierungsbezirk": " ",
@@ -6547,15 +6466,6 @@
         "straße": "Hallesche Straße 20a",
         "telefon": "0361-5983124",
         "email": "alexander.schuchardt@ib.de"
-      },
-      {
-        "regierungsbezirk": " ",
-        "plz": "99084",
-        "ort": "Erfurt",
-        "einrichtung": "Volkshochschule Erfurt",
-        "straße": "Schottenstr. 7",
-        "telefon": "0361-6552950",
-        "email": "volkshochschule@erfurt.de"
       }
     ]
   }
