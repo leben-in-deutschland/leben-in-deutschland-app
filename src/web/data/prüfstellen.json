@@ -526,6 +526,15 @@
         "email": "mail@vhs-calw.de"
       },
       {
+        "regierungsbezirk": "Stuttgart",
+        "plz": 73033,
+        "ort": "Göppingen",
+        "einrichtung": "VHS Göppingen und Schurwald",
+        "straße": "Mörikestr. 16",
+        "telefon": "07161-65043041",
+        "email": "sbuehler@goeppingen.de"
+      },
+      {
         "regierungsbezirk": "Esslingen",
         "plz": 73728,
         "ort": "Esslingen",
