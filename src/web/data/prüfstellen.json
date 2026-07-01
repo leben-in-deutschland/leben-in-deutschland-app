@@ -1225,11 +1225,11 @@
       },
       {
         "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
-        "plz": 95615,
+        "plz": 95100,
         "ort": "Selb",
-        "einrichtung": "VHS Fichtelgebirge",
+        "einrichtung": "VHS Fichtelgebirge Hauptgeschäftsstelle Selb",
         "straße": "Ludwigsmühle 10",
-        "telefon": "09287-8005110",
+        "telefon": "09287-8005135",
         "email": "info@vhs-fichtelgebirge.de"
       },
       {
@@ -1270,12 +1270,12 @@
       },
       {
         "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
-        "plz": 95632,
+        "plz": 95615,
         "ort": "Wunsiedel",
-        "einrichtung": "VHS des Landkreises Wunsiedel",
-        "straße": "Jean-Paul-Str. 9",
-        "telefon": "09232-80375",
-        "email": "vhs@landkreis-wunsiedel.de"
+        "einrichtung": "VHS Fichtelgebirge Geschäftsstelle Marktredwitz",
+        "straße": "Ludwigsmühle 10",
+        "telefon": "09287-8005135",
+        "email": "info@vhs-fichtelgebirge.de"
       },
       {
         "regierungsbezirk": "Freyung-Grafenau",
@@ -1834,15 +1834,6 @@
         "straße": "Haidplatz 8",
         "telefon": "0941-5071436",
         "email": "service.vhs@regensburg.de"
-      },
-      {
-        "regierungsbezirk": "Wunsiedel im Fichtelgebirge",
-        "plz": 95100,
-        "ort": "Selb",
-        "einrichtung": "Volkshochschule der Stadt Selb",
-        "straße": "Lessingstr. 8",
-        "telefon": "09287-760121",
-        "email": "volkshochschule@vhs-selb.de"
       },
       {
         "regierungsbezirk": "Tirschenreuth",
@@ -5522,6 +5513,15 @@
         "einrichtung": "Gaustr. 20",
         "straße": "06721-991103",
         "telefon": "service@vhs-bingen.de",
+        "email": ""
+      },
+      {
+        "regierungsbezirk": "54470",
+        "plz": "Bernkastel-Kues",
+        "ort": "Volkshochschule Bernkastel-Kues",
+        "einrichtung": "Gestade 6",
+        "straße": "06531-9716930",
+        "telefon": "vhs@bernkastel-kues.de",
         "email": ""
       },
       {
