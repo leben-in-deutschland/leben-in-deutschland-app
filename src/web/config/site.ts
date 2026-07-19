@@ -7,9 +7,8 @@ export const siteConfig = {
     navMenuItems: [
     ],
     links: {
-        github: "https://github.com/bitesinbyte/leben-in-deutschland",
-        bitesinbyte: "https://links.bitesinbyte.com/",
-        sponsor: "https://ko-fi.com/bitesinbyte",
+        github: "https://github.com/leben-in-deutschland/leben-in-deutschland-app",
+        lamplitLabs: "https://www.lamplitlabs.com/",
         playStore: "https://play.google.com/store/apps/details?id=org.lebenindeutschland.app",
         website: "https://www.lebenindeutschland.org",
     }

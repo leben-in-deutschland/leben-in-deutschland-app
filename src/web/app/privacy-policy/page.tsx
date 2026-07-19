@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
                         <h3 className="text-xl font-semibold">1. Introduction</h3>
                     </CardHeader>
                     <div className="p-6 text-foreground">
-                        <p>Thank you for choosing to be part of our community at bitesinbyte, doing business as lebenindeutschland.org/Einbürgerungstest (&quot;lebenindeutschland&quot;,&quot;Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello@bitesinbyte.com.</p>
+                        <p>Thank you for choosing to be part of our community at Lamplit Labs, doing business as lebenindeutschland.org/Einbürgerungstest (&quot;lebenindeutschland&quot;,&quot;Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our practices regarding your personal information, please contact us at hello(at)lamplitlabs.com.</p>
                     </div>
                 </Card>
                 <Card id="info-collection" className="shadow-md rounded-lg">
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
                         <h3 className="text-xl font-semibold">6. Contact Us</h3>
                     </CardHeader>
                     <div className="p-6 text-foreground">
-                        <p>If you have any questions about this privacy policy or our practices, or if you wish to exercise any of your rights regarding your data, please feel free to contact us at hello@bitesinbyte.com. We will respond to your inquiries in a timely manner.</p>
+                        <p>If you have any questions about this privacy policy or our practices, or if you wish to exercise any of your rights regarding your data, please feel free to contact us at hello(at)lamplitlabs.com. We will respond to your inquiries in a timely manner.</p>
                     </div>
                 </Card>
             </CardBody>
