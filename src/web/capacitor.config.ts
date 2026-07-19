@@ -6,7 +6,7 @@ const config: CapacitorConfig = {
   webDir: 'out',
   server: {
     androidScheme: "https",
-    allowNavigation: ["lebenindeutschland.org", "bitesinbyte.com"]
+    allowNavigation: ["lebenindeutschland.org", "www.lamplitlabs.com"]
   },
   plugins: {
     StatusBar: {

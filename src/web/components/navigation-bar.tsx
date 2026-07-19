@@ -16,11 +16,9 @@ import NextLink from "next/link";
 
 
 import { ThemeSwitch } from "./theme-switch";
-import { DonateIcon } from "../icons/DonateIcon";
 
 import { Logo } from "../icons/Logo";
 import { GithubIcon } from "../icons/GithubIcon";
-import { BitesInByteIcon } from "@/icons/BitesInByteIcon";
 import { ShieldIcon } from "@/icons/ShieldIcon";
 import { MailIcon } from "@/icons/MailIcon";
 import { useState, useEffect } from "react";
@@ -98,8 +96,8 @@ export const NavigationBar = () => {
                     <Link isExternal className="hidden md:flex" href={siteConfig.links.github} aria-label="Github">
                         <GithubIcon className="text-default-500" />
                     </Link>
-                    <Link className="hidden md:flex" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte">
-                        <BitesInByteIcon className="text-default-500" />
+                    <Link className="hidden md:flex text-foreground text-sm font-medium" isExternal href={siteConfig.links.lamplitLabs} aria-label="Lamplit Labs">
+                        Lamplit Labs
                     </Link>
                     <Link isExternal className="hidden md:flex gap-1 items-center" href={isNative ? `${siteConfig.links.website}/#bamf-evaluation` : "/#bamf-evaluation"} aria-label={t.nav_bamf_evaluation}>
                             <ClipboardStatusIcon size={20} className="text-default-500" />
@@ -107,23 +105,8 @@ export const NavigationBar = () => {
                         </Link>
                     <Button isIconOnly variant="light" aria-label={t.settings} startContent={<SettingIcon />} onPress={handleSettingClick} className="dark:text-default-500" />
                     <ThemeSwitch translation={t} />
-                    {
-                        !isNative &&
-                        <Link isExternal href={siteConfig.links.sponsor} className="gap-2">
-                            <DonateIcon className="text-danger" />
-                            <p className="hidden md:flex text-danger">{t.nav_donate}</p>
-                        </Link>
-                    }
-
                 </NavbarContent>
                 <NavbarContent className="sm:hidden basis-1" justify="end">
-                    {
-                        !isNative &&
-                        <Link isExternal href={siteConfig.links.sponsor} className="gap-2">
-                            <DonateIcon className="text-danger" />
-                            <p className="hidden md:flex text-danger">{t.nav_donate}</p>
-                        </Link>
-                    }
                     <NavbarMenuToggle aria-label={isMenuOpen ? t.nav_close_menu : t.nav_open_menu} />
                 </NavbarContent>
                 <NavbarMenu>
@@ -135,9 +118,8 @@ export const NavigationBar = () => {
                             </Link>
                         </NavbarMenuItem>
                         <NavbarMenuItem>
-                            <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" isExternal href={siteConfig.links.bitesinbyte} aria-label="bitesinbyte" onPress={() => setIsMenuOpen(false)}>
-                                <BitesInByteIcon className="text-foreground" />
-                                <p className="font-bold text-foreground">Bitesinbyte</p>
+                            <Link className="w-full p-4 flex justify-center items-center rounded-xl border-2 border-divider" isExternal href={siteConfig.links.lamplitLabs} aria-label="Lamplit Labs" onPress={() => setIsMenuOpen(false)}>
+                                <p className="font-bold text-foreground">Lamplit Labs</p>
                             </Link>
                         </NavbarMenuItem>
                         <NavbarMenuItem>
@@ -170,7 +152,7 @@ export const NavigationBar = () => {
                             </Link>
                         </NavbarMenuItem>
                         <NavbarMenuItem>
-                            <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href="mailto:hello@bitesinbyte.com" target="_blank" aria-label="contact" onPress={() => setIsMenuOpen(false)}>
+                            <Link className="w-full p-4 flex justify-between items-center rounded-xl border-2 border-divider" href="mailto:hello@lamplitlabs.com" target="_blank" aria-label="contact" onPress={() => setIsMenuOpen(false)}>
                                 <MailIcon className="text-foreground" />
                                 <p className="font-bold text-foreground">{t.nav_contact}</p>
                             </Link>

@@ -30,8 +30,6 @@ export const Footer = () => {
     return () => window.removeEventListener("user", handleUserChange);
   }, []);
 
-  const currentYear = new Date().getFullYear();
-
   if (isNative) return null;
 
   return (
@@ -64,17 +62,7 @@ export const Footer = () => {
               </Link>
               <Link
                 isExternal
-                href={siteConfig.links.sponsor}
-                aria-label="Support on Ko-fi"
-                className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-danger hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                </svg>
-              </Link>
-              <Link
-                isExternal
-                href="mailto:hello@bitesinbyte.com"
+                href="mailto:hello@lamplitlabs.com"
                 aria-label="Email Contact"
                 className="flex items-center justify-center w-9 h-9 rounded-lg bg-default-100 dark:bg-default-50 text-default-600 hover:text-foreground hover:bg-default-200 dark:hover:bg-default-100 transition-colors"
               >
@@ -147,7 +135,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link isExternal href="mailto:hello@bitesinbyte.com" className="text-sm text-default-500 hover:text-foreground transition-colors">
+                <Link isExternal href="mailto:hello@lamplitlabs.com" className="text-sm text-default-500 hover:text-foreground transition-colors">
                   {t.footer_link_contact}
                 </Link>
               </li>
@@ -161,13 +149,8 @@ export const Footer = () => {
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link isExternal href={siteConfig.links.bitesinbyte} className="text-sm text-default-500 hover:text-foreground transition-colors">
-                  bitesinbyte
-                </Link>
-              </li>
-              <li>
-                <Link isExternal href={siteConfig.links.sponsor} className="text-sm text-default-500 hover:text-danger transition-colors">
-                  Ko-fi (Donate)
+                <Link isExternal href={siteConfig.links.lamplitLabs} className="text-sm text-default-500 hover:text-foreground transition-colors">
+                  Lamplit Labs
                 </Link>
               </li>
               <li>
@@ -185,17 +168,13 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-default-200 dark:border-default-100 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs sm:text-sm text-default-400 text-center sm:text-left">
-            &copy; {currentYear}{" "}
-            <Link isExternal href="https://www.bitesinbyte.com/" className="hover:underline font-semibold text-default-500 text-xs sm:text-sm">
-              bitesinbyte
-            </Link>
-            {" "}{t.footer_rights}
+            Copyright 2026 lebenindeutschland
           </p>
           <p className="text-xs text-default-400 flex items-center gap-1">
-            {t.footer_made_with}
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-red-500" aria-hidden="true">
-              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-            </svg>
+            A product by{" "}
+            <Link isExternal href={siteConfig.links.lamplitLabs} className="hover:underline font-semibold text-default-500">
+              Lamplit Labs
+            </Link>
           </p>
         </div>
       </div>
