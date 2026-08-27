@@ -32,7 +32,7 @@ jobs:
         run: npm test
 
       - name: Install Java & Gradle
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "21"
@@ -66,11 +66,46 @@ jobs:
           keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           buildToolsVersion: 35.0.0
-      - name: Upload APK as an Artifact
+
+      - name: Verify Signed App Bundle
+        env:
+          SIGNED_AAB: ${{ steps.sign_app.outputs.signedFile }}
+          EXPECTED_SIGNING_SHA1: DE:8C:92:1E:CE:44:26:6D:5E:55:A0:08:3E:9D:E3:8D:C5:60:57:D0
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "$SIGNED_AAB" ]; then
+            echo "::error::The signing action did not produce the expected app bundle."
+            exit 1
+          fi
+
+          if ! verification_output="$(jarsigner -verify "$SIGNED_AAB" 2>&1)"; then
+            echo "::error::The Android App Bundle signature is invalid."
+            echo "$verification_output"
+            exit 1
+          fi
+
+          if ! grep -Fq "jar verified." <<<"$verification_output"; then
+            echo "::error::The Android App Bundle is not signed."
+            exit 1
+          fi
+
+          certificate_output="$(keytool -printcert -jarfile "$SIGNED_AAB" 2>&1)"
+          actual_sha1="$(printf '%s\n' "$certificate_output" | awk '/SHA1:/{print $2; exit}')"
+
+          if [ "$actual_sha1" != "$EXPECTED_SIGNING_SHA1" ]; then
+            echo "::error::Unexpected Android signing certificate SHA-1: $actual_sha1"
+            exit 1
+          fi
+
+          echo "Verified Android signing certificate SHA-1: $actual_sha1"
+
+      - name: Upload Signed AAB as an Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Android-App
-          path: src/android/app/build/outputs/bundle/release
+          name: Android-App-Signed
+          path: ${{ steps.sign_app.outputs.signedFile }}
+          if-no-files-found: error
 
   release:
     needs: build-android
@@ -80,10 +115,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Download Built APK
+      - name: Download Signed AAB
         uses: actions/download-artifact@v4
         with:
-          name: Android-App
+          name: Android-App-Signed
           path: src/android/app/build/outputs/bundle/release/
 
       - name: Get Version from Package.json
@@ -98,6 +133,6 @@ jobs:
           name: "Einbürgerungstest v${{ env.VERSION }}"
           draft: false
           prerelease: false
-          files: src/android/app/build/outputs/bundle/release/*.aab
+          files: src/android/app/build/outputs/bundle/release/app-release-signed.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

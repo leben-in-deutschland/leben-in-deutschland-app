@@ -13,4 +13,4 @@ repository.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-27 | cf2cccbc | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Bootstrap the adapted PULSE control plane and complete canonical skill pack. |
 | 2026-08-27 | 874775c6 | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Sync the adapted PULSE control plane through template/main at 47aa161 and activate the complete skill pack. |
-| 2026-08-27 | b23d822d | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Remediate all 41 open Dependabot alerts and verify the web and Android sync paths. |
+| 2026-08-27 | b23d822d | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Remediate 41 Dependabot alerts and make Android releases publish only the verified signed bundle. |

@@ -42,6 +42,19 @@ GitHub does not expose prior secret values. Before overwriting these secrets,
 verify that the source keystore and credentials are recoverable from
 1Password.
 
+## Production Artifact
+
+The Gradle output `app-release.aab` is unsigned. The signing action also
+creates an intermediate `app-release-temp.aab`. Neither file is a production
+artifact.
+
+Publish only the signing action's `signedFile` output,
+`app-release-signed.aab`. Do not upload the whole bundle output directory or
+use an `*.aab` release wildcard.
+
+Before publishing, confirm that `jarsigner` reports the bundle as verified and
+that `keytool -printcert -jarfile` reports the known-good SHA-1 above.
+
 ## Verification
 
 Inspect a candidate without placing its password on the command line:
