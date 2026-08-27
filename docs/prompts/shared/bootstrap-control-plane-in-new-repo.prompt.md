@@ -93,10 +93,10 @@ Rules:
   failure trigger, exact PULSE files to reverse, and recovery checks.
 - Before any tool-backed work, invoke `pulse-sandbox` when supported and print
   its exact harness-specific warning:
-  `⚠️ SANDBOX REQUIRED — verify the <harness> sandbox before execution; do not bypass it. Docs: <matching sandbox documentation URL>`.
-  Use the official sandbox page for the active harness, then verify its real
-  isolation boundary. If isolation is unavailable, remain read-only or stop;
-  never retry unsandboxed.
+  `⚠️ SANDBOX RECOMMENDED — use <recommended sandbox> when available; state clearly if execution is unsandboxed. Docs: <matching sandbox documentation URL>`.
+  Use the official sandbox page for the active harness, prefer its real
+  isolation boundary, and disclose unsandboxed execution when no sandbox is
+  active. Continue under normal permissions unless a stronger policy applies.
 - Preserve project-specific instructions. Merge useful PULSE routing instead
   of replacing them with framework text.
 - Put new control-plane content under `docs/`. Do not create parallel root
@@ -112,8 +112,13 @@ Rules:
   rows copied from PULSE.
 - If the target adopts PULSE agent workflows, include the mandatory rollback
   rule, `docs/workflows/rollback.md`, rollback sections in plan/prompt
-  templates, `docs/prompts/shared/rollback.prompt.md`, the sandbox-first rule,
-  `docs/workflows/sandboxed-agent-execution.md`, and `pulse-sandbox`.
+  templates, `docs/prompts/shared/rollback.prompt.md`, the sandbox
+  recommendation rule, `docs/workflows/sandboxed-agent-execution.md`, and
+  `pulse-sandbox`.
+- Replace copied PULSE `SANDBOX REQUIRED`, fail-closed fallback, and ADR-008
+  instruction text with the ADR-009 recommendation. Preserve stricter text
+  only when the target has an explicit local decision requiring isolation, and
+  report that intentional divergence.
 - Always copy the complete canonical `docs/skills/` pack and installation
   guidance. Do not omit individual PULSE skills during bootstrap.
 - If the current runner supports native project skills and an installer is
@@ -149,7 +154,7 @@ Also resolve changed relative Markdown links, run existing targeted docs
 checks, confirm product files and user work were preserved, search for stale
 framework assumptions and local paths, and confirm no hidden control folder
 was added. Confirm the copied instructions require the exact sandbox warning,
-verified fail-closed isolation, and no unsandboxed fallback.
+the matching documentation, and clear sandboxed-versus-unsandboxed disclosure.
 
 If validation cannot be restored safely, follow the adopted rollback workflow
 and verify the original target baseline.

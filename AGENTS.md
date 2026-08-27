@@ -59,25 +59,29 @@ docs/workflows/      Repeatable engineering procedures
   `docs/memory/android-release-signing.md`. Never commit, print, or request
   keystores, passwords, private keys, or encoded secret values.
 
-## Sandbox-First Execution
+## Sandbox Recommendation
 
 Before every task that may use tools or execute code, invoke `pulse-sandbox`
 when available and begin each tool-backed response with:
 
 ```text
-⚠️ SANDBOX REQUIRED — verify the GitHub Copilot CLI sandbox before execution; do not bypass it. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
+⚠️ SANDBOX RECOMMENDED — use the GitHub Copilot CLI sandbox when available; state clearly if execution is unsandboxed. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
 ```
 
-The warning is not proof of isolation. Enable and inspect the native local
-sandbox with `/sandbox enable`, `/sandbox status`, and `/sandbox policy`, or
-start with `copilot --sandbox`. Turn **Allow sandbox bypass** off.
+The warning recommends isolation but does not prove it. Prefer and inspect the
+native local sandbox with `/sandbox enable`, `/sandbox status`, and
+`/sandbox policy`, or start with `copilot --sandbox`. Report the actual
+execution boundary before relying on it.
 
 - Keep access limited to this working tree and isolated temporary/cache paths.
 - Deny unrelated home, secret, credential, keychain, and system paths.
 - Allow network, GitHub credentials, MCP, or LSP only when the task needs that
   narrow capability.
-- If isolation is unavailable or a required capability cannot be granted
-  safely, stop. Never retry outside the sandbox.
+- If no sandbox is active, state that execution is unsandboxed and continue
+  under normal Copilot permissions unless a higher-level policy requires
+  isolation.
+- Do not automatically disable or bypass an active sandbox. Prefer a narrow
+  grant or sandbox-compatible path first.
 
 Follow `docs/workflows/sandboxed-agent-execution.md`.
 
@@ -157,6 +161,7 @@ not change.
 | Android release signing | `docs/memory/android-release-signing.md`, workflow, Android config | Update control-plane records only when facts change |
 | Learning or mistake | Existing `docs/memory/` | The most specific memory file |
 | PULSE maintenance | This file and `docs/*/README.md` | Durable control-plane files |
+| PULSE template sync | `docs/skills/pulse-template-sync/SKILL.md`, `docs/workflows/template-sync.md`, `.template-sync` | Sync-safe framework files and `.template-sync` |
 
 ## Open Questions
 

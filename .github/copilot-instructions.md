@@ -18,17 +18,19 @@ PULSE engineering control plane lives under `docs/`.
   output and must not be committed.
 - Keep generated code-context indexes outside the repository.
 
-## Sandbox-First Execution
+## Sandbox Recommendation
 
 Invoke `pulse-sandbox` first when available. Before every tool-backed response,
 show this exact line:
 
 ```text
-⚠️ SANDBOX REQUIRED — verify the GitHub Copilot CLI sandbox before execution; do not bypass it. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
+⚠️ SANDBOX RECOMMENDED — use the GitHub Copilot CLI sandbox when available; state clearly if execution is unsandboxed. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
 ```
 
-Verify the effective sandbox, turn **Allow sandbox bypass** off, and stop
-rather than retrying unsandboxed. Follow
+Prefer and inspect the effective sandbox. If none is active, disclose
+unsandboxed execution and continue under normal Copilot permissions unless a
+higher-level policy requires isolation. Do not automatically disable or bypass
+an active sandbox. Follow
 [`docs/workflows/sandboxed-agent-execution.md`](../docs/workflows/sandboxed-agent-execution.md).
 
 ## Android Release Signing

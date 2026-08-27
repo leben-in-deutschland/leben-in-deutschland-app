@@ -41,9 +41,11 @@ Context -> Options -> Decision -> Plan -> Feature -> Code -> Verification -> Lea
 - [`architecture/overview.md`](architecture/overview.md) - current system shape.
 - [`memory/android-release-signing.md`](memory/android-release-signing.md) -
   release-signing safety rule.
-- [`skills/README.md`](skills/README.md) - all ten portable PULSE skills.
+- [`skills/README.md`](skills/README.md) - all eleven portable PULSE skills.
+- [`skills/pulse-template-sync/SKILL.md`](skills/pulse-template-sync/SKILL.md) -
+  checks and applies approved upstream PULSE updates.
 - [`workflows/sandboxed-agent-execution.md`](workflows/sandboxed-agent-execution.md) -
-  required execution isolation.
+  sandbox recommendation and execution-boundary reporting.
 - [`workflows/rollback.md`](workflows/rollback.md) - scoped recovery.
 
 PULSE source usage rows, framework plans, publishing state, and framework ADRs

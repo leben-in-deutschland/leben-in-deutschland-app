@@ -37,10 +37,10 @@ To change the **repository default** itself (make technical the default again), 
 
 ## Format Rules
 
-- For tool-backed work, print the mandatory `pulse-sandbox` warning before the
-  ELI5 takeaway. The warning stays exact for the selected harness, includes
-  its matching sandbox documentation URL, and is not rewritten into simpler
-  language.
+- For tool-backed work, print the mandatory `pulse-sandbox` recommendation
+  warning before the ELI5 takeaway. The warning stays exact for the selected
+  harness, includes its matching sandbox documentation URL, and is not
+  rewritten into simpler language.
 - Lead with the one-sentence takeaway in plain words before any detail.
 - Use everyday language: no jargon, acronyms, or tool-internal shorthand without an immediate plain-word meaning ("a lockfile — a list that pins the exact versions we installed").
 - Prefer one concrete analogy from daily life when it genuinely clarifies; drop it if it strains.
