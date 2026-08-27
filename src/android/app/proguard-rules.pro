@@ -6,6 +6,9 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Capacitor and its plugins provide their own consumer ProGuard rules.
+# Capacitor reads plugin and permission annotations at runtime.
+-keep class com.getcapacitor.annotation.** { *; }
+
 # Keep only methods exposed directly to JavaScript by a WebView bridge.
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;

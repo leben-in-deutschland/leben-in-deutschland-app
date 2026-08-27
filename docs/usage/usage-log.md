@@ -13,4 +13,4 @@ repository.
 | --- | --- | --- | --- | --- | --- |
 | 2026-08-27 | cf2cccbc | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Bootstrap the adapted PULSE control plane and complete canonical skill pack. |
 | 2026-08-27 | 874775c6 | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Sync the adapted PULSE control plane through template/main at 47aa161 and activate the complete skill pack. |
-| 2026-08-27 | b23d822d | gpt-5.6-sol (GitHub Copilot CLI) | n/a (not exposed) | n/a | Remediate 41 Dependabot alerts and make Android releases publish only the verified signed bundle. |
+| 2026-08-27 | b23d822d | gpt-5.6-sol, gpt-5.4-mini (GitHub Copilot CLI) | n/a in / 167,220 main out + 2,433,542 subagent total (interim live; 15:46:44 CEST) | n/a | Remediate 41 Dependabot alerts, publish only the verified Android bundle, and fix the release-only Capacitor permission crash. |
