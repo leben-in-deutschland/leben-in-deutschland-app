@@ -7,6 +7,8 @@ work. It is not a task log.
 
 - [`android-release-signing.md`](android-release-signing.md) - verifies the
   correct Play application and signing source before changing release secrets.
+- [`capacitor-r8-annotations.md`](capacitor-r8-annotations.md) - preserves
+  Capacitor runtime annotations in minified Android release builds.
 
 ## Rules
 
