@@ -2,16 +2,21 @@
 
 import { MoonFilledIcon } from "@/icons/MoonFilledIcon";
 import { SunFilledIcon } from "@/icons/SunFilledIcon";
-import { Capacitor } from "@capacitor/core";
-import { StatusBar, Style } from "@capacitor/status-bar";
+import { Capacitor, registerPlugin } from "@capacitor/core";
 import { useTheme } from "next-themes";
 import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { Button } from "@heroui/button";
 import { SunMoonIcon } from "@/icons/SunMoonIcon";
 import { useEffect, useState } from "react";
 
+interface AppSystemBarsPlugin {
+    setStyle(options: { light: boolean }): Promise<void>;
+}
+
+const AppSystemBars = registerPlugin<AppSystemBarsPlugin>("AppSystemBars");
+
 export const ThemeSwitch = ({ onThemeChange, translation }: { onThemeChange?: () => void, translation?: any } = {}) => {
-    const { theme, setTheme } = useTheme();
+    const { theme, resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     const onChange = (newTheme: string) => {
@@ -22,23 +27,18 @@ export const ThemeSwitch = ({ onThemeChange, translation }: { onThemeChange?: ()
     useEffect(() => {
         setMounted(true);
     }, []);
-
     useEffect(() => {
-        if (Capacitor.isNativePlatform()) {
-            let tempTheme = theme;
-            if (theme === "system") {
-                const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
-                tempTheme = darkModePreference.matches ? "dark" : "light";
-            }
-            const style = tempTheme === "light" ? Style.Light : Style.Dark;
-            const backgroundColor = tempTheme === "light" ? "#FFFFFF" : "#000000";
-            EdgeToEdge.setBackgroundColor({ color: backgroundColor });
-            StatusBar.setOverlaysWebView({ overlay: true });
-            StatusBar.hide();
-            StatusBar.setBackgroundColor({ color: backgroundColor });
-            StatusBar.setStyle({ style: style });
+        if (Capacitor.getPlatform() === "android") {
+            const light = (theme === "system" ? resolvedTheme : theme) === "light";
+            const backgroundColor = light ? "#FFFFFF" : "#000000";
+            void Promise.all([
+                EdgeToEdge.setBackgroundColor({ color: backgroundColor }),
+                AppSystemBars.setStyle({ light }),
+            ]).catch((error: unknown) => {
+                console.error("Failed to update Android system bar background", error);
+            });
         }
-    }, [theme]);
+    }, [resolvedTheme, theme]);
 
     // Render a placeholder with the same dimensions during SSR to avoid hydration mismatch
     if (!mounted) {

@@ -5,18 +5,8 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
-# ---------------------------------------------------------------------------
-# Capacitor WebView bridge — keep JS interface classes
-# ---------------------------------------------------------------------------
--keep class com.getcapacitor.** { *; }
--keep class org.lebenindeutschland.app.** { *; }
--dontwarn com.getcapacitor.**
-
-# Keep Capacitor plugin classes registered via reflection
--keep @com.getcapacitor.annotation.CapacitorPlugin class * { *; }
--keep class * extends com.getcapacitor.Plugin { *; }
-
-# Keep JavaScript interface methods for WebView bridge
+# Capacitor and its plugins provide their own consumer ProGuard rules.
+# Keep only methods exposed directly to JavaScript by a WebView bridge.
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
