@@ -1,7 +1,7 @@
 ---
 id: PLAN-002
 title: Publish Only the Verified Android Release Bundle
-status: Ready for Review
+status: Completed
 date: 2026-08-27
 tags: [plan, android, release, signing]
 ---
@@ -47,7 +47,7 @@ signed app bundle, and publish only that verified bundle for production use.
   memory.
 - [x] Validate YAML structure and run the exact verification script against
   both the current signed and unsigned bundles.
-- [ ] Record verification evidence and work accounting, then publish the fix
+- [x] Record verification evidence and work accounting, then publish the fix
   through a pull request.
 
 ## Rollback Plan
@@ -111,3 +111,6 @@ Results on 2026-08-27:
   machine has Java 17 and the project requires Java 21. The latest GitHub
   release run installed Java 21 and completed the same Gradle bundle task
   successfully.
+- Pull request
+  `https://github.com/leben-in-deutschland/leben-in-deutschland-app/pull/138`
+  contains the verified workflow fix.
