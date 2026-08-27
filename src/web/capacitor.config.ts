@@ -9,9 +9,6 @@ const config: CapacitorConfig = {
     allowNavigation: ["lebenindeutschland.org", "www.lamplitlabs.com"]
   },
   plugins: {
-    StatusBar: {
-      overlaysWebView: true
-    },
     LocalNotifications: {
       smallIcon: "ic_stat_android_chrome_192x192"
     }
