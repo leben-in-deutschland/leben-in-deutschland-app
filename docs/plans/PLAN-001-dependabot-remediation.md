@@ -1,7 +1,7 @@
 ---
 id: PLAN-001
 title: Remediate Open Dependabot Alerts
-status: Completed
+status: Rolled Back
 date: 2026-08-27
 tags: [plan, dependencies, security]
 ---
@@ -66,7 +66,7 @@ Next.js static-export and Capacitor 7 boundaries.
   previously passing `npm test`, `npm run lint`, and `npm run build` checks,
   then inspect `git status` to confirm only the plan and its evidence remain.
 
-## Acceptance Criteria
+## Original Acceptance Criteria
 
 - [x] `npm audit --audit-level=low` reports zero vulnerabilities.
 - [x] Every package named by the 41 captured Dependabot alerts resolves at or
@@ -104,3 +104,24 @@ Results on 2026-08-27:
 - `npm ls --all` retains the baseline's three existing peer/version warnings:
   missing jQuery for `slick-carousel`, HeroUI's Tailwind 4 peer expectation,
   and an `fdir`/`picomatch` mismatch.
+
+## Rollback Execution
+
+Rollback completed on 2026-08-27 after production Android version code 147
+was reported broken.
+
+- **Trigger confirmed:** Run 146 used commit `522a9e1`; run 147 used merge
+  `73bda66`. The only runtime files changed between those releases were
+  `src/web/package.json` and `src/web/package-lock.json` from dependency
+  remediation commit `b2b1303`.
+- **Reversal:** Applied the precise inverse of `b2b1303` to those two package
+  files only. Preserved the later application version `2.0.119`, PULSE
+  records, and Android signed-artifact workflow fix.
+- **Recovery verification:** After normalizing only the version fields, both
+  package files exactly match the run-146 baseline. A clean npm install,
+  135 tests, the 74-page static export, and Capacitor Android sync passed.
+- **State safety:** No release was deleted, no signing secret or Play Console
+  setting changed, and no production deployment was triggered.
+- **Remaining risk:** The rollback reopens 17 npm audit findings representing
+  the 41 Dependabot alerts. Remediate them in small groups and require an
+  installed signed-bundle smoke test on an internal track before production.

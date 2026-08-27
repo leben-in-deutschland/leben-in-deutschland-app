@@ -7,6 +7,9 @@ work. It is not a task log.
 
 - [`android-release-signing.md`](android-release-signing.md) - verifies the
   correct Play application and signing source before changing release secrets.
+- [`android-production-release-validation.md`](android-production-release-validation.md)
+  - requires an installed signed-bundle smoke test before production runtime
+  dependency changes.
 
 ## Rules
 
