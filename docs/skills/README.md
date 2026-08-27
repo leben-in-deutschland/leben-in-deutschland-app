@@ -16,6 +16,7 @@ Public catalog: <https://manishtiwari25.github.io/pulse/skills/>
 | Skill | Use it for |
 | --- | --- |
 | `pulse-bootstrap` | Adding PULSE safely to a new or established repository |
+| `pulse-template-sync` | Checking upstream PULSE drift and applying approved framework updates |
 | `pulse-plan` | Creating a verifiable work plan with rollback |
 | `pulse-decision` | Recording an ADR and decision trail |
 | `pulse-feature` | Defining and delivering a feature through the PULSE lifecycle |
@@ -24,7 +25,7 @@ Public catalog: <https://manishtiwari25.github.io/pulse/skills/>
 | `pulse-memory` | Recording durable lessons without storing temporary notes |
 | `pulse-delegation-advisor` | Estimating tokens and recommending agent, human, or hybrid work |
 | `pulse-code-context` | Building a standard-library Go code index and relationship graph |
-| `pulse-sandbox` | Warning about, verifying, and enforcing fail-closed execution isolation |
+| `pulse-sandbox` | Recommending isolation and reporting sandboxed or unsandboxed execution |
 
 ## Recommended: Activate the Complete Pack
 
@@ -114,23 +115,42 @@ Invoke a skill explicitly by name, for example:
 Use the /pulse-plan skill to plan this migration.
 ```
 
-## Required Sandbox Preflight
+## Template Sync
+
+Check an adopted repository without changing tracked files or sync state:
+
+```text
+Use /pulse-template-sync in check mode.
+```
+
+Apply reviewed upstream changes and leave them uncommitted:
+
+```text
+Use /pulse-template-sync in apply mode.
+```
+
+The skill follows [`template-sync.md`](../workflows/template-sync.md), keeps
+project-owned files untouched, and requires approval before merging
+review-first instruction changes.
+
+## Sandbox Recommendation Preflight
 
 Use `pulse-sandbox` first for any non-conversational task that may run tools,
 commands, builds, tests, scripts, MCP servers, LSP servers, or executables.
 Every tool-backed response begins with the matching harness warning:
 
 ```text
-⚠️ SANDBOX REQUIRED — verify the <harness> sandbox before execution; do not bypass it. Docs: <matching official sandbox documentation URL>
+⚠️ SANDBOX RECOMMENDED — use <recommended sandbox> when available; state clearly if execution is unsandboxed. Docs: <matching official sandbox documentation URL>
 ```
 
 The skill selects the official
 [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox),
 [Claude Code](https://code.claude.com/docs/en/sandboxing), or
 [OpenCode Docker Sandbox](https://docs.docker.com/ai/sandboxes/agents/opencode/)
-page. The warning is not proof of isolation. Copilot CLI and Claude Code use
-their native sandboxes; OpenCode requires an external sandbox because
-permissions alone are not an OS boundary. See
+page. The warning is not proof of isolation. Copilot CLI and Claude Code offer
+native sandboxes; OpenCode can use an external sandbox because permissions
+alone are not an OS boundary. Without a sandbox, the skill reports
+unsandboxed execution and continues under normal harness permissions. See
 [`sandboxed-agent-execution.md`](../workflows/sandboxed-agent-execution.md).
 
 ## Optional Local Code Context

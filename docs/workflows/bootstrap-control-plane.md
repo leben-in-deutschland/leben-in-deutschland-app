@@ -22,9 +22,10 @@ It supports both new and established repositories.
 6. Define a rollback plan that lists the exact PULSE files to remove or
    restore if integration fails, while preserving all pre-existing target work.
 7. Invoke `pulse-sandbox` when supported, print its exact harness-specific
-   warning with the matching sandbox documentation URL, and verify the active
-   harness's real isolation boundary before any tool-backed work. If isolation
-   is unavailable, remain read-only or stop; never retry unsandboxed.
+   recommendation warning with the matching sandbox documentation URL, and
+   report the active harness's real boundary before tool-backed work. Prefer
+   isolation; when none is available, state that execution is unsandboxed and
+   continue under normal permissions unless a stronger policy applies.
 
 ## 3. Choose the Safer Merge Path
 
@@ -71,10 +72,17 @@ docs/workflows/
 - Do not modify product code, add dependencies, create CI, or invent commands.
 - Include the mandatory rollback rule, plan template section, canonical
   rollback workflow, and shared rollback prompt when the target adopts those
-  PULSE surfaces. Also include the sandbox-first rule,
+  PULSE surfaces. Also include the sandbox recommendation rule,
   `docs/workflows/sandboxed-agent-execution.md`, and `pulse-sandbox`.
+- Treat copied PULSE `SANDBOX REQUIRED`, fail-closed fallback, and ADR-008
+  instruction text as superseded framework content. Replace it with the
+  ADR-009 recommendation unless the target has an explicit local decision that
+  independently requires strict isolation; preserve and report that deliberate
+  divergence.
 - Always include the complete canonical `docs/skills/` pack. Individual PULSE
   skills are not optional during initial framework installation.
+- Include `pulse-template-sync` for future maintenance, but do not run a
+  template sync during initial onboarding.
 - When native installation is supported for the current runner, activate the
   complete skill pack at project scope from the local source. Prefer one of these
   paths with the current runner's supported agent name:
@@ -115,8 +123,8 @@ git diff --name-only
 Check changed links, existing targeted docs checks, preserved product files
 and user work, real target names, no hidden control folder, and no PULSE
 source usage history. Confirm the copied instructions require the exact
-harness-specific sandbox warning with matching documentation, verified
-fail-closed isolation, and no unsandboxed fallback.
+harness-specific sandbox recommendation with matching documentation and clear
+sandboxed-versus-unsandboxed disclosure.
 
 If validation cannot be restored safely, follow
 [`rollback.md`](rollback.md) using the target snapshot as the baseline.
