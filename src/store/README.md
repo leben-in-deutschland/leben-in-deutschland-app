@@ -159,9 +159,9 @@ metadata/ios/<de-DE|en-US>/promotional_text.txt       <= 170 characters
 metadata/ios/<de-DE|en-US>/description.txt            <= 4000 characters (same text as the Play full description)
 ```
 
-Current lengths are within the limits (title 20, short description 79,
-full description 2387 de / 2207 en, keywords 100 de / 99 en, promotional
-text 152 de / 147 en). Count characters, not bytes, after editing:
+Current lengths are within the limits (title 20, short description 79 de /
+74 en, full description 2387 de / 2192 en, keywords 100 de / 99 en,
+promotional text 152 de / 147 en). Count characters, not bytes, after editing:
 
 ```bash
 node -e 'for (const f of process.argv.slice(1)) console.log([...require("fs").readFileSync(f,"utf8")].length, f)' src/store/metadata/*/*/*.txt
@@ -175,6 +175,12 @@ questions are © BAMF. The wording follows the app's own disclaimer
 (`alert1`/`alert2` in `src/web/data/translations/`) and the footer credit.
 Never drop it when rewriting the copy; the previous Play listing carried it
 and the 2026-10-11 upload had to be re-done to put it back.
+
+The English copy says **Einbürgerungstest**, never "German citizenship
+test" or "naturalisation test" (owner rule, 2026-10-11). This covers the
+store texts, the screenshot captions and feature-graphic tagline in
+`compose/templates.mjs`, and the video copy. The iOS keywords are the one
+exception: they are search terms that are never displayed.
 
 Only German and English listings are generated. The app interface itself is
 German and English; the questions carry translations in seven languages

@@ -14,7 +14,7 @@ export const CAPTIONS = {
         settings: ["Offline, privat, kostenlos", "Alle 16 Bundesländer, hell oder dunkel – deine Daten bleiben auf dem Gerät"],
     },
     en: {
-        home: ["Your path to the citizenship test", "Exam readiness, streak, and daily goal at a glance"],
+        home: ["Your path to the Einbürgerungstest", "Exam readiness, streak, and daily goal at a glance"],
         practice: ["All official questions", "300 questions plus the 10 for your state – with instant feedback and an explanation"],
         translation: ["Translated into 7 languages", "English, Turkish, Russian, French, Arabic, Ukrainian, and Hindi"],
         mock: ["A mock exam like the real one", "33 questions, 60 minutes, and a clear result at the end"],
@@ -27,7 +27,7 @@ export const CAPTIONS = {
 
 export const FEATURE_COPY = {
     de: { title: "Leben in Deutschland", tagline: "Einbürgerungstest üben – alle offiziellen Fragen, offline und kostenlos" },
-    en: { title: "Leben in Deutschland", tagline: "Practice the German citizenship test – all official questions, offline and free" },
+    en: { title: "Leben in Deutschland", tagline: "Practice for the Einbürgerungstest – all official questions, offline and free" },
 };
 
 const STATUS_ICONS = `
@@ -199,7 +199,7 @@ export const VIDEO_COPY = {
         site: "lebenindeutschland.org",
     },
     en: {
-        tagline: "Your path to the German citizenship test",
+        tagline: "Your path to the Einbürgerungstest",
         intro: "All official questions · mock exam · offline and free",
         outroTitle: "Download for free",
         outroSubtitle: "On Google Play",
