@@ -159,7 +159,7 @@ metadata/ios/<de-DE|en-US>/promotional_text.txt       <= 170 characters
 metadata/ios/<de-DE|en-US>/description.txt            <= 4000 characters (same text as the Play full description)
 ```
 
-Current lengths are within the limits (title 20, short description 79 de /
+Current lengths are within the limits (title 17, short description 79 de /
 74 en, full description 2387 de / 2192 en, keywords 100 de / 99 en,
 promotional text 152 de / 147 en). Count characters, not bytes, after editing:
 
@@ -175,6 +175,13 @@ questions are © BAMF. The wording follows the app's own disclaimer
 (`alert1`/`alert2` in `src/web/data/translations/`) and the footer credit.
 Never drop it when rewriting the copy; the previous Play listing carried it
 and the 2026-10-11 upload had to be re-done to put it back.
+
+The Play title is **Einbürgerungstest** in both languages: that is the
+name the app has carried on Google Play since its first release and the
+Android launcher label (`app_name`). The 2026-10-11 upload briefly renamed
+it to "Leben in Deutschland" and the owner asked for the old name back, so
+do not change `title.txt` without the owner. "Leben in Deutschland" stays
+the brand inside the app, the screenshots, and the feature graphic.
 
 The English copy says **Einbürgerungstest**, never "German citizenship
 test" or "naturalisation test" (owner rule, 2026-10-11). This covers the
