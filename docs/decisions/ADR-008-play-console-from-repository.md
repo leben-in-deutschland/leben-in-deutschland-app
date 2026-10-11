@@ -105,6 +105,10 @@ sets for the listing. Rules:
 - [x] `docs/memory/android-play-billing.md` records the `legacyCompatible`
       and permission lessons; PLAN-006 and the release workflow point at
       the scripts.
+- [x] `src/store/play-rehearsal.mjs` checks both scripts offline against a
+      local mock; the `play-console-publish` skill
+      (`docs/skills/play-console-publish/SKILL.md`) is the repeatable
+      procedure with its credential gate.
 - [ ] Owner: create the service account, run `play-products.mjs --apply`
       and `play-listing.mjs --validate` → `--apply`, add a license-testing
       account, and test a purchase from the internal testing track.

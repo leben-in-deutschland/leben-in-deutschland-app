@@ -27,6 +27,15 @@ Public catalog: <https://manishtiwari25.github.io/pulse/skills/>
 | `pulse-code-context` | Building a standard-library Go code index and relationship graph |
 | `pulse-sandbox` | Recommending isolation and reporting sandboxed or unsandboxed execution |
 
+## Project Skills
+
+Project-owned skills live next to the pack but are not part of the upstream
+PULSE template; template sync must leave them untouched.
+
+| Skill | Use it for |
+| --- | --- |
+| `play-console-publish` | Pushing the tip-jar products and the Play store listing from the repository through the Play Developer API, with offline checks and a credential gate (ADR-008) |
+
 ## Recommended: Activate the Complete Pack
 
 The universal skills installer discovers the complete bundle set:

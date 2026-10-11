@@ -23,6 +23,7 @@ src/store/
   check.mjs              Validates sizes, format, counts, and the icon hash
   play-listing.mjs       Pushes texts, screenshots and feature graphic to the Play listing
   play-products.mjs      Creates and activates the tip-jar products in Play
+  play-rehearsal.mjs     Offline check of both Play scripts against a local mock of the API
   lib/play-api.mjs       Service-account login and request helpers for the Play Developer API
   lib/demo-user.mjs      Synthetic demo learner and the localStorage seed
   lib/browser.mjs        Headless browser launcher and CDP page helper
@@ -176,6 +177,21 @@ Two scripts write to the Play Console through the official Google Play
 Developer API, with the same zero-dependency rule as the rest of the
 pipeline. They are the committed, repeatable alternative to clicking
 through the Console; both have a dry run that needs no credentials.
+
+The agent-facing procedure is the `play-console-publish` skill
+(`docs/skills/play-console-publish/SKILL.md`): offline checks, credential
+gate, products, listing, hand-back. Its offline check is
+
+```bash
+node src/store/play-rehearsal.mjs   # local mock of Google's token endpoint and the Play API
+```
+
+which signs a throwaway service-account key, runs both scripts with
+`--apply` against the mock and asserts the calls (JWT signature, prices,
+activation, SHA-256 skip, icon untouched, review fallback, no key material
+in requests). It prints `ALL CHECKS PASSED`, or
+`PRODUCT CHECKS PASSED (listing checks skipped)` when the Play sets under
+`output/` are not rendered. Nothing reaches Google.
 
 ### One-time setup (owner, about ten minutes)
 
