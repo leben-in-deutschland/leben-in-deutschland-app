@@ -1,0 +1,41 @@
+Bereite dich entspannt auf den Einbürgerungstest „Leben in Deutschland“ vor – mit allen offiziellen Fragen, einer Probeprüfung wie die echte und einem klaren Blick darauf, wie bereit du wirklich bist.
+
+ALLE OFFIZIELLEN FRAGEN
+• Die 300 offiziellen Fragen des Einbürgerungstests plus die 10 Fragen deines Bundeslandes (alle 16 Bundesländer)
+• Sofortiges Feedback zu jeder Antwort und eine verständliche Erklärung
+• Übersetzungen in 7 Sprachen: Englisch, Türkisch, Russisch, Französisch, Arabisch, Ukrainisch und Hindi
+• Fragen vorlesen lassen
+
+PROBEPRÜFUNG WIE DIE ECHTE
+• 33 Fragen, 60 Minuten – genau wie in der Prüfung
+• Klares Ergebnis am Ende: bestanden ab 17 richtigen Antworten
+• Deine Ergebnisse bleiben gespeichert, damit du deinen Fortschritt siehst
+
+SIEH, WIE BEREIT DU BIST
+• Prüfungsreife aus deinem Wissen und deinen Probeprüfungen
+• Fortschritt pro Thema – so weißt du, wo du noch üben solltest
+• Trag deinen Prüfungstermin ein und sieh, wie viele Tage noch bleiben
+
+LERNEN, WIE ES ZU DIR PASST
+• Neue Fragen lernen, fällige Fragen wiederholen, Fehler üben, markierte Fragen ansehen
+• Schnelle Runde mit 10 Fragen oder eine längere Lerneinheit – du entscheidest
+• Wiederholungen werden automatisch so geplant, dass sie hängen bleiben
+
+BLEIB DRAN – JEDEN TAG
+• Lernserie, Wochenübersicht und Tagesziel halten dich am Ball
+• Erinnerung zur Lernzeit, wenn du möchtest
+• Meilensteine und Auszeichnungen für deine Erfolge
+
+OFFLINE, PRIVAT, KOSTENLOS
+• Funktioniert ohne Internet – ideal für Bus und Bahn
+• Kein Konto nötig, keine Werbung, kein Tracking
+• Dein Lernfortschritt bleibt auf deinem Gerät
+• Heller und dunkler Modus, größere Schrift einstellbar
+• Open Source – der Code ist öffentlich einsehbar
+
+Die App ist kostenlos. Wenn sie dir hilft, kannst du freiwillig ein kleines Trinkgeld geben – ohne versteckten Funktionen oder Abos.
+
+Viel Erfolg bei deiner Prüfung!
+
+Datenschutz: https://www.lebenindeutschland.org/privacy-policy
+Quellcode: https://github.com/leben-in-deutschland/leben-in-deutschland-app

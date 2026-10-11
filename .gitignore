@@ -243,3 +243,5 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 release.keystore
+# Generated store assets (raw captures, renders, videos)
+src/store/output/
