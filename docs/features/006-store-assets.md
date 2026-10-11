@@ -82,15 +82,25 @@ hand again.
   `src/store/output/`. Generated and ignored: everything under
   `src/store/output/` (raw captures, sets, feature graphic, icon copy,
   videos, frames).
+- `node src/store/play-listing.mjs` sends the listing texts and the Play
+  sets (phone, 7-inch and 10-inch tablet, feature graphic) to the Play
+  Console through the Play Developer API with a service-account key
+  (ADR-008): a dry run needs no credentials, `--validate` uploads into a
+  draft edit that Google checks and the script discards, `--apply`
+  commits. Unchanged texts and byte-identical image slots are skipped, the
+  icon slot is never touched, and an optional
+  `metadata/android/<locale>/video.txt` sets the YouTube video. When the
+  Console requires a manual review step, the commit is made without
+  sending for review and the owner sends it from the Console.
 
 ## Out of Scope
 
 - An iOS project, Xcode setup, or anything in App Store Connect. The
   `ios-*` sets and `metadata/ios/` are prepared from the same web UI so a
   later iOS release can reuse them.
-- Upload automation (fastlane or Play Developer API). The `metadata/`
-  layout mirrors fastlane's conventions, but uploads are done by hand in
-  the Play Console.
+- fastlane or any other upload framework. The `metadata/` layout mirrors
+  fastlane's conventions, but the Play upload is the repository's own
+  `play-listing.mjs`; App Store uploads are still manual.
 - A new or redrawn app icon. The owner keeps the existing one.
 - Captures from a real device or emulator. The screens come from the
   exported web build in Android-emulation mode.
@@ -152,7 +162,8 @@ involved.
 ## Open Questions
 
 - Which YouTube channel hosts the landscape promo video for the Play
-  listing; Play accepts a YouTube URL only. Owner decision at upload time.
+  listing; Play accepts a YouTube URL only. Owner decision at upload time;
+  once known, the URL goes into `metadata/android/<locale>/video.txt`.
 - Whether Apple's required screenshot sizes still match `SETS` in
   `src/store/compose/render.mjs` when an iOS release is planned; re-check
   before uploading.

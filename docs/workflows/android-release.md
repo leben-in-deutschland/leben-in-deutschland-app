@@ -29,10 +29,12 @@ to learners by itself.
    the scraper repository. Create or refresh the `content` branch when a
    notice should greet upgraded learners.
 6. Play Console prepared: one-time products `tip_small`, `tip_medium`,
-   `tip_large` exist and are active (see `docs/memory/android-play-billing.md`);
+   `tip_large` exist and are active (`node src/store/play-products.mjs
+   --list`, create with `--apply`; see `docs/memory/android-play-billing.md`);
    store listing, screenshots, and release notes updated from
-   `docs/features/006-store-assets.md` output; data-safety answers still true
-   (the app downloads public JSON, sends nothing).
+   `docs/features/006-store-assets.md` output (`node src/store/play-listing.mjs
+   --validate`, then `--apply`); data-safety answers still true (the app
+   downloads public JSON, sends nothing).
 7. Schema compatibility re-read: the learner record stays schema 2 and
    `normalizeUser` in `utils/user-store.ts` accepts every older shape
    (`docs/features/001-ui-ux-revamp.md`, `__tests__/legacy-compat.test.ts`).

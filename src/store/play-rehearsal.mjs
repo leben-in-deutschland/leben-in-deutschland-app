@@ -1,0 +1,282 @@
+// Offline rehearsal for play-products.mjs and play-listing.mjs: a local mock
+// of Google's token endpoint and the Play Developer API that verifies the
+// service-account JWT with a throwaway RSA key, then runs both scripts with
+// --apply against it and asserts the call sequence. Needs no credentials and
+// no network; nothing reaches Google.
+//
+//   node src/store/play-rehearsal.mjs
+//
+// The listing checks need the rendered Play sets under src/store/output/
+// (see README.md); without them only the product checks run.
+import { createHash, createVerify, generateKeyPairSync } from "node:crypto";
+import { spawn } from "node:child_process";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import http from "node:http";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const PKG = "org.lebenindeutschland.app";
+const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+const keyDir = mkdtempSync(path.join(os.tmpdir(), "play-mock-"));
+const keyFile = path.join(keyDir, "key.json");
+
+const log = [];
+const state = { products: {}, listings: { "de-DE": { language: "de-DE", title: "Old title", shortDescription: "old", fullDescription: "old", video: "https://youtu.be/keepme" } }, images: {}, editDeleted: false, committed: null };
+let tokenOk = false;
+let commitAttempts = 0;
+
+// de-DE phone screenshots are "already in Play" with the same bytes -> must be skipped.
+const dePhone = path.join(repo, "src/store/output/play-phone/de");
+const haveSets = existsSync(dePhone) && existsSync(path.join(repo, "src/store/output/play-feature/en/featureGraphic.png"));
+if (haveSets) {
+    state.images["de-DE/phoneScreenshots"] = readdirSync(dePhone)
+        .filter((n) => n.endsWith(".png"))
+        .sort()
+        .map((n, i) => ({ id: `img${i}`, sha256: createHash("sha256").update(readFileSync(path.join(dePhone, n))).digest("hex") }));
+}
+
+function json(res, status, body) {
+    res.writeHead(status, { "content-type": "application/json" });
+    res.end(JSON.stringify(body));
+}
+function error(res, status, message) {
+    json(res, status, { error: { code: status, message, status: status === 400 ? "INVALID_ARGUMENT" : "PERMISSION_DENIED" } });
+}
+function body(req) {
+    return new Promise((resolve) => {
+        const chunks = [];
+        req.on("data", (c) => chunks.push(c));
+        req.on("end", () => resolve(Buffer.concat(chunks)));
+    });
+}
+
+const server = http.createServer(async (req, res) => {
+    const url = new URL(req.url, "http://x");
+    const raw = await body(req);
+    log.push(`${req.method} ${url.pathname}${url.search}`);
+
+    if (url.pathname === "/token") {
+        const params = new URLSearchParams(raw.toString());
+        const [h, c, s] = params.get("assertion").split(".");
+        const header = JSON.parse(Buffer.from(h, "base64url"));
+        const claims = JSON.parse(Buffer.from(c, "base64url"));
+        const valid = createVerify("RSA-SHA256").update(`${h}.${c}`).verify(publicKey, Buffer.from(s, "base64url"));
+        const now = Math.floor(Date.now() / 1000);
+        tokenOk =
+            valid &&
+            header.alg === "RS256" &&
+            params.get("grant_type") === "urn:ietf:params:oauth:grant-type:jwt-bearer" &&
+            claims.iss === "mock@example.iam.gserviceaccount.com" &&
+            claims.scope === "https://www.googleapis.com/auth/androidpublisher" &&
+            claims.aud === `http://127.0.0.1:${server.address().port}/token` &&
+            claims.exp > now &&
+            claims.exp <= now + 3600 &&
+            claims.iat <= now;
+        return tokenOk ? json(res, 200, { access_token: "mock-token", expires_in: 3600 }) : error(res, 400, "invalid_grant");
+    }
+    if (req.headers.authorization !== "Bearer mock-token") {
+        return error(res, 401, "Request had invalid authentication credentials.");
+    }
+    const p = url.pathname;
+    const base = `/androidpublisher/v3/applications/${PKG}`;
+    const upload = `/upload/androidpublisher/v3/applications/${PKG}`;
+    let m;
+
+    // --- one-time products
+    if (p === `${base}/pricing:convertRegionPrices`) {
+        const { price } = JSON.parse(raw.toString());
+        const net = Number(price.units) + price.nanos / 1e9;
+        const gross = (rate, fx) => {
+            const v = net * (1 + rate) * fx;
+            return { units: String(Math.floor(v)), nanos: Math.round((v - Math.floor(v)) * 1e9) };
+        };
+        return json(res, 200, {
+            regionVersion: { version: "2025/01" },
+            convertedRegionPrices: {
+                DE: { regionCode: "DE", price: { currencyCode: "EUR", ...gross(0.19, 1) } },
+                AT: { regionCode: "AT", price: { currencyCode: "EUR", ...gross(0.2, 1) } },
+                US: { regionCode: "US", price: { currencyCode: "USD", ...gross(0, 1.08) } },
+                TR: { regionCode: "TR", price: { currencyCode: "TRY", ...gross(0.2, 37.5) } },
+            },
+            convertedOtherRegionsPrice: { usdPrice: { currencyCode: "USD", ...gross(0, 1.08) }, eurPrice: { currencyCode: "EUR", units: price.units, nanos: price.nanos } },
+        });
+    }
+    if ((m = new RegExp(`^${base}/onetimeproducts/([a-z_]+)$`).exec(p)) && req.method === "PATCH") {
+        if (url.searchParams.get("allowMissing") !== "true") return error(res, 404, "product not found");
+        if (url.searchParams.get("regionsVersion.version") !== "2025/01") return error(res, 400, "regionsVersion.version must be 2025/01");
+        const product = JSON.parse(raw.toString());
+        for (const o of product.purchaseOptions) o.state = state.products[m[1]]?.purchaseOptions?.[0]?.state ?? "DRAFT";
+        state.products[m[1]] = product;
+        return json(res, 200, product);
+    }
+    if ((m = new RegExp(`^${base}/oneTimeProducts/([a-z_]+)/purchaseOptions:batchUpdateStates$`).exec(p))) {
+        const { requests } = JSON.parse(raw.toString());
+        for (const r of requests) {
+            const a = r.activatePurchaseOptionRequest;
+            if (a.packageName !== PKG || a.productId !== m[1]) return error(res, 400, "bad activate request");
+            const option = state.products[m[1]].purchaseOptions.find((o) => o.purchaseOptionId === a.purchaseOptionId);
+            option.state = "ACTIVE";
+        }
+        return json(res, 200, {});
+    }
+    if ((m = new RegExp(`^${base}/oneTimeProducts/([a-z_]+)$`).exec(p)) && req.method === "GET") {
+        return state.products[m[1]] ? json(res, 200, state.products[m[1]]) : error(res, 404, "not found");
+    }
+    if (p === `${base}/oneTimeProducts` && req.method === "GET") {
+        return json(res, 200, { oneTimeProducts: Object.values(state.products) });
+    }
+
+    // --- edits
+    if (p === `${base}/edits` && req.method === "POST") return json(res, 200, { id: "edit-1", expiryTimeSeconds: "9999999999" });
+    if ((m = new RegExp(`^${base}/edits/edit-1/listings/([a-zA-Z-]+)$`).exec(p))) {
+        if (req.method === "GET") return state.listings[m[1]] ? json(res, 200, state.listings[m[1]]) : error(res, 404, "Listing not found");
+        if (req.method === "PUT") {
+            state.listings[m[1]] = JSON.parse(raw.toString());
+            return json(res, 200, state.listings[m[1]]);
+        }
+    }
+    if ((m = new RegExp(`^${base}/edits/edit-1/listings/([a-zA-Z-]+)/([a-zA-Z]+)$`).exec(p))) {
+        const key = `${m[1]}/${m[2]}`;
+        if (req.method === "GET") return json(res, 200, { images: state.images[key] ?? [] });
+        if (req.method === "DELETE") {
+            const deleted = state.images[key] ?? [];
+            state.images[key] = [];
+            return json(res, 200, { deleted });
+        }
+    }
+    if ((m = new RegExp(`^${upload}/edits/edit-1/listings/([a-zA-Z-]+)/([a-zA-Z]+)$`).exec(p)) && req.method === "POST") {
+        if (url.searchParams.get("uploadType") !== "media") return error(res, 400, "uploadType=media expected");
+        if (url.searchParams.get("aiGeneratedState") !== "aiGeneratedStateNotAiGenerated") return error(res, 400, "aiGeneratedState expected");
+        if (!/^image\/(png|jpeg)$/.test(req.headers["content-type"])) return error(res, 400, `bad content type ${req.headers["content-type"]}`);
+        if (!raw.subarray(0, 8).equals(Buffer.from("89504e470d0a1a0a", "hex"))) return error(res, 400, "not a PNG body");
+        const key = `${m[1]}/${m[2]}`;
+        const image = { id: `up${(state.images[key] ?? []).length}`, sha256: createHash("sha256").update(raw).digest("hex") };
+        (state.images[key] ??= []).push(image);
+        return json(res, 200, { image });
+    }
+    if (p === `${base}/edits/edit-1:validate`) return json(res, 200, { id: "edit-1" });
+    if (p === `${base}/edits/edit-1:commit`) {
+        commitAttempts += 1;
+        if (url.searchParams.get("changesNotSentForReview") !== "true") {
+            return error(res, 400, "Changes cannot be sent for review automatically. Please set the query parameter changesNotSentForReview to true. Once committed, the changes in this edit can be sent for review from the Google Play Console UI.");
+        }
+        state.committed = "not-sent-for-review";
+        return json(res, 200, { id: "edit-1" });
+    }
+    if (p === `${base}/edits/edit-1` && req.method === "DELETE") {
+        state.editDeleted = true;
+        return json(res, 200, {});
+    }
+    return error(res, 404, `unhandled ${req.method} ${p}`);
+});
+
+await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+const port = server.address().port;
+writeFileSync(
+    keyFile,
+    JSON.stringify({
+        type: "service_account",
+        client_email: "mock@example.iam.gserviceaccount.com",
+        private_key: privateKey.export({ type: "pkcs8", format: "pem" }),
+        token_uri: `http://127.0.0.1:${port}/token`,
+    }),
+);
+
+const env = { ...process.env, PLAY_API_BASE: `http://127.0.0.1:${port}`, PLAY_SERVICE_ACCOUNT_KEY: keyFile };
+function run(script, args) {
+    return new Promise((resolve) => {
+        const child = spawn("node", [path.join(repo, "src/store", script), ...args], { env, cwd: repo });
+        let stdout = "";
+        let stderr = "";
+        child.stdout.on("data", (c) => (stdout += c));
+        child.stderr.on("data", (c) => (stderr += c));
+        child.on("close", (status) => {
+            console.log(`\n$ node src/store/${script} ${args.join(" ")}  (exit ${status})`);
+            console.log(stdout.trim());
+            if (stderr.trim()) console.log("stderr:", stderr.trim());
+            resolve({ status, stdout, stderr });
+        });
+    });
+}
+
+const failures = [];
+const expect = (cond, message) => (cond ? null : failures.push(message));
+
+// 1. products
+let r = await run("play-products.mjs", ["--apply"]);
+expect(r.status === 0, "products --apply exits 0");
+expect(tokenOk, "JWT verified by the mock token endpoint");
+for (const id of ["tip_small", "tip_medium", "tip_large"]) {
+    const product = state.products[id];
+    expect(product?.purchaseOptions[0].state === "ACTIVE", `${id} active`);
+    expect(product?.purchaseOptions[0].buyOption.legacyCompatible === true, `${id} legacy compatible`);
+    const configs = product?.purchaseOptions[0].regionalPricingAndAvailabilityConfigs ?? [];
+    const de = configs.find((c) => c.regionCode === "DE");
+    const at = configs.find((c) => c.regionCode === "AT");
+    const us = configs.find((c) => c.regionCode === "US");
+    expect(de && at && us && configs.length === 4, `${id} has DE/AT/US/TR configs`);
+    expect(product?.listings.length === 2 && product.listings.every((l) => l.title && l.description.length <= 200), `${id} listings`);
+    if (id === "tip_small") {
+        expect(de?.price.units === "1" && de?.price.nanos === 990000000, "DE keeps exactly 1.99 EUR");
+        expect(at?.price.units === "1" && at?.price.nanos === 990000000, "AT (euro) keeps exactly 1.99 EUR");
+        expect(us?.price.currencyCode === "USD" && Number(us.price.units) + us.price.nanos / 1e9 > 1.7, "US price converted from the net 1.67 EUR");
+        expect(product?.purchaseOptions[0].newRegionsConfig?.availability === "AVAILABLE", "newRegionsConfig set");
+    }
+}
+expect(log.filter((l) => l.includes("batchUpdateStates")).length === 3, "three activations");
+expect(!log.some((l) => /key|private/i.test(l)), "no key material in requests");
+
+// 2. products --apply again is idempotent: already ACTIVE -> no activation call
+const before = log.length;
+r = await run("play-products.mjs", ["--apply", "--product", "tip_small"]);
+expect(r.status === 0, "second apply exits 0");
+expect(!log.slice(before).some((l) => l.includes("batchUpdateStates")), "no activation when already active");
+
+// 3. --list
+r = await run("play-products.mjs", ["--list"]);
+expect(r.status === 0 && /3 one-time product/.test(r.stdout) && !/missing:/.test(r.stdout), "--list shows the three products");
+
+if (haveSets) {
+    // 4. listing --validate: uploads, validates, discards
+    r = await run("play-listing.mjs", ["--validate"]);
+    expect(r.status === 0, "listing --validate exits 0");
+    expect(state.editDeleted && state.committed === null, "validate mode discards the edit without committing");
+    expect(/phoneScreenshots: unchanged \(8\)/.test(r.stdout), "identical de-DE phone screenshots skipped");
+    expect(/en-US[\s\S]*texts: created/.test(r.stdout), "en-US listing created");
+    expect(/de-DE[\s\S]*texts: updated/.test(r.stdout), "de-DE listing updated");
+    expect(state.listings["de-DE"].video === "https://youtu.be/keepme", "existing video kept when no video.txt");
+    expect(state.listings["de-DE"].title === "Leben in Deutschland", "title updated from metadata");
+    expect((state.images["en-US/phoneScreenshots"] ?? []).length === 8, "8 en-US phone screenshots uploaded");
+    expect((state.images["de-DE/featureGraphic"] ?? []).length === 1, "feature graphic uploaded");
+    expect((state.images["de-DE/tenInchScreenshots"] ?? []).length === 8, "ten-inch set uploaded");
+    expect(!log.some((l) => l.includes("/icon")), "icon never touched");
+    const uploadIndex = log.findIndex((l) => l.startsWith("POST /upload/"));
+    const validateIndex = log.findIndex((l) => l.includes(":validate"));
+    expect(uploadIndex > -1 && validateIndex > uploadIndex, "validate after uploads");
+
+    // 5. listing --apply with Google demanding manual review -> commit retried with changesNotSentForReview
+    state.editDeleted = false;
+    r = await run("play-listing.mjs", ["--apply", "--lang", "en", "--text-only"]);
+    // texts are unchanged now (already stored by the validate run) -> nothing to change
+    expect(r.status === 0 && /nothing to change/.test(r.stdout), "apply with no differences discards the edit");
+    state.listings["en-US"].title = "Different";
+    r = await run("play-listing.mjs", ["--apply", "--lang", "en", "--text-only"]);
+    expect(r.status === 0, "listing --apply exits 0");
+    expect(commitAttempts === 2 && state.committed === "not-sent-for-review", "commit retried with changesNotSentForReview");
+    expect(/not sent for review/.test(r.stdout), "owner told to send for review in the Console");
+} else {
+    console.log("\nListing checks skipped: no rendered Play sets under src/store/output/ (see src/store/README.md).");
+}
+
+// 6. permission error path: break the token
+writeFileSync(keyFile, JSON.stringify({ client_email: "other@example.iam.gserviceaccount.com", private_key: privateKey.export({ type: "pkcs8", format: "pem" }), token_uri: `http://127.0.0.1:${port}/token` }));
+r = await run("play-products.mjs", ["--list"]);
+expect(r.status === 1 && /token request failed \(400\): invalid_grant/.test(r.stderr), "token failure reported without secrets");
+
+server.close();
+const verdict = haveSets ? "ALL CHECKS PASSED" : "PRODUCT CHECKS PASSED (listing checks skipped)";
+console.log(`\n${failures.length === 0 ? verdict : "FAILURES:\n  " + failures.join("\n  ")}`);
+console.log(`${log.length} API calls recorded`);
+process.exit(failures.length === 0 ? 0 : 1);

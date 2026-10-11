@@ -159,6 +159,7 @@ not change.
 | New feature | `docs/context/`, `docs/architecture/`, `docs/decisions/`, `docs/memory/` | `docs/features/`, `docs/plans/`, `docs/prompts/` |
 | Bug fix | Relevant source, tests, context, and memory | `docs/plans/` for non-trivial work; memory only for a durable lesson |
 | Android release signing | `docs/memory/android-release-signing.md`, workflow, Android config | Update control-plane records only when facts change |
+| Play products or store listing | `src/store/README.md`, `docs/decisions/ADR-008-play-console-from-repository.md`, `docs/memory/android-play-billing.md` | Run the `play-console-publish` skill; change `src/store/metadata/`, never the key |
 | Learning or mistake | Existing `docs/memory/` | The most specific memory file |
 | PULSE maintenance | This file and `docs/*/README.md` | Durable control-plane files |
 | PULSE template sync | `docs/skills/pulse-template-sync/SKILL.md`, `docs/workflows/template-sync.md`, `.template-sync` | Sync-safe framework files and `.template-sync` |

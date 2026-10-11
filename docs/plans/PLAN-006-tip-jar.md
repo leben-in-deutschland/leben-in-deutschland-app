@@ -62,10 +62,16 @@ hidden in the app until step 2 is complete.
 
 1. Set up a payments profile (Play Console → Setup → Payments profile; tax
    and bank details). Google is the seller of record and handles VAT.
-2. Monetize with Play → Products → One-time products: create `tip_small`,
-   `tip_medium`, `tip_large` with German and English names (the app shows
-   the store name and price, so wording and prices are yours to choose and
-   change without an app update). Activate them.
+2. Create the products `tip_small`, `tip_medium`, `tip_large` and activate
+   them. Either run `node src/store/play-products.mjs --apply` with a
+   service-account key (setup in `src/store/README.md`, "Google Play from
+   the command line"), which takes the German and English names, the
+   descriptions and the euro prices from
+   `src/store/metadata/android/one-time-products.json` (Kaffee 1,99 €,
+   Kuchen 4,99 €, Abendessen 9,99 €), or create them by hand under Monetize
+   with Play → Products → One-time products with the same values. The app
+   shows the store name and price, so wording and prices can change later
+   without an app update.
 3. Add your Google account under Settings → License testing so test purchases
    are free, then install the app from an internal testing track. Play
    Billing only completes purchases for builds installed through Play with
