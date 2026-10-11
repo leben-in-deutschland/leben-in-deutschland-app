@@ -37,5 +37,9 @@ Die App ist kostenlos. Wenn sie dir hilft, kannst du freiwillig ein kleines Trin
 
 Viel Erfolg bei deiner Prüfung!
 
+HINWEIS
+Dies ist kein offizieller Einbürgerungstest. Diese App soll dir bei der Vorbereitung auf den Einbürgerungstest helfen. Sie ist ein privates Angebot und keine offizielle App des Bundesamtes für Migration und Flüchtlinge (BAMF). Der Einbürgerungstest kann ausschließlich beim BAMF durchgeführt werden.
+Fragen © Bundesamt für Migration und Flüchtlinge (BAMF)
+
 Datenschutz: https://www.lebenindeutschland.org/privacy-policy
 Quellcode: https://github.com/leben-in-deutschland/leben-in-deutschland-app

@@ -76,6 +76,18 @@ function netOf(price, vatRate) {
     return { currencyCode: price.currencyCode, units: String(units), nanos: Math.round((value - units) * 1e9) };
 }
 
+// Play's "new regions" fallback prices (USD and EUR) must follow Play's price
+// pattern, but pricing:convertRegionPrices returns them raw (for example
+// 1.672268908 EUR, 1.87 USD) and the product request then fails with "must be
+// rounded". Play's own regional conversions round to the nearest amount that
+// ends in 9 cents (1.99, 2.09, 1.89), so the fallback prices get the same
+// treatment.
+function roundToPricePattern(price) {
+    const value = Math.max(0.09, Math.round((amount(price) + 0.01) * 10) / 10 - 0.01);
+    const units = Math.floor(value + 1e-9);
+    return { currencyCode: price.currencyCode, units: String(units), nanos: Math.round((value - units) * 100) * 10_000_000 };
+}
+
 function loadDefinition() {
     const definition = JSON.parse(readFileSync(DEFINITION, "utf8"));
     definition.packageName = readPackageName();
@@ -182,7 +194,9 @@ async function convertPrices(request, definition, price) {
     configs.sort((a, b) => a.regionCode.localeCompare(b.regionCode));
     const other = result.convertedOtherRegionsPrice;
     const newRegionsConfig =
-        other?.usdPrice && other?.eurPrice ? { usdPrice: other.usdPrice, eurPrice: other.eurPrice, availability: "AVAILABLE" } : undefined;
+        other?.usdPrice && other?.eurPrice
+            ? { usdPrice: roundToPricePattern(other.usdPrice), eurPrice: roundToPricePattern(other.eurPrice), availability: "AVAILABLE" }
+            : undefined;
     const regionsVersion = process.env.PLAY_REGIONS_VERSION ?? result.regionVersion?.version;
     if (!regionsVersion) {
         fail("Play returned no regions version; set PLAY_REGIONS_VERSION to the current value from https://support.google.com/googleplay/android-developer/answer/10532353");
@@ -272,7 +286,7 @@ function dryRun(definition, products) {
         );
         console.log(JSON.stringify(buildProduct(definition, product, null), null, 2));
         console.log(
-            `  at apply time pricing:convertRegionPrices turns ${formatMoney(netOf(price, definition.defaultVatRate))} (tax-exclusive) into local prices for every Play region; euro countries keep ${formatMoney(price)}`,
+            `  at apply time pricing:convertRegionPrices turns ${formatMoney(netOf(price, definition.defaultVatRate))} (tax-exclusive) into local prices for every Play region; euro countries keep ${formatMoney(price)}; the USD/EUR fallback for new regions is rounded to Play's pattern (ends in 9 cents, e.g. ${formatMoney(roundToPricePattern(netOf(price, definition.defaultVatRate)))})`,
         );
         console.log(
             `POST ${API}/applications/${definition.packageName}/oneTimeProducts/${product.productId}/purchaseOptions:batchUpdateStates {"requests":[{"activatePurchaseOptionRequest":{"purchaseOptionId":"${definition.purchaseOptionId}"}}]}\n`,

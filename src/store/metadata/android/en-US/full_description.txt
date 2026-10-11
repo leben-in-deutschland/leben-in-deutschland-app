@@ -37,5 +37,9 @@ The app is free. If it helps you, you can leave a small optional tip – no hidd
 
 Good luck with your exam!
 
+NOTE
+This is not an official Einbürgerungstest. This app is designed to help you prepare for the Einbürgerungstest. It is a private offering and not an official app of the Federal Office for Migration and Refugees (BAMF). The Einbürgerungstest can only be carried out at the BAMF.
+Questions © Federal Office for Migration and Refugees (BAMF)
+
 Privacy: https://www.lebenindeutschland.org/privacy-policy
 Source code: https://github.com/leben-in-deutschland/leben-in-deutschland-app
