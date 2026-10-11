@@ -68,8 +68,11 @@ Play Console invite with "Manage store presence"). Step 2 is done:
 and activated them (ACTIVE, 1,99 / 4,99 / 9,99 € in Germany, 174 regions)
 after a fix for Play's "new regions must be rounded" rule. The store
 listing (texts with the BAMF notice, screenshots, feature graphics) was
-published the same day. Open: step 1 (payments profile) is an owner
-decision not visible from the repository; steps 3 and 4 remain.
+published the same day, and the two promo videos were uploaded to the
+owner's YouTube channel and linked from both listings
+(`metadata/android/<language>/video.txt`). Open: step 1 (payments
+profile) is an owner decision not visible from the repository; steps 3
+and 4 remain.
 
 1. Set up a payments profile (Play Console → Setup → Payments profile; tax
    and bank details). Google is the seller of record and handles VAT.
