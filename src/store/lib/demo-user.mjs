@@ -229,7 +229,12 @@ export function buildDemoUser({ language, today = new Date(), translationLanguag
     };
 }
 
-/** Browser `localStorage` seed for a capture: record, language, theme, and fresh remote caches (no network). */
+/**
+ * Browser `localStorage` seed for a capture: record, language, theme, fresh
+ * remote caches (no network), the modern design (an existing record without
+ * `lid:ui-mode` would open the classic design with the "new design" prompt),
+ * and a used-up thank-you ask so the tip dialog never covers a shot.
+ */
 export function buildStorageSeed({ language, theme = "dark", today = new Date(), translationLanguage }) {
     const user = buildDemoUser({ language, today, translationLanguage });
     const stamp = today.toISOString();
@@ -238,6 +243,8 @@ export function buildStorageSeed({ language, theme = "dark", today = new Date(),
         user: JSON.stringify(user),
         "app-language": language,
         theme,
+        "lid:ui-mode": "modern",
+        "lid:support-ask": JSON.stringify({ asks: 2, lastAskAt: stamp }),
         "lid:notices": cache(),
         "lid:questions": cache(),
         "lid:evaluation": cache(),

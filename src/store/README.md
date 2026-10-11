@@ -458,7 +458,11 @@ when the sets were made.
   given per language) and re-run capture for that shot.
 - `timed out waiting for ...` – the page did not reach the expected state
   in 15 s; check the build is current and retry the single shot with
-  `--explore` to see the page text.
+  `--explore` to see the page text. If the text shows a first-run prompt or
+  the classic design, the app gained a new storage flag: add it to
+  `buildStorageSeed` in `lib/demo-user.mjs` (as `lid:ui-mode: modern` and
+  the used-up `lid:support-ask` are) so every shot shows the modern design
+  without dialogs.
 - `check.mjs` reports a wrong count – a set has stale files from an earlier
   shot list. Delete `src/store/output/<set>/` and re-render.
 - The fake status bar always shows `10:08`; this is intentional and part of
