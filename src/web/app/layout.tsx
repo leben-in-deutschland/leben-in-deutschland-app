@@ -1,18 +1,16 @@
 import "../styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "../config/site";
-import { fontSans } from "../config/fonts";
+import { fontDisplay, fontSans } from "../config/fonts";
 import { Providers } from "./provider";
-import { NavigationBar } from "../components/navigation-bar";
 import clsx from "clsx";
-import { Link } from "@heroui/link";
 import { keywords } from "@/data/keyword";
-import { Footer } from "@/components/footer";
+import { AppShell } from "@/components/shell/app-shell";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#F2F3F5" },
+    { media: "(prefers-color-scheme: dark)", color: "#140E10" },
   ],
 };
 
@@ -41,21 +39,21 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/mobile/app-1.png",
-        width: 1200,
-        height: 2880,
+        width: 1080,
+        height: 1920,
         alt: "Leben in Deutschland - Einbürgerungstest App Dashboard",
       },
       {
         url: "/mobile/app-2.png",
-        width: 1200,
-        height: 2880,
+        width: 1080,
+        height: 1920,
         alt: "Übungsfragen für den Einbürgerungstest",
       },
       {
         url: "/mobile/app-3.png",
-        width: 1200,
-        height: 2880,
-        alt: "Probeprüfung mit Timer",
+        width: 1080,
+        height: 1920,
+        alt: "Fragen übersetzt in 7 Sprachen",
       },
     ],
   },
@@ -100,23 +98,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" suppressHydrationWarning={true}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
       <body
         className={clsx(
-          "bg-background font-sans antialiased overflow-x-hidden",
+          "min-h-dvh bg-background font-sans text-foreground antialiased overflow-x-hidden",
           fontSans.variable,
+          fontDisplay.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", enableSystem: true }}>
-          <div className="flex flex-col min-h-screen safe-area-padding">
-            <NavigationBar />
-            <main className="container mx-auto flex flex-col flex-grow w-full px-4 sm:px-6 py-4">
-              {children}
-            </main>
-            <Footer />
-          </div>
+        <Providers themeProps={{ attribute: "class", enableSystem: true, defaultTheme: "system" }}>
+          <AppShell>{children}</AppShell>
         </Providers>
       </body>
     </html>

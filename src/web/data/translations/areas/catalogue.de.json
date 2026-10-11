@@ -1,0 +1,20 @@
+{
+    "catalogue_title": "Fragenkatalog",
+    "catalogue_title_state": "Fragen für {state}",
+    "catalogue_desc_general": "Alle {count} allgemeinen Fragen des Einbürgerungstests und des Tests Leben in Deutschland, jeweils mit der richtigen Antwort.",
+    "catalogue_desc_state": "Die {count} Fragen, die nur in {state} gestellt werden. Drei davon kommen dort in jeder Prüfung vor.",
+    "catalogue_state_picker_label": "Bundesland wählen",
+    "catalogue_state_general": "Allgemein (300)",
+    "catalogue_search_placeholder": "Text oder Nummer suchen, z. B. 42 oder Grundgesetz",
+    "catalogue_search_label": "Fragen durchsuchen",
+    "catalogue_topic_label": "Thema",
+    "catalogue_all_topics": "Alle Themen",
+    "catalogue_results_of": "{count} von {total} Fragen",
+    "catalogue_show_more": "{count} weitere anzeigen",
+    "catalogue_empty_title": "Keine Frage gefunden",
+    "catalogue_empty_desc": "Probiere ein anderes Wort, eine Fragennummer oder ein anderes Thema.",
+    "catalogue_clear_filters": "Filter zurücksetzen",
+    "catalogue_cta_title": "Lieber üben statt lesen?",
+    "catalogue_cta_desc": "In der App beantwortest du die Fragen selbst, bekommst sofort Feedback und siehst, was du schon kannst.",
+    "catalogue_cta_button": "Jetzt üben"
+}

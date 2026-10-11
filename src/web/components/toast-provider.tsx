@@ -5,11 +5,19 @@ interface ToastProviderProps {
 }
 
 export default function ToastProvider({ children }: ToastProviderProps) {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     return (
         <>
             {children}
-            <ToastContainer position="bottom-right" hideProgressBar={false} theme={theme === "dark" ? "dark" : "light"} />
+            <ToastContainer
+                position="bottom-center"
+                autoClose={4000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                limit={3}
+                theme={resolvedTheme === "dark" ? "dark" : "light"}
+            />
         </>
     );
 }
