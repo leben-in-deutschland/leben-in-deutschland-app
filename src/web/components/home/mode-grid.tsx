@@ -21,7 +21,7 @@ const SHOWN_MODES = STUDY_MODES.slice(0, 6);
 /** Modes that always have questions, whatever the learner's progress. */
 const ALWAYS_AVAILABLE: ReadonlySet<StudyModeId> = new Set<StudyModeId>(["quick", "marathon"]);
 
-const tileClass = `flex min-h-[76px] items-center gap-3 bg-gradient-to-br via-content1 to-content1 p-3 ${CARD}`;
+const tileClass = `flex h-full min-h-[76px] items-center gap-3 bg-gradient-to-br via-content1 to-content1 p-3 ${CARD}`;
 
 /** The first six study modes with their question counts. */
 export function ModeGrid({ counts, t, className, style }: ModeGridProps) {
@@ -45,7 +45,8 @@ export function ModeGrid({ counts, t, className, style }: ModeGridProps) {
                         <>
                             <IconBadge icon={mode.icon} accent={mode.accent} size="lg" className="transition-transform duration-300 group-hover:scale-105" />
                             <span className="min-w-0 flex-1">
-                                <span className="line-clamp-2 text-sm font-semibold leading-snug text-foreground">{t[mode.titleKey]}</span>
+                                {/* Long German words ("Übersprungen", "Bundesland") hyphenate over up to three lines instead of being clipped on narrow phones. */}
+                                <span className="line-clamp-3 hyphens-auto break-words text-sm font-semibold leading-snug text-foreground">{t[mode.titleKey]}</span>
                                 <span className="mt-0.5 block text-xs tabular text-default-500">
                                     {available ? plural(t, "common_questions", count) : t.home_modes_empty}
                                 </span>

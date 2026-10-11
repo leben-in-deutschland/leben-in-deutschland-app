@@ -9,26 +9,31 @@ to learners by itself.
 
 1. All checks green from `src/web`: `npm test`, `npm run lint`,
    `npx tsc --noEmit`, `npm run build`, `npm run build:android`.
-2. Release flavour built once locally (R8 and resource shrinking are on only
+2. Web flavour viewed in a desktop browser (`npm run build`, serve
+   `src/web/out/`) at desktop, tablet, 390 and 360 px, light and dark, as a
+   fresh, a modern and a 2.0 learner; no cut labels in dialogs, drawer
+   headers or tiles (`docs/memory/web-browser-check.md`). The website ships
+   from the same merge as the app.
+3. Release flavour built once locally (R8 and resource shrinking are on only
    in release): `cd src/android && ./gradlew assembleRelease` with JDK 21.
    Sign the unsigned APK with the local debug keystore and run it on a phone
    (recipe in `docs/memory/android-device-testing.md`); confirm the custom
    plugins log normally (`TipJar`, system bars) and reminders appear in
    `adb shell dumpsys alarm`.
-3. Version bump in `src/web/package.json`: the workflow uses it as
+4. Version bump in `src/web/package.json`: the workflow uses it as
    `versionName` and as the GitHub release tag `v<version>`; `versionCode`
    is the workflow run number, so the Gradle file keeps `1` / `"1.0"`.
-4. Remote content ready: `services/notices.ts` reads `notices.json` from the
+5. Remote content ready: `services/notices.ts` reads `notices.json` from the
    `content` branch (missing file = no notices, retried daily);
    `services/questions.ts` and `services/evaluation.ts` read from `main` and
    the scraper repository. Create or refresh the `content` branch when a
    notice should greet upgraded learners.
-5. Play Console prepared: one-time products `tip_small`, `tip_medium`,
+6. Play Console prepared: one-time products `tip_small`, `tip_medium`,
    `tip_large` exist and are active (see `docs/memory/android-play-billing.md`);
    store listing, screenshots, and release notes updated from
    `docs/features/006-store-assets.md` output; data-safety answers still true
    (the app downloads public JSON, sends nothing).
-6. Schema compatibility re-read: the learner record stays schema 2 and
+7. Schema compatibility re-read: the learner record stays schema 2 and
    `normalizeUser` in `utils/user-store.ts` accepts every older shape
    (`docs/features/001-ui-ux-revamp.md`, `__tests__/legacy-compat.test.ts`).
 

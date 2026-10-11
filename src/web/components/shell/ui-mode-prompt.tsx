@@ -38,11 +38,12 @@ export function UiModePrompt() {
                 <ModalBody>
                     <p className="text-default-600">{t.ui_mode_prompt_body}</p>
                 </ModalBody>
-                <ModalFooter className="flex-col-reverse gap-2 sm:flex-row">
-                    <Button variant="flat" onPress={keepClassic} className="min-h-[44px] sm:flex-1">
+                {/* Stacked at every width: the German labels do not fit side by side in the desktop modal. */}
+                <ModalFooter className="flex-col-reverse gap-2">
+                    <Button variant="flat" onPress={keepClassic} className="min-h-[44px] w-full">
                         {t.ui_mode_prompt_keep}
                     </Button>
-                    <Button color="primary" onPress={tryModern} className="min-h-[44px] sm:flex-1">
+                    <Button color="primary" onPress={tryModern} className="min-h-[44px] w-full">
                         {t.ui_mode_prompt_try}
                     </Button>
                 </ModalFooter>

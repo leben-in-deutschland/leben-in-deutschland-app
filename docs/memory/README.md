@@ -17,6 +17,9 @@ work. It is not a task log.
 - [`classic-design-module.md`](classic-design-module.md) - how a retired
   design stays available as a namespaced module without touching the record
   or running shell work twice.
+- [`web-browser-check.md`](web-browser-check.md) - the web export differs
+  from the Android one; view it at desktop, tablet, 390 and 360 px before a
+  release, and how German labels clip in dialogs, drawer headers and tiles.
 
 ## Rules
 
