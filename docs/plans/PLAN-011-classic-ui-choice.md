@@ -56,7 +56,7 @@ Facts from the repository that shape the plan:
 - [x] Tests: resolver rules, hook, shell switching, prompt choices, settings
       buttons, onboarding write, restored 2.0 logic tests under
       `__tests__/classic/`, a real 2.0 record rendering the classic dashboard.
-- [x] Verification on the owner's phone (`RZCR400S8KA`) with the current
+- [x] Verification on the owner's phone (`<device-serial>`) with the current
       upgraded record (storage backed up first); the true 2.0 record was
       verified in the headless run (see Evidence).
 - [x] Docs: ADR-007, FEAT-008, architecture overview, index rows, usage log.
@@ -89,7 +89,7 @@ cd src/web && npm run lint && npx tsc --noEmit
 cd src/web && npm run build
 cd src && make build-sync
 cd src/android && ./gradlew assembleDebug
-adb -s RZCR400S8KA install -r app/build/outputs/apk/debug/app-debug.apk
+adb -s <device-serial> install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ## Rollback
@@ -145,7 +145,7 @@ adb -s RZCR400S8KA install -r app/build/outputs/apk/debug/app-debug.apk
 - A toast "4 Erfolge freigeschaltet … Fortschrittsseite" appeared over the
   classic dashboard during the first headless run; fixed by gating the
   engagement toasts on the active design (`use-app-effects.ts`), re-verified.
-- Device (owner's Samsung S20 FE, `RZCR400S8KA`, 2026-10-11 08:41): all
+- Device (owner's Samsung S20 FE, `<device-serial>`, 2026-10-11 08:41): all
   storage keys backed up (`files/device/all-keys-before-classic.json`:
   schema 2, 54 answers, 1 mock, state BE, reminder 07:05 set by the owner);
   `adb install -r` of the 07:49 debug APK; explicit cold start

@@ -92,7 +92,7 @@ tracking") hold.
       fields present, ids unchanged), service (schema mapping, action types
       registered once, button taps route), study modes (`start`), prepare
       page param parsing.
-- [ ] Verification on the owner's phone (`RZCR400S8KA`): debug APK, storage
+- [ ] Verification on the owner's phone (`<device-serial>`): debug APK, storage
       backed up and restored, test notification expanded in the shade shows
       question + options + button, tap opens that question, pending list
       shows the mixed plan.
@@ -125,7 +125,7 @@ cd src/web && npm run lint && npx tsc --noEmit
 cd src/web && npm run build
 cd src && make build-sync
 cd src/android && ./gradlew assembleDebug
-adb -s RZCR400S8KA install -r app/build/outputs/apk/debug/app-debug.apk
+adb -s <device-serial> install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ## Evidence
@@ -137,7 +137,7 @@ adb -s RZCR400S8KA install -r app/build/outputs/apk/debug/app-debug.apk
   `src/android/app/src/main/assets/capacitor.config.json`);
   `npm run build:android` exit 0; `./gradlew assembleDebug` (Homebrew JDK 21)
   exit 0, 18 MB debug APK.
-- Device (`RZCR400S8KA`, record backed up first): the rich build installed
+- Device (`<device-serial>`, record backed up first): the rich build installed
   with `adb install -r`; the plugin trace showed
   `checkPermissions → createChannel×4 → registerActionTypes → getPending →
   cancel → schedule`; `getPending` returned the mixed plan: 2000 "Question of

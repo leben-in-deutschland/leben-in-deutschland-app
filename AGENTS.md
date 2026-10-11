@@ -58,6 +58,10 @@ docs/workflows/      Repeatable engineering procedures
 - Before changing Android signing or release secrets, read
   `docs/memory/android-release-signing.md`. Never commit, print, or request
   keystores, passwords, private keys, or encoded secret values.
+- The repository is public. Never commit personal identifiers either -
+  private e-mail addresses, device serials, home paths, cloud project ids,
+  service-account e-mails - and never print variable values in workflows or
+  scripts; use placeholders. See `docs/memory/public-repository-privacy.md`.
 
 ## Sandbox Recommendation
 

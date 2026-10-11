@@ -23,6 +23,10 @@ work. It is not a task log.
 - [`android-min-sdk.md`](android-min-sdk.md) - Google Play's automatic
   integrity protection rejects bundles with `minSdkVersion` below 24; keep
   `variables.gradle` at 24 after Capacitor upgrades.
+- [`public-repository-privacy.md`](public-repository-privacy.md) - the
+  repository is public on purpose; what may appear, what never may (secrets,
+  private e-mail, device serials, cloud ids, home paths), noreply commit
+  identity, and the audit commands.
 
 ## Rules
 
