@@ -159,10 +159,14 @@ async function federatedToken(provider, subjectToken) {
     return body.access_token;
 }
 
-/** Mints a Play-scoped token for the service account from a caller token that may impersonate it. */
+/**
+ * Mints a Play-scoped token for the service account from a caller token that
+ * may impersonate it. Messages name the variable, never its value: Actions
+ * logs of this public repository are public.
+ */
 async function impersonate(serviceAccount, callerToken) {
     const body = await tokenCall(
-        `impersonation of ${serviceAccount}`,
+        "impersonation of PLAY_SERVICE_ACCOUNT",
         `${IAM_CREDENTIALS_BASE}/v1/projects/-/serviceAccounts/${encodeURIComponent(serviceAccount)}:generateAccessToken`,
         {
             method: "POST",
@@ -191,11 +195,15 @@ function gcloudUserToken() {
     return result.stdout.trim();
 }
 
-/** Picks the first configured credential mode and returns `{ mode, identity, token }`. */
+/**
+ * Picks the first configured credential mode and returns `{ mode, token }`.
+ * `mode` is a constant description that names the variable in use; the
+ * variable values (service-account e-mail, provider) are never logged.
+ */
 async function resolveCredentials() {
     const env = process.env;
     if (env.PLAY_ACCESS_TOKEN) {
-        return { mode: "PLAY_ACCESS_TOKEN", identity: env.PLAY_SERVICE_ACCOUNT || "the token's identity", token: env.PLAY_ACCESS_TOKEN };
+        return { mode: "PLAY_ACCESS_TOKEN", token: env.PLAY_ACCESS_TOKEN };
     }
     const serviceAccount = env.PLAY_SERVICE_ACCOUNT;
     if (serviceAccount && env.PLAY_WIF_PROVIDER) {
@@ -204,14 +212,14 @@ async function resolveCredentials() {
         }
         const provider = env.PLAY_WIF_PROVIDER.replace(/^(?:https:)?\/\/iam\.googleapis\.com\//, "");
         const federated = await federatedToken(provider, await gitHubOidcToken(`https://iam.googleapis.com/${provider}`));
-        return { mode: "Workload Identity Federation, no key", identity: serviceAccount, token: await impersonate(serviceAccount, federated) };
+        return { mode: "Workload Identity Federation for PLAY_SERVICE_ACCOUNT, no key", token: await impersonate(serviceAccount, federated) };
     }
     if (serviceAccount) {
-        return { mode: "impersonation through your gcloud login, no key", identity: serviceAccount, token: await impersonate(serviceAccount, gcloudUserToken()) };
+        return { mode: "impersonation of PLAY_SERVICE_ACCOUNT through your gcloud login, no key", token: await impersonate(serviceAccount, gcloudUserToken()) };
     }
     if (env.PLAY_SERVICE_ACCOUNT_KEY) {
         const key = readKey();
-        return { mode: "service-account key file", identity: key.client_email, token: await fetchToken(key) };
+        return { mode: "a service-account key file", token: await fetchToken(key) };
     }
     fail("no Play credentials: set PLAY_SERVICE_ACCOUNT (keyless: your gcloud login, or Workload Identity Federation in GitHub Actions), PLAY_ACCESS_TOKEN, or PLAY_SERVICE_ACCOUNT_KEY; setup in src/store/README.md");
 }
@@ -242,16 +250,15 @@ async function call(url, init) {
 }
 
 /**
- * Authenticates once and returns `{ email, mode, request, upload }`. `request`
- * sends JSON to the v3 API, `upload` sends raw media to the upload endpoint.
- * Paths start after `/androidpublisher/v3`, e.g. `/applications/<pkg>/edits`.
+ * Authenticates once and returns `{ mode, request, upload }`. `request` sends
+ * JSON to the v3 API, `upload` sends raw media to the upload endpoint. Paths
+ * start after `/androidpublisher/v3`, e.g. `/applications/<pkg>/edits`.
  */
 export async function createPlayClient() {
-    const { mode, identity, token } = await resolveCredentials();
-    console.log(`authenticating as ${identity} (${mode})`);
+    const { mode, token } = await resolveCredentials();
+    console.log(`authenticating with ${mode}`);
     const auth = { authorization: `Bearer ${token}` };
     return {
-        email: identity,
         mode,
         request(method, apiPath, { query, body } = {}) {
             return call(withQuery(`${API}${apiPath}`, query), {

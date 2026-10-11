@@ -22,6 +22,10 @@ decided in ADR-008 (keyless amendment).
   (`iam.disableServiceAccountKeyCreation`) and the scripts do not need one.
   Do not look for credentials in home, cloud-SDK, or keychain locations;
   check the presence of the variables below only.
+- Never print the values of `PLAY_SERVICE_ACCOUNT` or `PLAY_WIF_PROVIDER`
+  either: the repository is public, so its Actions logs are public. The
+  scripts log only the credential mode (CodeQL `js/clear-text-logging`
+  enforces this on pull requests).
 - The first "Manage store presence" grant for the service account happens
   only in the Play Console UI, and the IAM bindings happen in the owner's
   Cloud project. There is no API shortcut for the first account, so a
@@ -60,8 +64,9 @@ decided in ADR-008 (keyless amendment).
    only for organisations that allow keys; never suggest creating one.
 4. Products (gate open):
    - `node src/store/play-products.mjs --list` proves token, permission, and
-     package name. `impersonation … failed (403)` means the IAM binding is
-     missing; Play 401/403 means the Console grant is missing or younger
+     package name. `impersonation of PLAY_SERVICE_ACCOUNT failed (403)`
+     means the IAM binding is missing; Play 401/403 means the Console grant
+     is missing or younger
      than 24 hours; 404 means the package name is wrong.
    - `node src/store/play-products.mjs --apply` must end with all three
      products `ACTIVE`. Re-running is safe; it only re-activates what is not

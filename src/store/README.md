@@ -267,8 +267,10 @@ Credential modes, first match wins:
 | `PLAY_SERVICE_ACCOUNT_KEY` | fallback | path to a JSON key, only where the organisation still allows keys; never inside the repository |
 
 The package name is read from `appId` in `src/web/capacitor.config.ts`
-(`PLAY_PACKAGE_NAME` overrides it). Tokens are never printed; the scripts
-log only the identity and the mode (`authenticating as … (…, no key)`).
+(`PLAY_PACKAGE_NAME` overrides it). Tokens are never printed, and neither
+are the variable values: the scripts log only the mode (for example
+`authenticating with Workload Identity Federation for PLAY_SERVICE_ACCOUNT,
+no key`), because Actions logs of this public repository are public.
 
 ### Store listing: `play-listing.mjs`
 
@@ -470,7 +472,7 @@ when the sets were made.
 - `gcloud is not installed` / `gcloud auth print-access-token failed` –
   install the Google Cloud CLI and run `gcloud auth login` (interactive, your
   account), or run the Play Publish workflow from GitHub instead.
-- `impersonation of … failed (403)` – your account lacks
+- `impersonation of PLAY_SERVICE_ACCOUNT failed (403)` – your account lacks
   `roles/iam.serviceAccountTokenCreator` (laptop) or the repository principal
   lacks `roles/iam.workloadIdentityUser` (Actions) on the service account,
   the IAM Service Account Credentials API is not enabled, or the binding is

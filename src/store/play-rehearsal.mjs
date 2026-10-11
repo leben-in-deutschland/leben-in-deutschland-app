@@ -295,18 +295,21 @@ r = await run("play-products.mjs", ["--list"], {
     ACTIONS_ID_TOKEN_REQUEST_TOKEN: "gh-request-token",
 });
 let calls = log.slice(from);
-expect(r.status === 0 && /Workload Identity Federation, no key/.test(r.stdout), "WIF mode lists products");
+expect(r.status === 0 && /authenticating with Workload Identity Federation for PLAY_SERVICE_ACCOUNT, no key/.test(r.stdout), "WIF mode lists products");
+expect(!r.stdout.includes(SA) && !r.stderr.includes(SA) && !r.stdout.includes(PROVIDER), "WIF mode prints neither the service account nor the provider (public Actions logs)");
 expect(calls[0]?.startsWith("GET /oidc?") && calls[1] === "POST /sts" && calls[2]?.includes(":generateAccessToken") && calls[3]?.includes("/oneTimeProducts"), "WIF order: OIDC -> STS -> impersonate -> Play");
 from = log.length;
 r = await run("play-products.mjs", ["--list"], { ...keyless, PLAY_GCLOUD: fakeGcloud });
 calls = log.slice(from);
-expect(r.status === 0 && /impersonation through your gcloud login, no key/.test(r.stdout), "gcloud impersonation mode lists products");
+expect(r.status === 0 && /authenticating with impersonation of PLAY_SERVICE_ACCOUNT through your gcloud login, no key/.test(r.stdout), "gcloud impersonation mode lists products");
+expect(!r.stdout.includes(SA) && !r.stderr.includes(SA), "gcloud impersonation mode does not print the service account");
 expect(calls[0]?.includes(":generateAccessToken") && calls[1]?.includes("/oneTimeProducts"), "impersonation order: impersonate -> Play");
 from = log.length;
 r = await run("play-products.mjs", ["--list"], { PLAY_SERVICE_ACCOUNT_KEY: "", PLAY_ACCESS_TOKEN: "mock-token" });
 expect(r.status === 0 && /PLAY_ACCESS_TOKEN/.test(r.stdout) && log.slice(from)[0]?.includes("/oneTimeProducts"), "PLAY_ACCESS_TOKEN used directly");
 r = await run("play-products.mjs", ["--list"], { ...keyless, PLAY_GCLOUD: wrongGcloud });
-expect(r.status === 1 && /impersonation of .* failed \(403\)/.test(r.stderr) && /roles\/iam\.serviceAccountTokenCreator/.test(r.stderr), "impersonation denial explains the missing role");
+expect(r.status === 1 && /impersonation of PLAY_SERVICE_ACCOUNT failed \(403\)/.test(r.stderr) && /roles\/iam\.serviceAccountTokenCreator/.test(r.stderr), "impersonation denial explains the missing role");
+expect(!r.stderr.includes(SA), "impersonation denial does not print the service account");
 expect(!log.some((l) => /gcloud-user-token|federated-token|someone-elses/.test(l)), "no caller tokens in URLs");
 
 // 4. listing --validate: uploads, validates, discards
