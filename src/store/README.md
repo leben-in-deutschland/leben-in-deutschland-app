@@ -317,7 +317,9 @@ What it does per language (`de-DE`, `en-US`):
 - The **app icon is never uploaded**; the listing keeps the existing one.
 - An optional `metadata/android/<language>/video.txt` with a YouTube URL
   sets the promo video. Without the file, the video already in the listing
-  is kept.
+  is kept. Both files exist and point at the owner's YouTube uploads of
+  `video/promo-<lang>-landscape.mp4` (2026-10-11); after re-rendering a
+  video, upload the new file in YouTube Studio and update the URL here.
 
 The commit publishes the change; Google may review it first. When the
 Console is set to require a manual *Send for review*, the API refuses the
