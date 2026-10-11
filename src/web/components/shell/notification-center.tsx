@@ -111,12 +111,14 @@ export function NotificationCenter({ isOpen, onOpenChange }: NotificationCenterP
             <DrawerContent className="pt-safe">
                 {() => (
                     <>
-                        <DrawerHeader className="flex items-center justify-between gap-3 pr-12">
+                        {/* Title and action on separate lines: the German action label does not fit beside the title. */}
+                        <DrawerHeader className="flex flex-col items-start gap-1 pr-12">
                             <span className="font-display text-xl font-semibold">{t.notifications_title}</span>
                             {hasUnread ? (
                                 <Button
                                     size="sm"
                                     variant="light"
+                                    className="-ml-3 h-8"
                                     startContent={<CheckCheckIcon size={16} />}
                                     onPress={() => updateUser((draft) => markAllNotificationsRead(draft))}
                                 >
