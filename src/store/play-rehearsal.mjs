@@ -1,8 +1,10 @@
 // Offline rehearsal for play-products.mjs and play-listing.mjs: a local mock
-// of Google's token endpoint and the Play Developer API that verifies the
-// service-account JWT with a throwaway RSA key, then runs both scripts with
-// --apply against it and asserts the call sequence. Needs no credentials and
-// no network; nothing reaches Google.
+// of GitHub's OIDC endpoint, Google's STS, IAM Credentials and OAuth token
+// endpoints and the Play Developer API. It exercises every credential mode
+// (Workload Identity Federation, gcloud impersonation, PLAY_ACCESS_TOKEN,
+// key file with a throwaway RSA key), then runs both scripts with --apply
+// against the mock and asserts the call sequence. Needs no credentials and no
+// network; nothing reaches Google.
 //
 //   node src/store/play-rehearsal.mjs
 //
@@ -18,9 +20,15 @@ import { fileURLToPath } from "node:url";
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const PKG = "org.lebenindeutschland.app";
+const SA = "play-publisher@example-project.iam.gserviceaccount.com";
+const PROVIDER = "projects/123456789/locations/global/workloadIdentityPools/github/providers/github";
 const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
 const keyDir = mkdtempSync(path.join(os.tmpdir(), "play-mock-"));
 const keyFile = path.join(keyDir, "key.json");
+const fakeGcloud = path.join(keyDir, "gcloud");
+const wrongGcloud = path.join(keyDir, "gcloud-wrong");
+writeFileSync(fakeGcloud, '#!/bin/sh\n[ "$1 $2" = "auth print-access-token" ] && echo gcloud-user-token || { echo "unexpected gcloud args: $*" >&2; exit 2; }\n', { mode: 0o755 });
+writeFileSync(wrongGcloud, "#!/bin/sh\necho someone-elses-token\n", { mode: 0o755 });
 
 const log = [];
 const state = { products: {}, listings: { "de-DE": { language: "de-DE", title: "Old title", shortDescription: "old", fullDescription: "old", video: "https://youtu.be/keepme" } }, images: {}, editDeleted: false, committed: null };
@@ -75,6 +83,35 @@ const server = http.createServer(async (req, res) => {
             claims.exp <= now + 3600 &&
             claims.iat <= now;
         return tokenOk ? json(res, 200, { access_token: "mock-token", expires_in: 3600 }) : error(res, 400, "invalid_grant");
+    }
+    // --- keyless credential endpoints
+    if (url.pathname === "/oidc") {
+        if (req.headers.authorization !== "bearer gh-request-token") return error(res, 401, "bad OIDC request token");
+        if (url.searchParams.get("api-version") !== "2.0") return error(res, 400, "GitHub's query string was lost");
+        if (url.searchParams.get("audience") !== `https://iam.googleapis.com/${PROVIDER}`) return error(res, 400, `bad audience ${url.searchParams.get("audience")}`);
+        return json(res, 200, { value: "github-oidc-jwt" });
+    }
+    if (url.pathname === "/sts") {
+        const b = JSON.parse(raw.toString());
+        const ok =
+            b.audience === `//iam.googleapis.com/${PROVIDER}` &&
+            b.grantType === "urn:ietf:params:oauth:grant-type:token-exchange" &&
+            b.requestedTokenType === "urn:ietf:params:oauth:token-type:access_token" &&
+            b.scope === "https://www.googleapis.com/auth/cloud-platform" &&
+            b.subjectTokenType === "urn:ietf:params:oauth:token-type:jwt" &&
+            b.subjectToken === "github-oidc-jwt";
+        return ok ? json(res, 200, { access_token: "federated-token", token_type: "Bearer", expires_in: 3600 }) : json(res, 400, { error: "invalid_request", error_description: "token exchange fields wrong" });
+    }
+    const generate = /^\/v1\/projects\/-\/serviceAccounts\/([^:]+):generateAccessToken$/.exec(url.pathname);
+    if (generate) {
+        if (decodeURIComponent(generate[1]) !== SA) return error(res, 404, "unknown service account");
+        const caller = req.headers.authorization;
+        if (caller !== "Bearer federated-token" && caller !== "Bearer gcloud-user-token") {
+            return error(res, 403, "Permission 'iam.serviceAccounts.getAccessToken' denied on resource (or it may not exist).");
+        }
+        const b = JSON.parse(raw.toString());
+        if (!Array.isArray(b.scope) || b.scope[0] !== "https://www.googleapis.com/auth/androidpublisher" || b.lifetime !== "3600s") return error(res, 400, "bad generateAccessToken body");
+        return json(res, 200, { accessToken: "mock-token", expireTime: "2099-01-01T00:00:00Z" });
     }
     if (req.headers.authorization !== "Bearer mock-token") {
         return error(res, 401, "Request had invalid authentication credentials.");
@@ -184,10 +221,19 @@ writeFileSync(
     }),
 );
 
-const env = { ...process.env, PLAY_API_BASE: `http://127.0.0.1:${port}`, PLAY_SERVICE_ACCOUNT_KEY: keyFile };
-function run(script, args) {
+const env = {
+    ...process.env,
+    PLAY_API_BASE: `http://127.0.0.1:${port}`,
+    PLAY_STS_URL: `http://127.0.0.1:${port}/sts`,
+    PLAY_IAM_CREDENTIALS_BASE: `http://127.0.0.1:${port}`,
+    PLAY_SERVICE_ACCOUNT_KEY: keyFile,
+    PLAY_ACCESS_TOKEN: "",
+    PLAY_SERVICE_ACCOUNT: "",
+    PLAY_WIF_PROVIDER: "",
+};
+function run(script, args, overrides = {}) {
     return new Promise((resolve) => {
-        const child = spawn("node", [path.join(repo, "src/store", script), ...args], { env, cwd: repo });
+        const child = spawn("node", [path.join(repo, "src/store", script), ...args], { env: { ...env, ...overrides }, cwd: repo });
         let stdout = "";
         let stderr = "";
         child.stdout.on("data", (c) => (stdout += c));
@@ -239,7 +285,31 @@ r = await run("play-products.mjs", ["--list"]);
 expect(r.status === 0 && /3 one-time product/.test(r.stdout) && !/missing:/.test(r.stdout), "--list shows the three products");
 
 if (haveSets) {
-    // 4. listing --validate: uploads, validates, discards
+    // 3b. keyless credential modes (the key file is blanked for these runs)
+const keyless = { PLAY_SERVICE_ACCOUNT_KEY: "", PLAY_SERVICE_ACCOUNT: SA };
+let from = log.length;
+r = await run("play-products.mjs", ["--list"], {
+    ...keyless,
+    PLAY_WIF_PROVIDER: `https://iam.googleapis.com/${PROVIDER}`,
+    ACTIONS_ID_TOKEN_REQUEST_URL: `http://127.0.0.1:${port}/oidc?api-version=2.0`,
+    ACTIONS_ID_TOKEN_REQUEST_TOKEN: "gh-request-token",
+});
+let calls = log.slice(from);
+expect(r.status === 0 && /Workload Identity Federation, no key/.test(r.stdout), "WIF mode lists products");
+expect(calls[0]?.startsWith("GET /oidc?") && calls[1] === "POST /sts" && calls[2]?.includes(":generateAccessToken") && calls[3]?.includes("/oneTimeProducts"), "WIF order: OIDC -> STS -> impersonate -> Play");
+from = log.length;
+r = await run("play-products.mjs", ["--list"], { ...keyless, PLAY_GCLOUD: fakeGcloud });
+calls = log.slice(from);
+expect(r.status === 0 && /impersonation through your gcloud login, no key/.test(r.stdout), "gcloud impersonation mode lists products");
+expect(calls[0]?.includes(":generateAccessToken") && calls[1]?.includes("/oneTimeProducts"), "impersonation order: impersonate -> Play");
+from = log.length;
+r = await run("play-products.mjs", ["--list"], { PLAY_SERVICE_ACCOUNT_KEY: "", PLAY_ACCESS_TOKEN: "mock-token" });
+expect(r.status === 0 && /PLAY_ACCESS_TOKEN/.test(r.stdout) && log.slice(from)[0]?.includes("/oneTimeProducts"), "PLAY_ACCESS_TOKEN used directly");
+r = await run("play-products.mjs", ["--list"], { ...keyless, PLAY_GCLOUD: wrongGcloud });
+expect(r.status === 1 && /impersonation of .* failed \(403\)/.test(r.stderr) && /roles\/iam\.serviceAccountTokenCreator/.test(r.stderr), "impersonation denial explains the missing role");
+expect(!log.some((l) => /gcloud-user-token|federated-token|someone-elses/.test(l)), "no caller tokens in URLs");
+
+// 4. listing --validate: uploads, validates, discards
     r = await run("play-listing.mjs", ["--validate"]);
     expect(r.status === 0, "listing --validate exits 0");
     expect(state.editDeleted && state.committed === null, "validate mode discards the edit without committing");

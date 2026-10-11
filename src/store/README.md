@@ -23,7 +23,7 @@ src/store/
   check.mjs              Validates sizes, format, counts, and the icon hash
   play-listing.mjs       Pushes texts, screenshots and feature graphic to the Play listing
   play-products.mjs      Creates and activates the tip-jar products in Play
-  play-rehearsal.mjs     Offline check of both Play scripts against a local mock of the API
+  play-rehearsal.mjs     Offline check of both Play scripts and every credential mode against a local mock
   lib/play-api.mjs       Service-account login and request helpers for the Play Developer API
   lib/demo-user.mjs      Synthetic demo learner and the localStorage seed
   lib/browser.mjs        Headless browser launcher and CDP page helper
@@ -54,8 +54,9 @@ capture never touches the network.
   installs it to `/opt/homebrew/bin/ffmpeg`). Only `video.mjs` needs it.
 - The exported web build in `src/web/out` (see the first command below).
 - For `play-listing.mjs --validate/--apply` and `play-products.mjs
-  --list/--apply` only: a Google service-account key with access to the Play
-  Console app (see [Google Play from the command line](#google-play-from-the-command-line)).
+  --list/--apply` only: a Google service account invited to the Play Console
+  app, used keyless through your `gcloud` login or GitHub's Workload Identity
+  Federation (see [Google Play from the command line](#google-play-from-the-command-line)).
   Dry runs need nothing.
 
 ## Regenerate everything
@@ -193,28 +194,81 @@ in requests). It prints `ALL CHECKS PASSED`, or
 `PRODUCT CHECKS PASSED (listing checks skipped)` when the Play sets under
 `output/` are not rendered. Nothing reaches Google.
 
-### One-time setup (owner, about ten minutes)
+### One-time setup (owner, keyless)
 
-1. In Google Cloud, create or pick a project, enable the **Google Play
-   Android Developer API**, create a **service account** (IAM → Service
-   accounts), and download a **JSON key** for it. Keep the key outside the
-   repository (for example `~/.config/play/leben-in-deutschland.json`); it
-   is a password.
-2. In Play Console → **Users and permissions** → *Invite new user*, enter
-   the service account's e-mail (`…@…iam.gserviceaccount.com`), add this
-   app under *App permissions*, and grant **"Manage store presence"** (it
-   covers store listing, pricing and in-app products). Google's help page
-   lists this permission as "Edit pricing, in-app products, and pricing
-   templates". New permissions can take up to 24 hours to reach the API.
-3. Export the key path before running a script:
+No service-account key is created or stored. Google's "Secure by Default"
+organisation policy `iam.disableServiceAccountKeyCreation` blocks keys in
+most organisations anyway, and the scripts do not need one. The service
+account itself stays, because the Play Console grants permissions to an
+e-mail address; its one-hour tokens are minted on demand from **your own
+`gcloud` login** on a laptop and from **GitHub's OIDC token through
+Workload Identity Federation** in Actions.
+
+1. Google Cloud, in Cloud Shell or any shell with the gcloud CLI (replace
+   the project id; everything else is fixed):
 
    ```bash
-   export PLAY_SERVICE_ACCOUNT_KEY=~/.config/play/leben-in-deutschland.json
+   PROJECT=<your-project-id>
+   REPO=leben-in-deutschland/leben-in-deutschland-app
+   SA=play-publisher@$PROJECT.iam.gserviceaccount.com
+   NUMBER=$(gcloud projects describe "$PROJECT" --format='value(projectNumber)')
+
+   gcloud services enable androidpublisher.googleapis.com iamcredentials.googleapis.com sts.googleapis.com --project "$PROJECT"
+   gcloud iam service-accounts create play-publisher --project "$PROJECT" --display-name "Play publisher"
+
+   # laptop: your own account may mint tokens for the service account
+   gcloud iam service-accounts add-iam-policy-binding "$SA" --project "$PROJECT" \
+     --role roles/iam.serviceAccountTokenCreator --member "user:$(gcloud config get-value account)"
+
+   # GitHub Actions: trust this repository's OIDC tokens (Workload Identity Federation)
+   gcloud iam workload-identity-pools create github --project "$PROJECT" --location global --display-name "GitHub Actions"
+   gcloud iam workload-identity-pools providers create-oidc github --project "$PROJECT" --location global \
+     --workload-identity-pool github --display-name "GitHub" \
+     --issuer-uri https://token.actions.githubusercontent.com \
+     --attribute-mapping "google.subject=assertion.sub,attribute.repository=assertion.repository" \
+     --attribute-condition "assertion.repository == '$REPO'"
+   gcloud iam service-accounts add-iam-policy-binding "$SA" --project "$PROJECT" \
+     --role roles/iam.workloadIdentityUser \
+     --member "principalSet://iam.googleapis.com/projects/$NUMBER/locations/global/workloadIdentityPools/github/attribute.repository/$REPO"
+
+   echo "PLAY_SERVICE_ACCOUNT=$SA"
+   echo "PLAY_WIF_PROVIDER=projects/$NUMBER/locations/global/workloadIdentityPools/github/providers/github"
    ```
 
+   The attribute condition pins the provider to this repository, so no other
+   GitHub repository can use it. IAM changes take a minute or two to apply.
+2. In Play Console → **Users and permissions** → *Invite new user*, enter
+   the service account's e-mail (the `PLAY_SERVICE_ACCOUNT` value), add this
+   app under *App permissions*, and grant **"Manage store presence"** (it
+   covers store listing, pricing and in-app products; Google's help page
+   lists it as "Edit pricing, in-app products, and pricing templates"). New
+   permissions can take up to 24 hours to reach the API.
+3. Laptop: `gcloud auth login` once (your Google account, interactive), then
+   before running a script:
+
+   ```bash
+   export PLAY_SERVICE_ACCOUNT=play-publisher@<your-project-id>.iam.gserviceaccount.com
+   ```
+
+4. GitHub: Settings → Secrets and variables → Actions → **Variables** (not
+   secrets, neither value is secret): `PLAY_SERVICE_ACCOUNT` and
+   `PLAY_WIF_PROVIDER` from the two `echo` lines. Then Actions → **Play
+   Publish** → *Run workflow* runs products and listing texts from CI
+   (`.github/workflows/play-publish.yml`); screenshots stay a laptop job
+   because they are rendered locally.
+
+Credential modes, first match wins:
+
+| Variable | Where | What happens |
+| --- | --- | --- |
+| `PLAY_ACCESS_TOKEN` | anywhere | used as is; a short-lived token with the `androidpublisher` scope minted by another tool |
+| `PLAY_SERVICE_ACCOUNT` + `PLAY_WIF_PROVIDER` | GitHub Actions | GitHub OIDC token → Google STS → `generateAccessToken` for the service account |
+| `PLAY_SERVICE_ACCOUNT` | laptop | `gcloud auth print-access-token` (your login) → `generateAccessToken` for the service account |
+| `PLAY_SERVICE_ACCOUNT_KEY` | fallback | path to a JSON key, only where the organisation still allows keys; never inside the repository |
+
 The package name is read from `appId` in `src/web/capacitor.config.ts`
-(`PLAY_PACKAGE_NAME` overrides it). The scripts read the key file, never
-print it, and warn if it lies inside the repository.
+(`PLAY_PACKAGE_NAME` overrides it). Tokens are never printed; the scripts
+log only the identity and the mode (`authenticating as … (…, no key)`).
 
 ### Store listing: `play-listing.mjs`
 
@@ -368,8 +422,12 @@ when the sets were made.
   `sharp`, a locally installed browser, `ffmpeg`, and Google's public REST
   API. No fastlane, no third-party upload service or MCP server sees the
   store credentials.
-- **The service-account key stays outside the repository.** Pass it only
-  through `PLAY_SERVICE_ACCOUNT_KEY`; never commit, paste, or log it.
+- **No key, no secret.** The Play service account is used keyless
+  (`PLAY_SERVICE_ACCOUNT` with your `gcloud` login, Workload Identity
+  Federation in Actions). Tokens live one hour and are never printed. If an
+  organisation still allows keys and someone insists on one, it stays
+  outside the repository and is passed only through
+  `PLAY_SERVICE_ACCOUNT_KEY`; never commit, paste, or log it.
 - **Nothing is published without `--apply`.** Dry runs are local;
   `--validate` uploads into a draft edit that is discarded.
 - **Honest imagery.** Captions and copy state product facts only (official
@@ -403,15 +461,34 @@ when the sets were made.
   shot list. Delete `src/store/output/<set>/` and re-render.
 - The fake status bar always shows `10:08`; this is intentional and part of
   the template, not a capture problem.
-- `PLAY_SERVICE_ACCOUNT_KEY is not set` – the Play scripts need the key
-  path for `--list`, `--validate`, and `--apply`; dry runs do not.
+- `no Play credentials` – `--list`, `--validate`, and `--apply` need
+  `PLAY_SERVICE_ACCOUNT` (keyless) or one of the other modes in the table
+  above; dry runs do not.
+- `iam.disableServiceAccountKeyCreation` in the Cloud console – the
+  organisation blocks service-account keys. Expected; the keyless setup above
+  needs none.
+- `gcloud is not installed` / `gcloud auth print-access-token failed` –
+  install the Google Cloud CLI and run `gcloud auth login` (interactive, your
+  account), or run the Play Publish workflow from GitHub instead.
+- `impersonation of … failed (403)` – your account lacks
+  `roles/iam.serviceAccountTokenCreator` (laptop) or the repository principal
+  lacks `roles/iam.workloadIdentityUser` (Actions) on the service account,
+  the IAM Service Account Credentials API is not enabled, or the binding is
+  younger than a few minutes.
+- `Workload Identity Federation token exchange failed (400)` – the
+  `PLAY_WIF_PROVIDER` variable names the wrong project number, pool or
+  provider, or the provider's attribute condition does not match this
+  repository (forks and other repositories are rejected by design).
+- `GitHub OIDC token request failed` – the job lacks
+  `permissions: id-token: write`; the Play Publish workflow sets it.
 - `Play API 401/403 … insufficient permissions` – the service account is
   not invited to this app with "Manage store presence", the grant is
   younger than about 24 hours, or the Google Play Android Developer API is
-  not enabled in the Cloud project of the key.
+  not enabled in the service account's Cloud project.
 - `Play API 404` on the first call – wrong package name (check `appId` in
   `src/web/capacitor.config.ts` or `PLAY_PACKAGE_NAME`), or the app lives
-  in a different Play developer account than the one that invited the key.
+  in a different Play developer account than the one that invited the
+  service account.
 - `regionsVersion.version …` in a Play API 400 – Google wants a specific
   regions version; run again with `PLAY_REGIONS_VERSION=<value from the
   message>`.

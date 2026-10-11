@@ -9,6 +9,7 @@ on:
       - "docs/**"
       - "src/store/**"
       - "**.md"
+      - ".github/workflows/play-publish.yml"
   workflow_dispatch:
 
 permissions:

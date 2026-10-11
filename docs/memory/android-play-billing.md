@@ -46,7 +46,13 @@ on the Play Billing Library, pinned as `playBillingVersion` in
    plugin reads `OneTimePurchaseOfferDetails`; a product whose only option
    is not backwards compatible is invisible to that flow. The service
    account needs "Manage store presence" on the app; a fresh grant can take
-   up to 24 hours before the API stops answering 401/403.
+   up to 24 hours before the API stops answering 401/403. The account is
+   used **keyless**: Google's Secure-by-Default policy
+   `iam.disableServiceAccountKeyCreation` blocks key downloads in the
+   owner's organisation, so tokens come from the owner's `gcloud` login
+   (`roles/iam.serviceAccountTokenCreator`) or from GitHub's OIDC token via
+   Workload Identity Federation (`roles/iam.workloadIdentityUser`, provider
+   pinned to this repository). Do not ask for or create a key.
 
 ## When To Apply
 

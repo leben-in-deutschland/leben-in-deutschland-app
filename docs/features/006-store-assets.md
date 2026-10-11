@@ -84,7 +84,7 @@ hand again.
   videos, frames).
 - `node src/store/play-listing.mjs` sends the listing texts and the Play
   sets (phone, 7-inch and 10-inch tablet, feature graphic) to the Play
-  Console through the Play Developer API with a service-account key
+  Console through the Play Developer API with a keyless service account
   (ADR-008): a dry run needs no credentials, `--validate` uploads into a
   draft edit that Google checks and the script discards, `--apply`
   commits. Unchanged texts and byte-identical image slots are skipped, the

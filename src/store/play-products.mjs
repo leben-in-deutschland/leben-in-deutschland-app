@@ -7,9 +7,10 @@
 //   node src/store/play-products.mjs --apply            # create or update every product, then activate it
 //   node src/store/play-products.mjs --apply --product tip_small
 //
-// Credentials: PLAY_SERVICE_ACCOUNT_KEY=/path/outside/the/repo/key.json, the
-// JSON key of a Google Cloud service account whose e-mail is invited in Play
-// Console -> Users and permissions with "Manage store presence" for this app.
+// Credentials (keyless, see lib/play-api.mjs): PLAY_SERVICE_ACCOUNT, the e-mail
+// of a Google Cloud service account invited in Play Console -> Users and
+// permissions with "Manage store presence" for this app; your gcloud login or
+// GitHub's Workload Identity Federation mints its tokens, no key file.
 // The key is read, never printed, and must never be committed (lib/play-api.mjs).
 // Optional: PLAY_REGIONS_VERSION overrides the regions version that
 // pricing:convertRegionPrices reports.
@@ -45,8 +46,9 @@ function usage() {
   --apply     create or update the products and activate their purchase option
   --product   limit --apply or the dry run to one product id (repeatable)
 
-Environment: PLAY_SERVICE_ACCOUNT_KEY (path to the service-account JSON key),
-PLAY_PACKAGE_NAME (optional override), PLAY_REGIONS_VERSION (optional override).`);
+Environment: PLAY_SERVICE_ACCOUNT (service-account e-mail, keyless) or PLAY_ACCESS_TOKEN
+or PLAY_SERVICE_ACCOUNT_KEY, PLAY_PACKAGE_NAME (optional override),
+PLAY_REGIONS_VERSION (optional override).`);
 }
 
 // "1.99" -> { currencyCode: "EUR", units: "1", nanos: 990000000 }
