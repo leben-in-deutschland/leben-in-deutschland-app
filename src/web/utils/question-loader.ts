@@ -1,4 +1,5 @@
 import { QuestionTranslation } from "@/types/question";
+import { isQuestionChanged } from "@/utils/question-bank";
 
 /**
  * In-memory caches so each file is fetched at most once per session.
@@ -47,8 +48,13 @@ export async function loadTranslation(lang: string): Promise<Record<string, Ques
 /**
  * Load a single question's context for a given language.
  * Convenience wrapper that fetches the full language file (cached) and returns one entry.
+ * Returns null for a question the downloaded catalogue changed, because the
+ * bundled explanation would describe the old wording (ADR-006).
  */
 export async function loadQuestionContext(num: string, lang: string): Promise<string | null> {
+    if (isQuestionChanged(num)) {
+        return null;
+    }
     const contexts = await loadContext(lang);
     return contexts[num] ?? null;
 }
@@ -56,8 +62,12 @@ export async function loadQuestionContext(num: string, lang: string): Promise<st
 /**
  * Load a single question's translation for a given language.
  * Convenience wrapper that fetches the full language file (cached) and returns one entry.
+ * Returns null for a question the downloaded catalogue changed (see above).
  */
 export async function loadQuestionTranslation(num: string, lang: string): Promise<QuestionTranslation | null> {
+    if (isQuestionChanged(num)) {
+        return null;
+    }
     const translations = await loadTranslation(lang);
     return translations[num] ?? null;
 }

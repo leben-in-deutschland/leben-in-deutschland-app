@@ -1,0 +1,20 @@
+{
+    "catalogue_title": "Question catalogue",
+    "catalogue_title_state": "Questions for {state}",
+    "catalogue_desc_general": "All {count} general questions of the Einbürgerungstest and the Leben in Deutschland test, each with its correct answer.",
+    "catalogue_desc_state": "The {count} questions that are only asked in {state}. Three of them appear in every exam there.",
+    "catalogue_state_picker_label": "Choose a state",
+    "catalogue_state_general": "General (300)",
+    "catalogue_search_placeholder": "Search text or number, e.g. 42 or Grundgesetz",
+    "catalogue_search_label": "Search questions",
+    "catalogue_topic_label": "Topic",
+    "catalogue_all_topics": "All topics",
+    "catalogue_results_of": "{count} of {total} questions",
+    "catalogue_show_more": "Show {count} more",
+    "catalogue_empty_title": "No question matches",
+    "catalogue_empty_desc": "Try another word, a question number or a different topic.",
+    "catalogue_clear_filters": "Clear filters",
+    "catalogue_cta_title": "Rather practise than read?",
+    "catalogue_cta_desc": "In the app you answer the questions yourself, get instant feedback and see what you already know.",
+    "catalogue_cta_button": "Practise now"
+}

@@ -1,0 +1,22 @@
+{
+    "onboarding_welcome": "Welcome to Leben in Deutschland",
+    "onboarding_state_title": "Where do you live?",
+    "onboarding_state_body": "Your exam includes 3 questions about your federal state.",
+    "onboarding_state_search": "Search states",
+    "onboarding_step_of": "Step {current} of {total}",
+    "onboarding_goal_title": "How much do you want to practice each day?",
+    "onboarding_goal_body": "A small daily goal beats one long session at the weekend. You can change it anytime.",
+    "onboarding_goal_light": "Light",
+    "onboarding_goal_steady": "Steady",
+    "onboarding_goal_serious": "Serious",
+    "onboarding_goal_exam": "Exam size",
+    "onboarding_goal_intense": "Intense",
+    "onboarding_goal_minutes": "about {count} min",
+    "onboarding_goal_recommended": "Recommended",
+    "onboarding_reminders_title": "Want a daily reminder?",
+    "onboarding_reminders_body": "One short nudge a day, at a time you choose. Nothing else.",
+    "onboarding_reminders_switch": "Remind me every day",
+    "onboarding_reminders_denied": "Notifications are blocked. You can allow them later in your Android settings and turn reminders on in Settings.",
+    "onboarding_reminders_skip": "Not now",
+    "onboarding_done_start": "Start learning"
+}

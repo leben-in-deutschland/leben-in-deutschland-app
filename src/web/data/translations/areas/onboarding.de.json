@@ -1,0 +1,22 @@
+{
+    "onboarding_welcome": "Willkommen bei Leben in Deutschland",
+    "onboarding_state_title": "Wo wohnst du?",
+    "onboarding_state_body": "Deine Prüfung enthält 3 Fragen zu deinem Bundesland.",
+    "onboarding_state_search": "Bundesland suchen",
+    "onboarding_step_of": "Schritt {current} von {total}",
+    "onboarding_goal_title": "Wie viel möchtest du jeden Tag üben?",
+    "onboarding_goal_body": "Ein kleines Tagesziel schlägt eine lange Sitzung am Wochenende. Du kannst es jederzeit ändern.",
+    "onboarding_goal_light": "Locker",
+    "onboarding_goal_steady": "Stetig",
+    "onboarding_goal_serious": "Ernsthaft",
+    "onboarding_goal_exam": "Wie die Prüfung",
+    "onboarding_goal_intense": "Intensiv",
+    "onboarding_goal_minutes": "etwa {count} Min.",
+    "onboarding_goal_recommended": "Empfohlen",
+    "onboarding_reminders_title": "Möchtest du eine tägliche Erinnerung?",
+    "onboarding_reminders_body": "Ein kurzer Anstoß am Tag, zu einer Uhrzeit deiner Wahl. Sonst nichts.",
+    "onboarding_reminders_switch": "Erinnere mich jeden Tag",
+    "onboarding_reminders_denied": "Benachrichtigungen sind blockiert. Du kannst sie später in den Android-Einstellungen erlauben und die Erinnerungen in den Einstellungen einschalten.",
+    "onboarding_reminders_skip": "Jetzt nicht",
+    "onboarding_done_start": "Mit dem Lernen beginnen"
+}

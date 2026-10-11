@@ -1,71 +1,63 @@
 "use client";
 
-import PrepareQuiz from "@/components/prepare-quiz";
-import StateSelect from "@/components/state-select";
-import { getTranslations, questionsData } from "@/data/data";
-import { getUserData } from "@/services/user";
-import { PrepareQuestionActions } from "@/types/prepare-question";
-import { Question } from "@/types/question";
-import { User } from "@/types/user";
+import { Spinner } from "@heroui/react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
+import { PracticeSession } from "@/components/practice/practice-session";
+import { parseSessionSize } from "@/components/practice/session-logic";
+import type { User } from "@/types/user";
+import { parseModeParam, parseStartParam } from "@/utils/study-modes";
+import { useTranslations, useUser } from "@/utils/user-store";
 
-export default function Prepare() {
-    const [questions, setQuestions] = useState<Question[]>([]);
-    const [user, setUser] = useState<User>();
+/**
+ * Reads the session from the URL: `?action=<mode>` (the values of version
+ * 2.0 still work), `&category=<topic>` for the topic mode, an optional
+ * `&size=<n>`, and an optional `&start=<num>` naming the question to open
+ * with (the "question of the day" notification links here). A new URL
+ * starts a new session.
+ */
+function PrepareScreen({ user }: { user: User }) {
     const searchParams = useSearchParams();
-    const action = searchParams.get('action');
-
-    const getAction = (action: string | null) => {
-        switch (action) {
-            case "correct": return PrepareQuestionActions.Correct;
-            case "incorrect": return PrepareQuestionActions.Incorrect;
-            case "flagged": return PrepareQuestionActions.Flagged;
-            case "skipped": return PrepareQuestionActions.Skipped;
-            case "state": return PrepareQuestionActions.State;
-            case "mock": return PrepareQuestionActions.Mock;
-            case "random": return PrepareQuestionActions.Random;
-            case "failed": return PrepareQuestionActions.Failed
-            case "prepare": return PrepareQuestionActions.Prepare;
-            default: return PrepareQuestionActions.Prepare;
-        };
-    };
-
-    useEffect(() => {
-        const handleUserChange = () => {
-            let tempUser = getUserData();
-            if (tempUser !== null) {
-                setUser(tempUser);
-            }
-        }
-
-        window.addEventListener('user', handleUserChange)
-        return () => window.removeEventListener('user', handleUserChange)
-    }, []);
-
-    useEffect(() => {
-        let tempUser = getUserData();
-        if (tempUser !== null) {
-            setUser(tempUser);
-        }
-
-    }, []);
-
-    useEffect(() => {
-        let questions = questionsData();
-        setQuestions(questions);
-    }, []);
-    const allTranslations = getTranslations(user?.appLanguage ?? "de");
+    const mode = parseModeParam(searchParams.get("action"));
+    const category = searchParams.get("category") ?? undefined;
+    const sessionSize = parseSessionSize(searchParams.get("size"));
+    const startNum = parseStartParam(searchParams.get("start"));
     return (
-        <div className="content-center">
-            {!user?.state.stateName && <StateSelect translation={allTranslations} />}
-            {questions && questions.length > 0 && user &&
-                <PrepareQuiz
-                    translations={allTranslations}
-                    originalQuestions={questions}
-                    user={user}
-                    prepareQuestion={{ selected: false, action: getAction(action) }} />
+        <PracticeSession
+            key={`${mode}|${category ?? ""}|${sessionSize ?? ""}|${startNum ?? ""}`}
+            user={user}
+            mode={mode}
+            category={category}
+            sessionSize={sessionSize}
+            startNum={startNum}
+        />
+    );
+}
+
+/** Practice session in the focus layout (the shell hides the header and tab bar here). */
+export default function PreparePage() {
+    const user = useUser();
+    const t = useTranslations();
+
+    if (user === undefined) {
+        return (
+            <div className="flex justify-center py-16">
+                <Spinner label={t.loading} color="primary" />
+            </div>
+        );
+    }
+    if (!user) {
+        return null;
+    }
+    return (
+        <Suspense
+            fallback={
+                <div className="flex justify-center py-16">
+                    <Spinner label={t.loading} color="primary" />
+                </div>
             }
-        </div>
+        >
+            <PrepareScreen user={user} />
+        </Suspense>
     );
 }

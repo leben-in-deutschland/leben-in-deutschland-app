@@ -10,7 +10,8 @@ const config: CapacitorConfig = {
   },
   plugins: {
     LocalNotifications: {
-      smallIcon: "ic_stat_android_chrome_192x192"
+      smallIcon: "ic_stat_android_chrome_192x192",
+      iconColor: "#A83A50"
     }
   },
   android: {

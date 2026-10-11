@@ -1,0 +1,41 @@
+Prepare for the German citizenship test “Leben in Deutschland” with every official question, a mock exam that feels like the real one, and a clear view of how ready you really are.
+
+ALL OFFICIAL QUESTIONS
+• The 300 official questions of the German naturalisation test plus the 10 questions of your federal state (all 16 states)
+• Instant feedback on every answer with an easy-to-understand explanation
+• Translations in 7 languages: English, Turkish, Russian, French, Arabic, Ukrainian and Hindi
+• Have questions read aloud
+
+A MOCK EXAM LIKE THE REAL ONE
+• 33 questions, 60 minutes – exactly like the exam
+• A clear result at the end: you pass with 17 correct answers
+• Your results stay saved so you can see your progress
+
+SEE HOW READY YOU ARE
+• Exam readiness based on what you know and how your mock exams went
+• Progress per topic, so you know where to practise next
+• Enter your exam date and see how many days are left
+
+LEARN THE WAY THAT SUITS YOU
+• Learn new questions, review what is due, fix your mistakes, revisit flagged questions
+• A quick round of 10 questions or a longer session – you decide
+• Reviews are scheduled automatically so that answers stick
+
+STAY ON TRACK – EVERY DAY
+• Streak, weekly overview and a daily goal keep you going
+• An optional reminder at your study time
+• Milestones and achievements for your progress
+
+OFFLINE, PRIVATE, FREE
+• Works without internet – ideal for the bus or train
+• No account needed, no ads, no tracking
+• Your learning progress stays on your device
+• Light and dark mode, larger text available
+• Open source – the code is public
+
+The app is free. If it helps you, you can leave a small optional tip – no hidden features, no subscriptions.
+
+Good luck with your exam!
+
+Privacy: https://www.lebenindeutschland.org/privacy-policy
+Source code: https://github.com/leben-in-deutschland/leben-in-deutschland-app

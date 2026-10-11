@@ -15,6 +15,7 @@ public class MainActivity extends BridgeActivity {
         SplashScreen.installSplashScreen(this);
         EdgeToEdge.enable(this);
         registerPlugin(AppSystemBarsPlugin.class);
+        registerPlugin(TipJarPlugin.class);
         super.onCreate(savedInstanceState);
 
         WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
