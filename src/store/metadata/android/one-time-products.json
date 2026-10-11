@@ -1,0 +1,51 @@
+{
+  "$comment": "Tip-jar products for Google Play. Product ids are fixed in the app (services/tip-jar.ts, TipJarPlugin.java); names, descriptions and prices are store data and may be changed here or in the Play Console at any time. `price` is the consumer price in EUR for Germany; `defaultVatRate` is only used to derive the tax-exclusive base that Google's price converter expects. The package name comes from src/web/capacitor.config.ts. Apply with `node src/store/play-products.mjs --apply`.",
+  "defaultRegion": "DE",
+  "defaultCurrency": "EUR",
+  "defaultVatRate": 0.19,
+  "purchaseOptionId": "buy",
+  "products": [
+    {
+      "productId": "tip_small",
+      "price": "1.99",
+      "listings": {
+        "de-DE": {
+          "title": "Kaffee",
+          "description": "Ein Kaffee als Dankeschön. Die App bleibt kostenlos und werbefrei – dein Trinkgeld hilft, sie weiterzuentwickeln. Schaltet nichts frei."
+        },
+        "en-US": {
+          "title": "Coffee",
+          "description": "A coffee as a thank-you. The app stays free and ad-free – your tip helps keep it going. Unlocks nothing."
+        }
+      }
+    },
+    {
+      "productId": "tip_medium",
+      "price": "4.99",
+      "listings": {
+        "de-DE": {
+          "title": "Kuchen",
+          "description": "Ein Stück Kuchen als Dankeschön. Unterstützt die Pflege der Fragen und neue Funktionen der kostenlosen App. Schaltet nichts frei."
+        },
+        "en-US": {
+          "title": "Cake",
+          "description": "A slice of cake as a thank-you. Supports keeping the questions current and building new features for the free app. Unlocks nothing."
+        }
+      }
+    },
+    {
+      "productId": "tip_large",
+      "price": "9.99",
+      "listings": {
+        "de-DE": {
+          "title": "Abendessen",
+          "description": "Ein Abendessen als großes Dankeschön. Hält die App kostenlos, werbefrei und aktuell. Schaltet nichts frei."
+        },
+        "en-US": {
+          "title": "Dinner",
+          "description": "A dinner as a big thank-you. Keeps the app free, ad-free and up to date. Unlocks nothing."
+        }
+      }
+    }
+  ]
+}

@@ -12,7 +12,7 @@ tags: [memory, android, billing, capacitor]
 The tip jar talks to Google Play through a local Capacitor plugin
 (`src/android/app/src/main/java/org/lebenindeutschland/app/TipJarPlugin.java`)
 on the Play Billing Library, pinned as `playBillingVersion` in
-`src/android/variables.gradle`. Four facts keep it working:
+`src/android/variables.gradle`. Five facts keep it working:
 
 1. **Google retires old library majors.** New app versions must use a
    library major that Google still accepts (roughly the last two years; see
@@ -37,6 +37,16 @@ on the Play Billing Library, pinned as `playBillingVersion` in
    Play Console → Monetize → One-time products; until then the settings
    section, the header heart button and the thank-you popup (PLAN-012) are
    hidden because `getProducts` returns an empty list.
+5. **Products are defined in the repository and pushed with a script.**
+   `src/store/metadata/android/one-time-products.json` holds ids, German
+   and English texts and euro prices; `node src/store/play-products.mjs
+   --apply` creates, prices (via Google's converter) and activates them
+   through the Play Developer API (ADR-008, `src/store/README.md`). The
+   single purchase option must stay `legacyCompatible: true`, because the
+   plugin reads `OneTimePurchaseOfferDetails`; a product whose only option
+   is not backwards compatible is invisible to that flow. The service
+   account needs "Manage store presence" on the app; a fresh grant can take
+   up to 24 hours before the API stops answering 401/403.
 
 ## When To Apply
 

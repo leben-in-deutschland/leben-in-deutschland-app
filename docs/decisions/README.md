@@ -11,6 +11,7 @@
 | [ADR-005](ADR-005-evaluation-status-refresh.md) | Refresh the BAMF Evaluation Status Without an App Release | Accepted | 2026-10-10 |
 | [ADR-006](ADR-006-remote-content.md) | Deliver Notices, Owner Switches, and the Question Catalogue Over the Daily Refresh Channel | Accepted | 2026-10-10 |
 | [ADR-007](ADR-007-classic-ui-opt-in.md) | Keep the 2.0 Learner Screens as an Opt-In Classic Design | Accepted | 2026-10-11 |
+| [ADR-008](ADR-008-play-console-from-repository.md) | Configure the Play Console From the Repository Through the Play Developer API | Accepted | 2026-10-11 |
 
 Copy `_template.md` only for a durable product, architecture, safety, or
 workflow choice with meaningful alternatives.

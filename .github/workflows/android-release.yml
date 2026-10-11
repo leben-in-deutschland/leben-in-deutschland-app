@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    # Control-plane docs and store tooling do not change the app; skip the build for them.
+    paths-ignore:
+      - "docs/**"
+      - "src/store/**"
+      - "**.md"
   workflow_dispatch:
 
 permissions:
