@@ -72,15 +72,31 @@ sets for the listing. Rules:
 
 - Dry run by default; nothing leaves the machine without `--validate`
   (upload into a draft edit that is discarded) or `--apply`.
-- The service-account key is passed only through
-  `PLAY_SERVICE_ACCOUNT_KEY`, never stored in the repository or in GitHub
-  secrets until a workflow needs it.
+- No key: the service account is used keyless (see the amendment below);
+  a key file is a fallback only and never lives in the repository or in
+  GitHub secrets.
 - The app icon is never uploaded; the Play slot keeps the existing icon.
 - Product ids stay fixed in the app; titles, descriptions and prices are
   store data. Euro countries get the exact euro price from the file; other
   regions come from Google's converter.
 - Re-runs are safe: unchanged texts and byte-identical image sets are
   skipped, active purchase options are not re-activated.
+
+### Amendment 2026-10-11: keyless credentials
+
+The owner's Google Cloud organisation enforces
+`iam.disableServiceAccountKeyCreation` (Secure by Default), so the JSON key
+assumed above cannot be created. The service account stays, because the
+Play Console grants permissions to an e-mail identity, but its tokens are
+minted on demand: in GitHub Actions through Workload Identity Federation
+(GitHub OIDC token → Google STS → `generateAccessToken`, provider pinned to
+this repository by attribute condition), on a laptop through the owner's
+own `gcloud` login with `roles/iam.serviceAccountTokenCreator`. A
+pre-minted `PLAY_ACCESS_TOKEN` is accepted for other tooling, and
+`PLAY_SERVICE_ACCOUNT_KEY` remains only as a fallback for organisations
+that still allow keys. The `Play Publish` workflow runs products and
+listing texts from CI with no secret stored anywhere; screenshots remain a
+laptop job because they are rendered locally.
 
 ## Consequences
 
@@ -94,8 +110,9 @@ sets for the listing. Rules:
 
 ### Negative
 
-- One owner step remains: creating the service account and granting it
-  "Manage store presence"; fresh grants can take up to 24 hours.
+- One owner step remains: creating the service account, the identity
+  pool and the IAM bindings, and granting "Manage store presence"; fresh
+  grants can take up to 24 hours.
 - Changes made directly in the Console are overwritten by the next
   `--apply` unless copied back into the repository files.
 
@@ -112,6 +129,5 @@ sets for the listing. Rules:
 - [ ] Owner: create the service account, run `play-products.mjs --apply`
       and `play-listing.mjs --validate` → `--apply`, add a license-testing
       account, and test a purchase from the internal testing track.
-- [ ] If the scripts should run in GitHub Actions later, store the key as a
-      repository secret and reuse the existing approval boundaries
-      (`docs/memory/android-release-signing.md`).
+- [x] GitHub Actions: `.github/workflows/play-publish.yml` (manual
+      dispatch, Workload Identity Federation, repository variables only).

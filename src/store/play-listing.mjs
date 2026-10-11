@@ -13,7 +13,7 @@
 // skipped. The app icon is never uploaded (README "Rules"). A promo video is
 // taken from an optional metadata/android/<language>/video.txt (YouTube URL);
 // without the file the video already in the listing is kept.
-// Credentials: PLAY_SERVICE_ACCOUNT_KEY as in lib/play-api.mjs.
+// Credentials: keyless PLAY_SERVICE_ACCOUNT (or PLAY_ACCESS_TOKEN, PLAY_SERVICE_ACCOUNT_KEY) as in lib/play-api.mjs.
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
@@ -75,8 +75,8 @@ function usage() {
   --lang        limit to one listing language (repeatable); default both
   --text-only   texts only; --images-only screenshots and feature graphic only
 
-Environment: PLAY_SERVICE_ACCOUNT_KEY (path to the service-account JSON key),
-PLAY_PACKAGE_NAME (optional override of the Capacitor appId).`);
+Environment: PLAY_SERVICE_ACCOUNT (service-account e-mail, keyless) or PLAY_ACCESS_TOKEN
+or PLAY_SERVICE_ACCOUNT_KEY, PLAY_PACKAGE_NAME (optional override of the Capacitor appId).`);
 }
 
 function readText(dir, name, required) {

@@ -1,0 +1,72 @@
+name: Play Publish
+
+# Pushes the tip-jar products and the store-listing texts to the Play Console
+# from the repository (src/store/README.md, ADR-008). Credentials come from
+# Workload Identity Federation: GitHub's OIDC token is exchanged for a token of
+# the Play service account; no key and no secret exist anywhere.
+#
+# Repository variables (Settings -> Secrets and variables -> Actions -> Variables):
+#   PLAY_SERVICE_ACCOUNT  play-publisher@<project>.iam.gserviceaccount.com
+#   PLAY_WIF_PROVIDER     projects/<number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>
+#
+# Screenshots and the feature graphic are rendered locally and pushed from a
+# laptop (`node src/store/play-listing.mjs --apply`); this workflow handles
+# products and texts only.
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Dry runs and --list change nothing; apply writes to the store"
+        type: choice
+        required: true
+        default: products-list
+        options:
+          - products-list
+          - products-apply
+          - listing-validate-texts
+          - listing-apply-texts
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: play-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      PLAY_SERVICE_ACCOUNT: ${{ vars.PLAY_SERVICE_ACCOUNT }}
+      PLAY_WIF_PROVIDER: ${{ vars.PLAY_WIF_PROVIDER }}
+      TASK: ${{ inputs.task }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check configuration
+        run: |
+          if [ -z "$PLAY_SERVICE_ACCOUNT" ] || [ -z "$PLAY_WIF_PROVIDER" ]; then
+            echo "::error::Set the repository variables PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Variables). Setup: src/store/README.md, 'Google Play from the command line'."
+            exit 1
+          fi
+          echo "service account: $PLAY_SERVICE_ACCOUNT"
+          echo "provider: $PLAY_WIF_PROVIDER"
+
+      - name: Offline rehearsal (local mock, nothing reaches Google)
+        run: node src/store/play-rehearsal.mjs
+
+      - name: Run ${{ inputs.task }}
+        run: |
+          case "$TASK" in
+            products-list)          node src/store/play-products.mjs --list ;;
+            products-apply)         node src/store/play-products.mjs --apply ;;
+            listing-validate-texts) node src/store/play-listing.mjs --validate --text-only ;;
+            listing-apply-texts)    node src/store/play-listing.mjs --apply --text-only ;;
+            *) echo "::error::unknown task $TASK"; exit 1 ;;
+          esac

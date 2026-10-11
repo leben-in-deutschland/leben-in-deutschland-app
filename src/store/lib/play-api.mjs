@@ -1,10 +1,19 @@
-// Minimal Google Play Developer API client on Node built-ins: service-account
-// key -> signed JWT -> access token, JSON requests, media uploads, and
-// readable errors. Shared by play-products.mjs and play-listing.mjs.
+// Minimal Google Play Developer API client on Node built-ins: keyless
+// credentials (Workload Identity Federation in GitHub Actions, service-account
+// impersonation through the owner's gcloud login) with a key-file fallback,
+// JSON requests, media uploads, and readable errors. Shared by
+// play-products.mjs and play-listing.mjs.
 //
-// PLAY_SERVICE_ACCOUNT_KEY   path to the service-account JSON key, kept outside the repository
+// Credentials, first match wins (setup in src/store/README.md):
+// PLAY_ACCESS_TOKEN          a short-lived access token minted elsewhere
+// PLAY_SERVICE_ACCOUNT       e-mail of the Play service account to impersonate (keyless)
+// PLAY_WIF_PROVIDER          projects/<number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>;
+//                            with PLAY_SERVICE_ACCOUNT inside GitHub Actions (permissions: id-token: write)
+// PLAY_SERVICE_ACCOUNT_KEY   path to a JSON key, only where the organisation still allows keys
+//
 // PLAY_PACKAGE_NAME          overrides the appId read from src/web/capacitor.config.ts
-// PLAY_API_BASE              points the scripts at a local mock of the API (tests only)
+// PLAY_API_BASE, PLAY_STS_URL, PLAY_IAM_CREDENTIALS_BASE, PLAY_GCLOUD   local mocks (tests only)
+import { spawnSync } from "node:child_process";
 import { createSign } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -16,7 +25,10 @@ export const API_BASE = (process.env.PLAY_API_BASE ?? "https://androidpublisher.
 export const API = `${API_BASE}/androidpublisher/v3`;
 const UPLOAD_API = `${API_BASE}/upload/androidpublisher/v3`;
 const SCOPE = "https://www.googleapis.com/auth/androidpublisher";
+const CLOUD_SCOPE = "https://www.googleapis.com/auth/cloud-platform";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
+const STS_URL = process.env.PLAY_STS_URL ?? "https://sts.googleapis.com/v1/token";
+const IAM_CREDENTIALS_BASE = (process.env.PLAY_IAM_CREDENTIALS_BASE ?? "https://iamcredentials.googleapis.com").replace(/\/$/, "");
 
 export class ApiError extends Error {
     constructor(status, message, code) {
@@ -49,9 +61,6 @@ export function readPackageName() {
 
 function readKey() {
     const keyPath = process.env.PLAY_SERVICE_ACCOUNT_KEY;
-    if (!keyPath) {
-        fail("PLAY_SERVICE_ACCOUNT_KEY is not set; point it at the service-account JSON key (kept outside the repository)");
-    }
     const resolved = path.resolve(keyPath);
     if (resolved.startsWith(repoRoot + path.sep)) {
         console.warn("  ! the key file lies inside the repository - move it outside and never commit it");
@@ -100,6 +109,121 @@ async function fetchToken(key) {
     return body.access_token;
 }
 
+/** POSTs or GETs a token endpoint and fails with its reason (never with the request body). */
+async function tokenCall(what, url, init, hint) {
+    const response = await fetch(url, init);
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok) {
+        const reason = body.error_description ?? (typeof body.error === "object" ? body.error?.message : body.error) ?? response.statusText;
+        fail(`${what} failed (${response.status}): ${reason}${hint ? `\n  ${hint}` : ""}`);
+    }
+    return body;
+}
+
+/** GitHub Actions OIDC token for the given audience (needs `permissions: id-token: write`). */
+async function gitHubOidcToken(audience) {
+    const body = await tokenCall(
+        "GitHub OIDC token request",
+        withQuery(process.env.ACTIONS_ID_TOKEN_REQUEST_URL, { audience }),
+        { headers: { authorization: `bearer ${process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}`, accept: "application/json" } },
+        "the job needs `permissions: id-token: write`",
+    );
+    if (!body.value) {
+        fail("GitHub returned no OIDC token; the job needs `permissions: id-token: write`");
+    }
+    return body.value;
+}
+
+/** Exchanges an external OIDC token for a Google federated access token (Workload Identity Federation). */
+async function federatedToken(provider, subjectToken) {
+    const body = await tokenCall(
+        "Workload Identity Federation token exchange",
+        STS_URL,
+        {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+                audience: `//iam.googleapis.com/${provider}`,
+                grantType: "urn:ietf:params:oauth:grant-type:token-exchange",
+                requestedTokenType: "urn:ietf:params:oauth:token-type:access_token",
+                scope: CLOUD_SCOPE,
+                subjectTokenType: "urn:ietf:params:oauth:token-type:jwt",
+                subjectToken,
+            }),
+        },
+        "check that PLAY_WIF_PROVIDER names the right project number, pool and provider, and that the provider's attribute condition allows this repository",
+    );
+    if (!body.access_token) {
+        fail("the token exchange returned no access token");
+    }
+    return body.access_token;
+}
+
+/**
+ * Mints a Play-scoped token for the service account from a caller token that
+ * may impersonate it. Messages name the variable, never its value: Actions
+ * logs of this public repository are public.
+ */
+async function impersonate(serviceAccount, callerToken) {
+    const body = await tokenCall(
+        "impersonation of PLAY_SERVICE_ACCOUNT",
+        `${IAM_CREDENTIALS_BASE}/v1/projects/-/serviceAccounts/${encodeURIComponent(serviceAccount)}:generateAccessToken`,
+        {
+            method: "POST",
+            headers: { authorization: `Bearer ${callerToken}`, "content-type": "application/json" },
+            body: JSON.stringify({ scope: [SCOPE], lifetime: "3600s" }),
+        },
+        "the caller needs roles/iam.serviceAccountTokenCreator (your gcloud login) or roles/iam.workloadIdentityUser (GitHub Actions) on this service account, and the IAM Service Account Credentials API must be enabled in its project",
+    );
+    if (!body.accessToken) {
+        fail("impersonation returned no access token");
+    }
+    return body.accessToken;
+}
+
+/** The owner's own short-lived token from the Google Cloud CLI; nothing is stored. */
+function gcloudUserToken() {
+    const gcloud = process.env.PLAY_GCLOUD ?? "gcloud";
+    const result = spawnSync(gcloud, ["auth", "print-access-token"], { encoding: "utf8" });
+    if (result.error?.code === "ENOENT") {
+        fail("gcloud is not installed; install the Google Cloud CLI and run `gcloud auth login`, or mint a token elsewhere and set PLAY_ACCESS_TOKEN");
+    }
+    if (result.status !== 0 || !result.stdout.trim()) {
+        const last = (result.stderr ?? "").trim().split("\n").filter(Boolean).pop();
+        fail(`gcloud auth print-access-token failed: ${last ?? "run `gcloud auth login` first"}`);
+    }
+    return result.stdout.trim();
+}
+
+/**
+ * Picks the first configured credential mode and returns `{ mode, token }`.
+ * `mode` is a constant description that names the variable in use; the
+ * variable values (service-account e-mail, provider) are never logged.
+ */
+async function resolveCredentials() {
+    const env = process.env;
+    if (env.PLAY_ACCESS_TOKEN) {
+        return { mode: "PLAY_ACCESS_TOKEN", token: env.PLAY_ACCESS_TOKEN };
+    }
+    const serviceAccount = env.PLAY_SERVICE_ACCOUNT;
+    if (serviceAccount && env.PLAY_WIF_PROVIDER) {
+        if (!env.ACTIONS_ID_TOKEN_REQUEST_URL || !env.ACTIONS_ID_TOKEN_REQUEST_TOKEN) {
+            fail("PLAY_WIF_PROVIDER works inside GitHub Actions jobs with `permissions: id-token: write`; on a laptop unset it and use PLAY_SERVICE_ACCOUNT with your gcloud login");
+        }
+        const provider = env.PLAY_WIF_PROVIDER.replace(/^(?:https:)?\/\/iam\.googleapis\.com\//, "");
+        const federated = await federatedToken(provider, await gitHubOidcToken(`https://iam.googleapis.com/${provider}`));
+        return { mode: "Workload Identity Federation for PLAY_SERVICE_ACCOUNT, no key", token: await impersonate(serviceAccount, federated) };
+    }
+    if (serviceAccount) {
+        return { mode: "impersonation of PLAY_SERVICE_ACCOUNT through your gcloud login, no key", token: await impersonate(serviceAccount, gcloudUserToken()) };
+    }
+    if (env.PLAY_SERVICE_ACCOUNT_KEY) {
+        const key = readKey();
+        return { mode: "a service-account key file", token: await fetchToken(key) };
+    }
+    fail("no Play credentials: set PLAY_SERVICE_ACCOUNT (keyless: your gcloud login, or Workload Identity Federation in GitHub Actions), PLAY_ACCESS_TOKEN, or PLAY_SERVICE_ACCOUNT_KEY; setup in src/store/README.md");
+}
+
 function withQuery(base, query) {
     const url = new URL(base);
     for (const [name, value] of Object.entries(query ?? {})) {
@@ -126,17 +250,16 @@ async function call(url, init) {
 }
 
 /**
- * Authenticates once and returns `{ email, request, upload }`. `request`
- * sends JSON to the v3 API, `upload` sends raw media to the upload endpoint.
- * Paths start after `/androidpublisher/v3`, e.g. `/applications/<pkg>/edits`.
+ * Authenticates once and returns `{ mode, request, upload }`. `request` sends
+ * JSON to the v3 API, `upload` sends raw media to the upload endpoint. Paths
+ * start after `/androidpublisher/v3`, e.g. `/applications/<pkg>/edits`.
  */
 export async function createPlayClient() {
-    const key = readKey();
-    console.log(`authenticating as ${key.client_email}`);
-    const token = await fetchToken(key);
+    const { mode, token } = await resolveCredentials();
+    console.log(`authenticating with ${mode}`);
     const auth = { authorization: `Bearer ${token}` };
     return {
-        email: key.client_email,
+        mode,
         request(method, apiPath, { query, body } = {}) {
             return call(withQuery(`${API}${apiPath}`, query), {
                 method,

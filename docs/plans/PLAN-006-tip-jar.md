@@ -63,9 +63,10 @@ hidden in the app until step 2 is complete.
 1. Set up a payments profile (Play Console → Setup → Payments profile; tax
    and bank details). Google is the seller of record and handles VAT.
 2. Create the products `tip_small`, `tip_medium`, `tip_large` and activate
-   them. Either run `node src/store/play-products.mjs --apply` with a
-   service-account key (setup in `src/store/README.md`, "Google Play from
-   the command line"), which takes the German and English names, the
+   them. Either run `node src/store/play-products.mjs --apply` with the
+   keyless service account (`PLAY_SERVICE_ACCOUNT` plus your `gcloud`
+   login, or the Play Publish workflow; setup in `src/store/README.md`,
+   "Google Play from the command line"), which takes the German and English names, the
    descriptions and the euro prices from
    `src/store/metadata/android/one-time-products.json` (Kaffee 1,99 €,
    Kuchen 4,99 €, Abendessen 9,99 €), or create them by hand under Monetize
