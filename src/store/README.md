@@ -68,7 +68,8 @@ cd src/web && npm run build && cd ../..   # 1. exported build in src/web/out
 node src/store/capture.mjs                # 2. raw screens -> output/raw/<lang>/<device>/<shot>.png
 node src/store/compose/render.mjs         # 3. framed sets, feature graphic, icon copy
 node src/store/video.mjs                  # 4. promo videos (needs ffmpeg)
-node src/store/check.mjs                  # 5. must print "All store assets pass ..."
+node src/store/compose/product-icons.mjs  # 5. icons of the tip products
+node src/store/check.mjs                  # 6. must print "All store assets pass ..."
 ```
 
 Partial runs while iterating:
@@ -120,6 +121,7 @@ All paths are under `src/store/output/`. Sets are rendered per language
 | `ios-ipad-13/<lang>/` | 2064 × 2752 | App Store Connect: iPad 13-inch display (later) |
 | `video/promo-<lang>-landscape.mp4` | 1920 × 1080 | YouTube upload, then the URL goes into the Play listing |
 | `video/promo-<lang>-portrait.mp4` | 1080 × 1920 | Social posts, website; no store slot |
+| `play-products/<productId>.png` | 1024 × 1024 | Play Console: Monetize → Products → One-time products → product → Icon (manual upload, see below) |
 | `raw/<lang>/<device>/<shot>.png` | see above | Intermediate captures used by render and video |
 
 Videos are silent H.264 (`yuv420p`, 30 fps, `+faststart`), about 29 s: a
@@ -368,6 +370,19 @@ changes back into the JSON, or they are overwritten at the next `--apply`.
 Regions change over time, so the script uses the regions version Google
 returns with the converted prices. Set `PLAY_REGIONS_VERSION` only when
 Google's error message asks for a specific one.
+
+#### Product icons (manual)
+
+Each one-time product has an **Icon** in the Play Console (shown on Play
+product cards and promotions). The Developer API has no field for it, so
+`play-products.mjs` cannot set it. `node src/store/compose/product-icons.mjs`
+renders one icon per product into `output/play-products/<productId>.png`
+(1024 × 1024, 32-bit PNG, the app's coffee / cake / cutlery line icons on
+the brand gradient; Google's rules: 512–1080 px square, 32-bit PNG, ≤ 8 MB,
+artwork centred in about half the canvas). Upload them once by hand:
+Play Console → Monetize → Products → One-time products → open the product
+→ Icon → upload → Save. New products need an entry in `PRODUCT_ICONS`
+(`compose/product-icons.mjs`); `check.mjs` fails when an icon is missing.
 
 ## Upload checklist
 

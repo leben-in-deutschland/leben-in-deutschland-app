@@ -10,12 +10,14 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { definedProductIds } from "./compose/product-icons.mjs";
 import { SETS } from "./compose/render.mjs";
 import { LANGUAGES, SHOTS } from "./capture.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(here, "../web");
 const outputRoot = path.join(here, "output");
+const PRODUCT_IDS = definedProductIds();
 const sharp = createRequire(path.join(webRoot, "package.json"))("sharp");
 
 const PLAY_MAX_BYTES = 8 * 1024 * 1024;
@@ -86,6 +88,26 @@ async function main() {
         const hash = (file) => createHash("sha256").update(readFileSync(file)).digest("hex");
         if (hash(icon) !== hash(source)) {
             problem("play-icon/icon.png differs from src/web/public/android-chrome-512x512.png");
+        }
+    }
+
+    console.log("play-products (1024x1024, 32-bit PNG)");
+    for (const productId of PRODUCT_IDS) {
+        const file = path.join(outputRoot, "play-products", `${productId}.png`);
+        const relative = path.relative(here, file);
+        if (!existsSync(file)) {
+            problem(`${relative} is missing - run node src/store/compose/product-icons.mjs`);
+            continue;
+        }
+        const meta = await sharp(file).metadata();
+        if (meta.width !== 1024 || meta.height !== 1024) {
+            problem(`${relative} is ${meta.width}x${meta.height}, expected 1024x1024`);
+        }
+        if (!meta.hasAlpha) {
+            problem(`${relative} is not a 32-bit PNG (no alpha channel)`);
+        }
+        if (statSync(file).size > 8 * 1024 * 1024) {
+            problem(`${relative} is larger than 8 MB`);
         }
     }
 

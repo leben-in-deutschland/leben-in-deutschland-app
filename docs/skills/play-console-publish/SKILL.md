@@ -83,6 +83,11 @@ decided in ADR-008 (keyless amendment).
    - `node src/store/play-products.mjs --apply` must end with all three
      products `ACTIVE`. Re-running is safe; it only re-activates what is not
      active.
+   - Product icons are not in the API. Render them with
+     `node src/store/compose/product-icons.mjs`
+     (`src/store/output/play-products/<productId>.png`) and hand the owner
+     the upload path: Monetize → Products → One-time products → product →
+     Icon. Tell the owner explicitly that this step is manual.
 5. Listing (gate open):
    - `node src/store/play-listing.mjs --validate` uploads into a draft edit
      that Google validates and the script discards. Read the per-slot
