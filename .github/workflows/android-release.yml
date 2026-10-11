@@ -100,11 +100,24 @@ jobs:
 
           echo "Verified Android signing certificate SHA-1: $actual_sha1"
 
+      # The file name carries versionName and versionCode (the run number written by "Bump version").
+      - name: Name Bundle After Its Version
+        id: name_bundle
+        env:
+          SIGNED_AAB: ${{ steps.sign_app.outputs.signedFile }}
+          BUNDLE_NAME: leben-in-deutschland-v${{ env.VERSION }}-${{ github.run_number }}.aab
+        run: |
+          set -euo pipefail
+          target="$(dirname "$SIGNED_AAB")/$BUNDLE_NAME"
+          mv "$SIGNED_AAB" "$target"
+          echo "path=$target" >> "$GITHUB_OUTPUT"
+          echo "Bundle: $target"
+
       - name: Upload Signed AAB as an Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Android-App-Signed
-          path: ${{ steps.sign_app.outputs.signedFile }}
+          path: ${{ steps.name_bundle.outputs.path }}
           if-no-files-found: error
 
   release:
@@ -131,8 +144,10 @@ jobs:
         with:
           tag_name: v${{ env.VERSION }}
           name: "Einbürgerungstest v${{ env.VERSION }}"
+          body: "Android App Bundle: versionName ${{ env.VERSION }}, versionCode ${{ github.run_number }}."
           draft: false
           prerelease: false
-          files: src/android/app/build/outputs/bundle/release/app-release-signed.aab
+          files: src/android/app/build/outputs/bundle/release/leben-in-deutschland-v${{ env.VERSION }}-${{ github.run_number }}.aab
+          fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

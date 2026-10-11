@@ -20,6 +20,9 @@ work. It is not a task log.
 - [`web-browser-check.md`](web-browser-check.md) - the web export differs
   from the Android one; view it at desktop, tablet, 390 and 360 px before a
   release, and how German labels clip in dialogs, drawer headers and tiles.
+- [`android-min-sdk.md`](android-min-sdk.md) - Google Play's automatic
+  integrity protection rejects bundles with `minSdkVersion` below 24; keep
+  `variables.gradle` at 24 after Capacitor upgrades.
 
 ## Rules
 

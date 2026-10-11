@@ -44,14 +44,18 @@ to learners by itself.
 2. Merging to `main` triggers two workflows: `android-release.yml` (tests,
    signed AAB, signature check against the expected SHA-1, GitHub release)
    and `vercel-deploy.yml` (the website gets the same build).
-3. Download the signed AAB from the GitHub release.
+3. Download the signed AAB from the GitHub release. It is named
+   `leben-in-deutschland-v<versionName>-<versionCode>.aab`; the versionCode
+   is the workflow run number and is what Play lists.
 
 ## Rollout
 
 1. Upload the AAB to the **internal testing** track first; install it from
    Play on at least one phone. Only a Play-installed build can show the
    in-app review sheet, run real tip purchases (license testers), and offer
-   in-app updates.
+   in-app updates. Play rejects bundles with `minSdkVersion` below 24 while
+   automatic integrity protection is on; `src/android/variables.gradle` keeps
+   24 (`docs/memory/android-min-sdk.md`).
 2. Check on that install: upgrade from the previous version keeps the record
    (classic prompt appears once for finished records), reminders are
    scheduled, tip products load with prices, notices load when the `content`

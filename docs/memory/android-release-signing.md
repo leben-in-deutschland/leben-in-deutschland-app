@@ -48,9 +48,10 @@ The Gradle output `app-release.aab` is unsigned. The signing action also
 creates an intermediate `app-release-temp.aab`. Neither file is a production
 artifact.
 
-Publish only the signing action's `signedFile` output,
-`app-release-signed.aab`. Do not upload the whole bundle output directory or
-use an `*.aab` release wildcard.
+Publish only the signing action's `signedFile` output. The workflow renames it
+to `leben-in-deutschland-v<versionName>-<versionCode>.aab` after the
+signature check, so every release asset states which build it is. Do not
+upload the whole bundle output directory or use an `*.aab` release wildcard.
 
 Before publishing, confirm that `jarsigner` reports the bundle as verified and
 that `keytool -printcert -jarfile` reports the known-good SHA-1 above.
