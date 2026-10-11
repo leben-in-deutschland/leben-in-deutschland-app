@@ -137,7 +137,7 @@ Known and accepted: once per cold start the WebView logs
 native bridge fires `resume` before the page script exists. It also appears
 with the released 2.0 app and has no visible effect.
 
-Not done on purpose: no commit, no push (pushing `main` releases to Google
-Play), no Android project change (`git status --short src/android` is clean),
-and no version bump; the release workflow takes the version from
-`src/web/package.json`, so the owner decides when 2.0.145 becomes 2.1.0.
+Not done on purpose at that time: no commit, no push, no Android project
+change, and no version bump. The owner later ordered the release; the branch
+was merged to `main` as **2.1.0** on 2026-10-11 after a browser check of the
+web export (`docs/memory/web-browser-check.md`).
