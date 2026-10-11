@@ -60,6 +60,14 @@ website, and the learner's stored record is not touched. See
 These remain open after the repository work is done; the section stays
 hidden in the app until step 2 is complete.
 
+Status 2026-10-11: the Google Cloud side of the keyless setup is done (the
+`play-publisher` service account, impersonation for the owner's login, the
+GitHub identity pool pinned to this repository, and the two GitHub Actions
+variables). Impersonation was verified; Play still answers 403 until the
+service account is invited in Play Console with "Manage store presence"
+(step 2 below and README step 2). The payments profile (step 1) is an owner
+decision not visible from the repository.
+
 1. Set up a payments profile (Play Console → Setup → Payments profile; tax
    and bank details). Google is the seller of record and handles VAT.
 2. Create the products `tip_small`, `tip_medium`, `tip_large` and activate
