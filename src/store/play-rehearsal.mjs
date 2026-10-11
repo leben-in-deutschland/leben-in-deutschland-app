@@ -144,6 +144,17 @@ const server = http.createServer(async (req, res) => {
         if (url.searchParams.get("allowMissing") !== "true") return error(res, 404, "product not found");
         if (url.searchParams.get("regionsVersion.version") !== "2025/01") return error(res, 400, "regionsVersion.version must be 2025/01");
         const product = JSON.parse(raw.toString());
+        // Google rejects "new regions" fallback prices that are not rounded to its
+        // price pattern (whole cents ending in 9), while convertRegionPrices returns them raw.
+        for (const o of product.purchaseOptions) {
+            for (const [name, money] of Object.entries({ eurPrice: o.newRegionsConfig?.eurPrice, usdPrice: o.newRegionsConfig?.usdPrice })) {
+                if (!money) continue;
+                const cents = Number(money.units) * 100 + (money.nanos ?? 0) / 1e7;
+                if (!Number.isInteger(cents) || cents % 10 !== 9) {
+                    return error(res, 400, `Product "${m[1]}", purchase option "${o.purchaseOptionId}": The price ${(cents / 100).toFixed(2)} ${money.currencyCode} for New Regions must be rounded (${name})`);
+                }
+            }
+        }
         for (const o of product.purchaseOptions) o.state = state.products[m[1]]?.purchaseOptions?.[0]?.state ?? "DRAFT";
         state.products[m[1]] = product;
         return json(res, 200, product);
@@ -269,6 +280,9 @@ for (const id of ["tip_small", "tip_medium", "tip_large"]) {
         expect(at?.price.units === "1" && at?.price.nanos === 990000000, "AT (euro) keeps exactly 1.99 EUR");
         expect(us?.price.currencyCode === "USD" && Number(us.price.units) + us.price.nanos / 1e9 > 1.7, "US price converted from the net 1.67 EUR");
         expect(product?.purchaseOptions[0].newRegionsConfig?.availability === "AVAILABLE", "newRegionsConfig set");
+        const fallback = product?.purchaseOptions[0].newRegionsConfig;
+        expect(fallback?.eurPrice.units === "1" && fallback?.eurPrice.nanos === 690000000, "new regions EUR fallback rounded 1.6722... -> 1.69");
+        expect(fallback?.usdPrice.currencyCode === "USD" && fallback?.usdPrice.nanos % 100000000 === 90000000, "new regions USD fallback ends in 9 cents");
     }
 }
 expect(log.filter((l) => l.includes("batchUpdateStates")).length === 3, "three activations");

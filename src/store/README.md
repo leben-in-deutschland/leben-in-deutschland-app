@@ -159,13 +159,28 @@ metadata/ios/<de-DE|en-US>/promotional_text.txt       <= 170 characters
 metadata/ios/<de-DE|en-US>/description.txt            <= 4000 characters (same text as the Play full description)
 ```
 
-Current lengths are within the limits (title 20, short description 79,
-full description 2022 de / 1864 en, keywords 100 de / 99 en, promotional
-text 152 de / 147 en). Count characters, not bytes, after editing:
+Current lengths are within the limits (title 20, short description 79 de /
+74 en, full description 2387 de / 2192 en, keywords 100 de / 99 en,
+promotional text 152 de / 147 en). Count characters, not bytes, after editing:
 
 ```bash
 node -e 'for (const f of process.argv.slice(1)) console.log([...require("fs").readFileSync(f,"utf8")].length, f)' src/store/metadata/*/*/*.txt
 ```
+
+The full description ends with a required notice block (`HINWEIS` /
+`NOTE`): the app is not an official Einbürgerungstest, it is a private
+offering and not an official app of the Bundesamt für Migration und
+Flüchtlinge (BAMF), the test can only be taken at the BAMF, and the
+questions are © BAMF. The wording follows the app's own disclaimer
+(`alert1`/`alert2` in `src/web/data/translations/`) and the footer credit.
+Never drop it when rewriting the copy; the previous Play listing carried it
+and the 2026-10-11 upload had to be re-done to put it back.
+
+The English copy says **Einbürgerungstest**, never "German citizenship
+test" or "naturalisation test" (owner rule, 2026-10-11). This covers the
+store texts, the screenshot captions and feature-graphic tagline in
+`compose/templates.mjs`, and the video copy. The iOS keywords are the one
+exception: they are search terms that are never displayed.
 
 Only German and English listings are generated. The app interface itself is
 German and English; the questions carry translations in seven languages
@@ -504,6 +519,12 @@ when the sets were made.
 - `regionsVersion.version …` in a Play API 400 – Google wants a specific
   regions version; run again with `PLAY_REGIONS_VERSION=<value from the
   message>`.
+- `The price €1.67 for New Regions must be rounded` (Play API 400) – the
+  USD/EUR fallback for regions Play adds later must follow Play's price
+  pattern (whole cents ending in 9), but `pricing:convertRegionPrices`
+  returns it raw. `play-products.mjs` rounds both fallback prices to the
+  nearest `.x9` since 2026-10-11; if the message comes back, Google changed
+  the pattern - compare with the regional prices the converter returns.
 - `edit committed but not sent for review` – not an error. Open Play
   Console → *Publishing overview* and send the changes for review.
 - `no files in src/store/output/…` – `play-listing.mjs` found no rendered

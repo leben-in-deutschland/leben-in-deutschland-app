@@ -1,7 +1,7 @@
-Prepare for the German citizenship test “Leben in Deutschland” with every official question, a mock exam that feels like the real one, and a clear view of how ready you really are.
+Prepare for the Einbürgerungstest “Leben in Deutschland” with every official question, a mock exam that feels like the real one, and a clear view of how ready you really are.
 
 ALL OFFICIAL QUESTIONS
-• The 300 official questions of the German naturalisation test plus the 10 questions of your federal state (all 16 states)
+• The 300 official questions of the Einbürgerungstest plus the 10 questions of your federal state (all 16 states)
 • Instant feedback on every answer with an easy-to-understand explanation
 • Translations in 7 languages: English, Turkish, Russian, French, Arabic, Ukrainian and Hindi
 • Have questions read aloud
@@ -36,6 +36,10 @@ OFFLINE, PRIVATE, FREE
 The app is free. If it helps you, you can leave a small optional tip – no hidden features, no subscriptions.
 
 Good luck with your exam!
+
+NOTE
+This is not an official Einbürgerungstest. This app is designed to help you prepare for the Einbürgerungstest. It is a private offering and not an official app of the Federal Office for Migration and Refugees (BAMF). The Einbürgerungstest can only be carried out at the BAMF.
+Questions © Federal Office for Migration and Refugees (BAMF)
 
 Privacy: https://www.lebenindeutschland.org/privacy-policy
 Source code: https://github.com/leben-in-deutschland/leben-in-deutschland-app
