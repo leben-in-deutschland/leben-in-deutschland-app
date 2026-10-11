@@ -386,7 +386,15 @@ listing* (in the *Grow* section of the left menu):
    from `play-tablet/<lang>/` for both slots.
 6. **Video:** upload `video/promo-de-landscape.mp4` (or the English one)
    to YouTube as public or unlisted and paste the video URL. Play accepts a
-   YouTube URL only, not a file.
+   YouTube URL only, not a file. Ready-to-paste titles, descriptions, and
+   tags are in `metadata/youtube/<de|en>.txt`. Upload through YouTube
+   Studio in the browser, never through the YouTube Data API: videos
+   inserted by an API project that has not passed YouTube's compliance
+   audit are locked to private for good, and Play rejects private videos.
+   The gcloud sign-in is no way around it: Google blocks YouTube scopes
+   for gcloud's default client ("This app is blocked").
+   Afterwards put the URL into `metadata/android/<language>/video.txt` and
+   run `play-listing.mjs --apply --text-only`.
 7. Repeat the text and image steps for the second language, then save and
    send the listing for review.
 

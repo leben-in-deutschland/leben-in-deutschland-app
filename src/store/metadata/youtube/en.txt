@@ -1,0 +1,19 @@
+YouTube metadata for video/promo-en-landscape.mp4 (Play listing en-US) and
+video/promo-en-portrait.mp4 (portrait, runs as a Short). Paste into YouTube
+Studio; visibility "Public" or "Unlisted", not made for kids, embedding
+allowed, no age restriction.
+
+TITLE (max. 100 characters)
+Leben in Deutschland – Practice for the Einbürgerungstest: all official questions, offline and free
+
+DESCRIPTION
+Leben in Deutschland helps you prepare for the Einbürgerungstest: all 300 official questions plus the 10 for your federal state, a mock exam like the real one (33 questions, 60 minutes), exam readiness, streak and daily goal at a glance, and translations in 7 languages – offline, private and free.
+
+Download for free: https://play.google.com/store/apps/details?id=org.lebenindeutschland.app
+Practice in the browser: https://lebenindeutschland.org
+
+Note: This is not an official Einbürgerungstest and not an official app of the Federal Office for Migration and Refugees (BAMF). The Einbürgerungstest can only be carried out at the BAMF.
+Questions © Federal Office for Migration and Refugees (BAMF)
+
+TAGS (hidden search terms only)
+Einbürgerungstest, Leben in Deutschland, German citizenship test, naturalization test Germany, practice questions, mock exam, Germany, app, learn
