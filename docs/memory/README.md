@@ -7,8 +7,16 @@ work. It is not a task log.
 
 - [`android-release-signing.md`](android-release-signing.md) - verifies the
   correct Play application and signing source before changing release secrets.
+- [`android-device-testing.md`](android-device-testing.md) - hardware Back,
+  debounced native syncs, plugin-call logs, and the release flavour need a
+  real device check; recipe for testing the R8 build without CI secrets.
 - [`capacitor-r8-annotations.md`](capacitor-r8-annotations.md) - preserves
   Capacitor runtime annotations in minified Android release builds.
+- [`android-play-billing.md`](android-play-billing.md) - Play Billing
+  library deadline, consume-to-count rule, and how to test the tip jar.
+- [`classic-design-module.md`](classic-design-module.md) - how a retired
+  design stays available as a namespaced module without touching the record
+  or running shell work twice.
 
 ## Rules
 

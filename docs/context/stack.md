@@ -16,7 +16,11 @@ docs/          PULSE engineering control plane
 - Tailwind CSS 3 and HeroUI components.
 - Capacitor 7 for native integration.
 - Android compile/target SDK 36 and minimum SDK 23.
-- Browser `localStorage` for user progress and preferences.
+- Browser `localStorage` for user progress and preferences: the learner
+  record under `user`, and `lid:*` keys for state that must survive record
+  writes (`lid:ui-mode` for the design choice, `lid:support`,
+  `lid:evaluation`, `lid:notices`, `lid:notices-dismissed`,
+  `lid:questions`).
 - Versioned JSON for questions, evaluation data, translations, and centers.
 
 ## Tooling
@@ -52,6 +56,20 @@ and secret boundaries.
 - GitHub-hosted scraper data consumed by scheduled sync workflows.
 - Browser and native plugins for notifications, sharing, file access, app
   updates/reviews, haptics, keyboard behavior, and text-to-speech.
+- Google Play Billing (`com.android.billingclient:billing`, pinned as
+  `playBillingVersion` in `src/android/variables.gradle`) through the local
+  Capacitor plugin `TipJarPlugin.java`; see
+  `docs/memory/android-play-billing.md` for the yearly library deadline.
+- The BAMF evaluation status: on Android, `services/evaluation.ts` downloads
+  the scraper repository's public `current-evaluation.json` from
+  `raw.githubusercontent.com` through `CapacitorHttp` (part of
+  `@capacitor/core`) at most once a day (ADR-005). The project's own domain
+  is behind Vercel's security challenge and rejects non-browser clients.
+- Two more daily public files on the same client (ADR-006): the owner's
+  `notices.json` from the app repository's `content` branch (`404` means
+  "no notices") and `questions-core.json` from `main`, both with
+  `If-None-Match` so an unchanged file costs one `304`. These three are the
+  app's only runtime requests for its own data; none carries identifiers.
 
 ## Constraints
 

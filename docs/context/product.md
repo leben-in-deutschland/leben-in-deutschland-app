@@ -20,11 +20,25 @@ run a mock test, and review progress without creating an account.
 ## Current Capabilities
 
 - Interactive mock tests and preparation flows.
+- Ten study modes, including spaced review, topics, quick rounds, and a
+  marathon through the whole catalogue.
+- Streak options (daily goal, streak rule, rest days, streak freezes) and
+  achievements.
+- An in-app notification center on web and Android, plus scheduled Android
+  reminders that learners control per type.
+- Learners who upgrade from version 2.0 keep the 2.0 ("classic") design
+  until they choose the new one; both designs offer a switch in Settings,
+  and new learners start on the new design
+  ([`ADR-007`](../decisions/ADR-007-classic-ui-opt-in.md)).
 - Access to general and state-specific questions.
-- Progress and statistics dashboards.
+- Progress and statistics dashboards with an exam-readiness estimate.
 - Question catalogue and exam-center lookup.
 - English and German content surfaces.
 - Web delivery plus an Android application.
+- The app is free and ad-free. On Android, learners can leave an optional tip
+  through Google Play (three repeatable one-time products); tips unlock
+  nothing and the section stays hidden until the products exist in the Play
+  Console.
 
 ## Product Boundaries
 
@@ -35,7 +49,9 @@ run a mock test, and review progress without creating an account.
 - Versioned JSON and assets provide the learning content.
 - Scheduled GitHub Actions retrieve source data from
   `leben-in-deutschland/leben-in-deutschland-scrapper`.
-- Vercel and Google Play are delivery systems, not product logic.
+- Vercel and Google Play are delivery systems, not product logic. Google
+  Play's billing system is the only payment processor; the repository holds
+  no payment data beyond a per-device tip counter.
 - PULSE documents engineering work and adds no user-facing runtime.
 
 ## Success Signals
