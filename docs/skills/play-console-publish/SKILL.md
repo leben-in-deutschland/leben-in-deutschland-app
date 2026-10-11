@@ -15,8 +15,20 @@ decided in ADR-008 (keyless amendment).
 - Agents never hold the owner's Google credentials. The scripts mint
   one-hour tokens from the owner's own `gcloud` login on their machine
   (`PLAY_SERVICE_ACCOUNT`) or from GitHub's OIDC token through Workload
-  Identity Federation in Actions. Agents never run `gcloud auth login`
-  (interactive; the owner does it once) and never print a token.
+  Identity Federation in Actions. Agents never sign in for the owner: when
+  the owner asks for help, start `BROWSER=true gcloud auth login` in the
+  background, hand over the printed `accounts.google.com` link, and let the
+  owner finish the sign-in in a browser on the same machine (Google
+  redirects to `localhost:8085`). Never type a password or an auth code,
+  and never print a token.
+- Never create a Google Cloud project. Owners often have several Google
+  accounts; run `gcloud projects list` for the active login, name the
+  candidates, and let the owner choose. If the right project is not
+  visible, the owner signs in with the other account (same link flow)
+  instead of getting a new project. The setup block from
+  `src/store/README.md` may then run against the chosen project; it only
+  adds a service account, IAM bindings, and the GitHub identity pool, all
+  of which the rollback section can remove.
 - Never ask for, create, search for, open, print, or commit a
   service-account key. The owner's organisation blocks key creation
   (`iam.disableServiceAccountKeyCreation`) and the scripts do not need one.
@@ -93,14 +105,17 @@ decided in ADR-008 (keyless amendment).
 
 1. Run the keyless setup block from `src/store/README.md`, "One-time setup
    (owner, keyless)", in Cloud Shell or any shell with `gcloud` (set
-   `PROJECT` first). It enables the APIs, creates
+   `PROJECT` first), or sign in on the laptop (step 3) and name an existing
+   project; the agent may then run the block. It enables the APIs, creates
    `play-publisher@<project>.iam.gserviceaccount.com`, lets your account
    impersonate it, and creates the GitHub identity pool and provider pinned
    to this repository. Copy the two `echo` lines at the end.
 2. Play Console → Users and permissions → Invite new users → the service
    account's e-mail → App permissions → Leben in Deutschland →
    **Manage store presence** → Invite. Fresh grants can take up to 24 hours.
-3. Laptop: `gcloud auth login` once, then
+3. Laptop: `gcloud auth login` once (`BROWSER=true gcloud auth login` prints
+   the link instead of opening the default browser, so a specific account
+   can sign in from any browser on the same machine), then
    `export PLAY_SERVICE_ACCOUNT=play-publisher@<project>.iam.gserviceaccount.com`
    and run this skill again or the commands from steps 4 and 5.
 4. GitHub (optional, for the Play Publish workflow): Settings → Secrets and

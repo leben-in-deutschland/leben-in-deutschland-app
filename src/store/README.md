@@ -243,8 +243,10 @@ Workload Identity Federation** in Actions.
    covers store listing, pricing and in-app products; Google's help page
    lists it as "Edit pricing, in-app products, and pricing templates"). New
    permissions can take up to 24 hours to reach the API.
-3. Laptop: `gcloud auth login` once (your Google account, interactive), then
-   before running a script:
+3. Laptop: `gcloud auth login` once (your Google account, interactive;
+   `BROWSER=true gcloud auth login` prints the sign-in link instead of
+   opening the default browser, so you can finish it with a specific account
+   in any browser on the same machine), then before running a script:
 
    ```bash
    export PLAY_SERVICE_ACCOUNT=play-publisher@<your-project-id>.iam.gserviceaccount.com
@@ -432,6 +434,10 @@ when the sets were made.
   `PLAY_SERVICE_ACCOUNT_KEY`; never commit, paste, or log it.
 - **Nothing is published without `--apply`.** Dry runs are local;
   `--validate` uploads into a draft edit that is discarded.
+- **No new Google Cloud project.** The setup block runs against an existing
+  project that the owner names (`gcloud projects list` shows what the
+  active login can see; a different Google account may own the right one).
+  Project ids are global, so the obvious names are taken anyway.
 - **Honest imagery.** Captions and copy state product facts only (official
   questions, 16 states, 7 translation languages, 33-question mock exam,
   offline, free). The mock-exam question is German in the English set too,
