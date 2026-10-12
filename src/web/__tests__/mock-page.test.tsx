@@ -5,6 +5,8 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { OFFICIAL_SHEETS } from "@/components/mock/official-sheets";
+import { BACK_EVENT } from "@/components/shell/use-back-button";
 import { getQuestion, getRelevantQuestions, getStateQuestions } from "@/utils/question-bank";
 import { readUser } from "@/utils/user-store";
 import type { MockTestProgress } from "@/types/user";
@@ -95,6 +97,14 @@ async function mount(search = "") {
     await flush();
 }
 
+/** Intro → cover → running exam, the way a person starts a test. */
+async function startExam() {
+    click(byText("button", "Prüfung starten"));
+    await flush();
+    click(byText("button", "Test beginnen"));
+    await flush();
+}
+
 beforeEach(() => {
     (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
     window.localStorage.clear();
@@ -124,22 +134,122 @@ describe("mock page smoke", () => {
         expect(text()).toContain("1 von 2 bestanden");
         expect(container!.querySelectorAll('a[href^="/mock?review="]').length).toBe(2);
         expect(text()).toContain("Prüfung starten");
+        expect(text()).toContain("wie auf dem echten Fragebogen gemischt");
+    });
+
+    it("links to both official BAMF sample sheets in a new tab and marks the selected test type", async () => {
+        await mount();
+        expect(text()).toContain("Offizielle Musterfragebögen");
+        const links = Array.from(container!.querySelectorAll('a[target="_blank"]'));
+        expect(links.length).toBe(2);
+        expect(links.map((a) => a.getAttribute("href"))).toEqual([OFFICIAL_SHEETS.einbuergerung.href, OFFICIAL_SHEETS.lid.href]);
+        expect(links.every((a) => a.getAttribute("rel") === "noopener noreferrer")).toBe(true);
+        expect(links[0].textContent).toContain("Musterfragebogen Einbürgerungstest");
+        expect(links[0].textContent).toContain("bamf.de · PDF");
+        expect(links[0].textContent).toContain("Dein Testtyp");
+        expect(links[1].textContent).toContain("Musterfragebogen Test „Leben in Deutschland“");
+        expect(links[1].textContent).not.toContain("Dein Testtyp");
+        expect(links[0].getAttribute("aria-label")).toBe("Musterfragebogen Einbürgerungstest (öffnet bamf.de in einem neuen Tab)");
+    });
+
+    it("shows the cover sheet with the test name, state, pass mark and marking example before the clock starts", async () => {
+        await mount();
+        click(byText("button", "Prüfung starten"));
+        await flush();
+        expect(container!.querySelector("h1")?.textContent).toBe("Einbürgerungstest");
+        expect(text()).toContain("Testfragebogen");
+        expect(text()).toContain("Musterfragebogen");
+        expect(text()).toContain("Bundesland");
+        expect(text()).toContain("Berlin");
+        expect(text()).toContain("17 richtigen Antworten");
+        expect(text()).toContain("60 Minuten");
+        expect(text()).toContain("Anleitung");
+        expect(text()).toContain("Beispiel – so kreuzt man an");
+        expect(text()).toContain("Wie viele Tage hat die Woche?");
+        // The demo marks "7" with a cross and cannot be changed.
+        const demo = Array.from(container!.querySelectorAll('[aria-label="Beispielfrage"] button')) as HTMLButtonElement[];
+        expect(demo.map((b) => b.querySelector(".answer-text")?.textContent)).toEqual(["2", "5", "7", "10"]);
+        expect(demo[2].querySelector(".sr-only")?.textContent).toBe("ausgewählt");
+        expect(demo.map((b) => b.getAttribute("aria-pressed"))).toEqual(["false", "false", "true", "false"]);
+        expect(demo.every((b) => b.disabled)).toBe(true);
+        expect(demo[2].querySelector('[data-marker="checkbox"] svg')).not.toBeNull();
+        expect(demo[0].querySelector('[data-marker="checkbox"] svg')).toBeNull();
+        // No running clock and no questions yet.
+        expect(document.querySelector("[role=timer]")).toBeNull();
+        expect(text()).not.toContain("1 / 33");
+        expect(text()).toContain("Test beginnen");
+    });
+
+    it("returns from the cover to the intro with the back button and the hardware back key", async () => {
+        await mount();
+        click(byText("button", "Prüfung starten"));
+        await flush();
+        expect(text()).toContain("Test beginnen");
+        click(byText("button", "Zurück"));
+        await flush();
+        expect(text()).toContain("Prüfung starten");
+        expect(text()).not.toContain("Test beginnen");
+
+        click(byText("button", "Prüfung starten"));
+        await flush();
+        expect(text()).toContain("Test beginnen");
+        let claimed = false;
+        act(() => {
+            claimed = !window.dispatchEvent(new Event(BACK_EVENT, { cancelable: true }));
+        });
+        await flush();
+        expect(claimed).toBe(true);
+        expect(text()).toContain("Prüfung starten");
+        expect(text()).not.toContain("Test beginnen");
+        expect(readUser()!.testProgress.length).toBe(3);
+    });
+
+    it("starts the clock only when the test begins, not on the cover", async () => {
+        vi.useFakeTimers({ shouldAdvanceTime: false, toFake: ["setInterval", "clearInterval", "Date"] });
+        await mount();
+        click(byText("button", "Prüfung starten"));
+        await act(async () => {
+            await Promise.resolve();
+        });
+        const begin = byText("button", "Test beginnen");
+        expect(begin).toBeTruthy();
+        await act(async () => {
+            vi.advanceTimersByTime(5 * 60 * 1000);
+        });
+        click(begin);
+        await act(async () => {
+            await Promise.resolve();
+        });
+        expect(text()).toContain("60:00");
+        await act(async () => {
+            vi.advanceTimersByTime(60 * 1000);
+        });
+        expect(text()).toContain("59:00");
     });
 
     it("runs through an exam: answer, flag, map, submit, results", async () => {
         await mount();
-        click(byText("button", "Prüfung starten"));
-        await flush();
+        await startExam();
         expect(text()).toContain("1 / 33");
         expect(text()).toContain("60:00");
         expect(document.querySelector("header [role=timer]")).not.toBeNull();
 
+        // Sheet heading: "Frage 1" plus the test name, but no catalogue number or topic hint.
+        expect(container!.querySelector("header")?.textContent).toContain("Einbürgerungstest");
+        const headingWrapper = container!.querySelector("#exam-question")!.parentElement!;
+        expect(headingWrapper.querySelector("p")?.textContent).toBe("Frage 1");
+        expect(headingWrapper.querySelectorAll("span").length).toBe(0);
+
         // answer the first question with a click
         const answerButtons = () => Array.from(container!.querySelectorAll('[role="group"] button'));
         expect(answerButtons().length).toBe(4);
+        expect(container!.querySelectorAll('[role="group"] [data-marker="checkbox"]').length).toBe(4);
+        expect(answerButtons()[0].textContent).not.toMatch(/^A/);
         click(answerButtons()[1]);
         await flush();
         expect(answerButtons()[1].getAttribute("aria-pressed")).toBe("true");
+        expect(answerButtons()[1].querySelector('[data-marker="checkbox"] svg')).not.toBeNull();
+        expect(answerButtons()[0].querySelector('[data-marker="checkbox"] svg')).toBeNull();
         expect(text()).toContain("1 von 33 beantwortet");
 
         // keyboard: flag, pick C, move right
@@ -224,8 +334,7 @@ describe("mock page smoke", () => {
 
     it("cancels an exam from the exit dialog and shows the cancelled result", async () => {
         await mount();
-        click(byText("button", "Prüfung starten"));
-        await flush();
+        await startExam();
         click(byLabel("Beenden"));
         await flush();
         click(byText('[role="dialog"] button', "Prüfung beenden"));
@@ -240,6 +349,10 @@ describe("mock page smoke", () => {
         vi.useFakeTimers({ shouldAdvanceTime: false, toFake: ["setInterval", "clearInterval", "Date"] });
         await mount();
         click(byText("button", "Prüfung starten"));
+        await act(async () => {
+            await Promise.resolve();
+        });
+        click(byText("button", "Test beginnen"));
         await act(async () => {
             await Promise.resolve();
         });

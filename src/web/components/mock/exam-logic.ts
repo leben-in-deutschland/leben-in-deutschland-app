@@ -37,8 +37,10 @@ export function shuffle<T>(items: readonly T[], random: () => number = Math.rand
 
 /**
  * Picks the exam set from two pools: `generalCount` random general questions
- * followed by `stateCount` random state questions, like the real exam. Pools
- * smaller than the requested count give a shorter exam instead of duplicates.
+ * and `stateCount` random state questions, then mixes both so the state
+ * questions sit among the general ones like on the official sample sheets.
+ * Pools smaller than the requested count give a shorter exam instead of
+ * duplicates.
  */
 export function pickExamQuestions(
     general: readonly Question[],
@@ -58,10 +60,10 @@ export function pickExamQuestions(
         });
     const generalPick = shuffle(unique(general), random).slice(0, generalCount);
     const statePick = shuffle(unique(state), random).slice(0, stateCount);
-    return [...generalPick, ...statePick];
+    return shuffle([...generalPick, ...statePick], random);
 }
 
-/** The question set for a new exam: 30 general questions plus 3 of the learner's state. */
+/** The question set for a new exam: 30 general questions plus 3 of the learner's state, mixed. */
 export function buildExamQuestions(stateCode: string, random: () => number = Math.random): Question[] {
     const general = getRelevantQuestions(stateCode).filter((question) => !isStateQuestion(question.num, stateCode));
     return pickExamQuestions(general, getStateQuestions(stateCode), random);

@@ -19,7 +19,11 @@ run a mock test, and review progress without creating an account.
 
 ## Current Capabilities
 
-- Interactive mock tests and preparation flows.
+- Interactive mock tests and preparation flows. The mock exam follows the
+  official sample test sheet (Musterfragebogen): a cover and instruction
+  page before the clock starts, "Frage 1" to "Frage 33" with checkbox
+  marks, the state questions mixed in, and links to the two official sample
+  sheets on bamf.de ([`FEAT-009`](../features/009-mock-exam-official-sheet.md)).
 - Ten study modes, including spaced review, topics, quick rounds, and a
   marathon through the whole catalogue.
 - Streak options (daily goal, streak rule, rest days, streak freezes) and
@@ -49,6 +53,12 @@ run a mock test, and review progress without creating an account.
 - Versioned JSON and assets provide the learning content.
 - Scheduled GitHub Actions retrieve source data from
   `leben-in-deutschland/leben-in-deutschland-scrapper`.
+- The official BAMF catalogue PDF is the reference for what a question
+  says ([`ADR-009`](../decisions/ADR-009-official-bamf-catalogue-source.md)):
+  a weekly read-only check under `src/catalogue/` turns a new edition into
+  a report and a proposal in a pull request. The scraper still supplies
+  translations, explanations, and solutions, and nothing changes in the
+  app's question file until the owner approves the merge.
 - Vercel and Google Play are delivery systems, not product logic. Google
   Play's billing system is the only payment processor; the repository holds
   no payment data beyond a per-device tip counter.
@@ -63,7 +73,8 @@ run a mock test, and review progress without creating an account.
 
 ## Open Questions
 
-- The repository does not state who owns the canonical interpretation and
-  approval of upstream test content.
+- The repository does not state who owns the canonical interpretation of
+  upstream test content beyond ADR-009, which makes the owner the reviewer
+  of every change to the question texts.
 - The supported status and release expectations for iOS are not documented.
 - Production release ownership and approval requirements are not documented.

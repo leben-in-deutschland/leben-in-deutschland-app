@@ -11,19 +11,25 @@ import { AppLink, useAppNavigate } from "@/components/ui/app-link";
 import { EmptyState } from "@/components/ui/feedback";
 import { ClipboardCheckIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/surface";
+import { MockCover } from "@/components/mock/mock-cover";
 import { MockExam, type ExamFinishPayload } from "@/components/mock/mock-exam";
 import { buildExamQuestions, buildReviewEntries, findExam } from "@/components/mock/exam-logic";
 import { MockIntro } from "@/components/mock/mock-intro";
 import { MockResults } from "@/components/mock/mock-results";
 import { applyMockToUser, gradeMock } from "@/utils/practice-logic";
+import { isStateQuestion } from "@/utils/question-bank";
 import { passMarkFor, prefsOf } from "@/utils/user-defaults";
 import { updateUser, useAppLanguage, useIsNative, useTranslations, useUser } from "@/utils/user-store";
 
-interface ExamSession {
+/** An exam whose cover is shown; the clock has not started yet. */
+interface PendingExam {
     questions: Question[];
-    startedAt: Date;
     examType: ExamType;
     timed: boolean;
+}
+
+interface ExamSession extends PendingExam {
+    startedAt: Date;
 }
 
 interface ExamOutcome {
@@ -39,26 +45,35 @@ function MockScreen() {
     const isNative = useIsNative();
     const searchParams = useSearchParams();
     const reviewKey = searchParams.get("review");
+    const [pending, setPending] = useState<PendingExam | null>(null);
     const [session, setSession] = useState<ExamSession | null>(null);
     const [outcome, setOutcome] = useState<ExamOutcome | null>(null);
     const navigate = useAppNavigate();
-    useFocusMode(session !== null);
+    const idle = session === null && pending === null;
+    // The cover and the running exam hide the app chrome.
+    useFocusMode(!idle);
     // Android back: fresh results return to the intro, a review returns to the exam hub.
-    useBackButton(() => setOutcome(null), session === null && !reviewKey && outcome !== null);
-    useBackButton(() => navigate("/mock"), session === null && reviewKey !== null);
+    useBackButton(() => setOutcome(null), idle && !reviewKey && outcome !== null);
+    useBackButton(() => navigate("/mock"), idle && reviewKey !== null);
 
     if (!user) {
         return null;
     }
     const prefs = prefsOf(user);
 
-    const startExam = ({ examType, timed }: { examType: ExamType; timed: boolean }) => {
+    // "Start exam" draws the questions and shows the cover; the clock waits for "Begin test".
+    const prepareExam = ({ examType, timed }: { examType: ExamType; timed: boolean }) => {
         const questions = buildExamQuestions(user.state.stateCode);
         if (questions.length === 0) {
             return;
         }
         setOutcome(null);
-        setSession({ questions, startedAt: new Date(), examType, timed });
+        setPending({ questions, examType, timed });
+    };
+
+    const beginExam = (current: PendingExam) => {
+        setPending(null);
+        setSession({ ...current, startedAt: new Date() });
     };
 
     const finishExam = (current: ExamSession, { answers, flagged, reason }: ExamFinishPayload) => {
@@ -82,11 +97,28 @@ function MockScreen() {
                 key={session.startedAt.toISOString()}
                 questions={session.questions}
                 startedAt={session.startedAt}
+                examType={session.examType}
                 timed={session.timed}
                 prefs={prefs}
                 isNative={isNative}
                 t={t}
                 onFinish={(payload) => finishExam(session, payload)}
+            />
+        );
+    }
+
+    if (pending) {
+        return (
+            <MockCover
+                examType={pending.examType}
+                timed={pending.timed}
+                stateName={user.state.stateName}
+                total={pending.questions.length}
+                stateCount={pending.questions.filter((question) => isStateQuestion(question.num, user.state.stateCode)).length}
+                t={t}
+                language={language}
+                onBegin={() => beginExam(pending)}
+                onBack={() => setPending(null)}
             />
         );
     }
@@ -130,7 +162,7 @@ function MockScreen() {
         );
     }
 
-    return <MockIntro user={user} t={t} language={language} onStart={startExam} />;
+    return <MockIntro user={user} t={t} language={language} onStart={prepareExam} />;
 }
 
 export default function MockPage() {

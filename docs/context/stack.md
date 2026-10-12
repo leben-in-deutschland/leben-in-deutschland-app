@@ -5,6 +5,7 @@
 ```text
 src/web/       Next.js web application and tests
 src/android/   Capacitor Android project
+src/catalogue/ Scripts that check, extract, compare, and apply the official BAMF catalogue PDF
 .github/       CI, data sync, deployment, and release workflows
 docs/          PULSE engineering control plane
 ```
@@ -31,6 +32,9 @@ docs/          PULSE engineering control plane
 - Gradle wrapper under `src/android/`.
 - GitHub Actions for tests, data sync, Vercel deployment, and Android release.
 - Java 21 in the Android release workflow.
+- `pdfjs-dist`, a devDependency of `src/web/package.json`, used only by the
+  catalogue scripts under `src/catalogue/` (loaded from
+  `src/web/node_modules`); it is not part of the app bundle.
 
 ## Real Commands
 
@@ -70,6 +74,15 @@ and secret boundaries.
   "no notices") and `questions-core.json` from `main`, both with
   `If-None-Match` so an unchanged file costs one `304`. These three are the
   app's only runtime requests for its own data; none carries identifiers.
+- The official BAMF question catalogue PDF (ADR-009): the `Sync Catalogue`
+  workflow (`.github/workflows/sync-catalogue.yml`) runs
+  `src/catalogue/check.mjs` once a week with read-only `GET` requests to
+  `bamf.de` (conditional `GET`, never `HEAD`, no cookies stored). When the
+  PDF changed it applies the safe part (exact answer-text matches) to
+  `src/web/data/question.json`, runs the tests, pushes to `main` with the
+  `PAT` secret (which starts the deploy and release workflows), and opens
+  an issue for the questions that need a human. The app itself never
+  requests anything from bamf.de.
 
 ## Constraints
 

@@ -12,6 +12,8 @@
 | [FEAT-006](006-store-assets.md) | Store Screenshots, Listing Copy, and Promo Videos | Done |
 | [FEAT-007](007-rich-notifications.md) | Rich Android Notifications - Question of the Day and Encouragement | Done |
 | [FEAT-008](008-classic-ui-choice.md) | Classic Design Opt-In for Upgraded Learners | Done |
+| [FEAT-009](009-mock-exam-official-sheet.md) | Mock Exam Shaped Like the Official Test Sheet | Done |
+| [FEAT-010](010-official-catalogue-pipeline.md) | Official Question Catalogue Pipeline From the BAMF PDF | Done |
 
 Copy `_template.md` when a requested user or system behavior benefits from a
 durable specification. Use `NNN-short-title.md` and one of these statuses:

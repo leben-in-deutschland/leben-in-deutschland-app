@@ -27,6 +27,11 @@ work. It is not a task log.
   repository is public on purpose; what may appear, what never may (secrets,
   private e-mail, device serials, cloud ids, home paths), noreply commit
   identity, and the audit commands.
+- [`bamf-catalogue-source.md`](bamf-catalogue-source.md) - the official
+  BAMF catalogue PDF: firewall blocks `HEAD`, conditional `GET` is fine, three
+  "last updated" signals and which to trust, no answer key, numbering differs
+  from the app's so never auto-merge, picture credits, pull request instead
+  of a push to `main`.
 
 ## Rules
 

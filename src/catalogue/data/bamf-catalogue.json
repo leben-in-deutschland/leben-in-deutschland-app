@@ -1,0 +1,6087 @@
+{
+  "source": {
+    "pdfUrl": "https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Einbuergerung/gesamtfragenkatalog-lebenindeutschland.pdf?__blob=publicationFile",
+    "stand": "07.05.2025",
+    "lastModified": "Wed, 03 Sep 2025 11:46:29 GMT",
+    "etag": "\"d46ab013b2f264b1dd2ba14220944309\"",
+    "sha256": "edd3ed5e56a35241b6cc61aa0630482dc9e64498db508a7d6892ccee2ec707a9",
+    "pages": 191,
+    "extractedAt": "2026-10-12T04:26:37.990Z"
+  },
+  "counts": {
+    "general": 300,
+    "state": 160,
+    "withImages": 43
+  },
+  "questions": [
+    {
+      "num": "1",
+      "part": "general",
+      "page": 2,
+      "question": "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil …",
+      "answers": [
+        "hier Religionsfreiheit gilt.",
+        "die Menschen Steuern zahlen.",
+        "die Menschen das Wahlrecht haben.",
+        "hier Meinungsfreiheit gilt."
+      ]
+    },
+    {
+      "num": "2",
+      "part": "general",
+      "page": 2,
+      "question": "In Deutschland können Eltern bis zum 14. Lebensjahr ihres Kindes entscheiden, ob es in der Schule am …",
+      "answers": [
+        "Geschichtsunterricht teilnimmt.",
+        "Religionsunterricht teilnimmt.",
+        "Politikunterricht teilnimmt.",
+        "Sprachunterricht teilnimmt."
+      ]
+    },
+    {
+      "num": "3",
+      "part": "general",
+      "page": 2,
+      "question": "Deutschland ist ein Rechtsstaat. Was ist damit gemeint?",
+      "answers": [
+        "Alle Einwohnerinnen/Einwohner und der Staat müssen sich an die Gesetze halten.",
+        "Der Staat muss sich nicht an die Gesetze halten.",
+        "Nur Deutsche müssen die Gesetze befolgen.",
+        "Die Gerichte machen die Gesetze."
+      ]
+    },
+    {
+      "num": "4",
+      "part": "general",
+      "page": 3,
+      "question": "Welches Recht gehört zu den Grundrechten in Deutschland?",
+      "answers": [
+        "Waffenbesitz",
+        "Faustrecht",
+        "Meinungsfreiheit",
+        "Selbstjustiz"
+      ]
+    },
+    {
+      "num": "5",
+      "part": "general",
+      "page": 3,
+      "question": "Wahlen in Deutschland sind frei. Was bedeutet das?",
+      "answers": [
+        "Man darf Geld annehmen, wenn man dafür eine bestimmte Kandidatin/einen bestimmten Kandidaten wählt.",
+        "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.",
+        "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch zu einer bestimmten Stimmabgabe gezwungen werden und keine Nachteile durch die Wahl haben.",
+        "Alle wahlberechtigten Personen müssen wählen."
+      ]
+    },
+    {
+      "num": "6",
+      "part": "general",
+      "page": 3,
+      "question": "Wie heißt die deutsche Verfassung?",
+      "answers": [
+        "Volksgesetz",
+        "Bundesgesetz",
+        "Deutsches Gesetz",
+        "Grundgesetz"
+      ]
+    },
+    {
+      "num": "7",
+      "part": "general",
+      "page": 4,
+      "question": "Welches Recht gehört zu den Grundrechten, die nach der deutschen Verfassung garantiert werden? Das Recht auf …",
+      "answers": [
+        "Glaubens- und Gewissensfreiheit",
+        "Unterhaltung",
+        "Arbeit",
+        "Wohnung"
+      ]
+    },
+    {
+      "num": "8",
+      "part": "general",
+      "page": 4,
+      "question": "Was steht nicht im Grundgesetz von Deutschland?",
+      "answers": [
+        "Die Würde des Menschen ist unantastbar.",
+        "Alle sollen gleich viel Geld haben.",
+        "Jeder Mensch darf seine Meinung sagen.",
+        "Alle sind vor dem Gesetz gleich."
+      ]
+    },
+    {
+      "num": "9",
+      "part": "general",
+      "page": 4,
+      "question": "Welches Grundrecht gilt in Deutschland nur für Ausländerinnen/Ausländer? Das Grundrecht auf …",
+      "answers": [
+        "Schutz der Familie",
+        "Menschenwürde",
+        "Asyl",
+        "Meinungsfreiheit"
+      ]
+    },
+    {
+      "num": "10",
+      "part": "general",
+      "page": 5,
+      "question": "Was ist mit dem deutschen Grundgesetz vereinbar?",
+      "answers": [
+        "die Prügelstrafe",
+        "die Folter",
+        "die Todesstrafe",
+        "die Geldstrafe"
+      ]
+    },
+    {
+      "num": "11",
+      "part": "general",
+      "page": 5,
+      "question": "Wie wird die Verfassung der Bundesrepublik Deutschland genannt?",
+      "answers": [
+        "Grundgesetz",
+        "Bundesverfassung",
+        "Gesetzbuch",
+        "Verfassungsvertrag"
+      ]
+    },
+    {
+      "num": "12",
+      "part": "general",
+      "page": 5,
+      "question": "Eine Partei im Deutschen Bundestag will die Pressefreiheit abschaffen. Ist das möglich?",
+      "answers": [
+        "Ja, wenn mehr als die Hälfte der Abgeordneten im Bundestag dafür sind.",
+        "Ja, aber dazu müssen zwei Drittel der Abgeordneten im Bundestag dafür sein.",
+        "Nein, denn die Pressefreiheit ist ein Grundrecht. Sie kann nicht abgeschafft werden.",
+        "Nein, denn nur der Bundesrat kann die Pressefreiheit abschaffen."
+      ]
+    },
+    {
+      "num": "13",
+      "part": "general",
+      "page": 6,
+      "question": "Im Parlament steht der Begriff \"Opposition\" für …",
+      "answers": [
+        "die regierenden Parteien.",
+        "die Fraktion mit den meisten Abgeordneten.",
+        "alle Parteien, die bei der letzten Wahl die 5%-Hürde erreichen konnten.",
+        "alle Abgeordneten, die nicht zu der Regierungspartei/den Regierungsparteien gehören."
+      ]
+    },
+    {
+      "num": "14",
+      "part": "general",
+      "page": 6,
+      "question": "Meinungsfreiheit in Deutschland heißt, dass ich …",
+      "answers": [
+        "Passanten auf der Straße beschimpfen darf.",
+        "meine Meinung im Internet äußern kann.",
+        "Nazi-, Hamas- oder Islamischer Staat-Symbole öffentlich tragen darf.",
+        "meine Meinung nur dann äußern darf, solange ich der Regierung nicht widerspreche."
+      ]
+    },
+    {
+      "num": "15",
+      "part": "general",
+      "page": 6,
+      "question": "Was verbietet das deutsche Grundgesetz?",
+      "answers": [
+        "Militärdienst",
+        "Zwangsarbeit",
+        "freie Berufswahl",
+        "Arbeit im Ausland"
+      ]
+    },
+    {
+      "num": "16",
+      "part": "general",
+      "page": 7,
+      "question": "Wann ist die Meinungsfreiheit in Deutschland eingeschränkt?",
+      "answers": [
+        "bei der öffentlichen Verbreitung falscher Behauptungen über einzelne Personen",
+        "bei Meinungsäußerungen über die Bundesregierung",
+        "bei Diskussionen über Religionen",
+        "bei Kritik am Staat"
+      ]
+    },
+    {
+      "num": "17",
+      "part": "general",
+      "page": 7,
+      "question": "Die deutschen Gesetze verbieten …",
+      "answers": [
+        "Meinungsfreiheit der Einwohnerinnen und Einwohner.",
+        "Petitionen der Bürgerinnen und Bürger.",
+        "Versammlungsfreiheit der Einwohnerinnen und Einwohner.",
+        "Ungleichbehandlung der Bürgerinnen und Bürger durch den Staat."
+      ]
+    },
+    {
+      "num": "18",
+      "part": "general",
+      "page": 7,
+      "question": "Welches Grundrecht ist in Artikel 1 des Grundgesetzes der Bundesrepublik Deutschland garantiert?",
+      "answers": [
+        "die Unantastbarkeit der Menschenwürde",
+        "das Recht auf Leben",
+        "Religionsfreiheit",
+        "Meinungsfreiheit"
+      ]
+    },
+    {
+      "num": "19",
+      "part": "general",
+      "page": 8,
+      "question": "Was versteht man unter dem Recht der \"Freizügigkeit\" in Deutschland?",
+      "answers": [
+        "Man darf sich seinen Wohnort selbst aussuchen.",
+        "Man kann seinen Beruf wechseln.",
+        "Man darf sich für eine andere Religion entscheiden.",
+        "Man darf sich in der Öffentlichkeit nur leicht bekleidet bewegen."
+      ]
+    },
+    {
+      "num": "20",
+      "part": "general",
+      "page": 8,
+      "question": "Eine Partei in Deutschland verfolgt das Ziel, eine Diktatur zu errichten. Sie ist dann …",
+      "answers": [
+        "tolerant.",
+        "rechtsstaatlich orientiert.",
+        "gesetzestreu.",
+        "verfassungswidrig."
+      ]
+    },
+    {
+      "num": "21",
+      "part": "general",
+      "page": 9,
+      "question": "Welches ist das Wappen der Bundesrepublik Deutschland?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/21-1.png",
+        "images/21-2.png",
+        "images/21-3.png",
+        "images/21-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "22",
+      "part": "general",
+      "page": 9,
+      "question": "Was für eine Staatsform hat Deutschland?",
+      "answers": [
+        "Monarchie",
+        "Diktatur",
+        "Republik",
+        "Fürstentum"
+      ]
+    },
+    {
+      "num": "23",
+      "part": "general",
+      "page": 10,
+      "question": "In Deutschland sind die meisten Erwerbstätigen …",
+      "answers": [
+        "in kleinen Familienunternehmen beschäftigt.",
+        "ehrenamtlich für ein Bundesland tätig.",
+        "selbstständig mit einer eigenen Firma tätig.",
+        "bei einer Firma oder Behörde beschäftigt."
+      ]
+    },
+    {
+      "num": "24",
+      "part": "general",
+      "page": 10,
+      "question": "Wie viele Bundesländer hat die Bundesrepublik Deutschland?",
+      "answers": [
+        "14",
+        "15",
+        "16",
+        "17"
+      ]
+    },
+    {
+      "num": "25",
+      "part": "general",
+      "page": 10,
+      "question": "Was ist kein Bundesland der Bundesrepublik Deutschland?",
+      "answers": [
+        "Elsass-Lothringen",
+        "Nordrhein-Westfalen",
+        "Mecklenburg-Vorpommern",
+        "Sachsen-Anhalt"
+      ]
+    },
+    {
+      "num": "26",
+      "part": "general",
+      "page": 11,
+      "question": "Deutschland ist …",
+      "answers": [
+        "eine kommunistische Republik.",
+        "ein demokratischer und sozialer Bundesstaat.",
+        "eine kapitalistische und soziale Monarchie.",
+        "ein sozialer und sozialistischer Bundesstaat."
+      ]
+    },
+    {
+      "num": "27",
+      "part": "general",
+      "page": 11,
+      "question": "Deutschland ist …",
+      "answers": [
+        "ein sozialistischer Staat.",
+        "ein Bundesstaat.",
+        "eine Diktatur.",
+        "eine Monarchie."
+      ]
+    },
+    {
+      "num": "28",
+      "part": "general",
+      "page": 11,
+      "question": "Wer wählt in Deutschland die Abgeordneten zum Bundestag?",
+      "answers": [
+        "das Militär",
+        "die Wirtschaft",
+        "das wahlberechtigte Volk",
+        "die Verwaltung"
+      ]
+    },
+    {
+      "num": "29",
+      "part": "general",
+      "page": 12,
+      "question": "Welches Tier ist das Wappentier der Bundesrepublik Deutschland?",
+      "answers": [
+        "Löwe",
+        "Adler",
+        "Bär",
+        "Pferd"
+      ]
+    },
+    {
+      "num": "30",
+      "part": "general",
+      "page": 12,
+      "question": "Was ist kein Merkmal unserer Demokratie?",
+      "answers": [
+        "regelmäßige Wahlen",
+        "Pressezensur",
+        "Meinungsfreiheit",
+        "verschiedene Parteien"
+      ]
+    },
+    {
+      "num": "31",
+      "part": "general",
+      "page": 12,
+      "question": "Die Zusammenarbeit von Parteien zur Bildung einer Regierung nennt man in Deutschland …",
+      "answers": [
+        "Einheit.",
+        "Koalition.",
+        "Ministerium.",
+        "Fraktion."
+      ]
+    },
+    {
+      "num": "32",
+      "part": "general",
+      "page": 13,
+      "question": "Was ist keine staatliche Gewalt in Deutschland?",
+      "answers": [
+        "Gesetzgebung",
+        "Regierung",
+        "Presse",
+        "Rechtsprechung"
+      ]
+    },
+    {
+      "num": "33",
+      "part": "general",
+      "page": 13,
+      "question": "Welche Aussage ist richtig? In Deutschland …",
+      "answers": [
+        "sind Staat und Religionsgemeinschaften voneinander getrennt.",
+        "bilden die Religionsgemeinschaften den Staat.",
+        "ist der Staat abhängig von den Religionsgemeinschaften.",
+        "bilden Staat und Religionsgemeinschaften eine Einheit."
+      ]
+    },
+    {
+      "num": "34",
+      "part": "general",
+      "page": 13,
+      "question": "Was ist Deutschland nicht?",
+      "answers": [
+        "eine Demokratie",
+        "ein Rechtsstaat",
+        "eine Monarchie",
+        "ein Sozialstaat"
+      ]
+    },
+    {
+      "num": "35",
+      "part": "general",
+      "page": 14,
+      "question": "Womit finanziert der deutsche Staat die Sozialversicherung?",
+      "answers": [
+        "Kirchensteuer",
+        "Sozialabgaben",
+        "Spendengeldern",
+        "Vereinsbeiträgen"
+      ]
+    },
+    {
+      "num": "36",
+      "part": "general",
+      "page": 14,
+      "question": "Welche Maßnahme schafft in Deutschland soziale Sicherheit?",
+      "answers": [
+        "die Krankenversicherung",
+        "die Autoversicherung",
+        "die Gebäudeversicherung",
+        "die Haftpflichtversicherung"
+      ]
+    },
+    {
+      "num": "37",
+      "part": "general",
+      "page": 14,
+      "question": "Wie werden die Regierungschefinnen/Regierungschefs der meisten Bundesländer in Deutschland genannt?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Senatorin/Senator",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "38",
+      "part": "general",
+      "page": 15,
+      "question": "Die Bundesrepublik Deutschland ist ein demokratischer und sozialer …",
+      "answers": [
+        "Staatenverbund.",
+        "Bundesstaat.",
+        "Staatenbund.",
+        "Zentralstaat."
+      ]
+    },
+    {
+      "num": "39",
+      "part": "general",
+      "page": 15,
+      "question": "Was hat jedes deutsche Bundesland?",
+      "answers": [
+        "eine eigene Außenministerin/einen eigenen Außenminister",
+        "eine eigene Währung",
+        "eine eigene Armee",
+        "eine eigene Regierung"
+      ]
+    },
+    {
+      "num": "40",
+      "part": "general",
+      "page": 15,
+      "question": "Mit welchen Worten beginnt die deutsche Nationalhymne?",
+      "answers": [
+        "Völker, hört die Signale …",
+        "Einigkeit und Recht und Freiheit …",
+        "Freude schöner Götterfunken …",
+        "Deutschland einig Vaterland …"
+      ]
+    },
+    {
+      "num": "41",
+      "part": "general",
+      "page": 16,
+      "question": "Warum gibt es in einer Demokratie mehr als eine Partei?",
+      "answers": [
+        "weil dadurch die unterschiedlichen Meinungen der Bürgerinnen und Bürger vertreten werden",
+        "damit Bestechung in der Politik begrenzt wird",
+        "um politische Demonstrationen zu verhindern",
+        "um wirtschaftlichen Wettbewerb anzuregen"
+      ]
+    },
+    {
+      "num": "42",
+      "part": "general",
+      "page": 16,
+      "question": "Wer beschließt in Deutschland ein neues Gesetz?",
+      "answers": [
+        "die Regierung",
+        "das Parlament",
+        "die Gerichte",
+        "die Polizei"
+      ]
+    },
+    {
+      "num": "43",
+      "part": "general",
+      "page": 16,
+      "question": "Wann kann in Deutschland eine Partei verboten werden?",
+      "answers": [
+        "wenn ihr Wahlkampf zu teuer ist",
+        "wenn sie gegen die Verfassung kämpft",
+        "wenn sie Kritik am Staatsoberhaupt äußert",
+        "wenn ihr Programm eine neue Richtung vorschlägt"
+      ]
+    },
+    {
+      "num": "44",
+      "part": "general",
+      "page": 17,
+      "question": "Wen kann man als Bürgerin/Bürger in Deutschland nicht direkt wählen?",
+      "answers": [
+        "Abgeordnete des EU-Parlaments",
+        "Die Bundespräsidentin/den Bundespräsidenten",
+        "Landtagsabgeordnete",
+        "Bundestagsabgeordnete"
+      ]
+    },
+    {
+      "num": "45",
+      "part": "general",
+      "page": 17,
+      "question": "Zu welcher Versicherung gehört die Pflegeversicherung?",
+      "answers": [
+        "Sozialversicherung",
+        "Unfallversicherung",
+        "Hausratsversicherung",
+        "Haftpflicht- und Feuerversicherung"
+      ]
+    },
+    {
+      "num": "46",
+      "part": "general",
+      "page": 17,
+      "question": "Der deutsche Staat hat viele Aufgaben. Welche Aufgabe gehört dazu?",
+      "answers": [
+        "Er baut Straßen und Schulen.",
+        "Er verkauft Lebensmittel und Kleidung.",
+        "Er versorgt alle Einwohnerinnen und Einwohner kostenlos mit Zeitungen.",
+        "Er produziert Autos und Busse."
+      ]
+    },
+    {
+      "num": "47",
+      "part": "general",
+      "page": 18,
+      "question": "Der deutsche Staat hat viele Aufgaben. Welche Aufgabe gehört nicht dazu?",
+      "answers": [
+        "Er bezahlt für alle Staatsangehörigen Urlaubsreisen.",
+        "Er zahlt Kindergeld.",
+        "Er unterstützt Museen.",
+        "Er fördert Sportlerinnen und Sportler."
+      ]
+    },
+    {
+      "num": "48",
+      "part": "general",
+      "page": 18,
+      "question": "Welches Organ gehört nicht zu den Verfassungsorganen Deutschlands?",
+      "answers": [
+        "der Bundesrat",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bürgerversammlung",
+        "die Regierung"
+      ]
+    },
+    {
+      "num": "49",
+      "part": "general",
+      "page": 18,
+      "question": "Wer bestimmt in Deutschland die Schulpolitik?",
+      "answers": [
+        "die Lehrer und Lehrerinnen",
+        "die Bundesländer",
+        "das Familienministerium",
+        "die Universitäten"
+      ]
+    },
+    {
+      "num": "50",
+      "part": "general",
+      "page": 19,
+      "question": "Die Wirtschaftsform in Deutschland nennt man …",
+      "answers": [
+        "freie Zentralwirtschaft.",
+        "soziale Marktwirtschaft.",
+        "gelenkte Zentralwirtschaft.",
+        "Planwirtschaft."
+      ]
+    },
+    {
+      "num": "51",
+      "part": "general",
+      "page": 19,
+      "question": "Zu einem demokratischen Rechtsstaat gehört es nicht, dass …",
+      "answers": [
+        "Menschen sich kritisch über die Regierung äußern können.",
+        "Bürger friedlich demonstrieren gehen dürfen.",
+        "Menschen von einer Privatpolizei ohne Grund verhaftet werden.",
+        "jemand ein Verbrechen begeht und deshalb verhaftet wird."
+      ]
+    },
+    {
+      "num": "52",
+      "part": "general",
+      "page": 19,
+      "question": "Was bedeutet \"Volkssouveränität\"? Alle Staatsgewalt geht vom …",
+      "answers": [
+        "Volke aus.",
+        "Bundestag aus.",
+        "preußischen König aus.",
+        "Bundesverfassungsgericht aus."
+      ]
+    },
+    {
+      "num": "53",
+      "part": "general",
+      "page": 20,
+      "question": "Was bedeutet \"Rechtsstaat\" in Deutschland?",
+      "answers": [
+        "Der Staat hat Recht.",
+        "Es gibt nur rechte Parteien.",
+        "Die Bürgerinnen und Bürger entscheiden über Gesetze.",
+        "Der Staat muss die Gesetze einhalten."
+      ]
+    },
+    {
+      "num": "54",
+      "part": "general",
+      "page": 20,
+      "question": "Was ist keine staatliche Gewalt in Deutschland?",
+      "answers": [
+        "Legislative",
+        "Judikative",
+        "Exekutive",
+        "Direktive"
+      ]
+    },
+    {
+      "num": "55",
+      "part": "general",
+      "page": 21,
+      "question": "Was zeigt dieses Bild?",
+      "answers": [
+        "den Bundestagssitz in Berlin",
+        "das Bundesverfassungsgericht in Karlsruhe",
+        "das Bundesratsgebäude in Berlin",
+        "das Bundeskanzleramt in Berlin"
+      ],
+      "images": [
+        "images/55-1.png"
+      ],
+      "credit": "© Deutscher Bundestag/Achim Melde"
+    },
+    {
+      "num": "56",
+      "part": "general",
+      "page": 21,
+      "question": "Welches Amt gehört in Deutschland zur Gemeindeverwaltung?",
+      "answers": [
+        "Pfarramt",
+        "Ordnungsamt",
+        "Finanzamt",
+        "Auswärtiges Amt"
+      ]
+    },
+    {
+      "num": "57",
+      "part": "general",
+      "page": 22,
+      "question": "Wer wird meistens zur Präsidentin/zum Präsidenten des Deutschen Bundestages gewählt?",
+      "answers": [
+        "die/der älteste Abgeordnete im Parlament",
+        "die Ministerpräsidentin/der Ministerpräsident des größten Bundeslandes",
+        "eine ehemalige Bundeskanzlerin/ein ehemaliger Bundeskanzler",
+        "eine Abgeordnete/ein Abgeordneter der stärksten Fraktion"
+      ]
+    },
+    {
+      "num": "58",
+      "part": "general",
+      "page": 22,
+      "question": "Wer ernennt in Deutschland die Ministerinnen/die Minister der Bundesregierung?",
+      "answers": [
+        "die Präsidentin/der Präsident des Bundesverfassungsgerichtes",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundestagspräsidentin/der Bundestagspräsident"
+      ]
+    },
+    {
+      "num": "59",
+      "part": "general",
+      "page": 22,
+      "question": "Vor wie vielen Jahren gab es erstmals eine jüdische Gemeinde auf dem Gebiet des heutigen Deutschlands?",
+      "answers": [
+        "vor etwa 300 Jahren",
+        "vor etwa 700 Jahren",
+        "vor etwa 1150 Jahren",
+        "vor etwa 1700 Jahren"
+      ]
+    },
+    {
+      "num": "60",
+      "part": "general",
+      "page": 23,
+      "question": "In Deutschland gehören der Bundestag und der Bundesrat zur …",
+      "answers": [
+        "Exekutive.",
+        "Legislative.",
+        "Direktive.",
+        "Judikative."
+      ]
+    },
+    {
+      "num": "61",
+      "part": "general",
+      "page": 23,
+      "question": "Was bedeutet \"Volkssouveränität\"?",
+      "answers": [
+        "Die Königin/der König herrscht über das Volk.",
+        "Das Bundesverfassungsgericht steht über der Verfassung.",
+        "Die Interessenverbände üben die Souveränität zusammen mit der Regierung aus.",
+        "Die Staatsgewalt geht vom Volke aus."
+      ]
+    },
+    {
+      "num": "62",
+      "part": "general",
+      "page": 23,
+      "question": "Wenn das Parlament eines deutschen Bundeslandes gewählt wird, nennt man das …",
+      "answers": [
+        "Kommunalwahl",
+        "Landtagswahl",
+        "Europawahl",
+        "Bundestagswahl"
+      ]
+    },
+    {
+      "num": "63",
+      "part": "general",
+      "page": 24,
+      "question": "Was gehört in Deutschland nicht zur Exekutive?",
+      "answers": [
+        "die Polizei",
+        "die Gerichte",
+        "das Finanzamt",
+        "die Ministerien"
+      ]
+    },
+    {
+      "num": "64",
+      "part": "general",
+      "page": 24,
+      "question": "Die Bundesrepublik Deutschland ist heute gegliedert in …",
+      "answers": [
+        "vier Besatzungszonen.",
+        "einen Oststaat und einen Weststaat.",
+        "16 Kantone.",
+        "Bund, Länder und Kommunen."
+      ]
+    },
+    {
+      "num": "65",
+      "part": "general",
+      "page": 24,
+      "question": "Es gehört nicht zu den Aufgaben des Deutschen Bundestages, …",
+      "answers": [
+        "Gesetze zu entwerfen.",
+        "die Bundesregierung zu kontrollieren.",
+        "die Bundeskanzlerin/den Bundeskanzler zu wählen.",
+        "das Bundeskabinett zu bilden."
+      ]
+    },
+    {
+      "num": "66",
+      "part": "general",
+      "page": 25,
+      "question": "Welche Städte haben die größten jüdischen Gemeinden in Deutschland?",
+      "answers": [
+        "Berlin und München",
+        "Hamburg und Essen",
+        "Nürnberg und Stuttgart",
+        "Worms und Speyer"
+      ]
+    },
+    {
+      "num": "67",
+      "part": "general",
+      "page": 25,
+      "question": "Was ist in Deutschland vor allem eine Aufgabe der Bundesländer?",
+      "answers": [
+        "Verteidigungspolitik",
+        "Außenpolitik",
+        "Wirtschaftspolitik",
+        "Schulpolitik"
+      ]
+    },
+    {
+      "num": "68",
+      "part": "general",
+      "page": 25,
+      "question": "Warum kontrolliert der Staat in Deutschland das Schulwesen?",
+      "answers": [
+        "weil es in Deutschland nur staatliche Schulen gibt",
+        "weil alle Schülerinnen und Schüler einen Schulabschluss haben müssen",
+        "weil es in den Bundesländern verschiedene Schulen gibt",
+        "weil es nach dem Grundgesetz seine Aufgabe ist"
+      ]
+    },
+    {
+      "num": "69",
+      "part": "general",
+      "page": 26,
+      "question": "Die Bundesrepublik Deutschland hat einen dreistufigen Verwaltungsaufbau. Wie heißt die unterste politische Stufe?",
+      "answers": [
+        "Stadträte",
+        "Landräte",
+        "Gemeinden",
+        "Bezirksämter"
+      ]
+    },
+    {
+      "num": "70",
+      "part": "general",
+      "page": 27,
+      "question": "Der deutsche Bundespräsident Gustav Heinemann gibt Helmut Schmidt 1974 die Ernennungsurkunde zum deutschen Bundeskanzler. Was gehört zu den Aufgaben der deutschen Bundespräsidentin/des deutschen Bundespräsidenten?",
+      "answers": [
+        "Sie/Er führt die Regierungsgeschäfte.",
+        "Sie/Er kontrolliert die Regierungspartei.",
+        "Sie/Er wählt die Ministerinnen/Minister aus.",
+        "Sie/Er schlägt die Kanzlerin/den Kanzler zur Wahl vor."
+      ],
+      "images": [
+        "images/70-1.png"
+      ],
+      "credit": "© Bundesregierung/Engelbert Reineke"
+    },
+    {
+      "num": "71",
+      "part": "general",
+      "page": 28,
+      "question": "Wo hält sich die deutsche Bundeskanzlerin/der deutsche Bundeskanzler am häufigsten auf? Am häufigsten ist sie/er …",
+      "answers": [
+        "in Bonn, weil sich dort das Bundeskanzleramt und der Bundestag befinden.",
+        "auf Schloss Meseberg, dem Gästehaus der Bundesregierung, um Staatsgäste zu empfangen.",
+        "auf Schloss Bellevue, dem Amtssitz der Bundespräsidentin/des Bundespräsidenten, um Staatsgäste zu empfangen.",
+        "in Berlin, weil sich dort das Bundeskanzleramt und der Bundestag befinden."
+      ]
+    },
+    {
+      "num": "72",
+      "part": "general",
+      "page": 28,
+      "question": "Wie heißt die jetzige Bundeskanzlerin/der jetzige Bundeskanzler von Deutschland?",
+      "answers": [
+        "Gerhard Schröder",
+        "Angela Merkel",
+        "Ursula von der Leyen",
+        "Friedrich Merz"
+      ]
+    },
+    {
+      "num": "73",
+      "part": "general",
+      "page": 28,
+      "question": "Die beiden größten Fraktionen im Deutschen Bundestag heißen zurzeit …",
+      "answers": [
+        "CDU/CSU und AfD.",
+        "Die Linke und Bündnis 90/Die Grünen.",
+        "Bündnis 90/Die Grünen und SPD.",
+        "Die Linke und CDU/CSU."
+      ]
+    },
+    {
+      "num": "74",
+      "part": "general",
+      "page": 29,
+      "question": "Wie heißt das Parlament für ganz Deutschland?",
+      "answers": [
+        "Bundesversammlung",
+        "Volkskammer",
+        "Bundestag",
+        "Bundesgerichtshof"
+      ]
+    },
+    {
+      "num": "75",
+      "part": "general",
+      "page": 29,
+      "question": "Wie heißt Deutschlands heutiges Staatsoberhaupt?",
+      "answers": [
+        "Frank-Walter Steinmeier",
+        "Bärbel Bas",
+        "Bodo Ramelow",
+        "Joachim Gauck"
+      ]
+    },
+    {
+      "num": "76",
+      "part": "general",
+      "page": 29,
+      "question": "Was bedeutet die Abkürzung CDU in Deutschland?",
+      "answers": [
+        "Christliche Deutsche Union",
+        "Club Deutscher Unternehmer",
+        "Christlicher Deutscher Umweltschutz",
+        "Christlich Demokratische Union"
+      ]
+    },
+    {
+      "num": "77",
+      "part": "general",
+      "page": 30,
+      "question": "Was ist die Bundeswehr?",
+      "answers": [
+        "die deutsche Polizei",
+        "ein deutscher Hafen",
+        "eine deutsche Bürgerinitiative",
+        "die deutsche Armee"
+      ]
+    },
+    {
+      "num": "78",
+      "part": "general",
+      "page": 30,
+      "question": "Was bedeutet die Abkürzung SPD?",
+      "answers": [
+        "Sozialistische Partei Deutschlands",
+        "Sozialpolitische Partei Deutschlands",
+        "Sozialdemokratische Partei Deutschlands",
+        "Sozialgerechte Partei Deutschlands"
+      ]
+    },
+    {
+      "num": "79",
+      "part": "general",
+      "page": 30,
+      "question": "Was bedeutet die Abkürzung FDP in Deutschland?",
+      "answers": [
+        "Friedliche Demonstrative Partei",
+        "Freie Deutschland Partei",
+        "Führende Demokratische Partei",
+        "Freie Demokratische Partei"
+      ]
+    },
+    {
+      "num": "80",
+      "part": "general",
+      "page": 31,
+      "question": "Welches Gericht in Deutschland ist zuständig für die Auslegung des Grundgesetzes?",
+      "answers": [
+        "Oberlandesgericht",
+        "Amtsgericht",
+        "Bundesverfassungsgericht",
+        "Verwaltungsgericht"
+      ]
+    },
+    {
+      "num": "81",
+      "part": "general",
+      "page": 31,
+      "question": "Wer wählt die Bundeskanzlerin/den Bundeskanzler in Deutschland?",
+      "answers": [
+        "der Bundesrat",
+        "die Bundesversammlung",
+        "das Volk",
+        "der Bundestag"
+      ]
+    },
+    {
+      "num": "82",
+      "part": "general",
+      "page": 31,
+      "question": "Wer leitet das deutsche Bundeskabinett?",
+      "answers": [
+        "die Bundestagspräsidentin/der Bundestagspräsident",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundeskanzlerin/der Bundeskanzler"
+      ]
+    },
+    {
+      "num": "83",
+      "part": "general",
+      "page": 32,
+      "question": "Wer wählt die deutsche Bundeskanzlerin/den deutschen Bundeskanzler?",
+      "answers": [
+        "das Volk",
+        "die Bundesversammlung",
+        "der Bundestag",
+        "die Bundesregierung"
+      ]
+    },
+    {
+      "num": "84",
+      "part": "general",
+      "page": 32,
+      "question": "Welche Hauptaufgabe hat die deutsche Bundespräsidentin/der deutsche Bundespräsident? Sie/Er …",
+      "answers": [
+        "regiert das Land.",
+        "entwirft die Gesetze.",
+        "repräsentiert das Land.",
+        "überwacht die Einhaltung der Gesetze."
+      ]
+    },
+    {
+      "num": "85",
+      "part": "general",
+      "page": 32,
+      "question": "Wer bildet den deutschen Bundesrat?",
+      "answers": [
+        "die Abgeordneten des Bundestages",
+        "die Ministerinnen und Minister der Bundesregierung",
+        "die Regierungsvertreter der Bundesländer",
+        "die Parteimitglieder"
+      ]
+    },
+    {
+      "num": "86",
+      "part": "general",
+      "page": 33,
+      "question": "Wer wählt in Deutschland die Bundespräsidentin/den Bundespräsidenten?",
+      "answers": [
+        "die Bundesversammlung",
+        "der Bundesrat",
+        "das Bundesparlament",
+        "das Bundesverfassungsgericht"
+      ]
+    },
+    {
+      "num": "87",
+      "part": "general",
+      "page": 33,
+      "question": "Wer ist das Staatsoberhaupt der Bundesrepublik Deutschland?",
+      "answers": [
+        "die Bundeskanzlerin/der Bundeskanzler",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundestagspräsidentin/der Bundestagspräsident"
+      ]
+    },
+    {
+      "num": "88",
+      "part": "general",
+      "page": 33,
+      "question": "Die parlamentarische Opposition im Deutschen Bundestag …",
+      "answers": [
+        "kontrolliert die Regierung.",
+        "entscheidet, wer Bundesministerin/Bundesminister wird.",
+        "bestimmt, wer im Bundesrat sitzt.",
+        "schlägt die Regierungschefinnen/Regierungschefs der Länder vor."
+      ]
+    },
+    {
+      "num": "89",
+      "part": "general",
+      "page": 34,
+      "question": "Wie nennt man in Deutschland die Vereinigung von Abgeordneten einer Partei im Parlament?",
+      "answers": [
+        "Verband",
+        "Ältestenrat",
+        "Fraktion",
+        "Opposition"
+      ]
+    },
+    {
+      "num": "90",
+      "part": "general",
+      "page": 34,
+      "question": "Die deutschen Bundesländer wirken an der Gesetzgebung des Bundes mit durch …",
+      "answers": [
+        "den Bundesrat.",
+        "die Bundesversammlung.",
+        "den Bundestag.",
+        "die Bundesregierung."
+      ]
+    },
+    {
+      "num": "91",
+      "part": "general",
+      "page": 34,
+      "question": "In Deutschland kann ein Regierungswechsel in einem Bundesland Auswirkungen auf die Bundespolitik haben. Das Regieren wird …",
+      "answers": [
+        "schwieriger, wenn sich dadurch die Mehrheit im Bundestag ändert.",
+        "leichter, wenn dadurch neue Parteien in den Bundesrat kommen.",
+        "schwieriger, wenn dadurch die Mehrheit im Bundesrat verändert wird.",
+        "leichter, wenn es sich um ein reiches Bundesland handelt."
+      ]
+    },
+    {
+      "num": "92",
+      "part": "general",
+      "page": 35,
+      "question": "Was bedeutet die Abkürzung CSU in Deutschland?",
+      "answers": [
+        "Christlich Sichere Union",
+        "Christlich Süddeutsche Union",
+        "Christlich Sozialer Unternehmerverband",
+        "Christlich Soziale Union"
+      ]
+    },
+    {
+      "num": "93",
+      "part": "general",
+      "page": 35,
+      "question": "Je mehr \"Zweitstimmen\" eine Partei bei einer Bundestagswahl bekommt, desto …",
+      "answers": [
+        "weniger Erststimmen kann sie haben.",
+        "mehr Direktkandidaten der Partei ziehen ins Parlament ein.",
+        "größer ist das Risiko, eine Koalition bilden zu müssen.",
+        "mehr Sitze erhält die Partei im Parlament."
+      ]
+    },
+    {
+      "num": "94",
+      "part": "general",
+      "page": 35,
+      "question": "Ab welchem Alter darf man in Deutschland an der Wahl zum Deutschen Bundestag teilnehmen?",
+      "answers": [
+        "16",
+        "18",
+        "21",
+        "23"
+      ]
+    },
+    {
+      "num": "95",
+      "part": "general",
+      "page": 36,
+      "question": "Was gilt für die meisten Kinder in Deutschland?",
+      "answers": [
+        "Wahlpflicht",
+        "Schulpflicht",
+        "Schweigepflicht",
+        "Religionspflicht"
+      ]
+    },
+    {
+      "num": "96",
+      "part": "general",
+      "page": 36,
+      "question": "Wie kann jemand, der den Holocaust leugnet, bestraft werden?",
+      "answers": [
+        "Kürzung sozialer Leistungen",
+        "bis zu 100 Sozialstunden",
+        "gar nicht, Holocaustleugnung ist erlaubt",
+        "mit Freiheitsstrafe bis zu fünf Jahren oder mit Geldstrafe"
+      ]
+    },
+    {
+      "num": "97",
+      "part": "general",
+      "page": 36,
+      "question": "Was bezahlt man in Deutschland automatisch, wenn man fest angestellt ist?",
+      "answers": [
+        "Sozialversicherung",
+        "Sozialhilfe",
+        "Kindergeld",
+        "Wohngeld"
+      ]
+    },
+    {
+      "num": "98",
+      "part": "general",
+      "page": 37,
+      "question": "Wenn Abgeordnete im Deutschen Bundestag ihre Fraktion wechseln, …",
+      "answers": [
+        "dürfen sie nicht mehr an den Sitzungen des Parlaments teilnehmen.",
+        "kann die Regierung ihre Mehrheit verlieren.",
+        "muss die Bundespräsidentin/der Bundespräsident zuvor ihr/sein Einverständnis geben.",
+        "dürfen die Wählerinnen/Wähler dieser Abgeordneten noch einmal wählen."
+      ]
+    },
+    {
+      "num": "99",
+      "part": "general",
+      "page": 37,
+      "question": "Wer bezahlt in Deutschland die Sozialversicherungen?",
+      "answers": [
+        "Arbeitgeberinnen/Arbeitgeber und Arbeitnehmerinnen/Arbeitnehmer",
+        "nur Arbeitnehmerinnen/Arbeitnehmer",
+        "alle Staatsangehörigen",
+        "nur Arbeitgeberinnen/Arbeitgeber"
+      ]
+    },
+    {
+      "num": "100",
+      "part": "general",
+      "page": 37,
+      "question": "Was gehört nicht zur gesetzlichen Sozialversicherung?",
+      "answers": [
+        "die Lebensversicherung",
+        "die gesetzliche Rentenversicherung",
+        "die Arbeitslosenversicherung",
+        "die Pflegeversicherung"
+      ]
+    },
+    {
+      "num": "101",
+      "part": "general",
+      "page": 38,
+      "question": "Gewerkschaften sind Interessenverbände der …",
+      "answers": [
+        "Jugendlichen.",
+        "Arbeitnehmerinnen und Arbeitnehmer.",
+        "Rentnerinnen und Rentner.",
+        "Arbeitgeberinnen und Arbeitgeber."
+      ]
+    },
+    {
+      "num": "102",
+      "part": "general",
+      "page": 38,
+      "question": "Womit kann man in der Bundesrepublik Deutschland geehrt werden, wenn man auf politischem, wirtschaftlichem, kulturellem, geistigem oder sozialem Gebiet eine besondere Leistung erbracht hat? Mit dem …",
+      "answers": [
+        "Bundesverdienstkreuz",
+        "Bundesadler",
+        "Vaterländischen Verdienstorden",
+        "Ehrentitel \"Held der Deutschen Demokratischen Republik\""
+      ]
+    },
+    {
+      "num": "103",
+      "part": "general",
+      "page": 38,
+      "question": "Was wird in Deutschland als \"Ampelkoalition\" bezeichnet? Die Zusammenarbeit …",
+      "answers": [
+        "der Bundestagsfraktionen von CDU und CSU",
+        "von SPD, FDP und Bündnis 90/Die Grünen in einer Regierung",
+        "von CSU, Die LINKE und Bündnis 90/Die Grünen in einer Regierung",
+        "der Bundestagsfraktionen von CDU und SPD"
+      ]
+    },
+    {
+      "num": "104",
+      "part": "general",
+      "page": 39,
+      "question": "Eine Frau in Deutschland verliert ihre Arbeit. Was darf nicht der Grund für diese Entlassung sein?",
+      "answers": [
+        "Die Frau ist lange krank und arbeitsunfähig.",
+        "Die Frau kam oft zu spät zur Arbeit.",
+        "Die Frau erledigt private Sachen während der Arbeitszeit.",
+        "Die Frau bekommt ein Kind und ihr Chef weiß das."
+      ]
+    },
+    {
+      "num": "105",
+      "part": "general",
+      "page": 39,
+      "question": "Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern in Deutschland?",
+      "answers": [
+        "Sie helfen alten Menschen bei der Stimmabgabe in der Wahlkabine.",
+        "Sie schreiben die Wahlbenachrichtigungen vor der Wahl.",
+        "Sie geben Zwischenergebnisse an die Medien weiter.",
+        "Sie zählen die Stimmen nach dem Ende der Wahl."
+      ]
+    },
+    {
+      "num": "106",
+      "part": "general",
+      "page": 39,
+      "question": "In Deutschland helfen ehrenamtliche Wahlhelferinnen und Wahlhelfer bei den Wahlen. Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern?",
+      "answers": [
+        "Sie helfen Kindern und alten Menschen beim Wählen.",
+        "Sie schreiben Karten und Briefe mit der Angabe des Wahllokals.",
+        "Sie geben Zwischenergebnisse an Journalisten weiter.",
+        "Sie zählen die Stimmen nach dem Ende der Wahl."
+      ]
+    },
+    {
+      "num": "107",
+      "part": "general",
+      "page": 40,
+      "question": "Für wie viele Jahre wird der Bundestag in Deutschland gewählt?",
+      "answers": [
+        "2 Jahre",
+        "4 Jahre",
+        "6 Jahre",
+        "8 Jahre"
+      ]
+    },
+    {
+      "num": "108",
+      "part": "general",
+      "page": 40,
+      "question": "Bei einer Bundestagswahl in Deutschland darf jede/jeder wählen, die/der …",
+      "answers": [
+        "in der Bundesrepublik Deutschland wohnt und wählen möchte.",
+        "Bürgerin/Bürger der Bundesrepublik Deutschland ist und mindestens 18 Jahre alt ist.",
+        "seit mindestens 3 Jahren in der Bundesrepublik Deutschland lebt.",
+        "Bürgerin/Bürger der Bundesrepublik Deutschland ist und mindestens 21 Jahre alt ist."
+      ]
+    },
+    {
+      "num": "109",
+      "part": "general",
+      "page": 40,
+      "question": "Wie oft gibt es normalerweise Bundestagswahlen in Deutschland?",
+      "answers": [
+        "alle drei Jahre",
+        "alle vier Jahre",
+        "alle fünf Jahre",
+        "alle sechs Jahre"
+      ]
+    },
+    {
+      "num": "110",
+      "part": "general",
+      "page": 41,
+      "question": "Für wie viele Jahre wird der Bundestag in Deutschland gewählt?",
+      "answers": [
+        "2 Jahre",
+        "3 Jahre",
+        "4 Jahre",
+        "5 Jahre"
+      ]
+    },
+    {
+      "num": "111",
+      "part": "general",
+      "page": 41,
+      "question": "Welche Handlungen mit Bezug auf den Staat Israel sind in Deutschland verboten?",
+      "answers": [
+        "die Politik Israels öffentlich kritisieren",
+        "das Aufhängen einer israelischen Flagge auf dem Privatgrundstück",
+        "eine Diskussion über die Politik Israels",
+        "der öffentliche Aufruf zur Vernichtung Israels"
+      ]
+    },
+    {
+      "num": "112",
+      "part": "general",
+      "page": 41,
+      "question": "Die Wahlen in Deutschland sind …",
+      "answers": [
+        "speziell.",
+        "geheim.",
+        "berufsbezogen.",
+        "geschlechtsabhängig."
+      ]
+    },
+    {
+      "num": "113",
+      "part": "general",
+      "page": 42,
+      "question": "Wahlen in Deutschland gewinnt die Partei, die …",
+      "answers": [
+        "die meisten Stimmen bekommt.",
+        "die meisten Männer mehrheitlich gewählt haben.",
+        "die meisten Stimmen bei den Arbeiterinnen/Arbeitern bekommen hat.",
+        "die meisten Erststimmen für ihre Kanzlerkandidatin/ihren Kanzlerkandidaten erhalten hat."
+      ]
+    },
+    {
+      "num": "114",
+      "part": "general",
+      "page": 42,
+      "question": "An demokratischen Wahlen in Deutschland teilzunehmen ist …",
+      "answers": [
+        "eine Pflicht.",
+        "ein Recht.",
+        "ein Zwang.",
+        "eine Last."
+      ]
+    },
+    {
+      "num": "115",
+      "part": "general",
+      "page": 42,
+      "question": "Was bedeutet \"aktives Wahlrecht\" in Deutschland?",
+      "answers": [
+        "Man kann gewählt werden.",
+        "Man muss wählen gehen.",
+        "Man kann wählen.",
+        "Man muss zur Auszählung der Stimmen gehen."
+      ]
+    },
+    {
+      "num": "116",
+      "part": "general",
+      "page": 43,
+      "question": "Wenn Sie bei einer Bundestagswahl in Deutschland wählen dürfen, heißt das …",
+      "answers": [
+        "aktive Wahlkampagne.",
+        "aktives Wahlverfahren.",
+        "aktiver Wahlkampf.",
+        "aktives Wahlrecht."
+      ]
+    },
+    {
+      "num": "117",
+      "part": "general",
+      "page": 43,
+      "question": "Wie viel Prozent der Zweitstimmen müssen Parteien mindestens bekommen, um in den Deutschen Bundestag gewählt zu werden?",
+      "answers": [
+        "3%",
+        "4%",
+        "5%",
+        "6%"
+      ]
+    },
+    {
+      "num": "118",
+      "part": "general",
+      "page": 43,
+      "question": "Wer darf bei den rund 40 jüdischen Makkabi-Sportvereinen Mitglied werden?",
+      "answers": [
+        "nur Deutsche",
+        "nur Israelis",
+        "nur religiöse Menschen",
+        "alle Menschen"
+      ]
+    },
+    {
+      "num": "119",
+      "part": "general",
+      "page": 44,
+      "question": "Wahlen in Deutschland sind frei. Was bedeutet das?",
+      "answers": [
+        "Alle verurteilten Straftäterinnen/Straftäter dürfen nicht wählen.",
+        "Wenn ich wählen gehen möchte, muss meine Arbeitgeberin/mein Arbeitgeber mir frei geben.",
+        "Jede Person kann ohne Zwang entscheiden, ob sie wählen möchte und wen sie wählen möchte.",
+        "Ich kann frei entscheiden, wo ich wählen gehen möchte."
+      ]
+    },
+    {
+      "num": "120",
+      "part": "general",
+      "page": 44,
+      "question": "Das Wahlsystem in Deutschland ist ein …",
+      "answers": [
+        "Zensuswahlrecht.",
+        "Dreiklassenwahlrecht.",
+        "Mehrheits- und Verhältniswahlrecht.",
+        "allgemeines Männerwahlrecht."
+      ]
+    },
+    {
+      "num": "121",
+      "part": "general",
+      "page": 44,
+      "question": "Eine Partei möchte in den Deutschen Bundestag. Sie muss aber einen Mindestanteil an Wählerstimmen haben. Das heißt …",
+      "answers": [
+        "5%-Hürde.",
+        "Zulassungsgrenze.",
+        "Basiswert.",
+        "Richtlinie."
+      ]
+    },
+    {
+      "num": "122",
+      "part": "general",
+      "page": 45,
+      "question": "Welchem Grundsatz unterliegen Wahlen in Deutschland? Wahlen in Deutschland sind …",
+      "answers": [
+        "frei, gleich, geheim.",
+        "offen, sicher, frei.",
+        "geschlossen, gleich, sicher.",
+        "sicher, offen, freiwillig."
+      ]
+    },
+    {
+      "num": "123",
+      "part": "general",
+      "page": 45,
+      "question": "Was ist in Deutschland die \"5%-Hürde\"?",
+      "answers": [
+        "Abstimmungsregelung im Bundestag für kleine Parteien",
+        "Anwesenheitskontrolle im Bundestag für Abstimmungen",
+        "Mindestanteil an Wählerstimmen, um ins Parlament zu kommen",
+        "Anwesenheitskontrolle im Bundesrat für Abstimmungen"
+      ]
+    },
+    {
+      "num": "124",
+      "part": "general",
+      "page": 45,
+      "question": "Die Bundestagswahl in Deutschland ist die Wahl …",
+      "answers": [
+        "der Bundeskanzlerin/des Bundeskanzlers.",
+        "der Parlamente der Länder.",
+        "des Parlaments für Deutschland.",
+        "der Bundespräsidentin/des Bundespräsidenten."
+      ]
+    },
+    {
+      "num": "125",
+      "part": "general",
+      "page": 46,
+      "question": "In einer Demokratie ist eine Funktion von regelmäßigen Wahlen, …",
+      "answers": [
+        "die Bürgerinnen und Bürger zu zwingen, ihre Stimme abzugeben.",
+        "nach dem Willen der Wählermehrheit den Wechsel der Regierung zu ermöglichen.",
+        "im Land bestehende Gesetze beizubehalten.",
+        "den Armen mehr Macht zu geben."
+      ]
+    },
+    {
+      "num": "126",
+      "part": "general",
+      "page": 46,
+      "question": "Was bekommen wahlberechtigte Bürgerinnen und Bürger in Deutschland vor einer Wahl?",
+      "answers": [
+        "eine Wahlbenachrichtigung von der Gemeinde",
+        "eine Wahlerlaubnis von der Bundespräsidentin/von dem Bundespräsidenten",
+        "eine Benachrichtigung von der Bundesversammlung",
+        "eine Benachrichtigung vom Pfarramt"
+      ]
+    },
+    {
+      "num": "127",
+      "part": "general",
+      "page": 46,
+      "question": "Warum gibt es die 5%-Hürde im Wahlgesetz der Bundesrepublik Deutschland? Es gibt sie, weil …",
+      "answers": [
+        "die Programme von vielen kleinen Parteien viele Gemeinsamkeiten haben.",
+        "die Bürgerinnen und Bürger bei vielen kleinen Parteien die Orientierung verlieren können.",
+        "viele kleine Parteien die Regierungsbildung erschweren.",
+        "die kleinen Parteien nicht so viel Geld haben, um die Politikerinnen und Politiker zu bezahlen."
+      ]
+    },
+    {
+      "num": "128",
+      "part": "general",
+      "page": 47,
+      "question": "Parlamentsmitglieder, die von den Bürgerinnen und Bürgern gewählt werden, nennt man …",
+      "answers": [
+        "Abgeordnete.",
+        "Kanzlerinnen/Kanzler.",
+        "Botschafterinnen/Botschafter.",
+        "Ministerpräsidentinnen/Ministerpräsidenten."
+      ]
+    },
+    {
+      "num": "129",
+      "part": "general",
+      "page": 47,
+      "question": "Vom Volk gewählt wird in Deutschland …",
+      "answers": [
+        "die Bundeskanzlerin/der Bundeskanzler.",
+        "die Ministerpräsidentin/der Ministerpräsident eines Bundeslandes.",
+        "der Bundestag.",
+        "die Bundespräsidentin/der Bundespräsident."
+      ]
+    },
+    {
+      "num": "130",
+      "part": "general",
+      "page": 48,
+      "question": "Welcher Stimmzettel wäre bei einer Bundestagswahl gültig?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/130-1.png"
+      ],
+      "credit": "In Anlehnung an Bundeswahlordnung (BWO), Anlage 26"
+    },
+    {
+      "num": "131",
+      "part": "general",
+      "page": 49,
+      "question": "In Deutschland ist eine Bürgermeisterin/ein Bürgermeister …",
+      "answers": [
+        "die Leiterin/der Leiter einer Schule.",
+        "die Chefin/der Chef einer Bank.",
+        "das Oberhaupt einer Gemeinde.",
+        "die/der Vorsitzende einer Partei."
+      ]
+    },
+    {
+      "num": "132",
+      "part": "general",
+      "page": 49,
+      "question": "Viele Menschen in Deutschland arbeiten in ihrer Freizeit ehrenamtlich. Was bedeutet das?",
+      "answers": [
+        "Sie arbeiten als Soldatinnen/Soldaten.",
+        "Sie arbeiten freiwillig und unbezahlt in Vereinen und Verbänden.",
+        "Sie arbeiten in der Bundesregierung.",
+        "Sie arbeiten in einem Krankenhaus und verdienen dabei Geld."
+      ]
+    },
+    {
+      "num": "133",
+      "part": "general",
+      "page": 49,
+      "question": "Was ist bei Bundestags- und Landtagswahlen in Deutschland erlaubt?",
+      "answers": [
+        "Der Ehemann wählt für seine Frau mit.",
+        "Man kann durch Briefwahl seine Stimme abgeben.",
+        "Man kann am Wahltag telefonisch seine Stimme abgeben.",
+        "Kinder ab dem Alter von 14 Jahren dürfen wählen."
+      ]
+    },
+    {
+      "num": "134",
+      "part": "general",
+      "page": 50,
+      "question": "Man will die Buslinie abschaffen, mit der Sie immer zur Arbeit fahren. Was können Sie machen, um die Buslinie zu erhalten?",
+      "answers": [
+        "Ich beteilige mich an einer Bürgerinitiative für die Erhaltung der Buslinie oder gründe selber eine Initiative.",
+        "Ich werde Mitglied in einem Sportverein und trainiere Radfahren.",
+        "Ich wende mich an das Finanzamt, weil ich als Steuerzahlerin/Steuerzahler ein Recht auf die Buslinie habe.",
+        "Ich schreibe einen Brief an das Forstamt der Gemeinde."
+      ]
+    },
+    {
+      "num": "135",
+      "part": "general",
+      "page": 50,
+      "question": "Wen vertreten die Gewerkschaften in Deutschland?",
+      "answers": [
+        "große Unternehmen",
+        "kleine Unternehmen",
+        "Selbstständige",
+        "Arbeitnehmerinnen und Arbeitnehmer"
+      ]
+    },
+    {
+      "num": "136",
+      "part": "general",
+      "page": 50,
+      "question": "Sie gehen in Deutschland zum Arbeitsgericht bei …",
+      "answers": [
+        "falscher Nebenkostenabrechnung.",
+        "ungerechtfertigter Kündigung durch Ihre Chefin/Ihren Chef.",
+        "Problemen mit den Nachbarinnen/Nachbarn.",
+        "Schwierigkeiten nach einem Verkehrsunfall."
+      ]
+    },
+    {
+      "num": "137",
+      "part": "general",
+      "page": 51,
+      "question": "Welches Gericht ist in Deutschland bei Konflikten in der Arbeitswelt zuständig?",
+      "answers": [
+        "das Familiengericht",
+        "das Strafgericht",
+        "das Arbeitsgericht",
+        "das Amtsgericht"
+      ]
+    },
+    {
+      "num": "138",
+      "part": "general",
+      "page": 51,
+      "question": "Was kann ich in Deutschland machen, wenn mir meine Arbeitgeberin/mein Arbeitgeber zu Unrecht gekündigt hat?",
+      "answers": [
+        "weiterarbeiten und freundlich zur Chefin/zum Chef sein",
+        "ein Mahnverfahren gegen die Arbeitgeberin/den Arbeitgeber führen",
+        "Kündigungsschutzklage erheben",
+        "die Arbeitgeberin/den Arbeitgeber bei der Polizei anzeigen"
+      ]
+    },
+    {
+      "num": "139",
+      "part": "general",
+      "page": 51,
+      "question": "Wann kommt es in Deutschland zu einem Prozess vor Gericht? Wenn jemand …",
+      "answers": [
+        "zu einer anderen Religion übertritt.",
+        "eine Straftat begangen hat und angeklagt wird.",
+        "eine andere Meinung als die der Regierung vertritt.",
+        "sein Auto falsch geparkt hat und es abgeschleppt wird."
+      ]
+    },
+    {
+      "num": "140",
+      "part": "general",
+      "page": 52,
+      "question": "Was macht eine Schöffin/ein Schöffe in Deutschland? Sie/Er …",
+      "answers": [
+        "entscheidet mit Richterinnen/Richtern über Schuld und Strafe.",
+        "gibt Bürgerinnen/Bürgern rechtlichen Rat.",
+        "stellt Urkunden aus.",
+        "verteidigt die Angeklagte/den Angeklagten."
+      ]
+    },
+    {
+      "num": "141",
+      "part": "general",
+      "page": 52,
+      "question": "Wer berät in Deutschland Personen bei Rechtsfragen und vertritt sie vor Gericht?",
+      "answers": [
+        "eine Rechtsanwältin/ein Rechtsanwalt",
+        "eine Richterin/ein Richter",
+        "eine Schöffin/ein Schöffe",
+        "eine Staatsanwältin/ein Staatsanwalt"
+      ]
+    },
+    {
+      "num": "142",
+      "part": "general",
+      "page": 52,
+      "question": "Was ist die Hauptaufgabe einer Richterin/eines Richters in Deutschland? Eine Richterin/ein Richter …",
+      "answers": [
+        "vertritt Bürgerinnen und Bürger vor einem Gericht.",
+        "arbeitet an einem Gericht und spricht Urteile.",
+        "ändert Gesetze.",
+        "betreut Jugendliche vor Gericht."
+      ]
+    },
+    {
+      "num": "143",
+      "part": "general",
+      "page": 53,
+      "question": "Eine Richterin/ein Richter in Deutschland gehört zur …",
+      "answers": [
+        "Judikative.",
+        "Exekutive.",
+        "Operative.",
+        "Legislative."
+      ]
+    },
+    {
+      "num": "144",
+      "part": "general",
+      "page": 53,
+      "question": "Eine Richterin/ein Richter gehört in Deutschland zur …",
+      "answers": [
+        "vollziehenden Gewalt.",
+        "rechtsprechenden Gewalt.",
+        "planenden Gewalt.",
+        "gesetzgebenden Gewalt."
+      ]
+    },
+    {
+      "num": "145",
+      "part": "general",
+      "page": 53,
+      "question": "In Deutschland wird die Staatsgewalt geteilt. Für welche Staatsgewalt arbeitet eine Richterin/ein Richter? Für die …",
+      "answers": [
+        "Judikative",
+        "Exekutive",
+        "Presse",
+        "Legislative"
+      ]
+    },
+    {
+      "num": "146",
+      "part": "general",
+      "page": 54,
+      "question": "Wie nennt man in Deutschland ein Verfahren vor einem Gericht?",
+      "answers": [
+        "Programm",
+        "Prozedur",
+        "Protokoll",
+        "Prozess"
+      ]
+    },
+    {
+      "num": "147",
+      "part": "general",
+      "page": 54,
+      "question": "Was ist die Arbeit einer Richterin/eines Richters in Deutschland?",
+      "answers": [
+        "Deutschland regieren",
+        "Recht sprechen",
+        "Pläne erstellen",
+        "Gesetze erlassen"
+      ]
+    },
+    {
+      "num": "148",
+      "part": "general",
+      "page": 54,
+      "question": "Was ist eine Aufgabe der Polizei in Deutschland?",
+      "answers": [
+        "das Land zu verteidigen",
+        "die Bürgerinnen und Bürger abzuhören",
+        "die Gesetze zu beschließen",
+        "die Einhaltung von Gesetzen zu überwachen"
+      ]
+    },
+    {
+      "num": "149",
+      "part": "general",
+      "page": 55,
+      "question": "Was ist ein Beispiel für antisemitisches Verhalten?",
+      "answers": [
+        "ein jüdisches Fest besuchen",
+        "die israelische Regierung kritisieren",
+        "den Holocaust leugnen",
+        "gegen Juden Fußball spielen."
+      ]
+    },
+    {
+      "num": "150",
+      "part": "general",
+      "page": 55,
+      "question": "Eine Gerichtsschöffin/ein Gerichtsschöffe in Deutschland ist …",
+      "answers": [
+        "die Stellvertreterin/der Stellvertreter des Stadtoberhaupts.",
+        "eine ehrenamtliche Richterin/ein ehrenamtlicher Richter.",
+        "ein Mitglied eines Gemeinderats.",
+        "eine Person, die Jura studiert hat."
+      ]
+    },
+    {
+      "num": "151",
+      "part": "general",
+      "page": 55,
+      "question": "Wer baute die Mauer in Berlin?",
+      "answers": [
+        "Großbritannien",
+        "die DDR",
+        "die Bundesrepublik Deutschland",
+        "die USA"
+      ]
+    },
+    {
+      "num": "152",
+      "part": "general",
+      "page": 56,
+      "question": "Wann waren die Nationalsozialisten mit Adolf Hitler in Deutschland an der Macht?",
+      "answers": [
+        "1918 bis 1923",
+        "1932 bis 1950",
+        "1933 bis 1945",
+        "1945 bis 1989"
+      ]
+    },
+    {
+      "num": "153",
+      "part": "general",
+      "page": 56,
+      "question": "Was war am 8. Mai 1945?",
+      "answers": [
+        "Tod Adolf Hitlers",
+        "Beginn des Berliner Mauerbaus",
+        "Wahl von Konrad Adenauer zum Bundeskanzler",
+        "Ende des Zweiten Weltkriegs in Europa"
+      ]
+    },
+    {
+      "num": "154",
+      "part": "general",
+      "page": 56,
+      "question": "Wann war der Zweite Weltkrieg zu Ende?",
+      "answers": [
+        "1933",
+        "1945",
+        "1949",
+        "1961"
+      ]
+    },
+    {
+      "num": "155",
+      "part": "general",
+      "page": 57,
+      "question": "Wann waren die Nationalsozialisten in Deutschland an der Macht?",
+      "answers": [
+        "1888 bis 1918",
+        "1921 bis 1934",
+        "1933 bis 1945",
+        "1949 bis 1963"
+      ]
+    },
+    {
+      "num": "156",
+      "part": "general",
+      "page": 57,
+      "question": "In welchem Jahr wurde Hitler Reichskanzler?",
+      "answers": [
+        "1923",
+        "1927",
+        "1933",
+        "1936"
+      ]
+    },
+    {
+      "num": "157",
+      "part": "general",
+      "page": 57,
+      "question": "Die Nationalsozialisten mit Adolf Hitler errichteten 1933 in Deutschland …",
+      "answers": [
+        "eine Diktatur.",
+        "einen demokratischen Staat.",
+        "eine Monarchie.",
+        "ein Fürstentum."
+      ]
+    },
+    {
+      "num": "158",
+      "part": "general",
+      "page": 58,
+      "question": "Das \"Dritte Reich\" war eine …",
+      "answers": [
+        "Diktatur.",
+        "Demokratie.",
+        "Monarchie.",
+        "Räterepublik."
+      ]
+    },
+    {
+      "num": "159",
+      "part": "general",
+      "page": 58,
+      "question": "Was gab es in Deutschland nicht während der Zeit des Nationalsozialismus?",
+      "answers": [
+        "freie Wahlen",
+        "Pressezensur",
+        "willkürliche Verhaftungen",
+        "Verfolgung von Juden"
+      ]
+    },
+    {
+      "num": "160",
+      "part": "general",
+      "page": 58,
+      "question": "Welcher Krieg dauerte von 1939 bis 1945?",
+      "answers": [
+        "der Erste Weltkrieg",
+        "der Zweite Weltkrieg",
+        "der Vietnamkrieg",
+        "der Golfkrieg"
+      ]
+    },
+    {
+      "num": "161",
+      "part": "general",
+      "page": 59,
+      "question": "Was kennzeichnete den NS-Staat? Eine Politik …",
+      "answers": [
+        "des staatlichen Rassismus",
+        "der Meinungsfreiheit",
+        "der allgemeinen Religionsfreiheit",
+        "der Entwicklung der Demokratie"
+      ]
+    },
+    {
+      "num": "162",
+      "part": "general",
+      "page": 59,
+      "question": "Claus Schenk Graf von Stauffenberg wurde bekannt durch …",
+      "answers": [
+        "eine Goldmedaille bei den Olympischen Spielen 1936.",
+        "den Bau des Reichstagsgebäudes.",
+        "den Aufbau der Wehrmacht.",
+        "das Attentat auf Hitler am 20. Juli 1944."
+      ]
+    },
+    {
+      "num": "163",
+      "part": "general",
+      "page": 59,
+      "question": "In welchem Jahr zerstörten die Nationalsozialisten Synagogen und jüdische Geschäfte in Deutschland?",
+      "answers": [
+        "1925",
+        "1930",
+        "1938",
+        "1945"
+      ]
+    },
+    {
+      "num": "164",
+      "part": "general",
+      "page": 60,
+      "question": "Was passierte am 9. November 1938 in Deutschland?",
+      "answers": [
+        "Mit dem Angriff auf Polen beginnt der Zweite Weltkrieg.",
+        "Die Nationalsozialisten verlieren eine Wahl und lösen den Reichstag auf.",
+        "Jüdische Geschäfte und Synagogen werden durch Nationalsozialisten und ihre Anhänger zerstört.",
+        "Hitler wird Reichspräsident und lässt alle Parteien verbieten."
+      ]
+    },
+    {
+      "num": "165",
+      "part": "general",
+      "page": 60,
+      "question": "Wie hieß der erste Bundeskanzler der Bundesrepublik Deutschland?",
+      "answers": [
+        "Konrad Adenauer",
+        "Kurt Georg Kiesinger",
+        "Helmut Schmidt",
+        "Willy Brandt"
+      ]
+    },
+    {
+      "num": "166",
+      "part": "general",
+      "page": 60,
+      "question": "Bei welchen Demonstrationen in Deutschland riefen die Menschen \"Wir sind das Volk\"?",
+      "answers": [
+        "beim Arbeiteraufstand 1953 in der DDR",
+        "bei den Demonstrationen 1968 in der Bundesrepublik Deutschland",
+        "bei den Anti-Atomkraft-Demonstrationen 1985 in der Bundesrepublik Deutschland",
+        "bei den Montagsdemonstrationen 1989 in der DDR"
+      ]
+    },
+    {
+      "num": "167",
+      "part": "general",
+      "page": 61,
+      "question": "Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als \"Alliierte Besatzungsmächte\" bezeichnet?",
+      "answers": [
+        "Sowjetunion, Großbritannien, Polen, Schweden",
+        "Frankreich, Sowjetunion, Italien, Japan",
+        "USA, Sowjetunion, Spanien, Portugal",
+        "USA, Sowjetunion, Großbritannien, Frankreich"
+      ]
+    },
+    {
+      "num": "168",
+      "part": "general",
+      "page": 61,
+      "question": "Welches Land war keine \"Alliierte Besatzungsmacht\" in Deutschland?",
+      "answers": [
+        "USA",
+        "Sowjetunion",
+        "Frankreich",
+        "Japan"
+      ]
+    },
+    {
+      "num": "169",
+      "part": "general",
+      "page": 61,
+      "question": "Wann wurde die Bundesrepublik Deutschland gegründet?",
+      "answers": [
+        "1939",
+        "1945",
+        "1949",
+        "1951"
+      ]
+    },
+    {
+      "num": "170",
+      "part": "general",
+      "page": 62,
+      "question": "Was gab es während der Zeit des Nationalsozialismus in Deutschland?",
+      "answers": [
+        "das Verbot von Parteien",
+        "das Recht zur freien Entfaltung der Persönlichkeit",
+        "Pressefreiheit",
+        "den Schutz der Menschenwürde"
+      ]
+    },
+    {
+      "num": "171",
+      "part": "general",
+      "page": 62,
+      "question": "Soziale Marktwirtschaft bedeutet, die Wirtschaft …",
+      "answers": [
+        "steuert sich allein nach Angebot und Nachfrage.",
+        "wird vom Staat geplant und gesteuert, Angebot und Nachfrage werden nicht berücksichtigt.",
+        "richtet sich nach der Nachfrage im Ausland.",
+        "richtet sich nach Angebot und Nachfrage, aber der Staat sorgt für einen sozialen Ausgleich."
+      ]
+    },
+    {
+      "num": "172",
+      "part": "general",
+      "page": 62,
+      "question": "In welcher Besatzungszone wurde die DDR gegründet? In der …",
+      "answers": [
+        "amerikanischen Besatzungszone",
+        "französischen Besatzungszone",
+        "britischen Besatzungszone",
+        "sowjetischen Besatzungszone"
+      ]
+    },
+    {
+      "num": "173",
+      "part": "general",
+      "page": 63,
+      "question": "Die Bundesrepublik Deutschland ist ein Gründungsmitglied …",
+      "answers": [
+        "des Nordatlantikpakts (NATO).",
+        "der Vereinten Nationen (VN).",
+        "der Europäischen Union (EU).",
+        "des Warschauer Pakts."
+      ]
+    },
+    {
+      "num": "174",
+      "part": "general",
+      "page": 63,
+      "question": "Wann wurde die DDR gegründet?",
+      "answers": [
+        "1947",
+        "1949",
+        "1953",
+        "1956"
+      ]
+    },
+    {
+      "num": "175",
+      "part": "general",
+      "page": 63,
+      "question": "Wie viele Besatzungszonen gab es in Deutschland nach dem Zweiten Weltkrieg?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "176",
+      "part": "general",
+      "page": 64,
+      "question": "Wie waren die Besatzungszonen Deutschlands nach 1945 verteilt?",
+      "answers": [
+        "1=Großbritannien, 2=Sowjetunion, 3=Frankreich, 4=USA",
+        "1=Sowjetunion, 2=Großbritannien, 3=USA, 4=Frankreich",
+        "1=Großbritannien, 2=Sowjetunion, 3=USA, 4=Frankreich",
+        "1=Großbritannien, 2=USA, 3=Sowjetunion, 4=Frankreich"
+      ],
+      "images": [
+        "images/176-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "177",
+      "part": "general",
+      "page": 65,
+      "question": "Welche deutsche Stadt wurde nach dem Zweiten Weltkrieg in vier Sektoren aufgeteilt?",
+      "answers": [
+        "München",
+        "Berlin",
+        "Dresden",
+        "Frankfurt/Oder"
+      ]
+    },
+    {
+      "num": "178",
+      "part": "general",
+      "page": 65,
+      "question": "Vom Juni 1948 bis zum Mai 1949 wurden die Bürgerinnen und Bürger von West-Berlin durch eine Luftbrücke versorgt. Welcher Umstand war dafür verantwortlich?",
+      "answers": [
+        "Für Frankreich war eine Versorgung der West-Berliner Bevölkerung mit dem Flugzeug kostengünstiger.",
+        "Die amerikanischen Soldatinnen und Soldaten hatten beim Landtransport Angst vor Überfällen.",
+        "Für Großbritannien war die Versorgung über die Luftbrücke schneller.",
+        "Die Sowjetunion unterbrach den gesamten Verkehr auf dem Landwege."
+      ]
+    },
+    {
+      "num": "179",
+      "part": "general",
+      "page": 65,
+      "question": "Wie endete der Zweite Weltkrieg in Europa offiziell?",
+      "answers": [
+        "mit dem Tod Adolf Hitlers",
+        "durch die bedingungslose Kapitulation Deutschlands",
+        "mit dem Rückzug der Deutschen aus den besetzten Gebieten",
+        "durch eine Revolution in Deutschland"
+      ]
+    },
+    {
+      "num": "180",
+      "part": "general",
+      "page": 66,
+      "question": "Der erste Bundeskanzler der Bundesrepublik Deutschland war …",
+      "answers": [
+        "Ludwig Erhard.",
+        "Willy Brandt.",
+        "Konrad Adenauer.",
+        "Gerhard Schröder."
+      ]
+    },
+    {
+      "num": "181",
+      "part": "general",
+      "page": 67,
+      "question": "Was wollte Willy Brandt mit seinem Kniefall 1970 im ehemaligen jüdischen Ghetto in Warschau ausdrücken?",
+      "answers": [
+        "Er hat sich den ehemaligen Alliierten unterworfen.",
+        "Er bat Polen und die polnischen Juden um Vergebung.",
+        "Er zeigte seine Demut vor dem Warschauer Pakt.",
+        "Er sprach ein Gebet am Grab des Unbekannten Soldaten."
+      ],
+      "images": [
+        "images/181-1.png"
+      ],
+      "credit": "© Bundesregierung/Engelbert Reineke"
+    },
+    {
+      "num": "182",
+      "part": "general",
+      "page": 68,
+      "question": "Wie heißt das jüdische Gebetshaus?",
+      "answers": [
+        "Basilika",
+        "Moschee",
+        "Synagoge",
+        "Kirche"
+      ]
+    },
+    {
+      "num": "183",
+      "part": "general",
+      "page": 68,
+      "question": "Wann war in der Bundesrepublik Deutschland das \"Wirtschaftswunder\"?",
+      "answers": [
+        "40er Jahre",
+        "50er Jahre",
+        "70er Jahre",
+        "80er Jahre"
+      ]
+    },
+    {
+      "num": "184",
+      "part": "general",
+      "page": 68,
+      "question": "184. Auf welcher rechtlichen Grundlage wurde der Staat Israel gegründet?",
+      "answers": [
+        "eine Resolution der Vereinten Nationen",
+        "ein Beschluss des Zionistenkongresses",
+        "ein Vorschlag der Bundesregierung",
+        "ein Vorschlag der UdSSR"
+      ]
+    },
+    {
+      "num": "185",
+      "part": "general",
+      "page": 69,
+      "question": "Wofür stand der Ausdruck \"Eiserner Vorhang\"? Für die Abschottung …",
+      "answers": [
+        "des Warschauer Pakts gegen den Westen",
+        "Norddeutschlands gegen Süddeutschland",
+        "Nazi-Deutschlands gegen die Alliierten",
+        "Europas gegen die USA"
+      ]
+    },
+    {
+      "num": "186",
+      "part": "general",
+      "page": 69,
+      "question": "Im Jahr 1953 gab es in der DDR einen Aufstand, an den lange Zeit in der Bundesrepublik Deutschland ein Feiertag erinnerte. Wann war das?",
+      "answers": [
+        "1. Mai",
+        "17. Juni",
+        "20. Juli",
+        "9. November"
+      ]
+    },
+    {
+      "num": "187",
+      "part": "general",
+      "page": 70,
+      "question": "Welcher deutsche Staat hatte eine schwarz-rot-goldene Flagge mit Hammer, Zirkel und Ährenkranz?",
+      "answers": [
+        "Preußen",
+        "Bundesrepublik Deutschland",
+        "\"Drittes Reich\"",
+        "DDR"
+      ],
+      "images": [
+        "images/187-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "188",
+      "part": "general",
+      "page": 70,
+      "question": "In welchem Jahr wurde die Mauer in Berlin gebaut?",
+      "answers": [
+        "1953",
+        "1956",
+        "1959",
+        "1961"
+      ]
+    },
+    {
+      "num": "189",
+      "part": "general",
+      "page": 71,
+      "question": "Wann baute die DDR die Mauer in Berlin?",
+      "answers": [
+        "1919",
+        "1933",
+        "1961",
+        "1990"
+      ]
+    },
+    {
+      "num": "190",
+      "part": "general",
+      "page": 71,
+      "question": "Was bedeutet die Abkürzung DDR?",
+      "answers": [
+        "Dritter Deutscher Rundfunk",
+        "Die Deutsche Republik",
+        "Dritte Deutsche Republik",
+        "Deutsche Demokratische Republik"
+      ]
+    },
+    {
+      "num": "191",
+      "part": "general",
+      "page": 71,
+      "question": "Wann wurde die Mauer in Berlin für alle geöffnet?",
+      "answers": [
+        "1987",
+        "1989",
+        "1992",
+        "1995"
+      ]
+    },
+    {
+      "num": "192",
+      "part": "general",
+      "page": 72,
+      "question": "Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?",
+      "answers": [
+        "Brandenburg",
+        "Bayern",
+        "Saarland",
+        "Hessen"
+      ]
+    },
+    {
+      "num": "193",
+      "part": "general",
+      "page": 72,
+      "question": "Von 1961 bis 1989 war Berlin …",
+      "answers": [
+        "ohne Bürgermeister.",
+        "ein eigener Staat.",
+        "durch eine Mauer geteilt.",
+        "nur mit dem Flugzeug erreichbar."
+      ]
+    },
+    {
+      "num": "194",
+      "part": "general",
+      "page": 72,
+      "question": "Am 3. Oktober feiert man in Deutschland den Tag der Deutschen …",
+      "answers": [
+        "Einheit.",
+        "Nation.",
+        "Bundesländer.",
+        "Städte."
+      ]
+    },
+    {
+      "num": "195",
+      "part": "general",
+      "page": 73,
+      "question": "Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?",
+      "answers": [
+        "Hessen",
+        "Sachsen-Anhalt",
+        "Nordrhein-Westfalen",
+        "Saarland"
+      ]
+    },
+    {
+      "num": "196",
+      "part": "general",
+      "page": 73,
+      "question": "Warum nennt man die Zeit im Herbst 1989 in der DDR \"Die Wende\"? In dieser Zeit veränderte sich die DDR politisch …",
+      "answers": [
+        "von einer Diktatur zur Demokratie.",
+        "von einer liberalen Marktwirtschaft zum Sozialismus.",
+        "von einer Monarchie zur Sozialdemokratie.",
+        "von einem religiösen Staat zu einem kommunistischen Staat."
+      ]
+    },
+    {
+      "num": "197",
+      "part": "general",
+      "page": 73,
+      "question": "Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?",
+      "answers": [
+        "Thüringen",
+        "Hessen",
+        "Bayern",
+        "Bremen"
+      ]
+    },
+    {
+      "num": "198",
+      "part": "general",
+      "page": 74,
+      "question": "Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?",
+      "answers": [
+        "Bayern",
+        "Niedersachsen",
+        "Sachsen",
+        "Baden-Württemberg"
+      ]
+    },
+    {
+      "num": "199",
+      "part": "general",
+      "page": 74,
+      "question": "Mit der Abkürzung \"Stasi\" meinte man in der DDR …",
+      "answers": [
+        "das Parlament.",
+        "das Ministerium für Staatssicherheit.",
+        "eine regierende Partei.",
+        "das Ministerium für Volksbildung."
+      ]
+    },
+    {
+      "num": "200",
+      "part": "general",
+      "page": 74,
+      "question": "Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?",
+      "answers": [
+        "Hessen",
+        "Schleswig-Holstein",
+        "Mecklenburg-Vorpommern",
+        "Saarland"
+      ]
+    },
+    {
+      "num": "201",
+      "part": "general",
+      "page": 75,
+      "question": "Welche der folgenden Auflistungen enthält nur Bundesländer, die zum Gebiet der früheren DDR gehörten?",
+      "answers": [
+        "Niedersachsen, Nordrhein-Westfalen, Hessen, Schleswig-Holstein, Brandenburg",
+        "Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt, Thüringen",
+        "Bayern, Baden-Württemberg, Rheinland-Pfalz, Thüringen, Sachsen",
+        "Sachsen, Thüringen, Hessen, Niedersachen, Brandenburg"
+      ]
+    },
+    {
+      "num": "202",
+      "part": "general",
+      "page": 75,
+      "question": "Zu wem gehörte die DDR im \"Kalten Krieg\"?",
+      "answers": [
+        "zu den Westmächten",
+        "zum Warschauer Pakt",
+        "zur NATO",
+        "zu den blockfreien Staaten"
+      ]
+    },
+    {
+      "num": "203",
+      "part": "general",
+      "page": 75,
+      "question": "Wie hieß das Wirtschaftssystem der DDR?",
+      "answers": [
+        "Marktwirtschaft",
+        "Planwirtschaft",
+        "Angebot und Nachfrage",
+        "Kapitalismus"
+      ]
+    },
+    {
+      "num": "204",
+      "part": "general",
+      "page": 76,
+      "question": "Wie wurden die Bundesrepublik Deutschland und die DDR zu einem Staat?",
+      "answers": [
+        "Die Bundesrepublik hat die DDR besetzt.",
+        "Die heutigen fünf östlichen Bundesländer sind der Bundesrepublik Deutschland beigetreten.",
+        "Die westlichen Bundesländer sind der DDR beigetreten.",
+        "Die DDR hat die Bundesrepublik Deutschland besetzt."
+      ]
+    },
+    {
+      "num": "205",
+      "part": "general",
+      "page": 76,
+      "question": "Mit dem Beitritt der DDR zur Bundesrepublik Deutschland gehören die neuen Bundesländer nun auch …",
+      "answers": [
+        "zur Europäischen Union.",
+        "zum Warschauer Pakt.",
+        "zur OPEC.",
+        "zur Europäischen Verteidigungsgemeinschaft."
+      ]
+    },
+    {
+      "num": "206",
+      "part": "general",
+      "page": 76,
+      "question": "206. Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?",
+      "answers": [
+        "an berühmte deutsche Politikerinnen und Politiker",
+        "an die Opfer des Nationalsozialismus",
+        "an Verkehrstote",
+        "an bekannte jüdische Musiker"
+      ]
+    },
+    {
+      "num": "207",
+      "part": "general",
+      "page": 77,
+      "question": "In welchem Militärbündnis war die DDR Mitglied?",
+      "answers": [
+        "in der NATO",
+        "im Rheinbund",
+        "im Warschauer Pakt",
+        "im Europabündnis"
+      ]
+    },
+    {
+      "num": "208",
+      "part": "general",
+      "page": 77,
+      "question": "Was war die \"Stasi\"?",
+      "answers": [
+        "der Geheimdienst im \"Dritten Reich\"",
+        "eine berühmte deutsche Gedenkstätte",
+        "der Geheimdienst der DDR",
+        "ein deutscher Sportverein während des Zweiten Weltkrieges"
+      ]
+    },
+    {
+      "num": "209",
+      "part": "general",
+      "page": 78,
+      "question": "Welches war das Wappen der Deutschen Demokratischen Republik?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/209-1.png",
+        "images/209-2.png",
+        "images/209-3.png",
+        "images/209-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "210",
+      "part": "general",
+      "page": 78,
+      "question": "Was ereignete sich am 17. Juni 1953 in der DDR?",
+      "answers": [
+        "der feierliche Beitritt zum Warschauer Pakt",
+        "landesweite Streiks und ein Volksaufstand",
+        "der 1. SED-Parteitag",
+        "der erste Besuch Fidel Castros"
+      ]
+    },
+    {
+      "num": "211",
+      "part": "general",
+      "page": 79,
+      "question": "Welcher Politiker steht für die \"Ostverträge\"?",
+      "answers": [
+        "Helmut Kohl",
+        "Willy Brandt",
+        "Michail Gorbatschow",
+        "Ludwig Erhard"
+      ]
+    },
+    {
+      "num": "212",
+      "part": "general",
+      "page": 79,
+      "question": "Wie heißt Deutschland mit vollem Namen?",
+      "answers": [
+        "Bundesstaat Deutschland",
+        "Bundesländer Deutschland",
+        "Bundesrepublik Deutschland",
+        "Bundesbezirk Deutschland"
+      ]
+    },
+    {
+      "num": "213",
+      "part": "general",
+      "page": 79,
+      "question": "Wie viele Einwohner hat Deutschland?",
+      "answers": [
+        "70 Millionen",
+        "78 Millionen",
+        "84 Millionen",
+        "90 Millionen"
+      ]
+    },
+    {
+      "num": "214",
+      "part": "general",
+      "page": 80,
+      "question": "Welche Farben hat die deutsche Flagge?",
+      "answers": [
+        "schwarz-rot-gold",
+        "rot-weiß-schwarz",
+        "schwarz-rot-grün",
+        "schwarz-gelb-rot"
+      ]
+    },
+    {
+      "num": "215",
+      "part": "general",
+      "page": 80,
+      "question": "Wer wird als \"Kanzler der Deutschen Einheit\" bezeichnet?",
+      "answers": [
+        "Gerhard Schröder",
+        "Helmut Kohl",
+        "Konrad Adenauer",
+        "Helmut Schmidt"
+      ]
+    },
+    {
+      "num": "216",
+      "part": "general",
+      "page": 81,
+      "question": "Welches Symbol ist im Plenarsaal des Deutschen Bundestages zu sehen?",
+      "answers": [
+        "der Bundesadler",
+        "die Fahne der Stadt Berlin",
+        "der Reichsadler",
+        "die Reichskrone"
+      ],
+      "images": [
+        "images/216-1.png"
+      ],
+      "credit": "© Deutscher Bundestag/Janine Schmitz"
+    },
+    {
+      "num": "217",
+      "part": "general",
+      "page": 81,
+      "question": "In welchem Zeitraum gab es die Deutsche Demokratische Republik (DDR)?",
+      "answers": [
+        "1919 bis 1927",
+        "1933 bis 1945",
+        "1945 bis 1961",
+        "1949 bis 1990"
+      ]
+    },
+    {
+      "num": "218",
+      "part": "general",
+      "page": 82,
+      "question": "Wie viele Bundesländer kamen bei der Wiedervereinigung 1990 zur Bundesrepublik Deutschland hinzu?",
+      "answers": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "num": "219",
+      "part": "general",
+      "page": 82,
+      "question": "Die Bundesrepublik Deutschland hat die Grenzen von heute seit …",
+      "answers": [
+        "1933",
+        "1949",
+        "1971",
+        "1990"
+      ]
+    },
+    {
+      "num": "220",
+      "part": "general",
+      "page": 82,
+      "question": "Der 27. Januar ist in Deutschland ein offizieller Gedenktag. Woran erinnert dieser Tag?",
+      "answers": [
+        "an das Ende des Zweiten Weltkrieges",
+        "an die Verabschiedung des Grundgesetzes",
+        "an die Wiedervereinigung Deutschlands",
+        "an die Opfer des Nationalsozialismus (Tag der Befreiung des Vernichtungslagers Auschwitz)"
+      ]
+    },
+    {
+      "num": "221",
+      "part": "general",
+      "page": 83,
+      "question": "Deutschland ist Mitglied des Schengener Abkommens. Was bedeutet das?",
+      "answers": [
+        "Deutsche können in viele Länder Europas ohne Passkontrolle reisen.",
+        "Alle Menschen können ohne Personenkontrolle in Deutschland einreisen.",
+        "Deutsche können ohne Passkontrolle in jedes Land reisen.",
+        "Deutsche können in jedem Land mit dem Euro bezahlen."
+      ]
+    },
+    {
+      "num": "222",
+      "part": "general",
+      "page": 83,
+      "question": "Welches Land ist ein Nachbarland von Deutschland?",
+      "answers": [
+        "Ungarn",
+        "Portugal",
+        "Spanien",
+        "Schweiz"
+      ]
+    },
+    {
+      "num": "223",
+      "part": "general",
+      "page": 83,
+      "question": "Welches Land ist ein Nachbarland von Deutschland?",
+      "answers": [
+        "Rumänien",
+        "Bulgarien",
+        "Polen",
+        "Griechenland"
+      ]
+    },
+    {
+      "num": "224",
+      "part": "general",
+      "page": 84,
+      "question": "Was bedeutet die Abkürzung EU?",
+      "answers": [
+        "Europäische Unternehmen",
+        "Europäische Union",
+        "Einheitliche Union",
+        "Euro Union"
+      ]
+    },
+    {
+      "num": "225",
+      "part": "general",
+      "page": 84,
+      "question": "In welchem anderen Land gibt es eine große deutschsprachige Bevölkerung?",
+      "answers": [
+        "Tschechien",
+        "Norwegen",
+        "Spanien",
+        "Österreich"
+      ]
+    },
+    {
+      "num": "226",
+      "part": "general",
+      "page": 85,
+      "question": "Welche ist die Flagge der Europäischen Union?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/226-1.png",
+        "images/226-2.png",
+        "images/226-3.png",
+        "images/226-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "227",
+      "part": "general",
+      "page": 85,
+      "question": "Welches Land ist ein Nachbarland von Deutschland?",
+      "answers": [
+        "Finnland",
+        "Dänemark",
+        "Norwegen",
+        "Schweden"
+      ]
+    },
+    {
+      "num": "228",
+      "part": "general",
+      "page": 85,
+      "question": "Wie wird der Beitritt der DDR zur Bundesrepublik Deutschland im Jahr 1990 allgemein genannt?",
+      "answers": [
+        "NATO-Osterweiterung",
+        "EU-Osterweiterung",
+        "Deutsche Wiedervereinigung",
+        "Europäische Gemeinschaft"
+      ]
+    },
+    {
+      "num": "229",
+      "part": "general",
+      "page": 86,
+      "question": "Welches Land ist ein Nachbarland von Deutschland?",
+      "answers": [
+        "Spanien",
+        "Bulgarien",
+        "Norwegen",
+        "Luxemburg"
+      ]
+    },
+    {
+      "num": "230",
+      "part": "general",
+      "page": 86,
+      "question": "Das Europäische Parlament wird regelmäßig gewählt, nämlich alle …",
+      "answers": [
+        "5 Jahre.",
+        "6 Jahre.",
+        "7 Jahre.",
+        "8 Jahre."
+      ]
+    },
+    {
+      "num": "231",
+      "part": "general",
+      "page": 86,
+      "question": "Was bedeutet der Begriff \"europäische Integration\"?",
+      "answers": [
+        "Damit sind amerikanische Einwanderinnen und Einwanderer in Europa gemeint.",
+        "Der Begriff meint den Einwanderungsstopp nach Europa.",
+        "Damit sind europäische Auswanderinnen und Auswanderer in den USA gemeint.",
+        "Der Begriff meint den Zusammenschluss europäischer Staaten zur EU."
+      ]
+    },
+    {
+      "num": "232",
+      "part": "general",
+      "page": 87,
+      "question": "Wer wird bei der Europawahl gewählt?",
+      "answers": [
+        "die Europäische Kommission",
+        "die Länder, die in die EU eintreten dürfen",
+        "die Abgeordneten des Europäischen Parlaments",
+        "die europäische Verfassung"
+      ]
+    },
+    {
+      "num": "233",
+      "part": "general",
+      "page": 87,
+      "question": "Welches Land ist ein Nachbarland von Deutschland?",
+      "answers": [
+        "Tschechien",
+        "Bulgarien",
+        "Griechenland",
+        "Portugal"
+      ]
+    },
+    {
+      "num": "234",
+      "part": "general",
+      "page": 87,
+      "question": "Wo ist ein Sitz des Europäischen Parlaments?",
+      "answers": [
+        "London",
+        "Paris",
+        "Berlin",
+        "Straßburg"
+      ]
+    },
+    {
+      "num": "235",
+      "part": "general",
+      "page": 88,
+      "question": "Der damalige französische Staatspräsident François Mitterrand und der damalige deutsche Bundeskanzler Helmut Kohl gedenken in Verdun gemeinsam der Toten beider Weltkriege. Welches Ziel der Europäischen Union wird bei diesem Treffen deutlich?",
+      "answers": [
+        "Freundschaft zwischen England und Deutschland",
+        "Reisefreiheit in alle Länder der EU",
+        "Frieden und Sicherheit in den Ländern der EU",
+        "einheitliche Feiertage in den Ländern der EU"
+      ],
+      "images": [
+        "images/235-1.png"
+      ],
+      "credit": "© Bundesregierung/Richard Schulze-Vorberg"
+    },
+    {
+      "num": "236",
+      "part": "general",
+      "page": 89,
+      "question": "Wie viele Mitgliedstaaten hat die EU heute?",
+      "answers": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ]
+    },
+    {
+      "num": "237",
+      "part": "general",
+      "page": 89,
+      "question": "2007 wurde das 50-jährige Jubiläum der \"Römischen Verträge\" gefeiert. Was war der Inhalt der Verträge?",
+      "answers": [
+        "Beitritt Deutschlands zur NATO",
+        "Gründung der Europäischen Wirtschaftsgemeinschaft (EWG)",
+        "Verpflichtung Deutschlands zu Reparationsleistungen",
+        "Festlegung der Oder-Neiße-Linie als Ostgrenze"
+      ]
+    },
+    {
+      "num": "238",
+      "part": "general",
+      "page": 89,
+      "question": "An welchen Orten arbeitet das Europäische Parlament?",
+      "answers": [
+        "Paris, London und Den Haag",
+        "Straßburg, Luxemburg und Brüssel",
+        "Rom, Bern und Wien",
+        "Bonn, Zürich und Mailand"
+      ]
+    },
+    {
+      "num": "239",
+      "part": "general",
+      "page": 90,
+      "question": "Durch welche Verträge schloss sich die Bundesrepublik Deutschland mit anderen Staaten zur Europäischen Wirtschaftsgemeinschaft zusammen?",
+      "answers": [
+        "durch die \"Hamburger Verträge\"",
+        "durch die \"Römischen Verträge\"",
+        "durch die \"Pariser Verträge\"",
+        "durch die \"Londoner Verträge\""
+      ]
+    },
+    {
+      "num": "240",
+      "part": "general",
+      "page": 90,
+      "question": "Seit wann bezahlt man in Deutschland mit dem Euro in bar?",
+      "answers": [
+        "1995",
+        "1998",
+        "2002",
+        "2005"
+      ]
+    },
+    {
+      "num": "241",
+      "part": "general",
+      "page": 90,
+      "question": "Frau Seger bekommt ein Kind. Was muss sie tun, um Elterngeld zu erhalten?",
+      "answers": [
+        "Sie muss an ihre Krankenkasse schreiben.",
+        "Sie muss einen Antrag bei der Elterngeldstelle stellen.",
+        "Sie muss nichts tun, denn sie bekommt automatisch Elterngeld.",
+        "Sie muss das Arbeitsamt um Erlaubnis bitten."
+      ]
+    },
+    {
+      "num": "242",
+      "part": "general",
+      "page": 91,
+      "question": "Wer entscheidet, ob ein Kind in Deutschland in den Kindergarten geht?",
+      "answers": [
+        "der Staat",
+        "die Bundesländer",
+        "die Eltern/die Erziehungsberechtigten",
+        "die Schulen"
+      ]
+    },
+    {
+      "num": "243",
+      "part": "general",
+      "page": 91,
+      "question": "Maik und Sybille wollen mit Freunden an ihrem deutschen Wohnort eine Demonstration auf der Straße abhalten. Was müssen sie vorher tun?",
+      "answers": [
+        "Sie müssen die Demonstration anmelden.",
+        "Sie müssen nichts tun. Man darf in Deutschland jederzeit überall demonstrieren.",
+        "Sie können gar nichts tun, denn Demonstrationen sind in Deutschland grundsätzlich verboten.",
+        "Maik und Sybille müssen einen neuen Verein gründen, weil nur Vereine demonstrieren dürfen."
+      ]
+    },
+    {
+      "num": "244",
+      "part": "general",
+      "page": 91,
+      "question": "Welchen Schulabschluss braucht man normalerweise, um an einer Universität in Deutschland ein Studium zu beginnen?",
+      "answers": [
+        "das Abitur",
+        "ein Diplom",
+        "die Prokura",
+        "eine Gesellenprüfung"
+      ]
+    },
+    {
+      "num": "245",
+      "part": "general",
+      "page": 92,
+      "question": "Wer darf in Deutschland nicht als Paar zusammenleben?",
+      "answers": [
+        "Hans (20 Jahre) und Marie (19 Jahre)",
+        "Tom (20 Jahre) und Klaus (45 Jahre)",
+        "Sofie (35 Jahre) und Lisa (40 Jahre)",
+        "Anne (13 Jahre) und Tim (25 Jahre)"
+      ]
+    },
+    {
+      "num": "246",
+      "part": "general",
+      "page": 92,
+      "question": "Ab welchem Alter ist man in Deutschland volljährig?",
+      "answers": [
+        "16",
+        "18",
+        "19",
+        "21"
+      ]
+    },
+    {
+      "num": "247",
+      "part": "general",
+      "page": 92,
+      "question": "Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Wie heißt dieser Schutz?",
+      "answers": [
+        "Elternzeit",
+        "Mutterschutz",
+        "Geburtsvorbereitung",
+        "Wochenbett"
+      ]
+    },
+    {
+      "num": "248",
+      "part": "general",
+      "page": 93,
+      "question": "Die Erziehung der Kinder ist in Deutschland vor allem Aufgabe …",
+      "answers": [
+        "des Staates.",
+        "der Eltern.",
+        "der Großeltern.",
+        "der Schulen."
+      ]
+    },
+    {
+      "num": "249",
+      "part": "general",
+      "page": 93,
+      "question": "Wer ist in Deutschland hauptsächlich verantwortlich für die Kindererziehung?",
+      "answers": [
+        "der Staat",
+        "die Eltern",
+        "die Verwandten",
+        "die Schulen"
+      ]
+    },
+    {
+      "num": "250",
+      "part": "general",
+      "page": 93,
+      "question": "In Deutschland hat man die besten Chancen auf einen gut bezahlten Arbeitsplatz, wenn man …",
+      "answers": [
+        "katholisch ist.",
+        "gut ausgebildet ist.",
+        "eine Frau ist.",
+        "Mitglied einer Partei ist."
+      ]
+    },
+    {
+      "num": "251",
+      "part": "general",
+      "page": 94,
+      "question": "Wenn man in Deutschland ein Kind schlägt, …",
+      "answers": [
+        "geht das niemanden etwas an.",
+        "geht das nur die Familie etwas an.",
+        "kann man dafür nicht bestraft werden.",
+        "kann man dafür bestraft werden."
+      ]
+    },
+    {
+      "num": "252",
+      "part": "general",
+      "page": 94,
+      "question": "In Deutschland …",
+      "answers": [
+        "darf man zur gleichen Zeit nur mit einer Partnerin/einem Partner verheiratet sein.",
+        "kann man mehrere Ehepartnerinnen/Ehepartner gleichzeitig haben.",
+        "darf man nicht wieder heiraten, wenn man einmal verheiratet war.",
+        "darf eine Frau nicht wieder heiraten, wenn ihr Mann gestorben ist."
+      ]
+    },
+    {
+      "num": "253",
+      "part": "general",
+      "page": 94,
+      "question": "Wo müssen Sie sich anmelden, wenn Sie in Deutschland umziehen?",
+      "answers": [
+        "beim Einwohnermeldeamt",
+        "beim Standesamt",
+        "beim Ordnungsamt",
+        "beim Gewerbeamt"
+      ]
+    },
+    {
+      "num": "254",
+      "part": "general",
+      "page": 95,
+      "question": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das \"Trennungsjahr\" einhalten. Was bedeutet das?",
+      "answers": [
+        "Der Scheidungsprozess dauert ein Jahr.",
+        "Die Ehegatten sind ein Jahr verheiratet, dann ist die Scheidung möglich.",
+        "Das Besuchsrecht für die Kinder gilt ein Jahr.",
+        "Die Ehegatten führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach ist die Scheidung möglich."
+      ]
+    },
+    {
+      "num": "255",
+      "part": "general",
+      "page": 95,
+      "question": "Bei Erziehungsproblemen können Eltern in Deutschland Hilfe erhalten vom …",
+      "answers": [
+        "Ordnungsamt.",
+        "Schulamt.",
+        "Jugendamt.",
+        "Gesundheitsamt."
+      ]
+    },
+    {
+      "num": "256",
+      "part": "general",
+      "page": 95,
+      "question": "Ein Ehepaar möchte in Deutschland ein Restaurant eröffnen. Was braucht es dazu unbedingt?",
+      "answers": [
+        "eine Erlaubnis der Polizei",
+        "eine Genehmigung einer Partei",
+        "eine Genehmigung des Einwohnermeldeamts",
+        "eine Gaststättenerlaubnis von der zuständigen Behörde"
+      ]
+    },
+    {
+      "num": "257",
+      "part": "general",
+      "page": 96,
+      "question": "Eine erwachsene Frau möchte in Deutschland das Abitur nachholen. Das kann sie an …",
+      "answers": [
+        "einer Hochschule.",
+        "einem Abendgymnasium.",
+        "einer Hauptschule.",
+        "einer Privatuniversität."
+      ]
+    },
+    {
+      "num": "258",
+      "part": "general",
+      "page": 96,
+      "question": "Was darf das Jugendamt in Deutschland?",
+      "answers": [
+        "Es entscheidet, welche Schule das Kind besucht.",
+        "Es kann ein Kind, das geschlagen wird oder hungern muss, aus der Familie nehmen.",
+        "Es bezahlt das Kindergeld an die Eltern.",
+        "Es kontrolliert, ob das Kind einen Kindergarten besucht."
+      ]
+    },
+    {
+      "num": "259",
+      "part": "general",
+      "page": 96,
+      "question": "Das Berufsinformationszentrum BIZ bei der Bundesagentur für Arbeit in Deutschland hilft bei der …",
+      "answers": [
+        "Rentenberechnung.",
+        "Lehrstellensuche.",
+        "Steuererklärung.",
+        "Krankenversicherung."
+      ]
+    },
+    {
+      "num": "260",
+      "part": "general",
+      "page": 97,
+      "question": "In Deutschland hat ein Kind in der Schule …",
+      "answers": [
+        "Recht auf unbegrenzte Freizeit.",
+        "Wahlfreiheit für alle Fächer.",
+        "Anspruch auf Schulgeld.",
+        "Anwesenheitspflicht."
+      ]
+    },
+    {
+      "num": "261",
+      "part": "general",
+      "page": 97,
+      "question": "Ein Mann möchte mit 30 Jahren in Deutschland sein Abitur nachholen. Wo kann er das tun? An …",
+      "answers": [
+        "einer Hochschule.",
+        "einem Abendgymnasium.",
+        "einer Hauptschule.",
+        "einer Privatuniversität."
+      ]
+    },
+    {
+      "num": "262",
+      "part": "general",
+      "page": 97,
+      "question": "Was bedeutet in Deutschland der Grundsatz der Gleichbehandlung?",
+      "answers": [
+        "Niemand darf z.B. wegen einer Behinderung benachteiligt werden.",
+        "Man darf andere Personen benachteiligen, wenn ausreichende persönliche Gründe hierfür vorliegen.",
+        "Niemand darf gegen Personen klagen, wenn sie benachteiligt wurden.",
+        "Es ist für alle Gesetz, benachteiligten Gruppen jährlich Geld zu spenden."
+      ]
+    },
+    {
+      "num": "263",
+      "part": "general",
+      "page": 98,
+      "question": "In Deutschland sind Jugendliche ab 14 Jahren strafmündig. Das bedeutet: Jugendliche, die 14 Jahre und älter sind und gegen Strafgesetze verstoßen, …",
+      "answers": [
+        "werden bestraft.",
+        "werden wie Erwachsene behandelt.",
+        "teilen die Strafe mit ihren Eltern.",
+        "werden nicht bestraft."
+      ]
+    },
+    {
+      "num": "264",
+      "part": "general",
+      "page": 98,
+      "question": "Zu welchem Fest tragen Menschen in Deutschland bunte Kostüme und Masken?",
+      "answers": [
+        "am Rosenmontag",
+        "am Maifeiertag",
+        "beim Oktoberfest",
+        "an Pfingsten"
+      ]
+    },
+    {
+      "num": "265",
+      "part": "general",
+      "page": 98,
+      "question": "Wohin muss man in Deutschland zuerst gehen, wenn man heiraten möchte?",
+      "answers": [
+        "zum Einwohnermeldeamt",
+        "zum Ordnungsamt",
+        "zur Agentur für Arbeit",
+        "zum Standesamt"
+      ]
+    },
+    {
+      "num": "266",
+      "part": "general",
+      "page": 99,
+      "question": "Wann beginnt die gesetzliche Nachtruhe in Deutschland?",
+      "answers": [
+        "wenn die Sonne untergeht",
+        "wenn die Nachbarn schlafen gehen",
+        "um 0 Uhr, Mitternacht",
+        "um 22 Uhr"
+      ]
+    },
+    {
+      "num": "267",
+      "part": "general",
+      "page": 99,
+      "question": "Eine junge Frau in Deutschland, 22 Jahre alt, lebt mit ihrem Freund zusammen. Die Eltern der Frau finden das nicht gut, weil ihnen der Freund nicht gefällt. Was können die Eltern tun?",
+      "answers": [
+        "Sie müssen die Entscheidung der volljährigen Tochter respektieren.",
+        "Sie haben das Recht, die Tochter in die elterliche Wohnung zurückzuholen.",
+        "Sie können zur Polizei gehen und die Tochter anzeigen.",
+        "Sie suchen einen anderen Mann für die Tochter."
+      ]
+    },
+    {
+      "num": "268",
+      "part": "general",
+      "page": 99,
+      "question": "Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung, weil ihre Muttersprache nicht Deutsch ist. Was ist richtig?",
+      "answers": [
+        "Sie muss mindestens zehn Jahre in Deutschland leben, bevor sie den Führerschein machen kann.",
+        "Wenn sie kein Deutsch kann, darf sie keinen Führerschein haben.",
+        "Sie muss den Führerschein in dem Land machen, in dem man ihre Sprache spricht.",
+        "Sie kann die Theorie-Prüfung vielleicht in ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl."
+      ]
+    },
+    {
+      "num": "269",
+      "part": "general",
+      "page": 100,
+      "question": "In Deutschland haben Kinder ab dem Alter von drei Jahren bis zur Ersteinschulung einen Anspruch auf …",
+      "answers": [
+        "monatliches Taschengeld.",
+        "einen Platz in einem Sportverein.",
+        "einen Kindergartenplatz.",
+        "einen Ferienpass."
+      ]
+    },
+    {
+      "num": "270",
+      "part": "general",
+      "page": 100,
+      "question": "Die Volkshochschule in Deutschland ist eine Einrichtung …",
+      "answers": [
+        "für den Religionsunterricht.",
+        "nur für Jugendliche.",
+        "zur Weiterbildung.",
+        "nur für Rentnerinnen und Rentner."
+      ]
+    },
+    {
+      "num": "271",
+      "part": "general",
+      "page": 100,
+      "question": "Was ist in Deutschland ein Brauch zu Weihnachten?",
+      "answers": [
+        "bunte Eier verstecken",
+        "einen Tannenbaum schmücken",
+        "sich mit Masken und Kostümen verkleiden",
+        "Kürbisse vor die Tür stellen"
+      ]
+    },
+    {
+      "num": "272",
+      "part": "general",
+      "page": 101,
+      "question": "Welche Lebensform ist in Deutschland nicht erlaubt?",
+      "answers": [
+        "Mann und Frau sind geschieden und leben mit neuen Partnern zusammen.",
+        "Zwei Frauen leben zusammen.",
+        "Ein alleinerziehender Vater lebt mit seinen zwei Kindern zusammen.",
+        "Ein Mann ist mit zwei Frauen zur selben Zeit verheiratet."
+      ]
+    },
+    {
+      "num": "273",
+      "part": "general",
+      "page": 101,
+      "question": "Bei Erziehungsproblemen gehen Sie in Deutschland …",
+      "answers": [
+        "zur Ärztin/zum Arzt.",
+        "zum Gesundheitsamt.",
+        "zum Einwohnermeldeamt.",
+        "zum Jugendamt."
+      ]
+    },
+    {
+      "num": "274",
+      "part": "general",
+      "page": 101,
+      "question": "Sie haben in Deutschland absichtlich einen Brief geöffnet, der an eine andere Person adressiert ist. Was haben Sie nicht beachtet?",
+      "answers": [
+        "das Schweigerecht",
+        "das Briefgeheimnis",
+        "die Schweigepflicht",
+        "die Meinungsfreiheit"
+      ]
+    },
+    {
+      "num": "275",
+      "part": "general",
+      "page": 102,
+      "question": "Was braucht man in Deutschland für eine Ehescheidung?",
+      "answers": [
+        "die Einwilligung der Eltern",
+        "ein Attest einer Ärztin/eines Arztes",
+        "die Einwilligung der Kinder",
+        "die Unterstützung einer Anwältin/eines Anwalts"
+      ]
+    },
+    {
+      "num": "276",
+      "part": "general",
+      "page": 102,
+      "question": "Was sollten Sie tun, wenn Sie von Ihrer Ansprechpartnerin/Ihrem Ansprechpartner in einer deutschen Behörde schlecht behandelt werden?",
+      "answers": [
+        "Ich kann nichts tun.",
+        "Ich muss mir diese Behandlung gefallen lassen.",
+        "Ich drohe der Person.",
+        "Ich kann mich bei der Behördenleiterin/beim Behördenleiter beschweren."
+      ]
+    },
+    {
+      "num": "277",
+      "part": "general",
+      "page": 102,
+      "question": "Eine Frau, die ein zweijähriges Kind hat, bewirbt sich in Deutschland um eine Stelle. Was ist ein Beispiel für Diskriminierung? Sie bekommt die Stelle nur deshalb nicht, weil sie …",
+      "answers": [
+        "kein Englisch spricht.",
+        "zu hohe Gehaltsvorstellungen hat.",
+        "keine Erfahrungen in diesem Beruf hat.",
+        "Mutter ist."
+      ]
+    },
+    {
+      "num": "278",
+      "part": "general",
+      "page": 103,
+      "question": "Ein Mann im Rollstuhl hat sich auf eine Stelle als Buchhalter beworben. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil er …",
+      "answers": [
+        "im Rollstuhl sitzt.",
+        "keine Erfahrung hat.",
+        "zu hohe Gehaltsvorstellungen hat.",
+        "kein Englisch spricht."
+      ]
+    },
+    {
+      "num": "279",
+      "part": "general",
+      "page": 103,
+      "question": "In den meisten Mietshäusern in Deutschland gibt es eine \"Hausordnung\". Was steht in einer solchen \"Hausordnung\"? Sie nennt …",
+      "answers": [
+        "Regeln für die Benutzung öffentlicher Verkehrsmittel.",
+        "alle Mieterinnen und Mieter im Haus.",
+        "Regeln, an die sich alle Bewohnerinnen und Bewohner halten müssen.",
+        "die Adresse des nächsten Ordnungsamtes."
+      ]
+    },
+    {
+      "num": "280",
+      "part": "general",
+      "page": 103,
+      "question": "Wenn Sie sich in Deutschland gegen einen falschen Steuerbescheid wehren wollen, müssen Sie …",
+      "answers": [
+        "nichts machen.",
+        "den Bescheid wegwerfen.",
+        "Einspruch einlegen.",
+        "warten, bis ein anderer Bescheid kommt."
+      ]
+    },
+    {
+      "num": "281",
+      "part": "general",
+      "page": 104,
+      "question": "Zwei Freunde wollen in ein öffentliches Schwimmbad in Deutschland. Beide haben eine dunkle Hautfarbe und werden deshalb nicht hineingelassen. Welches Recht wird in dieser Situation verletzt? Das Recht auf …",
+      "answers": [
+        "Meinungsfreiheit",
+        "Gleichbehandlung",
+        "Versammlungsfreiheit",
+        "Freizügigkeit"
+      ]
+    },
+    {
+      "num": "282",
+      "part": "general",
+      "page": 104,
+      "question": "Welches Ehrenamt müssen deutsche Staatsbürgerinnen und Staatsbürger übernehmen, wenn sie dazu aufgefordert werden?",
+      "answers": [
+        "Vereinstrainerin/Vereinstrainer",
+        "Wahlhelferin/Wahlhelfer",
+        "Bibliotheksaufsicht",
+        "Lehrerin/Lehrer"
+      ]
+    },
+    {
+      "num": "283",
+      "part": "general",
+      "page": 104,
+      "question": "Was tun Sie, wenn Sie eine falsche Rechnung von einer deutschen Behörde bekommen?",
+      "answers": [
+        "Ich lasse die Rechnung liegen.",
+        "Ich lege Widerspruch bei der Behörde ein.",
+        "Ich schicke die Rechnung an die Behörde zurück.",
+        "Ich gehe mit der Rechnung zum Finanzamt."
+      ]
+    },
+    {
+      "num": "284",
+      "part": "general",
+      "page": 105,
+      "question": "Was man für die Arbeit können muss, ändert sich in Zukunft sehr schnell. Was kann man tun?",
+      "answers": [
+        "Es ist egal, was man lernt.",
+        "Erwachsene müssen auch nach der Ausbildung immer weiter lernen.",
+        "Kinder lernen in der Schule alles, was im Beruf wichtig ist. Nach der Schule muss man nicht weiter lernen.",
+        "Alle müssen früher aufhören zu arbeiten, weil sich alles ändert."
+      ]
+    },
+    {
+      "num": "285",
+      "part": "general",
+      "page": 105,
+      "question": "Frau Frost arbeitet als fest angestellte Mitarbeiterin in einem Büro. Was muss sie nicht von ihrem Gehalt bezahlen?",
+      "answers": [
+        "Lohnsteuer",
+        "Beiträge zur Arbeitslosenversicherung",
+        "Beiträge zur Renten- und Krankenversicherung",
+        "Umsatzsteuer"
+      ]
+    },
+    {
+      "num": "286",
+      "part": "general",
+      "page": 105,
+      "question": "Welche Organisation in einer Firma hilft den Arbeitnehmerinnen und Arbeitnehmern bei Problemen mit der Arbeitgeberin/dem Arbeitgeber?",
+      "answers": [
+        "der Betriebsrat",
+        "die Betriebsprüferin/der Betriebsprüfer",
+        "die Betriebsgruppe",
+        "das Betriebsmanagement"
+      ]
+    },
+    {
+      "num": "287",
+      "part": "general",
+      "page": 106,
+      "question": "Sie möchten bei einer Firma in Deutschland ihr Arbeitsverhältnis beenden. Was müssen Sie beachten?",
+      "answers": [
+        "die Gehaltszahlungen",
+        "die Arbeitszeit",
+        "die Kündigungsfrist",
+        "die Versicherungspflicht"
+      ]
+    },
+    {
+      "num": "288",
+      "part": "general",
+      "page": 106,
+      "question": "Woraus begründet sich Deutschlands besondere Verantwortung für Israel?",
+      "answers": [
+        "aus der Mitgliedschaft in der Europäischen Union (EU)",
+        "aus den nationalsozialistischen Verbrechen gegen Juden",
+        "aus dem Grundgesetz der Bundesrepublik Deutschland",
+        "aus der christlichen Tradition"
+      ]
+    },
+    {
+      "num": "289",
+      "part": "general",
+      "page": 107,
+      "question": "Ein Mann mit dunkler Hautfarbe bewirbt sich um eine Stelle als Kellner in einem Restaurant in Deutschland. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil …",
+      "answers": [
+        "seine Deutschkenntnisse zu gering sind.",
+        "er zu hohe Gehaltsvorstellungen hat.",
+        "er eine dunkle Haut hat.",
+        "er keine Erfahrungen im Beruf hat."
+      ]
+    },
+    {
+      "num": "290",
+      "part": "general",
+      "page": 108,
+      "question": "Sie haben in Deutschland einen Fernseher gekauft. Zu Hause packen Sie den Fernseher aus, doch er funktioniert nicht. Der Fernseher ist kaputt. Was können Sie machen?",
+      "answers": [
+        "eine Anzeige schreiben",
+        "den Fernseher reklamieren",
+        "das Gerät ungefragt austauschen",
+        "die Garantie verlängern"
+      ]
+    },
+    {
+      "num": "291",
+      "part": "general",
+      "page": 108,
+      "question": "Warum muss man in Deutschland bei der Steuererklärung aufschreiben, ob man zu einer Kirche gehört oder nicht? Weil …",
+      "answers": [
+        "es eine Kirchensteuer gibt, die an die Einkommen- und Lohnsteuer geknüpft ist.",
+        "das für die Statistik in Deutschland wichtig ist.",
+        "man mehr Steuern zahlen muss, wenn man nicht zu einer Kirche gehört.",
+        "die Kirche für die Steuererklärung verantwortlich ist."
+      ]
+    },
+    {
+      "num": "292",
+      "part": "general",
+      "page": 108,
+      "question": "Die Menschen in Deutschland leben nach dem Grundsatz der religiösen Toleranz. Was bedeutet das?",
+      "answers": [
+        "Es dürfen keine Moscheen gebaut werden.",
+        "Alle Menschen glauben an Gott.",
+        "Jeder kann glauben, was er möchte.",
+        "Der Staat entscheidet, an welchen Gott die Menschen glauben."
+      ]
+    },
+    {
+      "num": "293",
+      "part": "general",
+      "page": 109,
+      "question": "Was ist in Deutschland ein Brauch zu Ostern?",
+      "answers": [
+        "Kürbisse vor die Tür stellen",
+        "einen Tannenbaum schmücken",
+        "Eier bemalen",
+        "Raketen in die Luft schießen"
+      ]
+    },
+    {
+      "num": "294",
+      "part": "general",
+      "page": 109,
+      "question": "Pfingsten ist ein …",
+      "answers": [
+        "christlicher Feiertag.",
+        "deutscher Gedenktag.",
+        "internationaler Trauertag.",
+        "bayerischer Brauch."
+      ]
+    },
+    {
+      "num": "295",
+      "part": "general",
+      "page": 109,
+      "question": "Welche Religion hat die europäische und deutsche Kultur geprägt?",
+      "answers": [
+        "der Hinduismus",
+        "das Christentum",
+        "der Buddhismus",
+        "der Islam"
+      ]
+    },
+    {
+      "num": "296",
+      "part": "general",
+      "page": 110,
+      "question": "In Deutschland nennt man die letzten vier Wochen vor Weihnachten …",
+      "answers": [
+        "den Buß- und Bettag.",
+        "das Erntedankfest.",
+        "die Adventszeit.",
+        "Allerheiligen."
+      ]
+    },
+    {
+      "num": "297",
+      "part": "general",
+      "page": 110,
+      "question": "Aus welchem Land sind die meisten Migrantinnen und Migranten nach Deutschland gekommen?",
+      "answers": [
+        "Italien",
+        "Polen",
+        "Marokko",
+        "Türkei"
+      ]
+    },
+    {
+      "num": "298",
+      "part": "general",
+      "page": 110,
+      "question": "In der DDR lebten vor allem Migrantinnen und Migranten aus …",
+      "answers": [
+        "Vietnam, Polen, Mosambik.",
+        "Frankreich, Rumänien, Somalia.",
+        "Chile, Ungarn, Simbabwe.",
+        "Nordkorea, Mexiko, Ägypten."
+      ]
+    },
+    {
+      "num": "299",
+      "part": "general",
+      "page": 111,
+      "question": "Ausländische Arbeitnehmerinnen und Arbeitnehmer, die in den 50er und 60er Jahren von der Bundesrepublik Deutschland angeworben wurden, nannte man …",
+      "answers": [
+        "Schwarzarbeiterinnen/Schwarzarbeiter.",
+        "Gastarbeiterinnen/Gastarbeiter.",
+        "Zeitarbeiterinnen/Zeitarbeiter.",
+        "Schichtarbeiterinnen/Schichtarbeiter."
+      ]
+    },
+    {
+      "num": "300",
+      "part": "general",
+      "page": 111,
+      "question": "Aus welchem Land kamen die ersten Gastarbeiterinnen und Gastarbeiter in die Bundesrepublik Deutschland?",
+      "answers": [
+        "Italien",
+        "Spanien",
+        "Portugal",
+        "Türkei"
+      ]
+    },
+    {
+      "num": "BW-1",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 112,
+      "question": "Welches Wappen gehört zum Bundesland Baden-Württemberg?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/BW-1-1.png",
+        "images/BW-1-2.png",
+        "images/BW-1-3.png",
+        "images/BW-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BW-2",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 112,
+      "question": "Welches ist ein Landkreis in Baden-Württemberg?",
+      "answers": [
+        "Mecklenburgische Seenplatte",
+        "Neckar-Odenwald-Kreis",
+        "Nordfriesland",
+        "Altötting"
+      ]
+    },
+    {
+      "num": "BW-3",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 113,
+      "question": "Für wie viele Jahre wird der Landtag in Baden-Württemberg gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "BW-4",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 113,
+      "question": "Ab welchem Alter darf man in Baden-Württemberg bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "BW-5",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 113,
+      "question": "Welche Farben hat die Landesflagge von Baden-Württemberg?",
+      "answers": [
+        "blau-weiß-rot",
+        "schwarz-gold",
+        "weiß-blau",
+        "grün-weiß-rot"
+      ]
+    },
+    {
+      "num": "BW-6",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 114,
+      "question": "Wo können Sie sich in Baden-Württemberg über politische Themen informieren?",
+      "answers": [
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale",
+        "bei der Landeszentrale für politische Bildung",
+        "bei den Kirchen"
+      ]
+    },
+    {
+      "num": "BW-7",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 114,
+      "question": "Die Landeshauptstadt von Baden-Württemberg heißt …",
+      "answers": [
+        "Heidelberg.",
+        "Stuttgart.",
+        "Karlsruhe.",
+        "Mannheim."
+      ]
+    },
+    {
+      "num": "BW-8",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 115,
+      "question": "Welches Bundesland ist Baden-Württemberg?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/BW-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BW-9",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 116,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Baden-Württemberg?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "BW-10",
+      "part": "state",
+      "state": "Baden-Württemberg",
+      "stateCode": "BW",
+      "page": 116,
+      "question": "Welche Ministerin/welchen Minister hat Baden-Württemberg nicht?",
+      "answers": [
+        "Finanzministerin/Finanzminister",
+        "Justizministerin/Justizminister",
+        "Innenministerin/Innenminister",
+        "Außenministerin/Außenminister"
+      ]
+    },
+    {
+      "num": "BY-1",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 117,
+      "question": "Welches Wappen gehört zum Freistaat Bayern?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/BY-1-1.png",
+        "images/BY-1-2.png",
+        "images/BY-1-3.png",
+        "images/BY-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BY-2",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 117,
+      "question": "Welches ist ein Landkreis in Bayern?",
+      "answers": [
+        "Prignitz",
+        "Rhein-Sieg-Kreis",
+        "Nordfriesland",
+        "Altötting"
+      ]
+    },
+    {
+      "num": "BY-3",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 118,
+      "question": "Für wie viele Jahre wird der Landtag in Bayern gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "BY-4",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 118,
+      "question": "Ab welchem Alter darf man in Bayern bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "BY-5",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 118,
+      "question": "Welche Farben hat die Landesflagge von Bayern?",
+      "answers": [
+        "blau-weiß-rot",
+        "weiß-blau",
+        "grün-weiß-rot",
+        "schwarz-gelb"
+      ]
+    },
+    {
+      "num": "BY-6",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 119,
+      "question": "Wo können Sie sich in Bayern über politische Themen informieren?",
+      "answers": [
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Landeszentrale für politische Bildung",
+        "bei der Verbraucherzentrale",
+        "bei den Kirchen"
+      ]
+    },
+    {
+      "num": "BY-7",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 119,
+      "question": "Die Landeshauptstadt von Bayern heißt …",
+      "answers": [
+        "Ingolstadt.",
+        "Regensburg.",
+        "Nürnberg.",
+        "München."
+      ]
+    },
+    {
+      "num": "BY-8",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 120,
+      "question": "Welches Bundesland ist Bayern?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/BY-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BY-9",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 121,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Bayern?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "BY-10",
+      "part": "state",
+      "state": "Bayern",
+      "stateCode": "BY",
+      "page": 121,
+      "question": "Welche Ministerin/welchen Minister hat Bayern nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "BE-1",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 122,
+      "question": "Welches Wappen gehört zum Bundesland Berlin?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/BE-1-1.png",
+        "images/BE-1-2.png",
+        "images/BE-1-3.png",
+        "images/BE-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BE-2",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 122,
+      "question": "Welches ist ein Bezirk von Berlin?",
+      "answers": [
+        "Altona",
+        "Prignitz",
+        "Pankow",
+        "Mecklenburgische Seenplatte"
+      ]
+    },
+    {
+      "num": "BE-3",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 123,
+      "question": "Für wie viele Jahre wird das Landesparlament in Berlin gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "BE-4",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 123,
+      "question": "Ab welchem Alter darf man in Berlin bei Kommunalwahlen (Wahl der Bezirksverordnetenversammlung) wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "BE-5",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 123,
+      "question": "Welche Farben hat die Landesflagge von Berlin?",
+      "answers": [
+        "blau-weiß-rot",
+        "weiß-rot",
+        "grün-weiß-rot",
+        "schwarz-gold"
+      ]
+    },
+    {
+      "num": "BE-6",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 124,
+      "question": "Wo können Sie sich in Berlin über politische Themen informieren?",
+      "answers": [
+        "beim Ordnungsamt der Gemeinde",
+        "bei den Kirchen",
+        "bei der Verbraucherzentrale",
+        "bei der Landeszentrale für politische Bildung"
+      ]
+    },
+    {
+      "num": "BE-7",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 124,
+      "question": "Welches Bundesland ist ein Stadtstaat?",
+      "answers": [
+        "Berlin",
+        "Saarland",
+        "Brandenburg",
+        "Hessen"
+      ]
+    },
+    {
+      "num": "BE-8",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 125,
+      "question": "Welches Bundesland ist Berlin?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/BE-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BE-9",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 126,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Berlin?",
+      "answers": [
+        "Ministerpräsidentin/Ministerpräsident",
+        "Oberbürgermeisterin/Oberbürgermeister",
+        "Präsidentin/Präsident des Senates",
+        "Regierende Bürgermeisterin/Regierender Bürgermeister"
+      ]
+    },
+    {
+      "num": "BE-10",
+      "part": "state",
+      "state": "Berlin",
+      "stateCode": "BE",
+      "page": 126,
+      "question": "Welche Senatorin/welchen Senator hat Berlin nicht?",
+      "answers": [
+        "Finanzsenatorin/Finanzsenator",
+        "Innensenatorin/Innensenator",
+        "Senatorin/Senator für Außenbeziehungen",
+        "Justizsenatorin/Justizsenator"
+      ]
+    },
+    {
+      "num": "BB-1",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 127,
+      "question": "Welches Wappen gehört zum Bundesland Brandenburg?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/BB-1-1.png",
+        "images/BB-1-2.png",
+        "images/BB-1-3.png",
+        "images/BB-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BB-2",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 127,
+      "question": "Welches ist ein Landkreis in Brandenburg?",
+      "answers": [
+        "Prignitz",
+        "Rhein-Sieg-Kreis",
+        "Vogtlandkreis",
+        "Amberg-Sulzbach"
+      ]
+    },
+    {
+      "num": "BB-3",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 128,
+      "question": "Für wie viele Jahre wird der Landtag in Brandenburg gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "BB-4",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 128,
+      "question": "Ab welchem Alter darf man in Brandenburg bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "BB-5",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 128,
+      "question": "Welche Farben hat die Landesflagge von Brandenburg?",
+      "answers": [
+        "blau-weiß-rot",
+        "rot-weiß",
+        "grün-weiß-rot",
+        "schwarz-gelb"
+      ]
+    },
+    {
+      "num": "BB-6",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 129,
+      "question": "Wo können Sie sich in Brandenburg über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Landeszentrale für politische Bildung",
+        "bei der Verbraucherzentrale"
+      ]
+    },
+    {
+      "num": "BB-7",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 129,
+      "question": "Die Landeshauptstadt von Brandenburg heißt …",
+      "answers": [
+        "Potsdam.",
+        "Cottbus.",
+        "Brandenburg.",
+        "Frankfurt/Oder."
+      ]
+    },
+    {
+      "num": "BB-8",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 130,
+      "question": "Welches Bundesland ist Brandenburg?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/BB-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "BB-9",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 131,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Brandenburg?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "BB-10",
+      "part": "state",
+      "state": "Brandenburg",
+      "stateCode": "BB",
+      "page": 131,
+      "question": "Welche Ministerin/welchen Minister hat Brandenburg nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "HB-1",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 132,
+      "question": "Welches Wappen gehört zur Freien Hansestadt Bremen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/HB-1-1.png",
+        "images/HB-1-2.png",
+        "images/HB-1-3.png",
+        "images/HB-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HB-2",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 132,
+      "question": "Welches ist ein Stadtteil von Bremen?",
+      "answers": [
+        "Altona",
+        "Hemelingen",
+        "Pankow",
+        "Babelsberg"
+      ]
+    },
+    {
+      "num": "HB-3",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 133,
+      "question": "Für wie viele Jahre wird das Landesparlament in Bremen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "HB-4",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 133,
+      "question": "Ab welchem Alter darf man in Bremen bei den Wahlen zur Bürgerschaft (Landtag) wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "HB-5",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 133,
+      "question": "Welche Farben hat die Landesflagge von Bremen?",
+      "answers": [
+        "blau-weiß-rot",
+        "rot-weiß",
+        "grün-weiß-rot",
+        "schwarz-gold"
+      ]
+    },
+    {
+      "num": "HB-6",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 134,
+      "question": "Wo können Sie sich in Bremen über politische Themen informieren?",
+      "answers": [
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Landeszentrale für politische Bildung",
+        "bei den Kirchen",
+        "bei der Verbraucherzentrale"
+      ]
+    },
+    {
+      "num": "HB-7",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 134,
+      "question": "Was ist ein deutscher Stadtstaat?",
+      "answers": [
+        "Bremen",
+        "München",
+        "Frankfurt",
+        "Erfurt"
+      ]
+    },
+    {
+      "num": "HB-8",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 135,
+      "question": "Welches Bundesland ist Bremen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/HB-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HB-9",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 136,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Bremen?",
+      "answers": [
+        "Ministerpräsidentin/Ministerpräsident",
+        "Erste Bürgermeisterin/Erster Bürgermeister",
+        "Präsidentin/Präsident des Senates",
+        "Regierende Bürgermeisterin/Regierender Bürgermeister"
+      ]
+    },
+    {
+      "num": "HB-10",
+      "part": "state",
+      "state": "Bremen",
+      "stateCode": "HB",
+      "page": 136,
+      "question": "Welche Senatorin/welchen Senator hat Bremen nicht?",
+      "answers": [
+        "Senatorin/Senator für Außenbeziehungen",
+        "Finanzsenatorin/Finanzsenator",
+        "Justizsenatorin/Justizsenator",
+        "Innensenatorin/Innensenator"
+      ]
+    },
+    {
+      "num": "HH-1",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 137,
+      "question": "Welches Wappen gehört zur Freien und Hansestadt Hamburg?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/HH-1-1.png",
+        "images/HH-1-2.png",
+        "images/HH-1-3.png",
+        "images/HH-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HH-2",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 137,
+      "question": "Welches ist ein Bezirk von Hamburg?",
+      "answers": [
+        "Altona",
+        "Hemelingen",
+        "Pankow",
+        "Mecklenburgische Seenplatte"
+      ]
+    },
+    {
+      "num": "HH-3",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 138,
+      "question": "Für wie viele Jahre wird das Landesparlament in Hamburg gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "HH-4",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 138,
+      "question": "Ab welchem Alter darf man in Hamburg bei Kommunalwahlen (Wahl der Bezirksversammlungen) wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "HH-5",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 138,
+      "question": "Welche Farben hat die Landesflagge von Hamburg?",
+      "answers": [
+        "blau-weiß-rot",
+        "weiß-rot",
+        "grün-weiß-rot",
+        "schwarz-gelb"
+      ]
+    },
+    {
+      "num": "HH-6",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 139,
+      "question": "Wo können Sie sich in Hamburg über politische Themen informieren?",
+      "answers": [
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale",
+        "bei den Kirchen",
+        "bei der Landeszentrale für politische Bildung"
+      ]
+    },
+    {
+      "num": "HH-7",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 139,
+      "question": "Welches Bundesland ist ein Stadtstaat?",
+      "answers": [
+        "Hamburg",
+        "Sachsen",
+        "Bayern",
+        "Thüringen"
+      ]
+    },
+    {
+      "num": "HH-8",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 140,
+      "question": "Welches Bundesland ist Hamburg?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/HH-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HH-9",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 141,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Hamburg?",
+      "answers": [
+        "Ministerpräsidentin/Ministerpräsident",
+        "Erste Bürgermeisterin/Erster Bürgermeister",
+        "Regierende Senatorin/Regierender Senator",
+        "Oberbürgermeisterin/Oberbürgermeister"
+      ]
+    },
+    {
+      "num": "HH-10",
+      "part": "state",
+      "state": "Hamburg",
+      "stateCode": "HH",
+      "page": 141,
+      "question": "Welche Senatorin/welchen Senator hat Hamburg nicht?",
+      "answers": [
+        "Justizsenatorin/Justizsenator",
+        "Senatorin/Senator für Außenbeziehungen",
+        "Finanzsenatorin/Finanzsenator",
+        "Innensenatorin/Innensenator"
+      ]
+    },
+    {
+      "num": "HE-1",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 142,
+      "question": "Welches Wappen gehört zum Bundesland Hessen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/HE-1-1.png",
+        "images/HE-1-2.png",
+        "images/HE-1-3.png",
+        "images/HE-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HE-2",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 142,
+      "question": "Welches ist ein Landkreis in Hessen?",
+      "answers": [
+        "Ammerland",
+        "Altötting",
+        "Prignitz",
+        "Main-Taunus-Kreis"
+      ]
+    },
+    {
+      "num": "HE-3",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 143,
+      "question": "Für wie viele Jahre wird der Landtag in Hessen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "HE-4",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 143,
+      "question": "Ab welchem Alter darf man in Hessen bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "HE-5",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 143,
+      "question": "Welche Farben hat die Landesflagge von Hessen?",
+      "answers": [
+        "blau-weiß-rot",
+        "rot-weiß",
+        "schwarz-gold",
+        "grün-weiß-rot"
+      ]
+    },
+    {
+      "num": "HE-6",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 144,
+      "question": "Wo können Sie sich in Hessen über politische Themen informieren?",
+      "answers": [
+        "bei der Landeszentrale für politische Bildung",
+        "bei der Verbraucherzentrale",
+        "beim Ordnungsamt der Gemeinde",
+        "bei den Kirchen"
+      ]
+    },
+    {
+      "num": "HE-7",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 144,
+      "question": "Die Landeshauptstadt von Hessen heißt …",
+      "answers": [
+        "Kassel.",
+        "Darmstadt.",
+        "Frankfurt.",
+        "Wiesbaden."
+      ]
+    },
+    {
+      "num": "HE-8",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 145,
+      "question": "Welches Bundesland ist Hessen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/HE-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "HE-9",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 146,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Hessen?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "HE-10",
+      "part": "state",
+      "state": "Hessen",
+      "stateCode": "HE",
+      "page": 146,
+      "question": "Welche Ministerin/welchen Minister hat Hessen nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "MV-1",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 147,
+      "question": "Welches Wappen gehört zum Bundesland Mecklenburg-Vorpommern?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/MV-1-1.png",
+        "images/MV-1-2.png",
+        "images/MV-1-3.png",
+        "images/MV-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "MV-2",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 147,
+      "question": "Welches ist ein Landkreis in Mecklenburg-Vorpommern?",
+      "answers": [
+        "Prignitz",
+        "Mecklenburgische Seenplatte",
+        "Vogtlandkreis",
+        "Rhein-Sieg-Kreis"
+      ]
+    },
+    {
+      "num": "MV-3",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 148,
+      "question": "Für wie viele Jahre wird der Landtag in Mecklenburg-Vorpommern gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "MV-4",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 148,
+      "question": "Ab welchem Alter darf man in Mecklenburg-Vorpommern bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "MV-5",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 148,
+      "question": "Welche Farben hat die Landesflagge von Mecklenburg-Vorpommern?",
+      "answers": [
+        "schwarz-rot-gold",
+        "blau-weiß-gelb-rot",
+        "grün-weiß-rot",
+        "schwarz-gelb"
+      ]
+    },
+    {
+      "num": "MV-6",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 149,
+      "question": "Wo können Sie sich in Mecklenburg-Vorpommern über politische Themen informieren?",
+      "answers": [
+        "bei der Landeszentrale für politische Bildung",
+        "bei den Kirchen",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale"
+      ]
+    },
+    {
+      "num": "MV-7",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 149,
+      "question": "Die Landeshauptstadt von Mecklenburg-Vorpommern heißt …",
+      "answers": [
+        "Greifswald.",
+        "Schwerin.",
+        "Rostock.",
+        "Wismar."
+      ]
+    },
+    {
+      "num": "MV-8",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 150,
+      "question": "Welches Bundesland ist Mecklenburg-Vorpommern?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/MV-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "MV-9",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 151,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Mecklenburg-Vorpommern?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "MV-10",
+      "part": "state",
+      "state": "Mecklenburg-Vorpommern",
+      "stateCode": "MV",
+      "page": 151,
+      "question": "Welche Ministerin/welchen Minister hat Mecklenburg-Vorpommern nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "NI-1",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 152,
+      "question": "Welches Wappen gehört zum Bundesland Niedersachsen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/NI-1-1.png",
+        "images/NI-1-2.png",
+        "images/NI-1-3.png",
+        "images/NI-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "NI-2",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 152,
+      "question": "Welches ist ein Landkreis in Niedersachsen?",
+      "answers": [
+        "Ammerland",
+        "Rhein-Sieg-Kreis",
+        "Nordfriesland",
+        "Vogtlandkreis"
+      ]
+    },
+    {
+      "num": "NI-3",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 153,
+      "question": "Für wie viele Jahre wird der Landtag in Niedersachsen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "NI-4",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 153,
+      "question": "Ab welchem Alter darf man in Niedersachsen bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "NI-5",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 153,
+      "question": "Welche Farben hat die Landesflagge von Niedersachsen?",
+      "answers": [
+        "weiß-blau",
+        "schwarz-rot-gold",
+        "schwarz-gelb",
+        "blau-weiß-rot"
+      ]
+    },
+    {
+      "num": "NI-6",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 154,
+      "question": "Wo können Sie sich in Niedersachsen über politische Themen informieren?",
+      "answers": [
+        "bei der Landeszentrale für politische Bildung",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale",
+        "bei den Kirchen"
+      ]
+    },
+    {
+      "num": "NI-7",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 154,
+      "question": "Die Landeshauptstadt von Niedersachsen heißt …",
+      "answers": [
+        "Hannover.",
+        "Braunschweig.",
+        "Wolfsburg.",
+        "Osnabrück."
+      ]
+    },
+    {
+      "num": "NI-8",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 155,
+      "question": "Welches Bundesland ist Niedersachsen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/NI-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "NI-9",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 156,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Niedersachsen?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "NI-10",
+      "part": "state",
+      "state": "Niedersachsen",
+      "stateCode": "NI",
+      "page": 156,
+      "question": "Welche Ministerin/welchen Minister hat Niedersachsen nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "NW-1",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 157,
+      "question": "Welches Wappen gehört zum Bundesland Nordrhein-Westfalen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/NW-1-1.png",
+        "images/NW-1-2.png",
+        "images/NW-1-3.png",
+        "images/NW-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "NW-2",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 157,
+      "question": "Welches ist ein Landkreis in Nordrhein-Westfalen?",
+      "answers": [
+        "Ammerland",
+        "Rhein-Sieg-Kreis",
+        "Nordfriesland",
+        "Vogtlandkreis"
+      ]
+    },
+    {
+      "num": "NW-3",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 158,
+      "question": "Für wie viele Jahre wird der Landtag in Nordrhein-Westfalen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "NW-4",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 158,
+      "question": "Ab welchem Alter darf man in Nordrhein-Westfalen bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "NW-5",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 158,
+      "question": "Welche Farben hat die Landesflagge von Nordrhein-Westfalen?",
+      "answers": [
+        "rot-weiß",
+        "grün-weiß-rot",
+        "schwarz-gold",
+        "blau-weiß-rot"
+      ]
+    },
+    {
+      "num": "NW-6",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 159,
+      "question": "Wo können Sie sich in Nordrhein-Westfalen über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale",
+        "bei der Landeszentrale für politische Bildung"
+      ]
+    },
+    {
+      "num": "NW-7",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 159,
+      "question": "Die Landeshauptstadt von Nordrhein-Westfalen heißt …",
+      "answers": [
+        "Köln.",
+        "Bonn.",
+        "Düsseldorf.",
+        "Dortmund."
+      ]
+    },
+    {
+      "num": "NW-8",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 160,
+      "question": "Welches Bundesland ist Nordrhein-Westfalen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/NW-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "NW-9",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 161,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Nordrhein-Westfalen?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "NW-10",
+      "part": "state",
+      "state": "Nordrhein-Westfalen",
+      "stateCode": "NW",
+      "page": 161,
+      "question": "Welche Ministerin/welchen Minister hat Nordrhein-Westfalen nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "RP-1",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 162,
+      "question": "Welches Wappen gehört zum Bundesland Rheinland-Pfalz?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/RP-1-1.png",
+        "images/RP-1-2.png",
+        "images/RP-1-3.png",
+        "images/RP-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "RP-2",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 162,
+      "question": "Welches ist ein Landkreis in Rheinland-Pfalz?",
+      "answers": [
+        "Westerwaldkreis",
+        "Altötting",
+        "Emsland",
+        "Prignitz"
+      ]
+    },
+    {
+      "num": "RP-3",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 163,
+      "question": "Für wie viele Jahre wird der Landtag in Rheinland-Pfalz gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "RP-4",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 163,
+      "question": "Ab welchem Alter darf man in Rheinland-Pfalz bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "RP-5",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 163,
+      "question": "Welche Farben hat die Landesflagge von Rheinland-Pfalz?",
+      "answers": [
+        "weiß-rot",
+        "schwarz-rot-gold",
+        "schwarz-gelb",
+        "grün-weiß-rot"
+      ]
+    },
+    {
+      "num": "RP-6",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 164,
+      "question": "Wo können Sie sich in Rheinland-Pfalz über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "bei der Verbraucherzentrale",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Landeszentrale für politische Bildung"
+      ]
+    },
+    {
+      "num": "RP-7",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 164,
+      "question": "Die Landeshauptstadt von Rheinland-Pfalz heißt …",
+      "answers": [
+        "Mainz.",
+        "Kaiserslautern.",
+        "Ludwigshafen.",
+        "Koblenz."
+      ]
+    },
+    {
+      "num": "RP-8",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 165,
+      "question": "Welches Bundesland ist Rheinland-Pfalz?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/RP-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "RP-9",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 166,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Rheinland-Pfalz?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "RP-10",
+      "part": "state",
+      "state": "Rheinland-Pfalz",
+      "stateCode": "RP",
+      "page": 166,
+      "question": "Welche Ministerin/welchen Minister hat Rheinland-Pfalz nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "SL-1",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 167,
+      "question": "Welches Wappen gehört zum Bundesland Saarland?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/SL-1-1.png",
+        "images/SL-1-2.png",
+        "images/SL-1-3.png",
+        "images/SL-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SL-2",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 167,
+      "question": "Welches ist ein Landkreis im Saarland?",
+      "answers": [
+        "Mecklenburgische Seenplatte",
+        "Altötting",
+        "Neunkirchen",
+        "Rhein-Sieg-Kreis"
+      ]
+    },
+    {
+      "num": "SL-3",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 168,
+      "question": "Für wie viele Jahre wird der Landtag des Saarlandes gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "SL-4",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 168,
+      "question": "Ab welchem Alter darf man im Saarland bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "SL-5",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 168,
+      "question": "Welche Farben hat die Landesflagge des Saarlandes?",
+      "answers": [
+        "weiß-blau",
+        "schwarz-rot-gold",
+        "schwarz-gelb",
+        "grün-weiß-rot"
+      ]
+    },
+    {
+      "num": "SL-6",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 169,
+      "question": "Wo können Sie sich im Saarland über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "bei der Landeszentrale für politische Bildung",
+        "bei der Verbraucherzentrale",
+        "beim Ordnungsamt der Gemeinde"
+      ]
+    },
+    {
+      "num": "SL-7",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 169,
+      "question": "Die Landeshauptstadt des Saarlandes heißt …",
+      "answers": [
+        "Neunkirchen.",
+        "Homburg.",
+        "Saarbrücken.",
+        "Völklingen."
+      ]
+    },
+    {
+      "num": "SL-8",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 170,
+      "question": "Welches Bundesland ist das Saarland?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/SL-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SL-9",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 171,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef des Saarlandes?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "SL-10",
+      "part": "state",
+      "state": "Saarland",
+      "stateCode": "SL",
+      "page": 171,
+      "question": "Welche Ministerin/welchen Minister hat das Saarland nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "SN-1",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 172,
+      "question": "Welches Wappen gehört zum Freistaat Sachsen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/SN-1-1.png",
+        "images/SN-1-2.png",
+        "images/SN-1-3.png",
+        "images/SN-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SN-2",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 172,
+      "question": "Welches ist ein Landkreis in Sachsen?",
+      "answers": [
+        "Vogtlandkreis",
+        "Altötting",
+        "Uckermark",
+        "Nordfriesland"
+      ]
+    },
+    {
+      "num": "SN-3",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 173,
+      "question": "Für wie viele Jahre wird der Landtag in Sachsen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "SN-4",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 173,
+      "question": "Ab welchem Alter darf man in Sachsen bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "SN-5",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 173,
+      "question": "Welche Farben hat die Landesflagge von Sachsen?",
+      "answers": [
+        "blau-weiß-rot",
+        "weiß-grün",
+        "grün-weiß-rot",
+        "schwarz-gelb"
+      ]
+    },
+    {
+      "num": "SN-6",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 174,
+      "question": "Wo können Sie sich in Sachsen über politische Themen informieren?",
+      "answers": [
+        "bei der Landeszentrale für politische Bildung",
+        "beim Ordnungsamt der Gemeinde",
+        "bei den Kirchen",
+        "bei der Verbraucherzentrale"
+      ]
+    },
+    {
+      "num": "SN-7",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 174,
+      "question": "Die Landeshauptstadt von Sachsen heißt …",
+      "answers": [
+        "Leipzig.",
+        "Dresden.",
+        "Chemnitz.",
+        "Zwickau."
+      ]
+    },
+    {
+      "num": "SN-8",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 175,
+      "question": "Welches Bundesland ist Sachsen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/SN-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SN-9",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 176,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Sachsen?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "SN-10",
+      "part": "state",
+      "state": "Sachsen",
+      "stateCode": "SN",
+      "page": 176,
+      "question": "Welche Ministerin/welchen Minister hat Sachsen nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "ST-1",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 177,
+      "question": "Welches Wappen gehört zum Bundesland Sachsen-Anhalt?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/ST-1-1.png",
+        "images/ST-1-2.png",
+        "images/ST-1-3.png",
+        "images/ST-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "ST-2",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 177,
+      "question": "Welches ist ein Landkreis in Sachsen-Anhalt?",
+      "answers": [
+        "Ammerland",
+        "Altötting",
+        "Uckermark",
+        "Börde"
+      ]
+    },
+    {
+      "num": "ST-3",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 178,
+      "question": "Für wie viele Jahre wird der Landtag in Sachsen-Anhalt gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "ST-4",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 178,
+      "question": "Ab welchem Alter darf man in Sachsen-Anhalt bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "ST-5",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 178,
+      "question": "Welche Farben hat die Landesflagge von Sachsen-Anhalt?",
+      "answers": [
+        "blau-weiß-rot",
+        "gelb-schwarz",
+        "grün-weiß-rot",
+        "weiß-rot"
+      ]
+    },
+    {
+      "num": "ST-6",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 179,
+      "question": "Wo können Sie sich in Sachsen-Anhalt über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "bei der Landeszentrale für politische Bildung",
+        "beim Ordnungsamt der Gemeinde",
+        "bei der Verbraucherzentrale"
+      ]
+    },
+    {
+      "num": "ST-7",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 179,
+      "question": "Die Landeshauptstadt von Sachsen-Anhalt heißt …",
+      "answers": [
+        "Halle.",
+        "Dessau.",
+        "Magdeburg.",
+        "Wittenberg."
+      ]
+    },
+    {
+      "num": "ST-8",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 180,
+      "question": "Welches Bundesland ist Sachsen-Anhalt?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/ST-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "ST-9",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 181,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Sachsen-Anhalt?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "ST-10",
+      "part": "state",
+      "state": "Sachsen-Anhalt",
+      "stateCode": "ST",
+      "page": 181,
+      "question": "Welche Ministerin/welchen Minister hat Sachsen-Anhalt nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "SH-1",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 182,
+      "question": "Welches Wappen gehört zum Bundesland Schleswig-Holstein?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/SH-1-1.png",
+        "images/SH-1-2.png",
+        "images/SH-1-3.png",
+        "images/SH-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SH-2",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 182,
+      "question": "Welches ist ein Landkreis in Schleswig-Holstein?",
+      "answers": [
+        "Ammerland",
+        "Mecklenburgische Seenplatte",
+        "Nordfriesland",
+        "Rhein-Sieg-Kreis"
+      ]
+    },
+    {
+      "num": "SH-3",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 183,
+      "question": "Für wie viele Jahre wird der Landtag in Schleswig-Holstein gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "SH-4",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 183,
+      "question": "Ab welchem Alter darf man in Schleswig-Holstein bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "SH-5",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 183,
+      "question": "Welche Farben hat die Landesflagge von Schleswig-Holstein?",
+      "answers": [
+        "weiß-blau",
+        "blau-weiß-rot",
+        "weiß-rot",
+        "grün-weiß-rot"
+      ]
+    },
+    {
+      "num": "SH-6",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 184,
+      "question": "Wo können Sie sich in Schleswig-Holstein über politische Themen informieren?",
+      "answers": [
+        "bei der Verbraucherzentrale",
+        "beim Ordnungsamt der Gemeinde",
+        "beim / bei der Landesbeauftragten für politische Bildung",
+        "bei den Kirchen"
+      ]
+    },
+    {
+      "num": "SH-7",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 184,
+      "question": "Die Landeshauptstadt von Schleswig-Holstein heißt …",
+      "answers": [
+        "Husum.",
+        "Flensburg.",
+        "Lübeck.",
+        "Kiel."
+      ]
+    },
+    {
+      "num": "SH-8",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 185,
+      "question": "Welches Bundesland ist Schleswig-Holstein?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/SH-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "SH-9",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 186,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Schleswig-Holstein?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "SH-10",
+      "part": "state",
+      "state": "Schleswig-Holstein",
+      "stateCode": "SH",
+      "page": 186,
+      "question": "Welche Ministerin/welchen Minister hat Schleswig-Holstein nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    },
+    {
+      "num": "TH-1",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 187,
+      "question": "Welches Wappen gehört zum Freistaat Thüringen?",
+      "answers": [
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
+      ],
+      "images": [
+        "images/TH-1-1.png",
+        "images/TH-1-2.png",
+        "images/TH-1-3.png",
+        "images/TH-1-4.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "TH-2",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 187,
+      "question": "Welches ist ein Landkreis in Thüringen?",
+      "answers": [
+        "Ammerland",
+        "Altötting",
+        "Nordfriesland",
+        "Wartburgkreis"
+      ]
+    },
+    {
+      "num": "TH-3",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 188,
+      "question": "Für wie viele Jahre wird der Landtag in Thüringen gewählt?",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "num": "TH-4",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 188,
+      "question": "Ab welchem Alter darf man in Thüringen bei Kommunalwahlen wählen?",
+      "answers": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ]
+    },
+    {
+      "num": "TH-5",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 188,
+      "question": "Welche Farben hat die Landesflagge von Thüringen?",
+      "answers": [
+        "blau-weiß-rot",
+        "weiß-rot",
+        "grün-weiß-rot",
+        "schwarz-gold"
+      ]
+    },
+    {
+      "num": "TH-6",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 189,
+      "question": "Wo können Sie sich in Thüringen über politische Themen informieren?",
+      "answers": [
+        "bei den Kirchen",
+        "bei der Verbraucherzentrale",
+        "bei der Landeszentrale für politische Bildung",
+        "beim Ordnungsamt der Gemeinde"
+      ]
+    },
+    {
+      "num": "TH-7",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 189,
+      "question": "Die Landeshauptstadt von Thüringen heißt …",
+      "answers": [
+        "Eisenach.",
+        "Erfurt.",
+        "Gera.",
+        "Jena."
+      ]
+    },
+    {
+      "num": "TH-8",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 190,
+      "question": "Welches Bundesland ist Thüringen?",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "images": [
+        "images/TH-8-1.png"
+      ],
+      "credit": null
+    },
+    {
+      "num": "TH-9",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 191,
+      "question": "Wie nennt man die Regierungschefin/den Regierungschef in Thüringen?",
+      "answers": [
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
+      ]
+    },
+    {
+      "num": "TH-10",
+      "part": "state",
+      "state": "Thüringen",
+      "stateCode": "TH",
+      "page": 191,
+      "question": "Welche Ministerin/welchen Minister hat Thüringen nicht?",
+      "answers": [
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
+      ]
+    }
+  ]
+}
