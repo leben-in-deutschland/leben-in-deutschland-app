@@ -77,6 +77,12 @@ on the Play Billing Library, pinned as `playBillingVersion` in
   page scripts run.
 - The tip counter lives under `localStorage` key `lid:support`; the learner
   record is never written by the tip jar. Exports and imports ignore the key.
+- The support section mounts only after Google Play answered with
+  products, so `#support` does not exist when `/settings#support` is
+  opened fresh (heart in the header, thanks dialog). `useScrollToHash` in
+  `settings-screen.tsx` therefore waits for a late hash target with a
+  `MutationObserver` (15 s cap). Any new section that renders `null` first
+  gets this for free; a one-shot `getElementById` after mount does not.
 - Release builds are minified; the plugin relies on the same keep rule as
   `AppSystemBarsPlugin` ([`capacitor-r8-annotations.md`](capacitor-r8-annotations.md)).
   Verify a minified build still answers `getProducts` after a library bump.

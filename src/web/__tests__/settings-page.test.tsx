@@ -14,6 +14,22 @@ vi.mock("next/navigation", () => ({
     usePathname: () => "/settings",
 }));
 
+// The tip jar is off unless a test switches it on; it then answers like Google Play, a moment later.
+const tipJar = vi.hoisted(() => ({
+    supported: false,
+    products: [] as { id: string; name: string; price: string }[],
+    releaseProducts: () => {},
+}));
+vi.mock("@/services/tip-jar", () => ({
+    TIP_PRODUCT_IDS: ["tip_small", "tip_medium", "tip_large"],
+    tipJarSupported: () => tipJar.supported,
+    loadTipProducts: () => new Promise((resolve) => {
+        tipJar.releaseProducts = () => resolve(tipJar.products);
+    }),
+    sendTip: vi.fn().mockResolvedValue("cancelled"),
+    recoverTips: vi.fn().mockResolvedValue(0),
+}));
+
 const LEGACY_USER = {
     state: { stateCode: "BE", stateName: "Berlin" },
     dailyProgress: [{ date: "Thu Oct 08 2026", correct: 3, incorrect: 1, attempted: 4, skipped: 0, flagged: 0 }],
@@ -89,6 +105,8 @@ beforeEach(() => {
     (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
     window.localStorage.clear();
     window.localStorage.setItem("user", JSON.stringify(LEGACY_USER));
+    tipJar.supported = false;
+    tipJar.products = [];
     window.matchMedia = window.matchMedia ?? ((query: string) => ({ matches: false, media: query, onchange: null, addListener: vi.fn(), removeListener: vi.fn(), addEventListener: vi.fn(), removeEventListener: vi.fn(), dispatchEvent: vi.fn() } as any));
     (globalThis as any).ResizeObserver = (globalThis as any).ResizeObserver ?? class { observe() {} unobserve() {} disconnect() {} };
     (globalThis as any).IntersectionObserver = (globalThis as any).IntersectionObserver ?? class { observe() {} unobserve() {} disconnect() {} takeRecords() { return []; } };
@@ -229,6 +247,37 @@ describe("settings page smoke", () => {
             await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
         });
         expect(Element.prototype.scrollIntoView).toHaveBeenCalled();
+    });
+
+    it("waits for the support section when the heart opens /settings#support before Google Play answered", async () => {
+        tipJar.supported = true;
+        tipJar.products = [{ id: "tip_small", name: "Kaffee", price: "1,99 €" }];
+        await mount("#support");
+        await act(async () => {
+            await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
+        });
+        expect(document.getElementById("support")).toBeNull();
+        expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
+
+        act(() => tipJar.releaseProducts());
+        await flush();
+        const section = document.getElementById("support");
+        expect(section).not.toBeNull();
+        expect(Element.prototype.scrollIntoView).toHaveBeenCalledTimes(1);
+        expect((Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.instances[0]).toBe(section);
+        expect(document.activeElement?.id).toBe("support-heading");
+    });
+
+    it("gives up quietly when the section never appears", async () => {
+        tipJar.supported = true;
+        await mount("#support");
+        await act(async () => {
+            await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
+        });
+        act(() => tipJar.releaseProducts()); // Google Play answered with no products: the section stays hidden
+        await flush();
+        expect(document.getElementById("support")).toBeNull();
+        expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
     });
 
     it("switches the app language from the profile section", async () => {
