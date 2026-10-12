@@ -199,8 +199,9 @@ function newEntry(official, usedNums) {
     };
 }
 
+/** Quoted for the Markdown report; JSON escaping covers backslashes, quotes, and control characters. */
 function quote(text) {
-    return `"${String(text ?? "").replace(/"/g, '\\"')}"`;
+    return JSON.stringify(String(text ?? ""));
 }
 
 /**

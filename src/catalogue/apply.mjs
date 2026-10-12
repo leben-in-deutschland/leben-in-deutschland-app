@@ -94,8 +94,9 @@ function changesOf(before, after) {
     return changes;
 }
 
+/** Quoted for the Markdown report; JSON escaping covers backslashes, quotes, and control characters. */
 function quote(text) {
-    return `"${String(text ?? "").replace(/"/g, '\\"')}"`;
+    return JSON.stringify(String(text ?? ""));
 }
 
 function buildReview({ stand, heldBack, added, removed, applied, unchanged }) {
