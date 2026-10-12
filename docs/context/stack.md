@@ -26,8 +26,13 @@ docs/          PULSE engineering control plane
 
 ## Tooling
 
-- npm with `src/web/package-lock.json`.
-- ESLint 9 with Next.js configuration.
+- npm with `src/web/package-lock.json`. The `overrides` block pins only
+  security fixes that no parent can select on its own; today that includes
+  `postcss-selector-parser@7.1.6` for Tailwind 3 (see
+  [`PLAN-014`](../plans/PLAN-014-dependabot-remediation-2026-10.md)).
+- ESLint 9 with Next.js configuration (`eslint-config-next@^16.3.3`; newer
+  releases bring stricter React Compiler rules, see
+  [`MEM-005`](../memory/classic-design-module.md)).
 - Vitest 4 and jsdom.
 - Gradle wrapper under `src/android/`.
 - GitHub Actions for tests, data sync, Vercel deployment, and Android release.

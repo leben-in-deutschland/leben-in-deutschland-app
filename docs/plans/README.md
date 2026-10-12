@@ -15,6 +15,7 @@
 - [`PLAN-011`](PLAN-011-classic-ui-choice.md) - classic (2.0) design opt-in for upgraded learners with a one-time prompt and a switch in both settings.
 - [`PLAN-012`](PLAN-012-tip-thanks-card.md) - tip jar nudge: heart button in the header and a one-time thank-you popup after a passed mock exam or a 7-day streak.
 - [`PLAN-013`](PLAN-013-official-catalogue-and-musterbogen.md) - official BAMF catalogue pipeline (check, extract, compare, pull request) with its skill, and the mock exam shaped like the official test sheet.
+- [`PLAN-014`](PLAN-014-dependabot-remediation-2026-10.md) - the October 2026 Dependabot alerts: Capacitor 7.6.9, Next 16.3.8, sharp, vitest, transitive updates, and the `postcss-selector-parser` override for Tailwind 3.
 
 Copy `_template.md` for non-trivial implementation, migration, integration, or
 recovery work. Every plan must include a baseline, trigger, narrow reversal,
