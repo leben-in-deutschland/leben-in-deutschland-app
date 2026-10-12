@@ -12,6 +12,7 @@
 | [ADR-006](ADR-006-remote-content.md) | Deliver Notices, Owner Switches, and the Question Catalogue Over the Daily Refresh Channel | Accepted | 2026-10-10 |
 | [ADR-007](ADR-007-classic-ui-opt-in.md) | Keep the 2.0 Learner Screens as an Opt-In Classic Design | Accepted | 2026-10-11 |
 | [ADR-008](ADR-008-play-console-from-repository.md) | Configure the Play Console From the Repository Through the Play Developer API | Accepted | 2026-10-11 |
+| [ADR-009](ADR-009-official-bamf-catalogue-source.md) | Take Question Texts From the Official BAMF Catalogue PDF Behind a Review Gate | Accepted | 2026-10-12 |
 
 Copy `_template.md` only for a durable product, architecture, safety, or
 workflow choice with meaningful alternatives.

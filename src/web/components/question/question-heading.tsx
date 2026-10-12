@@ -11,21 +11,33 @@ type QuestionHeadingProps = {
     /** id for aria-labelledby on the answer group. */
     id?: string;
     className?: string;
+    /**
+     * "default" shows the catalogue number and topic; "sheet" shows only
+     * `label` (e.g. "Frage 4") like the official test sheet, which gives no
+     * hints about the question.
+     */
+    variant?: "default" | "sheet";
+    /** Heading label of the "sheet" variant. */
+    label?: string;
 };
 
 /** Question number, topic, text, and image (if the question has one). */
-export function QuestionHeading({ question, t, position, id, className }: QuestionHeadingProps) {
+export function QuestionHeading({ question, t, position, id, className, variant = "default", label }: QuestionHeadingProps) {
     const category = normalizeCategory(question.category);
     const hasImage = Boolean(question.image) && question.image !== "-";
     return (
         <div className={clsx("flex flex-col gap-3", className)}>
-            <div className="flex flex-wrap items-center gap-2 text-sm text-default-500">
-                {position ? <span className="font-medium text-default-600">{position}</span> : null}
-                <span className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-semibold tabular text-primary-700">
-                    {t.question_number_label ? `${t.question_number_label} ${question.num}` : question.num}
-                </span>
-                <span className="rounded-full bg-default-100 px-2.5 py-0.5 text-xs font-medium text-default-600 ring-1 ring-inset ring-foreground/[0.05]">{t[category] ?? category}</span>
-            </div>
+            {variant === "sheet" ? (
+                <p className="font-display text-base font-bold tabular text-primary">{label ?? position}</p>
+            ) : (
+                <div className="flex flex-wrap items-center gap-2 text-sm text-default-500">
+                    {position ? <span className="font-medium text-default-600">{position}</span> : null}
+                    <span className="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-semibold tabular text-primary-700">
+                        {t.question_number_label ? `${t.question_number_label} ${question.num}` : question.num}
+                    </span>
+                    <span className="rounded-full bg-default-100 px-2.5 py-0.5 text-xs font-medium text-default-600 ring-1 ring-inset ring-foreground/[0.05]">{t[category] ?? category}</span>
+                </div>
+            )}
             <h2 id={id} className="question-text font-display font-bold tracking-[-0.01em] text-foreground" lang="de">
                 {question.question}
             </h2>

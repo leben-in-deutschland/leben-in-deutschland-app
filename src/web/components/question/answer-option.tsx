@@ -15,11 +15,19 @@ import { CheckIcon, XIcon } from "@/components/ui/icons";
  */
 export type AnswerState = "idle" | "selected" | "correct" | "wrong" | "reveal" | "dimmed";
 
+/**
+ * What sits in front of the answer text:
+ * - letter: A to D (practice, results, catalogue)
+ * - checkbox: a box that takes a cross, like the official test sheet (mock exam)
+ */
+export type AnswerMarker = "letter" | "checkbox";
+
 type AnswerOptionProps = {
-    /** "a" to "d". Shown as A to D. */
+    /** "a" to "d". Shown as A to D with the letter marker. */
     letter: string;
     children: ReactNode;
     state?: AnswerState;
+    marker?: AnswerMarker;
     onSelect?: () => void;
     disabled?: boolean;
     /** Screen-reader suffix such as "correct answer". */
@@ -44,8 +52,28 @@ const badgeStyles: Record<AnswerState, string> = {
     dimmed: "bg-default-100 text-default-500",
 };
 
+const checkboxStyles: Record<AnswerState, string> = {
+    idle: "bg-content1 ring-2 ring-inset ring-default-300 group-hover:ring-primary",
+    selected: "bg-primary text-primary-foreground shadow-glow ring-2 ring-inset ring-primary",
+    correct: "bg-success text-success-foreground ring-2 ring-inset ring-success",
+    wrong: "bg-danger text-danger-foreground ring-2 ring-inset ring-danger",
+    reveal: "bg-success-100 text-success-700 ring-2 ring-inset ring-success/60",
+    dimmed: "bg-content1 ring-2 ring-inset ring-default-200",
+};
+
+/** The cross or check inside the checkbox marker; idle and dimmed boxes stay empty. */
+function CheckboxMark({ state }: { state: AnswerState }) {
+    if (state === "selected" || state === "wrong") {
+        return <XIcon size={18} strokeWidth={3} className="motion-safe:animate-pop-in" />;
+    }
+    if (state === "correct" || state === "reveal") {
+        return <CheckIcon size={18} strokeWidth={3} />;
+    }
+    return null;
+}
+
 /** One large, tappable answer row (at least 56 px tall). */
-export function AnswerOption({ letter, children, state = "idle", onSelect, disabled, srStatus }: AnswerOptionProps) {
+export function AnswerOption({ letter, children, state = "idle", marker = "letter", onSelect, disabled, srStatus }: AnswerOptionProps) {
     const graded = state === "correct" || state === "wrong" || state === "reveal" || state === "dimmed";
     return (
         <button
@@ -61,15 +89,25 @@ export function AnswerOption({ letter, children, state = "idle", onSelect, disab
                 disabled && !graded && "cursor-not-allowed opacity-60",
             )}
         >
-            <span
-                className={clsx(
-                    "mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] font-display text-[0.9375rem] font-bold uppercase transition-colors duration-200",
-                    badgeStyles[state],
-                )}
-                aria-hidden="true"
-            >
-                {letter}
-            </span>
+            {marker === "checkbox" ? (
+                <span
+                    className={clsx("mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-colors duration-200", checkboxStyles[state])}
+                    aria-hidden="true"
+                    data-marker="checkbox"
+                >
+                    <CheckboxMark state={state} />
+                </span>
+            ) : (
+                <span
+                    className={clsx(
+                        "mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] font-display text-[0.9375rem] font-bold uppercase transition-colors duration-200",
+                        badgeStyles[state],
+                    )}
+                    aria-hidden="true"
+                >
+                    {letter}
+                </span>
+            )}
             <span className="answer-text min-w-0 flex-1 pt-1 text-foreground">{children}</span>
             {state === "correct" || state === "reveal" ? (
                 <span

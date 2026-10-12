@@ -13,6 +13,7 @@ vi.mock("next/navigation", () => ({
 
 import { PracticeHub } from "@/components/practice/practice-hub";
 import { PracticeSession } from "@/components/practice/practice-session";
+import { questionsData } from "@/data/data";
 import type { User } from "@/types/user";
 import { readUser, useUser } from "@/utils/user-store";
 
@@ -214,7 +215,8 @@ describe("practice screens render", () => {
         window.localStorage.setItem("user", JSON.stringify(user));
         await render(<SessionHarness mode="new" sessionSize={3} />);
         expect(container.textContent).toContain("Pick an answer, then tap Check.");
-        await key("1"); // select a (correct for question 1)
+        const solution = questionsData().find((question) => question.num === "1")?.solution ?? "a";
+        await key(String("abcd".indexOf(solution) + 1)); // select the correct answer for question 1
         expect(container.querySelector('[data-answer-list] button[aria-pressed="true"]')).toBeTruthy();
         expect(readUser()?.questionProgress.length ?? 0).toBe(0);
         await key("Enter"); // check

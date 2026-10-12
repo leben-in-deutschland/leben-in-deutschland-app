@@ -3,9 +3,11 @@
 ## Status
 
 Current repository-derived view as of 2026-10-09 (updated for the 2.1 UI and
-UX revamp in [`PLAN-004`](../plans/PLAN-004-ui-ux-revamp.md) and, on
-2026-10-11, for the classic design opt-in in
-[`PLAN-011`](../plans/PLAN-011-classic-ui-choice.md)).
+UX revamp in [`PLAN-004`](../plans/PLAN-004-ui-ux-revamp.md), on
+2026-10-11 for the classic design opt-in in
+[`PLAN-011`](../plans/PLAN-011-classic-ui-choice.md), and on 2026-10-12 for
+the official catalogue pipeline and the mock-exam cover in
+[`PLAN-013`](../plans/PLAN-013-official-catalogue-and-musterbogen.md)).
 
 ## System Shape
 
@@ -13,7 +15,11 @@ UX revamp in [`PLAN-004`](../plans/PLAN-004-ui-ux-revamp.md) and, on
    React and TypeScript. `next.config.js` exports static files to `out/`.
 2. **User experience** - routes under `src/web/app/` provide test preparation,
    mock exams, statistics, question browsing, exam-center lookup, settings,
-   and privacy information.
+   and privacy information. The mock exam (`src/web/components/mock/`)
+   mirrors the official test sheet: a cover and instruction screen before
+   the clock starts, "Frage N" headings with checkbox marks, the state
+   questions mixed in, and links to the two official sample sheets
+   ([`FEAT-009`](../features/009-mock-exam-official-sheet.md)).
 3. **Client state** - user progress and preferences are stored in browser
    `localStorage` through `src/web/services/` and `src/web/utils/`.
 4. **Content** - question, evaluation, translation, and exam-center data is
@@ -22,7 +28,8 @@ UX revamp in [`PLAN-004`](../plans/PLAN-004-ui-ux-revamp.md) and, on
    Android under `src/android/` with application ID
    `org.lebenindeutschland.app`.
 6. **Automation** - GitHub Actions refreshes data, tests/builds the app,
-   deploys the web output through Vercel, and builds/signs Android bundles.
+   deploys the web output through Vercel, builds/signs Android bundles, and
+   checks the official BAMF catalogue once a week (see below).
 7. **Engineering control plane** - PULSE lives under `docs/` and adds no
    runtime dependency to the product.
 
@@ -127,10 +134,48 @@ Scraper repository -> GitHub Actions sync -> versioned JSON
                                            -> Next.js static export
                                            -> browser / Vercel
                                            -> Capacitor Android bundle
+
+BAMF catalogue PDF -> weekly check (src/catalogue) -> report + proposal
+                                                    -> apply safe part -> tests -> push to main (release)
+                                                    -> held-back questions -> GitHub issue -> owner
 ```
 
 User progress stays on the client unless a future accepted decision introduces
 a server-side boundary.
+
+## Official Catalogue Pipeline
+
+See [`ADR-009`](../decisions/ADR-009-official-bamf-catalogue-source.md),
+[`FEAT-010`](../features/010-official-catalogue-pipeline.md), and
+[`MEM-009`](../memory/bamf-catalogue-source.md).
+
+- `src/catalogue/` holds plain Node 22 ESM scripts whose only dependency is
+  `pdfjs-dist` from `src/web/node_modules`: `check.mjs` reads the landing
+  page (`Datum`, link version `v=`) and asks for the PDF with a conditional
+  `GET` (`ETag`, `Last-Modified`; bamf.de rejects `HEAD`); `extract.mjs`
+  turns the PDF into `data/bamf-catalogue.json` (460 questions, pictures as
+  PNG under the git-ignored `output/`); `compare.mjs` matches the official
+  texts against `src/web/data/question.json` and writes `output/report.md`
+  and `output/question.proposed.json`; `apply.mjs` writes the safe part of
+  the proposal into `question.json` and the held-back rest into
+  `output/review.md`; `sync.mjs` chains them (`--apply` for the last step).
+- Committed state is `state.json` (file facts only: page date, version,
+  `Last-Modified`, `ETag`, checksum, size, pages, "Stand", download time)
+  and `data/bamf-catalogue.json`. Nothing under `src/catalogue/` is part of
+  the web export or the Android bundle, and the app never requests bamf.de.
+- `.github/workflows/sync-catalogue.yml` runs the check weekly and on
+  demand; when the PDF changed it extracts, compares, applies, regenerates
+  the split files, runs `npm test`, and pushes to `main` with the `PAT`
+  secret so that the release and deploy workflows start (a `GITHUB_TOKEN`
+  push would not start them); bookkeeping-only commits carry `[skip ci]`.
+  Held-back questions become a GitHub issue.
+- The boundary: only `apply.mjs` writes `src/web/data/question.json`, and
+  only entries whose solution follows an exact answer-text match; the
+  pipeline never renumbers (progress, explanations, and translations are
+  keyed by `num`; `question.json` must keep 460 unique numbers) and never
+  invents a solution (the PDF has no answer key). `questions-core.json`
+  and `public/data/` are generated from `question.json` by
+  `src/web/scripts/split-questions.js` and committed together with it.
 
 ## Release Boundaries
 
