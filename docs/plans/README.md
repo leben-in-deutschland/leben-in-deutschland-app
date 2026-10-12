@@ -14,6 +14,7 @@
 - [`PLAN-010`](PLAN-010-rich-notifications.md) - question-of-the-day and encouragement cards with buttons for the Android reminders.
 - [`PLAN-011`](PLAN-011-classic-ui-choice.md) - classic (2.0) design opt-in for upgraded learners with a one-time prompt and a switch in both settings.
 - [`PLAN-012`](PLAN-012-tip-thanks-card.md) - tip jar nudge: heart button in the header and a one-time thank-you popup after a passed mock exam or a 7-day streak.
+- [`PLAN-013`](PLAN-013-official-catalogue-and-musterbogen.md) - official BAMF catalogue pipeline (check, extract, compare, pull request) with its skill, and the mock exam shaped like the official test sheet.
 
 Copy `_template.md` for non-trivial implementation, migration, integration, or
 recovery work. Every plan must include a baseline, trigger, narrow reversal,

@@ -81,8 +81,26 @@ describe("pickExamQuestions", () => {
     it("picks 30 general and 3 state questions from the Berlin catalogue", () => {
         const picked = pickExamQuestions(BE_GENERAL, BE_STATE, seeded(1));
         expect(picked).toHaveLength(33);
-        expect(picked.slice(0, 30).every((entry) => !isStateQuestion(entry.num, "BE"))).toBe(true);
-        expect(picked.slice(30).every((entry) => isStateQuestion(entry.num, "BE"))).toBe(true);
+        expect(picked.filter((entry) => !isStateQuestion(entry.num, "BE"))).toHaveLength(30);
+        expect(picked.filter((entry) => isStateQuestion(entry.num, "BE"))).toHaveLength(3);
+    });
+
+    it("mixes the state questions in among the general ones like the official sheets", () => {
+        let mixed = 0;
+        for (let seed = 0; seed < 10; seed++) {
+            const picked = pickExamQuestions(BE_GENERAL, BE_STATE, seeded(seed));
+            const positions = picked.map((entry, index) => (isStateQuestion(entry.num, "BE") ? index : -1)).filter((index) => index !== -1);
+            expect(positions).toHaveLength(3);
+            if (positions.some((index) => index < 30)) {
+                mixed += 1;
+            }
+        }
+        expect(mixed).toBeGreaterThan(0);
+    });
+
+    it("is deterministic for a fixed seed", () => {
+        const first = pickExamQuestions(BE_GENERAL, BE_STATE, seeded(21)).map((entry) => entry.num);
+        expect(pickExamQuestions(BE_GENERAL, BE_STATE, seeded(21)).map((entry) => entry.num)).toEqual(first);
     });
 
     it("never repeats a question", () => {

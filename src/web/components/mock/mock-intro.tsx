@@ -12,6 +12,7 @@ import { IconBadge, type Accent } from "@/components/ui/icon-badge";
 import {
     CheckCircleIcon,
     ClipboardCheckIcon,
+    ExternalLinkIcon,
     LayersIcon,
     PlayIcon,
     ShieldCheckIcon,
@@ -23,6 +24,7 @@ import { ListRow } from "@/components/ui/list-row";
 import { PageHeader, SectionHeading, Surface } from "@/components/ui/surface";
 import { AppLink } from "@/components/ui/app-link";
 import { durationOf, examHistorySummary, recentExams } from "./exam-logic";
+import { OFFICIAL_SHEETS } from "./official-sheets";
 
 type MockIntroProps = {
     user: User;
@@ -64,7 +66,35 @@ function RecentExamRow({ test, t, language }: { test: MockTestProgress; t: Trans
     );
 }
 
-/** First screen of /mock: what the exam is, the two settings, the start button, and recent results. */
+/** One official sample sheet; a plain anchor so the PDF page opens in the browser, also inside the Android app. */
+function SheetRow({ examType, current, t }: { examType: ExamType; current: boolean; t: Translations }) {
+    const sheet = OFFICIAL_SHEETS[examType];
+    return (
+        <a
+            href={sheet.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={fmt(t.exam_sheets_open_aria, { title: sheet.title })}
+            className="flex min-h-[56px] w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-default-100 active:bg-default-200"
+        >
+            <IconBadge icon={ClipboardCheckIcon} accent={current ? "primary" : "default"} />
+            <span className="min-w-0 flex-1">
+                <span lang="de" className="block font-medium leading-snug text-foreground">
+                    {sheet.title}
+                </span>
+                <span className="mt-0.5 block text-sm leading-snug text-default-500">{t.exam_sheets_hint}</span>
+            </span>
+            {current ? (
+                <Chip size="sm" variant="flat" color="primary" className="shrink-0 font-semibold">
+                    {t.exam_sheets_selected}
+                </Chip>
+            ) : null}
+            <ExternalLinkIcon size={18} className="shrink-0 text-default-400" />
+        </a>
+    );
+}
+
+/** First screen of /mock: what the exam is, the two settings, the start button, recent results, and the official sheets. */
 export function MockIntro({ user, t, language, onStart }: MockIntroProps) {
     const prefs = prefsOf(user);
     const examType = prefs.examType;
@@ -169,6 +199,19 @@ export function MockIntro({ user, t, language, onStart }: MockIntroProps) {
                             ))}
                         </ul>
                     )}
+                </Surface>
+            </section>
+
+            <section className="flex flex-col gap-3" aria-labelledby="official-sheets-heading">
+                <SectionHeading id="official-sheets-heading" title={t.exam_sheets_title} description={t.exam_sheets_desc} />
+                <Surface padding="none" className="overflow-hidden">
+                    <ul className="divide-y divide-divider">
+                        {EXAM_TYPES.map((type) => (
+                            <li key={type}>
+                                <SheetRow examType={type} current={type === examType} t={t} />
+                            </li>
+                        ))}
+                    </ul>
                 </Surface>
             </section>
         </div>

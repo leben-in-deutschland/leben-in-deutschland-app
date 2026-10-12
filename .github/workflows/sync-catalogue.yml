@@ -1,0 +1,103 @@
+name: Sync BAMF Catalogue
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Download, extract and compare even when the PDF did not change"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: sync-catalogue
+  cancel-in-progress: false
+
+jobs:
+  sync_catalogue:
+    name: Check the official question catalogue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: src/web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: src/web
+        run: npm ci
+
+      - name: Check for a new catalogue PDF
+        id: check
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          if [ "$FORCE" = "true" ]; then
+            node src/catalogue/check.mjs --force
+          else
+            node src/catalogue/check.mjs
+          fi
+
+      - name: Extract questions and pictures
+        if: steps.check.outputs.changed == 'true'
+        run: node src/catalogue/extract.mjs
+
+      - name: Compare with the app questions
+        if: steps.check.outputs.changed == 'true'
+        run: node src/catalogue/compare.mjs
+
+      - name: Upload review report and proposal
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-review
+          if-no-files-found: error
+          path: |
+            src/catalogue/output/report.md
+            src/catalogue/output/question.proposed.json
+
+      - name: Prepare the pull request body
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const limit = 60000;
+            let body = fs.readFileSync("src/catalogue/output/report.md", "utf8");
+            if (body.length > limit) {
+              body = body.slice(0, limit);
+              const open = (body.match(/<details>/g) || []).length - (body.match(/<\/details>/g) || []).length;
+              body += "\n" + "</details>\n".repeat(Math.max(open, 0));
+              body += "\n…\n\n_The report was cut here because pull request bodies are limited to 65,536 characters. The complete `report.md` and `question.proposed.json` are attached to the workflow run as the artifact `catalogue-review`._\n";
+            }
+            fs.writeFileSync("src/catalogue/output/pr-body.md", body);
+          '
+
+      - name: Open a pull request
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STAND: ${{ steps.check.outputs.stand }}
+          BRANCH: catalogue/bamf-${{ steps.check.outputs.stand }}-${{ github.run_id }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add src/catalogue/state.json src/catalogue/data/
+          if git diff --cached --quiet; then
+            echo "state.json and data/ are unchanged; no pull request needed (the report is in the catalogue-review artifact)"
+            exit 0
+          fi
+          git commit -m "catalogue: BAMF Gesamtfragenkatalog Stand $STAND"
+          git push origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "catalogue: BAMF Gesamtfragenkatalog Stand $STAND" \
+            --body-file src/catalogue/output/pr-body.md

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@heroui/react";
 import type { Question } from "@/types/question";
-import type { UserPreferences } from "@/types/user";
+import type { ExamType, UserPreferences } from "@/types/user";
 import { hapticTap } from "@/services/haptics";
 import { fmt, formatClock, plural, type Translations } from "@/utils/i18n";
 import { ANSWER_OPTIONS, type AnswerOption as AnswerLetter } from "@/utils/question-bank";
@@ -15,6 +15,7 @@ import { ProgressBar } from "@/components/ui/progress";
 import { useBackButton } from "@/components/shell/use-back-button";
 import { Surface } from "@/components/ui/surface";
 import { openItems, remainingSeconds, timerTone, type ExamAnswers, type TimerTone } from "./exam-logic";
+import { EXAM_SHEET_TITLES } from "./official-sheets";
 import { QuestionMapGrid, QuestionMapModal } from "./question-map";
 
 export type ExamFinishReason = "submitted" | "cancelled" | "timeout";
@@ -28,6 +29,8 @@ export interface ExamFinishPayload {
 type MockExamProps = {
     questions: Question[];
     startedAt: Date;
+    /** Named in the top bar like the header of the official sheet. */
+    examType: ExamType;
     timed: boolean;
     prefs: UserPreferences;
     /** Native shells have no page reloads, so the leave warning is web only. */
@@ -42,7 +45,7 @@ const TIMER_STYLES: Record<TimerTone, string> = {
     danger: "bg-danger-100 text-danger-700 motion-safe:animate-pulse",
 };
 
-/** 1–4 and A–D pick an answer; anything else returns -1. */
+/** 1–4 pick an answer (A–D still work as hidden shortcuts); anything else returns -1. */
 function answerIndexForKey(key: string): number {
     if (key.length !== 1) {
         return -1;
@@ -69,8 +72,8 @@ function toggleIn(set: ReadonlySet<string>, value: string): Set<string> {
     return next;
 }
 
-/** The running exam: top bar with clock and tools, one question at a time, map and dialogs. */
-export function MockExam({ questions, startedAt, timed, prefs, isNative, t, onFinish }: MockExamProps) {
+/** The running exam: top bar with clock and tools, one question at a time like a page of the test sheet, map and dialogs. */
+export function MockExam({ questions, startedAt, examType, timed, prefs, isNative, t, onFinish }: MockExamProps) {
     const [index, setIndex] = useState(0);
     const [answers, setAnswers] = useState<ExamAnswers>({});
     const [flagged, setFlagged] = useState<ReadonlySet<string>>(() => new Set());
@@ -201,6 +204,8 @@ export function MockExam({ questions, startedAt, timed, prefs, isNative, t, onFi
     };
 
     const positionText = fmt(t.exam_position_aria, { current: index + 1, total });
+    const questionLabel = fmt(t.exam_question_label, { number: index + 1 });
+    const sheetTitle = EXAM_SHEET_TITLES[examType];
     const mapProps = { questions, answers, flagged, current: index, onJump: jumpTo, t };
     // Announced once when 5 minutes and once when 1 minute are left, not every second.
     const timeAnnouncement = timed && tone !== "default" ? fmt(t.exam_time_left_aria, { time: formatClock(tone === "danger" ? 60 : 300) }) : "";
@@ -237,12 +242,17 @@ export function MockExam({ questions, startedAt, timed, prefs, isNative, t, onFi
                                 <span aria-hidden="true">{formatClock(remaining)}</span>
                             </span>
                         ) : null}
-                        <p className="text-sm font-semibold tabular text-foreground">
-                            <span className="sr-only">{positionText}</span>
-                            <span aria-hidden="true">
-                                {index + 1} / {total}
-                            </span>
-                        </p>
+                        <div className="flex min-w-0 flex-col items-center leading-tight">
+                            <p className="text-sm font-semibold tabular text-foreground">
+                                <span className="sr-only">{positionText}</span>
+                                <span aria-hidden="true">
+                                    {index + 1} / {total}
+                                </span>
+                            </p>
+                            <p lang="de" className="max-w-full truncate text-[0.6875rem] font-medium text-default-500">
+                                {sheetTitle}
+                            </p>
+                        </div>
                     </div>
                     <Button
                         isIconOnly
@@ -274,12 +284,13 @@ export function MockExam({ questions, startedAt, timed, prefs, isNative, t, onFi
             <div className="flex flex-1 flex-col gap-4 pt-4 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start lg:gap-6 lg:pt-6">
                 <div className="flex flex-col gap-4">
                     <section key={question.num} className="flex flex-col gap-5 animate-rise-in">
-                        <QuestionHeading question={question} t={t} position={positionText} id="exam-question" className="px-1" />
+                        <QuestionHeading question={question} t={t} variant="sheet" label={questionLabel} id="exam-question" className="px-1" />
                         <div role="group" aria-labelledby="exam-question" className="flex flex-col gap-3">
                             {ANSWER_OPTIONS.map((letter) => (
                                 <AnswerOption
                                     key={letter}
                                     letter={letter}
+                                    marker="checkbox"
                                     state={selected === letter ? "selected" : "idle"}
                                     onSelect={() => select(letter)}
                                     srStatus={selected === letter ? t.answer_selected_sr : undefined}

@@ -35,6 +35,7 @@ PULSE template; template sync must leave them untouched.
 | Skill | Use it for |
 | --- | --- |
 | `play-console-publish` | Pushing the tip-jar products and the Play store listing from the repository through the Play Developer API, with offline checks and a credential gate (ADR-008) |
+| `bamf-catalogue-sync` | Checking whether BAMF published a new official question catalogue PDF, downloading it only when it changed, extracting all 460 questions, comparing them with the app's questions, and handing the owner a report and a proposal; read-only, no credentials, never writes `question.json` (ADR-009) |
 
 ## Recommended: Activate the Complete Pack
 

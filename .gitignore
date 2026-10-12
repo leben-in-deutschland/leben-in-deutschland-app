@@ -245,3 +245,5 @@ fastlane/test_output
 release.keystore
 # Generated store assets (raw captures, renders, videos)
 src/store/output/
+# Generated catalogue assets (BAMF PDF, extracted pictures, review report, proposal)
+src/catalogue/output/
