@@ -1,13 +1,22 @@
 ---
 id: ADR-009
-title: Take Question Texts From the Official BAMF Catalogue PDF Behind a Review Gate
+title: Take Question Texts From the Official BAMF Catalogue PDF, Apply the Safe Part Automatically
 status: Accepted
 date: 2026-10-12
+updated: 2026-10-12
 areas: [data, web, automation]
 tags: [adr, data, questions, bamf, automation, privacy]
 ---
 
-# ADR-009: Take Question Texts From the Official BAMF Catalogue PDF Behind a Review Gate
+# ADR-009: Take Question Texts From the Official BAMF Catalogue PDF, Apply the Safe Part Automatically
+
+> **Amendment (2026-10-12, same day):** the owner asked that a new
+> catalogue reaches learners without waiting for a pull request review
+> ("if anything new then push to main so new data will be automatically
+> shown"). The review gate now applies only to questions whose solution
+> cannot be carried over by an exact answer-text match; everything else is
+> applied and pushed to `main` by the workflow. See *Decision* and
+> *Amendment* below.
 
 ## Context
 
@@ -128,8 +137,18 @@ Option 3. Concretely, a small pipeline in plain Node 22 ESM scripts under
   `needsReview: true`; new questions are appended with an empty solution
   and `needsReview: true`; removed ones are only listed. It never writes
   into `src/web/`.
-- `node src/catalogue/sync.mjs [--force]` - check, then (if changed or
-  forced) extract and compare.
+- `node src/catalogue/apply.mjs [--dry-run]` - writes the safe part of the
+  proposal into `src/web/data/question.json`: matched entries whose
+  solution follows an exact answer-text match take the official stem,
+  answers (official order), and solution letter; `num` and `id` never
+  change; helper fields are stripped. Entries with `needsReview`, new
+  questions (no solution), and removed questions are held back and listed
+  in `src/catalogue/output/review.md`. It refuses to run on a question file
+  with duplicate numbers and refuses to write one. Afterwards
+  `src/web/scripts/split-questions.js` regenerates `questions-core.json`
+  and `public/data/`.
+- `node src/catalogue/sync.mjs [--force] [--apply]` - check, then (if
+  changed or forced) extract and compare, and with `--apply` apply.
 - Committed: `src/catalogue/state.json` (`landingUrl`, `pdfUrl`,
   `pageDate`, `version`, `lastModified`, `etag`, `sha256`, `bytes`,
   `pages`, `stand`, `downloadedAt`; no `checkedAt`, so an unchanged check
@@ -138,17 +157,54 @@ Option 3. Concretely, a small pipeline in plain Node 22 ESM scripts under
   `src/catalogue/README.md`. Git-ignored: `src/catalogue/output/`.
 - `.github/workflows/sync-catalogue.yml` - weekly schedule plus manual
   dispatch (input `force`). It runs the check and, only when something
-  changed, extracts, compares, uploads the report as an artifact, commits
-  `state.json` and `data/` to a branch `catalogue/bamf-<stand>-<run id>`,
-  and opens a pull request with the report as its body (plain
-  `GITHUB_TOKEN`; the owner must enable "Allow GitHub Actions to create and
-  approve pull requests" once). It deliberately never pushes to `main`,
-  because `android-release.yml` and `vercel-deploy.yml` run on every push
-  to `main`.
+  changed, extracts, compares, applies, uploads `report.md`, `review.md`,
+  and the proposal as the artifact `catalogue-review`, regenerates the
+  split data and runs `npm test` when something was applied (red tests
+  stop the run; nothing is pushed), then commits `state.json`, `data/`,
+  and the app data. App-data changes bump the patch version and are pushed
+  to `main` with the `PAT` secret so that `vercel-deploy.yml` and
+  `android-release.yml` start (pushes made with `GITHUB_TOKEN` never
+  trigger workflows); bookkeeping-only changes are committed with
+  `[skip ci]`. Held-back questions become one GitHub issue per `Stand`
+  with `review.md` as the body.
 - The procedure for agents is the project skill
   `docs/skills/bamf-catalogue-sync/SKILL.md`.
-- The scraper's `question.json` keeps supplying translations, explanations,
-  and solutions until the owner approves a merge of the proposal.
+- `src/web/data/question.json` stays the single source of the shipped
+  data and keeps supplying translations, explanations, and the solutions
+  of held-back questions. The scraper sync (`sync-question.yml`) stays
+  manual-only and is retired in practice: its output currently carries
+  duplicate numbers.
+
+### Amendment: automatic application (2026-10-12)
+
+The first version of this decision opened a pull request and never touched
+`src/web/`. The owner then asked for new data to be shown automatically.
+The pipeline therefore splits every new catalogue in two:
+
+- **Safe** - a matched question whose correct answer text appears verbatim
+  among the official answers. Adopting the official stem, answer order, and
+  the letter that follows the answer text cannot change which answer is
+  correct, so these are applied, tested, pushed, and released without a
+  person.
+- **Held back** - approximate or eliminated solution matches, unmapped
+  letters, new questions (no answer key), removed questions. These keep
+  their app version and are listed in a GitHub issue for the owner.
+
+The release still has two gates: `npm test` in the workflow and the
+duplicate-number check in `apply.mjs`. The first run of the pipeline on
+the repaired data aligned 346 of 460 questions (240 answer orders, 303
+solution letters, 106 answer texts, 35 stems) and held back 54.
+
+**Data repair that made this possible.** The committed `question.json` had
+68 duplicate numbers: the scraper commit `227846e` ("Sync questions &
+bump version", authored 2025-12-26) landed on `main` after the Next.js 16
+upgrade `ed7efbe` and overwrote the file, while the generated
+`questions-core.json` and `public/data/` (created in `ed7efbe`) stayed
+correct. The file was restored from `ed7efbe`, whose `split-questions.js`
+output equals the shipped files byte for byte; only then were the official
+texts applied. Renumbering to the official order was rejected again:
+learner progress, review schedules, explanations, and translations are all
+keyed by `num`.
 
 ## Consequences
 
@@ -158,12 +214,23 @@ Option 3. Concretely, a small pipeline in plain Node 22 ESM scripts under
   what a question says; a weekly check notices a new edition within days.
 - No credentials, no new runtime request from the app, no vendor; the
   weekly cost of an unchanged catalogue is two `GET`s and a `304`.
-- Every change arrives as a reviewable pull request with a readable report.
+- A new edition reaches learners within a week without a person in the
+  loop for the safe part; the risky part arrives as a readable GitHub issue.
+- Every workflow commit carries the full comparison as an artifact and a
+  `catalogue:` commit message, so a bad alignment is one revert away.
 
 ### Negative
 
 - There is no answer key, so solutions are carried over only by matching
-  answer texts; everything else is a human decision (`needsReview`).
+  answer texts; everything else is a human decision (`needsReview`) and
+  can lag behind the official text until the issue is worked off.
+- A direct push to `main` relies on the `PAT`, `GIT_USER_NAME`, and
+  `GIT_USER_EMAIL` secrets; without the PAT the data lands but is not
+  released until a deploy workflow is started by hand.
+- Automatically adopted official wording can disagree with a stored
+  explanation (`context`) that quotes the old wording; no explanation
+  references an answer letter, so reordering is safe, but phrasing can
+  drift.
 - The numbering mismatch means the app keeps its own `num` values;
   renumbering, and any progress migration it needs, is deferred.
 - The pictures from the PDF are extracted into a git-ignored folder only;
@@ -176,10 +243,11 @@ Option 3. Concretely, a small pipeline in plain Node 22 ESM scripts under
 
 ## Follow-Up
 
-- [ ] Owner: enable "Allow GitHub Actions to create and approve pull
-      requests" in the repository's Actions settings.
-- [ ] Owner: review the first `report.md` and decide which proposal entries
-      go into `src/web/data/question.json`.
+- [ ] Owner: keep the `PAT` secret valid (a token allowed to push to
+      `main`) so a catalogue push starts the deploy workflows.
+- [ ] Owner: work off the first held-back list (54 questions) from the
+      GitHub issue the first live run opens, or from
+      `src/catalogue/output/review.md` after `node src/catalogue/apply.mjs`.
 - [ ] Owner: decide whether and how the app follows the official numbering
       (needs a progress migration keyed by `num`).
 - [ ] Owner: decide whether the PDF pictures replace the third-party image

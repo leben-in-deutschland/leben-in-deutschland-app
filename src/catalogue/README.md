@@ -5,9 +5,13 @@ und zum „Einbürgerungstest“* that the Bundesamt für Migration und
 Flüchtlinge (BAMF) publishes as a PDF, downloads it only when it changed,
 extracts all 460 questions (300 general + 10 for each of the 16 states) with
 their answers and pictures, and compares them with the app's question file.
-The result is a review report and a proposed merged file. **Nothing under
-`src/web/` is ever written**: adopting official texts stays an owner
-decision, taken on the pull request the pipeline opens.
+The result is a review report and a proposed merged file. `apply.mjs` then
+carries the **safe part** of the proposal into `src/web/data/question.json`
+(texts whose solution follows an exact answer-text match); everything that
+needs a judgement call is held back and listed in `output/review.md`. The
+weekly workflow pushes the applied data to `main`, which starts the web
+deploy and the Android release, and opens a GitHub issue for the held-back
+questions (owner decision of 2026-10-12, see ADR-009).
 
 ## What this is
 
@@ -21,7 +25,8 @@ src/catalogue/
   check.mjs                 Step 1+2: reads the "last updated" signals, downloads the PDF when it changed
   extract.mjs               Step 3: PDF -> data/bamf-catalogue.json + output/images/*.png, validates the result
   compare.mjs               Step 4: compares with src/web/data/question.json -> output/report.md + output/question.proposed.json
-  sync.mjs                  check -> (when changed or --force) extract -> compare, prints a summary
+  apply.mjs                 Step 5: writes the safe part of the proposal into src/web/data/question.json, held-back list -> output/review.md
+  sync.mjs                  check -> (when changed or --force) extract -> compare -> (--apply) apply, prints a summary
   lib/http.mjs              fetch helpers: User-Agent, timeout, one retry, conditional GET, redirect = failure
   lib/pdf.mjs               pdf.js loading, line reconstruction, picture extraction with position tracking
   lib/png.mjs               Minimal PNG encoder (RGB, RGBA, 1-bit grey) without dependencies
@@ -37,7 +42,8 @@ src/catalogue/
 - `pdfjs-dist` installed in `src/web/node_modules`: run `npm ci` in
   `src/web` once.
 - Network access to `www.bamf.de` for `check.mjs` (public, read-only; no
-  login, no cookies kept). `extract.mjs` and `compare.mjs` work offline.
+  login, no cookies kept). `extract.mjs`, `compare.mjs`, and `apply.mjs`
+  work offline.
 
 ## Commands
 
@@ -46,10 +52,15 @@ Run everything from the repository root.
 ```bash
 node src/catalogue/sync.mjs            # check; extract + compare only when the PDF changed
 node src/catalogue/sync.mjs --force    # always download, extract, and compare
+node src/catalogue/sync.mjs --apply    # … and write the safe part into src/web/data/question.json
 node src/catalogue/check.mjs [--force]
 node src/catalogue/extract.mjs [--pdf <path>]
 node src/catalogue/compare.mjs
+node src/catalogue/apply.mjs [--dry-run]
 ```
+
+After `apply.mjs` wrote the question file, regenerate the split data and
+run the tests: `cd src/web && node scripts/split-questions.js && npm test`.
 
 ### `check.mjs` – did the catalogue change?
 
@@ -146,14 +157,40 @@ image, translation, category, context, id`) plus helper fields:
   and are listed in the report.
 
 Numbering: the app's numbers come from a third-party source and do not
-follow the official PDF (at the time of writing no general question shares
-its number, and 68 numbers occur more than once in the app file). The app
-keys learner progress by `num`, so the proposal **never renumbers**; the
-report contains the table `official → app` for the owner's decision.
+follow the official PDF (143 of 460 matched questions share their number).
+The app keys learner progress, explanations, and translations by `num`, so
+the proposal **never renumbers**; the report contains the table
+`official → app` for the owner's decision. `src/web/data/question.json`
+must keep 460 unique numbers – `questions-core.json` and `public/data/`
+are generated from it by `src/web/scripts/split-questions.js`.
+
+### `apply.mjs` – carry the safe part into the app
+
+Reads `output/question.proposed.json` and `src/web/data/question.json`,
+refuses to start when the app file has duplicate numbers, and writes a new
+`question.json` (2-space JSON like the original) in which
+
+- **safe** matched questions take the official stem, answers (in the
+  official order), and the solution letter that follows the answer text –
+  `num` and `id` never change, translations keep their permuted `a`–`d`,
+  and the helper fields `officialNum`, `needsReview`, `reviewReason`,
+  `notInOfficialCatalogue` are stripped;
+- **held back** questions (`needsReview`: approximate or eliminated
+  solution, unmapped letter) keep their current app version;
+- **new** official questions are not added (no solution, translations, or
+  explanation yet) and **removed** ones are kept.
+
+`output/review.md` lists everything that was held back, in a form a person
+can act on (official text, current app text, proposed solution, reason).
+`--dry-run` only reports. With `GITHUB_OUTPUT` set it appends `applied`
+(changed questions) and `heldBack` (held back + new + removed). Exit `1` on
+a missing input, an invalid applied entry (empty text, solution outside
+`a`–`d`, changed `num`/`id`), or duplicate numbers before or after; nothing
+is written in those cases. Applying the same proposal twice changes nothing.
 
 ## Outputs
 
-Committed (reviewable diffs on the pull request):
+Committed (reviewable diffs on `main`, `catalogue:` commits):
 
 - `state.json` – no personal data, no paths, no cookies:
 
@@ -198,38 +235,70 @@ Ignored (`src/catalogue/output/`, see `.gitignore`):
 
 - `gesamtfragenkatalog.pdf` (about 9 MB), `gesamtfragenkatalog.txt`
 - `images/*.png` (about 100 files, 36 MB)
-- `report.md`, `question.proposed.json`
+- `report.md`, `review.md`, `question.proposed.json`, `issue-body.md`
+
+Applied by `apply.mjs` (committed by the workflow together with the files
+above): `src/web/data/question.json`, and – after `split-questions.js` –
+`src/web/data/questions-core.json` and `src/web/public/data/`.
 
 ## GitHub Actions
 
 `.github/workflows/sync-catalogue.yml` runs every Monday at 04:00 UTC and
 on demand (`workflow_dispatch` with the boolean input `force`). It installs
 `src/web` with `npm ci`, runs `check.mjs`, and – only when
-`changed == 'true'` – runs `extract.mjs` and `compare.mjs`, uploads
-`report.md` and `question.proposed.json` as the artifact `catalogue-review`,
-commits `src/catalogue/state.json` and `src/catalogue/data/` on the branch
-`catalogue/bamf-<stand>-<run id>` as `github-actions[bot]`, pushes it, and
-opens a pull request against `main` with the report as its body (cut at
-60,000 characters when needed; the artifact has the full file). When
-`state.json` and `data/` did not change, no pull request is opened.
+`changed == 'true'` –
 
-One-time setup by the owner: enable **Allow GitHub Actions to create and
-approve pull requests** under Settings → Actions → General → Workflow
-permissions. Without it `gh pr create` fails with a permissions error even
-though the workflow has `pull-requests: write`.
+1. runs `extract.mjs`, `compare.mjs`, and `apply.mjs`, and uploads
+   `report.md`, `review.md`, and `question.proposed.json` as the artifact
+   `catalogue-review`;
+2. when at least one question was applied, runs
+   `node scripts/split-questions.js` and `npm test` in `src/web` – a red
+   test suite stops the run and nothing is pushed;
+3. stages `src/catalogue/state.json`, `src/catalogue/data/`,
+   `src/web/data/question.json`, `src/web/data/questions-core.json`, and
+   `src/web/public/data/`. When app data changed it bumps the patch
+   version (`npm version patch --no-git-tag-version`, the Android
+   `versionName`) and commits
+   `catalogue: BAMF Gesamtfragenkatalog Stand <stand> (<n> questions aligned)`;
+   when only the bookkeeping changed it commits
+   `catalogue: record BAMF Gesamtfragenkatalog Stand <stand> [skip ci]` so
+   that no release starts;
+4. pushes to the branch the run was started on (`main` for the schedule)
+   with the `PAT` secret (`actions/checkout` runs with
+   `persist-credentials: false`; three attempts, rebasing on the latest
+   branch in between). A push made with the repository's own
+   `GITHUB_TOKEN` never starts other workflows, so without the `PAT`
+   secret the commit lands but `vercel-deploy.yml` and
+   `android-release.yml` do not run – the step prints a warning in that
+   case. The committer comes from the `GIT_USER_NAME` / `GIT_USER_EMAIL`
+   secrets, falling back to `github-actions[bot]`;
+5. when questions were held back, opens one GitHub issue per `Stand`
+   (title `catalogue: <n> question(s) from the BAMF Gesamtfragenkatalog
+   Stand <stand> need a human`) with `review.md` as its body, cut at 60,000
+   characters when needed. An open issue for the same `Stand` is not
+   duplicated.
 
-The workflow never pushes to `main` on purpose: `android-release.yml` and
-`vercel-deploy.yml` run on every push to `main`, and the catalogue data must
-be reviewed by a person first. It prints no secret or variable values.
+Secrets are passed through `env:` only and never printed. The workflow
+needs `contents: write` and `issues: write`.
 
 ## Rules
 
-- **Never write into `src/web/`.** The proposal lives under `output/`; the
-  owner copies approved texts into `src/web/data/question.json` by hand.
+- **Only `apply.mjs` writes into `src/web/`, and only the safe part.**
+  `check`, `extract`, and `compare` write under `output/` and
+  `src/catalogue/`; a question whose solution needs a judgement call keeps
+  its app version until a person decides it in
+  `src/web/data/question.json`.
 - **Never invent solutions.** The PDF has no answer key. New questions get
-  `solution: ""` and `needsReview: true`.
+  `solution: ""` and `needsReview: true` and are not added to the app.
 - **Never renumber.** Learner progress is keyed by `num`; renumbering is an
-  owner decision documented in the report, not a side effect.
+  owner decision documented in the report, not a side effect. `apply.mjs`
+  refuses duplicate numbers.
+- **`question.json` is the single source of the shipped data.** Do not
+  edit `questions-core.json` or `public/data/` by hand; regenerate them
+  with `split-questions.js` and keep all three in the same commit. The
+  retired scraper sync (`sync-question.yml`, manual only) overwrites
+  `question.json` with a file that currently has duplicate numbers – do
+  not run it.
 - **GET only, no cookies.** The site is behind a WAF that rejects `HEAD`
   and sets session cookies. The scripts use plain and conditional `GET`
   with a descriptive User-Agent, a 60 s timeout and one retry, treat any
@@ -277,8 +346,19 @@ be reviewed by a person first. It prints no secret or variable values.
 - `page N: an image (WxH) belongs to no question` – a picture appears
   before the first `Aufgabe` of a page, or BAMF changed the logo: check the
   page and `isHeaderImage` in `extract.mjs`.
-- The pull request step fails with `GraphQL: ... not permitted to create or
-  approve pull requests` – enable the setting described above.
-- The pull request body ends with "The report was cut here" – expected for
-  long reports; download the `catalogue-review` artifact for the full
-  `report.md`.
+- `src/web/data/question.json has N duplicate question number(s)` – the
+  app file was overwritten by a source with broken numbering (this happened
+  in December 2025 through the scraper sync). Restore it from the last
+  commit whose `split-questions.js` output equals the shipped
+  `questions-core.json`, then run `compare.mjs` and `apply.mjs` again.
+- `app question <num> (<id>) has no entry in the proposal; re-run
+  compare.mjs` – the proposal is older than the question file.
+- The workflow's test step is red – the applied data broke a test. Download
+  the `catalogue-review` artifact, fix the data or the test on a branch,
+  and re-run the workflow with `force`. Nothing was pushed.
+- The push step warns `The PAT secret is missing` – the commit landed, but
+  the deploy workflows did not start. Add the `PAT` secret (a token that
+  may push to `main`) and run `vercel-deploy.yml` / `android-release.yml`
+  by hand once.
+- The issue body ends with "Cut here" – expected for long lists; download
+  the `catalogue-review` artifact for the full `review.md`.

@@ -19,8 +19,10 @@ The app's questions come from a scraper that reads a third-party website.
 Nobody checks them against the official BAMF catalogue, and the app would
 not notice a new edition of the catalogue unless that website followed it.
 The owner wants the official PDF to be the reference for what a question
-says, with a cheap check that runs by itself and a human deciding what
-reaches the app.
+says, with a cheap check that runs by itself, the safe part of a new
+edition reaching learners automatically, and a human deciding only what
+cannot be decided by text matching (owner instruction of 2026-10-12: "if
+anything new then push to main so new data will be automatically shown").
 
 ## Behaviour
 
@@ -62,8 +64,23 @@ reaches the app.
   text, or the entry gets `needsReview: true`; new questions are appended
   with an empty solution and `needsReview: true`; removed questions are only
   listed in the report. The script never writes into `src/web/`.
-- **Sync.** `node src/catalogue/sync.mjs [--force]` runs the check and,
-  only when something changed or `--force` is given, extract and compare.
+- **Apply.** `node src/catalogue/apply.mjs [--dry-run]` writes the safe
+  part of the proposal into `src/web/data/question.json`: a matched
+  question whose correct answer text appears verbatim among the official
+  answers takes the official stem, the official answer order, and the
+  solution letter that follows the text; `num` and `id` never change, the
+  translations' `a`–`d` move along, and the helper fields are stripped.
+  Questions marked `needsReview`, new questions (no solution), and removed
+  questions keep their app version and are listed in
+  `src/catalogue/output/review.md` with the official text, the current app
+  text, and the reason. The script refuses a question file with duplicate
+  numbers, refuses to write one, refuses a proposal that changes `num` or
+  `id`, and does nothing on a second run with the same proposal. With
+  `GITHUB_OUTPUT` set it appends `applied=` and `heldBack=`.
+- **Sync.** `node src/catalogue/sync.mjs [--force] [--apply]` runs the
+  check and, only when something changed or `--force` is given, extract
+  and compare, and with `--apply` the apply step (skipped when extraction
+  reported problems).
 - **What is committed.** `src/catalogue/state.json` (`landingUrl`,
   `pdfUrl`, `pageDate`, `version`, `lastModified`, `etag`, `sha256`,
   `bytes`, `pages`, `stand`, `downloadedAt`; no `checkedAt`, so an
@@ -72,20 +89,31 @@ reaches the app.
   `src/catalogue/output/` is git-ignored.
 - **Workflow.** `.github/workflows/sync-catalogue.yml` runs once a week and
   on manual dispatch (input `force`). It runs the check and stops when
-  nothing changed. When something changed it extracts, compares, uploads
-  the report as an artifact, commits `state.json` and `data/` to a branch
-  `catalogue/bamf-<stand>-<run id>`, and opens a pull request whose body is
-  the report, using the plain `GITHUB_TOKEN`. It never pushes to `main`
-  (every push to `main` builds a release and deploys). The owner enables
-  "Allow GitHub Actions to create and approve pull requests" once.
+  nothing changed. When something changed it extracts, compares, applies,
+  uploads `report.md`, `review.md`, and the proposal as the artifact
+  `catalogue-review`, and – when at least one question was applied – runs
+  `node scripts/split-questions.js` and `npm test` in `src/web`; a red
+  suite stops the run before anything is pushed. It then commits
+  `state.json`, `data/`, `question.json`, `questions-core.json`, and
+  `public/data/`. If app data changed it bumps the patch version and
+  pushes to `main` with the `PAT` secret, which starts `vercel-deploy.yml`
+  and `android-release.yml`; if only the bookkeeping changed it commits
+  with `[skip ci]`. The committer comes from `GIT_USER_NAME` /
+  `GIT_USER_EMAIL`, falling back to `github-actions[bot]`. Without the
+  `PAT` the push still lands (with `GITHUB_TOKEN`) but the step warns that
+  no deploy starts. When questions were held back it opens one GitHub
+  issue per `Stand` with `review.md` as the body (not duplicated while an
+  issue for the same `Stand` is open).
 - **Dependency.** The only dependency is `pdfjs-dist`, a devDependency of
   `src/web/package.json`, loaded from `src/web/node_modules`. The app
   itself makes no request to bamf.de and ships nothing from this folder.
 
 ## Out of Scope
 
-- Writing `src/web/data/question.json`, renumbering questions, or migrating
-  learner progress; the owner merges approved entries by hand and runs
+- Renumbering questions or migrating learner progress; the app keeps its
+  `num` values.
+- Applying held-back questions; the owner decides them by hand in
+  `src/web/data/question.json` and runs
   `cd src/web && node scripts/split-questions.js && npm test`.
 - Producing solutions, translations, or explanations for new questions;
   the PDF has no answer key.
@@ -109,10 +137,16 @@ reaches the app.
       `needsReview: true`, lists removed questions, and changes nothing under
       `src/web/`.
 - [x] `sync.mjs` skips extract and compare when the check reports no change
-      and runs them with `--force`.
-- [ ] The workflow validates, runs weekly and by hand, opens a pull request
-      from `catalogue/bamf-<stand>-<run id>` with the report, and never
-      pushes to `main` (YAML validated; the first live run is still to come).
+      and runs them with `--force`; `--apply` adds the apply step.
+- [x] `apply.mjs` applies only safe entries, keeps `num` and `id`, holds
+      back `needsReview`, new, and removed questions into `review.md`,
+      refuses duplicate numbers (checked against the corrupted file from
+      commit `227846e`), and is idempotent; after
+      `split-questions.js` the web test suite passes (1291 tests).
+- [ ] The workflow validates, runs weekly and by hand, applies the safe
+      part, runs the tests, pushes to `main` with the `PAT`, and opens an
+      issue for held-back questions (YAML validated and the commit logic
+      rehearsed in a scratch clone; the first live run is still to come).
 - [x] `state.json`, `bamf-catalogue.json`, the report, and the workflow logs
       contain no identifiers, cookies, or credentials.
 - [x] `src/catalogue/README.md` documents the scripts, the state file, and

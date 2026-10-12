@@ -174,11 +174,18 @@ Two things, one branch:
       matched entries keep `num`, `id`, `solution`, `image`, `translation`,
       `context`, `category`; unmatched solutions and new questions carry
       `needsReview: true`.
-- [ ] The workflow opens a pull request from `catalogue/bamf-<stand>-<run id>`
-      with the report and never pushes to `main`; an unchanged check
-      creates no commit (YAML validated and the scripts run locally; the
-      pull-request step runs for the first time when BAMF publishes a
-      change or the owner dispatches it with `force`).
+- [x] `node src/catalogue/apply.mjs` applies only safe entries, keeps
+      `num` and `id`, holds back `needsReview` / new / removed questions
+      into `output/review.md`, refuses duplicate numbers, and is
+      idempotent; `split-questions.js` + `npm test` pass afterwards
+      (amendment of 2026-10-12, owner: "push to main so new data will be
+      automatically shown").
+- [ ] The workflow applies the safe part, runs the tests, pushes to `main`
+      with the `PAT`, bumps the version when app data changed, commits
+      bookkeeping-only changes with `[skip ci]`, and opens an issue for
+      held-back questions (YAML validated, commit logic rehearsed in a
+      scratch clone; the live steps run for the first time when BAMF
+      publishes a change or the owner dispatches it with `force`).
 - [x] Committed files, report, and logs contain no identifiers, cookies, or
       credentials.
 - [x] Mock exam: the sample-sheet links open bamf.de; "Start" shows the
@@ -228,6 +235,32 @@ Coordinator run on 2026-10-12, branch `feat/bamf-catalogue-musterbogen`:
 - Privacy scan of every changed and new file: no home paths, cookies,
   e-mail addresses, or identifiers.
 
-Open: the Android system-browser check for the sample-sheet links and the
-first live run of `sync-catalogue.yml` (needs "Allow GitHub Actions to
-create and approve pull requests").
+Continuation on 2026-10-12 (same branch), after the owner asked for new
+data to reach `main` automatically:
+
+- Data repair: HEAD `src/web/data/question.json` had 68 duplicate numbers
+  (scraper commit `227846e` merged after `ed7efbe`), while the shipped
+  `questions-core.json` and `public/data/` were correct. Restored the file
+  from `ed7efbe`; `node scripts/split-questions.js` then reproduced the
+  shipped files byte for byte (`git status` clean apart from
+  `question.json`).
+- `node src/catalogue/compare.mjs` on the repaired file: 349 identical,
+  111 reworded (52 fuzzy), 0 new, 0 removed; solutions 103 kept / 303
+  moved / 54 approximate / 0 unmapped; 143 of 460 share the official
+  number.
+- `node src/catalogue/apply.mjs`: 346 applied (240 answer order, 303
+  solution letter, 106 answers, 35 question), 60 unchanged, 54 held back,
+  0 new, 0 removed; a second run applies 0. Against the corrupted file it
+  stops with `68 duplicate question number(s)` and writes nothing.
+- `cd src/web && node scripts/split-questions.js && npm test`: 1291 tests
+  pass after making `practice-screens.test.tsx` look up the solution of
+  question 1 instead of assuming `a`.
+- `.github/workflows/sync-catalogue.yml`: YAML validated; the commit step
+  rehearsed in a scratch clone produced
+  `catalogue: BAMF Gesamtfragenkatalog Stand 07.05.2025 (346 questions aligned)`
+  with the version bump for app-data changes and the `[skip ci]` message
+  for bookkeeping-only changes.
+
+Open: the Android system-browser check for the sample-sheet links, the
+first live run of `sync-catalogue.yml` (needs a valid `PAT` secret), and
+the 54 held-back questions in `review.md`.

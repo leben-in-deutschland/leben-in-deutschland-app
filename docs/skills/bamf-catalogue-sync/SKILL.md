@@ -1,15 +1,16 @@
 ---
 name: bamf-catalogue-sync
-description: Keep the app's questions in step with the official BAMF "Gesamtfragenkatalog" PDF for the Leben in Deutschland and Einbürgerungstest - read the last-updated signals on bamf.de, download the PDF only when it changed, extract all 460 questions with answers and pictures, compare them with the app's question file, and hand the owner a report plus a reviewed proposal; read-only public GETs, no credentials, never writes src/web/data/question.json. Use when asked to check whether BAMF updated the question catalogue, download the PDF if it changed, extract all questions, compare with the app's questions, or review the catalogue report or proposal.
+description: Keep the app's questions in step with the official BAMF "Gesamtfragenkatalog" PDF for the Leben in Deutschland and Einbürgerungstest - read the last-updated signals on bamf.de, download the PDF only when it changed, extract all 460 questions with answers and pictures, compare them with the app's question file, apply the safe part (exact answer-text matches) to src/web/data/question.json, and hand the owner the held-back questions; read-only public GETs, no credentials, never renumbers, never invents a solution. Use when asked to check whether BAMF updated the question catalogue, download the PDF if it changed, extract all questions, compare with or apply to the app's questions, review the held-back list, or run the weekly catalogue workflow.
 ---
 
 # BAMF Catalogue Sync
 
 Ask the official source, not a third-party website. The scripts under
 `src/catalogue/` read the public catalogue PDF from bamf.de, turn it into
-JSON, and compare it with the app's `question.json`. They only ever write a
-report and a proposal; a human decides what reaches the app. The rules are
-decided in ADR-009.
+JSON, compare it with the app's `question.json`, and apply the part that
+needs no judgement call. A human decides only the held-back questions. The
+rules are decided in ADR-009 (amended 2026-10-12: apply the safe part and
+push to `main` automatically).
 
 ## Boundary
 
@@ -24,17 +25,22 @@ decided in ADR-009.
   scripts drop them, and `state.json` holds only the public file facts
   (page date, link version, `Last-Modified`, `ETag`, checksum, size, page
   count, "Stand").
-- **Never write `src/web/data/question.json`** and never renumber. The
-  pipeline writes under `src/catalogue/` only. Learner progress is keyed by
-  the question number (`num`), and the official numbering does not match the
-  app's, so renumbering is an owner decision, not a script step.
+- **Only `apply.mjs` writes `src/web/data/question.json`, and only the
+  safe part.** Never renumber: learner progress, explanations, and
+  translations are keyed by the question number (`num`), and the official
+  numbering does not match the app's. `question.json` must keep 460 unique
+  numbers; `apply.mjs` refuses otherwise. `questions-core.json` and
+  `public/data/` are generated from it by `split-questions.js` – never
+  edit them by hand, always commit all three together.
 - **The PDF has no answer key.** A solution is carried over only when the
-  answer texts match an existing question; otherwise the entry is marked
-  `needsReview: true` with an empty solution. Never invent, guess, or
-  "research" a correct answer.
-- **The proposal is reviewed by the owner.** The output of this skill is
-  `src/catalogue/output/report.md` and
-  `src/catalogue/output/question.proposed.json`; both are suggestions.
+  correct answer text appears verbatim among the official answers;
+  otherwise the entry is marked `needsReview: true` and held back. Never
+  invent, guess, or "research" a correct answer, and never apply a
+  held-back entry without the owner's explicit decision.
+- **The held-back list is reviewed by the owner.** The outputs of this
+  skill are `src/catalogue/output/report.md` (full comparison),
+  `question.proposed.json` (full proposal), and `review.md` (what a human
+  must decide); the workflow turns `review.md` into a GitHub issue.
 - **Public repository.** The committed state and the report contain no
   machine names, home paths, e-mail addresses, or other identifiers; Actions
   logs are public too (`docs/memory/public-repository-privacy.md`).
@@ -100,34 +106,48 @@ decided in ADR-009.
    differ; which proposal entries carry `needsReview: true` and why (new
    question without solution, or a reworded question whose solution could
    not be matched by answer text).
-   `node src/catalogue/sync.mjs [--force]` runs steps 3 to 5 in one go and
-   skips 4 and 5 when nothing changed.
-6. Hand the proposal to the owner: `src/catalogue/output/question.proposed.json`
-   has the same shape as `src/web/data/question.json`. Matched questions keep
-   their `num`, `id`, `solution`, `image`, `translation`, `context`, and
-   `category` and receive the official texts; new questions are appended with
-   an empty solution; removed questions are only listed in the report.
-7. Only when the owner explicitly asks to take the texts over: copy the
-   approved entries into `src/web/data/question.json` (never the whole
-   proposal blindly, never a `needsReview` entry without its solution), then
+   `node src/catalogue/sync.mjs [--force] [--apply]` runs steps 3 to 5 (and
+   with `--apply` step 6) in one go and skips everything after the check
+   when nothing changed.
+6. Apply the safe part:
 
    ```bash
+   node src/catalogue/apply.mjs --dry-run   # what would change
+   node src/catalogue/apply.mjs             # write src/web/data/question.json
    cd src/web && node scripts/split-questions.js && npm test
    ```
 
-   and let the owner review the diff. A new question still needs its
-   solution, translations, and explanation from a human before it can ship.
-8. Without a laptop: Actions → **Sync Catalogue** → *Run workflow*
+   Safe = a matched question whose correct answer text appears verbatim
+   among the official answers; it takes the official stem, answer order,
+   and the letter that follows the text, keeping `num` and `id`. Everything
+   with `needsReview`, new questions, and removed questions are held back
+   and listed in `src/catalogue/output/review.md`. A red test suite means
+   stop: restore the data (see Rollback) and report. Expected first-run
+   figures on the repaired data: 346 applied, 60 unchanged, 54 held back.
+7. Hand the held-back list to the owner: summarise `review.md` (how many,
+   the reasons, the official text next to the app text). Only when the
+   owner decides an entry explicitly, edit it in `src/web/data/question.json`
+   by hand (never a solution the owner did not confirm), then rerun the
+   command block of step 6 from `split-questions.js` on. A new question
+   still needs its solution, translations, and explanation from a human
+   before it can ship.
+8. Commit `src/catalogue/state.json`, `src/catalogue/data/`,
+   `src/web/data/question.json`, `src/web/data/questions-core.json`, and
+   `src/web/public/data/` together with a `catalogue:` message; a push to
+   `main` is a release (web deploy + Android build), so bump the patch
+   version in `src/web/package.json` when app data changed.
+9. Without a laptop: Actions → **Sync BAMF Catalogue** → *Run workflow*
    (input `force`). The workflow runs the same check weekly and, only when
-   something changed, extracts, compares, uploads the report as an artifact,
-   commits `state.json` and `data/` to a branch
-   `catalogue/bamf-<stand>-<run id>`, and opens a pull request with the
-   report as its body. It never pushes to `main`. The owner must once allow
-   "Allow GitHub Actions to create and approve pull requests" in the
-   repository settings, otherwise the pull-request step fails.
-9. Record: add the usage-log row (`docs/usage/usage-log.md`), and write
-   memory only for a durable lesson such as a changed page layout or a new
-   firewall behaviour.
+   something changed, extracts, compares, applies, uploads `report.md`,
+   `review.md`, and the proposal as the artifact `catalogue-review`, runs
+   the split script and `npm test`, commits, and pushes to `main` with the
+   `PAT` secret (that push starts the deploy workflows; bookkeeping-only
+   changes are committed with `[skip ci]`). Held-back questions become one
+   GitHub issue per `Stand`. Needed secrets: `PAT` (may push to `main`),
+   optionally `GIT_USER_NAME` / `GIT_USER_EMAIL`. Never print their values.
+10. Record: add the usage-log row (`docs/usage/usage-log.md`), and write
+    memory only for a durable lesson such as a changed page layout or a new
+    firewall behaviour.
 
 ## Rollback
 
@@ -135,20 +155,23 @@ decided in ADR-009.
   brings back the committed catalogue facts; delete `src/catalogue/output/`
   (git-ignored: PDF, images, text dump, report, proposal). Re-running
   `check.mjs` recreates everything from the public source.
-- App data, only if step 7 was done: `git restore src/web/data/question.json
+- App data, if step 6 or 7 was done: `git restore src/web/data/question.json
   src/web/data/questions-core.json src/web/public/data/` restores the
   bundled catalogue and its split files.
-- Nothing external changes: bamf.de only answered `GET` requests, and a
-  workflow run leaves at most a branch and a pull request that can be closed
-  and deleted.
+- A pushed `catalogue:` commit on `main`: `git revert <sha>` (one commit
+  holds data, split files, state, and version bump) and push; the revert
+  releases again. Close the GitHub issue the run opened if the data it
+  describes was reverted.
+- Nothing else external changes: bamf.de only answered `GET` requests.
 
 ## Output
 
 Plain-language summary: which signals were read and whether the catalogue
 changed, the counts from extraction, the identical/reworded/new/removed
-numbers, the numbering caveat, where the report and the proposal are, the
-exact next step for the owner, and the Work Accounting footer required by
-`AGENTS.md`.
+numbers, how many questions were applied and how many held back (and why),
+the numbering caveat, where the report, proposal, and held-back list are,
+the exact next step for the owner, and the Work Accounting footer required
+by `AGENTS.md`.
 
 ## References
 
@@ -159,4 +182,5 @@ exact next step for the owner, and the Work Accounting footer required by
   `docs/features/010-official-catalogue-pipeline.md`
 - `docs/memory/public-repository-privacy.md` (MEM-008)
 - `.github/workflows/sync-catalogue.yml` (weekly schedule, manual dispatch,
-  pull request instead of a push to `main`)
+  apply + test + push to `main` with the `PAT`, issue for held-back
+  questions)

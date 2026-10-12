@@ -5,7 +5,7 @@
 ```text
 src/web/       Next.js web application and tests
 src/android/   Capacitor Android project
-src/catalogue/ Scripts that check, extract, and compare the official BAMF catalogue PDF
+src/catalogue/ Scripts that check, extract, compare, and apply the official BAMF catalogue PDF
 .github/       CI, data sync, deployment, and release workflows
 docs/          PULSE engineering control plane
 ```
@@ -77,8 +77,11 @@ and secret boundaries.
 - The official BAMF question catalogue PDF (ADR-009): the `Sync Catalogue`
   workflow (`.github/workflows/sync-catalogue.yml`) runs
   `src/catalogue/check.mjs` once a week with read-only `GET` requests to
-  `bamf.de` (conditional `GET`, never `HEAD`, no cookies stored) and opens
-  a pull request with a report when the PDF changed. The app itself never
+  `bamf.de` (conditional `GET`, never `HEAD`, no cookies stored). When the
+  PDF changed it applies the safe part (exact answer-text matches) to
+  `src/web/data/question.json`, runs the tests, pushes to `main` with the
+  `PAT` secret (which starts the deploy and release workflows), and opens
+  an issue for the questions that need a human. The app itself never
   requests anything from bamf.de.
 
 ## Constraints

@@ -136,7 +136,8 @@ Scraper repository -> GitHub Actions sync -> versioned JSON
                                            -> Capacitor Android bundle
 
 BAMF catalogue PDF -> weekly check (src/catalogue) -> report + proposal
-                                                    -> pull request -> owner review
+                                                    -> apply safe part -> tests -> push to main (release)
+                                                    -> held-back questions -> GitHub issue -> owner
 ```
 
 User progress stays on the client unless a future accepted decision introduces
@@ -155,19 +156,26 @@ See [`ADR-009`](../decisions/ADR-009-official-bamf-catalogue-source.md),
   turns the PDF into `data/bamf-catalogue.json` (460 questions, pictures as
   PNG under the git-ignored `output/`); `compare.mjs` matches the official
   texts against `src/web/data/question.json` and writes `output/report.md`
-  and `output/question.proposed.json`; `sync.mjs` chains the three.
+  and `output/question.proposed.json`; `apply.mjs` writes the safe part of
+  the proposal into `question.json` and the held-back rest into
+  `output/review.md`; `sync.mjs` chains them (`--apply` for the last step).
 - Committed state is `state.json` (file facts only: page date, version,
   `Last-Modified`, `ETag`, checksum, size, pages, "Stand", download time)
   and `data/bamf-catalogue.json`. Nothing under `src/catalogue/` is part of
   the web export or the Android bundle, and the app never requests bamf.de.
 - `.github/workflows/sync-catalogue.yml` runs the check weekly and on
-  demand; when the PDF changed it commits to `catalogue/bamf-<stand>-<run id>`
-  and opens a pull request with the report instead of pushing to `main`,
-  because a push to `main` triggers the release and deploy workflows.
-- The boundary: the pipeline never writes `src/web/data/`, never renumbers
-  (progress is keyed by `num`), and never invents a solution (the PDF has
-  no answer key). The owner merges approved entries by hand and reruns
-  `src/web/scripts/split-questions.js`.
+  demand; when the PDF changed it extracts, compares, applies, regenerates
+  the split files, runs `npm test`, and pushes to `main` with the `PAT`
+  secret so that the release and deploy workflows start (a `GITHUB_TOKEN`
+  push would not start them); bookkeeping-only commits carry `[skip ci]`.
+  Held-back questions become a GitHub issue.
+- The boundary: only `apply.mjs` writes `src/web/data/question.json`, and
+  only entries whose solution follows an exact answer-text match; the
+  pipeline never renumbers (progress, explanations, and translations are
+  keyed by `num`; `question.json` must keep 460 unique numbers) and never
+  invents a solution (the PDF has no answer key). `questions-core.json`
+  and `public/data/` are generated from `question.json` by
+  `src/web/scripts/split-questions.js` and committed together with it.
 
 ## Release Boundaries
 

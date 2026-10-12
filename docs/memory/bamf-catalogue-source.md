@@ -39,19 +39,46 @@ The official source for the test questions is the BAMF PDF
    about 43 of them with pictures. Solutions can only be carried over from
    the app's current data by matching answer texts; anything else is a
    human review (`needsReview: true`). Never invent a solution.
-4. **The official numbering is not the app's numbering.** Only 4 of the
-   300 general questions share a number, and learner progress is keyed by
-   `num` (ADR-006). Never auto-merge the official catalogue into
-   `src/web/data/question.json`, never renumber in a script; the pipeline
-   writes a report and a proposal, and the owner merges.
+4. **The official numbering is not the app's numbering.** Only 143 of the
+   460 questions share a number, and learner progress, review schedules,
+   explanations (`public/data/context/*.json`), and translations
+   (`public/data/translations/*.json`) are all keyed by `num` (ADR-006).
+   Never renumber in a script. The pipeline applies only entries whose
+   solution follows an exact answer-text match (`apply.mjs`) and keeps
+   `num` and `id`; everything else is held back for the owner (ADR-009,
+   amendment of 2026-10-12).
 5. **Pictures carry credits** such as "© Deutscher Bundestag/Achim Melde".
    Extracted images stay in the git-ignored `src/catalogue/output/images/`;
    publishing them is a separate decision.
-6. **A push to `main` is a release.** `android-release.yml` and
-   `vercel-deploy.yml` run on every push to `main`, so the catalogue
-   workflow commits to `catalogue/bamf-<stand>-<run id>` and opens a pull
-   request instead; the owner must allow Actions to create pull requests
-   once in the repository settings.
+6. **A push to `main` is a release, and only a PAT push releases.**
+   `android-release.yml` and `vercel-deploy.yml` run on every push to
+   `main` (`src/catalogue/**` is not in their `paths-ignore`), but a push
+   made with the workflow's own `GITHUB_TOKEN` never triggers other
+   workflows. The catalogue workflow therefore pushes with the `PAT`
+   secret (checkout with `persist-credentials: false`, then
+   `git remote set-url` with the token through `env:`), bumps the patch
+   version when app data changed, and marks bookkeeping-only commits
+   (`state.json`, `data/`) with `[skip ci]` so they do not build a release.
+   The same pattern lives in `sync-question.yml`.
+7. **`question.json` can silently drift from the shipped files.**
+   `questions-core.json` and `public/data/` are generated from
+   `src/web/data/question.json` by `split-questions.js`, but nothing
+   enforces that they were regenerated. In December 2025 the scraper commit
+   `227846e` landed on `main` after the Next.js 16 upgrade `ed7efbe` and
+   overwrote `question.json` with a file carrying 68 duplicate numbers,
+   while the generated files from `ed7efbe` stayed correct; the drift went
+   unnoticed until `apply.mjs` regenerated the split files and 84 tests
+   failed. The repair was `git show ed7efbe:src/web/data/question.json`
+   (its split output equals the shipped files byte for byte). Rules: treat
+   the file whose `split-questions.js` output equals the shipped core as
+   the truth, commit all three together, and let `apply.mjs` refuse
+   duplicate numbers. The scraper's current output has 100 duplicate
+   numbers – do not run `sync-question.yml`.
+8. **Tests must not hardcode catalogue facts.** The practice-screen test
+   assumed "a is correct for question 1"; adopting the official answer
+   order moved it to `d`. Look the solution up from `questionsData()`
+   instead of hardcoding letters, counts, or texts that the catalogue can
+   change.
 
 ## When To Apply
 
@@ -59,8 +86,12 @@ The official source for the test questions is the BAMF PDF
   `.github/workflows/sync-catalogue.yml`.
 - When `check.mjs` reports `changed=true` but the counts in `extract.mjs`
   fail: the PDF layout changed; fix the parser, do not hand-edit the JSON.
-- When someone proposes to "just copy" the proposal into the app, to fetch
-  the catalogue from the app at runtime, or to renumber questions.
+- When someone proposes to apply a `needsReview` entry without the owner,
+  to fetch the catalogue from the app at runtime, or to renumber questions.
+- When a workflow needs to push to `main` and have that push deploy:
+  use the `PAT`, never `GITHUB_TOKEN`.
+- Before touching `src/web/data/question.json`, `questions-core.json`, or
+  `public/data/` separately.
 - When writing a scraper or checker for any other bamf.de document: same
   firewall, same `GET`-only rule.
 
@@ -74,9 +105,11 @@ The official source for the test questions is the BAMF PDF
   "Frage 33" with checkboxes and no letters, the 3 state questions mixed in,
   and a signature page. The mock exam follows that shape (FEAT-009); the
   PDFs are linked, not bundled.
-- In 2025 about 384 of the 460 official question stems matched the app's
-  texts exactly; the rest were reworded. Expect the first report to be long
-  and the following ones short.
+- In 2025 about 349 of the 460 official questions were identical to the
+  app's texts after normalisation and 111 reworded; 283 listed the same
+  answers in another order. The first `apply.mjs` run aligned 346
+  questions (240 answer orders, 303 solution letters, 106 answer texts, 35
+  stems) and held back 54. Expect the following runs to be short.
 - The only dependency is `pdfjs-dist`, a devDependency of
   `src/web/package.json`, loaded from `src/web/node_modules`; the app bundle
   does not include it and makes no request to bamf.de.

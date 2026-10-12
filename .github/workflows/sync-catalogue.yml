@@ -1,27 +1,34 @@
 name: Sync BAMF Catalogue
+# Weekly: read the official Gesamtfragenkatalog, apply the safe part of a new
+# version straight to main (that push starts the web deploy and the Android
+# release), and open an issue for the questions that need a human.
 on:
   schedule:
     - cron: "0 4 * * 1"
   workflow_dispatch:
     inputs:
       force:
-        description: "Download, extract and compare even when the PDF did not change"
+        description: "Download, extract, compare and apply even when the PDF did not change"
         type: boolean
         default: false
 permissions:
   contents: write
-  pull-requests: write
+  issues: write
 concurrency:
   group: sync-catalogue
   cancel-in-progress: false
 
 jobs:
   sync_catalogue:
-    name: Check the official question catalogue
+    name: Sync the official question catalogue
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # The push below authenticates with the PAT so that it triggers the
+          # deploy workflows; the default token credentials would get in the way.
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -53,7 +60,12 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: node src/catalogue/compare.mjs
 
-      - name: Upload review report and proposal
+      - name: Apply the safe part to the app questions
+        id: apply
+        if: steps.check.outputs.changed == 'true'
+        run: node src/catalogue/apply.mjs
+
+      - name: Upload review report, proposal and held-back list
         if: steps.check.outputs.changed == 'true'
         uses: actions/upload-artifact@v4
         with:
@@ -61,43 +73,88 @@ jobs:
           if-no-files-found: error
           path: |
             src/catalogue/output/report.md
+            src/catalogue/output/review.md
             src/catalogue/output/question.proposed.json
 
-      - name: Prepare the pull request body
-        if: steps.check.outputs.changed == 'true'
+      - name: Regenerate the split data and run the tests
+        if: steps.check.outputs.changed == 'true' && steps.apply.outputs.applied != '0'
+        working-directory: src/web
         run: |
+          node scripts/split-questions.js
+          npm test
+
+      - name: Commit and push to the branch
+        id: push
+        if: steps.check.outputs.changed == 'true'
+        env:
+          STAND: ${{ steps.check.outputs.stand }}
+          APPLIED: ${{ steps.apply.outputs.applied }}
+          BRANCH: ${{ github.ref_name }}
+          REPOSITORY: ${{ github.repository }}
+          # A classic/fine-grained PAT is needed so the push starts the deploy
+          # workflows; GITHUB_TOKEN pushes never trigger other workflows.
+          PUSH_TOKEN: ${{ secrets.PAT || github.token }}
+          HAS_PAT: ${{ secrets.PAT != '' }}
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME || 'github-actions[bot]' }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
+        run: |
+          git config user.name "$GIT_USER_NAME"
+          git config user.email "$GIT_USER_EMAIL"
+          git add src/catalogue/state.json src/catalogue/data/ \
+                  src/web/data/question.json src/web/data/questions-core.json src/web/public/data/
+          if git diff --cached --quiet; then
+            echo "Nothing to commit; the catalogue state and the app data are unchanged."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --cached --quiet -- src/web; then
+            # Only the catalogue bookkeeping changed: record it without a release.
+            MESSAGE="catalogue: record BAMF Gesamtfragenkatalog Stand $STAND [skip ci]"
+          else
+            (cd src/web && npm version patch --no-git-tag-version)
+            git add src/web/package.json src/web/package-lock.json
+            MESSAGE="catalogue: BAMF Gesamtfragenkatalog Stand $STAND ($APPLIED questions aligned)"
+          fi
+          git commit -m "$MESSAGE"
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::warning::The PAT secret is missing; pushing with GITHUB_TOKEN, so the deploy workflows will not start for this commit."
+          fi
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPOSITORY}"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:$BRANCH"; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; rebasing on the latest $BRANCH and retrying in 10s..."
+            sleep 10
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH" || { git rebase --abort; exit 1; }
+          done
+          exit 1
+
+      - name: Open an issue for the questions that need a human
+        if: steps.check.outputs.changed == 'true' && steps.apply.outputs.heldBack != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          STAND: ${{ steps.check.outputs.stand }}
+          HELD_BACK: ${{ steps.apply.outputs.heldBack }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          TITLE="catalogue: $HELD_BACK question(s) from the BAMF Gesamtfragenkatalog Stand $STAND need a human"
+          EXISTING="$(gh issue list --state open --search "\"Stand $STAND need a human\" in:title" --json number --jq 'length')"
+          if [ "$EXISTING" != "0" ]; then
+            echo "An open issue for Stand $STAND already exists; not opening another one."
+            exit 0
+          fi
           node -e '
             const fs = require("node:fs");
             const limit = 60000;
-            let body = fs.readFileSync("src/catalogue/output/report.md", "utf8");
+            let body = fs.readFileSync("src/catalogue/output/review.md", "utf8");
             if (body.length > limit) {
-              body = body.slice(0, limit);
-              const open = (body.match(/<details>/g) || []).length - (body.match(/<\/details>/g) || []).length;
-              body += "\n" + "</details>\n".repeat(Math.max(open, 0));
-              body += "\n…\n\n_The report was cut here because pull request bodies are limited to 65,536 characters. The complete `report.md` and `question.proposed.json` are attached to the workflow run as the artifact `catalogue-review`._\n";
+              body = body.slice(0, limit) + "\n…\n\n_Cut here because issue bodies are limited to 65,536 characters; the complete `review.md` is attached to the workflow run as the artifact `catalogue-review`._\n";
             }
-            fs.writeFileSync("src/catalogue/output/pr-body.md", body);
+            body += "\nWorkflow run: " + process.env.RUN_URL + "\n";
+            fs.writeFileSync("src/catalogue/output/issue-body.md", body);
           '
-
-      - name: Open a pull request
-        if: steps.check.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          STAND: ${{ steps.check.outputs.stand }}
-          BRANCH: catalogue/bamf-${{ steps.check.outputs.stand }}-${{ github.run_id }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$BRANCH"
-          git add src/catalogue/state.json src/catalogue/data/
-          if git diff --cached --quiet; then
-            echo "state.json and data/ are unchanged; no pull request needed (the report is in the catalogue-review artifact)"
-            exit 0
-          fi
-          git commit -m "catalogue: BAMF Gesamtfragenkatalog Stand $STAND"
-          git push origin "$BRANCH"
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "catalogue: BAMF Gesamtfragenkatalog Stand $STAND" \
-            --body-file src/catalogue/output/pr-body.md
+          gh issue create --title "$TITLE" --body-file src/catalogue/output/issue-body.md
