@@ -50,3 +50,11 @@ deleted, or when old components are brought back from Git history.
   coordinates or clicks land outside the viewport.
 - `__tests__/fixtures/legacy-user-2.0-device.json` is a real 2.0 record for
   such checks.
+- The retained "mutate the record, then save" code passes
+  `eslint-plugin-react-hooks` 7.0.1 but not 7.1.x: `eslint-config-next`
+  16.3.8 pulls 7.1.1, whose `react-hooks/immutability` and stricter
+  `react-hooks/set-state-in-effect` flag 16 lines in
+  `classic/components/{prepare-quiz,quiz-answer,quiz}.tsx`. Raise
+  `eslint-config-next` above 16.3.3 only together with immutable updates
+  there (copy, change, save), not with `eslint-disable`
+  ([`PLAN-014`](../plans/PLAN-014-dependabot-remediation-2026-10.md)).
