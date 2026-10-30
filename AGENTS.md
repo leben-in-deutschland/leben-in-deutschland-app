@@ -1,4 +1,4 @@
-# Leben in Deutschland - Agent Operating Guide
+# Leben in Deutschland - Agent Guide
 
 ## Repository Scope
 
@@ -7,66 +7,75 @@ The product is an exported Next.js application with a Capacitor Android
 wrapper:
 
 ```text
-src/web/       Next.js application, tests, static data, and Capacitor config
-src/android/   Native Android project generated and maintained with Capacitor
-docs/          PULSE engineering control plane
+src/web/        Next.js application, tests, static data, and Capacitor config
+src/android/    Native Android project generated and maintained with Capacitor
+src/store/      Play Console configuration and the scripts that publish it
+src/catalogue/  Official BAMF question-catalogue pipeline
+.pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
 ```
 
-The PULSE control plane is the durable source for engineering context:
+## PULSE
 
-```text
-docs/architecture/   System shape and boundaries
-docs/context/        Product and stack facts
-docs/decisions/      Architecture decision records
-docs/features/       Behavior specifications
-docs/memory/         Durable rules and lessons
-docs/plans/          Non-trivial work plans
-docs/prompts/        Reusable, model-agnostic prompts
-docs/skills/         Canonical portable PULSE skills
-docs/usage/          Token-only work accounting
-docs/workflows/      Repeatable engineering procedures
-```
+This repository is run through PULSE. The store is canonical for everything
+that used to live under `docs/`: decisions, plans, features, memory,
+workflows, prompts, the constitution and the evaluators are records, and
+coordination happens on the board. Start with `pulse guide`, then
+`pulse board --project leben-in-deutschland` and
+`pulse task list --project leben-in-deutschland`. Read records with
+`pulse record list <kind> --project leben-in-deutschland` (`adr`, `memory`,
+`context`, `wu`, ...) and `pulse record show <id>`. Do not recreate a `docs/`
+control plane, and do not commit tool-specific folders such as `.claude/`,
+`.cursor/`, `.codex/`, or `.opencode/`.
 
-## PULSE Lifecycle
+## Skills
 
-1. Understand the repository through context, architecture, decisions, and memory.
-2. Record important product or technical choices as ADRs.
-3. Plan non-trivial work with measurable outcomes and verification.
-4. Specify new user or system behavior before implementation.
-5. Build, verify, and recover against the repository's real boundaries.
-6. Record only durable lessons for future work.
+Project skills live in `.pulse/skills/<name>/SKILL.md`, the first folder
+PULSE's harness reads (then `.claude/skills`, `.github/skills`,
+`.agents/skills`, the owner's `~/.pulse/skills`, and the `pulse skill`
+registry; a repository skill shadows the owner's). Support files sit beside
+`SKILL.md` and are read on demand. Skills document procedures, never the
+owner's values. The PULSE framework skills are not copied into this
+repository.
+
+| Skill | Use it for |
+| --- | --- |
+| `play-console-publish` | Pushing the tip-jar products and the Play store listing from the repository through the Play Developer API, with offline checks and a credential gate |
+| `bamf-catalogue-sync` | Checking whether BAMF published a new official question catalogue PDF, extracting and comparing it with the app's questions, applying the safe part, and handing the owner the held-back questions |
 
 ## Critical Rules
 
-- Keep canonical control-plane content under `docs/`.
-- Do not create parallel root-level architecture, context, memory, plan,
-  prompt, skill, or workflow folders.
-- Do not commit tool-specific control folders such as `.claude/`, `.cursor/`,
-  `.codex/`, or `.opencode/`.
 - Preserve project source, tests, configuration, workflows, deployment, and
   existing user work unless the task explicitly requires a change.
 - Modify product code only when the user asks for implementation.
 - Infer facts from the repository. Mark unsupported facts as open questions
   instead of guessing.
-- Create ADRs, feature specs, plans, prompts, and memory only when they make
-  future work safer or clearer.
-- Keep prompts model-agnostic.
-- Treat `docs/skills/` as canonical. Runner-specific installed copies are
-  generated local output and must not be committed.
-- Do not build a `pulse-code-context` index unless a later task explicitly
-  benefits from it. Generated indexes must stay outside the repository.
-- Before changing Android signing or release secrets, read
-  `docs/memory/android-release-signing.md`. Never commit, print, or request
-  keystores, passwords, private keys, or encoded secret values.
-- The repository is public. Never commit personal identifiers either -
-  private e-mail addresses, device serials, home paths, cloud project ids,
-  service-account e-mails - and never print variable values in workflows or
-  scripts; use placeholders. See `docs/memory/public-repository-privacy.md`.
+- Android release signing: the app is `org.lebenindeutschland.app`, and its
+  known-good upload certificate has SHA-1
+  `DE:8C:92:1E:CE:44:26:6D:5E:55:A0:08:3E:9D:E3:8D:C5:60:57:D0`. The keystore,
+  its password and the key alias live in the owner's password manager and
+  reach GitHub Actions only as the secrets `ANDROID_KEYSTORE_BASE64`,
+  `ANDROID_KEY_ALIAS`, and `ANDROID_KEYSTORE_PASSWORD`; GitHub does not expose
+  prior secret values, so confirm the source is recoverable before
+  overwriting them. Before changing signing material, confirm the package and
+  the certificate without placing the password on the command line
+  (`keytool -list -v -keystore <path> | grep -E "Alias name:|Entry type:|SHA1:"`,
+  the `PrivateKeyEntry`). Publish only the signing action's `signedFile`
+  output, renamed to `leben-in-deutschland-v<versionName>-<versionCode>.aab`;
+  the unsigned `app-release.aab` and `app-release-temp.aab` are not
+  production artifacts, and no `*.aab` wildcard. Never commit, print, or
+  request keystores, passwords, private keys, or encoded secret values.
+- The repository is public: files, history, Actions logs, and release assets
+  are readable by anyone. Never commit personal identifiers either - private
+  e-mail addresses, device serials, home paths, cloud project ids,
+  service-account e-mails, Play developer ids - and never print variable
+  values in workflows or scripts (`vars.*` are not masked, only `secrets.*`
+  are); use placeholders such as `<device-serial>` or `<project>`. Commit
+  with the GitHub noreply address.
 
 ## Sandbox Recommendation
 
-Before every task that may use tools or execute code, invoke `pulse-sandbox`
-when available and begin each tool-backed response with:
+Before every task that may use tools or execute code, begin each tool-backed
+response with:
 
 ```text
 ⚠️ SANDBOX RECOMMENDED — use the GitHub Copilot CLI sandbox when available; state clearly if execution is unsandboxed. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
@@ -74,27 +83,17 @@ when available and begin each tool-backed response with:
 
 The warning recommends isolation but does not prove it. Prefer and inspect the
 native local sandbox with `/sandbox enable`, `/sandbox status`, and
-`/sandbox policy`, or start with `copilot --sandbox`. Report the actual
-execution boundary before relying on it.
-
-- Keep access limited to this working tree and isolated temporary/cache paths.
-- Deny unrelated home, secret, credential, keychain, and system paths.
-- Allow network, GitHub credentials, MCP, or LSP only when the task needs that
-  narrow capability.
-- If no sandbox is active, state that execution is unsandboxed and continue
-  under normal Copilot permissions unless a higher-level policy requires
-  isolation.
-- Do not automatically disable or bypass an active sandbox. Prefer a narrow
-  grant or sandbox-compatible path first.
-
-Follow `docs/workflows/sandboxed-agent-execution.md`.
+`/sandbox policy`, or start with `copilot --sandbox`. Keep access limited to
+this working tree and isolated temporary/cache paths; deny unrelated home,
+secret, credential, keychain, and system paths; allow network, GitHub
+credentials, MCP, or LSP only when the task needs that narrow capability. If
+no sandbox is active, state that execution is unsandboxed and continue under
+normal permissions. Do not automatically disable or bypass an active sandbox.
 
 ## Rollback Planning
 
 Every task that changes tracked files, dependencies, configuration, schemas,
-deployments, or external state needs a rollback plan before the first change.
-
-The plan must identify:
+deployments, or external state needs a rollback plan before the first change:
 
 - **Baseline:** starting Git and relevant system state.
 - **Trigger:** the exact failed check, regression, or unsafe condition.
@@ -103,17 +102,16 @@ The plan must identify:
   data, secrets, and external systems.
 - **Recovery verification:** checks proving the baseline is restored.
 
-Use a file under `docs/plans/` for non-trivial work. A small isolated change
-may keep a concise in-session checklist. Follow `docs/workflows/rollback.md`.
-Never use broad reset, cleanup, history rewriting, force-push, or unplanned
-deletion as rollback shortcuts.
+Tier 0 work keeps it as a concise in-session checklist; Tier 1 and Tier 2
+work carries it in the work-unit or plan record (`pulse guide`,
+"Proportional lifecycle tiers"). Never use broad reset, cleanup, history
+rewriting, force-push, or unplanned deletion as rollback shortcuts.
 
 ## Repository Context Retrieval
 
 Prefer code intelligence or a language server for symbols and references.
-When a fresh `pulse-code-context` index exists, use it only to narrow
-discovery. Read the exact source before editing and verify behavior with the
-repository's real checks.
+Read the exact source before editing and verify behavior with the
+repository's real checks. Generated indexes stay outside the repository.
 
 ## Real Verification Commands
 
@@ -130,47 +128,18 @@ cd src/android && ./gradlew bundleRelease
 Do not invent commands. Android signing and deployment also depend on GitHub
 Actions secrets and their existing approval boundaries.
 
-## Work Accounting
-
-End completed work with the actual model and token usage exposed by the
-runner. Never estimate missing token counts or substitute billing units.
-Record one session row in `docs/usage/usage-log.md`; use
-`n/a (not exposed)` for unavailable fields. The collectors under
-`docs/scripts/` read supported local runner logs.
-
-Append this footer at the end of the final response:
-
-```text
----
-### 🧮 Work Accounting
-- Model(s): <actual model id(s)>
-- Tokens: <input> in / <output> out / <total> total — source: <runner source>
-```
-
 ## Output Format
 
-Use the plain-language ELI5 format in
-`docs/prompts/shared/eli5.prompt.md` by default. The user can request
-`normal`, `technical`, or `no eli5` for a technical response, and `eli5` to
-switch back. Exact facts, paths, commands, code, and the accounting footer do
-not change.
+Answer in plain language by default; the user can ask for a technical
+response. Exact facts, paths, commands, and code do not change.
 
 ## Routing
 
 | Request | Read first | Write when useful |
 | --- | --- | --- |
-| Product or architecture decision | `docs/context/`, `docs/architecture/`, `docs/decisions/`, `docs/memory/` | `docs/decisions/`, `docs/architecture/` |
-| New feature | `docs/context/`, `docs/architecture/`, `docs/decisions/`, `docs/memory/` | `docs/features/`, `docs/plans/`, `docs/prompts/` |
-| Bug fix | Relevant source, tests, context, and memory | `docs/plans/` for non-trivial work; memory only for a durable lesson |
-| Android release signing | `docs/memory/android-release-signing.md`, workflow, Android config | Update control-plane records only when facts change |
-| Play products or store listing | `src/store/README.md`, `docs/decisions/ADR-008-play-console-from-repository.md`, `docs/memory/android-play-billing.md` | Run the `play-console-publish` skill; change `src/store/metadata/`, never the key |
-| BAMF question catalogue (official PDF) | `src/catalogue/README.md`, `docs/decisions/ADR-009-official-bamf-catalogue-source.md`, `docs/memory/bamf-catalogue-source.md` | Run the `bamf-catalogue-sync` skill; never write `src/web/data/question.json` without the owner |
-| Learning or mistake | Existing `docs/memory/` | The most specific memory file |
-| PULSE maintenance | This file and `docs/*/README.md` | Durable control-plane files |
-| PULSE template sync | `docs/skills/pulse-template-sync/SKILL.md`, `docs/workflows/template-sync.md`, `.template-sync` | Sync-safe framework files and `.template-sync` |
-
-## Open Questions
-
-Current unknowns are recorded in `docs/context/product.md` and
-`docs/context/stack.md`. Resolve them only when repository evidence or an
-owner provides the answer.
+| Product or architecture decision | `pulse record list context`, `architecture`, `adr`, and `memory` for the project | Tier 2: an ADR record, and the owner's explicit yes before implementation |
+| New feature or bug fix | Relevant source, tests, and the project's records | Tier 1: a work-unit record naming its ADR; memory only for a durable lesson |
+| Android release signing | The signing rule above, `.github/workflows/android-release.yml`, Android config | Nothing in the repository holds secret values |
+| Play products or store listing | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key |
+| BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
+| Learning or mistake | `pulse record list memory --project leben-in-deutschland` | A `finding` on the board, or a `MEM-*` record when it is durable |

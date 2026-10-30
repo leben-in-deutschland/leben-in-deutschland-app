@@ -9,9 +9,9 @@ on:
   push:
     branches:
       - main
-    # Control-plane docs and store tooling do not change the app; skip the build for them.
+    # Agent skills and store tooling do not change the app; skip the build for them.
     paths-ignore:
-      - "docs/**"
+      - ".pulse/**"
       - "src/store/**"
       - "**.md"
       - ".github/workflows/play-publish.yml"
