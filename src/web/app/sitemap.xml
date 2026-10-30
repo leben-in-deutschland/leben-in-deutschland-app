@@ -25,6 +25,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://lebenindeutschland.org/impressum</loc>
+        <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://lebenindeutschland.org/question-catalogue</loc>
         <lastmod>2025-03-08T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
