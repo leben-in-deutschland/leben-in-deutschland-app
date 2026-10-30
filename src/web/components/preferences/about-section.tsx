@@ -64,6 +64,7 @@ export function AboutSection() {
             <ListRow leading={<IconBadge icon={InfoIcon} />} title={t.settings_version} trailing={<ValuePill>{packageJson.version}</ValuePill>} />
             {/* In-app page on the web; AppLink opens the public website inside the Android app. */}
             <LinkRow icon={<IconBadge icon={ShieldCheckIcon} accent="success" />} title={t.settings_privacy} href="/privacy-policy" external={isNative} />
+            <LinkRow icon={<IconBadge icon={InfoIcon} accent="default" />} title={t.settings_impressum} href="/impressum" external={isNative} />
             {isNative ? (
                 <LinkRow
                     icon={<IconBadge icon={StarIcon} accent="warning" />}
