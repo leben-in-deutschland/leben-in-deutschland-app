@@ -57,6 +57,7 @@ export const Footer = () => {
             title: t.footer_new_legal,
             links: [
                 { label: t.footer_link_privacy, href: "/privacy-policy" },
+                { label: t.footer_link_impressum, href: "/impressum" },
                 { label: t.footer_link_contact, href: `mailto:${CONTACT_EMAIL}`, external: true },
             ],
         },

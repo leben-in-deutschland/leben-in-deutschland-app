@@ -3,8 +3,10 @@ import type { ReactNode } from "react";
 import { PrivacyIntro } from "@/components/landing/privacy-intro";
 import { Surface } from "@/components/ui/surface";
 
-const LAST_UPDATED = "October 10, 2026";
+const LAST_UPDATED = "October 30, 2026";
 const CONTACT_EMAIL = "hello@lamplitlabs.com";
+const CONTROLLER = "Manish Tiwari";
+const ADDRESS = "Am Potekamp 22, 40885 Ratingen, Germany";
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
@@ -18,7 +20,7 @@ const SECTIONS = [
     { id: "data-ownership", title: "3. Data Ownership & Control" },
     { id: "third-party", title: "4. Third-Party Services" },
     { id: "changes", title: "5. Changes to This Privacy Policy" },
-    { id: "contact", title: "6. Contact Us" },
+    { id: "contact", title: "6. Your Rights & Contact" },
 ];
 
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
@@ -54,8 +56,10 @@ export default function PrivacyPolicy() {
                 <p>
                     Thank you for choosing to be part of our community at Lamplit Labs, doing business as lebenindeutschland.org/Einbürgerungstest
                     (&quot;lebenindeutschland&quot;, &quot;Einbürgerungstest&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting
-                    your personal information and respecting your right to privacy. If you have any questions or concerns about this privacy notice or our
-                    practices regarding your personal information, please contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                    your personal information and respecting your right to privacy. The controller responsible for any processing
+                    under the GDPR is {CONTROLLER}, Lamplit Labs, {ADDRESS} (contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>).
+                    If you have any questions or concerns about this privacy notice or our practices regarding your personal information,
+                    please contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                 </p>
             </Section>
 
@@ -116,6 +120,12 @@ export default function PrivacyPolicy() {
             </Section>
 
             <Section id="contact" title={SECTIONS[5].title}>
+                <p>
+                    Because we collect no personal data, the GDPR rights below normally have nothing to act on; still, you have the right of
+                    access, rectification, erasure, restriction of processing, data portability, and objection (Art. 15–21 GDPR), and the right
+                    to lodge a complaint with a supervisory authority — for example the Landesbeauftragte für Datenschutz und
+                    Informationsfreiheit Nordrhein-Westfalen (LDI NRW) or the authority at your place of residence.
+                </p>
                 <p>
                     If you have any questions about this privacy policy or our practices, or if you wish to exercise any of your rights regarding your data,
                     please feel free to contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We will respond to your inquiries in a timely
