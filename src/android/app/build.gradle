@@ -29,7 +29,7 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     // Tip jar (TipJarPlugin.java). Google requires a recent major version for
-    // app updates; see docs/memory/android-play-billing.md before changing it.
+    // app updates; see .pulse/skills/play-console-publish/play-billing.md before changing it.
     implementation "com.android.billingclient:billing:$playBillingVersion"
     implementation project(':capacitor-android')
     testImplementation "junit:junit:$junitVersion"
