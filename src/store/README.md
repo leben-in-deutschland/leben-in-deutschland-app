@@ -204,7 +204,7 @@ pipeline. They are the committed, repeatable alternative to clicking
 through the Console; both have a dry run that needs no credentials.
 
 The agent-facing procedure is the `play-console-publish` skill
-(`docs/skills/play-console-publish/SKILL.md`): offline checks, credential
+(`.pulse/skills/play-console-publish/SKILL.md`): offline checks, credential
 gate, products, listing, hand-back. Its offline check is
 
 ```bash

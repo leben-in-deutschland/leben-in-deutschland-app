@@ -78,7 +78,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Engineering Control Plane
+## Agents and Skills
 
-Project context, architecture, decisions, plans, workflows, and portable agent
-skills are maintained in the [PULSE documentation](docs/README.md).
+Engineering records - decisions, plans, memory, workflows - live in the
+[PULSE](https://github.com/manishtiwari25/pulse) store, not in this
+repository. Project agent skills live under [`.pulse/skills/`](.pulse/skills/),
+one folder per skill with a `SKILL.md`, and [`AGENTS.md`](AGENTS.md) holds the
+repository rules.
