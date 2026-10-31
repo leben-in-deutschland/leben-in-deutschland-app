@@ -244,7 +244,8 @@ describe("mock page smoke", () => {
         const answerButtons = () => Array.from(container!.querySelectorAll('[role="group"] button'));
         expect(answerButtons().length).toBe(4);
         expect(container!.querySelectorAll('[role="group"] [data-marker="checkbox"]').length).toBe(4);
-        expect(answerButtons()[0].textContent).not.toMatch(/^A/);
+        // Only the answer text, no letter badge - whatever letter the answer itself starts with.
+        expect(answerButtons()[0].textContent).toBe(answerButtons()[0].querySelector(".answer-text")?.textContent);
         click(answerButtons()[1]);
         await flush();
         expect(answerButtons()[1].getAttribute("aria-pressed")).toBe("true");

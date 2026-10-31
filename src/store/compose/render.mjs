@@ -27,9 +27,11 @@ const sharp = createRequire(path.join(webRoot, "package.json"))("sharp");
 export const SETS = {
     "play-phone": { width: 1080, height: 1920, device: "phone", note: "Google Play phone (9:16)" },
     "play-tablet": { width: 1440, height: 2560, device: "tablet", note: "Google Play 7-inch and 10-inch tablet (9:16)" },
-    "ios-iphone-6.9": { width: 1320, height: 2868, device: "phone", note: "App Store iPhone 6.9-inch" },
-    "ios-iphone-6.5": { width: 1284, height: 2778, device: "phone", note: "App Store iPhone 6.5-inch" },
-    "ios-ipad-13": { width: 2064, height: 2752, device: "tablet", note: "App Store iPad 13-inch" },
+    // App Store Connect names the slots by display class now; the medium Dynamic Island display is the required one.
+    "ios-iphone-6.3": { width: 1206, height: 2622, device: "phone", note: "App Store iPhone with Dynamic Island (medium display), required" },
+    "ios-iphone-6.9": { width: 1320, height: 2868, device: "phone", note: "App Store iPhone with Dynamic Island (large display)" },
+    "ios-iphone-6.5": { width: 1284, height: 2778, device: "phone", note: "App Store iPhone with Face ID (large display)" },
+    "ios-ipad-13": { width: 2064, height: 2752, device: "tablet", note: "App Store iPad 13-inch display, required" },
 };
 
 const BASE_WIDTH = 1080;
