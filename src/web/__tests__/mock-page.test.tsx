@@ -244,7 +244,12 @@ describe("mock page smoke", () => {
         const answerButtons = () => Array.from(container!.querySelectorAll('[role="group"] button'));
         expect(answerButtons().length).toBe(4);
         expect(container!.querySelectorAll('[role="group"] [data-marker="checkbox"]').length).toBe(4);
-        expect(answerButtons()[0].textContent).not.toMatch(/^A/);
+        // No letter before the answer: the checkbox is empty and the row reads as the answer alone.
+        // Some answers begin with "A" themselves (question 205), so compare with the answer text.
+        for (const button of answerButtons()) {
+            expect(button.querySelector('[data-marker="checkbox"]')?.textContent).toBe("");
+            expect(button.textContent).toBe(button.querySelector(".answer-text")?.textContent);
+        }
         click(answerButtons()[1]);
         await flush();
         expect(answerButtons()[1].getAttribute("aria-pressed")).toBe("true");
