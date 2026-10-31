@@ -4,15 +4,25 @@
 <dict>
 	<!--
 	Export options for the TestFlight upload in .github/workflows/ios-release.yml.
-	`teamID` is a placeholder: the workflow writes the real value from the
-	APPLE_TEAM_ID secret into a temporary copy. Never put the Team ID here.
+	Manual signing with the App Store profile that src/store/asc-profile.mjs
+	creates and installs; the Release configuration of the App target uses the
+	same profile name. `teamID` is a placeholder: the workflow writes the real
+	value from the APPLE_TEAM_ID secret into a temporary copy. Never put the
+	Team ID here.
 	-->
 	<key>method</key>
 	<string>app-store-connect</string>
 	<key>destination</key>
 	<string>upload</string>
 	<key>signingStyle</key>
-	<string>automatic</string>
+	<string>manual</string>
+	<key>signingCertificate</key>
+	<string>Apple Distribution</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>org.lebenindeutschland.app</key>
+		<string>Leben in Deutschland App Store</string>
+	</dict>
 	<key>teamID</key>
 	<string>TEAM_ID_PLACEHOLDER</string>
 	<key>uploadSymbols</key>

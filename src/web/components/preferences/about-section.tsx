@@ -3,11 +3,13 @@
 import type { ReactNode } from "react";
 import packageJson from "@/package.json";
 import { siteConfig } from "@/config/site";
+import { storeName, storeRatingUrl } from "@/utils/app-store";
 import { AppLink } from "@/components/ui/app-link";
 import type { IconComponent } from "@/components/ui/icons";
 import { ChevronRightIcon, ExternalLinkIcon, InfoIcon, MailIcon, ShieldCheckIcon, StarIcon } from "@/components/ui/icons";
 import { ListRow } from "@/components/ui/list-row";
 import { IconBadge } from "@/components/ui/icon-badge";
+import { fmt } from "@/utils/i18n";
 import { useIsNative, useTranslations } from "@/utils/user-store";
 import { SettingsSection, ValuePill } from "./settings-shared";
 
@@ -54,6 +56,7 @@ function LinkRow({ icon, title, description, href, external = false }: LinkRowPr
 export function AboutSection() {
     const t = useTranslations();
     const isNative = useIsNative();
+    const ratingUrl = storeRatingUrl();
 
     return (
         <SettingsSection
@@ -65,12 +68,13 @@ export function AboutSection() {
             {/* In-app page on the web; AppLink opens the public website inside the Android app. */}
             <LinkRow icon={<IconBadge icon={ShieldCheckIcon} accent="success" />} title={t.settings_privacy} href="/privacy-policy" external={isNative} />
             <LinkRow icon={<IconBadge icon={InfoIcon} accent="default" />} title={t.settings_impressum} href="/impressum" external={isNative} />
-            {isNative ? (
+            {/* Rating happens in the store the app came from; on iOS the row waits for the App Store URL. */}
+            {isNative && ratingUrl ? (
                 <LinkRow
                     icon={<IconBadge icon={StarIcon} accent="warning" />}
                     title={t.settings_rate}
-                    description={t.settings_rate_hint}
-                    href={siteConfig.links.playStore}
+                    description={fmt(t.settings_rate_hint, { store: storeName() })}
+                    href={ratingUrl}
                     external
                 />
             ) : null}

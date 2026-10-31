@@ -114,7 +114,7 @@
     "settings_privacy": "Privacy policy",
     "settings_impressum": "Imprint (legal notice)",
     "settings_rate": "Rate the app",
-    "settings_rate_hint": "Opens Google Play",
+    "settings_rate_hint": "Opens {store}",
     "settings_source": "Source code on GitHub",
     "settings_source_hint": "Free and open source",
     "settings_feedback": "Send feedback",
@@ -126,7 +126,7 @@
     "settings_support_thanks_toast": "Thank you for your support!",
     "settings_support_thanked_one": "You have tipped {count} time. Thank you!",
     "settings_support_thanked_other": "You have tipped {count} times. Thank you!",
-    "settings_support_pending": "Your payment is still being checked. The tip is counted once Google Play confirms it.",
+    "settings_support_pending": "Your payment is still being checked. The tip is counted once {store} confirms it.",
     "settings_support_failed": "That did not work. Please try again later.",
-    "settings_support_via_play": "Tips are processed securely by Google Play and unlock nothing. The app stays the same for everyone."
+    "settings_support_via_play": "Tips are processed securely by {store} and unlock nothing. The app stays the same for everyone."
 }

@@ -114,7 +114,7 @@
     "settings_privacy": "Datenschutz",
     "settings_impressum": "Impressum",
     "settings_rate": "App bewerten",
-    "settings_rate_hint": "Öffnet Google Play",
+    "settings_rate_hint": "Öffnet {store}",
     "settings_source": "Quellcode auf GitHub",
     "settings_source_hint": "Kostenlos und Open Source",
     "settings_feedback": "Feedback senden",
@@ -126,7 +126,7 @@
     "settings_support_thanks_toast": "Vielen Dank für deine Unterstützung!",
     "settings_support_thanked_one": "Du hast {count}-mal Trinkgeld gegeben. Danke!",
     "settings_support_thanked_other": "Du hast {count}-mal Trinkgeld gegeben. Danke!",
-    "settings_support_pending": "Deine Zahlung wird noch geprüft. Das Trinkgeld wird gezählt, sobald Google Play sie bestätigt.",
+    "settings_support_pending": "Deine Zahlung wird noch geprüft. Das Trinkgeld wird gezählt, sobald {store} sie bestätigt.",
     "settings_support_failed": "Das hat leider nicht geklappt. Bitte versuch es später noch einmal.",
-    "settings_support_via_play": "Trinkgelder laufen sicher über Google Play und schalten nichts frei. Die App bleibt für alle gleich."
+    "settings_support_via_play": "Trinkgelder laufen sicher über {store} und schalten nichts frei. Die App bleibt für alle gleich."
 }

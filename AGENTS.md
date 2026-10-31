@@ -80,11 +80,19 @@ repository.
   secrets `IOS_DIST_CERT_P12_BASE64`, `IOS_DIST_CERT_PASSWORD`,
   `ASC_API_KEY_BASE64`, `ASC_KEY_ID`, `ASC_ISSUER_ID` and `APPLE_TEAM_ID`.
   `src/ios/App/ExportOptions.plist` keeps a `TEAM_ID_PLACEHOLDER`; the
-  workflow fills it at run time. Release to the App Store is a manual step
-  in App Store Connect. Never commit, print, or request certificates, keys,
+  workflow fills it at run time. The Release configuration signs manually
+  with the App Store profile "Leben in Deutschland App Store", which
+  `src/store/asc-profile.mjs` creates for the distribution certificate and
+  installs on the runner; Debug stays automatic for Xcode on the owner's
+  Mac. Release to the App Store is a manual step in App Store Connect. Never commit, print, or request certificates, keys,
   profiles, the Team ID or the numeric Apple ID of the app - once the app is
   public its App Store URL (and so the id) belongs in
   `siteConfig.links.appStore`, nowhere else.
+- The iOS app must not name Google Play, and the Android app need not name
+  the App Store: user-facing store wording goes through `storeName()` and
+  `storeRatingUrl()` in `src/web/utils/app-store.ts` (translations use a
+  `{store}` placeholder). Apple rejects references to other platforms
+  (App Review Guideline 2.3.10).
 - The repository is public: files, history, Actions logs, and release assets
   are readable by anyone. Never commit personal identifiers either - private
   e-mail addresses, device serials, home paths, cloud project ids,

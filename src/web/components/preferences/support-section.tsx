@@ -7,6 +7,7 @@ import { useNoticeFlags } from "@/components/home/use-notices";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { HeartIcon } from "@/components/ui/icons";
 import { loadTipProducts, recoverTips, sendTip, tipJarSupported, type TipProduct } from "@/services/tip-jar";
+import { storeName } from "@/utils/app-store";
 import { fmt, plural } from "@/utils/i18n";
 import { readSupport, recordTips } from "@/utils/support-store";
 import { useTranslations } from "@/utils/user-store";
@@ -61,7 +62,7 @@ export function SupportSection() {
                     toast.success(t.settings_support_thanks_toast);
                     break;
                 case "pending":
-                    toast.info(t.settings_support_pending);
+                    toast.info(fmt(t.settings_support_pending, { store: storeName() }));
                     break;
                 case "cancelled":
                     break;
@@ -80,7 +81,7 @@ export function SupportSection() {
         <SettingsSection
             id="support"
             title={t.settings_section_support}
-            footer={<p className="px-1 text-xs leading-relaxed text-default-500">{t.settings_support_via_play}</p>}
+            footer={<p className="px-1 text-xs leading-relaxed text-default-500">{fmt(t.settings_support_via_play, { store: storeName() })}</p>}
         >
             <div className="space-y-4 px-4 py-4">
                 <div className="flex items-start gap-3">

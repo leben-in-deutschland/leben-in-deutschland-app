@@ -113,8 +113,9 @@ jobs:
         run: echo "VERSION=$(jq -r .version package.json)" >> "$GITHUB_ENV"
 
       # A throw-away keychain holds the Apple Distribution certificate; the
-      # App Store Connect API key lets Xcode manage the provisioning profile
-      # and upload the build. Nothing is echoed; both are deleted at the end.
+      # App Store Connect API key fetches the App Store provisioning profile
+      # and authenticates the upload. Nothing is echoed; all are deleted at
+      # the end.
       - name: Install signing certificate and API key
         env:
           IOS_DIST_CERT_P12_BASE64: ${{ secrets.IOS_DIST_CERT_P12_BASE64 }}
@@ -147,13 +148,26 @@ jobs:
           echo "ASC_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
           echo "Installed $(security find-identity -v -p codesigning "$KEYCHAIN_PATH" | grep -c 'Apple Distribution') Apple Distribution identity"
 
+      # Automatic signing would provision the archive with a development
+      # profile, which needs a development certificate and a registered
+      # device - a runner has neither. The Release configuration therefore
+      # signs manually with the App Store profile that asc-profile.mjs
+      # creates (or reuses) for the certificate in the keychain.
+      - name: Install the App Store provisioning profile
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_API_KEY_BASE64: ${{ secrets.ASC_API_KEY_BASE64 }}
+        run: |
+          set -euo pipefail
+          serial="$(security find-certificate -c "Apple Distribution" -p "$KEYCHAIN_PATH" | openssl x509 -noout -serial | sed 's/^serial=//')"
+          node src/store/asc-profile.mjs --serial "$serial"
+
       # The build number is this workflow's run number, like versionCode on Android.
       - name: Archive
         working-directory: src/ios/App
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
         run: |
           set -o pipefail
           xcodebuild \
@@ -163,12 +177,7 @@ jobs:
             -destination 'generic/platform=iOS' \
             -archivePath "$RUNNER_TEMP/App.xcarchive" \
             -derivedDataPath "$RUNNER_TEMP/DerivedData" \
-            -allowProvisioningUpdates \
-            -authenticationKeyPath "$ASC_KEY_PATH" \
-            -authenticationKeyID "$ASC_KEY_ID" \
-            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
             DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
-            CODE_SIGN_STYLE=Automatic \
             MARKETING_VERSION="$VERSION" \
             CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
             archive | xcbeautify --renderer github-actions
@@ -241,3 +250,4 @@ jobs:
             security delete-keychain "$KEYCHAIN_PATH"
           fi
           rm -f "$HOME"/private_keys/AuthKey_*.p8 "$RUNNER_TEMP"/*.p12 "$RUNNER_TEMP"/ExportOptions.plist
+          rm -f "$HOME"/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision

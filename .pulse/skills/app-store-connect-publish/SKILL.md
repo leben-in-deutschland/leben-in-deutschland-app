@@ -29,6 +29,9 @@ PLAN-013); the Play twin is the `play-console-publish` skill.
 - Screenshots, the App Privacy answers, the app's price and availability,
   the build and the submission stay in App Store Connect by hand; say so
   explicitly in the hand-back.
+- `asc-profile.mjs` may create an App Store provisioning profile for the
+  team's distribution certificate (the iOS release workflow does); it never
+  creates certificates, and it never prints the profile or the Team ID.
 
 ## Procedure
 
@@ -64,9 +67,12 @@ PLAN-013); the Play twin is the `play-console-publish` skill.
    - `node src/store/asc-products.mjs --apply` must end with every product
      `READY_TO_SUBMIT`, or `MISSING_METADATA` with the sentence about the
      review screenshot. Re-running is safe; unchanged records are skipped.
-   - The review screenshot is the tip jar in Settings on a device or
-     simulator; pass it with `--review-screenshot <png>` or hand the owner
-     the path: the product → Review Information → Screenshot.
+   - The review screenshot is the tip jar in Settings:
+     `node src/store/review-screenshot.mjs` renders it from the exported
+     build (needs `src/web/out`), then
+     `node src/store/asc-products.mjs --apply --review-screenshot src/store/output/review/tip-jar-de.png`.
+     Without a build, hand the owner the path: the product → Review
+     Information → Screenshot.
 5. Listing (gate open):
    - `node src/store/asc-listing.mjs` once more, then
      `node src/store/asc-listing.mjs --apply`. Read the per-record summary

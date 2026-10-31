@@ -398,7 +398,22 @@ node src/store/asc-products.mjs --apply --review-screenshot tip-jar.png   # plus
 node src/store/asc-listing.mjs             # dry run: validates metadata/ios/ and prints the planned writes
 node src/store/asc-listing.mjs --apply     # name, subtitle, texts, keywords, URLs, category, content rights, age rating, copyright, release type, version string
 node src/store/asc-rehearsal.mjs           # offline rehearsal against a local mock; prints ALL CHECKS PASSED
+node src/store/asc-profile.mjs --list      # distribution certificates and App Store profiles of the team
+node src/store/asc-profile.mjs --serial <hex>   # ensure + install the App Store profile for that certificate (the iOS workflow does this)
+node src/store/review-screenshot.mjs       # output/review/tip-jar-<de|en>.png: the tip jar as the iOS app shows it, for the products' App Review screenshot
 ```
+
+`asc-profile.mjs` exists because a CI runner has only the distribution
+certificate: `xcodebuild archive` with automatic signing insists on a
+development profile (certificate plus a registered device), so the Release
+configuration of the App target signs manually with the profile
+"Leben in Deutschland App Store", which the script creates once per
+certificate and installs under `~/Library/MobileDevice/Provisioning Profiles`
+(Debug keeps automatic signing for Xcode on the owner's Mac).
+`review-screenshot.mjs` renders the Settings page of the exported build with
+the iOS platform and a faked `TipJar` plugin that answers with the three
+products, so the picture Apple's reviewer sees is the real screen without a
+device, sandbox account or App Store Connect products.
 
 Sources: `metadata/android/one-time-products.json` (shared with Play; the
 App Store description is `appStoreDescription`, 45 characters, the title is
@@ -512,8 +527,10 @@ repository or into a chat.
    from `metadata/android/one-time-products.json` with texts, the EUR price
    and worldwide availability - needs the API key from step 5 and the Paid
    Apps Agreement from step 1. Each product still needs a review screenshot
-   (the tip jar in Settings): `--review-screenshot <png>` from a laptop, or
-   the product → Review Information in App Store Connect. In-app purchases
+   (the tip jar in Settings): `node src/store/review-screenshot.mjs` renders
+   it, `node src/store/asc-products.mjs --apply --review-screenshot
+   src/store/output/review/tip-jar-de.png` attaches it; or the product →
+   Review Information in App Store Connect. In-app purchases
    are submitted for review together with the first app version. By hand
    instead: the app → Monetization → In-App Purchases → + → Consumable,
    values from the same file.
