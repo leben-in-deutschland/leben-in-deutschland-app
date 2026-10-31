@@ -62,13 +62,28 @@ describe("legal pages (TASK-043)", () => {
 
     it("serves the German aliases /datenschutz and /datenschutzrichtlinie as the privacy policy", () => {
         // static export cannot use next.config redirects, so the aliases are
-        // app routes that re-export the privacy policy page and its metadata
-        // (canonical stays /privacy-policy).
+        // app routes that re-export the privacy policy page.
         for (const rel of ["app/datenschutz/page.tsx", "app/datenschutzrichtlinie/page.tsx"]) {
             const alias = read(rel);
-            expect(alias).toContain('from "../privacy-policy/page"');
-            expect(alias).toContain("export { default }");
+            expect(alias).toContain('export { default } from "../privacy-policy/page"');
         }
+    });
+
+    it("gives /datenschutz German metadata and its own canonical, shared by /datenschutzrichtlinie", () => {
+        const page = read("app/datenschutz/page.tsx");
+        expect(page).toContain('alternates: { canonical: "/datenschutz" }');
+        expect(page).toContain("landingDe.privacy_title");
+        expect(page).toContain("landingDe.privacy_desc");
+        expect(read("app/datenschutzrichtlinie/page.tsx")).toContain('export { metadata } from "../datenschutz/page"');
+    });
+
+    it("lists /datenschutz in the sitemap next to /privacy-policy and /impressum", () => {
+        const sitemap = read("app/sitemap.xml");
+        for (const path of ["/privacy-policy", "/datenschutz", "/impressum"]) {
+            expect(sitemap).toContain(`<loc>https://lebenindeutschland.org${path}</loc>`);
+        }
+        // the longer alias stays out: its canonical points at /datenschutz
+        expect(sitemap).not.toContain("/datenschutzrichtlinie");
     });
 
     it("links the Impressum from the website footer legal column", () => {
