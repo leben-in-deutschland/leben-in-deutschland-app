@@ -162,6 +162,7 @@ class Page {
         await sleep(ms);
     }
 
+    /** Clicks with real pointer events; when the element cannot be brought under the pointer (inner scroll container, overlay), falls back to a DOM click. */
     async click(selector, { index = 0 } = {}) {
         const box = await this.evaluate(`(() => {
             const nodes = document.querySelectorAll(${JSON.stringify(selector)});
@@ -169,10 +170,20 @@ class Page {
             if (!node) return null;
             node.scrollIntoView({ block: "center", inline: "nearest" });
             const r = node.getBoundingClientRect();
-            return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+            const x = r.left + r.width / 2;
+            const y = r.top + r.height / 2;
+            const hit = document.elementFromPoint(x, y);
+            if (x < 0 || y < 0 || x > innerWidth || y > innerHeight || !hit || !(hit === node || node.contains(hit))) {
+                node.click();
+                return { clicked: true };
+            }
+            return { x, y };
         })()`);
         if (!box) {
             throw new Error(`click: no element for ${selector}[${index}]`);
+        }
+        if (box.clicked) {
+            return;
         }
         await this.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: box.x, y: box.y });
         await this.send("Input.dispatchMouseEvent", { type: "mousePressed", x: box.x, y: box.y, button: "left", clickCount: 1 });

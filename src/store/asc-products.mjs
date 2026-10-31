@@ -191,16 +191,17 @@ async function findPricePoint(client, iapId, definition, price) {
 }
 
 async function currentBasePrice(client, iapId) {
-    const schedule = await client.request("GET", `/v2/inAppPurchases/${iapId}/priceSchedule`, {
-        query: { include: "manualPrices,baseTerritory", "fields[inAppPurchasePrices]": "startDate,endDate,manual", "fields[inAppPurchasePricePoints]": "customerPrice" },
-        allow404: true,
-    });
+    const schedule = await client.request("GET", `/v2/inAppPurchases/${iapId}/iapPriceSchedule`, { allow404: true });
     if (!schedule?.data) {
         return null;
     }
-    const prices = (schedule.included ?? []).filter((item) => item.type === "inAppPurchasePrices");
+    const base = await client.request("GET", `/v1/inAppPurchasePriceSchedules/${schedule.data.id}/baseTerritory`, { allow404: true });
+    const baseTerritory = base?.data?.id ?? null;
+    const prices = await client.list(`/v1/inAppPurchasePriceSchedules/${schedule.data.id}/manualPrices`, {
+        query: { "filter[territory]": baseTerritory ?? undefined, include: "inAppPurchasePricePoint" },
+    });
     const current = prices.find((item) => !item.attributes?.endDate) ?? prices[0];
-    return { baseTerritory: schedule.data.relationships?.baseTerritory?.data?.id, pricePointId: current?.relationships?.inAppPurchasePricePoint?.data?.id ?? null };
+    return { baseTerritory, pricePointId: current?.relationships?.inAppPurchasePricePoint?.data?.id ?? null };
 }
 
 async function applyProduct(client, appId, definition, product, screenshot) {

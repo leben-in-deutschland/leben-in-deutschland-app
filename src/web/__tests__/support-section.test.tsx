@@ -133,7 +133,7 @@ describe("support section", () => {
         expect(document.getElementById("support")).not.toBeNull();
         expect(text()).toContain("Unterstützen");
         expect(text()).toContain("kleinen Trinkgeld");
-        expect(text()).toContain("über Google Play");
+        expect(text()).toContain("abgewickelt (Google Play)");
         const buttons = tipButtons();
         expect(buttons.map((b) => b.textContent)).toEqual(["Kaffee1,99 €", "Kuchen4,99 €", "Abendessen9,99 €"]);
         expect(buttons[1].getAttribute("aria-label")).toBe("Kuchen: 4,99 € Trinkgeld geben");
