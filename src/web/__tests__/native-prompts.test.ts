@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { appleAppId, shouldAskForReview } from "@/components/shell/native-prompts";
+import { appStoreUrl } from "@/config/site";
 import { User } from "@/types/user";
 
 const NOW = new Date("2026-10-09T12:00:00.000Z");
@@ -57,9 +58,9 @@ describe("appleAppId", () => {
         expect(appleAppId("https://apps.apple.com/app/id6740000001/")).toBe("6740000001");
     });
 
-    it("is undefined before the App Store URL is set or when it carries no id", () => {
-        expect(appleAppId(undefined)).toBeUndefined();
+    it("is undefined without an App Store URL or when it carries no id, and follows the site config by default", () => {
         expect(appleAppId("")).toBeUndefined();
+        expect(appleAppId()).toBe(appleAppId(appStoreUrl()));
         expect(appleAppId("https://play.google.com/store/apps/details?id=org.lebenindeutschland.app")).toBeUndefined();
     });
 });

@@ -11,11 +11,11 @@ export const siteConfig = {
         lamplitLabs: "https://www.lamplitlabs.com/",
         playStore: "https://play.google.com/store/apps/details?id=org.lebenindeutschland.app",
         /**
-         * App Store page of the iOS app (ADR-047, PLAN-013). Empty until the app is
-         * live: the landing then shows a "coming soon" badge and the footer, hero
-         * and structured data leave iOS out. Setting the URL is the launch switch.
+         * App Store page of the iOS app (ADR-047, PLAN-013): the landing badge, the
+         * footer, the structured data and the in-app rate/update links read it.
+         * Empty would show a "coming soon" badge instead.
          */
-        appStore: "",
+        appStore: "https://apps.apple.com/de/app/id6829151281",
         website: "https://www.lebenindeutschland.org",
     }
 };
