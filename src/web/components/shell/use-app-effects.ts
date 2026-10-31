@@ -19,6 +19,7 @@ import { readUser, updateUser, useAppLanguage, useTranslations, useUser, writeUs
 import { addNotificationTapListener, syncNativeNotifications } from "@/services/notifications";
 import { useAndroidBackButton } from "./use-back-button";
 
+/** Local plugin: `AppSystemBarsPlugin.java` on Android, `AppSystemBarsPlugin.swift` on iOS. */
 interface AppSystemBarsPlugin {
     setStyle(options: { light: boolean }): Promise<void>;
 }
@@ -177,19 +178,25 @@ function useDocumentAttributes(user: User | null | undefined, language: string) 
     }, [largeText]);
 }
 
-/** Matches the Android status and navigation bars to the theme. */
+/**
+ * Matches the system bars to the theme through the local `AppSystemBars`
+ * plugin (Android: status and navigation bars, iOS: status bar and the bands
+ * around the web view); Android also colours the edge-to-edge background.
+ */
 function useSystemBars() {
     const { resolvedTheme } = useTheme();
     useEffect(() => {
-        if (Capacitor.getPlatform() !== "android" || !resolvedTheme) {
+        const platform = Capacitor.getPlatform();
+        if ((platform !== "android" && platform !== "ios") || !resolvedTheme) {
             return;
         }
         const light = resolvedTheme === "light";
-        void Promise.all([
-            EdgeToEdge.setBackgroundColor({ color: light ? "#F2F3F5" : "#140E10" }),
-            AppSystemBars.setStyle({ light }),
-        ]).catch((error: unknown) => {
-            console.warn("Failed to update Android system bars", error);
+        const updates: Promise<void>[] = [AppSystemBars.setStyle({ light })];
+        if (platform === "android") {
+            updates.push(EdgeToEdge.setBackgroundColor({ color: light ? "#F2F3F5" : "#140E10" }));
+        }
+        void Promise.all(updates).catch((error: unknown) => {
+            console.warn("Failed to update the system bars", error);
         });
     }, [resolvedTheme]);
 }

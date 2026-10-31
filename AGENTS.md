@@ -3,16 +3,23 @@
 ## Repository Scope
 
 Leben in Deutschland helps people prepare for the German naturalization test.
-The product is an exported Next.js application with a Capacitor Android
-wrapper:
+The product is an exported Next.js application with Capacitor Android and
+iOS wrappers:
 
 ```text
 src/web/        Next.js application, tests, static data, and Capacitor config
 src/android/    Native Android project generated and maintained with Capacitor
-src/store/      Play Console configuration and the scripts that publish it
+src/ios/        Native iOS project (Xcode, CocoaPods) generated and maintained with Capacitor
+src/store/      Play Console and App Store Connect configuration and the scripts that publish it
 src/catalogue/  Official BAMF question-catalogue pipeline
 .pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
 ```
+
+Native code that both apps share by contract lives twice: the `TipJar` and
+`AppSystemBars` plugins exist as `src/android/.../*.java` and
+`src/ios/App/App/*.swift` with the same method names and JSON shapes, and
+`AppViewController.swift` registers them like `MainActivity.java` does. Keep
+the two in step when one changes.
 
 ## PULSE
 
@@ -64,6 +71,19 @@ repository.
   the unsigned `app-release.aab` and `app-release-temp.aab` are not
   production artifacts, and no `*.aab` wildcard. Never commit, print, or
   request keystores, passwords, private keys, or encoded secret values.
+- iOS release signing: the app is `org.lebenindeutschland.app` as well, built
+  and uploaded to TestFlight by `.github/workflows/ios-release.yml` (ADR-047,
+  PLAN-013). The Apple Distribution certificate (`.p12` and its password),
+  the App Store Connect API key (`.p8`, key id, issuer id) and the Team ID
+  live in the owner's password manager and reach GitHub Actions only as the
+  secrets `IOS_DIST_CERT_P12_BASE64`, `IOS_DIST_CERT_PASSWORD`,
+  `ASC_API_KEY_BASE64`, `ASC_KEY_ID`, `ASC_ISSUER_ID` and `APPLE_TEAM_ID`.
+  `src/ios/App/ExportOptions.plist` keeps a `TEAM_ID_PLACEHOLDER`; the
+  workflow fills it at run time. Release to the App Store is a manual step
+  in App Store Connect. Never commit, print, or request certificates, keys,
+  profiles, the Team ID or the numeric Apple ID of the app - once the app is
+  public its App Store URL (and so the id) belongs in
+  `siteConfig.links.appStore`, nowhere else.
 - The repository is public: files, history, Actions logs, and release assets
   are readable by anyone. Never commit personal identifiers either - private
   e-mail addresses, device serials, home paths, cloud project ids,
@@ -123,10 +143,13 @@ cd src/web && npm run lint
 cd src/web && npm run build
 cd src && make build-sync
 cd src/android && ./gradlew bundleRelease
+cd src && make build-sync-ios
+cd src/ios/App && xcodebuild -workspace App.xcworkspace -scheme App -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 ```
 
-Do not invent commands. Android signing and deployment also depend on GitHub
-Actions secrets and their existing approval boundaries.
+Do not invent commands. Android and iOS signing and deployment also depend
+on GitHub Actions secrets and their existing approval boundaries. `npm run
+assets:ios` re-renders the iOS icon and launch images from the app icon.
 
 ## Output Format
 
@@ -140,6 +163,7 @@ response. Exact facts, paths, commands, and code do not change.
 | Product or architecture decision | `pulse record list context`, `architecture`, `adr`, and `memory` for the project | Tier 2: an ADR record, and the owner's explicit yes before implementation |
 | New feature or bug fix | Relevant source, tests, and the project's records | Tier 1: a work-unit record naming its ADR; memory only for a durable lesson |
 | Android release signing | The signing rule above, `.github/workflows/android-release.yml`, Android config | Nothing in the repository holds secret values |
+| iOS release signing, TestFlight, App Store | The iOS signing rule above, `.github/workflows/ios-release.yml`, `src/store/README.md` (App Store Connect), `pulse record show PLAN-013` | Nothing in the repository holds secret values; the owner submits to review by hand |
 | Play products or store listing | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
 | Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |

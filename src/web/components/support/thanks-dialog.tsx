@@ -25,7 +25,7 @@ type ThanksDialogProps = {
 /**
  * One-time popup that invites a learner to the tip jar after a real success:
  * a passed mock exam or a seven-day streak (PLAN-012). Only in the Android
- * app, only while the owner switch is on and Google Play knows the products,
+ * and iOS apps, only while the owner switch is on and the store knows the products,
  * never after a tip. Every way of closing it counts as "not now": the dialog
  * waits 30 days and gives up after the second time. It yields to any other
  * dialog that is already open.

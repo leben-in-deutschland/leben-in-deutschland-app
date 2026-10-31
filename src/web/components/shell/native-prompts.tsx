@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@heroui/react";
+import { Capacitor } from "@capacitor/core";
 import { AppReview } from "@capawesome/capacitor-app-review";
 import { AppUpdate, AppUpdateAvailability } from "@capawesome/capacitor-app-update";
+import { appStoreUrl } from "@/config/site";
 import { User } from "@/types/user";
 import { updateUser, useIsNative, useTranslations, useUser } from "@/utils/user-store";
 
@@ -12,12 +14,23 @@ const REVIEW_FIRST_WAIT_DAYS = 2;
 const REVIEW_RETRY_WAIT_DAYS = 4;
 const REVIEW_PROMPT_DELAY_MS = 2500;
 const DAY_MS = 86_400_000;
+/** The App Store the iOS app is looked up in; the app is listed in Germany first. */
+const APP_STORE_COUNTRY = "de";
 
 let reviewChecked = false;
 let updateChecked = false;
 
 /**
- * Whether the Play Store review prompt may be shown now: at least two days
+ * The numeric Apple ID of the iOS app, read from the App Store URL
+ * (`https://apps.apple.com/<country>/app/id<APPLE_ID>`), or undefined until
+ * the app is published and `siteConfig.links.appStore` is set.
+ */
+export function appleAppId(url: string | undefined = appStoreUrl()): string | undefined {
+    return url?.match(/\/id(\d+)(?:[/?#]|$)/)?.[1];
+}
+
+/**
+ * Whether the store review prompt may be shown now: at least two days
  * after the first app start, never after a review or two "no" answers, and
  * at most every four days. Legacy records store the dates as ISO strings.
  */
@@ -83,7 +96,7 @@ function InAppReviewPrompt() {
         try {
             await AppReview.requestReview();
         } catch {
-            // Review flow unavailable (for example outside Google Play).
+            // Review flow unavailable (for example outside Google Play or the App Store).
         }
     };
 
@@ -107,6 +120,11 @@ function InAppReviewPrompt() {
     );
 }
 
+/** Looks the installed version up in the store; iOS needs the country of the store the app is listed in. */
+function getAppUpdateInfo() {
+    return AppUpdate.getAppUpdateInfo(Capacitor.getPlatform() === "ios" ? { country: APP_STORE_COUNTRY } : undefined);
+}
+
 function AppUpdatePrompt() {
     const t = useTranslations();
     const [open, setOpen] = useState(false);
@@ -116,7 +134,7 @@ function AppUpdatePrompt() {
             return;
         }
         updateChecked = true;
-        AppUpdate.getAppUpdateInfo()
+        getAppUpdateInfo()
             .then((info) => {
                 if (info.updateAvailability === AppUpdateAvailability.UPDATE_AVAILABLE) {
                     setOpen(true);
@@ -128,18 +146,24 @@ function AppUpdatePrompt() {
     const confirmUpdate = async () => {
         setOpen(false);
         try {
-            const info = await AppUpdate.getAppUpdateInfo();
+            const info = await getAppUpdateInfo();
             if (info.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE) {
                 return;
             }
-            if (info.immediateUpdateAllowed) {
+            if (Capacitor.getPlatform() === "ios") {
+                // No in-app update flow on iOS: the App Store page does the update.
+                const appId = appleAppId();
+                if (appId) {
+                    await AppUpdate.openAppStore({ appId });
+                }
+            } else if (info.immediateUpdateAllowed) {
                 await AppUpdate.performImmediateUpdate();
             } else if (info.flexibleUpdateAllowed) {
                 await AppUpdate.startFlexibleUpdate();
                 await AppUpdate.completeFlexibleUpdate();
             }
         } catch {
-            // Update flow unavailable (for example outside Google Play).
+            // Update flow unavailable (for example outside Google Play or the App Store).
         }
     };
 
@@ -164,7 +188,7 @@ function AppUpdatePrompt() {
     );
 }
 
-/** Google Play prompts (in-app update, in-app review). Renders nothing on the web. */
+/** Store prompts (app update, in-app review) for Google Play and the App Store. Renders nothing on the web. */
 export function NativePrompts() {
     const isNative = useIsNative();
     if (!isNative) {

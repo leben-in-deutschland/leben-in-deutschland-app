@@ -62,6 +62,20 @@ describe("tip jar service", () => {
         expect(mocks.registerPlugin).not.toHaveBeenCalled();
     });
 
+    it("is supported on iOS with the StoreKit plugin and unsupported without it", async () => {
+        mocks.platform = "ios";
+        mocks.plugin.getProducts.mockResolvedValue({ available: true, products: [{ id: "tip_small", name: "Coffee", price: "€1.99" }] });
+        const tipJar = await load();
+        expect(tipJar.tipJarSupported()).toBe(true);
+        expect(await tipJar.loadTipProducts()).toEqual([{ id: "tip_small", name: "Coffee", price: "€1.99" }]);
+        expect(mocks.registerPlugin).toHaveBeenCalledWith("TipJar");
+
+        mocks.pluginAvailable = false;
+        const without = await load();
+        expect(without.tipJarSupported()).toBe(false);
+        expect(await without.sendTip("tip_small")).toBe("unavailable");
+    });
+
     it("registers the plugin once and asks for the three tips in order", async () => {
         mocks.plugin.getProducts.mockResolvedValue({
             available: true,

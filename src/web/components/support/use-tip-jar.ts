@@ -7,11 +7,11 @@ import { loadTipProducts, tipJarSupported } from "@/services/tip-jar";
 const noopSubscribe = () => () => {};
 
 /**
- * Whether the tip jar may be offered right now: Android app with the TipJar
- * plugin, owner switch `flags.tipJar` on, and Google Play knows at least one
- * product. `when` lets a caller hold the Play query back until its own
- * conditions are met. The plugin keeps one billing connection, so the query
- * is cheap.
+ * Whether the tip jar may be offered right now: Android or iOS app with the
+ * TipJar plugin, owner switch `flags.tipJar` on, and the store (Google Play,
+ * App Store) knows at least one product. `when` lets a caller hold the store
+ * query back until its own conditions are met. The plugin keeps one billing
+ * connection, so the query is cheap.
  */
 export function useTipJarAvailable(when = true): boolean {
     const enabled = useNoticeFlags().tipJar;

@@ -16,7 +16,7 @@ import { UiModeSection } from "./ui-mode-section";
 
 const SECTION_IDS = new Set(["profile", "practice", "design", "exam", "streak", "notifications", "data", "support", "about"]);
 
-/** How long to wait for a hash target that mounts later (the tip jar waits for Google Play). */
+/** How long to wait for a hash target that mounts later (the tip jar waits for the store). */
 const HASH_TARGET_TIMEOUT_MS = 15_000;
 
 function scrollToSection(id: string, target: HTMLElement) {
