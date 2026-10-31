@@ -172,12 +172,23 @@ const server = http.createServer(async (req, res) => {
         if (url.searchParams.get("filter[territory]") !== "DEU") return apiError(res, 400, "PARAMETER_ERROR.INVALID", "filter[territory] required");
         return page(res, url, pricePoints, p);
     }
-    if ((m = /^\/v2\/inAppPurchases\/([^/]+)\/priceSchedule$/.exec(p)) && method === "GET") {
+    if ((m = /^\/v2\/inAppPurchases\/([^/]+)\/iapPriceSchedule$/.exec(p)) && method === "GET") {
         const schedule = state.schedules[m[1]];
         if (!schedule) return apiError(res, 404, "NOT_FOUND", "no price schedule");
+        return json(res, 200, { data: { type: "inAppPurchasePriceSchedules", id: schedule.id } });
+    }
+    if ((m = /^\/v1\/inAppPurchasePriceSchedules\/([^/]+)\/baseTerritory$/.exec(p)) && method === "GET") {
+        const schedule = Object.values(state.schedules).find((s) => s.id === m[1]);
+        if (!schedule) return apiError(res, 404, "NOT_FOUND", "no price schedule");
+        return json(res, 200, { data: { type: "territories", id: schedule.baseTerritory } });
+    }
+    if ((m = /^\/v1\/inAppPurchasePriceSchedules\/([^/]+)\/manualPrices$/.exec(p)) && method === "GET") {
+        const schedule = Object.values(state.schedules).find((s) => s.id === m[1]);
+        if (!schedule) return apiError(res, 404, "NOT_FOUND", "no price schedule");
+        if (url.searchParams.get("filter[territory]") !== schedule.baseTerritory) return json(res, 200, { data: [] });
         return json(res, 200, {
-            data: { type: "inAppPurchasePriceSchedules", id: schedule.id, relationships: { baseTerritory: { data: { type: "territories", id: schedule.baseTerritory } } } },
-            included: [{ type: "inAppPurchasePrices", id: "price-1", attributes: { startDate: null, endDate: null, manual: true }, relationships: { inAppPurchasePricePoint: { data: { type: "inAppPurchasePricePoints", id: schedule.pricePointId } } } }],
+            data: [{ type: "inAppPurchasePrices", id: "price-1", attributes: { startDate: null, endDate: null, manual: true }, relationships: { inAppPurchasePricePoint: { data: { type: "inAppPurchasePricePoints", id: schedule.pricePointId } } } }],
+            included: [{ type: "inAppPurchasePricePoints", id: schedule.pricePointId, attributes: { customerPrice: "1.99" } }],
         });
     }
     if (method === "POST" && p === "/v1/inAppPurchasePriceSchedules") {
