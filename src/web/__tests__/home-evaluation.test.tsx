@@ -29,8 +29,32 @@ function Card() {
     return <EvaluationStatus data={data} language="de" t={getTranslations("de") as unknown as Record<string, string>} />;
 }
 
+// The bundled file is re-synced from BAMF regularly, so expectations derive from it
+// instead of pinning one sync's dates.
 const bundled = evaluationData();
-const newer: EvaluationData = { examDate: "21.07.2026", lastSyncAt: "15.10.2026 02:10:00", history: [] };
+
+function germanDate(value: string): Date {
+    const [day, month, year] = value.trim().split(" ")[0].split(".").map(Number);
+    return new Date(year, month - 1, day);
+}
+
+function shiftDays(value: string, days: number): string {
+    const date = germanDate(value);
+    date.setDate(date.getDate() + days);
+    const pad = (n: number) => String(n).padStart(2, "0");
+    return `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`;
+}
+
+/** How the German card writes an exam date, e.g. "14. Juli 2026". */
+function longGerman(value: string): string {
+    return germanDate(value).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
+}
+
+const newer: EvaluationData = {
+    examDate: shiftDays(bundled.examDate, 7),
+    lastSyncAt: `${shiftDays(bundled.lastSyncAt, 1)} 02:10:00`,
+    history: [],
+};
 const older: EvaluationData = { examDate: "01.01.2020", lastSyncAt: "01.02.2020 02:10:00", history: [] };
 
 describe("home evaluation card", () => {
@@ -58,7 +82,7 @@ describe("home evaluation card", () => {
 
     it("shows the bundled date and asks for a refresh once", async () => {
         await render();
-        expect(container.textContent).toContain("14. Juli 2026");
+        expect(container.textContent).toContain(longGerman(bundled.examDate));
         expect(container.textContent).toContain(bundled.examDate.slice(-4));
         expect(mocks.refresh).toHaveBeenCalledTimes(1);
     });
@@ -66,14 +90,15 @@ describe("home evaluation card", () => {
     it("prefers a newer cached download", async () => {
         storeEvaluation(newer);
         await render();
-        expect(container.textContent).toContain("21. Juli 2026");
-        expect(container.textContent).not.toContain("14. Juli 2026");
+        expect(container.textContent).toContain(longGerman(newer.examDate));
+        expect(container.textContent).not.toContain(longGerman(bundled.examDate));
     });
 
     it("ignores a cached download older than the bundled file", async () => {
         storeEvaluation(older);
         await render();
-        expect(container.textContent).toContain("14. Juli 2026");
+        expect(container.textContent).toContain(longGerman(bundled.examDate));
+        expect(container.textContent).not.toContain(longGerman(older.examDate));
     });
 
     it("updates in place when the refresh stores new data", async () => {
@@ -82,6 +107,6 @@ describe("home evaluation card", () => {
             return newer;
         });
         await render();
-        expect(container.textContent).toContain("21. Juli 2026");
+        expect(container.textContent).toContain(longGerman(newer.examDate));
     });
 });
