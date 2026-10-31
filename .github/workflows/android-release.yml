@@ -8,8 +8,10 @@ on:
     paths-ignore:
       - ".pulse/**"
       - "src/store/**"
+      - "src/ios/**"
       - "**.md"
       - ".github/workflows/play-publish.yml"
+      - ".github/workflows/ios-release.yml"
   workflow_dispatch:
 
 permissions:

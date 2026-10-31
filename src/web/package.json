@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "npx serve@latest out",
-    "build:android": "next build --webpack && bash scripts/prepare-android.sh && npx cap sync android",
+    "build:android": "next build --webpack && bash scripts/prepare-native.sh && npx cap sync android",
+    "build:ios": "next build --webpack && bash scripts/prepare-native.sh && npx cap sync ios",
+    "assets:ios": "node scripts/ios-assets.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest"

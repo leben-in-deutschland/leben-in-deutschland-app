@@ -15,9 +15,9 @@ import { SettingsSection } from "./settings-shared";
 const noopSubscribe = () => () => {};
 
 /**
- * Optional tips through Google Play. Only rendered in the Android app, and
- * only once Google Play returns at least one tip product, so learners never
- * see an empty or broken section. The owner can switch it off remotely
+ * Optional tips through Google Play or the App Store. Only rendered in the
+ * Android and iOS apps, and only once the store returns at least one tip
+ * product, so learners never see an empty or broken section. The owner can switch it off remotely
  * (`flags.tipJar` in the notice file, ADR-006). Tips unlock nothing.
  */
 export function SupportSection() {

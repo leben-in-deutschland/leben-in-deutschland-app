@@ -64,7 +64,7 @@ function StreakChip() {
     );
 }
 
-/** Way to the tip jar; shown only where Google Play can sell the tips (PLAN-012). */
+/** Way to the tip jar; shown only where the store (Google Play, App Store) can sell the tips (PLAN-012). */
 function TipLink() {
     const t = useTranslations();
     return (

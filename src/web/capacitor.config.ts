@@ -19,6 +19,8 @@ const config: CapacitorConfig = {
   },
   ios: {
     path: "../ios",
+    // The web view stays out of the status bar and the home indicator; the
+    // local AppSystemBars plugin colours those bands like the page.
     contentInset: "always"
   }
 };

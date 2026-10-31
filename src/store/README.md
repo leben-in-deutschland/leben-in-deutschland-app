@@ -422,18 +422,115 @@ listing* (in the *Grow* section of the left menu):
 7. Repeat the text and image steps for the second language, then save and
    send the listing for review.
 
-### App Store Connect (ready for later)
+### App Store Connect
 
-There is no iOS project in this repository yet, so nothing is uploaded to
-App Store Connect today. The iOS release is planned in PULSE as ADR-047 and
-PLAN-013 (`pulse record show PLAN-013`); the website already carries an App
-Store badge that reads "coming soon" until `links.appStore` in
-`src/web/config/site.ts` is set. The `ios-*` sets and `metadata/ios/` are
-rendered from the same web UI and copy so the iOS release can start from them:
-name, subtitle, keywords, promotional text, and description per locale, and
-up to ten screenshots per display size. Re-check Apple's current size list
-before using them; the sizes in `render.mjs` are the ones that were valid
-when the sets were made.
+The iOS app lives in `src/ios` (ADR-047, PLAN-013: `pulse record show
+PLAN-013`). `.github/workflows/ios-release.yml` builds it on every change
+and, once the secrets below exist, uploads every `main` build to TestFlight.
+Releasing to the App Store is always done by hand in App Store Connect. The
+website shows an App Store badge that reads "coming soon" until
+`links.appStore` in `src/web/config/site.ts` is set to the final URL.
+
+#### One-time setup (owner, in the browser)
+
+Everything here needs the Apple Developer Program membership and the
+owner's Apple ID with two-factor authentication. Keep every downloaded file
+and password in the password manager; nothing from this list goes into the
+repository or into a chat.
+
+1. **Agreements, Tax, and Banking** (App Store Connect → Business): accept
+   the **Paid Apps Agreement**, add the bank account and the tax forms. Start
+   with this - it can take days, and the tip products do not load anywhere
+   (not even in the sandbox) before it is active. The app itself can ship
+   without it; the tip jar simply stays hidden (`flags.tipJar`).
+2. **App ID** (developer.apple.com → Certificates, Identifiers & Profiles →
+   Identifiers → +): App IDs, type App, description "Leben in Deutschland",
+   Bundle ID *explicit* `org.lebenindeutschland.app`, capability
+   **In-App Purchase**.
+3. **App record** (App Store Connect → Apps → +): platform iOS, name from
+   `metadata/ios/de-DE/name.txt`, primary language German, bundle id from
+   step 2, SKU `lebenindeutschland-ios`, full access. The app's numeric
+   **Apple ID** appears under App Information; the App Store URL will be
+   `https://apps.apple.com/de/app/id<Apple ID>`.
+4. **Tip products** (the app → Monetization → In-App Purchases → +): three
+   **Consumables** with the product ids, titles, descriptions and prices from
+   `metadata/android/one-time-products.json` (`tip_small` 1,99 €,
+   `tip_medium` 4,99 €, `tip_large` 9,99 €; pick the nearest price tier,
+   German and English localizations, availability all countries). Each needs
+   a review screenshot: the tip jar in Settings. In-app purchases are
+   submitted for review together with the first app version.
+5. **App Store Connect API key** (Users and Access → Integrations → App
+   Store Connect API → Team Keys → +): name "GitHub Actions", role
+   **App Manager**. Download the `.p8` **once** (Apple never shows it again),
+   note the **Key ID** and the **Issuer ID** at the top of the page.
+6. **Apple Distribution certificate**: on the Mac, Keychain Access →
+   Certificate Assistant → Request a Certificate From a Certificate
+   Authority (saved to disk); then developer.apple.com → Certificates → +
+   → **Apple Distribution**, upload the request, download the `.cer`,
+   double-click it, and in Keychain Access export the certificate *with its
+   private key* as a `.p12` with a strong password. (Xcode → Settings →
+   Accounts → Manage Certificates → + → Apple Distribution does the same
+   without the request file; export from Keychain Access afterwards.)
+7. **Team ID**: developer.apple.com → Membership details.
+8. **GitHub secrets** (repository → Settings → Secrets and variables →
+   Actions → New repository secret), values pasted from the password
+   manager, never from a chat:
+
+   | Secret | Value |
+   | --- | --- |
+   | `APPLE_TEAM_ID` | the Team ID (10 characters) |
+   | `ASC_KEY_ID` | the Key ID of the API key |
+   | `ASC_ISSUER_ID` | the Issuer ID of the API key |
+   | `ASC_API_KEY_BASE64` | `base64 -i AuthKey_<KEYID>.p8 \| pbcopy` |
+   | `IOS_DIST_CERT_P12_BASE64` | `base64 -i distribution.p12 \| pbcopy` |
+   | `IOS_DIST_CERT_PASSWORD` | the password chosen when exporting the `.p12` |
+
+   Until all six exist the workflow's upload job is skipped and the build
+   job still proves the app compiles.
+9. **TestFlight**: in the app → TestFlight → Internal Testing → + group
+   "Owner" with the owner's Apple ID; install TestFlight from the App Store
+   on the iPhone. Then run `iOS Release` by hand (Actions → iOS Release →
+   Run workflow) or push to `main`; the build shows up in TestFlight after
+   Apple's processing (usually under an hour) and installs from the
+   TestFlight app.
+
+#### Each release (owner)
+
+1. Bump `version` in `src/web/package.json` and merge to `main`; the Android
+   and the iOS workflow build the same version (iOS build number = run
+   number of the iOS workflow).
+2. Test the TestFlight build on a device: onboarding, practice, mock exam,
+   settings in light and dark mode, a reminder, read-aloud, export and
+   import of the progress, and - once the products exist - a tip with a
+   **sandbox Apple ID** (App Store Connect → Users and Access → Sandbox).
+3. App Store Connect → the app → the new version: paste
+   `metadata/ios/<de-DE|en-US>/` (name, subtitle, promotional text,
+   description, keywords), support and marketing URL
+   `https://www.lebenindeutschland.org/`, privacy policy URL
+   `https://www.lebenindeutschland.org/privacy-policy`, category Education,
+   age rating 4+, price Free, availability all countries, **App Privacy:
+   Data Not Collected** (no accounts, analytics or tracking in the app),
+   Content Rights: contains third-party content (the official BAMF
+   questions, credited in the app and the listing). Screenshots: render the
+   `ios-iphone-6.9` and `ios-ipad-13` sets (`node compose/render.mjs`) and
+   upload up to ten per size.
+4. Review notes: no account needed, works offline, the tips are optional
+   consumables that unlock nothing (where to find them), the app is not an
+   official BAMF app (same disclaimer as the listing).
+5. Select the TestFlight build, submit. Apple usually answers within one or
+   two days; a rejection is fixed forward and recorded as a `MEM-*` lesson.
+6. After approval: set `links.appStore` in `src/web/config/site.ts` to the
+   App Store URL - the website, the footer, the structured data and the
+   in-app "update available" prompt switch on from that one value.
+
+#### Local testing of the tip jar
+
+`src/ios/App/App/TipJar.storekit` mirrors the three products. The shared
+Xcode scheme uses it for *Run*, so in Xcode (open `src/ios/App/App.xcworkspace`
+after `npm run build:ios`) the tip jar in Settings shows the products and
+purchases go through StoreKit's test store - no App Store Connect, no
+sandbox account. Products in the real sandbox and store come from App
+Store Connect, not from this file.
 
 ## Changing slides, captions, and demo data
 

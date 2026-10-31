@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # ---------------------------------------------------------------------------
-# prepare-android.sh
+# prepare-native.sh
 #
 # Strips web-only assets from the Next.js static export (out/) before
-# Capacitor syncs them into the Android APK.
+# Capacitor syncs them into the Android or iOS app.
 #
-# Usage: npm run build:android   (chains build -> this script -> cap sync)
+# Usage: npm run build:android | npm run build:ios
+#        (each chains build -> this script -> cap sync <platform>)
 # ---------------------------------------------------------------------------
 set -euo pipefail
 
@@ -16,7 +17,7 @@ if [ ! -d "$OUT_DIR" ]; then
   exit 1
 fi
 
-echo "=== Preparing Android build: stripping web-only assets from $OUT_DIR ==="
+echo "=== Preparing native build: stripping web-only assets from $OUT_DIR ==="
 
 # -------------------------------------------------------
 # 1. Remove marketing screenshots (used only for OG meta)
@@ -66,4 +67,4 @@ fi
 # -------------------------------------------------------
 FINAL_SIZE=$(du -sh "$OUT_DIR" | cut -f1)
 echo ""
-echo "=== Android build prepared. Final $OUT_DIR size: $FINAL_SIZE ==="
+echo "=== Native build prepared. Final $OUT_DIR size: $FINAL_SIZE ==="

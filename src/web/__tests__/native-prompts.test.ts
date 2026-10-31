@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { shouldAskForReview } from "@/components/shell/native-prompts";
+import { appleAppId, shouldAskForReview } from "@/components/shell/native-prompts";
 import { User } from "@/types/user";
 
 const NOW = new Date("2026-10-09T12:00:00.000Z");
@@ -47,5 +47,19 @@ describe("shouldAskForReview", () => {
     it("stays quiet when the first-start date is damaged or not stamped yet", () => {
         expect(shouldAskForReview(record({ appFirstTimeOpenDateTime: "garbage" as unknown as Date }), NOW)).toBe(false);
         expect(shouldAskForReview(record({ appFirstTimeOpenDateTime: new Date(0) }), NOW)).toBe(false);
+    });
+});
+
+describe("appleAppId", () => {
+    it("reads the numeric Apple ID from the App Store URL", () => {
+        expect(appleAppId("https://apps.apple.com/de/app/id6740000001")).toBe("6740000001");
+        expect(appleAppId("https://apps.apple.com/de/app/leben-in-deutschland/id6740000001?platform=iphone")).toBe("6740000001");
+        expect(appleAppId("https://apps.apple.com/app/id6740000001/")).toBe("6740000001");
+    });
+
+    it("is undefined before the App Store URL is set or when it carries no id", () => {
+        expect(appleAppId(undefined)).toBeUndefined();
+        expect(appleAppId("")).toBeUndefined();
+        expect(appleAppId("https://play.google.com/store/apps/details?id=org.lebenindeutschland.app")).toBeUndefined();
     });
 });

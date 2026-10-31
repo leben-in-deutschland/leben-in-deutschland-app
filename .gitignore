@@ -206,6 +206,13 @@ render.experimental.xml
 *.jks
 *.keystore
 
+# Apple signing material (certificates, App Store Connect keys, profiles)
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+AuthKey_*
+
 # Google Services (e.g. APIs or Firebase)
 google-services.json
 

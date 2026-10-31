@@ -1,0 +1,42 @@
+require_relative '../../web/node_modules/@capacitor/ios/scripts/pods_helpers'
+
+platform :ios, '15.0'
+use_frameworks!
+
+# workaround to avoid Xcode caching of Pods that requires
+# Product -> Clean Build Folder after new Cordova plugins installed
+# Requires CocoaPods 1.6 or newer
+install! 'cocoapods', :disable_input_output_paths => true
+
+def capacitor_pods
+  pod 'Capacitor', :path => '../../web/node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../web/node_modules/@capacitor/ios'
+  pod 'CapacitorCommunityTextToSpeech', :path => '../../web/node_modules/@capacitor-community/text-to-speech'
+  pod 'CapacitorApp', :path => '../../web/node_modules/@capacitor/app'
+  pod 'CapacitorFilesystem', :path => '../../web/node_modules/@capacitor/filesystem'
+  pod 'CapacitorHaptics', :path => '../../web/node_modules/@capacitor/haptics'
+  pod 'CapacitorKeyboard', :path => '../../web/node_modules/@capacitor/keyboard'
+  pod 'CapacitorLocalNotifications', :path => '../../web/node_modules/@capacitor/local-notifications'
+  pod 'CapacitorShare', :path => '../../web/node_modules/@capacitor/share'
+  pod 'CapawesomeCapacitorAppReview', :path => '../../web/node_modules/@capawesome/capacitor-app-review'
+  pod 'CapawesomeCapacitorAppUpdate', :path => '../../web/node_modules/@capawesome/capacitor-app-update'
+  pod 'CapawesomeCapacitorFilePicker', :path => '../../web/node_modules/@capawesome/capacitor-file-picker'
+end
+
+target 'App' do
+  capacitor_pods
+  # Add your Pods here
+end
+
+post_install do |installer|
+  assertDeploymentTarget(installer)
+  # The plugin podspecs still say iOS 14.0, which current Xcode no longer
+  # builds; raise every pod to the app's own deployment target.
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 15.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      end
+    end
+  end
+end

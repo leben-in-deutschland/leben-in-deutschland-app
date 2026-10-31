@@ -1,8 +1,10 @@
 import { Capacitor, registerPlugin } from "@capacitor/core";
 
 /**
- * Tip jar: a thin wrapper around the local Android plugin `TipJar`
- * (`src/android/.../TipJarPlugin.java`), which talks to Google Play Billing.
+ * Tip jar: a thin wrapper around the local native plugin `TipJar`. On Android
+ * (`src/android/.../TipJarPlugin.java`) it talks to Google Play Billing, on
+ * iOS (`src/ios/App/App/TipJarPlugin.swift`) to StoreKit 2; both answer with
+ * the same shapes.
  *
  * Every function does nothing on the web and never throws: plugin failures
  * are logged with `console.warn` and show up in the return value instead.
@@ -10,7 +12,10 @@ import { Capacitor, registerPlugin } from "@capacitor/core";
  * count under its own storage key.
  */
 
-/** Product ids as created in the Play Console (one-time, consumable). Order is the display order. */
+/** Platforms with a native TipJar implementation. */
+const TIP_JAR_PLATFORMS = ["android", "ios"] as const;
+
+/** Product ids as created in the Play Console and App Store Connect (consumables). Order is the display order. */
 export const TIP_PRODUCT_IDS = ["tip_small", "tip_medium", "tip_large"] as const;
 
 export interface TipProduct {
@@ -23,10 +28,10 @@ export interface TipProduct {
 
 /**
  * How a purchase ended.
- * - purchased: paid and consumed; count it.
- * - pending: payment not confirmed yet (e.g. cash at a kiosk); recoverTips() counts it later.
- * - cancelled: the learner closed the Google Play sheet.
- * - unavailable: no Play Billing, or the product does not exist in Play.
+ * - purchased: paid and consumed (Android) or finished (iOS); count it.
+ * - pending: payment not confirmed yet (cash at a kiosk, Ask to Buy); recoverTips() counts it later.
+ * - cancelled: the learner closed the store sheet.
+ * - unavailable: no store billing, or the product does not exist in the store.
  * - failed: anything else.
  */
 export type TipOutcome = "purchased" | "pending" | "cancelled" | "unavailable" | "failed";
@@ -45,10 +50,11 @@ function warn(action: string, error: unknown): void {
     console.warn(`[tip-jar] ${action} failed`, error);
 }
 
-/** True inside the Android app when the native TipJar plugin is registered. */
+/** True inside the Android or iOS app when the native TipJar plugin is registered. */
 export function tipJarSupported(): boolean {
     try {
-        return Capacitor.getPlatform() === "android" && Capacitor.isPluginAvailable("TipJar");
+        const platform = Capacitor.getPlatform() as (typeof TIP_JAR_PLATFORMS)[number];
+        return TIP_JAR_PLATFORMS.includes(platform) && Capacitor.isPluginAvailable("TipJar");
     } catch {
         return false;
     }
@@ -79,9 +85,9 @@ function isProduct(value: unknown): value is TipProduct {
 }
 
 /**
- * The tip products Google Play knows, in `TIP_PRODUCT_IDS` order. Empty on
- * the web, without Play Billing, before the owner created the products in the
- * Play Console, or when the query fails.
+ * The tip products the store knows, in `TIP_PRODUCT_IDS` order. Empty on the
+ * web, without store billing, before the owner created the products in the
+ * Play Console or App Store Connect, or when the query fails.
  */
 export async function loadTipProducts(): Promise<TipProduct[]> {
     const tipJar = getPlugin();
@@ -100,7 +106,7 @@ export async function loadTipProducts(): Promise<TipProduct[]> {
     }
 }
 
-/** Opens the Google Play purchase sheet for one tip and reports how it ended. */
+/** Opens the store's purchase sheet for one tip and reports how it ended. */
 export async function sendTip(id: string): Promise<TipOutcome> {
     const tipJar = getPlugin();
     if (!tipJar) {

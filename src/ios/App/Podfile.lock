@@ -1,0 +1,89 @@
+PODS:
+  - Capacitor (7.6.9):
+    - CapacitorCordova
+  - CapacitorApp (7.1.2):
+    - Capacitor
+  - CapacitorCommunityTextToSpeech (6.1.0):
+    - Capacitor
+  - CapacitorCordova (7.6.9)
+  - CapacitorFilesystem (7.1.8):
+    - Capacitor
+    - IONFilesystemLib (~> 1.1.1)
+  - CapacitorHaptics (7.0.5):
+    - Capacitor
+  - CapacitorKeyboard (7.0.6):
+    - Capacitor
+  - CapacitorLocalNotifications (7.0.6):
+    - Capacitor
+  - CapacitorShare (7.0.4):
+    - Capacitor
+  - CapawesomeCapacitorAppReview (7.0.1):
+    - Capacitor
+  - CapawesomeCapacitorAppUpdate (7.2.0):
+    - Capacitor
+  - CapawesomeCapacitorFilePicker (7.2.0):
+    - Capacitor
+  - IONFilesystemLib (1.1.4)
+
+DEPENDENCIES:
+  - "Capacitor (from `../../web/node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../web/node_modules/@capacitor/app`)"
+  - "CapacitorCommunityTextToSpeech (from `../../web/node_modules/@capacitor-community/text-to-speech`)"
+  - "CapacitorCordova (from `../../web/node_modules/@capacitor/ios`)"
+  - "CapacitorFilesystem (from `../../web/node_modules/@capacitor/filesystem`)"
+  - "CapacitorHaptics (from `../../web/node_modules/@capacitor/haptics`)"
+  - "CapacitorKeyboard (from `../../web/node_modules/@capacitor/keyboard`)"
+  - "CapacitorLocalNotifications (from `../../web/node_modules/@capacitor/local-notifications`)"
+  - "CapacitorShare (from `../../web/node_modules/@capacitor/share`)"
+  - "CapawesomeCapacitorAppReview (from `../../web/node_modules/@capawesome/capacitor-app-review`)"
+  - "CapawesomeCapacitorAppUpdate (from `../../web/node_modules/@capawesome/capacitor-app-update`)"
+  - "CapawesomeCapacitorFilePicker (from `../../web/node_modules/@capawesome/capacitor-file-picker`)"
+
+SPEC REPOS:
+  trunk:
+    - IONFilesystemLib
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../web/node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../web/node_modules/@capacitor/app"
+  CapacitorCommunityTextToSpeech:
+    :path: "../../web/node_modules/@capacitor-community/text-to-speech"
+  CapacitorCordova:
+    :path: "../../web/node_modules/@capacitor/ios"
+  CapacitorFilesystem:
+    :path: "../../web/node_modules/@capacitor/filesystem"
+  CapacitorHaptics:
+    :path: "../../web/node_modules/@capacitor/haptics"
+  CapacitorKeyboard:
+    :path: "../../web/node_modules/@capacitor/keyboard"
+  CapacitorLocalNotifications:
+    :path: "../../web/node_modules/@capacitor/local-notifications"
+  CapacitorShare:
+    :path: "../../web/node_modules/@capacitor/share"
+  CapawesomeCapacitorAppReview:
+    :path: "../../web/node_modules/@capawesome/capacitor-app-review"
+  CapawesomeCapacitorAppUpdate:
+    :path: "../../web/node_modules/@capawesome/capacitor-app-update"
+  CapawesomeCapacitorFilePicker:
+    :path: "../../web/node_modules/@capawesome/capacitor-file-picker"
+
+SPEC CHECKSUMS:
+  Capacitor: 46067d1c8df89760dbed78780d436327d588c726
+  CapacitorApp: f01a913211780e0718dae9750442c3e23f96e106
+  CapacitorCommunityTextToSpeech: 28e4eaf26995ce7ab710480267841c57ef5eded2
+  CapacitorCordova: 2080fc0d6bfbc9dcc0e6d88e77fa624190d343ca
+  CapacitorFilesystem: c63fc54df41e5a6761785a7f3c49dc696c22e296
+  CapacitorHaptics: 1b145fa83c622e5383a3bac04ea81e2514f0b0f5
+  CapacitorKeyboard: a2e0869edd229490ce36aed2549c0d6b95e27ee8
+  CapacitorLocalNotifications: 2e3f5b717ec9cd2bd64d93c99a9470941e1c80be
+  CapacitorShare: 25f7fc5dd0e4edbde5d6801c6de5d14a8b450a41
+  CapawesomeCapacitorAppReview: ee9cb9d34e59534efcdb120dbef4d7166421e2ee
+  CapawesomeCapacitorAppUpdate: 9fb16b07faaa1c86468c794e39bfedb822a1a446
+  CapawesomeCapacitorFilePicker: 0f4a913a00e39dd77213449f0d917e92f35a5ca9
+  IONFilesystemLib: e6610c2b260d15e4b9cb9d5e37a87095479b669e
+
+PODFILE CHECKSUM: 71cd02ed8788b892897905954a572c52cab959d8
+
+COCOAPODS: 1.17.0

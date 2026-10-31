@@ -1,0 +1,77 @@
+{
+  "identifier": "6E1D0000-0000-4000-8000-000000000001",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "6E1D0000-0000-4000-8000-000000000011",
+      "localizations": [
+        {
+          "description": "Ein Kaffee als Dankeschön. Die App bleibt kostenlos und werbefrei – dein Trinkgeld hilft, sie weiterzuentwickeln. Schaltet nichts frei.",
+          "displayName": "Kaffee",
+          "locale": "de_DE"
+        },
+        {
+          "description": "A coffee as a thank-you. The app stays free and ad-free – your tip helps keep it going. Unlocks nothing.",
+          "displayName": "Coffee",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "tip_small",
+      "referenceName": "Kaffee",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "6E1D0000-0000-4000-8000-000000000012",
+      "localizations": [
+        {
+          "description": "Ein Stück Kuchen als Dankeschön. Unterstützt die Pflege der Fragen und neue Funktionen der kostenlosen App. Schaltet nichts frei.",
+          "displayName": "Kuchen",
+          "locale": "de_DE"
+        },
+        {
+          "description": "A slice of cake as a thank-you. Supports keeping the questions current and building new features for the free app. Unlocks nothing.",
+          "displayName": "Cake",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "tip_medium",
+      "referenceName": "Kuchen",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "9.99",
+      "familyShareable": false,
+      "internalID": "6E1D0000-0000-4000-8000-000000000013",
+      "localizations": [
+        {
+          "description": "Ein Abendessen als großes Dankeschön. Hält die App kostenlos, werbefrei und aktuell. Schaltet nichts frei.",
+          "displayName": "Abendessen",
+          "locale": "de_DE"
+        },
+        {
+          "description": "A dinner as a big thank-you. Keeps the app free, ad-free and up to date. Unlocks nothing.",
+          "displayName": "Dinner",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "tip_large",
+      "referenceName": "Abendessen",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "de_DE",
+    "_storefront": "DEU",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

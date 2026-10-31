@@ -1,0 +1,243 @@
+name: iOS Release
+
+# Builds the iOS app on every change and, once the signing secrets exist,
+# uploads each main build to TestFlight (ADR-047, PLAN-013). Publishing to the
+# App Store stays a manual step in App Store Connect.
+on:
+  push:
+    branches:
+      - main
+    # Agent skills, store tooling and the Android project do not change the iOS app.
+    paths-ignore:
+      - ".pulse/**"
+      - "src/store/**"
+      - "src/android/**"
+      - "**.md"
+      - ".github/workflows/android-release.yml"
+      - ".github/workflows/play-publish.yml"
+  pull_request:
+    paths:
+      - "src/ios/**"
+      - "src/web/**"
+      - "src/makefile"
+      - ".github/workflows/ios-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: 22
+
+jobs:
+  # Compiles the app for the simulator without any signing. Runs for pull
+  # requests too, so a broken Swift file or Podfile is caught before merge.
+  build-simulator:
+    name: Build for the simulator (unsigned)
+    runs-on: macos-26
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install, build the web app and sync the iOS project
+        working-directory: src
+        run: make build-sync-ios
+
+      - name: Run Tests
+        working-directory: src/web
+        run: npm test
+
+      - name: Build
+        working-directory: src/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            build | xcbeautify --renderer github-actions
+
+  # Secrets are not readable in a job-level `if`, so a tiny job turns their
+  # presence into an output. Before the owner stores them (PLAN-013, Phase 0)
+  # the upload job is skipped and the workflow still passes.
+  signing-ready:
+    name: Signing secrets present?
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        env:
+          READY: ${{ secrets.APPLE_TEAM_ID != '' && secrets.ASC_KEY_ID != '' && secrets.ASC_ISSUER_ID != '' && secrets.ASC_API_KEY_BASE64 != '' && secrets.IOS_DIST_CERT_P12_BASE64 != '' && secrets.IOS_DIST_CERT_PASSWORD != '' }}
+        run: |
+          echo "ready=$READY" >> "$GITHUB_OUTPUT"
+          if [ "$READY" != "true" ]; then
+            echo "::notice::iOS signing secrets are not set yet; the TestFlight upload is skipped (see src/store/README.md, App Store Connect)."
+          fi
+
+  upload-testflight:
+    name: Archive, sign and upload to TestFlight
+    needs: [build-simulator, signing-ready]
+    if: github.event_name != 'pull_request' && needs.signing-ready.outputs.ready == 'true'
+    runs-on: macos-26
+    env:
+      EXPECTED_BUNDLE_ID: org.lebenindeutschland.app
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install, build the web app and sync the iOS project
+        working-directory: src
+        run: make build-sync-ios
+
+      - name: Get Version from Package.json
+        working-directory: src/web
+        run: echo "VERSION=$(jq -r .version package.json)" >> "$GITHUB_ENV"
+
+      # A throw-away keychain holds the Apple Distribution certificate; the
+      # App Store Connect API key lets Xcode manage the provisioning profile
+      # and upload the build. Nothing is echoed; both are deleted at the end.
+      - name: Install signing certificate and API key
+        env:
+          IOS_DIST_CERT_P12_BASE64: ${{ secrets.IOS_DIST_CERT_P12_BASE64 }}
+          IOS_DIST_CERT_PASSWORD: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
+          ASC_API_KEY_BASE64: ${{ secrets.ASC_API_KEY_BASE64 }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+        run: |
+          set -euo pipefail
+          KEYCHAIN_PATH="$RUNNER_TEMP/ios-signing.keychain-db"
+          KEYCHAIN_PASSWORD="$(openssl rand -base64 32)"
+          CERT_PATH="$RUNNER_TEMP/distribution.p12"
+          KEY_DIR="$HOME/private_keys"
+          KEY_PATH="$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          printf '%s' "$IOS_DIST_CERT_P12_BASE64" | base64 --decode > "$CERT_PATH"
+          security import "$CERT_PATH" -P "$IOS_DIST_CERT_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH" > /dev/null
+          security list-keychain -d user -s "$KEYCHAIN_PATH" login.keychain-db
+          rm -f "$CERT_PATH"
+
+          mkdir -p "$KEY_DIR"
+          printf '%s' "$ASC_API_KEY_BASE64" | base64 --decode > "$KEY_PATH"
+          chmod 600 "$KEY_PATH"
+
+          echo "KEYCHAIN_PATH=$KEYCHAIN_PATH" >> "$GITHUB_ENV"
+          echo "ASC_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
+          echo "Installed $(security find-identity -v -p codesigning "$KEYCHAIN_PATH" | grep -c 'Apple Distribution') Apple Distribution identity"
+
+      # The build number is this workflow's run number, like versionCode on Android.
+      - name: Archive
+        working-directory: src/ios/App
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" \
+            -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            CODE_SIGN_STYLE=Automatic \
+            MARKETING_VERSION="$VERSION" \
+            CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            archive | xcbeautify --renderer github-actions
+
+      - name: Verify the archive
+        run: |
+          set -euo pipefail
+          PLIST="$RUNNER_TEMP/App.xcarchive/Products/Applications/App.app/Info.plist"
+          if [ ! -f "$PLIST" ]; then
+            echo "::error::The archive does not contain App.app."
+            exit 1
+          fi
+          bundle_id="$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$PLIST")"
+          version="$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$PLIST")"
+          build="$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$PLIST")"
+          if [ "$bundle_id" != "$EXPECTED_BUNDLE_ID" ]; then
+            echo "::error::Unexpected bundle identifier: $bundle_id"
+            exit 1
+          fi
+          if [ "$version" != "$VERSION" ] || [ "$build" != "$GITHUB_RUN_NUMBER" ]; then
+            echo "::error::Unexpected version $version ($build); expected $VERSION ($GITHUB_RUN_NUMBER)"
+            exit 1
+          fi
+          codesign --verify --deep --strict "$RUNNER_TEMP/App.xcarchive/Products/Applications/App.app"
+          echo "Verified $bundle_id $version ($build)"
+
+      # `destination: upload` in ExportOptions.plist sends the build straight to
+      # App Store Connect; it appears in TestFlight after Apple's processing.
+      - name: Upload to TestFlight
+        working-directory: src/ios/App
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -o pipefail
+          OPTIONS="$RUNNER_TEMP/ExportOptions.plist"
+          plutil -replace teamID -string "$APPLE_TEAM_ID" -o "$OPTIONS" ExportOptions.plist
+          xcodebuild \
+            -exportArchive \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" \
+            -exportOptionsPlist "$OPTIONS" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$ASC_KEY_PATH" \
+            -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            | xcbeautify --renderer github-actions
+          rm -f "$OPTIONS"
+          {
+            echo "## iOS build uploaded to TestFlight"
+            echo
+            echo "- Version: \`$VERSION\` (build \`$GITHUB_RUN_NUMBER\`)"
+            echo "- Bundle: \`$EXPECTED_BUNDLE_ID\`"
+            echo "- Next: wait for processing in App Store Connect, test in TestFlight, then submit for review by hand."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the debug symbols
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-dSYMs-${{ env.VERSION }}-${{ github.run_number }}
+          path: ${{ runner.temp }}/App.xcarchive/dSYMs
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Remove signing material
+        if: always()
+        run: |
+          if [ -n "${KEYCHAIN_PATH:-}" ] && [ -f "$KEYCHAIN_PATH" ]; then
+            security delete-keychain "$KEYCHAIN_PATH"
+          fi
+          rm -f "$HOME"/private_keys/AuthKey_*.p8 "$RUNNER_TEMP"/*.p12 "$RUNNER_TEMP"/ExportOptions.plist
