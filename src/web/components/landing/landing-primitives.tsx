@@ -37,7 +37,16 @@ function PlayLogo({ className }: { className?: string }) {
     );
 }
 
-const playStoreVariants = {
+/** The Apple logo (brand mark drawn in current colour). */
+function AppleLogo({ className }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+        </svg>
+    );
+}
+
+const storeBadgeVariants = {
     /** Dark badge on a light page. */
     solid: "bg-foreground text-background hover:opacity-90",
     /** Light badge on the passport cover. */
@@ -46,36 +55,71 @@ const playStoreVariants = {
     ghost: "bg-white/10 text-current hover:bg-white/15",
 } as const;
 
-type PlayStoreButtonProps = {
-    href: string;
+type StoreBadgeVariant = keyof typeof storeBadgeVariants;
+
+type StoreBadgeProps = {
+    /** Store page; without it the badge is a static "coming soon" marker. */
+    href?: string;
+    logo: ReactNode;
     /** Short line above the label, e.g. "Get it on". */
     eyebrow?: string;
     label: string;
-    variant?: keyof typeof playStoreVariants;
+    variant?: StoreBadgeVariant;
     className?: string;
 };
 
-/** External link to the Android app, styled like a store badge. */
-export function PlayStoreButton({ href, eyebrow, label, variant = "solid", className }: PlayStoreButtonProps) {
-    return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={clsx(
-                "inline-flex min-h-[48px] items-center gap-3 rounded-xl px-4 py-2 shadow-card transition-[opacity,background-color]",
-                "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
-                playStoreVariants[variant],
-                className,
-            )}
-        >
-            <PlayLogo className="shrink-0" />
+/** A store badge: an external link when the store page exists, otherwise a muted, non-interactive marker. */
+function StoreBadge({ href, logo, eyebrow, label, variant = "solid", className }: StoreBadgeProps) {
+    const classes = clsx(
+        "inline-flex min-h-[48px] items-center gap-3 rounded-xl px-4 py-2 shadow-card transition-[opacity,background-color]",
+        storeBadgeVariants[variant],
+        href ? "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" : "pointer-events-none opacity-70",
+        className,
+    );
+    const content = (
+        <>
+            {logo}
             <span className="flex flex-col items-start leading-tight">
                 {eyebrow ? <span className="text-[0.65rem] font-medium uppercase tracking-wide opacity-80">{eyebrow}</span> : null}
                 <span className="text-sm font-semibold sm:text-[0.9375rem]">{label}</span>
             </span>
+        </>
+    );
+    if (!href) {
+        return <span className={classes}>{content}</span>;
+    }
+    return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+            {content}
         </a>
     );
+}
+
+type PlayStoreButtonProps = {
+    href: string;
+    eyebrow?: string;
+    label: string;
+    variant?: StoreBadgeVariant;
+    className?: string;
+};
+
+/** External link to the Android app, styled like a store badge. */
+export function PlayStoreButton({ href, eyebrow, label, variant, className }: PlayStoreButtonProps) {
+    return <StoreBadge href={href} logo={<PlayLogo className="shrink-0" />} eyebrow={eyebrow} label={label} variant={variant} className={className} />;
+}
+
+type AppStoreButtonProps = {
+    /** The App Store page; undefined until the iOS app is published (ADR-047). */
+    href?: string;
+    eyebrow?: string;
+    label: string;
+    variant?: StoreBadgeVariant;
+    className?: string;
+};
+
+/** External link to the iOS app, or a "coming soon" marker while there is no App Store page yet. */
+export function AppStoreButton({ href, eyebrow, label, variant, className }: AppStoreButtonProps) {
+    return <StoreBadge href={href} logo={<AppleLogo className="shrink-0" />} eyebrow={eyebrow} label={label} variant={variant} className={className} />;
 }
 
 /** Five stars, the first `filled` in warning colour. */

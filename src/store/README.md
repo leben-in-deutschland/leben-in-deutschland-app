@@ -425,8 +425,11 @@ listing* (in the *Grow* section of the left menu):
 ### App Store Connect (ready for later)
 
 There is no iOS project in this repository yet, so nothing is uploaded to
-App Store Connect today. The `ios-*` sets and `metadata/ios/` are rendered
-from the same web UI and copy so a future iOS release can start from them:
+App Store Connect today. The iOS release is planned in PULSE as ADR-047 and
+PLAN-013 (`pulse record show PLAN-013`); the website already carries an App
+Store badge that reads "coming soon" until `links.appStore` in
+`src/web/config/site.ts` is set. The `ios-*` sets and `metadata/ios/` are
+rendered from the same web UI and copy so the iOS release can start from them:
 name, subtitle, keywords, promotional text, and description per locale, and
 up to ten screenshots per display size. Re-check Apple's current size list
 before using them; the sizes in `render.mjs` are the ones that were valid

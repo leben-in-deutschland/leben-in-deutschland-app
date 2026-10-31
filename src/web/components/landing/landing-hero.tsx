@@ -1,10 +1,10 @@
 import { Button } from "@heroui/react";
-import { siteConfig } from "@/config/site";
+import { appStoreUrl, siteConfig } from "@/config/site";
 import { PassCard, type PassCardData } from "@/components/pass/pass-card";
 import { AppLink } from "@/components/ui/app-link";
 import { ArrowRightIcon, CheckCircleIcon, ShieldCheckIcon } from "@/components/ui/icons";
 import type { Translations } from "@/utils/i18n";
-import { PlayStoreButton } from "./landing-primitives";
+import { AppStoreButton, PlayStoreButton } from "./landing-primitives";
 
 type LandingHeroProps = {
     t: Translations;
@@ -58,6 +58,9 @@ export function LandingHero({ t, hasRecord, stateName }: LandingHeroProps) {
                         {hasRecord ? t.landing_hero_cta_continue : t.landing_hero_cta_start}
                     </Button>
                     <PlayStoreButton href={siteConfig.links.playStore} eyebrow={t.landing_play_eyebrow} label={t.download_cta} className="w-full justify-center sm:w-auto" />
+                    {appStoreUrl() ? (
+                        <AppStoreButton href={appStoreUrl()} eyebrow={t.landing_app_store_eyebrow} label={t.landing_app_store_cta} className="w-full justify-center sm:w-auto" />
+                    ) : null}
                 </div>
                 {hasRecord ? <p className="mt-3 text-sm text-default-500">{t.landing_hero_continue_hint}</p> : null}
 
