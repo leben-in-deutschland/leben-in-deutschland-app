@@ -190,6 +190,12 @@ export function featureGraphicHtml({ lang, image, imageSize, statusColor, fontCs
     </div></body></html>`;
 }
 
+/** Product page header / search results asset for the App Store (no prices, no platforms, no URLs - Apple's asset rules). */
+export const CREATIVE_COPY = {
+    de: { title: "Dein Weg zum Einbürgerungstest", subtitle: "Alle offiziellen Fragen, Probeprüfung wie die echte, offline" },
+    en: { title: "Your path to the Einbürgerungstest", subtitle: "All official questions, a mock exam like the real one, offline" },
+};
+
 export const VIDEO_COPY = {
     de: {
         tagline: "Dein Weg zum Einbürgerungstest",
@@ -207,21 +213,28 @@ export const VIDEO_COPY = {
     },
 };
 
-/** A landscape (1920×1080) video scene: caption on the left, framed phone on the right. */
+/**
+ * A landscape (1920×1080) video scene: caption on the left, framed phone on the
+ * right. `captionLeft` and `deviceTop` (CSS px) move both inside a safe area,
+ * e.g. for the App Store creative asset whose 21:9 and 3:2 crops keep only the
+ * centre.
+ */
 export function videoLandscapeHtml(p) {
     const [vw, vh] = p.imageSize;
     const bezel = 14;
     const statusHeight = 46;
     const screenWidth = 420;
     const imageHeight = Math.round(screenWidth * (vh / vw));
+    const captionLeft = p.captionLeft ?? 150;
+    const deviceTop = p.deviceTop ?? 110;
     return `<!doctype html><html><head><meta charset="utf-8"><style>${p.fontCss}${BASE_CSS}
     html, body { width: 1920px; height: 1080px; overflow: hidden; }
     .canvas { width: 1920px; height: 1080px; }
     .glow { top: -80px; left: auto; right: 60px; transform: none; width: 1000px; height: 1000px; }
-    .caption { left: 150px; right: auto; top: 0; bottom: 0; width: 900px; padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+    .caption { left: ${captionLeft}px; right: auto; top: 0; bottom: 0; width: 900px; padding: 0; text-align: left; display: flex; flex-direction: column; justify-content: center; }
     .title { font-size: 84px; }
     .subtitle { font-size: 38px; margin-top: 30px; max-width: 820px; }
-    .device { left: auto; right: 240px; top: 110px; transform: none; width: ${screenWidth + bezel * 2}px; height: ${imageHeight + statusHeight + bezel * 2}px; border-radius: 70px; }
+    .device { left: auto; right: 240px; top: ${deviceTop}px; transform: none; width: ${screenWidth + bezel * 2}px; height: ${imageHeight + statusHeight + bezel * 2}px; border-radius: 70px; }
     .screen { left: ${bezel}px; top: ${bezel}px; width: ${screenWidth}px; height: ${imageHeight + statusHeight}px; border-radius: 58px; }
     .status { height: ${statusHeight}px; padding: 0 28px; font-size: 17px; background: ${p.statusColor}; }
     .status .icons { transform: scale(0.85); transform-origin: right center; }

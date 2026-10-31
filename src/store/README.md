@@ -80,6 +80,7 @@ node src/store/capture.mjs --theme light                                     # d
 node src/store/compose/render.mjs --lang en --set play-phone --shot mock
 node src/store/compose/render.mjs --set play-feature                         # feature graphic only
 node src/store/compose/render.mjs --set play-icon                            # icon copy only
+node src/store/compose/render.mjs --set ios-creative                         # App Store header / search results asset
 node src/store/video.mjs --lang de --orientation landscape
 ```
 
@@ -120,6 +121,8 @@ All paths are under `src/store/output/`. Sets are rendered per language
 | `ios-iphone-6.9/<lang>/` | 1320 × 2868 | App Store Connect: iPhone with Dynamic Island (large display), optional |
 | `ios-iphone-6.5/<lang>/` | 1284 × 2778 | App Store Connect: iPhone with Face ID (large display), optional |
 | `ios-ipad-13/<lang>/` | 2064 × 2752 | App Store Connect: iPad 13-inch display - required |
+| `ios-creative/<lang>/universal-16x9.png` | 5244 × 2950 | App Store Connect: "Header and Search Results", the universal creative asset Apple crops itself (optional; `header-21x9.png` 3840 × 1646 and `search-3x2.png` 3840 × 2560 are the same crops) |
+| `play-products/<productId>.png` | 1024 × 1024 | Play Console product icon; flattened (`removeAlpha`) it is also the optional App Store in-app purchase image |
 | `video/promo-<lang>-landscape.mp4` | 1920 × 1080 | YouTube upload, then the URL goes into the Play listing |
 | `video/promo-<lang>-portrait.mp4` | 1080 × 1920 | Social posts, website; no store slot |
 | `play-products/<productId>.png` | 1024 × 1024 | Play Console: Monetize → Products → One-time products → product → Icon (manual upload, see below) |
