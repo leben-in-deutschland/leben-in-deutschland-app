@@ -128,14 +128,14 @@ function changed(current, wanted) {
 }
 
 async function editableAppInfo(client, appId) {
-    const infos = await client.list(`/v1/apps/${appId}/appInfos`, { query: { "fields[appInfos]": "appStoreState,state,contentRightsDeclaration" } });
+    const infos = await client.list(`/v1/apps/${appId}/appInfos`);
     const stateOf = (info) => info.attributes?.state ?? info.attributes?.appStoreState;
     return infos.find((info) => EDITABLE_INFO_STATES.has(stateOf(info))) ?? infos.find((info) => stateOf(info) !== "READY_FOR_SALE") ?? infos[0] ?? fail("the app has no app info record");
 }
 
 async function editableVersion(client, appId) {
     const versions = await client.list(`/v1/apps/${appId}/appStoreVersions`, {
-        query: { "filter[platform]": "IOS", "fields[appStoreVersions]": "versionString,appVersionState,appStoreState,copyright,releaseType,createdDate" },
+        query: { "filter[platform]": "IOS" },
     });
     const stateOf = (version) => version.attributes?.appVersionState ?? version.attributes?.appStoreState;
     const version = versions.find((candidate) => EDITABLE_VERSION_STATES.has(stateOf(candidate)));
@@ -147,20 +147,20 @@ async function editableVersion(client, appId) {
     return { version, state: stateOf(version) };
 }
 
-async function applyAppInfo(client, listing, info) {
-    const wanted = { contentRightsDeclaration: listing.config.contentRightsDeclaration };
-    const current = info.attributes ?? {};
+async function applyAppInfo(client, listing, app, info) {
+    // Content rights are an attribute of the app itself; the category hangs off the app info.
+    if ((app.attributes?.contentRightsDeclaration ?? "") !== listing.config.contentRightsDeclaration) {
+        await client.request("PATCH", `/v1/apps/${app.id}`, {
+            body: { data: { type: "apps", id: app.id, attributes: { contentRightsDeclaration: listing.config.contentRightsDeclaration } } },
+        });
+        console.log(`  content rights: ${listing.config.contentRightsDeclaration}`);
+    } else {
+        console.log("  content rights: unchanged");
+    }
     await client.request("PATCH", `/v1/appInfos/${info.id}`, {
-        body: {
-            data: {
-                type: "appInfos",
-                id: info.id,
-                attributes: changed(current, wanted).length > 0 ? wanted : undefined,
-                relationships: { primaryCategory: ref("appCategories", listing.config.primaryCategory) },
-            },
-        },
+        body: { data: { type: "appInfos", id: info.id, relationships: { primaryCategory: ref("appCategories", listing.config.primaryCategory) } } },
     });
-    console.log(`  category ${listing.config.primaryCategory}, content rights ${listing.config.contentRightsDeclaration}`);
+    console.log(`  category: ${listing.config.primaryCategory}`);
 
     const localizations = await client.list(`/v1/appInfos/${info.id}/appInfoLocalizations`);
     for (const locale of listing.config.locales) {
@@ -244,7 +244,8 @@ async function applyVersion(client, listing, version, state) {
 
 function dryRun(listing) {
     console.log(`dry run for ${listing.bundleId} - nothing is sent\n`);
-    console.log(`PATCH ${API}/v1/appInfos/<id>  category ${listing.config.primaryCategory}, ${listing.config.contentRightsDeclaration}`);
+    console.log(`PATCH ${API}/v1/apps/<id>  ${listing.config.contentRightsDeclaration}`);
+    console.log(`PATCH ${API}/v1/appInfos/<id>  category ${listing.config.primaryCategory}`);
     for (const locale of listing.config.locales) {
         console.log(`PATCH|POST ${API}/v1/appInfoLocalizations  ${JSON.stringify(infoLocalizationAttributes(listing, locale))}`);
     }
@@ -281,7 +282,7 @@ async function main() {
     const client = await createAscClient();
     const app = await findApp(client, listing.bundleId);
     console.log(`\napp info`);
-    await applyAppInfo(client, listing, await editableAppInfo(client, app.id));
+    await applyAppInfo(client, listing, app, await editableAppInfo(client, app.id));
     console.log(`\nversion`);
     const { version, state } = await editableVersion(client, app.id);
     await applyVersion(client, listing, version, state);

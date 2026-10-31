@@ -4,25 +4,36 @@
   "contentRightsDeclaration": "USES_THIRD_PARTY_CONTENT",
   "copyright": "{year} Manish Tiwari (Lamplit Labs)",
   "releaseType": "MANUAL",
-  "locales": ["de-DE", "en-US"],
+  "locales": [
+    "de-DE",
+    "en-US"
+  ],
   "urls": {
     "support": "https://www.lebenindeutschland.org/",
     "marketing": "https://www.lebenindeutschland.org/",
     "privacyPolicy": "https://www.lebenindeutschland.org/privacy-policy"
   },
   "ageRating": {
+    "advertising": false,
+    "ageAssurance": false,
     "alcoholTobaccoOrDrugUseOrReferences": "NONE",
     "contests": "NONE",
     "gambling": false,
     "gamblingSimulated": "NONE",
+    "gunsOrOtherWeapons": "NONE",
+    "healthOrWellnessTopics": false,
     "horrorOrFearThemes": "NONE",
     "lootBox": false,
     "matureOrSuggestiveThemes": "NONE",
     "medicalOrTreatmentInformation": "NONE",
+    "messagingAndChat": false,
+    "parentalControls": false,
     "profanityOrCrudeHumor": "NONE",
     "sexualContentGraphicAndNudity": "NONE",
     "sexualContentOrNudity": "NONE",
+    "socialMedia": false,
     "unrestrictedWebAccess": false,
+    "userGeneratedContent": false,
     "violenceCartoonOrFantasy": "NONE",
     "violenceRealistic": "NONE",
     "violenceRealisticProlongedGraphicOrSadistic": "NONE"

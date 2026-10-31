@@ -11,7 +11,7 @@
 // field - the first real `--list` and `--apply` with the owner's key do that.
 import { createHash, createVerify, generateKeyPairSync } from "node:crypto";
 import { spawn } from "node:child_process";
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
@@ -37,6 +37,7 @@ const log = [];
 let nextId = 1;
 const id = (prefix) => `${prefix}-${nextId++}`;
 const state = {
+    app: { contentRightsDeclaration: null },
     iaps: {},
     iapLocalizations: {},
     schedules: {},
@@ -128,7 +129,11 @@ const server = http.createServer(async (req, res) => {
 
     if (method === "GET" && p === "/v1/apps") {
         const wanted = url.searchParams.get("filter[bundleId]");
-        return json(res, 200, { data: wanted === BUNDLE ? [{ type: "apps", id: APP_ID, attributes: { bundleId: BUNDLE, name: "Einbürgerungstest – LiD" } }] : [] });
+        return json(res, 200, { data: wanted === BUNDLE ? [{ type: "apps", id: APP_ID, attributes: { bundleId: BUNDLE, name: "Einbürgerungstest – LiD", contentRightsDeclaration: state.app.contentRightsDeclaration } }] : [] });
+    }
+    if (method === "PATCH" && p === `/v1/apps/${APP_ID}`) {
+        if (body.data.attributes?.contentRightsDeclaration) state.app.contentRightsDeclaration = body.data.attributes.contentRightsDeclaration;
+        return json(res, 200, { data: { type: "apps", id: APP_ID, attributes: { bundleId: BUNDLE, contentRightsDeclaration: state.app.contentRightsDeclaration } } });
     }
     // --- in-app purchases ---
     if (method === "GET" && p === `/v1/apps/${APP_ID}/inAppPurchasesV2`) {
@@ -245,7 +250,7 @@ const server = http.createServer(async (req, res) => {
     // --- listing ---
     if (method === "GET" && p === `/v1/apps/${APP_ID}/appInfos`) return json(res, 200, { data: [{ type: "appInfos", id: state.appInfo.id, attributes: state.appInfo.attributes }] });
     if ((m = /^\/v1\/appInfos\/([^/]+)$/.exec(p)) && method === "PATCH") {
-        if (body.data.attributes) Object.assign(state.appInfo.attributes, body.data.attributes);
+        if (body.data.attributes) return apiError(res, 409, "ENTITY_ERROR.ATTRIBUTE.UNKNOWN", "appInfos has no writable attributes here");
         state.appInfo.category = body.data.relationships?.primaryCategory?.data?.id ?? state.appInfo.category;
         return json(res, 200, { data: { type: "appInfos", id: m[1], attributes: state.appInfo.attributes } });
     }
@@ -340,17 +345,17 @@ expect(r.status === 1 && /unknown product/.test(r.stderr), "unknown --product is
 from = log.length;
 r = await run("asc-listing.mjs", ["--apply"]);
 expect(r.status === 0, `listing --apply exits 0${r.status === 0 ? "" : `\n${r.stdout}\n${r.stderr}`}`);
-expect(state.appInfo.category === "EDUCATION" && state.appInfo.attributes.contentRightsDeclaration === "USES_THIRD_PARTY_CONTENT", "category and content rights set");
+expect(state.appInfo.category === "EDUCATION" && state.app.contentRightsDeclaration === "USES_THIRD_PARTY_CONTENT", "category on the app info and content rights on the app");
 const infoLocs = Object.values(state.infoLocalizations);
 expect(infoLocs.length === 2 && infoLocs.every((l) => l.attributes.name === "Einbürgerungstest – LiD" && l.attributes.privacyPolicyUrl.endsWith("/privacy-policy")), "name, subtitle and privacy URL for de-DE (updated) and en-US (created)");
-expect(Object.keys(state.ageRating.attributes).length === 15 && state.ageRating.attributes.gambling === false, "age rating answers written");
-expect(state.versions["ver-1"].attributes.versionString === "2.1.16" && state.versions["ver-1"].attributes.releaseType === "MANUAL" && /^\d{4} /.test(state.versions["ver-1"].attributes.copyright), "version string from package.json, manual release, copyright with the year");
+expect(Object.keys(state.ageRating.attributes).length === 23 && state.ageRating.attributes.gambling === false && state.ageRating.attributes.gunsOrOtherWeapons === "NONE", "age rating answers written (23, incl. the 2025 questions)");
+expect(state.versions["ver-1"].attributes.versionString === JSON.parse(readFileSync(path.join(repo, "src/web/package.json"), "utf8")).version && state.versions["ver-1"].attributes.releaseType === "MANUAL" && /^\d{4} /.test(state.versions["ver-1"].attributes.copyright), "version string from package.json, manual release, copyright with the year");
 const verLocs = Object.values(state.versionLocalizations);
 expect(verLocs.length === 2 && verLocs.every((l) => l.attributes.description.length > 1000 && l.attributes.keywords.length <= 100 && l.attributes.supportUrl && l.attributes.promotionalText), "description, keywords, promotional text and URLs for both locales");
 expect(secretFree(r), "listing apply prints neither the key id nor the issuer id");
 from = log.length;
 r = await run("asc-listing.mjs", ["--apply"]);
-const listingWrites = log.slice(from).filter((l) => /^(POST|PATCH) /.test(l) && !l.startsWith("PATCH /v1/appInfos/"));
+const listingWrites = log.slice(from).filter((l) => /^(POST|PATCH) /.test(l) && !l.startsWith("PATCH /v1/appInfos/") && !l.startsWith("PATCH /v1/apps/"));
 expect(r.status === 0 && listingWrites.length === 0 && /texts: unchanged/.test(r.stdout), `second listing --apply changes nothing (${listingWrites.length} write(s))`);
 
 // 4. credential modes and failures
