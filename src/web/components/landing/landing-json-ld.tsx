@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { appStoreUrl, siteConfig } from "@/config/site";
 import type { EvaluationSummary } from "./evaluation-summary";
 
 const SITE = siteConfig.links.website;
@@ -89,7 +89,7 @@ export function LandingJsonLd({ evaluation }: { evaluation: EvaluationSummary })
                 name: "Leben in Deutschland - Einbürgerungstest Vorbereitung",
                 url: SITE,
                 applicationCategory: "EducationalApplication",
-                operatingSystem: "Web, Android",
+                operatingSystem: appStoreUrl() ? "Web, Android, iOS" : "Web, Android",
                 offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
                 description:
                     "Free, open-source platform to prepare for the German Einbürgerungstest (citizenship test). Practice 300+ questions, take mock exams, and track your progress.",

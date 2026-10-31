@@ -1,11 +1,11 @@
 import { Button } from "@heroui/react";
-import { siteConfig } from "@/config/site";
+import { appStoreUrl, siteConfig } from "@/config/site";
 import { AppLink } from "@/components/ui/app-link";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { ArrowRightIcon, BellIcon, DownloadIcon, MonitorIcon, ShieldCheckIcon, SmartphoneIcon, VolumeIcon, type IconComponent } from "@/components/ui/icons";
 import { Surface } from "@/components/ui/surface";
 import type { Translations } from "@/utils/i18n";
-import { LandingSection, PlayStoreButton, StarRow } from "./landing-primitives";
+import { AppStoreButton, LandingSection, PlayStoreButton, StarRow } from "./landing-primitives";
 
 const APP_FEATURES: { icon: IconComponent; key: string }[] = [
     { icon: DownloadIcon, key: "download_features_offline" },
@@ -14,7 +14,21 @@ const APP_FEATURES: { icon: IconComponent; key: string }[] = [
     { icon: ShieldCheckIcon, key: "download_features_free" },
 ];
 
-/** Android app and web app, side by side. */
+/** The App Store badge: a link once the iOS app is live, a "coming soon" marker before (ADR-047). */
+function AppStoreBadge({ t, variant, className }: { t: Translations; variant?: "solid" | "paper" | "ghost"; className?: string }) {
+    const href = appStoreUrl();
+    return (
+        <AppStoreButton
+            href={href}
+            eyebrow={href ? t.landing_app_store_eyebrow : t.landing_app_store_soon_eyebrow}
+            label={href ? t.landing_app_store_cta : t.landing_app_store_soon_label}
+            variant={variant}
+            className={className}
+        />
+    );
+}
+
+/** Mobile app (Android today, iOS coming) and web app, side by side. */
 export function DownloadSection({ t }: { t: Translations }) {
     return (
         <LandingSection id="download" eyebrow={t.landing_download_eyebrow} title={t.download_title} description={t.download_subtitle}>
@@ -25,8 +39,8 @@ export function DownloadSection({ t }: { t: Translations }) {
                             <SmartphoneIcon size={20} className="pass-foil" />
                         </span>
                         <div>
-                            <h3 className="font-display text-lg font-semibold leading-tight">{t.landing_download_android_title}</h3>
-                            <p className="text-sm opacity-80">{t.landing_download_android_desc}</p>
+                            <h3 className="font-display text-lg font-semibold leading-tight">{t.landing_download_app_title}</h3>
+                            <p className="text-sm opacity-80">{appStoreUrl() ? t.landing_download_app_desc : t.landing_download_app_desc_soon}</p>
                         </div>
                     </div>
                     <ul className="grid grid-cols-2 gap-2 text-sm">
@@ -37,8 +51,11 @@ export function DownloadSection({ t }: { t: Translations }) {
                             </li>
                         ))}
                     </ul>
-                    <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center">
-                        <PlayStoreButton href={siteConfig.links.playStore} eyebrow={t.landing_play_eyebrow} label={t.download_cta} variant="paper" className="justify-center sm:justify-start" />
+                    <div className="mt-auto flex flex-col gap-3">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                            <PlayStoreButton href={siteConfig.links.playStore} eyebrow={t.landing_play_eyebrow} label={t.download_cta} variant="paper" className="justify-center sm:justify-start" />
+                            <AppStoreBadge t={t} variant="paper" className="justify-center sm:justify-start" />
+                        </div>
                         <p className="flex items-center justify-center gap-2 text-xs sm:justify-start">
                             <StarRow filled={4} label={t.download_rating_label} />
                             <span className="font-semibold">{t.download_rating}</span>
@@ -114,6 +131,7 @@ export function ClosingCta({ t, hasRecord }: { t: Translations; hasRecord: boole
                     {hasRecord ? t.landing_hero_cta_continue : t.landing_hero_cta_start}
                 </Button>
                 <PlayStoreButton href={siteConfig.links.playStore} label={t.download_cta} variant="ghost" className="w-full justify-center sm:w-auto" />
+                {appStoreUrl() ? <AppStoreButton href={appStoreUrl()} label={t.landing_app_store_cta} variant="ghost" className="w-full justify-center sm:w-auto" /> : null}
             </div>
         </section>
     );

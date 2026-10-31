@@ -1,6 +1,6 @@
 "use client";
 
-import { siteConfig } from "@/config/site";
+import { appStoreUrl, siteConfig } from "@/config/site";
 import { BrandLockup } from "@/components/shell/brand";
 import { LanguageToggle } from "@/components/shell/language-toggle";
 import { AppLink } from "@/components/ui/app-link";
@@ -43,6 +43,7 @@ export const Footer = () => {
     const t = useTranslations();
     const year = new Date().getFullYear();
 
+    const appStore = appStoreUrl();
     const columns: { title: string; links: FooterLink[] }[] = [
         {
             title: t.footer_new_product,
@@ -66,6 +67,8 @@ export const Footer = () => {
             links: [
                 { label: t.footer_link_github, href: siteConfig.links.github, external: true },
                 { label: t.footer_new_play_store, href: siteConfig.links.playStore, external: true },
+                // The App Store link appears once the iOS app is published (ADR-047).
+                ...(appStore ? [{ label: t.footer_new_app_store, href: appStore, external: true }] : []),
                 { label: "Lamplit Labs", href: siteConfig.links.lamplitLabs, external: true },
             ],
         },
