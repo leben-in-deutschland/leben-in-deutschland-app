@@ -452,6 +452,15 @@ repository or into a chat.
    step 2, SKU `lebenindeutschland-ios`, full access. The app's numeric
    **Apple ID** appears under App Information; the App Store URL will be
    `https://apps.apple.com/de/app/id<Apple ID>`.
+
+   App Store names must be unique across the whole store (Play's are not):
+   "Einbürgerungstest" - the Play title and the name on the home screen -
+   and "Leben in Deutschland" are both taken, so the listing is called
+   "Einbürgerungstest – LiD" (LiD is the BAMF's own short form of *Leben in
+   Deutschland*) and the subtitle spells the brand out. If App Store Connect
+   still reports the name as in use, try "Einbürgerungstest Vorbereitung"
+   or "Einbürgerungstest Coach" and write the one that worked into both
+   `name.txt` files, so the files stay the source of the listing.
 4. **Tip products** (the app → Monetization → In-App Purchases → +): three
    **Consumables** with the product ids, titles, descriptions and prices from
    `metadata/android/one-time-products.json` (`tip_small` 1,99 €,

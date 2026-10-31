@@ -1,1 +1,1 @@
-einbürgerungstest,einbürgerung,test,fragen,prüfung,bundesland,deutsch,lernen,quiz,staatsbürgerschaft
+einbürgerung,fragen,prüfung,bundesland,deutsch,lernen,quiz,staatsbürgerschaft,bamf,offline,probetest
