@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PrivacyIntro } from "@/components/landing/privacy-intro";
 import { Surface } from "@/components/ui/surface";
 
-const LAST_UPDATED = "October 30, 2026";
+const LAST_UPDATED = "October 31, 2026";
 const CONTACT_EMAIL = "hello@lamplitlabs.com";
 const CONTROLLER = "Manish Tiwari";
 const ADDRESS = "Am Potekamp 22, 40885 Ratingen, Germany";
@@ -102,7 +102,14 @@ export default function PrivacyPolicy() {
                     features. On Android, Google Play services may also be used for app updates and for the optional &quot;rate this app&quot; prompt.
                 </p>
                 <p>
-                    To stay current between app updates, the Android app downloads a few small public files at most once a day from GitHub, where
+                    The iOS app for iPhone and iPad offers the same optional tips. There the payment is handled entirely by Apple&apos;s In-App
+                    Purchase system under Apple&apos;s own terms and privacy policy; we never see your name, Apple Account, payment details, or address.
+                    The app only receives an anonymous confirmation that a tip was paid and stores a simple count of your tips on your device. Tips do
+                    not unlock any features. On iOS, the App Store may also be used to check for app updates and for the optional &quot;rate this
+                    app&quot; prompt.
+                </p>
+                <p>
+                    To stay current between app updates, the Android and iOS apps download a few small public files at most once a day from GitHub, where
                     this project is published: the BAMF evaluation status, the official question catalogue, and occasional notices from us (for
                     example when a new version is available). These requests contain no account or learning data; like any internet request they
                     reveal your IP address to GitHub, whose privacy statement applies to that connection. If a download fails or you are offline,

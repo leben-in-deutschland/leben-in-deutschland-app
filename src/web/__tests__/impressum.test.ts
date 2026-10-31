@@ -48,7 +48,16 @@ describe("legal pages (TASK-043)", () => {
 
     it("refreshes the privacy policy last-updated date", () => {
         const page = read("app/privacy-policy/page.tsx");
-        expect(page).toContain('const LAST_UPDATED = "October 30, 2026"');
+        expect(page).toContain('const LAST_UPDATED = "October 31, 2026"');
+    });
+
+    it("names the payment handler of each app's optional tips (Google Play on Android, Apple on iOS)", () => {
+        const page = read("app/privacy-policy/page.tsx");
+        expect(page).toContain("handled entirely by Google Play&apos;s billing");
+        expect(page).toContain("handled entirely by Apple&apos;s In-App");
+        expect(page).toContain("On iOS, the App Store may also be used");
+        // both native apps fetch the daily public files (services/remote-file.ts)
+        expect(page).toContain("the Android and iOS apps download a few small public files");
     });
 
     it("serves the German aliases /datenschutz and /datenschutzrichtlinie as the privacy policy", () => {
