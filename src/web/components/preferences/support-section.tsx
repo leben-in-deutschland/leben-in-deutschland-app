@@ -62,7 +62,7 @@ export function SupportSection() {
                     toast.success(t.settings_support_thanks_toast);
                     break;
                 case "pending":
-                    toast.info(fmt(t.settings_support_pending, { store: storeName() }));
+                    toast.info(t.settings_support_pending);
                     break;
                 case "cancelled":
                     break;
