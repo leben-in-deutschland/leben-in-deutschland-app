@@ -58,6 +58,10 @@ export const SHOTS = [
         path: "/mock.html",
         steps: [
             { clickText: { de: "Prüfung starten", en: "Start exam" } },
+            // The Musterfragebogen cover page (instructions and example) comes first since the BAMF-shaped exam; let it slide in before clicking.
+            { wait: 900 },
+            { clickText: { de: "Test beginnen", en: "Begin test" } },
+            { wait: 600 },
             { waitFor: "[aria-labelledby='exam-question'] button" },
             { shiftTime: 11 * 60 * 1000 + 17 * 1000 },
             { answerAndNext: 4 },
