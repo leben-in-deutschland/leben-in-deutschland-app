@@ -58,10 +58,10 @@ in `play-billing.md` beside this file.
      print their planned requests. Fix any validation error in
      `src/store/metadata/` before going further.
    - `node src/store/play-rehearsal.mjs` prints `ALL CHECKS PASSED`. It
-     prints `PRODUCT CHECKS PASSED (listing checks skipped)` when the Play
-     sets under `src/store/output/` are not rendered; render them with the
-     capture pipeline (README "Regenerate everything") before a real
-     listing push.
+     prints `PRODUCT AND RELEASE CHECKS PASSED (listing checks skipped)`
+     when the Play sets under `src/store/output/` are not rendered; render
+     them with the capture pipeline (README "Regenerate everything") before
+     a real listing push.
 3. Credential gate, presence only (no `eval`, no values):
 
    ```bash
@@ -101,11 +101,21 @@ in `play-billing.md` beside this file.
      `products-list`, `products-apply`, `listing-validate-texts`, or
      `listing-apply-texts`. Screenshots and the feature graphic are pushed
      from a laptop only, because they are rendered locally.
-6. Hand back to the owner: Play Console → Settings → License testing → add
-   a Google account; upload the current `leben-in-deutschland-v<version>-<code>.aab`
-   from the GitHub release to Internal testing; make one tip purchase on a
-   device and confirm the thank-you state.
-7. Record: reply on the owner's task or post a `finding` on the PULSE board;
+6. Release (gate open, or automatic): every push to `main` runs the
+   `play-internal` job of **Android Release**, which uploads the signed
+   `leben-in-deutschland-v<version>-<code>.aab` to Internal testing with
+   `node src/store/play-release.mjs --aab <file> --apply`. From a laptop the
+   same command works on the bundle attached to the GitHub release; the dry
+   run (no `--apply`) only checks the file name and prints the requests. A
+   Play 403 here means the service account lacks "Release to testing
+   tracks". Never pass `--track production` from an agent session; promotion
+   is the owner's click (Release → Testing → Internal testing → Promote
+   release).
+7. Hand back to the owner: Play Console → Settings → License testing → add
+   a Google account; install the Internal testing build; make one tip
+   purchase on a device and confirm the thank-you state; promote the release
+   when it is good.
+8. Record: reply on the owner's task or post a `finding` on the PULSE board;
    write a `MEM-*` record only for a durable lesson, and update
    `play-billing.md` when one of its facts changed.
 
@@ -120,7 +130,8 @@ in `play-billing.md` beside this file.
    to this repository. Copy the two `echo` lines at the end.
 2. Play Console → Users and permissions → Invite new users → the service
    account's e-mail → App permissions → Leben in Deutschland →
-   **Manage store presence** → Invite. Fresh grants can take up to 24 hours.
+   **Manage store presence** and **Release to testing tracks** → Invite.
+   Fresh grants can take up to 24 hours.
 3. Laptop: `gcloud auth login` once (`BROWSER=true gcloud auth login` prints
    the link instead of opening the default browser, so a specific account
    can sign in from any browser on the same machine), then

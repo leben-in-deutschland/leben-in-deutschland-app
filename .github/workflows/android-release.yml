@@ -17,6 +17,8 @@ on:
 permissions:
   contents: write
   issues: write
+  # Keyless Google Play upload (Workload Identity Federation), see the play-internal job.
+  id-token: write
 
 jobs:
   build-android:
@@ -159,3 +161,60 @@ jobs:
           fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Puts the released bundle on the Play "Internal testing" track so every main
+  # build is one "Promote release" click away from production, like the manual
+  # release step on the App Store. Keyless: the repository variables
+  # PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (see src/store/README.md,
+  # "Google Play from the command line") are exchanged for a short-lived token;
+  # without them the job explains what is missing and ends without failing.
+  play-internal:
+    needs: release
+    runs-on: ubuntu-latest
+    env:
+      PLAY_SERVICE_ACCOUNT: ${{ vars.PLAY_SERVICE_ACCOUNT }}
+      PLAY_WIF_PROVIDER: ${{ vars.PLAY_WIF_PROVIDER }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check Play credentials
+        id: creds
+        run: |
+          if [ -z "$PLAY_SERVICE_ACCOUNT" ] || [ -z "$PLAY_WIF_PROVIDER" ]; then
+            echo "::notice::Play upload skipped: set the repository variables PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Variables) to send each release to the Internal testing track automatically. Setup: src/store/README.md, 'Google Play from the command line'."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download Signed AAB
+        if: steps.creds.outputs.ready == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: Android-App-Signed
+          path: bundle/
+
+      - name: Get Version from Package.json
+        if: steps.creds.outputs.ready == 'true'
+        working-directory: src/web
+        run: |
+          echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - name: Upload to the Internal testing track
+        if: steps.creds.outputs.ready == 'true'
+        env:
+          AAB: bundle/leben-in-deutschland-v${{ env.VERSION }}-${{ github.run_number }}.aab
+        run: |
+          set -euo pipefail
+          node src/store/play-release.mjs --aab "$AAB"
+          if ! node src/store/play-release.mjs --aab "$AAB" --apply; then
+            echo "::error::Upload to Google Play failed. The service account (variable PLAY_SERVICE_ACCOUNT) needs 'Release to testing tracks' for this app in Play Console -> Users and permissions; the bundle is still attached to the GitHub release and can be uploaded by hand (Play Console -> Release -> Testing -> Internal testing -> Create new release)."
+            exit 1
+          fi
