@@ -13,7 +13,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { launchBrowser } from "../lib/browser.mjs";
 import { startServer } from "../lib/server.mjs";
-import { CAPTIONS, featureGraphicHtml, slideHtml } from "./templates.mjs";
+import { CAPTIONS, CREATIVE_COPY, featureGraphicHtml, slideHtml, videoLandscapeHtml } from "./templates.mjs";
 import { DEVICES, LANGUAGES, SHOTS } from "../capture.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -27,9 +27,11 @@ const sharp = createRequire(path.join(webRoot, "package.json"))("sharp");
 export const SETS = {
     "play-phone": { width: 1080, height: 1920, device: "phone", note: "Google Play phone (9:16)" },
     "play-tablet": { width: 1440, height: 2560, device: "tablet", note: "Google Play 7-inch and 10-inch tablet (9:16)" },
-    "ios-iphone-6.9": { width: 1320, height: 2868, device: "phone", note: "App Store iPhone 6.9-inch" },
-    "ios-iphone-6.5": { width: 1284, height: 2778, device: "phone", note: "App Store iPhone 6.5-inch" },
-    "ios-ipad-13": { width: 2064, height: 2752, device: "tablet", note: "App Store iPad 13-inch" },
+    // App Store Connect names the slots by display class now; the medium Dynamic Island display is the required one.
+    "ios-iphone-6.3": { width: 1206, height: 2622, device: "phone", note: "App Store iPhone with Dynamic Island (medium display), required" },
+    "ios-iphone-6.9": { width: 1320, height: 2868, device: "phone", note: "App Store iPhone with Dynamic Island (large display)" },
+    "ios-iphone-6.5": { width: 1284, height: 2778, device: "phone", note: "App Store iPhone with Face ID (large display)" },
+    "ios-ipad-13": { width: 2064, height: 2752, device: "tablet", note: "App Store iPad 13-inch display, required" },
 };
 
 const BASE_WIDTH = 1080;
@@ -67,10 +69,10 @@ async function topColor(file) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-async function renderHtml(page, dir, name, html, width, height) {
+async function renderHtml(page, dir, name, html, width, height, scale = 1) {
     const file = path.join(dir, `${name}.html`);
     writeFileSync(file, html);
-    await page.setDevice({ width, height, scale: 1, mobile: false });
+    await page.setDevice({ width, height, scale, mobile: false });
     await page.navigate(`${page.baseUrl}/__store/output/tmp/${name}.html`);
     await page.evaluate(`Promise.all([document.fonts.ready, ...[...document.images].map((img) => img.decode().catch(() => undefined))])`);
     await page.settle(200);
@@ -138,6 +140,37 @@ export async function renderAll({ lang, set, shot } = {}) {
                 writeFileSync(file, await renderHtml(page, tmpDir, `feature-${language}`, html, 1024, 500));
                 written.push(file);
                 console.log(`rendered ${path.relative(storeRoot, file)}`);
+            }
+            if (!set || set === "ios-creative") {
+                // App Store "Header and Search Results": one universal 16:9 asset (5244 x 2950, PNG) that Apple
+                // crops to the 21:9 header and the 3:2 search image; the centre 4425 x 2248 survives both crops,
+                // so the caption and the phone are moved inside it. The exact crops are written too.
+                const raw = path.join(outputRoot, "raw", language, "phone", "home.png");
+                const html = videoLandscapeHtml({
+                    image: `/__store/output/raw/${language}/phone/home.png`,
+                    imageSize: [DEVICES.phone.width, DEVICES.phone.height],
+                    statusColor: await topColor(raw),
+                    title: CREATIVE_COPY[language].title,
+                    subtitle: CREATIVE_COPY[language].subtitle,
+                    fontCss,
+                    captionLeft: 200,
+                    deviceTop: 150,
+                });
+                const dir = path.join(outputRoot, "ios-creative", language);
+                mkdirSync(dir, { recursive: true });
+                const scene = await renderHtml(page, tmpDir, `creative-${language}`, html, 1920, 1080, 5244 / 1920);
+                const universal = await sharp(scene).resize(5244, 2950, { fit: "cover" }).png({ compressionLevel: 9 }).toBuffer();
+                const outputs = [
+                    ["universal-16x9.png", universal],
+                    ["header-21x9.png", await sharp(universal).extract({ left: 0, top: Math.round((2950 - 2248) / 2), width: 5244, height: 2248 }).resize(3840, 1646).png({ compressionLevel: 9 }).toBuffer()],
+                    ["search-3x2.png", await sharp(universal).extract({ left: Math.round((5244 - 4425) / 2), top: 0, width: 4425, height: 2950 }).resize(3840, 2560).png({ compressionLevel: 9 }).toBuffer()],
+                ];
+                for (const [name, png] of outputs) {
+                    const file = path.join(dir, name);
+                    writeFileSync(file, png);
+                    written.push(file);
+                    console.log(`rendered ${path.relative(storeRoot, file)}`);
+                }
             }
         }
         if (!set || set === "play-icon") {

@@ -80,6 +80,7 @@ node src/store/capture.mjs --theme light                                     # d
 node src/store/compose/render.mjs --lang en --set play-phone --shot mock
 node src/store/compose/render.mjs --set play-feature                         # feature graphic only
 node src/store/compose/render.mjs --set play-icon                            # icon copy only
+node src/store/compose/render.mjs --set ios-creative                         # App Store header / search results asset
 node src/store/video.mjs --lang de --orientation landscape
 ```
 
@@ -116,9 +117,12 @@ All paths are under `src/store/output/`. Sets are rendered per language
 | `play-tablet/<lang>/` | 1440 × 2560 | Google Play: 7-inch tablet **and** 10-inch tablet screenshots (same files for both slots) |
 | `play-feature/<lang>/featureGraphic.png` | 1024 × 500 | Google Play: Feature graphic |
 | `play-icon/icon.png` | 512 × 512 | Google Play: App icon – a byte-identical copy of `src/web/public/android-chrome-512x512.png`; the listing already has it, do not change it |
-| `ios-iphone-6.9/<lang>/` | 1320 × 2868 | App Store Connect: iPhone 6.9-inch display (later) |
-| `ios-iphone-6.5/<lang>/` | 1284 × 2778 | App Store Connect: iPhone 6.5-inch display (later) |
-| `ios-ipad-13/<lang>/` | 2064 × 2752 | App Store Connect: iPad 13-inch display (later) |
+| `ios-iphone-6.3/<lang>/` | 1206 × 2622 | App Store Connect: iPhone with Dynamic Island (medium display) - the required iPhone slot |
+| `ios-iphone-6.9/<lang>/` | 1320 × 2868 | App Store Connect: iPhone with Dynamic Island (large display), optional |
+| `ios-iphone-6.5/<lang>/` | 1284 × 2778 | App Store Connect: iPhone with Face ID (large display), optional |
+| `ios-ipad-13/<lang>/` | 2064 × 2752 | App Store Connect: iPad 13-inch display - required |
+| `ios-creative/<lang>/universal-16x9.png` | 5244 × 2950 | App Store Connect: "Header and Search Results", the universal creative asset Apple crops itself (optional; `header-21x9.png` 3840 × 1646 and `search-3x2.png` 3840 × 2560 are the same crops) |
+| `play-products/<productId>.png` | 1024 × 1024 | Play Console product icon; flattened (`removeAlpha`) it is also the optional App Store in-app purchase image |
 | `video/promo-<lang>-landscape.mp4` | 1920 × 1080 | YouTube upload, then the URL goes into the Play listing |
 | `video/promo-<lang>-portrait.mp4` | 1080 × 1920 | Social posts, website; no store slot |
 | `play-products/<productId>.png` | 1024 × 1024 | Play Console: Monetize → Products → One-time products → product → Icon (manual upload, see below) |
@@ -586,8 +590,11 @@ repository or into a chat.
    for 4+, copyright, manual release and the version string. Then in App
    Store Connect: price Free, availability all countries, **App Privacy:
    Data Not Collected** (no accounts, analytics or tracking in the app), and
-   screenshots - render the `ios-iphone-6.9` and `ios-ipad-13` sets
-   (`node compose/render.mjs`) and upload up to ten per size.
+   screenshots - render the `ios-iphone-6.3` (required: "iPhone with Dynamic
+   Island (medium display)") and `ios-ipad-13` sets (`node compose/render.mjs`)
+   and drop them into exactly those tabs; `ios-iphone-6.9` fits the "large
+   display" tab. A file dropped into a tab of another display class is
+   rejected with "File dimensions are invalid".
 4. Review notes: no account needed, works offline, the tips are optional
    consumables that unlock nothing (where to find them), the app is not an
    official BAMF app (same disclaimer as the listing).
