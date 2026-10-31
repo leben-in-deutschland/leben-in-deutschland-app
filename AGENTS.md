@@ -46,7 +46,7 @@ repository.
 
 | Skill | Use it for |
 | --- | --- |
-| `play-console-publish` | Pushing the tip-jar products and the Play store listing from the repository through the Play Developer API, with offline checks and a credential gate |
+| `play-console-publish` | Pushing the tip-jar products, the Play store listing and the signed App Bundle (Internal testing track) from the repository through the Play Developer API, with offline checks and a credential gate |
 | `app-store-connect-publish` | Pushing the tip-jar products and the App Store listing from the repository through the App Store Connect API, with an offline rehearsal and a credential gate |
 | `bamf-catalogue-sync` | Checking whether BAMF published a new official question catalogue PDF, extracting and comparing it with the app's questions, applying the safe part, and handing the owner the held-back questions |
 
@@ -173,7 +173,7 @@ response. Exact facts, paths, commands, and code do not change.
 | New feature or bug fix | Relevant source, tests, and the project's records | Tier 1: a work-unit record naming its ADR; memory only for a durable lesson |
 | Android release signing | The signing rule above, `.github/workflows/android-release.yml`, Android config | Nothing in the repository holds secret values |
 | iOS release signing, TestFlight, App Store | The iOS signing rule above, `.github/workflows/ios-release.yml`, `src/store/README.md` (App Store Connect), `pulse record show PLAN-013` | Nothing in the repository holds secret values; the owner submits to review by hand |
-| Play products or store listing | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key |
+| Play products, store listing or track upload | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key; production promotion stays the owner's click |
 | App Store products or listing | `src/store/README.md` ("App Store Connect from the command line"), the `app-store-connect-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
 | Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |

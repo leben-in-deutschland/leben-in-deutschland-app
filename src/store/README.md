@@ -202,10 +202,12 @@ copy and the `translation` slide mention.
 
 ## Google Play from the command line
 
-Two scripts write to the Play Console through the official Google Play
+Three scripts write to the Play Console through the official Google Play
 Developer API, with the same zero-dependency rule as the rest of the
-pipeline. They are the committed, repeatable alternative to clicking
-through the Console; both have a dry run that needs no credentials.
+pipeline: `play-products.mjs` (tip-jar products), `play-listing.mjs`
+(store listing) and `play-release.mjs` (App Bundle to a track). They are
+the committed, repeatable alternative to clicking through the Console; all
+three have a dry run that needs no credentials.
 
 The agent-facing procedure is the `play-console-publish` skill
 (`.pulse/skills/play-console-publish/SKILL.md`): offline checks, credential
@@ -215,12 +217,13 @@ gate, products, listing, hand-back. Its offline check is
 node src/store/play-rehearsal.mjs   # local mock of Google's token endpoint and the Play API
 ```
 
-which signs a throwaway service-account key, runs both scripts with
+which signs a throwaway service-account key, runs the scripts with
 `--apply` against the mock and asserts the calls (JWT signature, prices,
-activation, SHA-256 skip, icon untouched, review fallback, no key material
-in requests). It prints `ALL CHECKS PASSED`, or
-`PRODUCT CHECKS PASSED (listing checks skipped)` when the Play sets under
-`output/` are not rendered. Nothing reaches Google.
+activation, SHA-256 skip, icon untouched, review fallback, bundle upload
+and track assignment, no key material in requests). It prints
+`ALL CHECKS PASSED`, or `PRODUCT AND RELEASE CHECKS PASSED (listing checks
+skipped)` when the Play sets under `output/` are not rendered. Nothing
+reaches Google.
 
 ### One-time setup (owner, keyless)
 
@@ -269,8 +272,11 @@ Workload Identity Federation** in Actions.
    the service account's e-mail (the `PLAY_SERVICE_ACCOUNT` value), add this
    app under *App permissions*, and grant **"Manage store presence"** (it
    covers store listing, pricing and in-app products; Google's help page
-   lists it as "Edit pricing, in-app products, and pricing templates"). New
-   permissions can take up to 24 hours to reach the API.
+   lists it as "Edit pricing, in-app products, and pricing templates") and
+   **"Release to testing tracks"** (lets the Android Release workflow put
+   each build on Internal testing; `--track production` would additionally
+   need "Release to production", which this repository deliberately does
+   not grant). New permissions can take up to 24 hours to reach the API.
 3. Laptop: `gcloud auth login` once (your Google account, interactive;
    `BROWSER=true gcloud auth login` prints the sign-in link instead of
    opening the default browser, so you can finish it with a specific account
@@ -285,7 +291,10 @@ Workload Identity Federation** in Actions.
    `PLAY_WIF_PROVIDER` from the two `echo` lines. Then Actions → **Play
    Publish** → *Run workflow* runs products and listing texts from CI
    (`.github/workflows/play-publish.yml`); screenshots stay a laptop job
-   because they are rendered locally.
+   because they are rendered locally. The same two variables switch on the
+   `play-internal` job of **Android Release**, which uploads every signed
+   bundle to the Internal testing track (see
+   [`play-release.mjs`](#app-bundle-to-a-track-play-releasemjs)).
 
 Credential modes, first match wins:
 
@@ -387,6 +396,39 @@ artwork centred in about half the canvas). Upload them once by hand:
 Play Console → Monetize → Products → One-time products → open the product
 → Icon → upload → Save. New products need an entry in `PRODUCT_ICONS`
 (`compose/product-icons.mjs`); `check.mjs` fails when an icon is missing.
+
+### App Bundle to a track: `play-release.mjs`
+
+Uploads a signed `.aab` and assigns it to a release track, the step that
+used to be a manual upload in Play Console → Release after each GitHub
+release.
+
+```bash
+node src/store/play-release.mjs --aab leben-in-deutschland-v2.1.17-171.aab            # dry run: checks the file, prints the requests
+node src/store/play-release.mjs --aab leben-in-deutschland-v2.1.17-171.aab --apply    # upload to Internal testing
+node src/store/play-release.mjs --aab ... --track production --rollout 0.2 --apply     # staged production rollout (needs "Release to production")
+```
+
+The file must be the renamed, signed workflow artifact
+(`leben-in-deutschland-v<versionName>-<versionCode>.aab`, attached to every
+GitHub release); the script reads both numbers from the name and refuses
+`app-release.aab`, so an unsigned or unversioned bundle cannot reach Play
+by accident. `--apply` opens an edit, uploads the bundle, checks that Play
+read the same version code, writes the track (`completed`, or `inProgress`
+with `userFraction` for `--rollout`), and commits; when Google insists on
+manual review it commits with `changesNotSentForReview` and says so. A
+version code that is already on the track is a no-op. Release notes come
+from `metadata/android/<language>/whats_new.txt` (≤ 500 characters per
+language) when present.
+
+**In CI**, the `play-internal` job of `.github/workflows/android-release.yml`
+runs this after the GitHub release for every push to `main`, keyless
+through the `PLAY_SERVICE_ACCOUNT` / `PLAY_WIF_PROVIDER` variables. Without
+the variables it ends with a notice; with them but without the "Release to
+testing tracks" permission it fails with the fix. Promotion to production
+stays a click: Play Console → Release → Testing → Internal testing →
+*Promote release* → Production, which is also where the "What's new" text
+can be edited before it goes live.
 
 ## App Store Connect from the command line
 

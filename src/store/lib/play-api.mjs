@@ -286,7 +286,7 @@ export function explainError(error) {
     console.error(`✗ Play API ${error.status}${error.code ? ` ${error.code}` : ""}: ${error.message}`);
     if (error.status === 401 || error.status === 403) {
         console.error(
-            '  The service account needs "Manage store presence" for this app (Play Console -> Users and permissions); new permissions can take up to 24 h to reach the API, and the Google Cloud project must have the Google Play Android Developer API enabled.',
+            '  The service account needs "Manage store presence" for listings and products, "Release to testing tracks" for internal/alpha/beta uploads and "Release to production" for production (Play Console -> Users and permissions); new permissions can take up to 24 h to reach the API, and the Google Cloud project must have the Google Play Android Developer API enabled.',
         );
     }
     if (error.status === 404) {

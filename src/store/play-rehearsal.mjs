@@ -1,10 +1,11 @@
-// Offline rehearsal for play-products.mjs and play-listing.mjs: a local mock
+// Offline rehearsal for play-products.mjs, play-listing.mjs and play-release.mjs: a local mock
 // of GitHub's OIDC endpoint, Google's STS, IAM Credentials and OAuth token
 // endpoints and the Play Developer API. It exercises every credential mode
 // (Workload Identity Federation, gcloud impersonation, PLAY_ACCESS_TOKEN,
-// key file with a throwaway RSA key), then runs both scripts with --apply
-// against the mock and asserts the call sequence. Needs no credentials and no
-// network; nothing reaches Google.
+// key file with a throwaway RSA key), then runs the scripts with --apply
+// against the mock (products, listing, a fake App Bundle on the internal
+// track) and asserts the call sequence. Needs no credentials and no network;
+// nothing reaches Google.
 //
 //   node src/store/play-rehearsal.mjs
 //
@@ -31,9 +32,14 @@ writeFileSync(fakeGcloud, '#!/bin/sh\n[ "$1 $2" = "auth print-access-token" ] &&
 writeFileSync(wrongGcloud, "#!/bin/sh\necho someone-elses-token\n", { mode: 0o755 });
 
 const log = [];
-const state = { products: {}, listings: { "de-DE": { language: "de-DE", title: "Old title", shortDescription: "old", fullDescription: "old", video: "https://youtu.be/keepme" } }, images: {}, editDeleted: false, committed: null };
+const state = { products: {}, listings: { "de-DE": { language: "de-DE", title: "Old title", shortDescription: "old", fullDescription: "old", video: "https://youtu.be/keepme" } }, images: {}, editDeleted: false, committed: null, bundles: [], tracks: {}, commitNeedsReview: true };
 let tokenOk = false;
 let commitAttempts = 0;
+
+// A fake signed App Bundle: Play only sees a zip container here, the mock reads the version code from the name like the script does.
+const FAKE_VERSION_CODE = 424;
+const fakeAab = path.join(keyDir, `leben-in-deutschland-v9.9.9-${FAKE_VERSION_CODE}.aab`);
+writeFileSync(fakeAab, Buffer.concat([Buffer.from("PK\u0003\u0004", "latin1"), Buffer.alloc(2048, 7)]));
 
 // de-DE phone screenshots are "already in Play" with the same bytes -> must be skipped.
 const dePhone = path.join(repo, "src/store/output/play-phone/de");
@@ -204,13 +210,33 @@ const server = http.createServer(async (req, res) => {
         (state.images[key] ??= []).push(image);
         return json(res, 200, { image });
     }
+    if (p === `${upload}/edits/edit-1/bundles` && req.method === "POST") {
+        if (url.searchParams.get("uploadType") !== "media") return error(res, 400, "uploadType=media expected");
+        if (req.headers["content-type"] !== "application/octet-stream") return error(res, 400, `bad content type ${req.headers["content-type"]}`);
+        if (raw.subarray(0, 2).toString("latin1") !== "PK") return error(res, 400, "not an App Bundle");
+        const bundle = { versionCode: FAKE_VERSION_CODE, sha256: createHash("sha256").update(raw).digest("hex"), bytes: raw.length };
+        state.bundles.push(bundle);
+        return json(res, 200, bundle);
+    }
+    if ((m = new RegExp(`^${base}/edits/edit-1/tracks/([a-z]+)$`).exec(p))) {
+        if (req.method === "GET") return state.tracks[m[1]] ? json(res, 200, state.tracks[m[1]]) : error(res, 404, "Track not found");
+        if (req.method === "PUT") {
+            const track = JSON.parse(raw.toString());
+            if (track.track !== m[1]) return error(res, 400, "track name mismatch");
+            for (const code of track.releases.flatMap((r) => r.versionCodes)) {
+                if (!state.bundles.some((b) => String(b.versionCode) === code)) return error(res, 400, `Version code ${code} has not been uploaded`);
+            }
+            state.tracks[m[1]] = track;
+            return json(res, 200, track);
+        }
+    }
     if (p === `${base}/edits/edit-1:validate`) return json(res, 200, { id: "edit-1" });
     if (p === `${base}/edits/edit-1:commit`) {
         commitAttempts += 1;
-        if (url.searchParams.get("changesNotSentForReview") !== "true") {
+        if (state.commitNeedsReview && url.searchParams.get("changesNotSentForReview") !== "true") {
             return error(res, 400, "Changes cannot be sent for review automatically. Please set the query parameter changesNotSentForReview to true. Once committed, the changes in this edit can be sent for review from the Google Play Console UI.");
         }
-        state.committed = "not-sent-for-review";
+        state.committed = url.searchParams.get("changesNotSentForReview") === "true" ? "not-sent-for-review" : "committed";
         return json(res, 200, { id: "edit-1" });
     }
     if (p === `${base}/edits/edit-1` && req.method === "DELETE") {
@@ -357,13 +383,46 @@ expect(!log.some((l) => /gcloud-user-token|federated-token|someone-elses/.test(l
     console.log("\nListing checks skipped: no rendered Play sets under src/store/output/ (see src/store/README.md).");
 }
 
-// 6. permission error path: break the token
+// 6. release: dry run touches nothing, --apply uploads the bundle to the internal track and commits
+let from6 = log.length;
+r = await run("play-release.mjs", ["--aab", fakeAab]);
+expect(r.status === 0 && /dry run/.test(r.stdout) && /versionCode 424/.test(r.stdout) && log.length === from6, "release dry run makes no API calls");
+r = await run("play-release.mjs", ["--aab", path.join(keyDir, "app-release.aab")]);
+expect(r.status === 1 && /expected the signed workflow artifact/.test(r.stderr), "unsigned/unrenamed bundle names are refused");
+state.commitNeedsReview = false;
+state.editDeleted = false;
+from6 = log.length;
+r = await run("play-release.mjs", ["--aab", fakeAab, "--apply"]);
+let calls6 = log.slice(from6).filter((l) => !/\/token$/.test(l));
+expect(r.status === 0, "release --apply exits 0");
+expect(calls6[0]?.endsWith("/edits") && calls6[1]?.includes("/tracks/internal") && calls6[2]?.startsWith("POST /upload/") && calls6[2]?.includes("/bundles?uploadType=media") && calls6[3]?.startsWith("PUT ") && calls6[3]?.includes("/tracks/internal") && calls6[4]?.includes(":commit"), `release order: edit -> read track -> upload -> set track -> commit (got ${calls6.join(" | ")})`);
+expect(state.bundles.length === 1 && state.bundles[0].bytes === 2052, "the bundle bytes were uploaded once");
+const internal = state.tracks.internal?.releases?.[0];
+expect(internal?.status === "completed" && internal?.versionCodes?.[0] === "424" && internal?.name === "9.9.9", "internal track release completed for version code 424");
+expect(Array.isArray(internal?.releaseNotes) && internal.releaseNotes.some((n) => n.language === "de-DE"), "release notes taken from metadata/android/<lang>/whats_new.txt");
+expect(state.committed === "committed" && !state.editDeleted, "release edit committed without the review workaround");
+expect(/promote to production in Play Console/.test(r.stdout), "owner told how to promote");
+// 6b. same bundle again -> already on the track, edit discarded, no upload
+from6 = log.length;
+r = await run("play-release.mjs", ["--aab", fakeAab, "--apply"]);
+calls6 = log.slice(from6);
+expect(r.status === 0 && /already on this track; nothing to do/.test(r.stdout), "re-running with the same version code is a no-op");
+expect(!calls6.some((l) => l.includes("/bundles")) && state.editDeleted, "no second upload; the edit was deleted");
+// 6c. production with a staged rollout -> inProgress + userFraction, commit falls back to changesNotSentForReview
+state.commitNeedsReview = true;
+r = await run("play-release.mjs", ["--aab", fakeAab, "--apply", "--track", "production", "--rollout", "0.2"]);
+const production = state.tracks.production?.releases?.[0];
+expect(r.status === 0 && production?.status === "inProgress" && production?.userFraction === 0.2, "production staged rollout at 20 %");
+expect(state.committed === "not-sent-for-review" && /not sent for review/.test(r.stdout), "release commit retried with changesNotSentForReview when Play demands it");
+expect(state.bundles.length === 2, "production run uploaded the bundle again (new edit, no prior production release)");
+
+// 7. permission error path: break the token
 writeFileSync(keyFile, JSON.stringify({ client_email: "other@example.iam.gserviceaccount.com", private_key: privateKey.export({ type: "pkcs8", format: "pem" }), token_uri: `http://127.0.0.1:${port}/token` }));
 r = await run("play-products.mjs", ["--list"]);
 expect(r.status === 1 && /token request failed \(400\): invalid_grant/.test(r.stderr), "token failure reported without secrets");
 
 server.close();
-const verdict = haveSets ? "ALL CHECKS PASSED" : "PRODUCT CHECKS PASSED (listing checks skipped)";
+const verdict = haveSets ? "ALL CHECKS PASSED" : "PRODUCT AND RELEASE CHECKS PASSED (listing checks skipped)";
 console.log(`\n${failures.length === 0 ? verdict : "FAILURES:\n  " + failures.join("\n  ")}`);
 console.log(`${log.length} API calls recorded`);
 process.exit(failures.length === 0 ? 0 : 1);
