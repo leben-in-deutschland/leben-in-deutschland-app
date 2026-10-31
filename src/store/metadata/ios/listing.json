@@ -1,0 +1,30 @@
+{
+  "$comment": "App Store listing settings that are not per-locale text (the texts live in <locale>/*.txt beside this file). Applied by `node src/store/asc-listing.mjs --apply`. `copyright` may use {year}. `ageRating` holds the answers of Apple's questionnaire that lead to 4+; Apple adds questions from time to time - when the API rejects the set, the script says so and the remaining questions are answered once in App Store Connect. `releaseType` MANUAL keeps the release button in the owner's hands after approval.",
+  "primaryCategory": "EDUCATION",
+  "contentRightsDeclaration": "USES_THIRD_PARTY_CONTENT",
+  "copyright": "{year} Manish Tiwari (Lamplit Labs)",
+  "releaseType": "MANUAL",
+  "locales": ["de-DE", "en-US"],
+  "urls": {
+    "support": "https://www.lebenindeutschland.org/",
+    "marketing": "https://www.lebenindeutschland.org/",
+    "privacyPolicy": "https://www.lebenindeutschland.org/privacy-policy"
+  },
+  "ageRating": {
+    "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+    "contests": "NONE",
+    "gambling": false,
+    "gamblingSimulated": "NONE",
+    "horrorOrFearThemes": "NONE",
+    "lootBox": false,
+    "matureOrSuggestiveThemes": "NONE",
+    "medicalOrTreatmentInformation": "NONE",
+    "profanityOrCrudeHumor": "NONE",
+    "sexualContentGraphicAndNudity": "NONE",
+    "sexualContentOrNudity": "NONE",
+    "unrestrictedWebAccess": false,
+    "violenceCartoonOrFantasy": "NONE",
+    "violenceRealistic": "NONE",
+    "violenceRealisticProlongedGraphicOrSadistic": "NONE"
+  }
+}

@@ -384,6 +384,52 @@ Play Console → Monetize → Products → One-time products → open the produc
 → Icon → upload → Save. New products need an entry in `PRODUCT_ICONS`
 (`compose/product-icons.mjs`); `check.mjs` fails when an icon is missing.
 
+## App Store Connect from the command line
+
+The Apple side of the Play scripts: two scripts write to App Store Connect
+through the official App Store Connect API, on Node built-ins only, each
+with a dry run that needs no credentials.
+
+```bash
+node src/store/asc-products.mjs            # dry run: validates the products and prints the requests
+node src/store/asc-products.mjs --list     # what App Store Connect has today
+node src/store/asc-products.mjs --apply    # consumables tip_small/medium/large: texts, EUR price, all territories
+node src/store/asc-products.mjs --apply --review-screenshot tip-jar.png   # plus the App Review screenshot
+node src/store/asc-listing.mjs             # dry run: validates metadata/ios/ and prints the planned writes
+node src/store/asc-listing.mjs --apply     # name, subtitle, texts, keywords, URLs, category, content rights, age rating, copyright, release type, version string
+node src/store/asc-rehearsal.mjs           # offline rehearsal against a local mock; prints ALL CHECKS PASSED
+```
+
+Sources: `metadata/android/one-time-products.json` (shared with Play; the
+App Store description is `appStoreDescription`, 45 characters, the title is
+shared and capped at 30), `metadata/ios/<locale>/*.txt` and
+`metadata/ios/listing.json` (category, URLs, copyright, content rights, age
+rating answers, release type). The version string is written from
+`src/web/package.json`, because every build carries that version and App
+Store Connect requires the two to match.
+
+Credentials: the App Store Connect API team key (role App Manager) - the
+same key the iOS release workflow uses. On a laptop:
+
+```bash
+export ASC_KEY_ID=<key id> ASC_ISSUER_ID=<issuer id> ASC_API_KEY_PATH=~/.private/AuthKey_<key id>.p8
+```
+
+The `.p8` stays outside the repository; the scripts read it, never print it,
+and print neither id (the repository and its Actions logs are public). In
+GitHub Actions the same three values are the secrets `ASC_KEY_ID`,
+`ASC_ISSUER_ID`, `ASC_API_KEY_BASE64`, and **Actions → App Store Publish →
+Run workflow** offers `products-dry-run`, `products-list`,
+`products-apply`, `listing-dry-run`, `listing-apply`. The offline rehearsal
+runs first in every job.
+
+What stays in App Store Connect by hand: screenshots (drag the `ios-*` sets
+in), the App Privacy answers (no API), the app's price (Free) and
+availability, the in-app purchase review screenshot when no laptop is at
+hand, the build (comes from TestFlight) and the submission itself. Re-running
+either script is safe: unchanged records are skipped. The agent-facing
+procedure is the `app-store-connect-publish` skill.
+
 ## Upload checklist
 
 ### Google Play Console
@@ -461,13 +507,16 @@ repository or into a chat.
    still reports the name as in use, try "Einbürgerungstest Vorbereitung"
    or "Einbürgerungstest Coach" and write the one that worked into both
    `name.txt` files, so the files stay the source of the listing.
-4. **Tip products** (the app → Monetization → In-App Purchases → +): three
-   **Consumables** with the product ids, titles, descriptions and prices from
-   `metadata/android/one-time-products.json` (`tip_small` 1,99 €,
-   `tip_medium` 4,99 €, `tip_large` 9,99 €; pick the nearest price tier,
-   German and English localizations, availability all countries). Each needs
-   a review screenshot: the tip jar in Settings. In-app purchases are
-   submitted for review together with the first app version.
+4. **Tip products**: `node src/store/asc-products.mjs --apply` (or Actions
+   → App Store Publish → `products-apply`) creates the three **Consumables**
+   from `metadata/android/one-time-products.json` with texts, the EUR price
+   and worldwide availability - needs the API key from step 5 and the Paid
+   Apps Agreement from step 1. Each product still needs a review screenshot
+   (the tip jar in Settings): `--review-screenshot <png>` from a laptop, or
+   the product → Review Information in App Store Connect. In-app purchases
+   are submitted for review together with the first app version. By hand
+   instead: the app → Monetization → In-App Purchases → + → Consumable,
+   values from the same file.
 5. **App Store Connect API key** (Users and Access → Integrations → App
    Store Connect API → Team Keys → +): name "GitHub Actions", role
    **App Manager**. Download the `.p8` **once** (Apple never shows it again),
@@ -512,17 +561,16 @@ repository or into a chat.
    settings in light and dark mode, a reminder, read-aloud, export and
    import of the progress, and - once the products exist - a tip with a
    **sandbox Apple ID** (App Store Connect → Users and Access → Sandbox).
-3. App Store Connect → the app → the new version: paste
-   `metadata/ios/<de-DE|en-US>/` (name, subtitle, promotional text,
-   description, keywords), support and marketing URL
-   `https://www.lebenindeutschland.org/`, privacy policy URL
-   `https://www.lebenindeutschland.org/privacy-policy`, category Education,
-   age rating 4+, price Free, availability all countries, **App Privacy:
-   Data Not Collected** (no accounts, analytics or tracking in the app),
-   Content Rights: contains third-party content (the official BAMF
-   questions, credited in the app and the listing). Screenshots: render the
-   `ios-iphone-6.9` and `ios-ipad-13` sets (`node compose/render.mjs`) and
-   upload up to ten per size.
+3. `node src/store/asc-listing.mjs --apply` (or Actions → App Store
+   Publish → `listing-apply`) writes name, subtitle, promotional text,
+   description, keywords, support/marketing/privacy URLs, category
+   Education, content rights (third-party content: the official BAMF
+   questions, credited in the app and the listing), the age-rating answers
+   for 4+, copyright, manual release and the version string. Then in App
+   Store Connect: price Free, availability all countries, **App Privacy:
+   Data Not Collected** (no accounts, analytics or tracking in the app), and
+   screenshots - render the `ios-iphone-6.9` and `ios-ipad-13` sets
+   (`node compose/render.mjs`) and upload up to ten per size.
 4. Review notes: no account needed, works offline, the tips are optional
    consumables that unlock nothing (where to find them), the app is not an
    official BAMF app (same disclaimer as the listing).

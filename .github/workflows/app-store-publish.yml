@@ -1,0 +1,79 @@
+name: App Store Publish
+
+# Pushes the tip-jar products and the App Store listing texts to App Store
+# Connect from the repository (src/store/README.md, "App Store Connect from
+# the command line"; ADR-047). Credentials are the same App Store Connect API
+# key the iOS release workflow uses:
+#
+# Repository secrets (Settings -> Secrets and variables -> Actions):
+#   ASC_KEY_ID          key id of the team key (role App Manager)
+#   ASC_ISSUER_ID       issuer id
+#   ASC_API_KEY_BASE64  the .p8 file, base64
+#
+# Screenshots, the App Privacy answers, the build and the submission stay in
+# App Store Connect by hand; the in-app purchase review screenshot can be
+# attached from a laptop (`node src/store/asc-products.mjs --apply
+# --review-screenshot <png>`).
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Dry runs and --list change nothing; apply writes to App Store Connect"
+        type: choice
+        required: true
+        default: products-list
+        options:
+          - products-dry-run
+          - products-list
+          - products-apply
+          - listing-dry-run
+          - listing-apply
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-store-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TASK: ${{ inputs.task }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Offline rehearsal (local mock, nothing reaches Apple)
+        run: node src/store/asc-rehearsal.mjs
+
+      - name: Check credentials
+        if: inputs.task != 'products-dry-run' && inputs.task != 'listing-dry-run'
+        env:
+          HAS_KEY: ${{ secrets.ASC_KEY_ID != '' && secrets.ASC_ISSUER_ID != '' && secrets.ASC_API_KEY_BASE64 != '' }}
+        run: |
+          if [ "$HAS_KEY" != "true" ]; then
+            echo "::error::Set the repository secrets ASC_KEY_ID, ASC_ISSUER_ID and ASC_API_KEY_BASE64 (Settings -> Secrets and variables -> Actions). Setup: src/store/README.md, 'App Store Connect from the command line'."
+            exit 1
+          fi
+          echo "App Store Connect API key present"
+
+      - name: Run ${{ inputs.task }}
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_API_KEY_BASE64: ${{ secrets.ASC_API_KEY_BASE64 }}
+        run: |
+          case "$TASK" in
+            products-dry-run) node src/store/asc-products.mjs ;;
+            products-list)    node src/store/asc-products.mjs --list ;;
+            products-apply)   node src/store/asc-products.mjs --apply ;;
+            listing-dry-run)  node src/store/asc-listing.mjs ;;
+            listing-apply)    node src/store/asc-listing.mjs --apply ;;
+            *) echo "::error::unknown task $TASK"; exit 1 ;;
+          esac
