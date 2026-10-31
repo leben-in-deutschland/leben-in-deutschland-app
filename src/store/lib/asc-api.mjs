@@ -214,7 +214,7 @@ export async function createAscClient() {
 
 /** Finds the app record for the bundle id; fails with a hint when it does not exist yet. */
 export async function findApp(client, bundleId) {
-    const apps = await client.list("/v1/apps", { query: { "filter[bundleId]": bundleId, "fields[apps]": "bundleId,name,sku,primaryLocale" } });
+    const apps = await client.list("/v1/apps", { query: { "filter[bundleId]": bundleId } });
     const app = apps.find((candidate) => candidate.attributes?.bundleId === bundleId);
     if (!app) {
         fail(`no app with bundle id ${bundleId} in this App Store Connect team - create the app record first (src/store/README.md, App Store Connect, step 3)`);
