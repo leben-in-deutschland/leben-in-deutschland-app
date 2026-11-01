@@ -1,15 +1,22 @@
 import clsx from "clsx";
 
-/** The app mark: a small passport with a gold rosette. */
+/**
+ * The app mark: the same Germany map in flag colours as the app icon on the
+ * stores and the favicons (`public/android-chrome-*.png` is the single source;
+ * `scripts/ios-assets.mjs` derives the iOS icon from it).
+ */
 export function BrandMark({ size = 28, className }: { size?: number; className?: string }) {
     return (
-        <svg width={size} height={size} viewBox="0 0 32 32" className={className} aria-hidden="true" focusable="false">
-            <rect x="5" y="2" width="22" height="28" rx="4.5" fill="var(--pass-cover)" />
-            <rect x="5.75" y="2.75" width="20.5" height="26.5" rx="3.75" fill="none" stroke="var(--pass-foil)" strokeOpacity="0.55" strokeWidth="0.75" />
-            <circle cx="16" cy="13" r="5" fill="none" stroke="var(--pass-foil)" strokeWidth="1.5" />
-            <circle cx="16" cy="13" r="2.25" fill="none" stroke="var(--pass-foil)" strokeWidth="1" />
-            <path d="M11 22.5h10" stroke="var(--pass-foil)" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
+        <img
+            src="/android-chrome-192x192.png"
+            width={size}
+            height={size}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            className={clsx("shrink-0 object-contain", className)}
+            style={{ width: size, height: size }}
+        />
     );
 }
 
