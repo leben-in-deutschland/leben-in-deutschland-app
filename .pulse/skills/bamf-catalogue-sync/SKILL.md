@@ -61,7 +61,7 @@ daemon queue one agent job whose brief is this skill.
 
 ## Procedure
 
-1. Print the sandbox line, then read `src/catalogue/README.md` and
+1. Read `src/catalogue/README.md` and
    `catalogue-source.md` beside this file. Note the current SHA and
    `git status` as the rollback baseline.
 2. Preconditions (no network yet):

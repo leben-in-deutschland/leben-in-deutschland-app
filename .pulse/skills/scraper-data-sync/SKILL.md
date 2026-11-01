@@ -50,7 +50,7 @@ file itself once a day (`services/evaluation.ts`), the web and iOS do not.
 
 ## Procedure
 
-1. Print the sandbox line. Note the current SHA and `git status` as the
+1. Note the current SHA and `git status` as the
    rollback baseline. Node 22 or newer; no `npm install` is needed for the
    check or the write, `src/web/node_modules` only for the tests.
 2. See what changed without writing anything:

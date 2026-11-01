@@ -15,19 +15,6 @@ store, not under `docs/`; project skills live in `.pulse/skills/`.
   (`AGENTS.md`, "Rollback Planning").
 - Keep generated code-context indexes outside the repository.
 
-## Sandbox Recommendation
-
-Before every tool-backed response, show this exact line:
-
-```text
-⚠️ SANDBOX RECOMMENDED — use the GitHub Copilot CLI sandbox when available; state clearly if execution is unsandboxed. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
-```
-
-Prefer and inspect the effective sandbox. If none is active, disclose
-unsandboxed execution and continue under normal Copilot permissions unless a
-higher-level policy requires isolation. Do not automatically disable or bypass
-an active sandbox.
-
 ## Android Release Signing
 
 Before changing Android release signing, GitHub Actions signing secrets, or
