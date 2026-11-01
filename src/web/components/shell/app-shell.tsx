@@ -13,6 +13,7 @@ import { OnboardingFlow } from "@/components/onboarding/onboarding-flow";
 import { AppHeader } from "./app-header";
 import { BottomNav } from "./bottom-nav";
 import { useIsFocusMode } from "./focus-mode";
+import { GetTheAppBanner } from "./get-the-app-banner";
 import { NativePrompts } from "./native-prompts";
 import { UiModePrompt } from "./ui-mode-prompt";
 import { useAppEffects } from "./use-app-effects";
@@ -103,6 +104,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             >
                 {appRoute ? (
                     <OnboardingGate>
+                        {!focus ? <GetTheAppBanner /> : null}
                         {children}
                         {!focus ? <NativePrompts /> : null}
                     </OnboardingGate>

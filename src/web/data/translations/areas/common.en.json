@@ -271,5 +271,17 @@
     "ui_mode_switch_classic": "Switch to the classic design",
     "ui_mode_switch_modern": "Switch to the new design",
     "ui_mode_switched_classic": "Classic design on",
-    "ui_mode_switched_modern": "New design on"
+    "ui_mode_switched_modern": "New design on",
+    "app_nudge_region": "Get the app",
+    "app_nudge_android_title": "There is an Android app",
+    "app_nudge_android_body": "Practise offline, get a reminder at your study time and keep your streak on your phone – free on Google Play.",
+    "app_nudge_android_cta": "Get it on Google Play",
+    "app_nudge_ios_title": "There is an iPhone and iPad app",
+    "app_nudge_ios_body": "Practise offline, get a reminder at your study time and keep your streak on your phone – free on the App Store.",
+    "app_nudge_ios_cta": "Get it on the App Store",
+    "app_nudge_desktop_title": "Learn better with the app",
+    "app_nudge_desktop_body": "Reminders, offline practice and your streak in your pocket – free for Android and iPhone. Your progress here stays on this device.",
+    "app_nudge_cta_play": "Google Play",
+    "app_nudge_cta_appstore": "App Store",
+    "app_nudge_dismiss": "Hide this note for a month"
 }

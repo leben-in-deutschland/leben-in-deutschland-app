@@ -271,5 +271,17 @@
     "ui_mode_switch_classic": "Zum klassischen Design wechseln",
     "ui_mode_switch_modern": "Zum neuen Design wechseln",
     "ui_mode_switched_classic": "Klassisches Design aktiviert",
-    "ui_mode_switched_modern": "Neues Design aktiviert"
+    "ui_mode_switched_modern": "Neues Design aktiviert",
+    "app_nudge_region": "App holen",
+    "app_nudge_android_title": "Es gibt eine Android-App",
+    "app_nudge_android_body": "Offline üben, eine Erinnerung zu deiner Lernzeit und deine Serie auf dem Handy – kostenlos bei Google Play.",
+    "app_nudge_android_cta": "Bei Google Play laden",
+    "app_nudge_ios_title": "Es gibt eine App für iPhone und iPad",
+    "app_nudge_ios_body": "Offline üben, eine Erinnerung zu deiner Lernzeit und deine Serie auf dem Handy – kostenlos im App Store.",
+    "app_nudge_ios_cta": "Im App Store laden",
+    "app_nudge_desktop_title": "Besser lernen mit der App",
+    "app_nudge_desktop_body": "Erinnerungen, Üben ohne Internet und deine Serie in der Tasche – kostenlos für Android und iPhone. Dein Fortschritt hier bleibt auf diesem Gerät.",
+    "app_nudge_cta_play": "Google Play",
+    "app_nudge_cta_appstore": "App Store",
+    "app_nudge_dismiss": "Hinweis einen Monat ausblenden"
 }
