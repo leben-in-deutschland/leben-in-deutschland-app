@@ -5,7 +5,8 @@ name: Play Publish
 # Workload Identity Federation: GitHub's OIDC token is exchanged for a token of
 # the Play service account; no key and no secret exist anywhere.
 #
-# Repository variables (Settings -> Secrets and variables -> Actions -> Variables):
+# Repository secrets (Settings -> Secrets and variables -> Actions -> Secrets;
+# not confidential in themselves, but secrets are masked in these public logs):
 #   PLAY_SERVICE_ACCOUNT  play-publisher@<project>.iam.gserviceaccount.com
 #   PLAY_WIF_PROVIDER     projects/<number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>
 #
@@ -39,8 +40,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      PLAY_SERVICE_ACCOUNT: ${{ vars.PLAY_SERVICE_ACCOUNT }}
-      PLAY_WIF_PROVIDER: ${{ vars.PLAY_WIF_PROVIDER }}
+      PLAY_SERVICE_ACCOUNT: ${{ secrets.PLAY_SERVICE_ACCOUNT }}
+      PLAY_WIF_PROVIDER: ${{ secrets.PLAY_WIF_PROVIDER }}
       TASK: ${{ inputs.task }}
     steps:
       - uses: actions/checkout@v4
@@ -52,11 +53,11 @@ jobs:
       - name: Check configuration
         run: |
           if [ -z "$PLAY_SERVICE_ACCOUNT" ] || [ -z "$PLAY_WIF_PROVIDER" ]; then
-            echo "::error::Set the repository variables PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Variables). Setup: src/store/README.md, 'Google Play from the command line'."
+            echo "::error::Set the repository secrets PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Secrets). Setup: src/store/README.md, 'Google Play from the command line'."
             exit 1
           fi
-          echo "service account: $PLAY_SERVICE_ACCOUNT"
-          echo "provider: $PLAY_WIF_PROVIDER"
+          # Both values stay masked: these logs are public (AGENTS.md: never print service-account e-mails).
+          echo "service account and provider configured"
 
       - name: Offline rehearsal (local mock, nothing reaches Google)
         run: node src/store/play-rehearsal.mjs
