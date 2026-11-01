@@ -6,11 +6,11 @@ description: Keep the app's bundled copies of the scraper's two data files - the
 # Scraper data sync
 
 Two small JSON files the app ships are collected elsewhere: the
-[scraper repository](https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper)
-reads BAMF's pages and publishes the result as static files. This skill
-carries a new version of either file into the app. It replaced the GitHub
-workflows `sync-evaluation.yml` and `sync-data.yml` on 2026-11-01; the
-`scripts/scraper-sync.mjs` script does the mechanical part.
+[scraper repository][scraper] reads BAMF's pages and publishes the result
+as static files. This skill carries a new version of either file into the
+app. It replaced the GitHub workflows `sync-evaluation.yml` and
+`sync-data.yml` on 2026-11-01; the `scripts/scraper-sync.mjs` script does
+the mechanical part.
 
 | Source | Bundled file | Published at | Changes |
 | --- | --- | --- | --- |
@@ -117,3 +117,5 @@ file itself once a day (`services/evaluation.ts`), the web and iOS do not.
 - `src/web/services/evaluation.ts` (the in-app refresh on Android),
   `src/web/utils/evaluation-store.ts` (the shape), `src/web/types/prüfstellen.ts`
 - `AGENTS.md` (public-repository privacy rule, verification commands)
+
+[scraper]: https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper
