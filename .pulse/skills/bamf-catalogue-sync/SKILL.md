@@ -72,9 +72,16 @@ in `catalogue-source.md` beside this file.
    page's `Datum` (page date), the `v=` number of the PDF link (link
    version), and the PDF's `Last-Modified` and `ETag`. The last line is
    `changed=true` or `changed=false`.
-   - `changed=false`: stop here. Report the stored `stand` (the "Stand"
-     date from the PDF title), the page date, and `Last-Modified`. Nothing
-     was downloaded; `state.json` is unchanged.
+   - `changed=false`: nothing was downloaded and `state.json` is
+     unchanged. Report the stored `stand` (the "Stand" date from the PDF
+     title), the page date, and `Last-Modified`. The held-back list is
+     still open until the owner decides it: `compare.mjs` and
+     `apply.mjs --dry-run` work offline on the committed
+     `data/bamf-catalogue.json` and rebuild `review.md` without a
+     download (step 5 and the first line of step 6). The workflow opens
+     its GitHub issue only on a changed PDF, so on a quiet week the
+     board thread is where the owner finds the list - post it once and
+     point to that post afterwards instead of reposting it every week.
    - `changed=true`: the script already saved the new PDF to
      `src/catalogue/output/gesamtfragenkatalog.pdf` and rewrote
      `src/catalogue/state.json`. Continue with step 4. A new page date or
@@ -126,6 +133,12 @@ in `catalogue-source.md` beside this file.
    and listed in `src/catalogue/output/review.md`. A red test suite means
    stop: restore the data (see Rollback) and report. Expected first-run
    figures on the repaired data: 346 applied, 60 unchanged, 54 held back.
+   Check the translations too: their `a`–`d` must move with the German
+   answers they translate (the translation panel shows them by letter).
+   Until 2026-11-01 `compare.mjs` moved them only when all four answers
+   matched verbatim, which left 44 questions with translations in the old
+   order; an explanation that names a letter ("Option b") is text and is
+   not rewritten - list those for the owner.
 7. Hand the held-back list to the owner: summarise `review.md` (how many,
    the reasons, the official text next to the app text). Only when the
    owner decides an entry explicitly, edit it in `src/web/data/question.json`

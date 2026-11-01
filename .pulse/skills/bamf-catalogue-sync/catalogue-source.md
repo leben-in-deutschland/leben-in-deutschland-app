@@ -82,6 +82,18 @@ The official source for the test questions is the BAMF PDF
    order moved it to `d`. Look the solution up from `questionsData()`
    instead of hardcoding letters, counts, or texts that the catalogue can
    change.
+9. **Translations are keyed by letter, not by text.** Each question's
+   `translation.<lang>.a`–`d` sits under the letter of the German answer it
+   translates, and the practice screen's translation panel shows them by
+   letter. When the official answer order is adopted, every translation
+   letter must move with its answer - also when BAMF reworded that answer
+   (gender pairs swapped, "schwarz-gelb" → "schwarz-gold"). The first apply
+   on 2026-10-12 moved them only when all four answers matched verbatim
+   and left 44 questions (for example 15, 109, 149, HB-5, ST-5) with
+   translations under the wrong letter until 2026-11-01. Explanations
+   (`context`) that name a letter ("Option b, freie Wahlen") are free text:
+   no script rewrites them, so 19 of them still name the pre-2026-10-12
+   letter; that is an owner edit, not a pipeline step.
 
 ## When To Apply
 
