@@ -1,0 +1,14 @@
+title: Weekly exam-centre (Prüfstellen) check
+kind: watch
+script: scripts/watch-pruefstellen.sh
+every: weekly
+at: "05:30"
+tier: 0
+brief: >-
+  The scraper published a newer list of exam centres (Prüfstellen) than the
+  app bundles. Read the skill scraper-data-sync (`pulse skill show
+  scraper-data-sync`) and follow it for the source `pruefstellen`: write the
+  file with `node scripts/scraper-sync.mjs pruefstellen`, run the web tests,
+  commit the data file with the version bump as one `data:` commit, and finish
+  so the runner lands it. Never edit the data by hand; a validation error or a
+  red test suite is a report, not a workaround.

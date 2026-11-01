@@ -9,9 +9,10 @@ on:
   push:
     branches:
       - main
-    # Agent skills, store tooling and the native projects do not change the web app; skip the deploy for them.
+    # Agent skills, automations, store tooling and the native projects do not change the web app; skip the deploy for them.
     paths-ignore:
       - ".pulse/**"
+      - "scripts/**"
       - "src/store/**"
       - "src/android/**"
       - "src/ios/**"

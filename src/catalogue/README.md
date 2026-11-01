@@ -8,10 +8,13 @@ their answers and pictures, and compares them with the app's question file.
 The result is a review report and a proposed merged file. `apply.mjs` then
 carries the **safe part** of the proposal into `src/web/data/question.json`
 (texts whose solution follows an exact answer-text match); everything that
-needs a judgement call is held back and listed in `output/review.md`. The
-weekly workflow pushes the applied data to `main`, which starts the web
-deploy and the Android release, and opens a GitHub issue for the held-back
-questions (owner decision of 2026-10-12, see ADR-009).
+needs a judgement call is held back and listed in `output/review.md`. A
+daily PULSE watch (`.pulse/automations/bamf-catalogue-sync.yaml`) looks for
+a new catalogue without a model; when one appears, the agent job it queues
+applies the safe part, lands it on `main` (which deploys the web; the apps
+refresh the catalogue over the air) and hands the owner the held-back
+questions (owner decision of 2026-10-12, see ADR-009; the GitHub workflow
+that did this until 2026-11-01 is gone).
 
 ## What this is
 
@@ -22,6 +25,7 @@ Node built-ins (`fetch`, `node:crypto`, `node:zlib`).
 
 ```text
 src/catalogue/
+  watch.mjs                 The PULSE watch: prints the changed signals, or nothing; writes nothing, needs no pdfjs
   check.mjs                 Step 1+2: reads the "last updated" signals, downloads the PDF when it changed
   extract.mjs               Step 3: PDF -> data/bamf-catalogue.json + output/images/*.png, validates the result
   compare.mjs               Step 4: compares with src/web/data/question.json -> output/report.md + output/question.proposed.json
@@ -50,6 +54,7 @@ src/catalogue/
 Run everything from the repository root.
 
 ```bash
+node src/catalogue/watch.mjs           # did anything change? prints the changed signals, or nothing (the daily watch)
 node src/catalogue/sync.mjs            # check; extract + compare only when the PDF changed
 node src/catalogue/sync.mjs --force    # always download, extract, and compare
 node src/catalogue/sync.mjs --apply    # … and write the safe part into src/web/data/question.json
@@ -81,8 +86,9 @@ counts as `changed=false` (unless `--force`, which always reports
 written; if the landing page shows a new date or version anyway, a warning
 is printed and the PDF is downloaded unconditionally.
 
-When `GITHUB_OUTPUT` is set (GitHub Actions), `changed=true|false` and
-`stand=<dd.mm.yyyy>` are appended to that file.
+When `GITHUB_OUTPUT` is set, `changed=true|false` and `stand=<dd.mm.yyyy>`
+are appended to that file (a leftover of the retired GitHub workflow;
+nothing in the repository sets it any more).
 
 Exit codes: `0` whether or not something changed; `1` on errors (network,
 WAF redirect to an error page, a body that is not a PDF, unparsable landing
@@ -240,51 +246,54 @@ Ignored (`src/catalogue/output/`, see `.gitignore`):
 
 - `gesamtfragenkatalog.pdf` (about 9 MB), `gesamtfragenkatalog.txt`
 - `images/*.png` (about 100 files, 36 MB)
-- `report.md`, `review.md`, `question.proposed.json`, `issue-body.md`
+- `report.md`, `review.md`, `question.proposed.json`
 
-Applied by `apply.mjs` (committed by the workflow together with the files
-above): `src/web/data/question.json`, and – after `split-questions.js` –
+Applied by `apply.mjs` (committed by the automation job together with the
+files above): `src/web/data/question.json`, and – after `split-questions.js` –
 `src/web/data/questions-core.json` and `src/web/public/data/`.
 
-## GitHub Actions
+### `watch.mjs` – the daily watch
 
-`.github/workflows/sync-catalogue.yml` runs every Monday at 04:00 UTC and
-on demand (`workflow_dispatch` with the boolean input `force`). It installs
-`src/web` with `npm ci`, runs `check.mjs`, and – only when
-`changed == 'true'` –
+Reads the landing page's two signals and asks the PDF conditionally, like
+`check.mjs`, but writes nothing: no download to `output/`, no `state.json`
+rewrite, and the PDF is never opened, so it runs without `src/web/node_modules`.
+Diagnostics go to stderr; stdout carries only the change (`landing page
+date … -> …`, `download link version … -> …`, `PDF bytes changed: …`) or
+nothing. Exit `1` on the same errors as `check.mjs`. `scripts/watch-catalogue.sh`
+wraps it for PULSE.
 
-1. runs `extract.mjs`, `compare.mjs`, and `apply.mjs`, and uploads
-   `report.md`, `review.md`, and `question.proposed.json` as the artifact
-   `catalogue-review`;
-2. when at least one question was applied, runs
-   `node scripts/split-questions.js` and `npm test` in `src/web` – a red
-   test suite stops the run and nothing is pushed;
-3. stages `src/catalogue/state.json`, `src/catalogue/data/`,
-   `src/web/data/question.json`, `src/web/data/questions-core.json`, and
-   `src/web/public/data/`. When app data changed it bumps the patch
-   version (`npm version patch --no-git-tag-version`, the Android
-   `versionName`) and commits
-   `catalogue: BAMF Gesamtfragenkatalog Stand <stand> (<n> questions aligned)`;
-   when only the bookkeeping changed it commits
-   `catalogue: record BAMF Gesamtfragenkatalog Stand <stand> [skip ci]` so
-   that no release starts;
-4. pushes to the branch the run was started on (`main` for the schedule)
-   with the `PAT` secret (`actions/checkout` runs with
-   `persist-credentials: false`; three attempts, rebasing on the latest
-   branch in between). A push made with the repository's own
-   `GITHUB_TOKEN` never starts other workflows, so without the `PAT`
-   secret the commit lands but `vercel-deploy.yml` and
-   `android-release.yml` do not run – the step prints a warning in that
-   case. The committer comes from the `GIT_USER_NAME` / `GIT_USER_EMAIL`
-   secrets, falling back to `github-actions[bot]`;
-5. when questions were held back, opens one GitHub issue per `Stand`
-   (title `catalogue: <n> question(s) from the BAMF Gesamtfragenkatalog
-   Stand <stand> need a human`) with `review.md` as its body, cut at 60,000
-   characters when needed. An open issue for the same `Stand` is not
-   duplicated.
+## PULSE automation
 
-Secrets are passed through `env:` only and never printed. The workflow
-needs `contents: write` and `issues: write`.
+`.pulse/automations/bamf-catalogue-sync.yaml` is a PULSE **watch**: every
+day at 06:00 UTC the daemon runs `scripts/watch-catalogue.sh` in a fresh
+worktree of `main`, with no model. While the watcher prints nothing, nothing
+happens. When it prints the changed signals, the daemon queues one agent job
+whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sync/SKILL.md`):
+
+1. `cd src/web && npm ci`, then `node src/catalogue/check.mjs`,
+   `extract.mjs`, `compare.mjs`, `apply.mjs`;
+2. `node scripts/split-questions.js` and `npm test` in `src/web` – a red
+   test suite stops the job and nothing is committed;
+3. one commit holding `src/catalogue/state.json`, `src/catalogue/data/`,
+   `src/web/data/question.json`, `src/web/data/questions-core.json` and
+   `src/web/public/data/`, with the patch version bumped in
+   `src/web/package.json` and `package-lock.json` when app data changed
+   (`catalogue: BAMF Gesamtfragenkatalog Stand <stand> (<n> questions
+   aligned)`, or `catalogue: record BAMF Gesamtfragenkatalog Stand <stand>`
+   for bookkeeping only);
+4. the runner lands the commit on `main` after `scripts/check.sh`, and the
+   daemon pushes it; the push starts `vercel-deploy.yml`. The apps need no
+   build: they download `questions-core.json` over the air, and the
+   Android and iOS releases are started by hand;
+5. held-back questions reach the owner as a `question` post on the board
+   with the summary of `review.md`.
+
+`pulse schedule list --project leben-in-deutschland` shows the schedule,
+`pulse schedule log SCHED-NNN` the watcher's last output, `pulse schedule run
+SCHED-NNN` runs it now. A watcher that exits `1` three runs in a row (firewall,
+layout change) queues a job to fix the watcher. No secrets are involved: the
+watcher and the pipeline only `GET` public files, and the landing uses the
+daemon's own push credential.
 
 ## Rules
 
@@ -301,9 +310,9 @@ needs `contents: write` and `issues: write`.
 - **`question.json` is the single source of the shipped data.** Do not
   edit `questions-core.json` or `public/data/` by hand; regenerate them
   with `split-questions.js` and keep all three in the same commit. The
-  retired scraper sync (`sync-question.yml`, manual only) overwrites
-  `question.json` with a file that currently has duplicate numbers – do
-  not run it.
+  scraper's `question.json` has duplicate numbers and must never be copied
+  into the app again (the workflow that did, `sync-question.yml`, was
+  removed on 2026-11-01; the official PDF is the only source).
 - **GET only, no cookies.** The site is behind a WAF that rejects `HEAD`
   and sets session cookies. The scripts use plain and conditional `GET`
   with a descriptive User-Agent, a 60 s timeout and one retry, treat any
@@ -322,9 +331,9 @@ needs `contents: write` and `issues: write`.
 - `GET … was redirected (303, /error_path/400.html); the site's WAF may
   have blocked the request` or `the download is not a PDF` – the WAF
   answered with an error page (it does this for `HEAD`, for some automated
-  clients, or during maintenance). Retry later; if it persists from
-  GitHub-hosted runners, run `sync.mjs` locally and open the pull request
-  by hand.
+  clients, or during maintenance). Retry later; if it persists on the
+  machine the PULSE daemon runs on, run `sync.mjs` on another one and land
+  the branch by hand.
 - `GET … failed: fetch failed` or `… timed out` – network problem; one
   retry is built in, run again.
 - `! the response carried no validators; the stored ones were kept because
@@ -358,12 +367,13 @@ needs `contents: write` and `issues: write`.
   `questions-core.json`, then run `compare.mjs` and `apply.mjs` again.
 - `app question <num> (<id>) has no entry in the proposal; re-run
   compare.mjs` – the proposal is older than the question file.
-- The workflow's test step is red – the applied data broke a test. Download
-  the `catalogue-review` artifact, fix the data or the test on a branch,
-  and re-run the workflow with `force`. Nothing was pushed.
-- The push step warns `The PAT secret is missing` – the commit landed, but
-  the web deploy did not start. Add the `PAT` secret (a token that may
-  push to `main`) and run `vercel-deploy.yml` by hand once. The apps fetch
-  the catalogue over the air; `android-release.yml` is always manual.
+- `npm test` is red after `apply.mjs` – the applied data broke a test.
+  Read `output/report.md` and `output/review.md`, fix the test (one that
+  hard-codes a catalogue fact) or the data on a branch, and run the
+  pipeline again with `--force`. Nothing was committed.
+- The watch keeps printing the same change – the job it queued did not
+  land (`pulse schedule show SCHED-NNN` names the job). Finish or fix that
+  job; the next run of the watcher compares against the landed
+  `state.json`.
 - The issue body ends with "Cut here" – expected for long lists; download
   the `catalogue-review` artifact for the full `review.md`.
