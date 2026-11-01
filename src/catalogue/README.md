@@ -357,8 +357,8 @@ needs `contents: write` and `issues: write`.
   the `catalogue-review` artifact, fix the data or the test on a branch,
   and re-run the workflow with `force`. Nothing was pushed.
 - The push step warns `The PAT secret is missing` – the commit landed, but
-  the deploy workflows did not start. Add the `PAT` secret (a token that
-  may push to `main`) and run `vercel-deploy.yml` / `android-release.yml`
-  by hand once.
+  the web deploy did not start. Add the `PAT` secret (a token that may
+  push to `main`) and run `vercel-deploy.yml` by hand once. The apps fetch
+  the catalogue over the air; `android-release.yml` is always manual.
 - The issue body ends with "Cut here" – expected for long lists; download
   the `catalogue-review` artifact for the full `review.md`.

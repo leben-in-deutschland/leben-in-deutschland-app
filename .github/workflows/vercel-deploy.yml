@@ -9,14 +9,17 @@ on:
   push:
     branches:
       - main
-    # Agent skills and store tooling do not change the app; skip the build for them.
+    # Agent skills, store tooling and the native projects do not change the web app; skip the deploy for them.
     paths-ignore:
       - ".pulse/**"
       - "src/store/**"
+      - "src/android/**"
       - "src/ios/**"
       - "**.md"
+      - ".github/workflows/android-release.yml"
       - ".github/workflows/play-publish.yml"
       - ".github/workflows/ios-release.yml"
+      - ".github/workflows/app-store-publish.yml"
   workflow_dispatch:
 
 jobs:

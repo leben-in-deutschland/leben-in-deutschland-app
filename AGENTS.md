@@ -74,7 +74,9 @@ repository.
   request keystores, passwords, private keys, or encoded secret values.
 - iOS release signing: the app is `org.lebenindeutschland.app` as well, built
   and uploaded to TestFlight by `.github/workflows/ios-release.yml` (ADR-047,
-  PLAN-013). The Apple Distribution certificate (`.p12` and its password),
+  PLAN-013). Both app workflows (`android-release.yml`, `ios-release.yml`)
+  are started by hand; a merge to `main` deploys the web only, and the apps
+  refresh their catalogue over the air. The Apple Distribution certificate (`.p12` and its password),
   the App Store Connect API key (`.p8`, key id, issuer id) and the Team ID
   live in the owner's password manager and reach GitHub Actions only as the
   secrets `IOS_DIST_CERT_P12_BASE64`, `IOS_DIST_CERT_PASSWORD`,

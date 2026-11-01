@@ -101,8 +101,9 @@ in `play-billing.md` beside this file.
      `products-list`, `products-apply`, `listing-validate-texts`, or
      `listing-apply-texts`. Screenshots and the feature graphic are pushed
      from a laptop only, because they are rendered locally.
-6. Release (gate open, or automatic): every push to `main` runs the
-   `play-internal` job of **Android Release**, which uploads the signed
+6. Release (gate open, or automatic): every run of **Android Release**
+   (Actions → Run workflow; it is not started by pushes) ends with the
+   `play-internal` job, which uploads the signed
    `leben-in-deutschland-v<version>-<code>.aab` to Internal testing with
    `node src/store/play-release.mjs --aab <file> --apply`. From a laptop the
    same command works on the bundle attached to the GitHub release; the dry
