@@ -1,0 +1,5 @@
+title: Weekly BAMF catalogue check
+every: weekly
+at: "06:00"
+skill: bamf-catalogue-sync
+brief: Run the weekly catalogue workflow - check whether BAMF updated the Gesamtfragenkatalog, apply the safe part to the app's questions and hand the owner the held-back ones.
