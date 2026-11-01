@@ -46,6 +46,11 @@ describe("resolveBackAction", () => {
         expect(resolveBackAction({ ...base, pathname: "/prepare.html?action=review" })).toEqual({ type: "navigate", path: "/practice" });
     });
 
+    it("returns a settings page to the settings hub", () => {
+        expect(resolveBackAction({ ...base, pathname: "/settings/notifications.html" })).toEqual({ type: "navigate", path: "/settings" });
+        expect(resolveBackAction({ ...base, pathname: "/settings/profile" })).toEqual({ type: "navigate", path: "/settings" });
+    });
+
     it("walks the history elsewhere and falls back to home when there is none", () => {
         expect(resolveBackAction({ ...base, pathname: "/somewhere.html" })).toEqual({ type: "history" });
         expect(resolveBackAction({ ...base, pathname: "/somewhere.html", canGoBack: false })).toEqual({ type: "navigate", path: "/dashboard" });

@@ -120,7 +120,7 @@ describe("thanks dialog", () => {
         expect(mocks.loadTipProducts).toHaveBeenCalledTimes(1);
         click(t.home_thanks_tip);
         await flush();
-        expect(mocks.navigate).toHaveBeenCalledWith("/settings#support");
+        expect(mocks.navigate).toHaveBeenCalledWith("/settings/support");
         expect(storedAsk()?.asks).toBe(1);
     });
 

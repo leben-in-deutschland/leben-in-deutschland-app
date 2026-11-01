@@ -63,7 +63,7 @@ export function ThanksDialog({ user, streakCurrent, t, delayMs = THANKS_DIALOG_D
 
     const tip = () => {
         close();
-        navigate("/settings#support");
+        navigate("/settings/support");
     };
 
     return (

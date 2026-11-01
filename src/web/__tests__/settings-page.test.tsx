@@ -1,16 +1,19 @@
 /*
- * Renders the real /settings page in jsdom with a record written by version
- * 2.0 (no preferences, no onboarding flag) and checks that every change goes
- * through the store without disturbing the legacy fields.
+ * Renders the real settings pages in jsdom - the hub at /settings and the
+ * section pages at /settings/<id> - with a record written by version 2.0 (no
+ * preferences, no onboarding flag) and checks that every change goes through
+ * the store without disturbing the legacy fields.
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { User } from "@/types/user";
+import type { SettingsSectionId } from "@/components/preferences/settings-sections";
 
+const router = vi.hoisted(() => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }));
 vi.mock("next/navigation", () => ({
     useSearchParams: () => new URLSearchParams(window.location.search),
-    useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
+    useRouter: () => router,
     usePathname: () => "/settings",
 }));
 
@@ -89,16 +92,34 @@ function setValue(input: HTMLInputElement, value: string) {
     });
 }
 
-async function mount(hash = "") {
-    window.history.replaceState({}, "", `/settings${hash}`);
-    const { default: SettingsPage } = await import("@/app/settings/page");
+async function render(node: React.ReactNode) {
     container = document.createElement("div");
     document.body.appendChild(container);
     root = createRoot(container);
     await act(async () => {
-        root!.render(<SettingsPage />);
+        root!.render(node);
     });
     await flush();
+}
+
+/** The hub at /settings, optionally opened with a legacy hash. */
+async function mountHub(hash = "") {
+    window.history.replaceState({}, "", `/settings${hash}`);
+    const { default: SettingsPage } = await import("@/app/settings/page");
+    await render(<SettingsPage />);
+}
+
+/** One or more section pages (/settings/<id>), stacked so a test can cross sections. */
+async function mount(...sections: SettingsSectionId[]) {
+    window.history.replaceState({}, "", `/settings/${sections[0]}`);
+    const { SettingsSectionScreen } = await import("@/components/preferences/settings-section-screen");
+    await render(
+        <>
+            {sections.map((section) => (
+                <SettingsSectionScreen key={section} section={section} />
+            ))}
+        </>,
+    );
 }
 
 beforeEach(() => {
@@ -107,6 +128,7 @@ beforeEach(() => {
     window.localStorage.setItem("user", JSON.stringify(LEGACY_USER));
     tipJar.supported = false;
     tipJar.products = [];
+    router.replace.mockReset();
     window.matchMedia = window.matchMedia ?? ((query: string) => ({ matches: false, media: query, onchange: null, addListener: vi.fn(), removeListener: vi.fn(), addEventListener: vi.fn(), removeEventListener: vi.fn(), dispatchEvent: vi.fn() } as any));
     (globalThis as any).ResizeObserver = (globalThis as any).ResizeObserver ?? class { observe() {} unobserve() {} disconnect() {} };
     (globalThis as any).IntersectionObserver = (globalThis as any).IntersectionObserver ?? class { observe() {} unobserve() {} disconnect() {} takeRecords() { return []; } };
@@ -124,25 +146,68 @@ afterEach(async () => {
     document.body.innerHTML = "";
 });
 
-describe("settings page smoke", () => {
-    it("renders every section in German for a legacy record", async () => {
-        await mount();
-        for (const heading of ["Profil", "Üben", "Prüfung", "Serie", "Mitteilungen", "Deine Daten", "Über die App"]) {
+describe("settings hub", () => {
+    it("lists every section with its current value and links to its page", async () => {
+        await mountHub();
+        for (const heading of ["Profil", "Üben", "Prüfung", "Serie", "Benachrichtigungen", "Design", "Deine Daten", "Über die App"]) {
             expect(text()).toContain(heading);
         }
-        expect(text()).toContain("Berlin");
+        expect(text()).toContain("Berlin · Deutsch");
         expect(text()).toContain("10 Fragen pro Tag");
-        for (const id of ["exam", "streak", "notifications"]) {
-            expect(document.getElementById(id)).not.toBeNull();
-        }
-        // Reminders live in the Android app; the web shows a note and the weekly tips switch.
-        expect(text()).toContain("nur in der Android-App");
+        expect(text()).toContain("Nicht festgelegt");
+        expect(text()).toContain("Jedes Üben · keine Ruhetage");
+        expect(text()).toContain("In der Android- und iPhone-App");
+        const hrefs = Array.from(container!.querySelectorAll("a[href^='/settings/']")).map((a) => a.getAttribute("href"));
+        expect(hrefs).toEqual(["/settings/profile", "/settings/practice", "/settings/exam", "/settings/streak", "/settings/notifications", "/settings/design", "/settings/data", "/settings/about"]);
+        // The tip jar is a store feature; the web has no row for it.
+        expect(text()).not.toContain("Trinkgeld");
+        // No section content on the hub itself.
+        expect(document.querySelector('[role="radiogroup"][aria-label="Tagesziel"]')).toBeNull();
+        expect(document.getElementById("settings-exam-date")).toBeNull();
+    });
+
+    it("forwards a legacy hash to the section page", async () => {
+        await mountHub("#notifications");
+        expect(router.replace).toHaveBeenCalledWith("/settings/notifications");
+    });
+
+    it("forwards the header heart (#support) to the support page", async () => {
+        await mountHub("#support");
+        expect(router.replace).toHaveBeenCalledWith("/settings/support");
+    });
+
+    it("ignores an unknown hash", async () => {
+        await mountHub("#nowhere");
+        expect(router.replace).not.toHaveBeenCalled();
+    });
+});
+
+describe("settings section pages", () => {
+    it("renders a section with the page title and a way back", async () => {
+        await mount("notifications");
+        expect(document.querySelector("h1#notifications-heading")?.textContent).toBe("Benachrichtigungen");
+        expect(container!.querySelector('a[href="/settings"]')?.textContent).toContain("Einstellungen");
+        // One heading only: the section does not repeat it.
+        expect(document.querySelectorAll("h1, h2").length).toBe(1);
+        // Reminders live in the apps; the web shows a note and the weekly tips switch.
+        expect(text()).toContain("nur in der Android- und iPhone-App");
         expect(text()).toContain("Wöchentliche Tipps");
+    });
+
+    it("shows the version on the about page", async () => {
+        await mount("about");
         expect(text()).toContain("Version");
     });
 
+    it("tells the web that the tip jar is a store feature", async () => {
+        tipJar.supported = true;
+        await mount("support");
+        expect(text()).toContain("Dieser Bereich ist hier nicht verfügbar.");
+        expect(document.getElementById("support")).toBeNull();
+    });
+
     it("writes preference changes without touching legacy fields", async () => {
-        await mount();
+        await mount("practice", "profile", "streak");
         expect(stored().preferences).toBeUndefined();
 
         click(byText('[role="radiogroup"][aria-label="Tagesziel"] button', "20"));
@@ -177,7 +242,7 @@ describe("settings page smoke", () => {
     });
 
     it("keeps the streak rules folded until asked", async () => {
-        await mount();
+        await mount("streak", "notifications");
         const toggle = foldOut("streak");
         expect(toggle?.getAttribute("aria-expanded")).toBe("false");
         expect(document.querySelector('#streak [role="region"]')).toBeNull();
@@ -187,7 +252,7 @@ describe("settings page smoke", () => {
         expect(document.querySelector('[role="radiogroup"][aria-label="Was als Serientag zählt"]')).toBeNull();
         expect(document.querySelector('[role="group"][aria-label="Ruhetage"]')).toBeNull();
         expect(text()).not.toContain("Serienschutz");
-        // The web never shows the reminders fold-out; only the Android app has reminders.
+        // The web never shows the reminders fold-out; only the apps have reminders.
         expect(foldOut("notifications")).toBeNull();
 
         click(toggle);
@@ -211,7 +276,7 @@ describe("settings page smoke", () => {
     });
 
     it("stores the exam date as a day key on the record and clears it again", async () => {
-        await mount();
+        await mount("exam");
         const input = document.getElementById("settings-exam-date") as HTMLInputElement;
         expect(input).not.toBeNull();
         setValue(input, "2099-01-15");
@@ -226,7 +291,7 @@ describe("settings page smoke", () => {
     });
 
     it("start over keeps state and settings but clears progress", async () => {
-        await mount();
+        await mount("practice", "data");
         click(byText('[role="radiogroup"][aria-label="Tagesziel"] button', "33"));
         await flush();
         click(byText("button span", "Von vorne beginnen")?.closest("button"));
@@ -241,51 +306,12 @@ describe("settings page smoke", () => {
         expect(after.preferences?.dailyGoal).toBe(33);
     });
 
-    it("scrolls to the section named in the hash", async () => {
-        await mount("#notifications");
-        await act(async () => {
-            await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
-        });
-        expect(Element.prototype.scrollIntoView).toHaveBeenCalled();
-    });
-
-    it("waits for the support section when the heart opens /settings#support before Google Play answered", async () => {
-        tipJar.supported = true;
-        tipJar.products = [{ id: "tip_small", name: "Kaffee", price: "1,99 €" }];
-        await mount("#support");
-        await act(async () => {
-            await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
-        });
-        expect(document.getElementById("support")).toBeNull();
-        expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
-
-        act(() => tipJar.releaseProducts());
-        await flush();
-        const section = document.getElementById("support");
-        expect(section).not.toBeNull();
-        expect(Element.prototype.scrollIntoView).toHaveBeenCalledTimes(1);
-        expect((Element.prototype.scrollIntoView as ReturnType<typeof vi.fn>).mock.instances[0]).toBe(section);
-        expect(document.activeElement?.id).toBe("support-heading");
-    });
-
-    it("gives up quietly when the section never appears", async () => {
-        tipJar.supported = true;
-        await mount("#support");
-        await act(async () => {
-            await new Promise((resolve) => requestAnimationFrame(() => resolve(null)));
-        });
-        act(() => tipJar.releaseProducts()); // Google Play answered with no products: the section stays hidden
-        await flush();
-        expect(document.getElementById("support")).toBeNull();
-        expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
-    });
-
-    it("switches the app language from the profile section", async () => {
-        await mount();
+    it("switches the app language from the profile page", async () => {
+        await mount("profile");
         click(byText('[role="radiogroup"][aria-label="App-Sprache"] button', "English"));
         await flush();
         expect(text()).toContain("Settings");
-        expect(text()).toContain("Daily goal");
+        expect(text()).toContain("App language");
         expect(stored().appLanguage).toBe("en");
     });
 });

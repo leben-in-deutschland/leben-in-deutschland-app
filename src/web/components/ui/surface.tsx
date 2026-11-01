@@ -69,15 +69,17 @@ type PageHeaderProps = {
     /** Small element above the title, e.g. a back link. */
     leading?: ReactNode;
     className?: string;
+    /** id for the h1, so a section can point `aria-labelledby` at it. */
+    titleId?: string;
 };
 
 /** Top of a page: one clear title and a short sentence about the page. */
-export function PageHeader({ title, description, actions, leading, className }: PageHeaderProps) {
+export function PageHeader({ title, description, actions, leading, className, titleId }: PageHeaderProps) {
     return (
         <header className={clsx("flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between", className)}>
             <div className="min-w-0">
                 {leading ? <div className="mb-2">{leading}</div> : null}
-                <h1 className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[2.5rem]">{title}</h1>
+                <h1 id={titleId} className="font-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[2.5rem]">{title}</h1>
                 {description ? <p className="mt-1.5 max-w-2xl text-[0.9375rem] text-default-500 sm:text-base">{description}</p> : null}
             </div>
             {actions ? <div className="flex shrink-0 flex-wrap gap-2">{actions}</div> : null}

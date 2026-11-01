@@ -60,9 +60,9 @@
     "settings_streak_summary_freezes_one": "{count} Serienschutz",
     "settings_streak_summary_freezes_other": "{count} Serienschutz",
     "settings_streak_link": "Serie und Kalender ansehen",
-    "settings_notifications_web": "Erinnerungen auf dem Handy gibt es nur in der Android-App. Die Mitteilungen unter dem Glockensymbol funktionieren auch hier.",
+    "settings_notifications_web": "Erinnerungen auf dem Handy gibt es nur in der Android- und iPhone-App. Die Mitteilungen unter dem Glockensymbol funktionieren auch hier.",
     "settings_notifications_master": "Erinnerungen",
-    "settings_notifications_master_hint": "Android-Benachrichtigungen dieser App",
+    "settings_notifications_master_hint": "Benachrichtigungen dieser App auf diesem Gerät",
     "settings_permission_granted": "Erlaubt",
     "settings_permission_denied": "Blockiert",
     "settings_permission_prompt": "Noch nicht gefragt",
@@ -128,5 +128,14 @@
     "settings_support_thanked_other": "Du hast {count}-mal Trinkgeld gegeben. Danke!",
     "settings_support_pending": "Deine Zahlung wird noch geprüft. Das Trinkgeld wird gezählt, sobald sie bestätigt ist.",
     "settings_support_failed": "Das hat leider nicht geklappt. Bitte versuch es später noch einmal.",
-    "settings_support_via_play": "Trinkgelder werden sicher abgewickelt ({store}) und schalten nichts frei. Die App bleibt für alle gleich."
+    "settings_support_via_play": "Trinkgelder werden sicher abgewickelt ({store}) und schalten nichts frei. Die App bleibt für alle gleich.",
+    "settings_hub_group_learning": "Lernen",
+    "settings_hub_group_motivation": "Dranbleiben",
+    "settings_hub_group_app": "App",
+    "settings_hub_session_size": "{count} pro Runde",
+    "settings_hub_notifications_web": "In der Android- und iPhone-App",
+    "settings_hub_notifications_off": "Aus",
+    "settings_hub_data": "Exportieren, importieren, von vorne beginnen",
+    "settings_hub_support": "Trinkgeld geben",
+    "settings_hub_unavailable": "Dieser Bereich ist hier nicht verfügbar."
 }

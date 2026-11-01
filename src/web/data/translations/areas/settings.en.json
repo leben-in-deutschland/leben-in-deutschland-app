@@ -60,9 +60,9 @@
     "settings_streak_summary_freezes_one": "{count} freeze",
     "settings_streak_summary_freezes_other": "{count} freezes",
     "settings_streak_link": "See your streak and calendar",
-    "settings_notifications_web": "Reminders on your phone are only available in the Android app. In-app notifications under the bell icon work here too.",
+    "settings_notifications_web": "Reminders on your phone are only available in the Android and iPhone app. In-app notifications under the bell icon work here too.",
     "settings_notifications_master": "Reminders",
-    "settings_notifications_master_hint": "Android notifications from this app",
+    "settings_notifications_master_hint": "Notifications from this app on this device",
     "settings_permission_granted": "Allowed",
     "settings_permission_denied": "Blocked",
     "settings_permission_prompt": "Not asked yet",
@@ -128,5 +128,14 @@
     "settings_support_thanked_other": "You have tipped {count} times. Thank you!",
     "settings_support_pending": "Your payment is still being checked. The tip is counted once it is confirmed.",
     "settings_support_failed": "That did not work. Please try again later.",
-    "settings_support_via_play": "Tips are processed securely by {store} and unlock nothing. The app stays the same for everyone."
+    "settings_support_via_play": "Tips are processed securely by {store} and unlock nothing. The app stays the same for everyone.",
+    "settings_hub_group_learning": "Learning",
+    "settings_hub_group_motivation": "Keeping at it",
+    "settings_hub_group_app": "App",
+    "settings_hub_session_size": "{count} per session",
+    "settings_hub_notifications_web": "In the Android and iPhone app",
+    "settings_hub_notifications_off": "Off",
+    "settings_hub_data": "Export, import, start over",
+    "settings_hub_support": "Leave a tip",
+    "settings_hub_unavailable": "This section is not available here."
 }

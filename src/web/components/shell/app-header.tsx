@@ -69,7 +69,7 @@ function TipLink() {
     const t = useTranslations();
     return (
         <AppLink
-            href="/settings#support"
+            href="/settings/support"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full text-danger-500 transition-colors hover:bg-danger-50 dark:text-danger-400"
             aria-label={t.tip_button_aria}
         >
