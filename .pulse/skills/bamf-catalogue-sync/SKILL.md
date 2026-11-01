@@ -87,10 +87,10 @@ daemon queue one agent job whose brief is this skill.
      still open until the owner decides it: `compare.mjs` and
      `apply.mjs --dry-run` work offline on the committed
      `data/bamf-catalogue.json` and rebuild `review.md` without a
-     download (step 5 and the first line of step 6). The workflow opens
-     its GitHub issue only on a changed PDF, so on a quiet week the
-     board thread is where the owner finds the list - post it once and
-     point to that post afterwards instead of reposting it every week.
+     download (step 5 and the first line of step 6). The daily watch
+     queues a job only on a changed catalogue, so the board thread is
+     where the owner finds the list - post it once and point to that post
+     afterwards instead of reposting it.
    - `changed=true`: the script already saved the new PDF to
      `src/catalogue/output/gesamtfragenkatalog.pdf` and rewrote
      `src/catalogue/state.json`. Continue with step 4. A new page date or
