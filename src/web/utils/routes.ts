@@ -9,6 +9,11 @@
 export const TAB_ROUTES = ["/dashboard", "/practice", "/mock", "/progress", "/settings"] as const;
 export const APP_ROUTES = [...TAB_ROUTES, "/prepare"] as const;
 
+/** "/settings/<section>": a settings sub-page (the hub lists them). */
+export function isSettingsSubpage(pathname: string | null | undefined): boolean {
+    return /^\/settings\/[a-z-]+$/.test(normalizePath(pathname));
+}
+
 /** "/dashboard.html" -> "/dashboard", "/practice/" -> "/practice", "/index.html" -> "/". */
 export function normalizePath(pathname: string | null | undefined): string {
     if (!pathname) {
@@ -29,7 +34,7 @@ export function normalizePath(pathname: string | null | undefined): string {
 
 export function isAppRoute(pathname: string | null | undefined): boolean {
     const path = normalizePath(pathname);
-    return (APP_ROUTES as readonly string[]).includes(path);
+    return (APP_ROUTES as readonly string[]).includes(path) || isSettingsSubpage(path);
 }
 
 /** Learner screens that hide the tab bar and header for focus. */
@@ -42,6 +47,9 @@ export function activeTab(pathname: string | null | undefined): (typeof TAB_ROUT
     const path = normalizePath(pathname);
     if (path === "/prepare") {
         return "/practice";
+    }
+    if (isSettingsSubpage(path)) {
+        return "/settings";
     }
     return (TAB_ROUTES as readonly string[]).includes(path) ? (path as (typeof TAB_ROUTES)[number]) : null;
 }

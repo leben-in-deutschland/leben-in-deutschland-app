@@ -2,7 +2,7 @@
 
 import { Switch } from "@heroui/react";
 import clsx from "clsx";
-import type { ChangeEvent, ComponentProps, ReactNode } from "react";
+import { createContext, useContext, type ChangeEvent, type ComponentProps, type ReactNode } from "react";
 import { FoldOut } from "@/components/ui/fold-out";
 import { IconBadge, type Accent } from "@/components/ui/icon-badge";
 import type { IconComponent } from "@/components/ui/icons";
@@ -23,11 +23,23 @@ type SettingsSectionProps = {
     footer?: ReactNode;
 };
 
+/**
+ * True while a section is the whole page (`/settings/<id>`): the page header
+ * carries the title as `<h1 id="<id>-heading">`, so the section draws no
+ * heading of its own and the sheet starts right under the header.
+ */
+export const StandaloneSectionContext = createContext(false);
+
 /** A heading plus a white sheet with divided rows. `id` makes the section a hash target. */
 export function SettingsSection({ id, title, description, action, children, footer }: SettingsSectionProps) {
+    const standalone = useContext(StandaloneSectionContext);
     return (
         <section id={id} aria-labelledby={id ? `${id}-heading` : undefined} className="scroll-mt-24 space-y-3">
-            <SectionHeading id={id ? `${id}-heading` : undefined} title={title} description={description} action={action} />
+            {standalone ? (
+                action ? <div className="flex justify-end">{action}</div> : null
+            ) : (
+                <SectionHeading id={id ? `${id}-heading` : undefined} title={title} description={description} action={action} />
+            )}
             <Surface padding="none" className="divide-y divide-divider overflow-hidden">
                 {children}
             </Surface>

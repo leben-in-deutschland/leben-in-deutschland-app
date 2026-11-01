@@ -1,11 +1,12 @@
 /*
- * Renders /settings as the Android app sees it: Capacitor reports a native
- * platform and the notification service is mocked, so the permission flow of
- * the reminders switch can be checked.
+ * Renders the settings pages as the Android app sees them: Capacitor reports
+ * a native platform and the notification service is mocked, so the permission
+ * flow of the reminders switch can be checked.
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import type { SettingsSectionId } from "@/components/preferences/settings-sections";
 import type { ReminderPreferences, User } from "@/types/user";
 import { DEFAULT_PREFERENCES } from "@/utils/user-defaults";
 
@@ -108,16 +109,33 @@ function setValue(input: HTMLInputElement, value: string) {
     });
 }
 
-async function mount() {
-    window.history.replaceState({}, "", "/settings");
-    const { default: SettingsPage } = await import("@/app/settings/page");
+async function render(node: React.ReactNode) {
     container = document.createElement("div");
     document.body.appendChild(container);
     root = createRoot(container);
     await act(async () => {
-        root!.render(<SettingsPage />);
+        root!.render(node);
     });
     await flush();
+}
+
+async function mountHub() {
+    window.history.replaceState({}, "", "/settings");
+    const { default: SettingsPage } = await import("@/app/settings/page");
+    await render(<SettingsPage />);
+}
+
+/** One or more section pages, stacked so a test can cross sections. */
+async function mount(...sections: SettingsSectionId[]) {
+    window.history.replaceState({}, "", `/settings/${sections[0]}`);
+    const { SettingsSectionScreen } = await import("@/components/preferences/settings-section-screen");
+    await render(
+        <>
+            {sections.map((section) => (
+                <SettingsSectionScreen key={section} section={section} />
+            ))}
+        </>,
+    );
 }
 
 beforeEach(() => {
@@ -142,22 +160,35 @@ afterEach(async () => {
 });
 
 describe("settings page in the Android app", () => {
+    it("summarises the reminders on the hub", async () => {
+        window.localStorage.setItem("user", JSON.stringify(record(true)));
+        await mountHub();
+        expect(text()).toContain("6 von 6 aktiv");
+        expect(text()).not.toContain("In der Android- und iPhone-App");
+        window.localStorage.setItem("user", JSON.stringify(record(false)));
+        await act(async () => root!.unmount());
+        root = null;
+        container?.remove();
+        await mountHub();
+        expect(text()).toContain("Aus");
+    });
+
     it("shows Android-only rows", async () => {
         window.localStorage.setItem("user", JSON.stringify(record(true)));
-        await mount();
+        await mount("practice", "about", "notifications");
         expect(text()).toContain("Vibration");
         expect(text()).toContain("App bewerten");
         expect(text()).toContain("Noch nicht gefragt");
         expect(text()).toContain("Erinnerungen");
         expect(text()).toContain("Testbenachrichtigung senden");
-        expect(text()).not.toContain("nur in der Android-App");
+        expect(text()).not.toContain("nur in der Android- und iPhone-App");
         const playStore = container!.querySelector('a[href^="https://play.google.com/"]');
         expect(playStore?.getAttribute("target")).toBe("_blank");
     });
 
     it("keeps both fold-outs closed until asked", async () => {
         window.localStorage.setItem("user", JSON.stringify(record(true)));
-        await mount();
+        await mount("notifications", "streak");
         for (const section of ["notifications", "streak"]) {
             expect(foldOut(section)?.getAttribute("aria-expanded")).toBe("false");
             expect(foldOutRegion(section)).toBeNull();
@@ -193,7 +224,7 @@ describe("settings page in the Android app", () => {
             "user",
             JSON.stringify(record(true, { streak: false, weekly: false, examCountdown: false, mockNudge: false, comeback: false })),
         );
-        await mount();
+        await mount("notifications");
         expect(text()).toContain("1 von 6 aktiv");
 
         click(foldOut("notifications"));
@@ -218,7 +249,7 @@ describe("settings page in the Android app", () => {
     it("keeps reminders off when Android denies the permission", async () => {
         window.localStorage.setItem("user", JSON.stringify(record(false)));
         mocks.requestNotificationPermission.mockResolvedValue("denied");
-        await mount();
+        await mount("notifications");
         expect(switchFor("Erinnerungen").checked).toBe(false);
         expect(foldOut("notifications")).toBeNull();
 
@@ -235,7 +266,7 @@ describe("settings page in the Android app", () => {
 
     it("turns reminders on after the permission is granted and saves times", async () => {
         window.localStorage.setItem("user", JSON.stringify(record(false)));
-        await mount();
+        await mount("notifications");
         expect(foldOut("notifications")).toBeNull();
         click(switchFor("Erinnerungen"));
         await flush();

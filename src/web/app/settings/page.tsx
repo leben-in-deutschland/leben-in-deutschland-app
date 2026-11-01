@@ -1,8 +1,8 @@
 "use client";
 
-import { SettingsScreen } from "@/components/preferences/settings-screen";
+import { SettingsHub } from "@/components/preferences/settings-hub";
 
-/** Settings: profile, practice habits, exam, streak, reminders, data, and about. */
+/** Settings hub: one row per section (profile, practice, exam, streak, reminders, design, data, support, about). */
 export default function SettingsPage() {
-    return <SettingsScreen />;
+    return <SettingsHub />;
 }

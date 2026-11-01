@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { App } from "@capacitor/app";
 import { Capacitor } from "@capacitor/core";
 import { useAppNavigate } from "@/components/ui/app-link";
-import { activeTab, normalizePath } from "@/utils/routes";
+import { activeTab, isSettingsSubpage, normalizePath } from "@/utils/routes";
 
 /**
  * Android hardware back button.
@@ -17,8 +17,9 @@ import { activeTab, normalizePath } from "@/utils/routes";
  * 1. an open dialog or sheet closes (Escape, the same key the web uses),
  * 2. the current screen may take over through `useBackButton`,
  * 3. otherwise the route decides: home minimizes the app, the other tabs
- *    return home, a practice session returns to its hub, and anything else
- *    walks the history when it can.
+ *    return home, a practice session returns to its hub, a settings page
+ *    returns to the settings hub, and anything else walks the history when
+ *    it can.
  */
 
 /** Dispatched on `window` before the default handling; `preventDefault()` claims the press. */
@@ -50,6 +51,9 @@ export function resolveBackAction(input: {
     }
     if (path === "/prepare") {
         return { type: "navigate", path: "/practice" };
+    }
+    if (isSettingsSubpage(path)) {
+        return { type: "navigate", path: "/settings" };
     }
     if (activeTab(path) !== null) {
         return { type: "navigate", path: "/dashboard" };

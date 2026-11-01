@@ -939,7 +939,7 @@ describe("planTestNotification", () => {
             expect(planTestNotification(user, T, now)).toEqual({
                 title: "T(notif_test_title)",
                 body: "T(notif_test_body)",
-                route: "/settings",
+                route: "/settings/notifications",
             });
         }
     });

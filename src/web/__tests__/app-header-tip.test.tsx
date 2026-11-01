@@ -103,7 +103,7 @@ describe("header tip button", () => {
         await mount();
         const link = tipLink();
         expect(link).not.toBeNull();
-        expect(link!.getAttribute("href")).toBe("/settings.html#support");
+        expect(link!.getAttribute("href")).toBe("/settings/support.html");
         expect(headerLabels()).toEqual(["Trinkgeld", "Serie", "Benachrichtigungen"]);
         const title = Array.from(document.querySelectorAll("header span span")).find((el) => el.textContent === "Leben in Deutschland");
         expect(title?.className).toContain("max-[383px]:sr-only");

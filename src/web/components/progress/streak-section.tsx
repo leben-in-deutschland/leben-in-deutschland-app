@@ -68,7 +68,7 @@ export function StreakSection({ user, today }: StreakSectionProps) {
                 title={t.pass_streak}
                 description={prefs.streakRule === "goal" ? fmt(t.progress_streak_rule_goal, { goal: prefs.dailyGoal }) : t.progress_streak_rule_activity}
                 action={
-                    <LinkButton href="/settings" variant="light" size="sm" aria-label={t.progress_streak_settings}>
+                    <LinkButton href="/settings/streak" variant="light" size="sm" aria-label={t.progress_streak_settings}>
                         <SettingsIcon size={16} />
                         <span className="hidden sm:inline">{t.progress_streak_settings}</span>
                     </LinkButton>

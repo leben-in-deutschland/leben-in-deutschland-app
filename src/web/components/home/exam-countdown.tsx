@@ -30,7 +30,7 @@ export function ExamCountdownCard({ countdown, language, t, onClear, className, 
         return (
             <Surface as="section" padding="none" className={clsx("overflow-hidden", className)} style={style} aria-label={t.home_exam_add_title}>
                 <ListRow
-                    href="/settings"
+                    href="/settings/exam"
                     leading={<IconBadge icon={CalendarIcon} accent="default" />}
                     title={t.home_exam_add_title}
                     description={t.home_exam_add_body}
@@ -88,7 +88,7 @@ export function ExamCountdownCard({ countdown, language, t, onClear, className, 
                         {t.home_exam_clear}
                     </Button>
                 ) : null}
-                <Button as={AppLink} href="/settings" variant={past ? "flat" : "light"} color="primary" className="h-11 font-medium">
+                <Button as={AppLink} href="/settings/exam" variant={past ? "flat" : "light"} color="primary" className="h-11 font-medium">
                     {t.home_exam_change}
                 </Button>
             </div>

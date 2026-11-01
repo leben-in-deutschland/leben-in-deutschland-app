@@ -303,7 +303,7 @@ export function planTestNotification(user: User | null | undefined, t: Translati
     return {
         title: translate(t, "notif_test_title"),
         body: translate(t, "notif_test_body"),
-        route: "/settings",
+        route: "/settings/notifications",
     };
 }
 
