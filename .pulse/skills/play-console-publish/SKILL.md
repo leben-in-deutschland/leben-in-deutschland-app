@@ -47,7 +47,7 @@ in `play-billing.md` beside this file.
 
 ## Procedure
 
-1. Print the sandbox line, then read `src/store/README.md` section
+1. Read `src/store/README.md` section
    "Google Play from the command line" and `play-billing.md` beside this
    file. Note the current `main` SHA and `git status` as the rollback
    baseline.

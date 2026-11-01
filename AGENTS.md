@@ -133,24 +133,6 @@ public files. The scraper's `question.json` is never copied into the app
   are); use placeholders such as `<device-serial>` or `<project>`. Commit
   with the GitHub noreply address.
 
-## Sandbox Recommendation
-
-Before every task that may use tools or execute code, begin each tool-backed
-response with:
-
-```text
-⚠️ SANDBOX RECOMMENDED — use the GitHub Copilot CLI sandbox when available; state clearly if execution is unsandboxed. Docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli#running-copilot-cli-commands-in-a-sandbox
-```
-
-The warning recommends isolation but does not prove it. Prefer and inspect the
-native local sandbox with `/sandbox enable`, `/sandbox status`, and
-`/sandbox policy`, or start with `copilot --sandbox`. Keep access limited to
-this working tree and isolated temporary/cache paths; deny unrelated home,
-secret, credential, keychain, and system paths; allow network, GitHub
-credentials, MCP, or LSP only when the task needs that narrow capability. If
-no sandbox is active, state that execution is unsandboxed and continue under
-normal permissions. Do not automatically disable or bypass an active sandbox.
-
 ## Rollback Planning
 
 Every task that changes tracked files, dependencies, configuration, schemas,

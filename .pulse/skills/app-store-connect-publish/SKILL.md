@@ -35,7 +35,7 @@ PLAN-013); the Play twin is the `play-console-publish` skill.
 
 ## Procedure
 
-1. Print the sandbox line, then read `src/store/README.md` section
+1. Read `src/store/README.md` section
    "App Store Connect from the command line" and the "App Store Connect"
    upload checklist. Note the current `main` SHA and `git status` as the
    rollback baseline.
