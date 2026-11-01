@@ -1,5 +1,15 @@
-title: Weekly BAMF catalogue check
-every: weekly
+title: Daily BAMF catalogue check
+kind: watch
+script: scripts/watch-catalogue.sh
+every: daily
 at: "06:00"
-skill: bamf-catalogue-sync
-brief: Run the weekly catalogue workflow - check whether BAMF updated the Gesamtfragenkatalog, apply the safe part to the app's questions and hand the owner the held-back ones.
+brief: >-
+  bamf.de shows a newer Gesamtfragenkatalog than src/catalogue/state.json
+  records. Read the skill bamf-catalogue-sync (`pulse skill show
+  bamf-catalogue-sync`) and follow it: `cd src/web && npm ci`, then
+  `node src/catalogue/check.mjs`, extract, compare, apply the safe part,
+  regenerate the split data, run the web tests, commit the catalogue state and
+  the app data as one `catalogue:` commit with the patch version bumped when
+  app data changed, and finish so the runner lands it. Held-back questions go
+  to the owner as a `question` post with review.md attached; never invent a
+  solution, never renumber.

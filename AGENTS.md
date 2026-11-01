@@ -12,6 +12,8 @@ src/android/    Native Android project generated and maintained with Capacitor
 src/ios/        Native iOS project (Xcode, CocoaPods) generated and maintained with Capacitor
 src/store/      Play Console and App Store Connect configuration and the scripts that publish it
 src/catalogue/  Official BAMF question-catalogue pipeline
+scripts/        The repository's own checks (`check.sh`, `verify.sh`), the scraper data sync and the PULSE watch scripts
+.pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation
 .pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
 ```
 
@@ -49,6 +51,27 @@ repository.
 | `play-console-publish` | Pushing the tip-jar products, the Play store listing and the signed App Bundle (Internal testing track) from the repository through the Play Developer API, with offline checks and a credential gate |
 | `app-store-connect-publish` | Pushing the tip-jar products and the App Store listing from the repository through the App Store Connect API, with an offline rehearsal and a credential gate |
 | `bamf-catalogue-sync` | Checking whether BAMF published a new official question catalogue PDF, extracting and comparing it with the app's questions, applying the safe part, and handing the owner the held-back questions |
+| `scraper-data-sync` | Carrying a new BAMF evaluation status (`current-evaluation.json`) or exam-centre list (`prüfstellen.json`) from the scraper repository into the app, with validation, version bump, tests and one data commit |
+
+## Automations
+
+The data syncs that used to be GitHub workflows are PULSE automations in
+`.pulse/automations/` (`pulse manifest check` validates them; `pulse
+schedule list --project leben-in-deutschland` shows them). All three are
+**watches**: the daemon runs the script every day (the exam centres weekly)
+without a model, and queues one agent job - whose brief names the skill -
+only when the script prints a change.
+
+| Automation | Script | Skill the job follows |
+| --- | --- | --- |
+| `bamf-catalogue-sync` (daily 06:00 UTC) | `scripts/watch-catalogue.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
+| `evaluation-sync` (daily 05:00 UTC) | `scripts/watch-evaluation.sh` → `scripts/scraper-sync.mjs evaluation --check` | `scraper-data-sync` |
+| `pruefstellen-sync` (weekly 05:30 UTC) | `scripts/watch-pruefstellen.sh` → `scripts/scraper-sync.mjs pruefstellen --check` | `scraper-data-sync` |
+
+The job commits on its branch and the runner lands it on `main`; the daemon
+pushes, and that push deploys the web. No secrets: the scripts only `GET`
+public files. The scraper's `question.json` is never copied into the app
+(the official PDF is the only source of questions).
 
 ## Critical Rules
 
@@ -185,5 +208,7 @@ response. Exact facts, paths, commands, and code do not change.
 | Play products, store listing or track upload | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key; production promotion stays the owner's click |
 | App Store products or listing | `src/store/README.md` ("App Store Connect from the command line"), the `app-store-connect-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
+| Evaluation status or exam centres (scraper data) | The `scraper-data-sync` skill, `scripts/scraper-sync.mjs` | Only the script writes the two data files; never edit the data by hand |
+| A standing check or sync (automation) | `.pulse/automations/`, the "Automations" section above, `pulse manifest check` | One YAML file per automation plus a script under `scripts/`; prefer a watch over a job that runs every time |
 | Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |
 | Learning or mistake | `pulse record list memory --project leben-in-deutschland` | A `finding` on the board, or a `MEM-*` record when it is durable |

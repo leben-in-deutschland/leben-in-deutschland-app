@@ -1,0 +1,14 @@
+title: Daily BAMF evaluation status check
+kind: watch
+script: scripts/watch-evaluation.sh
+every: daily
+at: "05:00"
+tier: 0
+brief: >-
+  The scraper published a newer BAMF evaluation status than the app bundles.
+  Read the skill scraper-data-sync (`pulse skill show scraper-data-sync`) and
+  follow it for the source `evaluation`: write the file with
+  `node scripts/scraper-sync.mjs evaluation`, run the web tests, commit the
+  data file with the version bump as one `data:` commit, and finish so the
+  runner lands it. Never edit the data by hand; a validation error or a red
+  test suite is a report, not a workaround.

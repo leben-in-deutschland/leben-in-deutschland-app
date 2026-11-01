@@ -52,17 +52,16 @@ The official source for the test questions is the BAMF PDF
 5. **Pictures carry credits** such as "© Deutscher Bundestag/Achim Melde".
    Extracted images stay in the git-ignored `src/catalogue/output/images/`;
    publishing them is a separate decision.
-6. **A push to `main` is a web release, and only a PAT push releases.**
-   `vercel-deploy.yml` runs on every push to `main` (`src/catalogue/**` is
-   not in its `paths-ignore`), but a push made with the workflow's own
-   `GITHUB_TOKEN` never triggers other workflows. The apps need no build
-   for a catalogue change: they download `questions-core.json` over the
-   air; `android-release.yml` and `ios-release.yml` are started by hand. The catalogue workflow therefore pushes with the `PAT`
-   secret (checkout with `persist-credentials: false`, then
-   `git remote set-url` with the token through `env:`), bumps the patch
-   version when app data changed, and marks bookkeeping-only commits
-   (`state.json`, `data/`) with `[skip ci]` so they do not build a release.
-   The same pattern lives in `sync-question.yml`.
+6. **A push to `main` is a web release.** `vercel-deploy.yml` runs on
+   every push to `main` (`src/catalogue/**` is not in its `paths-ignore`).
+   The apps need no build for a catalogue change: they download
+   `questions-core.json` over the air; `android-release.yml` and
+   `ios-release.yml` are started by hand. Catalogue commits therefore bump
+   the patch version when app data changed and reach `main` through
+   `pulse land`, which the daemon pushes (`landing.push`). Until 2026-11-01
+   this was a GitHub workflow pushing with a `PAT` secret, because a push
+   made with a workflow's own `GITHUB_TOKEN` never triggers other
+   workflows; the daemon's push is an ordinary push and does trigger them.
 7. **`question.json` can silently drift from the shipped files.**
    `questions-core.json` and `public/data/` are generated from
    `src/web/data/question.json` by `split-questions.js`, but nothing
@@ -75,8 +74,10 @@ The official source for the test questions is the BAMF PDF
    (its split output equals the shipped files byte for byte). Rules: treat
    the file whose `split-questions.js` output equals the shipped core as
    the truth, commit all three together, and let `apply.mjs` refuse
-   duplicate numbers. The scraper's current output has 100 duplicate
-   numbers – do not run `sync-question.yml`.
+   duplicate numbers. The scraper's `question.json` has 100 duplicate
+   numbers – never copy it into the app again (the workflow that did,
+   `sync-question.yml`, was removed on 2026-11-01; the official PDF is the
+   only source of questions now).
 8. **Tests must not hardcode catalogue facts.** The practice-screen test
    assumed "a is correct for question 1"; adopting the official answer
    order moved it to `d`. Look the solution up from `questionsData()`
@@ -97,14 +98,14 @@ The official source for the test questions is the BAMF PDF
 
 ## When To Apply
 
-- Before changing anything under `src/catalogue/` or
-  `.github/workflows/sync-catalogue.yml`.
+- Before changing anything under `src/catalogue/`, `scripts/watch-catalogue.sh`
+  or `.pulse/automations/bamf-catalogue-sync.yaml`.
 - When `check.mjs` reports `changed=true` but the counts in `extract.mjs`
   fail: the PDF layout changed; fix the parser, do not hand-edit the JSON.
 - When someone proposes to apply a `needsReview` entry without the owner,
   to fetch the catalogue from the app at runtime, or to renumber questions.
-- When a workflow needs to push to `main` and have that push deploy:
-  use the `PAT`, never `GITHUB_TOKEN`.
+- When something other than `pulse land` wants to put a catalogue commit on
+  `main`: the hard stops forbid an agent's `git push` and `gh`.
 - Before touching `src/web/data/question.json`, `questions-core.json`, or
   `public/data/` separately.
 - When writing a scraper or checker for any other bamf.de document: same

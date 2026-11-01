@@ -11,8 +11,14 @@ JSON, compare it with the app's `question.json`, and apply the part that
 needs no judgement call. A human decides only the held-back questions. The
 rules below are the decision (ADR-009, amended 2026-10-12: apply the safe
 part and push to `main` automatically); the facts behind them - the firewall,
-the three "last updated" signals, the numbering and the PAT-push rule - are
+the three "last updated" signals, the numbering and the release rule - are
 in `catalogue-source.md` beside this file.
+
+Since 2026-11-01 the standing check is a PULSE automation, not a GitHub
+workflow: `.pulse/automations/bamf-catalogue-sync.yaml` runs
+`scripts/watch-catalogue.sh` (`src/catalogue/watch.mjs`) every day without a
+model; only when bamf.de shows a new page date, link version or PDF does the
+daemon queue one agent job whose brief is this skill.
 
 ## Boundary
 
@@ -42,10 +48,13 @@ in `catalogue-source.md` beside this file.
 - **The held-back list is reviewed by the owner.** The outputs of this
   skill are `src/catalogue/output/report.md` (full comparison),
   `question.proposed.json` (full proposal), and `review.md` (what a human
-  must decide); the workflow turns `review.md` into a GitHub issue.
+  must decide); an automation job hands `review.md` to the owner as a
+  `question` post on the board (and, in a hub conversation, as an artifact).
 - **Public repository.** The committed state and the report contain no
-  machine names, home paths, e-mail addresses, or other identifiers; Actions
-  logs are public too (see the privacy rule in `AGENTS.md`).
+  machine names, home paths, e-mail addresses, or other identifiers (see
+  the privacy rule in `AGENTS.md`).
+- **Hard stops stay.** Landing on `main` goes through `pulse land`; the
+  daemon pushes according to `landing.push`. Never `git push`, never `gh`.
 - **Images carry credits.** Pictures extracted from the PDF stay in the
   git-ignored `src/catalogue/output/images/`. Publishing them in the app is
   a separate decision (a new ADR record in the PULSE store first).
@@ -148,22 +157,31 @@ in `catalogue-source.md` beside this file.
    before it can ship.
 8. Commit `src/catalogue/state.json`, `src/catalogue/data/`,
    `src/web/data/question.json`, `src/web/data/questions-core.json`, and
-   `src/web/public/data/` together with a `catalogue:` message; a push to
-   `main` is a release (web deploy + Android build), so bump the patch
-   version in `src/web/package.json` when app data changed.
-9. Without a laptop: Actions → **Sync BAMF Catalogue** → *Run workflow*
-   (input `force`). The workflow runs the same check weekly and, only when
-   something changed, extracts, compares, applies, uploads `report.md`,
-   `review.md`, and the proposal as the artifact `catalogue-review`, runs
-   the split script and `npm test`, commits, and pushes to `main` with the
-   `PAT` secret (that push starts the deploy workflows; bookkeeping-only
-   changes are committed with `[skip ci]`). Held-back questions become one
-   GitHub issue per `Stand`. Needed secrets: `PAT` (may push to `main`),
-   optionally `GIT_USER_NAME` / `GIT_USER_EMAIL`. Never print their values.
+   `src/web/public/data/` together as one commit with a `catalogue:`
+   message (`catalogue: BAMF Gesamtfragenkatalog Stand <stand> (<n>
+   questions aligned)`, or `catalogue: record BAMF Gesamtfragenkatalog
+   Stand <stand>` when only the bookkeeping changed). A push to `main`
+   deploys the web, so when app data changed bump the patch version first:
+   edit `"version"` in `src/web/package.json` and both `version` fields of
+   `src/web/package-lock.json` by hand (npm 10 rewrites the lockfile; see
+   the project memory) and add them to the same commit. Then hand the
+   branch to landing: as a PULSE job, finish normally (the runner lands kept
+   commits and `scripts/check.sh` runs); in a conversation,
+   `pulse land --project leben-in-deutschland --branch <branch>`. The apps
+   need no build: they download `questions-core.json` over the air.
+9. The standing check: `.pulse/automations/bamf-catalogue-sync.yaml` is a
+   daily watch of `scripts/watch-catalogue.sh`. The watcher prints nothing
+   while the three signals equal `state.json` and prints the changed
+   signals otherwise; the daemon then queues one job with this skill as its
+   brief (`pulse schedule list --project leben-in-deutschland`,
+   `pulse schedule log SCHED-NNN` for the last output, `pulse schedule run
+   SCHED-NNN` to run it now). A watcher that exits 1 three runs in a row
+   (firewall, layout change) queues a job to fix the watcher, not the data.
 10. Record: reply on the owner's task or post a `finding` on the PULSE
-    board; write a `MEM-*` record only for a durable lesson such as a changed
-    page layout or a new firewall behaviour, and update `catalogue-source.md`
-    when one of its facts changed.
+    board; held-back questions go to the owner as a `question` post with
+    the summary of `review.md`. Write a `MEM-*` record only for a durable
+    lesson such as a changed page layout or a new firewall behaviour, and
+    update `catalogue-source.md` when one of its facts changed.
 
 ## Rollback
 
@@ -174,10 +192,10 @@ in `catalogue-source.md` beside this file.
 - App data, if step 6 or 7 was done: `git restore src/web/data/question.json
   src/web/data/questions-core.json src/web/public/data/` restores the
   bundled catalogue and its split files.
-- A pushed `catalogue:` commit on `main`: `git revert <sha>` (one commit
-  holds data, split files, state, and version bump) and push; the revert
-  releases again. Close the GitHub issue the run opened if the data it
-  describes was reverted.
+- A landed `catalogue:` commit on `main`: `git revert <sha>` (one commit
+  holds data, split files, state, and version bump) and land the revert;
+  the revert deploys the web again. Answer the owner's `question` post if
+  the data it describes was reverted.
 - Nothing else external changes: bamf.de only answered `GET` requests.
 
 ## Output
@@ -192,8 +210,7 @@ and the exact next step for the owner.
 
 - `src/catalogue/README.md` (scripts, state file, troubleshooting)
 - `catalogue-source.md` beside this file (how the official PDF is read and
-  what it cannot tell you: firewall, signals, numbering, PAT push, drift)
+  what it cannot tell you: firewall, signals, numbering, releases, drift)
 - `AGENTS.md` (public-repository privacy rule, verification commands)
-- `.github/workflows/sync-catalogue.yml` (weekly schedule, manual dispatch,
-  apply + test + push to `main` with the `PAT`, issue for held-back
-  questions)
+- `.pulse/automations/bamf-catalogue-sync.yaml`, `scripts/watch-catalogue.sh`,
+  `src/catalogue/watch.mjs` (the daily watch that queues this skill)

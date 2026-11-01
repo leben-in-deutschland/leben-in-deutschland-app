@@ -5,8 +5,9 @@ import { nativeHttpSupported, refreshRemoteFile } from "./remote-file";
 /**
  * BAMF evaluation status refresh (ADR-005).
  *
- * The app ships `data/current-evaluation.json` and the daily workflow keeps
- * that copy fresh for every build. On Android the installed version would
+ * The app ships `data/current-evaluation.json` and the daily PULSE watch
+ * (`.pulse/automations/evaluation-sync.yaml`) keeps that copy fresh for every
+ * build. On Android the installed version would
  * otherwise show the date from its build day, so the app downloads the same
  * public file at most once a day through Capacitor's native HTTP client and
  * keeps it under its own storage key (see `services/remote-file.ts`).
@@ -14,7 +15,7 @@ import { nativeHttpSupported, refreshRemoteFile } from "./remote-file";
 
 /**
  * The scraper repository's published file - the same URL the daily sync
- * workflow downloads. The project's own domain sits behind Vercel's security
+ * watch (`scripts/scraper-sync.mjs`) downloads. The project's own domain sits behind Vercel's security
  * challenge, which blocks non-browser clients; switch here if that changes.
  */
 export const EVALUATION_URL =

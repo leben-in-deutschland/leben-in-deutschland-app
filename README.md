@@ -51,7 +51,8 @@
 | [`src/ios`](src/ios) | Capacitor iOS project (StoreKit 2 tips, notifications). |
 | [`src/store`](src/store) | Store assets and publishing: screenshot pipeline, Google Play and App Store Connect scripts ([README](src/store/README.md)). |
 | [`src/catalogue`](src/catalogue) | Tooling that keeps the question catalogue in sync with the official BAMF publication ([README](src/catalogue/README.md)). |
-| [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand; data sync jobs. |
+| [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand. |
+| [`.pulse/automations`](.pulse/automations) | Standing data syncs (BAMF catalogue, evaluation status, exam centres) that the PULSE daemon runs; [`scripts`](scripts) holds their watch scripts. |
 | [`.pulse/skills`](.pulse/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |
 
 ## Development
@@ -79,8 +80,8 @@ The learner's data is a single record in `localStorage`; a dev build therefore s
 
 ## Data
 
-- **Questions** come from the official BAMF catalogue. A scheduled workflow downloads the publication, compares it with the bundled catalogue and opens a reviewed update; the apps also refresh the catalogue over the air, at most once a day, from this repository.
-- **Evaluation status and exam centres** are collected by [leben-in-deutschland-scrapper](https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper) and published as small static JSON files.
+- **Questions** come from the official BAMF catalogue. A daily check looks for a new publication; when one appears, an agent compares it with the bundled catalogue, applies the safe part and hands the rest to a human review; the apps also refresh the catalogue over the air, at most once a day, from this repository.
+- **Evaluation status and exam centres** are collected by [leben-in-deutschland-scrapper](https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper) and published as small static JSON files; a daily (evaluation) and a weekly (exam centres) check carry a new file into the app.
 
 ## Releases
 
