@@ -105,11 +105,50 @@ function approximateIndex(answers, text, taken = new Set()) {
 }
 
 /**
+ * Where every app answer went among the official answers, for moving the
+ * translations' a-d along: exact text first (`permutation`), then the
+ * correct answer at its solution position (`solutionIndex`), then the
+ * closest remaining official answer, and the last answer left when three
+ * are placed. Returns -1 where an answer cannot be placed.
+ */
+function answerPlacement(oldAnswers, officialAnswers, permutation, oldSolution, solutionIndex) {
+    const placed = permutation.slice();
+    const taken = new Set();
+    placed.forEach((index, from) => {
+        if (index >= 0 && taken.has(index)) {
+            placed[from] = -1;
+        } else if (index >= 0) {
+            taken.add(index);
+        }
+    });
+    if (oldSolution >= 0 && placed[oldSolution] < 0 && solutionIndex >= 0 && !taken.has(solutionIndex)) {
+        placed[oldSolution] = solutionIndex;
+        taken.add(solutionIndex);
+    }
+    placed.forEach((index, from) => {
+        if (index < 0) {
+            const close = approximateIndex(officialAnswers, oldAnswers[from], taken);
+            if (close >= 0) {
+                placed[from] = close;
+                taken.add(close);
+            }
+        }
+    });
+    const open = placed.filter((index) => index < 0).length;
+    if (open === 1) {
+        placed[placed.indexOf(-1)] = [0, 1, 2, 3].find((index) => !taken.has(index));
+    }
+    return placed;
+}
+
+/**
  * Builds the proposed entry for a matched pair: the official texts, every
  * other field kept, the solution letter moved with its answer, and the
- * translations' a-d permuted when the answers only changed places.
+ * translations' a-d moved with the answers they translate - also when an
+ * answer was reworded (see `answerPlacement`). An entry with translations
+ * whose answers cannot all be placed is held back for a human.
  */
-function mergeMatched(existing, official) {
+export function mergeMatched(existing, official) {
     const oldAnswers = answersOf(existing);
     const permutation = oldAnswers.map((answer) => {
         const index = indexOfAnswer(official.answers, answer);
@@ -156,19 +195,26 @@ function mergeMatched(existing, official) {
         solutionStatus = newIndex === oldIndex ? "kept" : "moved";
     }
     const reordered = fullPermutation && permutation.some((index, from) => index !== from);
-    if (reordered && existing.translation) {
+    const placement = answerPlacement(oldAnswers, official.answers, permutation, oldIndex, newIndex);
+    const placedAll = placement.every((index) => index >= 0) && new Set(placement).size === 4;
+    const moved = placement.some((index, from) => index >= 0 && index !== from);
+    const hasTranslation = Boolean(existing.translation && Object.values(existing.translation).some((entry) => entry && typeof entry === "object"));
+    if (placedAll && moved && hasTranslation) {
         merged.translation = Object.fromEntries(
             Object.entries(existing.translation).map(([lang, entry]) => {
                 if (!entry || typeof entry !== "object") {
                     return [lang, entry];
                 }
                 const permuted = { ...entry };
-                permutation.forEach((to, from) => {
+                placement.forEach((to, from) => {
                     permuted[LETTERS[to]] = entry[LETTERS[from]];
                 });
                 return [lang, permuted];
             }),
         );
+    } else if (!placedAll && hasTranslation && !merged.needsReview) {
+        merged.needsReview = true;
+        merged.reviewReason = "not every answer could be paired with its official text, so the translations' a-d may no longer line up with the answers; align the translations by hand";
     }
     merged.officialNum = official.num;
     return { merged, solutionStatus, reordered, sameTexts: fullPermutation };

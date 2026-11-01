@@ -141,8 +141,13 @@ image, translation, category, context, id`) plus helper fields:
 
 - Matched questions keep every existing field and take the official stem
   and answers in the official order. The solution letter follows its
-  answer text; when the four answers merely changed places, the `a`–`d` of
-  every translation move along. If the correct answer text is not among the
+  answer text, and the `a`–`d` of every translation move with the answer
+  they translate: an answer is placed by its exact text, the correct
+  answer by its solution, the others by the closest remaining official
+  answer (similarity ≥ 0.75), and the last one by elimination. An entry
+  with translations whose four answers cannot all be placed is flagged
+  `needsReview` (its translations could no longer line up with the
+  answers). If the correct answer text is not among the
   official answers, it is matched approximately (similarity ≥ 0.75, digits
   must agree) or, when the three wrong answers are all present, by
   elimination – both set `needsReview: true` with a `reviewReason`. If
