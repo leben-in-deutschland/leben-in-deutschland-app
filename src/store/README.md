@@ -286,14 +286,16 @@ Workload Identity Federation** in Actions.
    export PLAY_SERVICE_ACCOUNT=play-publisher@<your-project-id>.iam.gserviceaccount.com
    ```
 
-4. GitHub: Settings → Secrets and variables → Actions → **Variables** (not
-   secrets, neither value is secret): `PLAY_SERVICE_ACCOUNT` and
-   `PLAY_WIF_PROVIDER` from the two `echo` lines. Then Actions → **Play
-   Publish** → *Run workflow* runs products and listing texts from CI
-   (`.github/workflows/play-publish.yml`); screenshots stay a laptop job
-   because they are rendered locally. The same two variables switch on the
-   `play-internal` job of **Android Release**, which uploads every signed
-   bundle to the Internal testing track (see
+4. GitHub: Settings → Secrets and variables → Actions → **Secrets**:
+   `PLAY_SERVICE_ACCOUNT` and `PLAY_WIF_PROVIDER` from the two `echo` lines.
+   Neither value is confidential in itself, but GitHub masks only secrets,
+   and the Actions logs of this public repository are public - so the
+   service-account address and the Google project ids stay out of them
+   (AGENTS.md rule). Then Actions → **Play Publish** → *Run workflow* runs
+   products and listing texts from CI (`.github/workflows/play-publish.yml`);
+   screenshots stay a laptop job because they are rendered locally. The same
+   two secrets switch on the `play-internal` job of **Android Release**,
+   which uploads every signed bundle to the Internal testing track (see
    [`play-release.mjs`](#app-bundle-to-a-track-play-releasemjs)).
 
 Credential modes, first match wins:

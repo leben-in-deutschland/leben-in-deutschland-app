@@ -139,8 +139,9 @@ in `play-billing.md` beside this file.
    `export PLAY_SERVICE_ACCOUNT=play-publisher@<project>.iam.gserviceaccount.com`
    and run this skill again or the commands from steps 4 and 5.
 4. GitHub (optional, for the Play Publish workflow): Settings → Secrets and
-   variables → Actions → Variables → `PLAY_SERVICE_ACCOUNT` and
-   `PLAY_WIF_PROVIDER` from the two `echo` lines. No secret is stored.
+   variables → Actions → **Secrets** → `PLAY_SERVICE_ACCOUNT` and
+   `PLAY_WIF_PROVIDER` from the two `echo` lines. No key is stored; the two
+   identifiers are secrets only so GitHub masks them in the public logs.
 
 Manual fallback: type the values from
 `src/store/metadata/android/one-time-products.json` into Monetize with Play →

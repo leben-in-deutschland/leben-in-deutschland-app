@@ -70,7 +70,14 @@ repository.
   the `PrivateKeyEntry`). Publish only the signing action's `signedFile`
   output, renamed to `leben-in-deutschland-v<versionName>-<versionCode>.aab`;
   the unsigned `app-release.aab` and `app-release-temp.aab` are not
-  production artifacts, and no `*.aab` wildcard. Never commit, print, or
+  production artifacts, and no `*.aab` wildcard. Artifact `path:` and
+  release `files:` name exactly one file, never a directory or `**`: the
+  signing action decodes the keystore to `key.jks` inside the bundle
+  directory, and a directory glob published it once (release v1.17.21,
+  2025-09; the asset was removed on 2026-11-01 and the upload key is
+  replaced through Play App Signing's upload-key reset). The "Remove the
+  decoded keystore" step stays directly after signing. Third-party actions
+  in the signing job are pinned to commit SHAs. Never commit, print, or
   request keystores, passwords, private keys, or encoded secret values.
 - iOS release signing: the app is `org.lebenindeutschland.app` as well, built
   and uploaded to TestFlight by `.github/workflows/ios-release.yml` (ADR-047,

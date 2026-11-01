@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
   # Keyless Google Play upload (Workload Identity Federation), see the play-internal job.
   id-token: write
 
@@ -49,7 +48,7 @@ jobs:
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
       - name: Bump version
-        uses: chkfung/android-version-actions@v1.2.2
+        uses: chkfung/android-version-actions@73e2033056ab904416347c2e44e6c556a6581ca5 # v1.2.2
         with:
           gradlePath: src/android/app/build.gradle
           versionCode: ${{github.run_number}}
@@ -61,13 +60,25 @@ jobs:
 
       - name: Sign App
         id: sign_app
-        uses: ilharp/sign-android-release@v1.0.4
+        uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1.0.4
         with:
           releaseDir: src/android/app/build/outputs/bundle/release
           signingKey: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           buildToolsVersion: 35.0.0
+
+      # The signing action decodes the keystore to <releaseDir>/key.jks and leaves it
+      # there. Remove it before anything else looks at that directory: a widened
+      # artifact or release glob once published it (release v1.17.21, 2025-09).
+      - name: Remove the decoded keystore
+        if: always()
+        run: |
+          rm -f src/android/app/build/outputs/bundle/release/key.jks
+          if find src/android/app/build -name "*.jks" -o -name "*.keystore" | grep -q .; then
+            echo "::error::A keystore file is still inside the build output."
+            exit 1
+          fi
 
       - name: Verify Signed App Bundle
         env:
@@ -142,7 +153,7 @@ jobs:
         run: |
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           tag_name: v${{ env.VERSION }}
           name: "Einbürgerungstest v${{ env.VERSION }}"
@@ -156,16 +167,18 @@ jobs:
 
   # Puts the released bundle on the Play "Internal testing" track so every
   # release run is one "Promote release" click away from production, like the
-  # manual release step on the App Store. Keyless: the repository variables
+  # manual release step on the App Store. Keyless: the repository secrets
   # PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (see src/store/README.md,
   # "Google Play from the command line") are exchanged for a short-lived token;
   # without them the job explains what is missing and ends without failing.
+  # They are secrets rather than variables so the service-account address and
+  # the Google project ids stay masked in these public logs.
   play-internal:
     needs: release
     runs-on: ubuntu-latest
     env:
-      PLAY_SERVICE_ACCOUNT: ${{ vars.PLAY_SERVICE_ACCOUNT }}
-      PLAY_WIF_PROVIDER: ${{ vars.PLAY_WIF_PROVIDER }}
+      PLAY_SERVICE_ACCOUNT: ${{ secrets.PLAY_SERVICE_ACCOUNT }}
+      PLAY_WIF_PROVIDER: ${{ secrets.PLAY_WIF_PROVIDER }}
 
     steps:
       - name: Checkout Repository
@@ -180,7 +193,7 @@ jobs:
         id: creds
         run: |
           if [ -z "$PLAY_SERVICE_ACCOUNT" ] || [ -z "$PLAY_WIF_PROVIDER" ]; then
-            echo "::notice::Play upload skipped: set the repository variables PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Variables) to send each release to the Internal testing track automatically. Setup: src/store/README.md, 'Google Play from the command line'."
+            echo "::notice::Play upload skipped: set the repository secrets PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (Settings -> Secrets and variables -> Actions -> Secrets) to send each release to the Internal testing track automatically. Setup: src/store/README.md, 'Google Play from the command line'."
             echo "ready=false" >> "$GITHUB_OUTPUT"
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
@@ -207,6 +220,6 @@ jobs:
           set -euo pipefail
           node src/store/play-release.mjs --aab "$AAB"
           if ! node src/store/play-release.mjs --aab "$AAB" --apply; then
-            echo "::error::Upload to Google Play failed. The service account (variable PLAY_SERVICE_ACCOUNT) needs 'Release to testing tracks' for this app in Play Console -> Users and permissions; the bundle is still attached to the GitHub release and can be uploaded by hand (Play Console -> Release -> Testing -> Internal testing -> Create new release)."
+            echo "::error::Upload to Google Play failed. The service account (secret PLAY_SERVICE_ACCOUNT) needs 'Release to testing tracks' for this app in Play Console -> Users and permissions; the bundle is still attached to the GitHub release and can be uploaded by hand (Play Console -> Release -> Testing -> Internal testing -> Create new release)."
             exit 1
           fi
