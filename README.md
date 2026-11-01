@@ -1,82 +1,101 @@
 <p align="center">
-  <a href="https://github.com/leben-in-deutschland/leben-in-deutschland-app">
-    <img src="https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/refs/heads/main/src/web/public/android-chrome-512x512.png" width="256px" />
+  <a href="https://www.lebenindeutschland.org">
+    <img src="src/web/public/android-chrome-512x512.png" width="160" alt="" />
   </a>
 </p>
-<h1 align="center">Leben In Deutschland</h1>
+<h1 align="center">Einbürgerungstest – Leben in Deutschland</h1>
+<p align="center">
+  Prepare for the German naturalisation test with every official question, a mock exam that feels like the real one, and a clear view of how ready you are.<br/>
+  Web app, Android app and iPhone/iPad app from one code base – offline, private, free.
+</p>
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=org.lebenindeutschland.app">Google Play</a> ·
+  <a href="https://apps.apple.com/de/app/id6829151281">App Store</a> ·
+  <a href="https://www.lebenindeutschland.org">lebenindeutschland.org</a>
+</p>
 
-## Description
+> This is a private study project, not an official app of the Federal Office for Migration and Refugees (BAMF). The test itself is taken at the BAMF only. Questions © BAMF.
 
-Leben In Deutschland is a project aimed at helping individuals prepare for the "Leben In Deutschland" or "Einbürgerungstest" (naturalization test) through interactive content and resources.
+## What the app does
 
-## Features
-
-- Interactive mock tests
-- Preparation materials
-- Dashboard with statistics
-- Find the location of the exam center
-- Access to all 300 questions and state-related questions
+- **All official questions** – the 300 general questions of the "Leben in Deutschland" / Einbürgerungstest catalogue plus the 10 questions of your federal state (all 16 states), with an explanation for every answer.
+- **Translations and read-aloud** – questions in English, Turkish, Russian, French, Arabic, Ukrainian and Hindi; system voices read them out.
+- **Mock exam like the real one** – 33 questions, 60 minutes, pass at 17 correct; results are kept so you can see your progress.
+- **Exam readiness** – a readiness score from what you know and how your mock exams went, progress per topic, a countdown to your exam date.
+- **Practice modes** – new questions, due reviews (spaced repetition), mistakes, flagged questions; quick rounds of 10 or longer sessions.
+- **Stay on track** – streak with rest days and streak freezes, daily goal, weekly overview, optional reminders (apps), milestones.
+- **Exam centres** – find a test centre near you.
+- **Offline, private, free** – no account, no ads, no tracking; everything stays on the device. The apps offer optional tips that unlock nothing.
 
 ## Screenshots
 
-### Mobile App
-
 <p>
-  <img src="src/web/public/mobile/app-1.png" alt="app1" width="150px"/>
-  <img src="src/web/public/mobile/app-2.png" alt="app2" width="150px"/>
-  <img src="src/web/public/mobile/app-3.png" alt="app3" width="150px"/>
-  <img src="src/web/public/mobile/app-4.png" alt="app4" width="150px"/>
-  <img src="src/web/public/mobile/app-5.png" alt="app5" width="150px"/>
-  <img src="src/web/public/mobile/app-6.png" alt="app6" width="150px"/>
-  <img src="src/web/public/mobile/app-7.png" alt="app7" width="150px"/>
+  <img src="src/web/public/mobile/app-1.png" alt="Home: exam readiness, streak and daily goal" width="180"/>
+  <img src="src/web/public/mobile/app-2.png" alt="Practice with instant feedback and explanation" width="180"/>
+  <img src="src/web/public/mobile/app-3.png" alt="Question translated into one of seven languages" width="180"/>
+  <img src="src/web/public/mobile/app-4.png" alt="Mock exam: 33 questions, 60 minutes" width="180"/>
+</p>
+<p>
+  <img src="src/web/public/mobile/app-5.png" alt="Progress per topic" width="180"/>
+  <img src="src/web/public/mobile/app-6.png" alt="Streak and calendar" width="180"/>
+  <img src="src/web/public/mobile/app-7.png" alt="Practice modes" width="180"/>
+  <img src="src/web/public/mobile/app-8.png" alt="Settings" width="180"/>
 </p>
 
-### Mock Test
+## Repository layout
 
-<img src="https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/refs/heads/main/src/web/public/dashboard/mock.png" alt="Mock Test" width="600px" />
+| Path | What it is |
+| --- | --- |
+| [`src/web`](src/web) | The app: Next.js (static export), React, HeroUI, Tailwind; tests with Vitest. Serves the website and is bundled into both native apps. |
+| [`src/android`](src/android) | Capacitor Android project (Play Billing tips, notifications, status bar). |
+| [`src/ios`](src/ios) | Capacitor iOS project (StoreKit 2 tips, notifications). |
+| [`src/store`](src/store) | Store assets and publishing: screenshot pipeline, Google Play and App Store Connect scripts ([README](src/store/README.md)). |
+| [`src/catalogue`](src/catalogue) | Tooling that keeps the question catalogue in sync with the official BAMF publication ([README](src/catalogue/README.md)). |
+| [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand; data sync jobs. |
+| [`.pulse/skills`](.pulse/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |
 
-### Preparation
+## Development
 
-<img src="https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/refs/heads/main/src/web/public/dashboard/prepare.png" alt="Preparation" width="600px" />
-
-### Dashboard Stats
-
-<img src="https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/refs/heads/main/src/web/public/dashboard/stats.png" alt="Dashboard Stats" width="600px" />
-
-## Getting Started
-
-First, run the development server:
+Prerequisites: Node.js 22. For the native apps additionally Android Studio with JDK 21, or Xcode 26 with CocoaPods.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd src/web
+npm install
+npm run dev        # http://localhost:3000
+npm test           # Vitest, the project's verification command
+npm run lint
+npm run build      # static export into src/web/out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Native apps (the web build is copied into the native projects by Capacitor):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd src
+make build-sync        # install, build, sync Android -> open src/android in Android Studio
+make build-sync-ios    # install, build, sync iOS     -> open src/ios/App/App.xcworkspace in Xcode
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The learner's data is a single record in `localStorage`; a dev build therefore starts with onboarding like a fresh install.
 
-## Learn More
+## Data
 
-To learn more about Next.js, take a look at the following resources:
+- **Questions** come from the official BAMF catalogue. A scheduled workflow downloads the publication, compares it with the bundled catalogue and opens a reviewed update; the apps also refresh the catalogue over the air, at most once a day, from this repository.
+- **Evaluation status and exam centres** are collected by [leben-in-deutschland-scrapper](https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper) and published as small static JSON files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Releases
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Web** – every merge to `main` deploys to Vercel.
+- **Android** – Actions → *Android Release* → *Run workflow*: signed bundle, GitHub release, upload to the Play Internal testing track; promotion to production is a click in the Play Console.
+- **iOS** – Actions → *iOS Release* → *Run workflow*: TestFlight build; the version is submitted from App Store Connect.
+- Store listings, products and screenshots are generated and published from [`src/store`](src/store/README.md).
 
-## Deploy on Vercel
+## Privacy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No account, no analytics, no advertising SDKs. Learning data stays on the device; the apps download only public static files (catalogue, evaluation status, notices). Tips are handled by Google Play or Apple In-App Purchase. Full text: [privacy policy](https://www.lebenindeutschland.org/privacy-policy).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+Issues and pull requests are welcome. Please read [`AGENTS.md`](AGENTS.md) first – it holds the rules every change follows (tests green, no secrets, store wording, release signing) – and keep `npm test` passing.
 
 ## Agents and Skills
 
@@ -85,3 +104,7 @@ Engineering records - decisions, plans, memory, workflows - live in the
 repository. Project agent skills live under [`.pulse/skills/`](.pulse/skills/),
 one folder per skill with a `SKILL.md`, and [`AGENTS.md`](AGENTS.md) holds the
 repository rules.
+
+## License
+
+[MIT](LICENSE) for the code. The question catalogue is published by the Federal Office for Migration and Refugees (BAMF).
