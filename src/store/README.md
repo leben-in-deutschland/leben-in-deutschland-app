@@ -422,7 +422,7 @@ from `metadata/android/<language>/whats_new.txt` (≤ 500 characters per
 language) when present.
 
 **In CI**, the `play-internal` job of `.github/workflows/android-release.yml`
-runs this after the GitHub release for every push to `main`, keyless
+runs this after the GitHub release of every (manually started) run, keyless
 through the `PLAY_SERVICE_ACCOUNT` / `PLAY_WIF_PROVIDER` variables. Without
 the variables it ends with a notice; with them but without the "Release to
 testing tracks" permission it fails with the fix. Promotion to production
@@ -611,7 +611,7 @@ repository or into a chat.
 9. **TestFlight**: in the app → TestFlight → Internal Testing → + group
    "Owner" with the owner's Apple ID; install TestFlight from the App Store
    on the iPhone. Then run `iOS Release` by hand (Actions → iOS Release →
-   Run workflow) or push to `main`; the build shows up in TestFlight after
+   Run workflow; it no longer runs on pushes); the build shows up in TestFlight after
    Apple's processing (usually under an hour) and installs from the
    TestFlight app.
 

@@ -1,17 +1,9 @@
 name: Android Release
 
+# Started by hand (Actions -> Android Release -> Run workflow). Web changes
+# ship through vercel-deploy.yml and the app refreshes its catalogue over the
+# air, so an app build is a deliberate release, not a side effect of a merge.
 on:
-  push:
-    branches:
-      - main
-    # Agent skills and store tooling do not change the app; skip the build for them.
-    paths-ignore:
-      - ".pulse/**"
-      - "src/store/**"
-      - "src/ios/**"
-      - "**.md"
-      - ".github/workflows/play-publish.yml"
-      - ".github/workflows/ios-release.yml"
   workflow_dispatch:
 
 permissions:
@@ -162,9 +154,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Puts the released bundle on the Play "Internal testing" track so every main
-  # build is one "Promote release" click away from production, like the manual
-  # release step on the App Store. Keyless: the repository variables
+  # Puts the released bundle on the Play "Internal testing" track so every
+  # release run is one "Promote release" click away from production, like the
+  # manual release step on the App Store. Keyless: the repository variables
   # PLAY_SERVICE_ACCOUNT and PLAY_WIF_PROVIDER (see src/store/README.md,
   # "Google Play from the command line") are exchanged for a short-lived token;
   # without them the job explains what is missing and ends without failing.

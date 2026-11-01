@@ -52,11 +52,12 @@ The official source for the test questions is the BAMF PDF
 5. **Pictures carry credits** such as "© Deutscher Bundestag/Achim Melde".
    Extracted images stay in the git-ignored `src/catalogue/output/images/`;
    publishing them is a separate decision.
-6. **A push to `main` is a release, and only a PAT push releases.**
-   `android-release.yml` and `vercel-deploy.yml` run on every push to
-   `main` (`src/catalogue/**` is not in their `paths-ignore`), but a push
-   made with the workflow's own `GITHUB_TOKEN` never triggers other
-   workflows. The catalogue workflow therefore pushes with the `PAT`
+6. **A push to `main` is a web release, and only a PAT push releases.**
+   `vercel-deploy.yml` runs on every push to `main` (`src/catalogue/**` is
+   not in its `paths-ignore`), but a push made with the workflow's own
+   `GITHUB_TOKEN` never triggers other workflows. The apps need no build
+   for a catalogue change: they download `questions-core.json` over the
+   air; `android-release.yml` and `ios-release.yml` are started by hand. The catalogue workflow therefore pushes with the `PAT`
    secret (checkout with `persist-credentials: false`, then
    `git remote set-url` with the token through `env:`), bumps the patch
    version when app data changed, and marks bookkeeping-only commits

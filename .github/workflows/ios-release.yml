@@ -1,24 +1,15 @@
 name: iOS Release
 
-# Builds the iOS app on every change and, once the signing secrets exist,
-# uploads each main build to TestFlight (ADR-047, PLAN-013). Publishing to the
-# App Store stays a manual step in App Store Connect.
+# Started by hand (Actions -> iOS Release -> Run workflow): builds the app and,
+# once the signing secrets exist, uploads it to TestFlight (ADR-047, PLAN-013).
+# Publishing to the App Store stays a manual step in App Store Connect. Pull
+# requests that touch the native project get the unsigned simulator build as
+# a check; web-only changes are covered by vercel-deploy.yml and ship over the
+# air, so they do not start a macOS runner.
 on:
-  push:
-    branches:
-      - main
-    # Agent skills, store tooling and the Android project do not change the iOS app.
-    paths-ignore:
-      - ".pulse/**"
-      - "src/store/**"
-      - "src/android/**"
-      - "**.md"
-      - ".github/workflows/android-release.yml"
-      - ".github/workflows/play-publish.yml"
   pull_request:
     paths:
       - "src/ios/**"
-      - "src/web/**"
       - "src/makefile"
       - ".github/workflows/ios-release.yml"
   workflow_dispatch:
