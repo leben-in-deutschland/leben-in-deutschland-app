@@ -65,7 +65,7 @@ only when the script prints a change.
 | Automation | Script | Skill the job follows |
 | --- | --- | --- |
 | `bamf-catalogue-sync` (daily 06:00 UTC) | `.pulse/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
-| `evaluation-sync` (daily 05:00 UTC) | `.pulse/automations/evaluation-sync.sh` → `scripts/scraper-sync.mjs evaluation --check` | `scraper-data-sync` |
+| `evaluation-sync` (daily 14:00 UTC, after the scraper's own ~12:00 UTC check) | `.pulse/automations/evaluation-sync.sh` → `scripts/scraper-sync.mjs evaluation --check` | `scraper-data-sync` |
 | `pruefstellen-sync` (weekly 05:30 UTC) | `.pulse/automations/pruefstellen-sync.sh` → `scripts/scraper-sync.mjs pruefstellen --check` | `scraper-data-sync` |
 
 The job commits on its branch and the runner lands it on `main`; the daemon

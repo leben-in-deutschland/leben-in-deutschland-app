@@ -2,7 +2,7 @@ title: Daily BAMF evaluation status check
 kind: watch
 script: .pulse/automations/evaluation-sync.sh
 every: daily
-at: "05:01"
+at: "14:00"
 tier: 0
 brief: >-
   The scraper published a newer BAMF evaluation status than the app bundles.
