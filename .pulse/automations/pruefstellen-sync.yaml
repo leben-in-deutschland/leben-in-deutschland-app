@@ -2,7 +2,7 @@ title: Weekly exam-centre (Prüfstellen) check
 kind: watch
 script: .pulse/automations/pruefstellen-sync.sh
 every: weekly
-at: "05:30"
+at: "05:31"
 tier: 0
 brief: >-
   The scraper published a newer list of exam centres (Prüfstellen) than the
