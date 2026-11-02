@@ -98,8 +98,9 @@ The official source for the test questions is the BAMF PDF
 
 ## When To Apply
 
-- Before changing anything under `src/catalogue/`, `scripts/watch-catalogue.sh`
-  or `.pulse/automations/bamf-catalogue-sync.yaml`.
+- Before changing anything under `src/catalogue/`,
+  `.pulse/automations/bamf-catalogue-sync.sh` or
+  `.pulse/automations/bamf-catalogue-sync.yaml`.
 - When `check.mjs` reports `changed=true` but the counts in `extract.mjs`
   fail: the PDF layout changed; fix the parser, do not hand-edit the JSON.
 - When someone proposes to apply a `needsReview` entry without the owner,

@@ -1,6 +1,6 @@
 title: Daily BAMF evaluation status check
 kind: watch
-script: scripts/watch-evaluation.sh
+script: .pulse/automations/evaluation-sync.sh
 every: daily
 at: "05:00"
 tier: 0

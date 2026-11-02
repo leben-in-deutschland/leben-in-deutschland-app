@@ -111,8 +111,8 @@ file itself once a day (`services/evaluation.ts`), the web and iOS do not.
 ## References
 
 - `scripts/scraper-sync.mjs` (download, validation, write, version bump),
-  `scripts/watch-evaluation.sh`, `scripts/watch-pruefstellen.sh` (the PULSE
-  watches)
+  `.pulse/automations/evaluation-sync.sh`,
+  `.pulse/automations/pruefstellen-sync.sh` (the PULSE watches)
 - `.pulse/automations/evaluation-sync.yaml` (daily), `.pulse/automations/pruefstellen-sync.yaml` (weekly)
 - `src/web/services/evaluation.ts` (the in-app refresh on Android),
   `src/web/utils/evaluation-store.ts` (the shape), `src/web/types/prüfstellen.ts`

@@ -1,6 +1,6 @@
 title: Daily BAMF catalogue check
 kind: watch
-script: scripts/watch-catalogue.sh
+script: .pulse/automations/bamf-catalogue-sync.sh
 every: daily
 at: "06:00"
 brief: >-

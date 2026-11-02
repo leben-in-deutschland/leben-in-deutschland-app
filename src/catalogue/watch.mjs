@@ -9,7 +9,7 @@
 // firewall redirect, a body that is not a PDF).
 //
 // The PULSE watch automation (.pulse/automations/bamf-catalogue-sync.yaml via
-// scripts/watch-catalogue.sh) runs this daily, with no model, in a fresh
+// .pulse/automations/bamf-catalogue-sync.sh) runs this daily, with no model, in a fresh
 // worktree of the default branch without node_modules; it therefore never
 // opens the PDF (no pdfjs) and leaves state.json and output/ untouched. When
 // it prints something, the job it queues runs check.mjs and the rest of the

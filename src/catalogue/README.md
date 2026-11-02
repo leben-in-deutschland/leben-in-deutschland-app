@@ -259,14 +259,14 @@ Reads the landing page's two signals and asks the PDF conditionally, like
 rewrite, and the PDF is never opened, so it runs without `src/web/node_modules`.
 Diagnostics go to stderr; stdout carries only the change (`landing page
 date … -> …`, `download link version … -> …`, `PDF bytes changed: …`) or
-nothing. Exit `1` on the same errors as `check.mjs`. `scripts/watch-catalogue.sh`
-wraps it for PULSE.
+nothing. Exit `1` on the same errors as `check.mjs`.
+`.pulse/automations/bamf-catalogue-sync.sh` wraps it for PULSE.
 
 ## PULSE automation
 
 `.pulse/automations/bamf-catalogue-sync.yaml` is a PULSE **watch**: every
-day at 06:00 UTC the daemon runs `scripts/watch-catalogue.sh` in a fresh
-worktree of `main`, with no model. While the watcher prints nothing, nothing
+day at 06:00 UTC the daemon runs `.pulse/automations/bamf-catalogue-sync.sh`
+in a fresh worktree of `main`, with no model. While the watcher prints nothing, nothing
 happens. When it prints the changed signals, the daemon queues one agent job
 whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sync/SKILL.md`):
 

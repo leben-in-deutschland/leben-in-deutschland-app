@@ -12,8 +12,8 @@ src/android/    Native Android project generated and maintained with Capacitor
 src/ios/        Native iOS project (Xcode, CocoaPods) generated and maintained with Capacitor
 src/store/      Play Console and App Store Connect configuration and the scripts that publish it
 src/catalogue/  Official BAMF question-catalogue pipeline
-scripts/        The repository's own checks (`check.sh`, `verify.sh`), the scraper data sync and the PULSE watch scripts
-.pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation
+scripts/        The repository's own checks (`check.sh`, `verify.sh`) and the scraper data sync
+.pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation plus its watch script (`<name>.yaml` + `<name>.sh`)
 .pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
 ```
 
@@ -64,9 +64,9 @@ only when the script prints a change.
 
 | Automation | Script | Skill the job follows |
 | --- | --- | --- |
-| `bamf-catalogue-sync` (daily 06:00 UTC) | `scripts/watch-catalogue.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
-| `evaluation-sync` (daily 05:00 UTC) | `scripts/watch-evaluation.sh` → `scripts/scraper-sync.mjs evaluation --check` | `scraper-data-sync` |
-| `pruefstellen-sync` (weekly 05:30 UTC) | `scripts/watch-pruefstellen.sh` → `scripts/scraper-sync.mjs pruefstellen --check` | `scraper-data-sync` |
+| `bamf-catalogue-sync` (daily 06:00 UTC) | `.pulse/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
+| `evaluation-sync` (daily 05:00 UTC) | `.pulse/automations/evaluation-sync.sh` → `scripts/scraper-sync.mjs evaluation --check` | `scraper-data-sync` |
+| `pruefstellen-sync` (weekly 05:30 UTC) | `.pulse/automations/pruefstellen-sync.sh` → `scripts/scraper-sync.mjs pruefstellen --check` | `scraper-data-sync` |
 
 The job commits on its branch and the runner lands it on `main`; the daemon
 pushes, and that push deploys the web. No secrets: the scripts only `GET`
@@ -191,6 +191,6 @@ response. Exact facts, paths, commands, and code do not change.
 | App Store products or listing | `src/store/README.md` ("App Store Connect from the command line"), the `app-store-connect-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
 | Evaluation status or exam centres (scraper data) | The `scraper-data-sync` skill, `scripts/scraper-sync.mjs` | Only the script writes the two data files; never edit the data by hand |
-| A standing check or sync (automation) | `.pulse/automations/`, the "Automations" section above, `pulse manifest check` | One YAML file per automation plus a script under `scripts/`; prefer a watch over a job that runs every time |
+| A standing check or sync (automation) | `.pulse/automations/`, the "Automations" section above, `pulse manifest check` | One YAML file per automation plus its script beside it in `.pulse/automations/` as `<name>.sh`; prefer a watch over a job that runs every time |
 | Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |
 | Learning or mistake | `pulse record list memory --project leben-in-deutschland` | A `finding` on the board, or a `MEM-*` record when it is durable |

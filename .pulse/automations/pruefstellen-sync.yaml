@@ -1,6 +1,6 @@
 title: Weekly exam-centre (Prüfstellen) check
 kind: watch
-script: scripts/watch-pruefstellen.sh
+script: .pulse/automations/pruefstellen-sync.sh
 every: weekly
 at: "05:30"
 tier: 0
