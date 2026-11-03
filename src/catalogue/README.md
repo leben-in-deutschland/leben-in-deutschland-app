@@ -9,12 +9,17 @@ The result is a review report and a proposed merged file. `apply.mjs` then
 carries the **safe part** of the proposal into `src/web/data/question.json`
 (texts whose solution follows an exact answer-text match); everything that
 needs a judgement call is held back and listed in `output/review.md`. A
-daily PULSE watch (`.pulse/automations/bamf-catalogue-sync.yaml`) looks for
-a new catalogue without a model; when one appears, the agent job it queues
-applies the safe part, lands it on `main` (which deploys the web; the apps
-refresh the catalogue over the air) and hands the owner the held-back
-questions (owner decision of 2026-10-12, see ADR-009; the GitHub workflow
-that did this until 2026-11-01 is gone).
+question that is **new** in the official catalogue goes through `add.mjs`:
+the agent job prepares the complete entry (explanation, category, the seven
+translations, a proposed solution with its justification) in
+`data/pending-questions.json`, and it ships only after the owner confirmed
+the answer letter. A daily PULSE watch
+(`.pulse/automations/bamf-catalogue-sync.yaml`) looks for a new catalogue
+without a model; when one appears, the agent job it queues applies the safe
+part, lands it on `main` (which deploys the web; the apps refresh the
+catalogue over the air), prepares the new questions and hands the owner the
+held-back questions (owner decision of 2026-10-12, see ADR-009; the GitHub
+workflow that did this until 2026-11-01 is gone).
 
 ## What this is
 
@@ -30,6 +35,7 @@ src/catalogue/
   extract.mjs               Step 3: PDF -> data/bamf-catalogue.json + output/images/*.png, validates the result
   compare.mjs               Step 4: compares with src/web/data/question.json -> output/report.md + output/question.proposed.json
   apply.mjs                 Step 5: writes the safe part of the proposal into src/web/data/question.json, held-back list -> output/review.md
+  add.mjs                   Step 6: new official questions - validates data/pending-questions.json (--check), ships confirmed entries (--confirm), drops rejected ones (--remove)
   sync.mjs                  check -> (when changed or --force) extract -> compare -> (--apply) apply, prints a summary
   lib/http.mjs              fetch helpers: User-Agent, timeout, one retry, conditional GET, redirect = failure
   lib/pdf.mjs               pdf.js loading, line reconstruction, picture extraction with position tracking
@@ -37,6 +43,7 @@ src/catalogue/
   lib/text.mjs              Text normalisation and matching helpers shared by extract and compare
   state.json                COMMITTED: the signals of the last download (dates, ETag, sha256, page count)
   data/bamf-catalogue.json  COMMITTED: the extracted catalogue
+  data/pending-questions.json  COMMITTED: new official questions prepared by the agent, waiting for the owner's confirmation ([] when none)
   output/                   IGNORED: the PDF, pictures, text dump, report, proposal
 ```
 
@@ -62,9 +69,13 @@ node src/catalogue/check.mjs [--force]
 node src/catalogue/extract.mjs [--pdf <path>]
 node src/catalogue/compare.mjs
 node src/catalogue/apply.mjs [--dry-run]
+node src/catalogue/add.mjs --check
+node src/catalogue/add.mjs --template <officialNum>[,…]
+node src/catalogue/add.mjs --confirm <num>[,…]|all [--solution <num>=<letter>] [--dry-run]
+node src/catalogue/add.mjs --remove <num>[,…]
 ```
 
-After `apply.mjs` wrote the question file, regenerate the split data and
+After `apply.mjs` or `add.mjs --confirm` wrote the question file, regenerate the split data and
 run the tests: `cd src/web && node scripts/split-questions.js && npm test`.
 
 ### `check.mjs` – did the catalogue change?
@@ -188,16 +199,81 @@ refuses to start when the app file has duplicate numbers, and writes a new
   `notInOfficialCatalogue` are stripped;
 - **held back** questions (`needsReview`: approximate or eliminated
   solution, unmapped letter) keep their current app version;
-- **new** official questions are not added (no solution, translations, or
-  explanation yet) and **removed** ones are kept.
+- **new** official questions are not added here (they go through
+  `add.mjs`, see "New questions" below) and **removed** ones are kept.
 
 `output/review.md` lists everything that was held back, in a form a person
-can act on (official text, current app text, proposed solution, reason).
+can act on (official text, current app text, proposed solution, reason),
+and points to `add.mjs` for the new questions.
 `--dry-run` only reports. With `GITHUB_OUTPUT` set it appends `applied`
 (changed questions) and `heldBack` (held back + new + removed). Exit `1` on
 a missing input, an invalid applied entry (empty text, solution outside
 `a`–`d`, changed `num`/`id`), or duplicate numbers before or after; nothing
 is written in those cases. Applying the same proposal twice changes nothing.
+
+### `add.mjs` – new questions
+
+The PDF has no answer key, so a question that is new in the official
+catalogue cannot be applied automatically, and since the third-party
+scraper (and its paid translator) is gone, nobody else writes the
+explanation and the translations. The agent job does, and the owner only
+confirms the answer letter:
+
+1. `node src/catalogue/add.mjs --template <officialNum>[,…]` appends a
+   skeleton for each official question listed under "New in the official
+   catalogue" in `output/review.md` to `data/pending-questions.json`: the
+   official stem and answers, the next free `num` of its scope, the `id`,
+   `officialNum`, `preparedOn` (today), `confirmed: false`, and empty
+   `solution`, `justification`, `category`, `context`, and translations.
+2. The agent fills every empty field by hand (see the skill
+   `bamf-catalogue-sync`, step 7, for the style rules), then runs
+   `node src/catalogue/add.mjs --check`, which validates every pending entry
+   and prints the summary to post to the owner: each question with its
+   four answers, the proposed letter, the justification, and the confirm
+   command. Exit `1` on any problem.
+3. The pending file is committed in the same `catalogue:` commit as the
+   rest of the sync; nothing under `src/web/` changes for a new question yet.
+4. The owner answers. `node src/catalogue/add.mjs --confirm <num>[,…]` (or
+   `--confirm all`) is the yes: the entries are validated once more, moved
+   into `src/web/data/question.json` (a general question after the last
+   general one, a state question after the last one of its state; 2-space
+   JSON exactly as `apply.mjs` writes it) and removed from the pending file.
+   `--solution <num>=<letter>` confirms with another letter; the explanation
+   must already name that answer, otherwise the command refuses and the
+   agent rewrites `context` and the translated contexts first. `--dry-run`
+   only reports. `node src/catalogue/add.mjs --remove <num>` is the no.
+   Then `node scripts/split-questions.js && npm test` in `src/web`, the
+   version bump, one `catalogue:` commit, landing.
+
+What `--check` requires of an entry: the twelve question fields plus
+`officialNum`, `justification`, `preparedOn` (ISO date) and `confirmed`
+(boolean), and nothing else; non-empty stem and answers; `solution` in
+`a`–`d`; `category` from `src/web/types/question.ts`; `image` `"-"` or an
+https URL (new picture questions keep `"-"` until the owner publishes
+pictures); `context` German prose of at least 200 characters that names
+the correct answer (its text, or its letter next to Antwort/Option/Lösung,
+or quoted as `"d: …"`) and asserts no other letter, without mentioning a
+model; `translation` with exactly `en, tr, ru, fr, ar, uk, hi`, each with
+non-empty `question, a, b, c, d, context`, none equal to its German source
+except a text of at most 4 characters or without letters (`EU`, `1949`,
+`3%`) and, in `en`, `tr`, `fr` only, an answer that is a proper name of up
+to four capitalised words (`Konrad Adenauer`, `Frankfurt/Oder`); `id` =
+sha256 of `JSON.stringify([officialNum, question, [a, b, c, d]])` (the
+scheme of `compare.mjs`; the app only needs the id to be unique); `num`
+matching the app's `NUM` pattern (`"1"`..`"999"` or `"<STATE>-<1..99>"`),
+unused in the app file and the other pending entries, above the highest
+shipped number of its scope (a removed question's number is never reused),
+and of the same scope as `officialNum`. Outside the error list `--check`
+prints style notes: an explanation shorter than 450 or longer than 750
+characters, first person, a justification longer than a sentence.
+
+Numbering of new questions: the next integer above the highest number the
+app file or the pending file uses in the scope (`301` for the first new
+general question after `1`..`300`, `BW-11` for a new Baden-Württemberg
+question). The app treats every `/^\d+$/` number as a general question and
+`<CODE>-n` as that state's, orders nothing by number, and keys learner
+progress by `num`, so a higher number costs nothing and a reused one would
+inherit a stranger's progress.
 
 ## Outputs
 
@@ -248,7 +324,7 @@ Ignored (`src/catalogue/output/`, see `.gitignore`):
 - `images/*.png` (about 100 files, 36 MB)
 - `report.md`, `review.md`, `question.proposed.json`
 
-Applied by `apply.mjs` (committed by the automation job together with the
+Applied by `apply.mjs` and `add.mjs --confirm` (committed by the automation job together with the
 files above): `src/web/data/question.json`, and – after `split-questions.js` –
 `src/web/data/questions-core.json` and `src/web/public/data/`.
 
@@ -271,10 +347,13 @@ happens. When it prints the changed signals, the daemon queues one agent job
 whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sync/SKILL.md`):
 
 1. `cd src/web && npm ci`, then `node src/catalogue/check.mjs`,
-   `extract.mjs`, `compare.mjs`, `apply.mjs`;
+   `extract.mjs`, `compare.mjs`, `apply.mjs`; for every new official
+   question `add.mjs --template`, the agent's explanation, category,
+   translations and proposed solution, `add.mjs --check`;
 2. `node scripts/split-questions.js` and `npm test` in `src/web` – a red
    test suite stops the job and nothing is committed;
-3. one commit holding `src/catalogue/state.json`, `src/catalogue/data/`,
+3. one commit holding `src/catalogue/state.json`, `src/catalogue/data/`
+   (including `pending-questions.json`),
    `src/web/data/question.json`, `src/web/data/questions-core.json` and
    `src/web/public/data/`, with the patch version bumped in
    `src/web/package.json` and `package-lock.json` when app data changed
@@ -286,7 +365,11 @@ whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sy
    build: they download `questions-core.json` over the air, and the
    Android and iOS releases are started by hand;
 5. held-back questions reach the owner as a `question` post on the board
-   with the summary of `review.md`.
+   with the summary of `review.md`; new questions as the summary of
+   `add.mjs --check` (question, answers, proposed letter, justification,
+   confirm command). After the owner's yes a follow-up runs
+   `add.mjs --confirm`, the split script and the tests, bumps the version,
+   and lands one more `catalogue:` commit.
 
 `pulse schedule list --project leben-in-deutschland` shows the schedule,
 `pulse schedule log SCHED-NNN` the watcher's last output, `pulse schedule run
@@ -297,16 +380,21 @@ daemon's own push credential.
 
 ## Rules
 
-- **Only `apply.mjs` writes into `src/web/`, and only the safe part.**
+- **Only `apply.mjs` and `add.mjs --confirm` write into `src/web/`.**
   `check`, `extract`, and `compare` write under `output/` and
   `src/catalogue/`; a question whose solution needs a judgement call keeps
   its app version until a person decides it in
   `src/web/data/question.json`.
-- **Never invent solutions.** The PDF has no answer key. New questions get
-  `solution: ""` and `needsReview: true` and are not added to the app.
+- **A proposed solution never reaches `question.json` without the owner's
+  confirmation.** The PDF has no answer key. New questions are prepared by
+  the agent in `data/pending-questions.json` with a proposed letter and a
+  justification; only `add.mjs --confirm`, run on the owner's yes, ships
+  them. The explanation and the translations are the agent's work and are
+  reviewed by reading.
 - **Never renumber.** Learner progress is keyed by `num`; renumbering is an
   owner decision documented in the report, not a side effect. `apply.mjs`
-  refuses duplicate numbers.
+  and `add.mjs` refuse duplicate numbers, and a new question takes the next
+  number above the highest one of its scope - never a removed question's.
 - **`question.json` is the single source of the shipped data.** Do not
   edit `questions-core.json` or `public/data/` by hand; regenerate them
   with `split-questions.js` and keep all three in the same commit. The
@@ -367,10 +455,21 @@ daemon's own push credential.
   `questions-core.json`, then run `compare.mjs` and `apply.mjs` again.
 - `app question <num> (<id>) has no entry in the proposal; re-run
   compare.mjs` – the proposal is older than the question file.
-- `npm test` is red after `apply.mjs` – the applied data broke a test.
+- `npm test` is red after `apply.mjs` or `add.mjs --confirm` – the applied data broke a test.
   Read `output/report.md` and `output/review.md`, fix the test (one that
   hard-codes a catalogue fact) or the data on a branch, and run the
   pipeline again with `--force`. Nothing was committed.
+- `context does not name the correct answer (…)` or `context asserts c as
+  the right answer, but the solution is d` from `add.mjs` – the explanation
+  and the proposed (or owner-corrected) letter disagree. Rewrite `context`
+  and the seven translated contexts so they end by naming the right
+  answer; never change the letter to fit the text.
+- `translation.<lang>.<field> equals the German text` from `add.mjs` – a
+  field was copied instead of translated. Only numbers, abbreviations of
+  up to 4 characters, and (in en, tr, fr) proper-name answers may stay.
+- `num 301 lies below the highest shipped number of its scope` or `num … is
+  already in the app's question file` from `add.mjs` – take the number the
+  message proposes; `--template` chooses it.
 - The watch keeps printing the same change – the job it queued did not
   land (`pulse schedule show SCHED-NNN` names the job). Finish or fix that
   job; the next run of the watcher compares against the landed

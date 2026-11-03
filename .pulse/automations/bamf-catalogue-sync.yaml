@@ -10,6 +10,14 @@ brief: >-
   `node src/catalogue/check.mjs`, extract, compare, apply the safe part,
   regenerate the split data, run the web tests, commit the catalogue state and
   the app data as one `catalogue:` commit with the patch version bumped when
-  app data changed, and finish so the runner lands it. Held-back questions go
-  to the owner as a `question` post with review.md attached; never invent a
-  solution, never renumber.
+  app data changed, and finish so the runner lands it. For every question that
+  is new in the official catalogue, write the complete entry yourself into
+  src/catalogue/data/pending-questions.json (`node src/catalogue/add.mjs
+  --template <officialNum>`, then the German explanation, the category, the
+  seven translations and a proposed solution with one sentence of
+  justification), pass `node src/catalogue/add.mjs --check`, commit the
+  pending file in the same `catalogue:` commit, and ask the owner to confirm
+  the answers in a `question` post that carries the check's summary and the
+  exact `add.mjs --confirm` commands. Held-back questions go to the owner in
+  the same post with review.md attached. A proposed solution never reaches
+  question.json without the owner's confirmation; never renumber.

@@ -8,7 +8,9 @@
 // match (the PDF has no answer key). Entries marked `needsReview` (new
 // question, approximate or unmapped solution) keep their current app
 // version and are listed in output/review.md for the owner, together with
-// questions that left the official catalogue. Afterwards run
+// questions that left the official catalogue; new official questions go
+// through add.mjs (the agent prepares them, the owner confirms the answer).
+// Afterwards run
 // `node scripts/split-questions.js` in src/web. With GITHUB_OUTPUT set,
 // `applied` and `heldBack` are appended. Exit 1 on a missing input, an
 // invalid applied entry, or a duplicate question number (learner progress is
@@ -101,7 +103,7 @@ function quote(text) {
 
 function buildReview({ stand, heldBack, added, removed, applied, unchanged }) {
     const lines = [`# BAMF catalogue Stand ${stand ?? "unknown"}: questions that need a human`, ""];
-    lines.push(`The automatic sync applied ${applied} question(s) whose texts and solution could be carried over safely and left ${unchanged} unchanged. The entries below were **not** changed in the app because the official PDF has no answer key and their solution could not be matched by exact answer text. Decide each one by hand in \`src/web/data/question.json\`, then run \`node scripts/split-questions.js\` and \`npm test\` in \`src/web\`.`, "");
+    lines.push(`The automatic sync applied ${applied} question(s) whose texts and solution could be carried over safely and left ${unchanged} unchanged. The entries below were **not** changed in the app because the official PDF has no answer key and their solution could not be matched by exact answer text. Decide each held-back one by hand in \`src/web/data/question.json\`; new questions are prepared by the agent in \`src/catalogue/data/pending-questions.json\` (\`node src/catalogue/add.mjs --template <officialNum>\`, fill it in, \`--check\`) and ship with \`node src/catalogue/add.mjs --confirm <num>\` once the owner confirmed the answer letter. Then run \`node scripts/split-questions.js\` and \`npm test\` in \`src/web\`.`, "");
     lines.push(`## Kept at the current app version (${heldBack.length})`, "");
     if (heldBack.length === 0) {
         lines.push("None.", "");
@@ -111,12 +113,12 @@ function buildReview({ stand, heldBack, added, removed, applied, unchanged }) {
         lines.push(`  - official: ${quote(proposed.question)} · ${LETTERS.map((letter) => `${letter}) ${proposed[letter]}`).join(" · ")} · proposed solution: ${proposed.solution || "none"}`);
         lines.push(`  - app now: ${quote(existing.question)} · ${LETTERS.map((letter) => `${letter}) ${existing[letter]}`).join(" · ")} · solution: ${existing.solution}`);
     }
-    lines.push("", `## New in the official catalogue, not added (${added.length})`, "");
+    lines.push("", `## New in the official catalogue, to prepare with add.mjs (${added.length})`, "");
     if (added.length === 0) {
         lines.push("None.", "");
     }
     for (const entry of added) {
-        lines.push(`- **Official ${entry.officialNum}** ${quote(entry.question)} · ${LETTERS.map((letter) => `${letter}) ${entry[letter]}`).join(" · ")} — needs a solution, translations, and an explanation before it can ship.`);
+        lines.push(`- **Official ${entry.officialNum}** ${quote(entry.question)} · ${LETTERS.map((letter) => `${letter}) ${entry[letter]}`).join(" · ")} — the agent prepares explanation, category, translations and a proposed solution in \`src/catalogue/data/pending-questions.json\` (\`node src/catalogue/add.mjs --template ${entry.officialNum}\`); it ships only after the owner confirms the answer (\`add.mjs --confirm\`).`);
     }
     lines.push("", `## No longer in the official catalogue, still in the app (${removed.length})`, "");
     if (removed.length === 0) {
@@ -220,7 +222,7 @@ export async function run({ dryRun = false } = {}) {
     console.log(`  applied      ${applied} question(s) changed${applied > 0 ? ` (${Object.entries(tally).map(([change, count]) => `${count} ${change}`).join(", ")})` : ""}`);
     console.log(`  unchanged    ${unchanged} already match the official catalogue`);
     console.log(`  held back    ${heldBack.length} need a human (kept at the current app version)`);
-    console.log(`  new          ${added.length} official question(s) not added (no solution yet)`);
+    console.log(`  new          ${added.length} official question(s) not added (prepare them with add.mjs; the owner confirms the answer)`);
     console.log(`  removed      ${removed.length} app question(s) no longer in the catalogue (kept)`);
     console.log(`  review       ${relative(reviewPath)}`);
     console.log(`  question.json ${written ? `written -> ${relative(questionPath)}; run node scripts/split-questions.js in src/web` : dryRun ? "not written (dry run)" : "unchanged"}`);
