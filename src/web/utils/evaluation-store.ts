@@ -23,7 +23,7 @@ function isEntry(value: unknown): value is EvaluationEntry {
     return typeof entry.examDate === "string" && typeof entry.checkedAt === "string";
 }
 
-/** True for the shape the scraper publishes: German dates plus a history list. */
+/** True for the shape `scripts/bamf-data-sync.mjs` writes: German dates plus a history list. */
 export function isEvaluationData(value: unknown): value is EvaluationData {
     if (typeof value !== "object" || value === null) {
         return false;

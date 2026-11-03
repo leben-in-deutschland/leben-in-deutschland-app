@@ -14,12 +14,14 @@ import { nativeHttpSupported, refreshRemoteFile } from "./remote-file";
  */
 
 /**
- * The scraper repository's published file - the same URL the daily sync
- * watch (`scripts/scraper-sync.mjs`) downloads. The project's own domain sits behind Vercel's security
- * challenge, which blocks non-browser clients; switch here if that changes.
+ * The bundled file as it is on this repository's `main`: the daily sync job
+ * (`scripts/bamf-data-sync.mjs`, read from bamf.de) commits it there, like
+ * `questions-core.json` for the catalogue. The project's own domain sits
+ * behind Vercel's security challenge, which blocks non-browser clients;
+ * switch here if that changes.
  */
 export const EVALUATION_URL =
-    "https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-scrapper/refs/heads/main/data/current-evaluation.json";
+    "https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/main/src/web/data/current-evaluation.json";
 
 /** True on Android where the native HTTP client exists. */
 export const evaluationRefreshSupported = nativeHttpSupported;
