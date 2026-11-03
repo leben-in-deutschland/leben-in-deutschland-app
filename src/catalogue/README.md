@@ -405,7 +405,9 @@ daemon's own push credential.
   and sets session cookies. The scripts use plain and conditional `GET`
   with a descriptive User-Agent, a 60 s timeout and one retry, treat any
   redirect as a failure, and never store or print cookies or the landing
-  page HTML.
+  page HTML. The retry notice (`! GET … failed: ECONNRESET; retrying in
+  3 s`) goes to stderr: the PULSE watches queue a job for anything on
+  stdout, and a recovered retry is not a change on bamf.de.
 - **Public repository.** Committed files and printed output contain no
   home paths (paths are printed relative to the repository root), e-mail
   addresses, device names, or cookies.

@@ -57,6 +57,10 @@ async function attempt(url, { headers, timeoutMs }) {
 /**
  * GETs `url` and returns the Response for 2xx and 304; throws HttpError for
  * everything else. Network errors and 5xx answers are retried once.
+ *
+ * The retry notice goes to stderr: the PULSE watches (`.pulse/automations/*.sh`)
+ * queue a job whenever their script prints to stdout, so a reset connection
+ * that the retry recovered from must not look like a change on bamf.de.
  */
 export async function get(url, { headers = {}, timeoutMs = DEFAULT_TIMEOUT_MS, retries = 1 } = {}) {
     for (let tries = 0; ; tries++) {
@@ -69,7 +73,7 @@ export async function get(url, { headers = {}, timeoutMs = DEFAULT_TIMEOUT_MS, r
             throw new HttpError(`GET ${new URL(url).pathname} failed with ${response.status}`, { status: response.status });
         } catch (error) {
             if (error instanceof HttpError && error.retryable && tries < retries) {
-                console.log(`  ! ${error.message}; retrying in ${RETRY_DELAY_MS / 1000} s`);
+                console.error(`  ! ${error.message}; retrying in ${RETRY_DELAY_MS / 1000} s`);
                 await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY_MS));
                 continue;
             }
