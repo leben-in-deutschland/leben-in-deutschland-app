@@ -29,7 +29,7 @@ beforeEach(() => {
 });
 
 describe("isEvaluationData", () => {
-    it("accepts the scraper's shape", () => {
+    it("accepts the bundled file's shape", () => {
         expect(isEvaluationData(sample)).toBe(true);
         expect(isEvaluationData({ ...sample, history: [] })).toBe(true);
     });

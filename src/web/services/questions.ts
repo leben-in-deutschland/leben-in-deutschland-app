@@ -3,8 +3,8 @@ import { keepIfDifferent, questionStore } from "@/utils/question-store";
 import { refreshRemoteFile } from "./remote-file";
 
 /**
- * Question catalogue refresh (ADR-006). The sync workflow splits the
- * scraper's catalogue and commits `questions-core.json` to the public app
+ * Question catalogue refresh (ADR-006). The catalogue sync splits the
+ * question file and commits `questions-core.json` to the public app
  * repository, so the installed app can download the very file a new build
  * would ship. Checked at most once a day through `services/remote-file.ts`;
  * an unchanged file costs one `304` and no storage.

@@ -81,7 +81,7 @@ The learner's data is a single record in `localStorage`; a dev build therefore s
 ## Data
 
 - **Questions** come from the official BAMF catalogue. A daily check looks for a new publication; when one appears, an agent compares it with the bundled catalogue, applies the safe part and hands the rest to a human review; the apps also refresh the catalogue over the air, at most once a day, from this repository.
-- **Evaluation status and exam centres** are collected by [leben-in-deutschland-scrapper](https://github.com/leben-in-deutschland/leben-in-deutschland-scrapper) and published as small static JSON files; a daily (evaluation) and a weekly (exam centres) check carry a new file into the app.
+- **Evaluation status and exam centres** are read from bamf.de by `scripts/bamf-data-sync.mjs`: a daily check (evaluation status and "last checked" date) and a weekly check (the exam centres of the 16 states) rewrite the bundled JSON files when the site changed; the Android app also refreshes the evaluation status over the air from this repository.
 
 ## Releases
 
