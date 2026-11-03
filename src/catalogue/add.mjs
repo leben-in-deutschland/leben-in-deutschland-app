@@ -382,6 +382,7 @@ export function templateFor(official, existing, pending = [], today = new Date()
     official.answers.forEach((answer, index) => {
         entry[LETTERS[index]] = answer;
     });
+    /** @type {Record<string, Record<string, string>>} */
     const translation = {};
     for (const lang of LANGUAGES) {
         translation[lang] = Object.fromEntries(TRANSLATION_FIELDS.map((field) => [field, ""]));
