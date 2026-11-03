@@ -9,8 +9,8 @@ templates, and the listing copy under `metadata/` are committed.
 
 A small, self-contained pipeline in plain Node ESM scripts. It adds no npm
 dependency: it reuses `sharp` from `src/web/node_modules`, drives a headless
-Chromium-based browser (Microsoft Edge on this machine) over the Chrome
-DevTools Protocol with Node's built-in `WebSocket`, calls `ffmpeg` for the
+Chromium-based browser (Playwright's headless shell where it is installed)
+over the Chrome DevTools Protocol with Node's built-in `WebSocket`, calls `ffmpeg` for the
 videos, and talks to the Google Play Developer API with `fetch` and
 `node:crypto`.
 
@@ -46,10 +46,17 @@ capture never touches the network.
 - Node 22 or newer (the browser driver needs the built-in `WebSocket`).
 - `src/web/node_modules` installed (`cd src/web && npm install`); `sharp`
   is loaded from there.
-- A Chromium-based browser. `lib/browser.mjs` tries, in order: the path in
-  `LID_BROWSER`, `/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge`,
-  Google Chrome, Chromium. It runs with `--headless=new`, a throw-away
-  profile, and `--remote-debugging-port=0`.
+- A Chromium-based browser. `lib/browser.mjs` (`browserCandidates()`) tries,
+  in order: the path in `LID_BROWSER`, the path in `BROWSER_PATH`,
+  Playwright's `chrome-headless-shell` (newest `chromium_headless_shell-*`
+  revision under `PLAYWRIGHT_BROWSERS_PATH`, then `~/Library/Caches/ms-playwright`
+  on macOS or `~/.cache/ms-playwright` on Linux), Playwright's full Chrome for
+  Testing (`chromium-*`, same places), then `/Applications/Google Chrome.app`
+  and `/Applications/Chromium.app`. Microsoft Edge is never used. Install
+  the headless shell with `npx playwright install chromium-headless-shell`.
+  It runs with `--headless=new`, `--use-mock-keychain` (a full Chrome on a
+  fresh profile otherwise asks the macOS keychain for "Chrome Safe Storage"
+  and shows a dialog), a throw-away profile, and `--remote-debugging-port=0`.
 - `ffmpeg` on the `PATH` or in the `FFMPEG` environment variable (Homebrew
   installs it to `/opt/homebrew/bin/ffmpeg`). Only `video.mjs` needs it.
 - The exported web build in `src/web/out` (see the first command below).
@@ -717,9 +724,10 @@ Store Connect, not from this file.
 
 ## Troubleshooting
 
-- `No Chromium-based browser found. Set LID_BROWSER to the executable path.`
-  – Edge, Chrome, or Chromium is not at the expected path. Point
-  `LID_BROWSER` at the browser binary.
+- `No Chromium-based browser found. Install Playwright's headless shell ...`
+  – neither a Playwright download nor Google Chrome or Chromium is at the
+  expected path. Run `npx playwright install chromium-headless-shell`, or
+  point `LID_BROWSER` (or `BROWSER_PATH`) at a Chromium binary.
 - `missing .../src/web/out/dashboard.html - run "npm run build" in src/web first`
   or `no @font-face rules found in src/web/out - run the build first` –
   capture, render, and video all read the exported build. Run

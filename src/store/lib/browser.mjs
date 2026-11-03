@@ -1,23 +1,154 @@
-// Headless Chromium (Microsoft Edge on this machine) driven over the DevTools
-// protocol with Node's built-in WebSocket. No npm packages needed.
+// Headless Chromium driven over the DevTools protocol with Node's built-in
+// WebSocket. No npm packages needed.
+//
+// Browser choice: Playwright's chrome-headless-shell first - it never draws a
+// window and never touches the macOS keychain. A full Chrome (Chrome for
+// Testing, Google Chrome, Chromium) started raw on a fresh profile asks the
+// keychain for "Chrome Safe Storage" and pops a dialog on the owner's screen,
+// so every launch passes --use-mock-keychain. Microsoft Edge is never used:
+// on the owner's Mac it is his own browser.
 import { spawn } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync, existsSync } from "node:fs";
+import { mkdtempSync, readFileSync, readdirSync, rmSync, existsSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const CANDIDATES = [
-    process.env.LID_BROWSER,
-    "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    "/Applications/Chromium.app/Contents/MacOS/Chromium",
-].filter(Boolean);
+export const NO_BROWSER_MESSAGE =
+    "No Chromium-based browser found. Install Playwright's headless shell (npx playwright install chromium-headless-shell) " +
+    "or set LID_BROWSER (or BROWSER_PATH) to a Chromium executable.";
 
-function findBrowser() {
-    const found = CANDIDATES.find((candidate) => existsSync(candidate));
+/** Playwright's download layouts per platform: the headless shell and the full Chrome (for Testing), newer layout first. */
+function playwrightLayouts(platform, arch) {
+    if (platform === "darwin") {
+        const cpu = arch === "arm64" ? "mac-arm64" : "mac-x64";
+        return {
+            shell: [`chrome-headless-shell-${cpu}/chrome-headless-shell`, "chrome-mac/headless_shell"],
+            chrome: [
+                `chrome-${cpu}/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+                "chrome-mac/Chromium.app/Contents/MacOS/Chromium",
+            ],
+        };
+    }
+    if (platform === "linux") {
+        const cpu = arch === "arm64" ? "linux-arm64" : "linux64";
+        return {
+            shell: [`chrome-headless-shell-${cpu}/chrome-headless-shell`, "chrome-linux/headless_shell"],
+            chrome: [`chrome-${cpu}/chrome`, "chrome-linux/chrome"],
+        };
+    }
+    return { shell: [], chrome: [] };
+}
+
+/** Where Playwright keeps its downloads: PLAYWRIGHT_BROWSERS_PATH, then the platform's cache directory. */
+function playwrightRoots({ env, home, platform }) {
+    const roots = [];
+    const custom = env.PLAYWRIGHT_BROWSERS_PATH;
+    // "0" means "inside node_modules" to Playwright; there is no fixed path to look at.
+    if (custom && custom !== "0") {
+        roots.push(custom);
+    }
+    if (platform === "darwin") {
+        roots.push(path.join(home, "Library", "Caches", "ms-playwright"));
+    } else if (platform === "linux") {
+        roots.push(path.join(env.XDG_CACHE_HOME || path.join(home, ".cache"), "ms-playwright"));
+    }
+    return [...new Set(roots)];
+}
+
+/** `<prefix>-<revision>` directories in `root`, newest revision first. */
+function revisionDirs(root, prefix, list) {
+    let names;
+    try {
+        names = list(root);
+    } catch {
+        return [];
+    }
+    const pattern = new RegExp(`^${prefix}-(\\d+)$`);
+    return names
+        .map((name) => ({ name, match: pattern.exec(name) }))
+        .filter(({ match }) => match)
+        .sort((a, b) => Number(b.match[1]) - Number(a.match[1]))
+        .map(({ name }) => path.join(root, name));
+}
+
+/**
+ * @typedef {object} CandidateOptions
+ * @property {Record<string, string | undefined>} [env] environment to read (default: process.env)
+ * @property {string} [home] home directory (default: os.homedir())
+ * @property {string} [platform] "darwin", "linux", ... (default: process.platform)
+ * @property {string} [arch] "arm64", "x64", ... (default: process.arch)
+ * @property {(dir: string) => string[]} [list] directory listing (default: fs.readdirSync)
+ */
+
+/**
+ * Every browser executable worth trying, in order: LID_BROWSER, BROWSER_PATH,
+ * Playwright's headless shell (newest revision first, every download root),
+ * Playwright's full Chrome for Testing, then Google Chrome and Chromium in
+ * /Applications. Existence is not checked here except for the directory
+ * listing of the Playwright roots; `findBrowser` picks the first that exists.
+ *
+ * @param {CandidateOptions} [options]
+ * @returns {string[]}
+ */
+export function browserCandidates({
+    env = process.env,
+    home = os.homedir(),
+    platform = process.platform,
+    arch = process.arch,
+    list = (dir) => readdirSync(dir),
+} = {}) {
+    const layouts = playwrightLayouts(platform, arch);
+    const roots = playwrightRoots({ env, home, platform });
+    const fromPlaywright = (prefix, files) =>
+        roots.flatMap((root) => revisionDirs(root, prefix, list).flatMap((dir) => files.map((file) => path.join(dir, file))));
+    const candidates = [
+        env.LID_BROWSER,
+        env.BROWSER_PATH,
+        ...fromPlaywright("chromium_headless_shell", layouts.shell),
+        ...fromPlaywright("chromium", layouts.chrome),
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    ].filter(Boolean);
+    return [...new Set(candidates)];
+}
+
+/**
+ * The first browser candidate that exists; throws NO_BROWSER_MESSAGE when none does.
+ *
+ * @param {CandidateOptions & { exists?: (file: string) => boolean }} [options]
+ * @returns {string}
+ */
+export function findBrowser({ exists = existsSync, ...options } = {}) {
+    const found = browserCandidates(options).find((candidate) => exists(candidate));
     if (!found) {
-        throw new Error(`No Chromium-based browser found. Set LID_BROWSER to the executable path.`);
+        throw new Error(NO_BROWSER_MESSAGE);
     }
     return found;
+}
+
+/**
+ * Command-line flags for one launch. --use-mock-keychain is always there: no keychain prompt, ever.
+ *
+ * @param {{ profile: string, headless?: boolean }} options
+ * @returns {string[]}
+ */
+export function browserArgs({ profile, headless = true }) {
+    return [
+        headless ? "--headless=new" : "",
+        "--use-mock-keychain",
+        "--remote-debugging-port=0",
+        `--user-data-dir=${profile}`,
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--disable-extensions",
+        "--disable-background-networking",
+        "--disable-sync",
+        "--hide-scrollbars",
+        "--mute-audio",
+        "--force-color-profile=srgb",
+        "--font-render-hinting=none",
+        "--window-size=1400,1000",
+        "about:blank",
+    ].filter(Boolean);
 }
 
 function sleep(ms) {
@@ -210,24 +341,8 @@ class Page {
 /** Launches the browser headless; returns `{ newPage, close }`. */
 export async function launchBrowser({ headless = true } = {}) {
     const executable = findBrowser();
-    const profile = mkdtempSync(path.join(os.tmpdir(), "lid-store-edge-"));
-    const args = [
-        headless ? "--headless=new" : "",
-        "--remote-debugging-port=0",
-        `--user-data-dir=${profile}`,
-        "--no-first-run",
-        "--no-default-browser-check",
-        "--disable-extensions",
-        "--disable-background-networking",
-        "--disable-sync",
-        "--disable-features=msEdgeSidebarV2,msHubApps,msEdgeShoppingAssist",
-        "--hide-scrollbars",
-        "--mute-audio",
-        "--force-color-profile=srgb",
-        "--font-render-hinting=none",
-        "--window-size=1400,1000",
-        "about:blank",
-    ].filter(Boolean);
+    const profile = mkdtempSync(path.join(os.tmpdir(), "lid-store-browser-"));
+    const args = browserArgs({ profile, headless });
     const child = spawn(executable, args, { stdio: ["ignore", "ignore", "pipe"] });
     let stderr = "";
     child.stderr.on("data", (chunk) => {
