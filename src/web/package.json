@@ -10,6 +10,7 @@
     "build:ios": "next build --webpack && bash scripts/prepare-native.sh && npx cap sync ios",
     "assets:ios": "node scripts/ios-assets.mjs",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
