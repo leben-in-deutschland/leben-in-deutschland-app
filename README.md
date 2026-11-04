@@ -65,6 +65,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm test           # Vitest, the project's verification command
 npm run lint
+npm run typecheck  # tsc --noEmit; vitest does not type-check, the build does
 npm run build      # static export into src/web/out
 ```
 
