@@ -263,6 +263,19 @@ describe("the explanation names the answer", () => {
         expect([...assertedLetters("Antwort c ist korrekt.")]).toEqual(["c"]);
         expect([...assertedLetters('Daher ist die richtige Antwort "a: Ende des Zweiten Weltkriegs in Europa".')]).toEqual(["a"]);
     });
+
+    it("never asserts another letter than the solution in the app's shipped German explanations", () => {
+        const questions = JSON.parse(readFileSync(path.join(__dirname, "../data/question.json"), "utf8")) as Array<{
+            num: string;
+            solution: string;
+            context?: string;
+        }>;
+        const wrong = questions
+            .map((question) => ({ num: question.num, letters: [...assertedLetters(question.context)].filter((letter) => letter !== question.solution) }))
+            .filter((entry) => entry.letters.length > 0)
+            .map((entry) => `${entry.num}: ${entry.letters.join(",")}`);
+        expect(wrong).toEqual([]);
+    });
 });
 
 describe("numbering", () => {
