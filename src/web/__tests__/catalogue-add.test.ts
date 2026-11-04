@@ -280,8 +280,7 @@ describe("the explanation names the answer", () => {
             .map((question) => ({ num: question.num, letters: [...assertedLetters(question.context)].filter((letter) => letter !== question.solution) }))
             .filter((entry) => entry.letters.length > 0)
             .map((entry) => `${entry.num}: ${entry.letters.join(",")}`);
-        // 289 says "Option a ist somit korrekt" for b (EWG); its fix is TASK-072. Empty this list then.
-        expect(wrong).toEqual(["289: a"]);
+        expect(wrong).toEqual([]);
     });
 });
 
