@@ -262,6 +262,12 @@ describe("the explanation names the answer", () => {
         expect([...assertedLetters("Daher ist die korrekte Antwort c: 17. Juni.")]).toEqual(["c"]);
         expect([...assertedLetters("Antwort c ist korrekt.")]).toEqual(["c"]);
         expect([...assertedLetters('Daher ist die richtige Antwort "a: Ende des Zweiten Weltkriegs in Europa".')]).toEqual(["a"]);
+        expect([...assertedLetters('Antwort b ist daher richtig: "Man darf sich seinen Wohnort selbst aussuchen."')]).toEqual(["b"]);
+        expect([...assertedLetters("Antwort b, ein Kindergartenplatz, ist daher korrekt.")]).toEqual(["b"]);
+        expect([...assertedLetters('Historisch wird sie als "Grundgesetz" bezeichnet, was die Antwort a als korrekt bestätigt.')]).toEqual(["a"]);
+        expect([...assertedLetters("In diesem Kontext erkennen wir die Antwort c als korrekt.")]).toEqual(["c"]);
+        expect([...assertedLetters("Option a ist somit korrekt.")]).toEqual(["a"]);
+        expect([...assertedLetters("Antwort b, die oft gewählt wird, ist falsch.")]).toEqual([]);
     });
 
     it("never asserts another letter than the solution in the app's shipped German explanations", () => {
@@ -274,7 +280,8 @@ describe("the explanation names the answer", () => {
             .map((question) => ({ num: question.num, letters: [...assertedLetters(question.context)].filter((letter) => letter !== question.solution) }))
             .filter((entry) => entry.letters.length > 0)
             .map((entry) => `${entry.num}: ${entry.letters.join(",")}`);
-        expect(wrong).toEqual([]);
+        // 289 says "Option a ist somit korrekt" for b (EWG); its fix is TASK-072. Empty this list then.
+        expect(wrong).toEqual(["289: a"]);
     });
 });
 

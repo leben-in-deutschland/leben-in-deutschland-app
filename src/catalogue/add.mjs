@@ -65,10 +65,15 @@ const NAME_CONNECTORS = new Set(["von", "der", "de", "van", "zu", "und", "am", "
 /** Explanations state facts, not their author. */
 const MODEL_WORDS = /\b(KI|AI|ChatGPT|GPT|Claude|Gemini|LLM|Sprachmodell|Language Model)\b/;
 const FIRST_PERSON = /\b(ich|wir|uns|unser(e|er|es|em|en)?|mein(e|er|es|em|en)?)\b/i;
-/** Phrases that assert a letter is the right one: "die richtige Antwort b", "Antwort b ist richtig", "\"b: …\"". */
+/**
+ * Phrases that assert a letter is the right one: "die richtige Antwort b",
+ * "Antwort b ist richtig", "Antwort b ist daher richtig", "Antwort b, ein
+ * Kindergartenplatz, ist korrekt", "die Antwort b als korrekt", "\"b: …\"".
+ */
 const ASSERTED_LETTER = [
     /(?:richtige|korrekte|zutreffende)\s+(?:antwort|option|lösung)\s+(?:ist\s+|lautet\s+)?["„“»(]?\s*([a-d])(?!\p{L})/giu,
-    /(?:antwort|option|lösung)\s+["„“»(]?\s*([a-d])[")]?\s+ist\s+(?:die\s+)?(?:richtig|korrekt|zutreffend)/giu,
+    /(?:antwort|option|lösung)\s+["„“»(]?\s*([a-d])[")]?(?:\s*,[^,.]{1,80},)?\s+ist\s+(?:(?:daher|somit|also|deshalb|folglich|damit)\s+)?(?:die\s+)?(?:richtig|korrekt|zutreffend)/giu,
+    /(?:antwort|option|lösung)\s+["„“»(]?\s*([a-d])[")]?\s+als\s+(?:die\s+)?(?:richtig|korrekt|zutreffend)/giu,
     /["„“»(]\s*([a-d])\s*:/gu,
 ];
 
