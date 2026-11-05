@@ -216,7 +216,7 @@ describe("validatePending rejects each class of defect", () => {
         const problems = problemsOf(entry);
         expect(problems).toContain("officialNum is missing");
         expect(problems).toContain("answer a is empty");
-        expect(problems).toContain('image "http://example.org/x.png" is neither "-" nor an https URL');
+        expect(problems).toContain('image "http://example.org/x.png" is neither "-", a bundled /questions/<num>.webp picture, nor an https URL');
         expect(problems).toContain("preparedOn is not an ISO date (YYYY-MM-DD)");
         expect(problems).toContain("confirmed is not a boolean");
         expect(problems).toContain("justification is empty: one sentence why the proposed letter is right, naming the source when possible");

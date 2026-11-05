@@ -72,10 +72,14 @@ daemon queue one agent job whose brief is this skill.
   the privacy rule in `AGENTS.md`).
 - **Hard stops stay.** Landing on `main` goes through `pulse land`; the
   daemon pushes according to `landing.push`. Never `git push`, never `gh`.
-- **Images carry credits.** Pictures extracted from the PDF stay in the
-  git-ignored `src/catalogue/output/images/`. Publishing them in the app is
-  a separate decision (a new ADR record in the PULSE store first); a new
-  picture question keeps `image: "-"` until then.
+- **Images carry credits.** Pictures extracted from the PDF land in the
+  git-ignored `src/catalogue/output/images/`; `apply.mjs` renders each
+  picture question's pictures, with the PDF's credit printed underneath,
+  into the committed `src/web/public/questions/<num>.webp` and points
+  `image` at `/questions/<num>.webp` (TASK-077), so the app shows them
+  offline. Commit changed `.webp` files with the rest of the sync. A new
+  picture question from `add.mjs` keeps `image: "-"` in the pending file;
+  the next `apply.mjs` after `--confirm` gives it its picture.
 
 ## Procedure
 
@@ -222,7 +226,8 @@ daemon queue one agent job whose brief is this skill.
        `1949`, `3%`) and, in en/tr/fr only, an answer that is a proper
        name (`Konrad Adenauer`). Picture answers `Bild 1`..`Bild 4` are
        translated as the shipped picture questions do (`1`..`4`).
-     - `image`: keep `"-"` (see "Images carry credits").
+     - `image`: keep `"-"`; `apply.mjs` sets the bundled picture after
+       `--confirm` (see "Images carry credits").
 
      Then validate and read the summary it prints:
 
@@ -259,8 +264,8 @@ daemon queue one agent job whose brief is this skill.
      version bump, one `catalogue:` commit, landing.
 8. Commit `src/catalogue/state.json`, `src/catalogue/data/` (including
    `pending-questions.json`),
-   `src/web/data/question.json`, `src/web/data/questions-core.json`, and
-   `src/web/public/data/` together as one commit with a `catalogue:`
+   `src/web/data/question.json`, `src/web/data/questions-core.json`,
+   `src/web/public/data/`, and `src/web/public/questions/` together as one commit with a `catalogue:`
    message (`catalogue: BAMF Gesamtfragenkatalog Stand <stand> (<n>
    questions aligned)`, `catalogue: add <n> confirmed question(s) from
    Stand <stand>` after `add.mjs --confirm`, or `catalogue: record BAMF

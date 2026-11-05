@@ -34,7 +34,7 @@ src/catalogue/
   check.mjs                 Step 1+2: reads the "last updated" signals, downloads the PDF when it changed
   extract.mjs               Step 3: PDF -> data/bamf-catalogue.json + output/images/*.png, validates the result
   compare.mjs               Step 4: compares with src/web/data/question.json -> output/report.md + output/question.proposed.json
-  apply.mjs                 Step 5: writes the safe part of the proposal into src/web/data/question.json, held-back list -> output/review.md
+  apply.mjs                 Step 5: writes the safe part of the proposal into src/web/data/question.json and the pictures into src/web/public/questions/, held-back list -> output/review.md
   add.mjs                   Step 6: new official questions - validates data/pending-questions.json (--check), ships confirmed entries (--confirm), drops rejected ones (--remove)
   sync.mjs                  check -> (when changed or --force) extract -> compare -> (--apply) apply, prints a summary
   lib/http.mjs              fetch helpers: User-Agent, timeout, one retry, conditional GET, redirect = failure
@@ -211,6 +211,20 @@ a missing input, an invalid applied entry (empty text, solution outside
 `a`–`d`, changed `num`/`id`), or duplicate numbers before or after; nothing
 is written in those cases. Applying the same proposal twice changes nothing.
 
+**Pictures.** The app ships the official pictures, so picture questions work
+offline and load nothing from another host. For every app question whose
+matched official question has pictures (43 in Stand 07.05.2025), `apply.mjs`
+renders `output/images/<officialNum>-<n>.png` into
+`src/web/public/questions/<num>.webp` (`lib/picture.mjs`: a single picture
+at most 1200 x 900 px; four pictures as a 2 x 2 grid captioned "Bild 1" ..
+"Bild 4" in reading order; a credit or source note from the PDF printed
+underneath; WebP quality 80, about 2.5 MB for all 43) and sets the
+question's `image` to `/questions/<num>.webp`. The file is named by the
+app's `num`, not the official number. This happens for held-back questions
+too - a picture needs no answer key - and a file no question uses any more
+is removed. Unchanged bytes are not rewritten. sharp comes from
+`src/web/node_modules`, like pdf.js.
+
 ### `add.mjs` – new questions
 
 The PDF has no answer key, so a question that is new in the official
@@ -325,7 +339,7 @@ Ignored (`src/catalogue/output/`, see `.gitignore`):
 - `report.md`, `review.md`, `question.proposed.json`
 
 Applied by `apply.mjs` and `add.mjs --confirm` (committed by the automation job together with the
-files above): `src/web/data/question.json`, and – after `split-questions.js` –
+files above): `src/web/data/question.json`, `src/web/public/questions/*.webp` (`apply.mjs`), and – after `split-questions.js` –
 `src/web/data/questions-core.json` and `src/web/public/data/`.
 
 ### `watch.mjs` – the daily watch

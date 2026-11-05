@@ -111,7 +111,7 @@ function EntryAnswers({ entry, t }: { entry: ReviewEntry; t: Translations }) {
     return (
         <div className="flex flex-col gap-3 pb-2">
             {hasImage ? (
-                // Images come from the question source and are not bundled.
+                // Pictures ship with the app (public/questions, written by src/catalogue/apply.mjs from the official BAMF PDF), so they show offline.
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={question.image}
