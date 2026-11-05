@@ -26,10 +26,12 @@ import catalogueDe from './translations/areas/catalogue.de.json';
 import { Question } from '@/types/question';
 import { PrüfstellenData } from '@/types/prüfstellen';
 import { EvaluationData } from '@/types/evaluation';
+import { withBundledPictures } from '@/utils/question-pictures';
 
 export const pruefstellenData = () => JSON.parse(JSON.stringify(pruefstellenJson)) as PrüfstellenData[];
 export const statesData = () => JSON.parse(JSON.stringify(statesJson)) as State[];
-export const questionsData = () => JSON.parse(JSON.stringify(questionsJson)) as Question[];
+/** The bundled catalogue; picture URLs on the website point back at this build's bundled files (utils/question-pictures.ts). */
+export const questionsData = () => withBundledPictures(JSON.parse(JSON.stringify(questionsJson)) as Question[]);
 export const evaluationData = () => JSON.parse(JSON.stringify(evaluationJson)) as EvaluationData;
 
 /**

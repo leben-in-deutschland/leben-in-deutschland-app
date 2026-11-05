@@ -9,6 +9,7 @@ import { questionsData } from "@/data/data";
 import type { Question } from "@/types/question";
 import { getQuestionBank, getQuestionBankSource, getRelevantQuestions, isQuestionChanged, resetQuestionBankCache } from "@/utils/question-bank";
 import { loadQuestionContext, loadQuestionTranslation } from "@/utils/question-loader";
+import { PICTURE_ORIGIN } from "@/utils/question-pictures";
 import { APP_VERSION } from "@/utils/remote-cache";
 import { changedQuestionNums, isQuestionCatalogue, keepIfDifferent, QUESTIONS_KEY, questionStore, readDownloadedCatalogue, sameCatalogue } from "@/utils/question-store";
 
@@ -77,6 +78,23 @@ describe("sameCatalogue / changedQuestionNums / keepIfDifferent", () => {
         const changed = withChange((copy) => (copy[0].question = "Geändert?"));
         expect(keepIfDifferent(changed)).toBe(changed);
     });
+
+    it("treats the published file, whose pictures are website URLs for apps up to 2.1.25, as the bundled catalogue", () => {
+        const published = withChange((copy) => {
+            for (const question of copy) {
+                if (question.image.startsWith("/questions/")) {
+                    question.image = `${PICTURE_ORIGIN}${question.image}`;
+                }
+            }
+        });
+        expect(published.filter((question) => question.image.startsWith(`${PICTURE_ORIGIN}/questions/`)).length).toBeGreaterThan(40);
+        expect(keepIfDifferent(published)).toBeNull();
+        published[0].question = "Geändert?";
+        const kept = keepIfDifferent(published);
+        expect(kept).not.toBeNull();
+        expect(kept!.filter((question) => question.image.startsWith("http"))).toEqual([]);
+        expect([...changedQuestionNums(kept!, bundled)]).toEqual([published[0].num]);
+    });
 });
 
 describe("question bank with a downloaded catalogue", () => {
@@ -95,6 +113,26 @@ describe("question bank with a downloaded catalogue", () => {
         expect(isQuestionChanged(bundled[0].num)).toBe(true);
         expect(isQuestionChanged(bundled[1].num)).toBe(false);
         expect(getRelevantQuestions("BE")).toHaveLength(310);
+    });
+
+    it("shows the bundled picture files for a cache that holds website URLs", () => {
+        const published = withChange((copy) => {
+            copy[0].question = "Geändert?";
+            for (const question of copy) {
+                if (question.image.startsWith("/questions/")) {
+                    question.image = `${PICTURE_ORIGIN}${question.image}`;
+                }
+            }
+        });
+        questionStore.storeData(published);
+        const bank = getQuestionBank();
+        expect(getQuestionBankSource()).toBe("downloaded");
+        const pictures = bank.filter((question) => question.image !== "-");
+        expect(pictures.length).toBe(bundled.filter((question) => question.image !== "-").length);
+        for (const question of pictures) {
+            expect(question.image, question.num).toBe(`/questions/${question.num}.webp`);
+            expect(isQuestionChanged(question.num), question.num).toBe(false);
+        }
     });
 
     it("ignores a cache from another build or one that fails the check", () => {

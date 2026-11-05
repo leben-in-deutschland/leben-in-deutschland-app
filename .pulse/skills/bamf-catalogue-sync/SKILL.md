@@ -77,7 +77,8 @@ daemon queue one agent job whose brief is this skill.
   picture question's pictures, with the PDF's credit printed underneath,
   into the committed `src/web/public/questions/<num>.webp` and points
   `image` at `/questions/<num>.webp` (TASK-077), so the app shows them
-  offline. Commit changed `.webp` files with the rest of the sync. A new
+  offline. `questions-core.json` carries them as website URLs for apps up
+  to 2.1.25 (`split-questions.js`); newer builds map them back. Commit changed `.webp` files with the rest of the sync. A new
   picture question from `add.mjs` keeps `image: "-"` in the pending file;
   the next `apply.mjs` after `--confirm` gives it its picture.
 
