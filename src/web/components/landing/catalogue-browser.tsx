@@ -182,6 +182,21 @@ export function CatalogueBrowser({ stateCode, states }: CatalogueBrowserProps) {
     );
 }
 
+/** Official caption under each of the four pictures of one question picture ("Bild 1" .. "Bild 4"). */
+const PICTURE_CAPTION = /^Bild \d+$/;
+
+/**
+ * Alt text of a question picture: the generic label plus the question number, so
+ * a screen reader tells one picture from the next in the list, and - when the
+ * answers are the official captions printed under four pictures - those
+ * captions, so the listener knows the picture holds "Bild 1" .. "Bild 4".
+ */
+function questionImageAlt(question: Question, t: Translations): string {
+    const label = `${t.question_image_alt} (${t.question_number_label} ${question.num})`;
+    const captions = ANSWER_OPTIONS.map((letter) => String(question[letter] ?? "").trim());
+    return captions.every((caption) => PICTURE_CAPTION.test(caption)) ? `${label}: ${captions.join(", ")}` : label;
+}
+
 function QuestionCard({ question, t }: { question: Question; t: Translations }) {
     const category = normalizeCategory(question.category);
     return (
@@ -198,7 +213,7 @@ function QuestionCard({ question, t }: { question: Question; t: Translations }) 
                 </p>
                 {question.image && question.image !== "-" ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={question.image} alt={t.question_image_alt} loading="lazy" className="mt-3 max-h-72 w-full rounded-xl bg-content2 object-contain" />
+                    <img src={question.image} alt={questionImageAlt(question, t)} loading="lazy" className="mt-3 max-h-72 w-full rounded-xl bg-content2 object-contain" />
                 ) : null}
                 <div className="mt-4 grid gap-2 sm:grid-cols-2">
                     {ANSWER_OPTIONS.map((letter) => {
