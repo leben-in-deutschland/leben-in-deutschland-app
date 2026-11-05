@@ -42,7 +42,7 @@ export function QuestionHeading({ question, t, position, id, className, variant 
                 {question.question}
             </h2>
             {hasImage ? (
-                // Images come from the question source and are not bundled.
+                // Pictures ship with the app (public/questions, written by src/catalogue/apply.mjs from the official BAMF PDF), so they show offline.
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={question.image}

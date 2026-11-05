@@ -370,7 +370,7 @@ export function buildReport({ catalogue, existing, results, proposal, duplicates
     lines.push("3. Add solutions for new questions from an authoritative source (the PDF has none) and fill in translations and explanations where they are missing.");
     lines.push("4. Copy the approved texts into `src/web/data/question.json`; drop the helper fields `officialNum`, `needsReview`, `reviewReason`, and `notInOfficialCatalogue` first.");
     lines.push("5. Run `node scripts/split-questions.js` in `src/web`, then `npm test`, `npm run lint`, and `npm run build`.");
-    lines.push("6. Pictures: the PNG files under `src/catalogue/output/images/` are extracted for review; the app keeps using its own image URLs until the owner decides otherwise.");
+    lines.push("6. Pictures: `apply.mjs` renders the PNG files under `src/catalogue/output/images/` into `src/web/public/questions/<num>.webp` (four pictures as a captioned 2 x 2 grid, the credit underneath) and points each picture question's `image` at that file, so the app shows them offline.");
     lines.push("");
     return lines.join("\n");
 }
