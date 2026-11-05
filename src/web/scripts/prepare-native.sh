@@ -63,7 +63,20 @@ if [ "$TXT_COUNT" -gt 0 ]; then
 fi
 
 # -------------------------------------------------------
-# 5. Report final size
+# 5. Keep the question pictures: picture questions point at
+#    /questions/<num>.webp (public/questions, written by
+#    src/catalogue/apply.mjs), so the apps show them offline.
+# -------------------------------------------------------
+PICTURES_EXPECTED=$(find public/questions -name '*.webp' -type f 2>/dev/null | wc -l | tr -d ' ')
+PICTURES_SHIPPED=$(find "$OUT_DIR/questions" -name '*.webp' -type f 2>/dev/null | wc -l | tr -d ' ')
+if [ "$PICTURES_SHIPPED" -ne "$PICTURES_EXPECTED" ]; then
+  echo "Error: $OUT_DIR/questions holds $PICTURES_SHIPPED of $PICTURES_EXPECTED question pictures."
+  exit 1
+fi
+echo "  Kept $PICTURES_SHIPPED question pictures in /questions/ ($(du -sh "$OUT_DIR/questions" 2>/dev/null | cut -f1))"
+
+# -------------------------------------------------------
+# 6. Report final size
 # -------------------------------------------------------
 FINAL_SIZE=$(du -sh "$OUT_DIR" | cut -f1)
 echo ""

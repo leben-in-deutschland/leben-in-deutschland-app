@@ -250,8 +250,8 @@ export function validatePending(entry, existing, pending = [], { stateCodes = re
     if (!CATEGORIES.includes(entry.category)) {
         problems.push(`category ${quote(entry.category)} is not one of ${CATEGORIES.join(", ")}`);
     }
-    if (!(entry.image === "-" || /^https:\/\/\S+$/.test(String(entry.image ?? "")))) {
-        problems.push(`image ${quote(entry.image)} is neither "-" nor an https URL`);
+    if (!(entry.image === "-" || /^\/questions\/[A-Za-z0-9-]+\.webp$/.test(String(entry.image ?? "")) || /^https:\/\/\S+$/.test(String(entry.image ?? "")))) {
+        problems.push(`image ${quote(entry.image)} is neither "-", a bundled /questions/<num>.webp picture, nor an https URL`);
     }
 
     const context = text("context");

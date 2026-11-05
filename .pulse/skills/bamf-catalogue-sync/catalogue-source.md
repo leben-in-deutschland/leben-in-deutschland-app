@@ -51,7 +51,9 @@ The official source for the test questions is the BAMF PDF
    amendment of 2026-10-12).
 5. **Pictures carry credits** such as "© Deutscher Bundestag/Achim Melde".
    Extracted images stay in the git-ignored `src/catalogue/output/images/`;
-   publishing them is a separate decision.
+   `apply.mjs` renders them, credit included, into the committed
+   `src/web/public/questions/<num>.webp` the app shows (TASK-077), so a new
+   catalogue's changed pictures land with the same apply.
 6. **A push to `main` is a web release.** `vercel-deploy.yml` runs on
    every push to `main` (`src/catalogue/**` is not in its `paths-ignore`).
    The apps need no build for a catalogue change: they download

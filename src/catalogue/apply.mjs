@@ -16,14 +16,32 @@
 // invalid applied entry, or a duplicate question number (learner progress is
 // keyed by `num`, so the app file must keep 460 unique numbers before and
 // after); nothing to apply is a normal result.
-import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync, appendFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { outputRoot, relative } from "./check.mjs";
+import { outputRoot, relative, repoRoot } from "./check.mjs";
 import { proposalPath, questionPath } from "./compare.mjs";
 import { cataloguePath } from "./extract.mjs";
+import { renderQuestionPicture } from "./lib/picture.mjs";
 
 export const reviewPath = path.join(outputRoot, "review.md");
+/** The app's own copies of the official pictures, served and bundled from src/web/public. */
+export const picturesDir = path.join(repoRoot, "src/web/public/questions");
+export const PICTURE_URL = "/questions/";
+
+/** Root-relative path of a question's picture, e.g. `/questions/BW-1.webp`. */
+export function picturePath(num) {
+    return `${PICTURE_URL}${num}.webp`;
+}
+
+/**
+ * The `image` a question should carry: its own bundled picture when the
+ * matched official question has pictures, otherwise what it has now (a
+ * question the PDF shows without a picture keeps "-").
+ */
+export function pictureFor(question, official) {
+    return official?.images?.length ? picturePath(question.num) : question.image;
+}
 
 const LETTERS = ["a", "b", "c", "d"];
 const HELPER_FIELDS = ["officialNum", "needsReview", "reviewReason", "notInOfficialCatalogue"];
@@ -146,8 +164,13 @@ export async function run({ dryRun = false } = {}) {
         }
     }
     const proposal = JSON.parse(readFileSync(proposalPath, "utf8"));
-    const existing = JSON.parse(readFileSync(questionPath, "utf8"));
-    const stand = existsSync(cataloguePath) ? JSON.parse(readFileSync(cataloguePath, "utf8")).source?.stand ?? null : null;
+    const existingText = readFileSync(questionPath, "utf8");
+    const existing = JSON.parse(existingText);
+    // Keep the file's own ending (with or without a final newline) so a diff shows only real changes.
+    const ending = existingText.endsWith("\n") ? "\n" : "";
+    const catalogue = existsSync(cataloguePath) ? JSON.parse(readFileSync(cataloguePath, "utf8")) : null;
+    const stand = catalogue?.source?.stand ?? null;
+    const officialByNum = new Map((catalogue?.questions ?? []).map((official) => [official.num, official]));
     console.log(`applying ${relative(proposalPath)} (${proposal.length} entries) to ${relative(questionPath)} (${existing.length} app questions)${dryRun ? " [dry run]" : ""}`);
     assertUniqueNumbers(relative(questionPath), existing);
 
@@ -158,6 +181,9 @@ export async function run({ dryRun = false } = {}) {
     const removed = [];
     const changed = [];
     const problems = [];
+    /** Questions whose matched official question has pictures, and those whose `image` changes now. */
+    const pictures = [];
+    const newPictures = [];
 
     const next = existing.map((question) => {
         const proposed = proposedById.get(question.id);
@@ -168,11 +194,20 @@ export async function run({ dryRun = false } = {}) {
             removed.push(question);
             return question;
         }
+        // The picture does not depend on the answer key, so a held-back question gets it too.
+        const official = officialByNum.get(proposed.officialNum);
+        const image = pictureFor(question, official);
+        if (official?.images?.length) {
+            pictures.push({ num: question.num, official });
+        }
+        if (image !== question.image) {
+            newPictures.push(question.num);
+        }
         if (proposed.needsReview) {
             heldBack.push({ existing: question, proposed });
-            return question;
+            return { ...question, image };
         }
-        const clean = stripHelpers(proposed);
+        const clean = { ...stripHelpers(proposed), image };
         const invalid = validate(clean);
         if (clean.num !== question.num || clean.id !== question.id) {
             invalid.push(`proposal changes num/id (${clean.num}/${clean.id})`);
@@ -213,9 +248,10 @@ export async function run({ dryRun = false } = {}) {
 
     mkdirSync(outputRoot, { recursive: true });
     writeFileSync(reviewPath, buildReview({ stand, heldBack, added, removed, applied, unchanged }));
+    const rendered = await writePictures(pictures, { dryRun });
     let written = false;
-    if (!dryRun && applied > 0) {
-        writeFileSync(questionPath, JSON.stringify(next, null, 2));
+    if (!dryRun && (applied > 0 || newPictures.length > 0)) {
+        writeFileSync(questionPath, `${JSON.stringify(next, null, 2)}${ending}`);
         written = true;
     }
 
@@ -224,10 +260,52 @@ export async function run({ dryRun = false } = {}) {
     console.log(`  held back    ${heldBack.length} need a human (kept at the current app version)`);
     console.log(`  new          ${added.length} official question(s) not added (prepare them with add.mjs; the owner confirms the answer)`);
     console.log(`  removed      ${removed.length} app question(s) no longer in the catalogue (kept)`);
+    console.log(`  pictures     ${pictures.length} picture question(s): ${rendered.written} file(s) ${dryRun ? "would be " : ""}written, ${rendered.unchanged} unchanged, ${rendered.removed} stale removed -> ${relative(picturesDir)}; ${newPictures.length} question(s) point at their bundled picture for the first time`);
     console.log(`  review       ${relative(reviewPath)}`);
     console.log(`  question.json ${written ? `written -> ${relative(questionPath)}; run node scripts/split-questions.js in src/web` : dryRun ? "not written (dry run)" : "unchanged"}`);
     writeGitHubOutput({ applied: String(applied), heldBack: String(heldBack.length + added.length + removed.length) });
-    return { applied, heldBack, added, removed, unchanged, written };
+    return { applied, heldBack, added, removed, unchanged, written, pictures: pictures.length, newPictures };
+}
+
+/**
+ * Renders the app picture of every picture question into
+ * src/web/public/questions/<num>.webp from the extracted official pictures
+ * (output/images, written by extract.mjs) and removes pictures no question
+ * uses any more. A file whose bytes would not change is left alone.
+ */
+async function writePictures(pictures, { dryRun }) {
+    const result = { written: 0, unchanged: 0, removed: 0 };
+    const wanted = new Set();
+    for (const { num, official } of pictures) {
+        const file = path.join(picturesDir, `${num}.webp`);
+        wanted.add(path.basename(file));
+        const sources = official.images.map((image) => path.join(outputRoot, image));
+        const missing = sources.filter((source) => !existsSync(source));
+        if (missing.length > 0) {
+            throw new Error(`${relative(missing[0])} is missing - run node src/catalogue/extract.mjs first`);
+        }
+        const bytes = await renderQuestionPicture(sources, official.credit);
+        if (existsSync(file) && readFileSync(file).equals(bytes)) {
+            result.unchanged++;
+            continue;
+        }
+        result.written++;
+        if (!dryRun) {
+            mkdirSync(picturesDir, { recursive: true });
+            writeFileSync(file, bytes);
+        }
+    }
+    if (existsSync(picturesDir)) {
+        for (const name of readdirSync(picturesDir)) {
+            if (name.endsWith(".webp") && !wanted.has(name)) {
+                result.removed++;
+                if (!dryRun) {
+                    rmSync(path.join(picturesDir, name));
+                }
+            }
+        }
+    }
+    return result;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
