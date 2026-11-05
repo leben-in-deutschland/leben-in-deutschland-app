@@ -64,15 +64,20 @@ export function withBundledPictures<T extends { image: string }>(questions: T[])
     return changed ? mapped : questions;
 }
 
-/** Official caption under each of the four pictures of one question picture ("Bild 1" .. "Bild 4"). */
-const PICTURE_CAPTION = /^Bild \d+$/;
+/**
+ * Official caption of the n-th of four pictures: "Bild 1" .. "Bild 4" under four
+ * pictures, or the bare "1" .. "4" of the numbered parts of one picture (the
+ * ballot papers of question 212, the state maps of the *-8 and *-10 questions).
+ * Both read as "Bild <n>", the way `src/catalogue/compare.mjs` matches them.
+ */
+const PICTURE_CAPTION = /^(?:Bild\s*)?([1-4])$/;
 
 /**
  * Alt text of a question picture: the generic label plus the question number, so
  * a screen reader tells one picture from the next, and - when the answers are
- * the official captions printed under four pictures - those captions, so the
- * listener knows the picture holds "Bild 1" .. "Bild 4" and which answer names
- * which picture.
+ * the official captions of four pictures or of four numbered parts of one
+ * picture - those captions, so the listener knows the picture holds "Bild 1" ..
+ * "Bild 4" and which answer names which picture.
  *
  * `numberLabel` replaces "Frage <catalogue number>", e.g. with the mock exam's
  * "Frage 4", which like the official test sheet shows no catalogue number.
@@ -84,6 +89,7 @@ export function questionImageAlt(
 ): string {
     const number = numberLabel ?? (t.question_number_label ? `${t.question_number_label} ${question.num}` : question.num);
     const label = t.question_image_alt ? `${t.question_image_alt} (${number})` : number;
-    const captions = [question.a, question.b, question.c, question.d].map((caption) => String(caption ?? "").trim());
-    return captions.every((caption) => PICTURE_CAPTION.test(caption)) ? `${label}: ${captions.join(", ")}` : label;
+    const numbers = [question.a, question.b, question.c, question.d].map((caption) => PICTURE_CAPTION.exec(String(caption ?? "").trim())?.[1]);
+    const captioned = numbers.every((number, index) => number === String(index + 1));
+    return captioned ? `${label}: ${numbers.map((number) => `Bild ${number}`).join(", ")}` : label;
 }

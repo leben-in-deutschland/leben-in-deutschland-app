@@ -98,7 +98,23 @@ describe("question picture alt text", () => {
         expect(questionImageAlt(byNum.get("56")!, de)).toBe("Bild zur Frage (Frage 56): Bild 1, Bild 2, Bild 3, Bild 4");
         expect(questionImageAlt(byNum.get("BY-1")!, de)).toBe("Bild zur Frage (Frage BY-1): Bild 1, Bild 2, Bild 3, Bild 4");
         expect(questionImageAlt(byNum.get("62")!, de)).toBe("Bild zur Frage (Frage 62)");
-        expect(questionImageAlt(byNum.get("BY-10")!, de)).toBe("Bild zur Frage (Frage BY-10)");
+    });
+
+    it("reads the numbered parts 1..4 of one picture as Bild 1..4 (question 212, the *-8 and *-10 state maps)", () => {
+        expect(questionImageAlt(byNum.get("212")!, de)).toBe("Bild zur Frage (Frage 212): Bild 1, Bild 2, Bild 3, Bild 4");
+        expect(questionImageAlt(byNum.get("BY-10")!, de)).toBe("Bild zur Frage (Frage BY-10): Bild 1, Bild 2, Bild 3, Bild 4");
+        expect(questionImageAlt(byNum.get("NI-8")!, de)).toBe("Bild zur Frage (Frage NI-8): Bild 1, Bild 2, Bild 3, Bild 4");
+        const pictures = questionsData().filter((question) => question.image !== "-");
+        const numbered = pictures.filter((question) => [question.a, question.b, question.c, question.d].join() === "1,2,3,4");
+        expect(numbered).toHaveLength(17);
+        expect(pictures.filter((question) => questionImageAlt(question, de).endsWith(": Bild 1, Bild 2, Bild 3, Bild 4"))).toHaveLength(36);
+    });
+
+    it("names no captions when the answers are not the pictures 1..4 in order", () => {
+        const base = { num: "X", a: "Bild 1", b: "Bild 2", c: "Bild 3", d: "Bild 4" };
+        expect(questionImageAlt({ ...base, a: "3", b: "4", c: "5", d: "6" }, de)).toBe("Bild zur Frage (Frage X)");
+        expect(questionImageAlt({ ...base, d: "Bild 5" }, de)).toBe("Bild zur Frage (Frage X)");
+        expect(questionImageAlt({ ...base, a: "2", b: "1" }, de)).toBe("Bild zur Frage (Frage X)");
     });
 
     it("takes the sheet label instead of the catalogue number in the mock exam", () => {
