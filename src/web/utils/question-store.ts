@@ -1,5 +1,6 @@
 import { questionsData, statesData } from "@/data/data";
 import type { Question } from "@/types/question";
+import { withBundledPictures } from "@/utils/question-pictures";
 import { createRemoteStore } from "@/utils/remote-cache";
 
 /**
@@ -94,12 +95,18 @@ export function changedQuestionNums(downloaded: Question[], bundled: Question[])
     return changed;
 }
 
-/** What to keep from a valid download: nothing when it equals the bundled catalogue. */
+/**
+ * What to keep from a valid download: nothing when it equals the bundled
+ * catalogue. The file carries website URLs for its pictures (for apps up to
+ * 2.1.25); those this build bundles are compared and kept as the local file.
+ */
 export function keepIfDifferent(downloaded: Question[]): Question[] | null {
-    return sameCatalogue(downloaded, questionsData()) ? null : downloaded;
+    const local = withBundledPictures(downloaded);
+    return sameCatalogue(local, questionsData()) ? null : local;
 }
 
-/** The downloaded catalogue to use instead of the bundled one, or null. */
+/** The downloaded catalogue to use instead of the bundled one, or null; bundled pictures point at their local files. */
 export function readDownloadedCatalogue(): Question[] | null {
-    return questionStore.read().data;
+    const data = questionStore.read().data;
+    return data ? withBundledPictures(data) : null;
 }

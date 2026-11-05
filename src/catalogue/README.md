@@ -225,6 +225,14 @@ too - a picture needs no answer key - and a file no question uses any more
 is removed. Unchanged bytes are not rewritten. sharp comes from
 `src/web/node_modules`, like pdf.js.
 
+`split-questions.js` writes those pictures into `questions-core.json` as
+URLs on the public website (`https://www.lebenindeutschland.org/questions/<num>.webp`,
+the origin from `siteConfig.links.website`): apps up to 2.1.25 bundle no
+pictures but download that file every day, so they load the picture from
+the site. Builds from 2.1.26 on map every such URL they bundle back to the
+local file (`src/web/utils/question-pictures.ts`), offline and without a
+request.
+
 ### `add.mjs` – new questions
 
 The PDF has no answer key, so a question that is new in the official

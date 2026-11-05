@@ -25,6 +25,23 @@ const TRANSLATION_LANGS = ["en", "tr", "ru", "fr", "ar", "uk", "hi"];
 // Read source
 const questions = JSON.parse(fs.readFileSync(SOURCE, "utf8"));
 
+// The public website's origin, from siteConfig.links.website in config/site.ts.
+function websiteOrigin() {
+  const site = fs.readFileSync(path.join(ROOT, "config", "site.ts"), "utf8");
+  const match = site.match(/website:\s*"(https:\/\/[^"]+)"/);
+  if (!match) {
+    throw new Error("config/site.ts: siteConfig.links.website not found");
+  }
+  return new URL(match[1]).origin;
+}
+const ORIGIN = websiteOrigin();
+
+// Apps up to 2.1.25 do not bundle public/questions but download this file
+// every day, so a bundled picture path becomes its URL on the website here;
+// newer builds map that URL back to the bundled file
+// (utils/question-pictures.ts).
+const coreImage = (image) => (/^\/questions\/[A-Za-z0-9-]+\.webp$/.test(image) ? `${ORIGIN}${image}` : image);
+
 // ---------- 1. Core questions (statically imported) ----------
 const core = questions.map((q) => ({
   num: q.num,
@@ -34,7 +51,7 @@ const core = questions.map((q) => ({
   c: q.c,
   d: q.d,
   solution: q.solution,
-  image: q.image,
+  image: coreImage(q.image),
   category: q.category,
   id: q.id,
 }));
