@@ -63,3 +63,27 @@ export function withBundledPictures<T extends { image: string }>(questions: T[])
     });
     return changed ? mapped : questions;
 }
+
+/** Official caption under each of the four pictures of one question picture ("Bild 1" .. "Bild 4"). */
+const PICTURE_CAPTION = /^Bild \d+$/;
+
+/**
+ * Alt text of a question picture: the generic label plus the question number, so
+ * a screen reader tells one picture from the next, and - when the answers are
+ * the official captions printed under four pictures - those captions, so the
+ * listener knows the picture holds "Bild 1" .. "Bild 4" and which answer names
+ * which picture.
+ *
+ * `numberLabel` replaces "Frage <catalogue number>", e.g. with the mock exam's
+ * "Frage 4", which like the official test sheet shows no catalogue number.
+ */
+export function questionImageAlt(
+    question: { num: string; a: string; b: string; c: string; d: string },
+    t: Readonly<Record<string, string | undefined>>,
+    numberLabel?: string,
+): string {
+    const number = numberLabel ?? (t.question_number_label ? `${t.question_number_label} ${question.num}` : question.num);
+    const label = t.question_image_alt ? `${t.question_image_alt} (${number})` : number;
+    const captions = [question.a, question.b, question.c, question.d].map((caption) => String(caption ?? "").trim());
+    return captions.every((caption) => PICTURE_CAPTION.test(caption)) ? `${label}: ${captions.join(", ")}` : label;
+}

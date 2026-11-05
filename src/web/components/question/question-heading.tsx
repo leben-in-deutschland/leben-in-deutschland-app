@@ -2,6 +2,7 @@ import clsx from "clsx";
 import type { Question } from "@/types/question";
 import type { Translations } from "@/utils/i18n";
 import { normalizeCategory } from "@/utils/question-bank";
+import { questionImageAlt } from "@/utils/question-pictures";
 
 type QuestionHeadingProps = {
     question: Question;
@@ -46,7 +47,7 @@ export function QuestionHeading({ question, t, position, id, className, variant 
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={question.image}
-                    alt={t.question_image_alt ?? ""}
+                    alt={questionImageAlt(question, t, variant === "sheet" ? (label ?? position) : undefined)}
                     loading="lazy"
                     className="max-h-72 w-auto self-start rounded-2xl bg-white object-contain p-1 shadow-card ring-1 ring-foreground/[0.06]"
                 />
