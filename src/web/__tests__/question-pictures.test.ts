@@ -15,7 +15,7 @@ import { describe, expect, it } from "vitest";
 import { picturePath, pictureFor } from "../../catalogue/apply.mjs";
 import { siteConfig } from "@/config/site";
 import { questionsData } from "@/data/data";
-import { bundledPicture, PICTURE_ORIGIN, websitePicture, withBundledPictures } from "@/utils/question-pictures";
+import { bundledPicture, PICTURE_ORIGIN, questionImageAlt, websitePicture, withBundledPictures } from "@/utils/question-pictures";
 
 type Entry = { num: string; image: string };
 
@@ -87,5 +87,27 @@ describe("mapping website picture URLs to bundled files", () => {
         expect(first).toBe(plain);
         expect(second).toEqual({ num: "26", image: "/questions/26.webp" });
         expect(picture.image).toBe(`${PICTURE_ORIGIN}/questions/26.webp`);
+    });
+});
+
+describe("question picture alt text", () => {
+    const de = JSON.parse(readFileSync(path.join(root, "data/translations/areas/common.de.json"), "utf8")) as Record<string, string>;
+    const byNum = new Map(questionsData().map((question) => [question.num, question]));
+
+    it("names the question number, and the Bild 1..4 captions when the answers are those captions", () => {
+        expect(questionImageAlt(byNum.get("56")!, de)).toBe("Bild zur Frage (Frage 56): Bild 1, Bild 2, Bild 3, Bild 4");
+        expect(questionImageAlt(byNum.get("BY-1")!, de)).toBe("Bild zur Frage (Frage BY-1): Bild 1, Bild 2, Bild 3, Bild 4");
+        expect(questionImageAlt(byNum.get("62")!, de)).toBe("Bild zur Frage (Frage 62)");
+        expect(questionImageAlt(byNum.get("BY-10")!, de)).toBe("Bild zur Frage (Frage BY-10)");
+    });
+
+    it("takes the sheet label instead of the catalogue number in the mock exam", () => {
+        expect(questionImageAlt(byNum.get("56")!, de, "Frage 4")).toBe("Bild zur Frage (Frage 4): Bild 1, Bild 2, Bild 3, Bild 4");
+    });
+
+    it("gives every picture question in the catalogue its own alt text", () => {
+        const pictures = questionsData().filter((question) => question.image !== "-");
+        const alts = pictures.map((question) => questionImageAlt(question, de));
+        expect(new Set(alts).size).toBe(pictures.length);
     });
 });

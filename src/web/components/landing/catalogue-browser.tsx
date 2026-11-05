@@ -13,6 +13,7 @@ import { ArrowRightIcon, SearchIcon } from "@/components/ui/icons";
 import { PageHeader, Surface } from "@/components/ui/surface";
 import { fmt, plural, type Translations } from "@/utils/i18n";
 import { ANSWER_OPTIONS, getQuestionBank, getStateQuestions, isGeneralQuestion, normalizeCategory } from "@/utils/question-bank";
+import { questionImageAlt } from "@/utils/question-pictures";
 import { useTranslations } from "@/utils/user-store";
 import { StatePicker } from "./state-picker";
 
@@ -180,21 +181,6 @@ export function CatalogueBrowser({ stateCode, states }: CatalogueBrowserProps) {
             </Surface>
         </div>
     );
-}
-
-/** Official caption under each of the four pictures of one question picture ("Bild 1" .. "Bild 4"). */
-const PICTURE_CAPTION = /^Bild \d+$/;
-
-/**
- * Alt text of a question picture: the generic label plus the question number, so
- * a screen reader tells one picture from the next in the list, and - when the
- * answers are the official captions printed under four pictures - those
- * captions, so the listener knows the picture holds "Bild 1" .. "Bild 4".
- */
-function questionImageAlt(question: Question, t: Translations): string {
-    const label = `${t.question_image_alt} (${t.question_number_label} ${question.num})`;
-    const captions = ANSWER_OPTIONS.map((letter) => String(question[letter] ?? "").trim());
-    return captions.every((caption) => PICTURE_CAPTION.test(caption)) ? `${label}: ${captions.join(", ")}` : label;
 }
 
 function QuestionCard({ question, t }: { question: Question; t: Translations }) {
