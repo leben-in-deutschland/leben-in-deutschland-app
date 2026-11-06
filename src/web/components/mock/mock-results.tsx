@@ -8,6 +8,7 @@ import { hapticError, hapticSuccess } from "@/services/haptics";
 import { fmt, formatClock, formatDate, type Translations } from "@/utils/i18n";
 import { mockScore } from "@/utils/practice-logic";
 import { ANSWER_OPTIONS } from "@/utils/question-bank";
+import { questionImageAlt } from "@/utils/question-pictures";
 import { passMarkOf } from "@/utils/user-defaults";
 import { AnswerOption } from "@/components/question/answer-option";
 import { AppLink } from "@/components/ui/app-link";
@@ -115,7 +116,7 @@ function EntryAnswers({ entry, t }: { entry: ReviewEntry; t: Translations }) {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={question.image}
-                    alt={t.question_image_alt ?? ""}
+                    alt={questionImageAlt(question, t)}
                     loading="lazy"
                     className="max-h-72 w-auto self-start rounded-2xl bg-white object-contain p-1 shadow-card ring-1 ring-foreground/[0.06]"
                 />
