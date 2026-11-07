@@ -5561,7 +5561,7 @@
         "b": "Evet, ama bunun olabilmesi için Federal Meclis üyelerinin üçte ikisinin lehte olması gerekiyor",
         "c": "Hayır, çünkü basın özgürlüğü temel bir haktır. Kaldırılamaz",
         "d": "Hayır, çünkü basın özgürlüğünü ancak Federal Konsey kaldırabilir.",
-        "context": "Basın özgürlüğü, Almanya'da Anayasa'nın 5. maddesi ile korunan önemli bir temel haktır. Bu temel hakkın değiştirilmesi ancak bir anayasa değişikliği ile mümkündür. Bunun için Federal Meclis ve Federal Meclis üyelerinin üçte ikisinin onayı gerekiyor. Bu çoğunluğu elde etmek zor olduğu için, Federal Meclis'teki tek bir partinin basın özgürlüğünü kaldırması olası değildir ve yasal olarak son derece zordur. Bu, demokratik değerleri ve ifade ve bilgi edinme özgürlüğünün otoriter eğilimlere karşı korunmasını sağlar."
+        "context": "Basın özgürlüğü, Almanya'da Anayasa'nın 5. maddesi ile korunan önemli bir temel haktır. Bu temel hakkın değiştirilmesi ancak bir anayasa değişikliği ile mümkündür. Bunun için Federal Meclis (Bundestag) ve Federal Konsey (Bundesrat) üyelerinin üçte ikisinin onayı gerekiyor. Bu çoğunluğu elde etmek zor olduğu için, Federal Meclis'teki tek bir partinin basın özgürlüğünü kaldırması olası değildir ve yasal olarak son derece zordur. Bu, demokratik değerleri ve ifade ve bilgi edinme özgürlüğünün otoriter eğilimlere karşı korunmasını sağlar."
       },
       "ru": {
         "question": "Одна из партий в германском бундестаге хочет уничтожить свободу печати. Возможно ли это?",
@@ -10460,7 +10460,7 @@
         "b": "Karlsruhe Federal Anayasa Mahkemesi",
         "c": "Berlin'deki Bundesrat binası",
         "d": "Berlin Federal Şansölyeliği",
-        "context": "Berlin'deki Federal Şansölyelik, Alman Şansölyesi'nin koltuğudur ve siyasi kararlar ve yönetim ile tanınan sembolik bir binadır. Federal Meclis binası, ulusal meselelerde federal eyaletlerin temsilciliklerine hizmet eder. Karlsruhe'deki Federal Anayasa Mahkemesi, Almanya'nın en yüksek mahkemesidir ve anayasaya uyulup uyulmadığını denetler. Reichstag binası olarak da bilinen Berlin'deki Federal Meclis koltuğu, Alman parlamentosunun toplandığı yerdir. Bu soruda, bu yapıları birbirinden ayıran görsel özelliklerin tanınması önemlidir."
+        "context": "Berlin'deki Federal Şansölyelik, Alman Şansölyesi'nin koltuğudur ve siyasi kararlar ve yönetim ile tanınan sembolik bir binadır. Federal Konsey (Bundesrat) binası, ulusal meselelerde federal eyaletlerin temsilciliklerine hizmet eder. Karlsruhe'deki Federal Anayasa Mahkemesi, Almanya'nın en yüksek mahkemesidir ve anayasaya uyulup uyulmadığını denetler. Reichstag binası olarak da bilinen Berlin'deki Federal Meclis koltuğu, Alman parlamentosunun toplandığı yerdir. Bu soruda, bu yapıları birbirinden ayıran görsel özelliklerin tanınması önemlidir."
       },
       "ru": {
         "question": "Что изображено на этой картинке?",
@@ -10739,12 +10739,12 @@
         "context": "In Germany, the political system is based on the separation of powers, which is divided into three main areas: legislative, executive and judicial. The Bundestag is the parliament and, together with the Bundesrat, forms the legislature. Both institutions are responsible for passing laws and thus shaping the country's legal framework. The executive branch, led by the federal government, implements these laws, while the judiciary oversees law enforcement and jurisdiction. The separation of powers ensures a balance of power and prevents abuse of power."
       },
       "tr": {
-        "question": "Almanya'da Federal Meclis ve Federal Meclis, Federal Meclis'in bir parçasıdır ...",
+        "question": "Almanya'da Federal Meclis (Bundestag) ve Federal Konsey (Bundesrat) şu erke aittir: ...",
         "a": "İcra.",
         "b": "Yasama.",
         "c": "Yönergesi.",
         "d": "Yargı.",
-        "context": "Almanya'da siyasi sistem, yasama, yürütme ve yargı olmak üzere üç ana alana ayrılan kuvvetler ayrılığına dayanmaktadır. Federal Meclis parlamentodur ve Federal Meclis ile birlikte yasama organını oluşturur. Her iki kurum da yasaları geçirmekten ve böylece ülkenin yasal çerçevesini şekillendirmekten sorumludur. Federal hükümet liderliğindeki yürütme organı bu yasaları uygularken, yargı kolluk kuvvetlerini ve yargı yetkisini denetler. Kuvvetler ayrılığı, güç dengesini sağlar ve gücün kötüye kullanılmasını önler."
+        "context": "Almanya'da siyasi sistem, yasama, yürütme ve yargı olmak üzere üç ana alana ayrılan kuvvetler ayrılığına dayanmaktadır. Federal Meclis (Bundestag) parlamentodur ve Federal Konsey (Bundesrat) ile birlikte yasama organını oluşturur. Her iki kurum da yasaları geçirmekten ve böylece ülkenin yasal çerçevesini şekillendirmekten sorumludur. Federal hükümet liderliğindeki yürütme organı bu yasaları uygularken, yargı kolluk kuvvetlerini ve yargı yetkisini denetler. Kuvvetler ayrılığı, güç dengesini sağlar ve gücün kötüye kullanılmasını önler."
       },
       "ru": {
         "question": "В Германии Бундестаг и Бундесрат входят в состав ...",
@@ -12372,12 +12372,12 @@
         "context": "The German Bundesrat is an important constitutional body that exists alongside the Bundestag. It represents the federal states at the federal level and plays a decisive role in the legislative process. Its members are not members of parliament, but government representatives of the individual federal states. These representatives, who are often prime ministers or ministers of the state governments, bring the interests of their states into federal politics. The Bundesrat has the right to start, amend, and even block legislative initiatives, making it an important element in Germany's federal system."
       },
       "tr": {
-        "question": "Alman Federal Meclisi'ni kim oluşturuyor?",
+        "question": "Alman Federal Konseyi'ni (Bundesrat) kim oluşturuyor?",
         "a": "Federal Meclis üyeleri",
         "b": "Federal Hükümetin Bakanları",
         "c": "Federal eyaletlerin hükümet temsilcileri",
         "d": "Partililer",
-        "context": "Alman Federal Meclisi, Federal Meclis ile birlikte var olan önemli bir anayasal organdır. Federal eyaletleri federal düzeyde temsil eder ve yasama sürecinde belirleyici bir rol oynar. Üyeleri parlamento üyeleri değil, tek tek federal eyaletlerin hükümet temsilcileridir. Genellikle eyalet hükümetlerinin başbakanları veya bakanları olan bu temsilciler, eyaletlerinin çıkarlarını federal siyasete getirirler. Federal Meclis'in yasama girişimlerini başlatma, değiştirme ve hatta engelleme hakkına sahip olması, onu Almanya'nın federal sisteminde önemli bir unsur haline getiriyor."
+        "context": "Alman Federal Konseyi (Bundesrat), Federal Meclis (Bundestag) ile birlikte var olan önemli bir anayasal organdır. Federal eyaletleri federal düzeyde temsil eder ve yasama sürecinde belirleyici bir rol oynar. Üyeleri parlamento üyeleri değil, tek tek federal eyaletlerin hükümet temsilcileridir. Genellikle eyalet hükümetlerinin başbakanları veya bakanları olan bu temsilciler, eyaletlerinin çıkarlarını federal siyasete getirirler. Federal Konsey'in yasama girişimlerini başlatma, değiştirme ve hatta engelleme hakkına sahip olması, onu Almanya'nın federal sisteminde önemli bir unsur haline getiriyor."
       },
       "ru": {
         "question": "Кто формирует немецкий Бундесрат?",
@@ -12732,7 +12732,7 @@
         "b": "Federal Konvansiyon.",
         "c": "Federal Meclis.",
         "d": "Federal Hükümet.",
-        "context": "Almanya'da, federal eyaletlerin önemli bir rol oynadığı federal bir sistem vardır. Belirli katılım mekanizmaları aracılığıyla federal mevzuat üzerinde etkileri vardır. Bundesrat, eyaletlerin yasama çalışmalarına katıldığı ana organdır. Eyaletleri federal düzeyde temsil ettiği kabul edilir ve birçok yasama prosedüründe zorunlu olarak yer alır. Federal Meclis, Federal Hükümet ve Federal Meclis'in Alman hükümet sisteminde farklı rolleri vardır, ancak eyaletlerin federal mevzuata doğrudan katılımından birinci derecede sorumlu değildirler."
+        "context": "Almanya'da, federal eyaletlerin önemli bir rol oynadığı federal bir sistem vardır. Belirli katılım mekanizmaları aracılığıyla federal mevzuat üzerinde etkileri vardır. Bundesrat, eyaletlerin yasama çalışmalarına katıldığı ana organdır. Eyaletleri federal düzeyde temsil ettiği kabul edilir ve birçok yasama prosedüründe zorunlu olarak yer alır. Federal Meclis, Federal Hükümet ve Federal Konvansiyon'un Alman hükümet sisteminde farklı rolleri vardır, ancak eyaletlerin federal mevzuata doğrudan katılımından birinci derecede sorumlu değildirler."
       },
       "ru": {
         "question": "Федеральные земли Германии участвуют в федеральном законодательстве посредством...",
@@ -12803,7 +12803,7 @@
         "b": "Federal Konsey'e yeni partiler getirseydi daha kolay olurdu.",
         "c": "Federal Konsey'deki çoğunluğu değiştirirse daha da zor.",
         "d": "Zengin bir federal devlet ise daha kolay.",
-        "context": "Alman siyaseti, ülkenin federal yapısından güçlü bir şekilde etkileniyor. Almanya, her biri kendi hükümetlerine ve ulusal siyaseti etkilemek için belirli olanaklara sahip 16 federal eyaletten oluşur. Bundesrat, eyaletlerin federal düzeyde mevzuata katıldığı önemli bir organdır. Federal bir eyalette hükümet değişikliği olması durumunda Federal Meclis'in bileşimi değişebilir. Bu, özellikle federal düzeyde yönetimi etkileyen çoğunlukları değiştirirse, ulusal politikada değişikliklere yol açabilir."
+        "context": "Alman siyaseti, ülkenin federal yapısından güçlü bir şekilde etkileniyor. Almanya, her biri kendi hükümetlerine ve ulusal siyaseti etkilemek için belirli olanaklara sahip 16 federal eyaletten oluşur. Bundesrat, eyaletlerin federal düzeyde mevzuata katıldığı önemli bir organdır. Federal bir eyalette hükümet değişikliği olması durumunda Federal Konsey'in bileşimi değişebilir. Bu, özellikle federal düzeyde yönetimi etkileyen çoğunlukları değiştirirse, ulusal politikada değişikliklere yol açabilir."
       },
       "ru": {
         "question": "В Германии смена правительства в федеральной земле может оказать влияние на федеральную политику. Правящая воля...",
@@ -14507,7 +14507,7 @@
         "b": "Oylama için Federal Meclis'te katılım kontrolü",
         "c": "Parlamentoya girmek için asgari oy oranı",
         "d": "Oylar için Federal Konsey'de katılım kontrolü",
-        "context": "Almanya'da \"%5 engeli\", Federal Meclis seçimlerinin seçim sistemini ifade eder. Partilerin Federal Meclis'e girebilmeleri için ülke çapında kullanılan oyların en az %5'ini almaları gerekiyor. Bu kural, çok sayıda küçük partinin parlamentoda temsil edilmesini engellemeyi ve bu da hükümetin kurulmasını zorlaştırmayı amaçlıyor. Seçenekler çeşitli yanlış anlamaları açıklığa kavuşturuyor: Bu, Federal Meclis veya Federal Meclis'te bir katılım kontrolü değil ve küçük partiler için özel bir oylama düzenlemesi değil, c seçeneğinde açıklandığı gibi asgari bir oy oranı."
+        "context": "Almanya'da \"%5 engeli\", Federal Meclis seçimlerinin seçim sistemini ifade eder. Partilerin Federal Meclis'e girebilmeleri için ülke çapında kullanılan oyların en az %5'ini almaları gerekiyor. Bu kural, çok sayıda küçük partinin parlamentoda temsil edilmesini engellemeyi ve bu da hükümetin kurulmasını zorlaştırmayı amaçlıyor. Seçenekler çeşitli yanlış anlamaları açıklığa kavuşturuyor: Bu, Federal Meclis veya Federal Konsey'de bir katılım kontrolü değil ve küçük partiler için özel bir oylama düzenlemesi değil, c seçeneğinde açıklandığı gibi asgari bir oy oranı."
       },
       "ru": {
         "question": "Что такое «барьер в 5%» в Германии?",
@@ -16921,7 +16921,7 @@
         "b": "İcra.",
         "c": "Operatif",
         "d": "Yasama",
-        "context": "Almanya'da devlet organları üç güce ayrılmıştır: yürütme, yasama ve yargı. Yürütme organı, yasaların uygulanmasından sorumludur ve hükümet ve kamu idaresi gibi kurumları içerir. Yasama organı yasamadan sorumludur ve esas olarak Federal Meclis ve Federal Meclis'ten oluşur. Yargı ise mahkemeleri ve hakimleri içine alan yargı erkidir. Hukuka uygunluğu izler ve adaletin idaresine katkıda bulunur. Bu bağlamda Almanya'da bir yargıç yargı organına mensuptur."
+        "context": "Almanya'da devlet organları üç güce ayrılmıştır: yürütme, yasama ve yargı. Yürütme organı, yasaların uygulanmasından sorumludur ve hükümet ve kamu idaresi gibi kurumları içerir. Yasama organı yasamadan sorumludur ve esas olarak Federal Meclis (Bundestag) ve Federal Konsey'den (Bundesrat) oluşur. Yargı ise mahkemeleri ve hakimleri içine alan yargı erkidir. Hukuka uygunluğu izler ve adaletin idaresine katkıda bulunur. Bu bağlamda Almanya'da bir yargıç yargı organına mensuptur."
       },
       "ru": {
         "question": "Судья в Германии принадлежит к ...",
