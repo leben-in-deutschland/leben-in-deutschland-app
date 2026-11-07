@@ -10176,7 +10176,7 @@
         "b": "Avrupa Parlamentosu üyeleri",
         "c": "Federal Cumhurbaşkanı",
         "d": "Federal Meclis üyeleri",
-        "context": "Almanya'da farklı düzeylerde seçimler vardır. Vatandaşlar eyalet seçimlerine katılabilir ve böylece eyalet parlamentosu üyelerini seçebilirler. Federal Meclis üyeleri Federal Meclis seçimlerinde seçilir. Avrupa Parlamentosu üyeleri Avrupa seçimlerinde seçilir. Ancak Federal Cumhurbaşkanı, vatandaşlar tarafından doğrudan seçilemez. Bu kişi, Federal Meclis üyeleri ve eyalet temsilcilerinden oluşan Federal Meclis tarafından seçilir. Bu nedenle, Almanya'daki hangi siyasi makamların vatandaşlar tarafından doğrudan seçilemeyeceğini açıklığa kavuşturduğu için soru önemlidir."
+        "context": "Almanya'da farklı düzeylerde seçimler vardır. Vatandaşlar eyalet seçimlerine katılabilir ve böylece eyalet parlamentosu üyelerini seçebilirler. Federal Meclis üyeleri Federal Meclis seçimlerinde seçilir. Avrupa Parlamentosu üyeleri Avrupa seçimlerinde seçilir. Ancak Federal Cumhurbaşkanı, vatandaşlar tarafından doğrudan seçilemez. Bu kişi, Federal Meclis üyeleri ve eyalet temsilcilerinden oluşan Federal Konvansiyon (Bundesversammlung) tarafından seçilir. Bu nedenle, Almanya'daki hangi siyasi makamların vatandaşlar tarafından doğrudan seçilemeyeceğini açıklığa kavuşturduğu için soru önemlidir."
       },
       "ru": {
         "question": "Кто не может быть избран непосредственно в качестве гражданина в Германии?",
@@ -11596,7 +11596,7 @@
         "b": "Halk Odası",
         "c": "Bundestag",
         "d": "Federal mahkeme",
-        "context": "Almanya'da ülkeyi yöneten ve temsil eden çeşitli önemli kurumlar vardır. Merkezi yasama organı, yasaların hazırlanmasından ve kabul edilmesinden sorumlu olan ulusal parlamentodur. Halkın seçilmiş temsilcilerinden oluşur ve Alman siyasetinde belirleyici bir rol oynar. Federal Meclis, Federal Adalet Divanı gibi diğer kurumların ve eski Doğu Almanya Halk Meclisi gibi tarihi kurumların farklı görevleri ve anlamları vardır. Soru, Almanya'daki ana yasa koyucunun adını arıyor."
+        "context": "Almanya'da ülkeyi yöneten ve temsil eden çeşitli önemli kurumlar vardır. Merkezi yasama organı, yasaların hazırlanmasından ve kabul edilmesinden sorumlu olan ulusal parlamentodur. Halkın seçilmiş temsilcilerinden oluşur ve Alman siyasetinde belirleyici bir rol oynar. Federal Konvansiyon (Bundesversammlung), Federal Adalet Divanı gibi diğer kurumların ve eski Doğu Almanya Halk Meclisi gibi tarihi kurumların farklı görevleri ve anlamları vardır. Soru, Almanya'daki ana yasa koyucunun adını arıyor."
       },
       "ru": {
         "question": "Как называется парламент для всей Германии?",
@@ -11667,7 +11667,7 @@
         "b": "Bärbel Bas",
         "c": "Bodo Ramelow",
         "d": "Joachim Gauck",
-        "context": "Soruyu daha iyi anlamak için Almanya'daki siyasi pozisyonları bilmek önemlidir. Almanya, devlet başkanı olarak Federal Cumhurbaşkanı olan parlamenter bir cumhuriyettir. Federal Cumhurbaşkanı öncelikli olarak temsil görevine sahiptir ve Federal Meclis tarafından seçilir. Cevap seçenekleri, mevcut veya eski federal başkanlar veya diğer siyasi figürler olan kişilere atıfta bulunur. Örneğin Frank-Walter Steinmeier şu anki Federal Cumhurbaşkanı, Joachim Gauck ise eski bir görevli. Bärbel Bas ve Bodo Ramelow tanınmış politikacılardır, ancak federal başkan olarak hareket etmezler."
+        "context": "Soruyu daha iyi anlamak için Almanya'daki siyasi pozisyonları bilmek önemlidir. Almanya, devlet başkanı olarak Federal Cumhurbaşkanı olan parlamenter bir cumhuriyettir. Federal Cumhurbaşkanı öncelikli olarak temsil görevine sahiptir ve Federal Konvansiyon (Bundesversammlung) tarafından seçilir. Cevap seçenekleri, mevcut veya eski federal başkanlar veya diğer siyasi figürler olan kişilere atıfta bulunur. Örneğin Frank-Walter Steinmeier şu anki Federal Cumhurbaşkanı, Joachim Gauck ise eski bir görevli. Bärbel Bas ve Bodo Ramelow tanınmış politikacılardır, ancak federal başkan olarak hareket etmezler."
       },
       "ru": {
         "question": "Как зовут нынешнего главу государства Германии?",
@@ -12235,7 +12235,7 @@
         "b": "Federal Konvansiyon",
         "c": "Federal Meclis",
         "d": "Federal Hükümet",
-        "context": "Almanya'da Federal Meclis siyasi sistemde belirleyici bir rol oynamaktadır. Hükümete başkanlık eden Federal Şansölye'yi seçmekten sorumludur. Federal Meclis seçimlerinde ise halk Federal Meclis üyelerini seçer. Bu milletvekilleri daha sonra hükümetin liderliğini kimin devralacağına seçimle karar verirler. Federal Hükümet ve Federal Meclis'in bu süreçte doğrudan bir rolü yoktur. Bu yapı, demokratik hesap verebilirliği ve istikrarı sağlamak için hükümet başkanının seçiminin parlamenter bir çerçevede gerçekleşmesini garanti eder."
+        "context": "Almanya'da Federal Meclis siyasi sistemde belirleyici bir rol oynamaktadır. Hükümete başkanlık eden Federal Şansölye'yi seçmekten sorumludur. Federal Meclis seçimlerinde ise halk Federal Meclis üyelerini seçer. Bu milletvekilleri daha sonra hükümetin liderliğini kimin devralacağına seçimle karar verirler. Federal Hükümet ve Federal Konvansiyon'un (Bundesversammlung) bu süreçte doğrudan bir rolü yoktur. Bu yapı, demokratik hesap verebilirliği ve istikrarı sağlamak için hükümet başkanının seçiminin parlamenter bir çerçevede gerçekleşmesini garanti eder."
       },
       "ru": {
         "question": "Кто избирает канцлера Германии?",
@@ -12448,7 +12448,7 @@
         "b": "Federal Konsey",
         "c": "Federal Parlamento",
         "d": "Federal Anayasa Mahkemesi",
-        "context": "Almanya'da Cumhurbaşkanı, Federal Meclis tarafından seçilir. Federal Konvansiyon, yalnızca bu amaç için toplanan özel bir organdır. Federal Meclis üyeleri ve eyalet parlamentoları tarafından seçilen eşit sayıda üyeden oluşur. Federal Cumhurbaşkanı'nın seçilmesi, bu kişinin devlet başkanının temsili rolünü üstlenmesi nedeniyle önemli bir siyasi olaydır. Listelenen diğer kurumlar bu seçimden sorumlu değildir, ancak Alman siyasi sisteminde başka işlevleri vardır."
+        "context": "Almanya'da Federal Cumhurbaşkanı, Federal Konvansiyon (Bundesversammlung) tarafından seçilir. Federal Konvansiyon, yalnızca bu amaç için toplanan özel bir organdır. Federal Meclis üyeleri ve eyalet parlamentoları tarafından seçilen eşit sayıda üyeden oluşur. Federal Cumhurbaşkanı'nın seçilmesi, bu kişinin devlet başkanının temsili rolünü üstlenmesi nedeniyle önemli bir siyasi olaydır. Listelenen diğer kurumlar bu seçimden sorumlu değildir, ancak Alman siyasi sisteminde başka işlevleri vardır."
       },
       "ru": {
         "question": "Кто избирает Федерального президента в Германии?",
@@ -14718,7 +14718,7 @@
         "question": "Almanya'da oy kullanma hakkına sahip seçmenler seçimden önce ne alıyor?",
         "a": "Belediyeden bir seçmen bildirimi",
         "b": "Federal Cumhurbaşkanı'ndan oy kullanma izni",
-        "c": "Federal Meclis'ten bir bildirim",
+        "c": "Federal Konvansiyon'dan bir bildirim",
         "d": "Bucak Ofisinden Bir Bildirim",
         "context": "Almanya'da bir seçimden önce, oy kullanma hakkına sahip vatandaşlar, yaklaşan seçimler hakkında onları bilgilendiren ve oy kullanma merkezlerine erişimlerini sağlayan resmi bilgiler alırlar. Bu bildirim, vatandaşların oylarını kullanabilmelerini sağlamak için çok önemlidir. Almanya'nın federal yapısı nedeniyle bu bilgileri göndermek belediyelere bağlıdır. Diğer şeylerin yanı sıra, vatandaşlara nerede ve nasıl oy kullanabilecekleri söylenir. Bu seçmen bildirimleri, demokratik süreçlerin organizasyonu ve uygulanması için gereklidir."
       },
@@ -14933,7 +14933,7 @@
         "b": "federal bir devletin Bakan-Başkanı.",
         "c": "Federal Meclis.",
         "d": "Federal Cumhurbaşkanı.",
-        "context": "Almanya'da sadece Federal Meclis doğrudan halk tarafından seçilir. Federal Meclis üyeleri genel, serbest, gizli ve doğrudan seçimlerle seçilir. Federal Cumhurbaşkanı veya Şansölye, doğrudan halk tarafından değil, diğer siyasi mekanizmalar tarafından seçilir. Cumhurbaşkanı Federal Meclis tarafından, Şansölye ise Federal Meclis tarafından seçilir. Federal bir devletin Başbakanı da doğrudan halk tarafından değil, eyalet parlamentosu tarafından seçilir."
+        "context": "Almanya'da sadece Federal Meclis doğrudan halk tarafından seçilir. Federal Meclis üyeleri genel, serbest, gizli ve doğrudan seçimlerle seçilir. Federal Cumhurbaşkanı veya Şansölye, doğrudan halk tarafından değil, diğer siyasi mekanizmalar tarafından seçilir. Federal Cumhurbaşkanı Federal Konvansiyon (Bundesversammlung) tarafından, Şansölye ise Federal Meclis (Bundestag) tarafından seçilir. Federal bir devletin Başbakanı da doğrudan halk tarafından değil, eyalet parlamentosu tarafından seçilir."
       },
       "ru": {
         "question": "В Германии выборы проводит народ...",
