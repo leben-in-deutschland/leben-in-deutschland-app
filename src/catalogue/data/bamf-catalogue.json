@@ -6,7 +6,7 @@
     "etag": "\"d46ab013b2f264b1dd2ba14220944309\"",
     "sha256": "edd3ed5e56a35241b6cc61aa0630482dc9e64498db508a7d6892ccee2ec707a9",
     "pages": 191,
-    "extractedAt": "2026-10-12T04:26:37.990Z"
+    "extractedAt": "2026-11-07T04:51:37.084Z"
   },
   "counts": {
     "general": 300,
@@ -2241,7 +2241,7 @@
       "num": "184",
       "part": "general",
       "page": 68,
-      "question": "184. Auf welcher rechtlichen Grundlage wurde der Staat Israel gegründet?",
+      "question": "Auf welcher rechtlichen Grundlage wurde der Staat Israel gegründet?",
       "answers": [
         "eine Resolution der Vereinten Nationen",
         "ein Beschluss des Zionistenkongresses",
@@ -2509,7 +2509,7 @@
       "num": "206",
       "part": "general",
       "page": 76,
-      "question": "206. Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?",
+      "question": "Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?",
       "answers": [
         "an berühmte deutsche Politikerinnen und Politiker",
         "an die Opfer des Nationalsozialismus",

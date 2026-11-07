@@ -58,6 +58,17 @@ function isHeaderImage(image, view) {
     return image.top > view[3] - 20 && image.x < 20;
 }
 
+/**
+ * The question text without a leading copy of its own number: the PDF prints
+ * "206. Woran erinnern …" under "Aufgabe 206" on a few questions. Only the
+ * question's own number is removed, so a stem that starts with another
+ * number ("1949 …") stays as it is.
+ */
+export function stripOwnNumber(text, index) {
+    const prefix = `${index}.`;
+    return text.startsWith(prefix) && /^\s/.test(text.slice(prefix.length)) ? text.slice(prefix.length).trim() : text;
+}
+
 function isPictureQuestion(question) {
     return question.answers.length === PICTURE_ANSWERS.length && question.answers.every((answer, index) => answer === PICTURE_ANSWERS[index]);
 }
@@ -107,6 +118,7 @@ export async function parseCatalogue(doc, pdfjs, stateCodes) {
                     images: [],
                     credit: null,
                     stemLines: [],
+                    index,
                 };
                 headings.push({ y: line.y, question: current });
                 continue;
@@ -178,9 +190,10 @@ export async function parseCatalogue(doc, pdfjs, stateCodes) {
     }
     finish();
     for (const question of questions) {
-        question.question = cleanText(question.stemLines.map((line) => line.text).join(" "));
+        question.question = stripOwnNumber(cleanText(question.stemLines.map((line) => line.text).join(" ")), question.index);
         question.answers = question.answers.map(cleanText);
         delete question.stemLines;
+        delete question.index;
         // Pictures of one question are read left to right (Bild 1 .. Bild 4).
         question.images.sort((a, b) => a.x - b.x);
     }
@@ -231,6 +244,9 @@ export function validate(questions, stateCodes) {
         }
         if (question.answers.some((answer) => !answer)) {
             problems.push(`${label}: empty answer`);
+        }
+        if (/^\d+\.\s/.test(question.question)) {
+            problems.push(`${label}: the question text starts with a number`);
         }
         if (/Bild 1 Bild 2/.test(question.question)) {
             problems.push(`${label}: picture captions ended up in the question text`);
