@@ -18,6 +18,7 @@ import { AssistantIcon } from "@/classic/icons/AssistantIcon";
 import { remark } from 'remark';
 import html from 'remark-html';
 import { loadQuestionContext } from "@/utils/question-loader";
+import { normalizeCategory } from "@/utils/question-bank";
 
 
 export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, translations }:
@@ -373,7 +374,7 @@ export default function PrepareQuiz({ originalQuestions, user, prepareQuestion, 
                     {currentQuestion ?
                         <Card>
                             <CardHeader className="flex flex-col">
-                                {currentQuestion.category && <Chip variant="dot" color="secondary">{currentQuestion.category}</Chip>}
+                                {currentQuestion.category && <Chip variant="dot" color="secondary">{normalizeCategory(currentQuestion.category)}</Chip>}
                                 <div className="flex gap-3">
                                     <p className="font-extrabold text-xl">{currentQuestion?.num}. </p>
                                     <p className="font-bold text-xl">{currentQuestion.question}</p>

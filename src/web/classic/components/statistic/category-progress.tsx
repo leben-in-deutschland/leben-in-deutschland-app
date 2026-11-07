@@ -3,7 +3,8 @@ import { categories, Question } from "@/types/question";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 import { Doughnut } from "react-chartjs-2";
 import { LayersIcon } from "@/classic/icons/LayersIcon";
-type CategoryData = {
+import { normalizeCategory } from "@/utils/question-bank";
+export type CategoryData = {
     "key": string,
     "totalQuestion": number,
     "correct": number,
@@ -11,7 +12,12 @@ type CategoryData = {
     "skipped": number,
     "flagged": number
 }
-export const CategoryStats = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
+/**
+ * Per-category totals for the classic dashboard doughnuts. Some catalogue
+ * entries carry stray quotes ("'Elections'"); the data stays as it is because
+ * installed apps compare the category field (ADR-006), so it is cleaned here.
+ */
+export function buildCategoryData(user: User, questions: Question[]): CategoryData[] {
     let data: CategoryData[] = [];
     for (let category of categories) {
         let categoryData: CategoryData = {
@@ -22,7 +28,7 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
             skipped: 0,
             flagged: 0,
         };
-        const totalQuestion = questions.filter((question) => question?.category === category);
+        const totalQuestion = questions.filter((question) => question && normalizeCategory(question.category) === category);
 
         const totalAttemptedQuestions: UserQuestionProgress[] = [];
 
@@ -44,6 +50,11 @@ export const CategoryStats = ({ user, questions, translation }: { user: User, qu
         categoryData.totalQuestion = totalQuestion.length;
         data.push(categoryData);
     }
+    return data;
+}
+
+export const CategoryStats = ({ user, questions, translation }: { user: User, questions: Question[], translation: any }) => {
+    const data = buildCategoryData(user, questions);
     return (
         <Card className="mt-4 mb-4">
             <CardHeader className="gap-2">
