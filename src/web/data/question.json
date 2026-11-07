@@ -9809,58 +9809,58 @@
     "translation": {
       "en": {
         "question": "What are the heads of government of most federal states called in Germany?",
-        "a": "Senator/Senatorin",
+        "a": "Senator",
         "b": "First Minister",
         "c": "Prime Minister",
-        "d": "Prime Minister",
+        "d": "Minister-President",
         "context": "In Germany, the federal states consist of independent political entities within the federal structure of the state. Each federal state has its own state government, which is headed by a head of government. The title of these heads of government can vary depending on the federal context, but there is a generally accepted term for this position. The question is aimed at identifying this title, which is often used in the political structures of the federal states to name their highest political leaders."
       },
       "tr": {
         "question": "Almanya'da çoğu federal eyaletin hükümet başkanlarına ne denir?",
-        "a": "Senatör/Senatör",
-        "b": "Başbakan",
+        "a": "Senatör",
+        "b": "Birinci Bakan",
         "c": "Başbakan",
-        "d": "Başbakan",
+        "d": "Eyalet Başbakanı",
         "context": "Almanya'da federal devletler, devletin federal yapısı içinde bağımsız siyasi birimlerden oluşur. Her federal eyaletin, bir hükümet başkanı tarafından yönetilen kendi eyalet hükümeti vardır. Bu hükümet başkanlarının unvanı federal bağlama bağlı olarak değişebilir, ancak bu pozisyon için genel kabul görmüş bir terim vardır. Soru, federal devletlerin siyasi yapılarında en yüksek siyasi liderlerini adlandırmak için sıklıkla kullanılan bu unvanı tanımlamayı amaçlamaktadır."
       },
       "ru": {
         "question": "Как в Германии называют глав правительств большинства федеральных земель?",
-        "a": "Сенатор/Сенатор",
+        "a": "Сенатор",
         "b": "Первый министр",
         "c": "Премьер-министр",
-        "d": "Премьер-министр",
+        "d": "Министр-президент",
         "context": "В Германии федеральные земли состоят из независимых политических образований в рамках федеративной структуры земли. Каждая федеральная земля имеет свое собственное правительство земли, которое возглавляет глава правительства. Титул этих глав правительств может варьироваться в зависимости от федерального контекста, но существует общепринятый термин для обозначения этой должности. Вопрос направлен на идентификацию этого звания, которое часто используется в политических структурах федеральных земель для обозначения их высших политических руководителей."
       },
       "fr": {
         "question": "Comment s’appellent les chefs de gouvernement de la plupart des Länder en Allemagne ?",
-        "a": "Sénateur/Sénateur",
-        "b": "Premier ministre",
+        "a": "Sénateur/Sénatrice",
+        "b": "Ministre en chef",
         "c": "Premier ministre",
-        "d": "Premier ministre",
+        "d": "Ministre-président",
         "context": "En Allemagne, les Länder sont constitués d’entités politiques indépendantes au sein de la structure fédérale de l’État. Chaque État fédéral a son propre gouvernement, qui est dirigé par un chef de gouvernement. Le titre de ces chefs de gouvernement peut varier selon le contexte fédéral, mais il existe un terme généralement accepté pour ce poste. La question vise à identifier ce titre, qui est souvent utilisé dans les structures politiques des Länder pour désigner leurs plus hauts dirigeants politiques."
       },
       "ar": {
         "question": "ماذا يطلق على رؤساء حكومات معظم الولايات الفيدرالية في ألمانيا؟",
-        "a": "عضو مجلس الشيوخ / عضو مجلس الشيوخ",
+        "a": "عضو مجلس الشيوخ",
         "b": "الوزير الأول",
         "c": "رئيس الوزراء",
-        "d": "رئيس الوزراء",
+        "d": "رئيس وزراء الولاية",
         "context": "في ألمانيا ، تتكون الولايات الفيدرالية من كيانات سياسية مستقلة داخل الهيكل الفيدرالي للدولة. كل ولاية فيدرالية لها حكومة ولاية خاصة بها ، يرأسها رئيس حكومة. يمكن أن يختلف لقب رؤساء الحكومات هؤلاء اعتمادا على السياق الفيدرالي ، ولكن هناك مصطلح مقبول بشكل عام لهذا المنصب. يهدف السؤال إلى تحديد هذا اللقب ، والذي غالبا ما يستخدم في الهياكل السياسية للولايات الفيدرالية لتسمية أعلى قادتها السياسيين."
       },
       "uk": {
         "question": "Як називають глав урядів більшості федеральних земель у Німеччині?",
-        "a": "Сенатор/Сенаторін",
+        "a": "Сенатор/Сенаторка",
         "b": "Перший міністр",
         "c": "Прем'єр-міністр",
-        "d": "Прем'єр-міністр",
+        "d": "Міністр-президент",
         "context": "У Німеччині федеральні землі складаються з самостійних політичних утворень у федеративному устрої землі. У кожній федеральній землі є свій уряд штату, який очолює глава уряду. Титул цих глав урядів може змінюватися в залежності від федерального контексту, але існує загальноприйнятий термін для цієї посади. Питання спрямоване на виявлення цього титулу, який часто використовується в політичних структурах федеральних земель для назви їх вищих політичних керівників."
       },
       "hi": {
         "question": "जर्मनी में अधिकांश संघीय राज्यों की सरकार के प्रमुखों को क्या कहा जाता है?",
-        "a": "सीनेटर/सीनेटर",
+        "a": "सीनेटर",
         "b": "प्रथम मंत्री",
         "c": "प्रधानमंत्री",
-        "d": "प्रधानमंत्री",
+        "d": "मंत्री-राष्ट्रपति",
         "context": "जर्मनी में, संघीय राज्यों में राज्य के संघीय ढांचे के भीतर स्वतंत्र राजनीतिक संस्थाएं शामिल हैं। प्रत्येक संघीय राज्य की अपनी राज्य सरकार होती है, जिसका नेतृत्व सरकार का प्रमुख होता है। सरकार के इन प्रमुखों का शीर्षक संघीय संदर्भ के आधार पर भिन्न हो सकता है, लेकिन इस पद के लिए आम तौर पर स्वीकृत शब्द है। प्रश्न का उद्देश्य इस शीर्षक की पहचान करना है, जिसका उपयोग अक्सर संघीय राज्यों की राजनीतिक संरचनाओं में उनके उच्चतम राजनीतिक नेताओं के नाम के लिए किया जाता है।"
       }
     },
@@ -10190,7 +10190,7 @@
         "question": "Qui ne peut pas être élu directement en tant que citoyen allemand ?",
         "a": "Membre du Parlement de l’État",
         "b": "Députés au Parlement européen",
-        "c": "le Président de la Confédération",
+        "c": "le président fédéral",
         "d": "Membres du Bundestag",
         "context": "Il y a différents niveaux d’élections en Allemagne. Les citoyens peuvent participer aux élections régionales et ainsi élire les membres du parlement de l’État. Les membres du Bundestag sont élus lors de l’élection du Bundestag. Les membres du Parlement européen sont élus lors des élections européennes. Cependant, le président fédéral n’est pas directement éligible par les citoyens. Cette personne est élue par l’Assemblée fédérale, composée de membres du Bundestag et de représentants des Länder. La question est donc pertinente, car elle permet de déterminer quels postes politiques en Allemagne ne peuvent pas être élus directement par les citoyens."
       },
@@ -10206,7 +10206,7 @@
         "question": "Хто не може бути обраний безпосередньо громадянином Німеччини?",
         "a": "Член парламенту штату",
         "b": "Депутати Європейського парламенту",
-        "c": "Федеральний Президент",
+        "c": "Федеральний президент",
         "d": "Депутати Бундестагу",
         "context": "У Німеччині існують різні рівні виборів. Громадяни можуть брати участь у виборах штату і таким чином обирати членів парламенту штату. Депутати Бундестагу обираються на виборах до Бундестагу. Члени Європарламенту обираються на європейських виборах. Однак федеральний президент не може обиратися безпосередньо громадянами. Ця особа обирається Федеральними зборами, що складаються з депутатів Бундестагу і представників земельних володінь. Тому питання є актуальним, оскільки уточнює, які політичні посади в Німеччині не можуть бути безпосередньо обрані громадянами."
       },
@@ -10214,7 +10214,7 @@
         "question": "जर्मनी में सीधे नागरिक के रूप में किसे नहीं चुना जा सकता है?",
         "a": "राज्य संसद के सदस्य",
         "b": "यूरोपीय संसद के सदस्य",
-        "c": "संघीय अध्यक्ष",
+        "c": "संघीय राष्ट्रपति",
         "d": "बुंडेस्टाग के सदस्य",
         "context": "जर्मनी में चुनाव के विभिन्न स्तर हैं। नागरिक राज्य चुनावों में भाग ले सकते हैं और इस प्रकार राज्य संसद के सदस्यों का चुनाव कर सकते हैं। बुंडेस्टाग के सदस्य बुंडेस्टाग चुनाव में चुने जाते हैं। यूरोपीय संघ की संसद के सदस्य यूरोपीय चुनावों में चुने जाते हैं। हालांकि, संघीय राष्ट्रपति नागरिकों द्वारा सीधे निर्वाचित नहीं है। यह व्यक्ति संघीय विधानसभा द्वारा चुना जाता है, जिसमें बुंडेस्टाग के सदस्य और लैंडर के प्रतिनिधि शामिल होते हैं। इसलिए, सवाल प्रासंगिक है, क्योंकि यह स्पष्ट करता है कि जर्मनी में कौन से राजनीतिक कार्यालय सीधे नागरिकों द्वारा नहीं चुने जा सकते हैं।"
       }
@@ -10236,7 +10236,7 @@
       "en": {
         "question": "Which body is not one of the constitutional organs of Germany?",
         "a": "the Federal Council",
-        "b": "the President of the Swiss Confederation",
+        "b": "the Federal President",
         "c": "the citizens' assembly",
         "d": "the government",
         "context": "In Germany, there are several constitutional organs that are firmly anchored in the political system and perform specific tasks in the state. The most important are the Bundestag, the Bundesrat, the Federal Government and the Federal President. These institutions are laid down in the Basic Law and each has defined functions. The citizens' assembly, on the other hand, is not a constitutionally recognised institution in Germany. It often serves the participation of citizens in political decision-making processes at the municipal level, but is not an official state body."
@@ -10244,15 +10244,15 @@
       "tr": {
         "question": "Hangi organ Almanya'nın anayasal organlarından biri değildir?",
         "a": "Federal Konsey",
-        "b": "İsviçre Konfederasyonu Başkanı",
+        "b": "Federal Cumhurbaşkanı",
         "c": "Yurttaş Meclisi",
         "d": "Hükümet",
-        "context": "Almanya'da, siyasi sisteme sıkı sıkıya bağlı olan ve devlette belirli görevleri yerine getiren birkaç anayasal organ vardır. En önemlileri Federal Meclis, Federal Meclis, Federal Hükümet ve Federal Cumhurbaşkanı'dır. Bu kurumlar Anayasa'da belirtilmiştir ve her birinin tanımlanmış işlevleri vardır. Öte yandan, yurttaş meclisi Almanya'da anayasal olarak tanınan bir kurum değildir. Genellikle vatandaşların belediye düzeyinde siyasi karar alma süreçlerine katılımına hizmet eder, ancak resmi bir devlet organı değildir."
+        "context": "Almanya'da, siyasi sisteme sıkı sıkıya bağlı olan ve devlette belirli görevleri yerine getiren birkaç anayasal organ vardır. En önemlileri Federal Meclis, Federal Konsey, Federal Hükümet ve Federal Cumhurbaşkanı'dır. Bu kurumlar Anayasa'da belirtilmiştir ve her birinin tanımlanmış işlevleri vardır. Öte yandan, yurttaş meclisi Almanya'da anayasal olarak tanınan bir kurum değildir. Genellikle vatandaşların belediye düzeyinde siyasi karar alma süreçlerine katılımına hizmet eder, ancak resmi bir devlet organı değildir."
       },
       "ru": {
         "question": "Какой орган не является одним из конституционных органов Германии?",
         "a": "Федеральный совет",
-        "b": "Президент Швейцарской Конфедерации",
+        "b": "Федеральный президент",
         "c": "Гражданская ассамблея",
         "d": "Правительство",
         "context": "В Германии существует несколько конституционных органов, которые прочно закреплены в политической системе и выполняют конкретные задачи в государстве. Наиболее важными из них являются Бундестаг, Бундесрат, Федеральное правительство и Федеральный президент. Эти учреждения закреплены в Основном законе, и каждый из них выполняет определенные функции. С другой стороны, гражданское собрание не является конституционно признанным институтом в Германии. Он часто служит участию граждан в процессах принятия политических решений на муниципальном уровне, но не является официальным государственным органом."
@@ -10260,7 +10260,7 @@
       "fr": {
         "question": "Quel organe ne fait pas partie des organes constitutionnels de l’Allemagne ?",
         "a": "le Conseil fédéral",
-        "b": "le Président de la Confédération suisse",
+        "b": "le président fédéral",
         "c": "L’Assemblée Citoyenne",
         "d": "Le gouvernement",
         "context": "En Allemagne, il existe plusieurs organes constitutionnels qui sont solidement ancrés dans le système politique et qui remplissent des tâches spécifiques au sein de l’État. Les plus importants sont le Bundestag, le Bundesrat, le gouvernement fédéral et le président fédéral. Ces institutions sont énoncées dans la Loi fondamentale et chacune a des fonctions définies. L’assemblée citoyenne, en revanche, n’est pas une institution constitutionnellement reconnue en Allemagne. Il sert souvent à la participation des citoyens aux processus de prise de décision politique au niveau municipal, mais n’est pas un organe officiel de l’État."
@@ -10268,7 +10268,7 @@
       "ar": {
         "question": "أي هيئة ليست من الأجهزة الدستورية لألمانيا؟",
         "a": "المجلس الاتحادي",
-        "b": "رئيس الاتحاد السويسري",
+        "b": "الرئيس الاتحادي",
         "c": "مجلس المواطنين",
         "d": "الحكومة",
         "context": "في ألمانيا ، هناك العديد من الأجهزة الدستورية التي ترتكز بقوة على النظام السياسي وتؤدي مهام محددة في الدولة. وأهمها البوندستاغ والبوندسرات والحكومة الاتحادية والرئيس الاتحادي. وهذه المؤسسات منصوص عليها في القانون الأساسي ولكل منها وظائف محددة. من ناحية أخرى، فإن مجلس المواطنين ليس مؤسسة معترف بها دستوريا في ألمانيا. غالبا ما يخدم مشاركة المواطنين في عمليات صنع القرار السياسي على مستوى البلديات، ولكنه ليس هيئة رسمية للدولة."
@@ -10276,7 +10276,7 @@
       "uk": {
         "question": "Який орган не входить до числа конституційних органів Німеччини?",
         "a": "Федеральна Рада",
-        "b": "Президент Швейцарської Конфедерації",
+        "b": "Федеральний президент",
         "c": "Збори громадян",
         "d": "Уряд",
         "context": "У Німеччині існує кілька конституційних органів, які міцно закріпилися в політичній системі і виконують конкретні завдання в державі. Найважливішими з них є Бундестаг, Бундесрат, Федеральний уряд і Федеральний президент. Ці інститути закріплені в Основному Законі і кожен з них має визначені функції. З іншого боку, збори громадян не є конституційно визнаним інститутом у Німеччині. Він часто служить участі громадян у процесах прийняття політичних рішень на муніципальному рівні, але не є офіційним державним органом."
@@ -10284,7 +10284,7 @@
       "hi": {
         "question": "कौन सा निकाय जर्मनी के संवैधानिक अंगों में से एक नहीं है?",
         "a": "संघीय परिषद",
-        "b": "स्विस परिसंघ के अध्यक्ष",
+        "b": "संघीय राष्ट्रपति",
         "c": "नागरिकों की सभा",
         "d": "सरकार",
         "context": "जर्मनी में, कई संवैधानिक अंग हैं जो राजनीतिक व्यवस्था में मजबूती से जुड़े हुए हैं और राज्य में विशिष्ट कार्य करते हैं। सबसे महत्वपूर्ण बुंडेस्टाग, बुंडेसराट, संघीय सरकार और संघीय राष्ट्रपति हैं। इन संस्थानों को मूल कानून में निर्धारित किया गया है और प्रत्येक के कार्य परिभाषित हैं। दूसरी ओर, नागरिकों की सभा जर्मनी में संवैधानिक रूप से मान्यता प्राप्त संस्था नहीं है। यह अक्सर नगरपालिका स्तर पर राजनीतिक निर्णय लेने की प्रक्रियाओं में नागरिकों की भागीदारी का कार्य करता है, लेकिन एक आधिकारिक राज्य निकाय नहीं है।"
@@ -10593,23 +10593,23 @@
         "a": "the President of the Bundestag",
         "b": "the President of the Federal Constitutional Court",
         "c": "the President of the Bundesrat",
-        "d": "the President of the Swiss Confederation",
+        "d": "the Federal President",
         "context": "In Germany, the Federal President plays a decisive role in the formation of the government. After a Bundestag election has taken place and a new Federal Chancellor has been elected, it is the task of the Federal President to officially appoint the ministers of the Federal Government. This appointment is based on the proposals of the Federal Chancellor. Other high offices such as the President of the Bundestag, the President of the Federal Constitutional Court or the President of the Bundesrat are not responsible for the appointment of ministers."
       },
       "tr": {
         "question": "Almanya'da Federal Hükümetin bakanlarını kim atar?",
-        "a": "Federal Meclis Başkanı",
+        "a": "Federal Meclis (Bundestag) Başkanı",
         "b": "Federal Anayasa Mahkemesi Başkanı",
-        "c": "Federal Meclis Başkanı",
-        "d": "İsviçre Konfederasyonu Başkanı",
-        "context": "Almanya'da Cumhurbaşkanı, hükümetin kurulmasında belirleyici bir rol oynamaktadır. Federal Meclis seçimleri yapıldıktan ve yeni bir Şansölye seçildikten sonra, Federal Hükümetin bakanlarını resmi olarak atamak Federal Cumhurbaşkanı'nın görevidir. Bu atama, Federal Şansölye'nin önerilerine dayanıyor. Federal Meclis Başkanı, Federal Anayasa Mahkemesi Başkanı veya Federal Meclis Başkanı gibi diğer yüksek makamlar bakanların atanmasından sorumlu değildir."
+        "c": "Federal Konsey (Bundesrat) Başkanı",
+        "d": "Federal Cumhurbaşkanı",
+        "context": "Almanya'da Federal Cumhurbaşkanı, hükümetin kurulmasında belirleyici bir rol oynamaktadır. Federal Meclis seçimleri yapıldıktan ve yeni bir Şansölye seçildikten sonra, Federal Hükümetin bakanlarını resmi olarak atamak Federal Cumhurbaşkanı'nın görevidir. Bu atama, Federal Şansölye'nin önerilerine dayanıyor. Federal Meclis (Bundestag) Başkanı, Federal Anayasa Mahkemesi Başkanı veya Federal Konsey (Bundesrat) Başkanı gibi diğer yüksek makamlar bakanların atanmasından sorumlu değildir."
       },
       "ru": {
         "question": "Кто назначает министров Федерального правительства в Германии?",
         "a": "Председатель Бундестага",
         "b": "Председатель Федерального конституционного суда",
         "c": "Председатель Бундесрата",
-        "d": "Президент Швейцарской Конфедерации",
+        "d": "Федеральный президент",
         "context": "В Германии Федеральный президент играет решающую роль в формировании правительства. После того, как состоялись выборы в Бундестаг и избран новый Федеральный канцлер, Федеральный президент должен официально назначить министров Федерального правительства. Это назначение основано на предложении Федерального канцлера. Другие высокие должности, такие как председатель Бундестага, председатель Федерального конституционного суда или председатель Бундесрата, не несут ответственности за назначение министров."
       },
       "fr": {
@@ -10617,7 +10617,7 @@
         "a": "le Président du Bundestag",
         "b": "le Président de la Cour constitutionnelle fédérale",
         "c": "le Président du Bundesrat",
-        "d": "le Président de la Confédération suisse",
+        "d": "le président fédéral",
         "context": "En Allemagne, le président fédéral joue un rôle décisif dans la formation du gouvernement. Après la tenue d’une élection au Bundestag et l’élection d’un nouveau chancelier fédéral, le président fédéral a pour tâche de nommer officiellement les ministres du gouvernement fédéral. Cette nomination se fonde sur les propositions du chancelier fédéral. D’autres hautes fonctions telles que le président du Bundestag, le président de la Cour constitutionnelle fédérale ou le président du Bundesrat ne sont pas responsables de la nomination des ministres."
       },
       "ar": {
@@ -10625,7 +10625,7 @@
         "a": "رئيس البوندستاغ",
         "b": "رئيس المحكمة الدستورية الاتحادية",
         "c": "رئيس البوندسرات",
-        "d": "رئيس الاتحاد السويسري",
+        "d": "الرئيس الاتحادي",
         "context": "في ألمانيا ، يلعب الرئيس الاتحادي دورا حاسما في تشكيل الحكومة. وبعد إجراء انتخابات البوندستاغ وانتخاب مستشار اتحادي جديد، تقع على عاتق الرئيس الاتحادي مهمة تعيين وزراء الحكومة الاتحادية رسميا. ويستند هذا التعيين إلى مقترحات المستشار الاتحادي. المناصب العليا الأخرى مثل رئيس البوندستاغ أو رئيس المحكمة الدستورية الاتحادية أو رئيس البوندسرات ليست مسؤولة عن تعيين الوزراء."
       },
       "uk": {
@@ -10633,7 +10633,7 @@
         "a": "Президент Бундестагу",
         "b": "Голова Федерального конституційного суду",
         "c": "Голова Бундесрату",
-        "d": "Президент Швейцарської Конфедерації",
+        "d": "Федеральний президент",
         "context": "У Німеччині вирішальну роль у формуванні уряду відіграє федеральний президент. Після того, як відбулися вибори до Бундестагу та було обрано нового федерального канцлера, завданням федерального президента є офіційне призначення міністрів федерального уряду. Це призначення ґрунтується на пропозиціях Федерального канцлера. Інші високі посади, такі як голова Бундестагу, голова Федерального конституційного суду або голова Бундесрату, не несуть відповідальності за призначення міністрів."
       },
       "hi": {
@@ -10641,7 +10641,7 @@
         "a": "बुंडेस्टाग के राष्ट्रपति",
         "b": "संघीय संवैधानिक न्यायालय के अध्यक्ष",
         "c": "बुंडेसराट के अध्यक्ष",
-        "d": "स्विस परिसंघ के अध्यक्ष",
+        "d": "संघीय राष्ट्रपति",
         "context": "जर्मनी में, संघीय राष्ट्रपति सरकार के गठन में निर्णायक भूमिका निभाता है। बुंडेस्टाग चुनाव होने के बाद और एक नया संघीय चांसलर चुना गया है, यह संघीय राष्ट्रपति का कार्य है कि वह आधिकारिक तौर पर संघीय सरकार के मंत्रियों की नियुक्ति करे। यह नियुक्ति फेडरल चांसलर के प्रस्तावों पर आधारित है। अन्य उच्च पद जैसे बुंडेस्टाग के राष्ट्रपति, संघीय संवैधानिक न्यायालय के अध्यक्ष या बुंडेसराट के राष्ट्रपति मंत्रियों की नियुक्ति के लिए जिम्मेदार नहीं हैं।"
       }
     },
@@ -11328,7 +11328,7 @@
         "b": "Il propose l’élection du chancelier.",
         "c": "Il/elle dirige les affaires du gouvernement.",
         "d": "Il choisit les ministres.",
-        "context": "Le président allemand a un rôle symbolique et représentatif et n’est pas directement impliqué dans la prise de décision politique. L’un de ses droits importants est le rôle d’auteur de la proposition dans l’élection du chancelier fédéral. Le président de la Confédération propose un candidat au Bundestag, qui est nommé chancelier fédéral en cas d’élection de confiance. Gustav Heinemann a remis à Helmut Schmidt le certificat de nomination en 1974 après son élection par le Bundestag. D’autres tâches, telles que la sélection des ministres ou le contrôle du parti au pouvoir, ne relèvent pas de sa responsabilité."
+        "context": "Le président allemand a un rôle symbolique et représentatif et n’est pas directement impliqué dans la prise de décision politique. L’un de ses droits importants est le rôle d’auteur de la proposition dans l’élection du chancelier fédéral. Le président fédéral propose un candidat au Bundestag, qui est nommé chancelier fédéral en cas d’élection de confiance. Gustav Heinemann a remis à Helmut Schmidt le certificat de nomination en 1974 après son élection par le Bundestag. D’autres tâches, telles que la sélection des ministres ou le contrôle du parti au pouvoir, ne relèvent pas de sa responsabilité."
       },
       "ar": {
         "question": "في عام 1974 ، منح الرئيس الفيدرالي الألماني غوستاف هاينمان هيلموت شميدت شهادة تعيين مستشارا ألمانيا. ما هي مهام الرئيس الاتحادي الألماني؟",
@@ -11683,7 +11683,7 @@
         "b": "Bärbel Bas",
         "c": "Bodo Ramelow",
         "d": "Joachim Gauck",
-        "context": "Afin de mieux comprendre la question, il est important de connaître les positions politiques en Allemagne. L’Allemagne est une république parlementaire avec un président fédéral à la tête de l’État. Le président de la Confédération a principalement des fonctions représentatives et est élu par l’Assemblée fédérale. Les options de réponse se réfèrent à des personnes qui sont des présidents fédéraux actuels ou anciens ou d’autres personnalités politiques. Par exemple, Frank-Walter Steinmeier est l’actuel président fédéral, tandis que Joachim Gauck est un ancien président sortant. Bärbel Bas et Bodo Ramelow sont des hommes politiques bien connus, mais n’agissent pas en tant que présidents fédéraux."
+        "context": "Afin de mieux comprendre la question, il est important de connaître les positions politiques en Allemagne. L’Allemagne est une république parlementaire avec un président fédéral à la tête de l’État. Le président fédéral a principalement des fonctions représentatives et est élu par l’Assemblée fédérale. Les options de réponse se réfèrent à des personnes qui sont des présidents fédéraux actuels ou anciens ou d’autres personnalités politiques. Par exemple, Frank-Walter Steinmeier est l’actuel président fédéral, tandis que Joachim Gauck est un ancien président sortant. Bärbel Bas et Bodo Ramelow sont des hommes politiques bien connus, mais n’agissent pas en tant que présidents fédéraux."
       },
       "ar": {
         "question": "ما هو اسم رئيس الدولة الألماني الحالي؟",
@@ -12152,7 +12152,7 @@
     "translation": {
       "en": {
         "question": "Who heads the German Federal Cabinet?",
-        "a": "the President of the Swiss Confederation",
+        "a": "the Federal President",
         "b": "the President of the Bundesrat",
         "c": "the Federal Chancellor",
         "d": "the President of the Bundestag",
@@ -12160,15 +12160,15 @@
       },
       "tr": {
         "question": "Alman Federal Kabinesi'ne kim başkanlık ediyor?",
-        "a": "İsviçre Konfederasyonu Başkanı",
-        "b": "Federal Meclis Başkanı",
+        "a": "Federal Cumhurbaşkanı",
+        "b": "Federal Konsey (Bundesrat) Başkanı",
         "c": "Federal Şansölye",
-        "d": "Federal Meclis Başkanı",
+        "d": "Federal Meclis (Bundestag) Başkanı",
         "context": "Alman Federal Kabinesi, Federal Hükümetin yürütme organıdır ve Federal Şansölye ve Federal Bakanlardan oluşur. Federal Şansölye, kabine içinde öncü bir role sahiptir ve bakanlıklar tarafından uygulanan politika yönergelerini belirler. Kabinenin görevi, ülkeyi etkileyen siyasi kararları almak ve uygulamaktır. Bu soru, bu önemli kurumdan kimin sorumlu olduğunu bulmakla ilgilidir."
       },
       "ru": {
         "question": "Кто возглавляет Федеральный кабинет министров Германии?",
-        "a": "Президент Швейцарской Конфедерации",
+        "a": "Федеральный президент",
         "b": "Председатель Бундесрата",
         "c": "Федеральный канцлер",
         "d": "Председатель Бундестага",
@@ -12176,7 +12176,7 @@
       },
       "fr": {
         "question": "Qui dirige le Cabinet fédéral allemand ?",
-        "a": "le Président de la Confédération suisse",
+        "a": "le président fédéral",
         "b": "le Président du Bundesrat",
         "c": "le chancelier fédéral",
         "d": "le Président du Bundestag",
@@ -12184,7 +12184,7 @@
       },
       "ar": {
         "question": "من يرأس مجلس الوزراء الفيدرالي الألماني؟",
-        "a": "رئيس الاتحاد السويسري",
+        "a": "الرئيس الاتحادي",
         "b": "رئيس البوندسرات",
         "c": "المستشار الاتحادي",
         "d": "رئيس البوندستاغ",
@@ -12192,7 +12192,7 @@
       },
       "uk": {
         "question": "Хто очолює Федеральний кабінет міністрів Німеччини?",
-        "a": "Президент Швейцарської Конфедерації",
+        "a": "Федеральний президент",
         "b": "Голова Бундесрату",
         "c": "Федеральний канцлер",
         "d": "Президент Бундестагу",
@@ -12200,7 +12200,7 @@
       },
       "hi": {
         "question": "जर्मन संघीय मंत्रिमंडल का प्रमुख कौन है?",
-        "a": "स्विस परिसंघ के अध्यक्ष",
+        "a": "संघीय राष्ट्रपति",
         "b": "बुंडेसराट के अध्यक्ष",
         "c": "संघीय चांसलर",
         "d": "बुंडेस्टाग के राष्ट्रपति",
@@ -12507,7 +12507,7 @@
     "translation": {
       "en": {
         "question": "Who is the head of state of the Federal Republic of Germany?",
-        "a": "the President of the Swiss Confederation",
+        "a": "the Federal President",
         "b": "the President of the Bundestag",
         "c": "the Federal Chancellor",
         "d": "the President of the Bundesrat",
@@ -12515,15 +12515,15 @@
       },
       "tr": {
         "question": "Federal Almanya Cumhuriyeti'nin devlet başkanı kimdir?",
-        "a": "İsviçre Konfederasyonu Başkanı",
-        "b": "Federal Meclis Başkanı",
+        "a": "Federal Cumhurbaşkanı",
+        "b": "Federal Meclis (Bundestag) Başkanı",
         "c": "Federal Şansölye",
-        "d": "Federal Meclis Başkanı",
-        "context": "Almanya, çeşitli siyasi makamların önemli olduğu parlamenter bir demokrasidir. Devlet başkanı ülkeyi dış dünyaya karşı temsil eder ve siyasette sembolik bir role sahiptir. Federal Cumhurbaşkanı bu rolü üstlenir ve günlük siyasi olayların üzerinde durur. Ona ek olarak, başka önemli siyasi makamlar da var: Federal Meclis Başkanı parlamentoya başkanlık ediyor, Federal Şansölye hükümete başkanlık ediyor ve Federal Meclis Başkanı Federal Meclis'te eyaletleri temsil ediyor. Bu ayrımlar soruyu cevaplamaya yardımcı olur."
+        "d": "Federal Konsey (Bundesrat) Başkanı",
+        "context": "Almanya, çeşitli siyasi makamların önemli olduğu parlamenter bir demokrasidir. Devlet başkanı ülkeyi dış dünyaya karşı temsil eder ve siyasette sembolik bir role sahiptir. Federal Cumhurbaşkanı bu rolü üstlenir ve günlük siyasi olayların üzerinde durur. Ona ek olarak, başka önemli siyasi makamlar da var: Federal Meclis (Bundestag) Başkanı parlamentoya başkanlık ediyor, Federal Şansölye hükümete başkanlık ediyor ve Federal Konsey (Bundesrat) Başkanı Federal Konsey'de eyaletleri temsil ediyor. Bu ayrımlar soruyu cevaplamaya yardımcı olur."
       },
       "ru": {
         "question": "Кто является главой государства Федеративной Республики Германия?",
-        "a": "Президент Швейцарской Конфедерации",
+        "a": "Федеральный президент",
         "b": "Председатель Бундестага",
         "c": "Федеральный канцлер",
         "d": "Председатель Бундесрата",
@@ -12531,7 +12531,7 @@
       },
       "fr": {
         "question": "Qui est le chef de l’État de la République fédérale d’Allemagne ?",
-        "a": "le Président de la Confédération suisse",
+        "a": "le président fédéral",
         "b": "le Président du Bundestag",
         "c": "le chancelier fédéral",
         "d": "le Président du Bundesrat",
@@ -12539,7 +12539,7 @@
       },
       "ar": {
         "question": "من هو رئيس دولة جمهورية ألمانيا الاتحادية؟",
-        "a": "رئيس الاتحاد السويسري",
+        "a": "الرئيس الاتحادي",
         "b": "رئيس البوندستاغ",
         "c": "المستشار الاتحادي",
         "d": "رئيس البوندسرات",
@@ -12547,7 +12547,7 @@
       },
       "uk": {
         "question": "Хто є главою держави Федеративна Республіка Німеччина?",
-        "a": "Президент Швейцарської Конфедерації",
+        "a": "Федеральний президент",
         "b": "Президент Бундестагу",
         "c": "Федеральний канцлер",
         "d": "Голова Бундесрату",
@@ -12555,7 +12555,7 @@
       },
       "hi": {
         "question": "जर्मनी के संघीय गणराज्य के राज्य का प्रमुख कौन है?",
-        "a": "स्विस परिसंघ के अध्यक्ष",
+        "a": "संघीय राष्ट्रपति",
         "b": "बुंडेस्टाग के राष्ट्रपति",
         "c": "संघीय चांसलर",
         "d": "बुंडेसराट के अध्यक्ष",
@@ -12801,7 +12801,7 @@
         "question": "Almanya'da, federal bir eyalette hükümet değişikliğinin federal siyaset üzerinde etkisi olabilir. Yönetim iradesi ...",
         "a": "Bu, Federal Meclis'teki çoğunluğu değiştirirse daha da zor.",
         "b": "Federal Konsey'e yeni partiler getirseydi daha kolay olurdu.",
-        "c": "Federal Meclis'teki çoğunluğu değiştirirse daha da zor.",
+        "c": "Federal Konsey'deki çoğunluğu değiştirirse daha da zor.",
         "d": "Zengin bir federal devlet ise daha kolay.",
         "context": "Alman siyaseti, ülkenin federal yapısından güçlü bir şekilde etkileniyor. Almanya, her biri kendi hükümetlerine ve ulusal siyaseti etkilemek için belirli olanaklara sahip 16 federal eyaletten oluşur. Bundesrat, eyaletlerin federal düzeyde mevzuata katıldığı önemli bir organdır. Federal bir eyalette hükümet değişikliği olması durumunda Federal Meclis'in bileşimi değişebilir. Bu, özellikle federal düzeyde yönetimi etkileyen çoğunlukları değiştirirse, ulusal politikada değişikliklere yol açabilir."
       },
@@ -13101,7 +13101,7 @@
         "question": "Lorsque des membres du Bundestag allemand changent de groupe parlementaire, ...",
         "a": "ils ne sont plus autorisés à participer aux séances parlementaires,",
         "b": "Le gouvernement peut perdre sa majorité.",
-        "c": "le président de la Confédération doit donner son accord à l’avance.",
+        "c": "le président fédéral doit donner son accord à l’avance.",
         "d": "Les électeurs de ces députés pourront voter à nouveau.",
         "context": "Au Bundestag allemand, un changement de groupe parlementaire par un député peut avoir des conséquences politiques considérables. Chaque député appartient généralement à un groupe parlementaire qui poursuit une ligne politique commune. Un changement d’appartenance peut mettre en péril la force du groupe parlementaire et donc la majorité gouvernementale. L’équilibre des pouvoirs au sein du Bundestag pourrait changer, ce qui influencera la prise de décision. Il est important pour la stabilité politique et le fonctionnement du Parlement de comprendre la composition des groupes politiques. Un changement de groupe parlementaire n’a pas besoin de l’approbation du président fédéral ou d’une nouvelle élection par les électeurs."
       },
@@ -14000,7 +14000,7 @@
         "question": "If you are allowed to vote in a Bundestag election in Germany, that means ...",
         "a": "active election campaign.",
         "b": "active election process.",
-        "c": "active election campaign.",
+        "c": "active campaigning.",
         "d": "active right to vote.",
         "context": "In Germany, there are two main terms associated with elections: the right to vote and the right to stand for election. The right to vote refers to the fact that citizens have the opportunity to cast their vote in elections. It is fundamental for democratic processes and ensures participation in the political system. In Bundestag elections, all German citizens aged 18 and over are allowed to vote, which is their right to vote. This differs from the right to stand for election, where citizens can stand for election and be elected."
       },
@@ -14008,7 +14008,7 @@
         "question": "Almanya'da Federal Meclis seçimlerinde oy kullanma izniniz varsa, bu şu anlama gelir...",
         "a": "aktif seçim kampanyası.",
         "b": "aktif seçim süreci.",
-        "c": "aktif seçim kampanyası.",
+        "c": "aktif seçim mücadelesi.",
         "d": "aktif oy kullanma hakkı.",
         "context": "Almanya'da seçimlerle ilgili iki ana terim vardır: oy kullanma hakkı ve seçimlere katılma hakkı. Oy kullanma hakkı, vatandaşların seçimlerde oy kullanma fırsatına sahip olmalarını ifade eder. Demokratik süreçler için esastır ve siyasi sisteme katılımı sağlar. Federal Meclis seçimlerinde, 18 yaş ve üstü tüm Alman vatandaşlarının oy kullanma hakkı vardır, bu da oy kullanma haklarıdır. Bu, vatandaşların seçime katılabileceği ve seçilebileceği seçime katılma hakkından farklıdır."
       },
@@ -14016,7 +14016,7 @@
         "question": "Если вам разрешено голосовать на выборах в Бундестаг в Германии, это означает, что ...",
         "a": "активная избирательная кампания.",
         "b": "активный избирательный процесс.",
-        "c": "активная избирательная кампания.",
+        "c": "активная предвыборная борьба.",
         "d": "Активное право голоса.",
         "context": "В Германии есть два основных термина, связанных с выборами: право голоса и право баллотироваться на выборах. Право голоса относится к тому, что граждане имеют возможность отдать свой голос на выборах. Она имеет основополагающее значение для демократических процессов и обеспечивает участие в политической системе. На выборах в Бундестаг к голосованию допускаются все граждане Германии в возрасте 18 лет и старше, что является их правом голоса. Это отличается от права баллотироваться на выборах, когда граждане могут баллотироваться на выборах и быть избранными."
       },
@@ -14024,7 +14024,7 @@
         "question": "Si vous avez le droit de voter lors d’une élection au Bundestag en Allemagne, cela signifie ...",
         "a": "campagne électorale active.",
         "b": "processus électoral actif.",
-        "c": "campagne électorale active.",
+        "c": "lutte électorale active.",
         "d": "droit de vote actif.",
         "context": "En Allemagne, il existe deux termes principaux associés aux élections : le droit de vote et le droit d’éligibilité aux élections. Le droit de vote fait référence au fait que les citoyens ont la possibilité de voter aux élections. Elle est fondamentale pour les processus démocratiques et garantit la participation au système politique. Lors des élections au Bundestag, tous les citoyens allemands âgés de 18 ans et plus ont le droit de vote, c’est-à-dire leur droit de vote. Cela diffère du droit d’éligibilité où les citoyens peuvent se présenter aux élections et être élus."
       },
@@ -14032,7 +14032,7 @@
         "question": "إذا سمح لك بالتصويت في انتخابات البوندستاغ في ألمانيا ، فهذا يعني ...",
         "a": "حملة انتخابية نشطة.",
         "b": "عملية انتخابية نشطة.",
-        "c": "حملة انتخابية نشطة.",
+        "c": "معركة انتخابية نشطة.",
         "d": "الحق النشط في التصويت.",
         "context": "في ألمانيا ، هناك فترتان رئيسيتان مرتبطتان بالانتخابات: الحق في التصويت والحق في الترشح للانتخابات. يشير الحق في التصويت إلى حقيقة أن المواطنين لديهم فرصة للإدلاء بأصواتهم في الانتخابات. إنه أساسي للعمليات الديمقراطية ويضمن المشاركة في النظام السياسي. في انتخابات البوندستاغ ، يسمح لجميع المواطنين الألمان الذين تبلغ أعمارهم 18 عاما فما فوق بالتصويت ، وهو حقهم في التصويت. وهذا يختلف عن الحق في الترشح للانتخابات، حيث يمكن للمواطنين الترشح للانتخابات والانتخاب."
       },
@@ -14040,7 +14040,7 @@
         "question": "Якщо вам дозволено голосувати на виборах до Бундестагу в Німеччині, це означає...",
         "a": "активна виборча кампанія.",
         "b": "активний виборчий процес.",
-        "c": "активна виборча кампанія.",
+        "c": "активна передвиборча боротьба.",
         "d": "активне виборче право.",
         "context": "У Німеччині з виборами пов'язані два основних терміни: право голосу і право балотуватися на виборах. Виборче право означає те, що громадяни мають можливість віддати свій голос на виборах. Вона є основоположною для демократичних процесів і забезпечує участь у політичній системі. На виборах до Бундестагу всі громадяни Німеччини віком від 18 років мають право голосу, що є їхнім правом голосу. Це відрізняється від права балотуватися, коли громадяни можуть балотуватися і бути обраними."
       },
@@ -14048,7 +14048,7 @@
         "question": "यदि आपको जर्मनी में बुंडेस्टाग चुनाव में मतदान करने की अनुमति है, तो इसका मतलब है ...",
         "a": "सक्रिय चुनाव अभियान।",
         "b": "सक्रिय चुनाव प्रक्रिया।",
-        "c": "सक्रिय चुनाव अभियान।",
+        "c": "सक्रिय चुनाव प्रचार।",
         "d": "मतदान का सक्रिय अधिकार।",
         "context": "जर्मनी में, चुनाव से जुड़े दो मुख्य शब्द हैं: मतदान का अधिकार और चुनाव के लिए खड़े होने का अधिकार। मतदान का अधिकार इस तथ्य को संदर्भित करता है कि नागरिकों को चुनाव में अपना वोट डालने का अवसर मिलता है। यह लोकतांत्रिक प्रक्रियाओं के लिए मौलिक है और राजनीतिक व्यवस्था में भागीदारी सुनिश्चित करता है। बुंडेस्टैग चुनावों में, 18 वर्ष और उससे अधिक आयु के सभी जर्मन नागरिकों को मतदान करने की अनुमति है, जो मतदान करने का उनका अधिकार है। यह चुनाव के लिए खड़े होने के अधिकार से अलग है, जहां नागरिक चुनाव के लिए खड़े हो सकते हैं और चुने जा सकते हैं।"
       }
@@ -14506,7 +14506,7 @@
         "a": "Federal Meclis'te küçük partiler için oylama düzenlemesi",
         "b": "Oylama için Federal Meclis'te katılım kontrolü",
         "c": "Parlamentoya girmek için asgari oy oranı",
-        "d": "Oylar için Federal Meclis'te katılım kontrolü",
+        "d": "Oylar için Federal Konsey'de katılım kontrolü",
         "context": "Almanya'da \"%5 engeli\", Federal Meclis seçimlerinin seçim sistemini ifade eder. Partilerin Federal Meclis'e girebilmeleri için ülke çapında kullanılan oyların en az %5'ini almaları gerekiyor. Bu kural, çok sayıda küçük partinin parlamentoda temsil edilmesini engellemeyi ve bu da hükümetin kurulmasını zorlaştırmayı amaçlıyor. Seçenekler çeşitli yanlış anlamaları açıklığa kavuşturuyor: Bu, Federal Meclis veya Federal Meclis'te bir katılım kontrolü değil ve küçük partiler için özel bir oylama düzenlemesi değil, c seçeneğinde açıklandığı gibi asgari bir oy oranı."
       },
       "ru": {
@@ -14733,7 +14733,7 @@
       "fr": {
         "question": "Qu’est-ce que les électeurs éligibles en Allemagne obtiennent avant une élection ?",
         "a": "une notification de l’électeur de la municipalité",
-        "b": "une autorisation de vote du président de la Confédération",
+        "b": "une autorisation de vote du président fédéral",
         "c": "une notification de l’Assemblée fédérale",
         "d": "une notification du bureau paroissial",
         "context": "Avant les élections en Allemagne, les citoyens ayant le droit de vote reçoivent des informations officielles les informant des prochaines élections et leur donnant accès aux bureaux de vote. Cette notification est cruciale pour garantir que les citoyens puissent voter. En raison de la structure fédérale allemande, il appartient aux communes d’envoyer ces informations. Entre autres choses, les citoyens sont informés où et comment ils peuvent voter. Ces notifications aux électeurs sont essentielles pour l’organisation et la mise en œuvre des processus démocratiques."
@@ -17171,10 +17171,10 @@
       "hi": {
         "question": "जर्मनी में अदालत के मामले को क्या कहा जाता है?",
         "a": "प्रोग्राम",
-        "b": "प्रक्रिया",
+        "b": "कार्यविधि",
         "c": "प्रोटोकॉल",
-        "d": "प्रक्रिया",
-        "context": "जर्मनी में, अदालत में मुकदमे के लिए अलग-अलग शब्द हैं, लेकिन सबसे आम अभिव्यक्ति \"प्रोजेस\" है। एक परीक्षण एक अदालत की कार्यवाही के पूरे पाठ्यक्रम को संदर्भित करता है जिसमें कानूनी संघर्षों का फैसला किया जाता है। इस शब्द में मौखिक सुनवाई के चरण के साथ-साथ निर्णय लेने की प्रक्रिया भी शामिल है। अन्य शब्द जैसे \"प्रोटोकॉल,\" \"प्रोग्राम,\" और \"प्रक्रिया\" प्रक्रिया के भीतर विशिष्ट तत्वों या प्रवाह को संदर्भित करते हैं, लेकिन पूरी प्रक्रिया का पर्याय नहीं हैं। एक मुकदमे में नागरिक और आपराधिक दोनों मामले शामिल हो सकते हैं।"
+        "d": "मुकदमा",
+        "context": "जर्मनी में, अदालत में मुकदमे के लिए अलग-अलग शब्द हैं, लेकिन सबसे आम अभिव्यक्ति \"प्रोजेस\" है। एक परीक्षण एक अदालत की कार्यवाही के पूरे पाठ्यक्रम को संदर्भित करता है जिसमें कानूनी संघर्षों का फैसला किया जाता है। इस शब्द में मौखिक सुनवाई के चरण के साथ-साथ निर्णय लेने की प्रक्रिया भी शामिल है। अन्य शब्द जैसे \"प्रोटोकॉल,\" \"प्रोग्राम,\" और \"कार्यविधि\" मुकदमे के भीतर विशिष्ट तत्वों या प्रवाह को संदर्भित करते हैं, लेकिन पूरे मुकदमे का पर्याय नहीं हैं। एक मुकदमे में नागरिक और आपराधिक दोनों मामले शामिल हो सकते हैं।"
       }
     },
     "category": "Law & Governance",
@@ -21058,11 +21058,11 @@
         "context": "L’abréviation « UE » est souvent associée à des questions politiques, économiques et sociales en Europe. Il s’agit d’une organisation qui relie les pays européens pour poursuivre des objectifs communs, tels que la promotion de la paix et de la prospérité. L’UE s’efforce de créer un marché unique et d’harmoniser les législations au sein de ses États membres. Cette abréviation est au cœur des discussions sur l’intégration européenne et la politique internationale. Dans ce contexte, la question cherche à savoir le sens de cette abréviation afin d’approfondir la compréhension de la coopération européenne."
       },
       "ar": {
-        "question": "ماذا يعني الاختصار الاتحاد الأوروبي؟",
+        "question": "ماذا يعني الاختصار EU؟",
         "a": "الشركات الأوروبية",
         "b": "الاتحاد الأوروبي",
         "c": "اتحاد واحد",
-        "d": "الاتحاد الأوروبي",
+        "d": "اتحاد اليورو",
         "context": "غالبا ما يرتبط الاختصار \"EU\" بالقضايا السياسية والاقتصادية والاجتماعية في أوروبا. يشير إلى منظمة تربط الدول الأوروبية لتحقيق أهداف مشتركة ، مثل تعزيز السلام والازدهار. يعمل الاتحاد الأوروبي على إنشاء سوق موحدة ومواءمة القوانين داخل دوله الأعضاء. هذا الاختصار أساسي للمناقشات حول التكامل الأوروبي والسياسة الدولية. في هذا السياق ، يسعى السؤال إلى معنى هذا الاختصار من أجل تعميق فهم التعاون الأوروبي."
       },
       "uk": {
@@ -21074,7 +21074,7 @@
         "context": "Абревіатура «ЄС» часто асоціюється з політичними, економічними та соціальними проблемами в Європі. Під ним мається на увазі організація, яка об'єднує європейські країни для досягнення спільних цілей, таких як сприяння миру та процвітанню. ЄС працює над створенням єдиного ринку та гармонізацією законодавства у своїх державах-членах. Ця абревіатура є центральною в дискусіях про європейську інтеграцію та міжнародну політику. У цьому контексті питання шукає значення цієї абревіатури з метою поглиблення розуміння європейської співпраці."
       },
       "hi": {
-        "question": "संक्षिप्त नाम यूरोपीय संघ का क्या अर्थ है?",
+        "question": "संक्षिप्त नाम EU का क्या अर्थ है?",
         "a": "यूरोपीय कंपनियां",
         "b": "यूरोपीय संघ",
         "c": "एकल संघ",
@@ -21880,58 +21880,58 @@
       "en": {
         "question": "What is the head of government in Baden-Württemberg called?",
         "a": "Mayor",
-        "b": "Prime Minister",
+        "b": "Minister-President",
         "c": "Prime Minister",
         "d": "First Minister",
-        "context": "Baden-Württemberg is a federal state in Germany with its own state government. The government is headed by the prime minister, who is responsible for political decisions in the country. This position is comparable to a prime minister or first minister, but is referred to as a prime minister in the German states. Mayors, on the other hand, lead individual cities or municipalities, not the entire state. Therefore, the question of the Prime Minister as head of government of Baden-Württemberg is asked."
+        "context": "Baden-Württemberg is a federal state in Germany with its own state government. The government is headed by the Minister-President, who is responsible for political decisions in the state. This position is comparable to a prime minister or first minister, but in the German federal states it is called Minister-President. Mayors, on the other hand, lead individual cities or municipalities, not the entire state. The question therefore asks for the Minister-President as head of government of Baden-Württemberg."
       },
       "tr": {
         "question": "Baden-Württemberg'deki hükümet başkanının adı nedir?",
         "a": "Belediye başkanı",
-        "b": "Başbakan",
+        "b": "Eyalet Başbakanı",
         "c": "Başbakan",
-        "d": "Başbakan",
-        "context": "Baden-Württemberg, Almanya'da kendi eyalet hükümetine sahip federal bir eyalettir. Hükümete, ülkedeki siyasi kararlardan sorumlu olan başbakan başkanlık ediyor. Bu pozisyon bir başbakan veya ilk bakan ile karşılaştırılabilir, ancak Alman eyaletlerinde başbakan olarak anılır. Belediye başkanları ise tüm eyaleti değil, tek tek şehirleri veya belediyeleri yönetir. Bu nedenle, Baden-Württemberg hükümet başkanı olarak Başbakan'ın sorusu sorulmaktadır."
+        "d": "Birinci Bakan",
+        "context": "Baden-Württemberg, Almanya'da kendi eyalet hükümetine sahip federal bir eyalettir. Hükümete, eyaletteki siyasi kararlardan sorumlu olan Eyalet Başbakanı (Ministerpräsident) başkanlık ediyor. Bu pozisyon bir başbakan veya birinci bakan ile karşılaştırılabilir, ancak Alman eyaletlerinde Eyalet Başbakanı (Ministerpräsident) olarak anılır. Belediye başkanları ise tüm eyaleti değil, tek tek şehirleri veya belediyeleri yönetir. Bu nedenle soru, Baden-Württemberg hükümet başkanı olarak Eyalet Başbakanı'nı sormaktadır."
       },
       "ru": {
         "question": "Как называется глава правительства в Баден-Вюртемберге?",
         "a": "Мэр",
-        "b": "Премьер-министр",
+        "b": "Министр-президент",
         "c": "Премьер-министр",
         "d": "Первый министр",
-        "context": "Баден-Вюртемберг — федеральная земля в Германии с собственным правительством земли. Правительство возглавляет премьер-министр, который отвечает за политические решения в стране. Эта должность сравнима с должностью премьер-министра или первого министра, но в федеральных землях Германии она называется премьер-министром. Мэры, с другой стороны, руководят отдельными городами или муниципалитетами, а не всем штатом. Поэтому ставится вопрос о премьер-министре как главе правительства Баден-Вюртемберга."
+        "context": "Баден-Вюртемберг — федеральная земля в Германии с собственным правительством земли. Правительство возглавляет министр-президент, который отвечает за политические решения в стране. Эта должность сравнима с должностью премьер-министра или первого министра, но в федеральных землях Германии она называется министр-президентом. Мэры, с другой стороны, руководят отдельными городами или муниципалитетами, а не всем штатом. Поэтому вопрос касается министра-президента как главы правительства Баден-Вюртемберга."
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement du Bade-Wurtemberg ?",
         "a": "Maire",
-        "b": "Premier ministre",
+        "b": "Ministre-président",
         "c": "Premier ministre",
-        "d": "Premier ministre",
-        "context": "Le Bade-Wurtemberg est un Land allemand doté de son propre gouvernement régional. Le gouvernement est dirigé par le Premier ministre, qui est responsable des décisions politiques dans le pays. Ce poste est comparable à celui d’un premier ministre ou d’un premier ministre, mais on parle de premier ministre dans les Länder allemands. Les maires, en revanche, dirigent des villes ou des municipalités individuelles, et non l’ensemble de l’État. Par conséquent, la question du Premier ministre en tant que chef du gouvernement du Bade-Wurtemberg est posée."
+        "d": "Ministre en chef",
+        "context": "Le Bade-Wurtemberg est un Land allemand doté de son propre gouvernement régional. Le gouvernement est dirigé par le ministre-président, qui est responsable des décisions politiques dans le pays. Ce poste est comparable à celui d’un Premier ministre ou d’un ministre en chef, mais on parle de ministre-président dans les Länder allemands. Les maires, en revanche, dirigent des villes ou des municipalités individuelles, et non l’ensemble de l’État. La question porte donc sur le ministre-président en tant que chef du gouvernement du Bade-Wurtemberg."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في بادن فورتمبيرغ؟",
-        "a": "عمده",
-        "b": "رئيس الوزراء",
+        "a": "العمدة",
+        "b": "رئيس وزراء الولاية",
         "c": "رئيس الوزراء",
         "d": "الوزير الأول",
-        "context": "بادن فورتمبيرغ هي ولاية فيدرالية في ألمانيا ولها حكومة ولاية خاصة بها. يرأس الحكومة رئيس الوزراء ، المسؤول عن القرارات السياسية في البلاد. هذا المنصب يمكن مقارنته برئيس الوزراء أو الوزير الأول ، ولكن يشار إليه باسم رئيس الوزراء في الولايات الألمانية. من ناحية أخرى ، يقود رؤساء البلديات المدن أو البلديات الفردية ، وليس الولاية بأكملها. لذلك ، يتم طرح مسألة رئيس الوزراء بصفته رئيس حكومة بادن فورتمبيرغ."
+        "context": "بادن فورتمبيرغ هي ولاية فيدرالية في ألمانيا ولها حكومة ولاية خاصة بها. يرأس الحكومة رئيس وزراء الولاية ، المسؤول عن القرارات السياسية في البلاد. هذا المنصب يمكن مقارنته برئيس الوزراء أو الوزير الأول ، ولكن يشار إليه باسم رئيس وزراء الولاية (Ministerpräsident) في الولايات الألمانية. من ناحية أخرى ، يقود رؤساء البلديات المدن أو البلديات الفردية ، وليس الولاية بأكملها. لذلك ، يسأل السؤال عن رئيس وزراء الولاية بصفته رئيس حكومة بادن فورتمبيرغ."
       },
       "uk": {
         "question": "Як називається глава уряду в Баден-Вюртемберзі?",
         "a": "Мер",
-        "b": "Прем'єр-міністр",
+        "b": "Міністр-президент",
         "c": "Прем'єр-міністр",
         "d": "Перший міністр",
-        "context": "Баден-Вюртемберг — федеральна земля в Німеччині з власним земельним урядом. Уряд очолює прем'єр-міністр, який відповідає за політичні рішення в країні. Ця посада порівнянна з посадою прем'єр-міністра або першого міністра, але в німецьких землях її називають прем'єр-міністром. З іншого боку, мери керують окремими містами чи муніципалітетами, а не всією державою. Тому ставиться питання про прем'єр-міністра як главу уряду Баден-Вюртемберга."
+        "context": "Баден-Вюртемберг — федеральна земля в Німеччині з власним земельним урядом. Уряд очолює міністр-президент, який відповідає за політичні рішення в країні. Ця посада порівнянна з посадою прем'єр-міністра або першого міністра, але в німецьких землях її називають міністр-президентом. З іншого боку, мери керують окремими містами чи муніципалітетами, а не всією державою. Тому питання стосується міністра-президента як глави уряду Баден-Вюртемберга."
       },
       "hi": {
         "question": "बाडेन-वुर्टेमबर्ग में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "महापौर",
-        "b": "प्रधानमंत्री",
+        "b": "मंत्री-राष्ट्रपति",
         "c": "प्रधानमंत्री",
         "d": "प्रथम मंत्री",
-        "context": "बाडेन-वुर्टेमबर्ग जर्मनी में एक संघीय राज्य है जिसकी अपनी राज्य सरकार है। सरकार का नेतृत्व प्रधानमंत्री करता है, जो देश में राजनीतिक निर्णयों के लिए जिम्मेदार होता है। यह स्थिति एक प्रधान मंत्री या प्रथम मंत्री के बराबर है, लेकिन जर्मन राज्यों में प्रधान मंत्री के रूप में जाना जाता है। दूसरी ओर, महापौर व्यक्तिगत शहरों या नगर पालिकाओं का नेतृत्व करते हैं, न कि पूरे राज्य का। इसलिए, बाडेन-वुर्टेमबर्ग की सरकार के प्रमुख के रूप में प्रधान मंत्री का सवाल पूछा जाता है।"
+        "context": "बाडेन-वुर्टेमबर्ग जर्मनी में एक संघीय राज्य है जिसकी अपनी राज्य सरकार है। सरकार का नेतृत्व मंत्री-राष्ट्रपति करता है, जो देश में राजनीतिक निर्णयों के लिए जिम्मेदार होता है। यह स्थिति एक प्रधान मंत्री या प्रथम मंत्री के बराबर है, लेकिन जर्मन राज्यों में मंत्री-राष्ट्रपति (Ministerpräsident) के रूप में जाना जाता है। दूसरी ओर, महापौर व्यक्तिगत शहरों या नगर पालिकाओं का नेतृत्व करते हैं, न कि पूरे राज्य का। इसलिए, बाडेन-वुर्टेमबर्ग की सरकार के प्रमुख के रूप में मंत्री-राष्ट्रपति के बारे में पूछा जाता है।"
       }
     },
     "category": "Law & Governance",
@@ -22518,7 +22518,7 @@
     "translation": {
       "en": {
         "question": "What is the head of government in Bavaria called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Mayor",
         "c": "Prime Minister",
         "d": "First Minister",
@@ -22526,15 +22526,15 @@
       },
       "tr": {
         "question": "Bavyera'daki hükümet başkanına ne denir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Belediye başkanı",
         "c": "Başbakan",
-        "d": "Başbakan",
+        "d": "Birinci Bakan",
         "context": "Bavyera, Almanya'da kendi siyasi sistemine sahip bir eyalettir. Bu federal devletin hükümet başkanı, devlet siyasetinde merkezi bir role sahiptir. Bu kişi eyalet hükümetine başkanlık eder ve Bavyera'yı dış dünyaya karşı temsil eder. \"Ministerpräsident\" terimi Alman eyaletlerinde hükümet başkanına atıfta bulunmak için yaygınken, \"Bürgermeister\", \"Premier\" ve \"Erster Minister\" gibi terimler diğer siyasi bağlamlarda ve ülkelerde kullanılmaktadır. Bu nedenle, Bavyera'daki pozisyon için hangi başlığın özellikle doğru olduğunu bulmak önemlidir."
       },
       "ru": {
         "question": "Как называется глава правительства в Баварии?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Мэр",
         "c": "Премьер-министр",
         "d": "Первый министр",
@@ -22542,23 +22542,23 @@
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement en Bavière ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Maire",
         "c": "Premier ministre",
-        "d": "Premier ministre",
+        "d": "Ministre en chef",
         "context": "La Bavière est un État allemand doté de son propre système politique. Le chef du gouvernement de cet État fédéral joue un rôle central dans la politique de l’État. Cette personne dirige le gouvernement du Land et représente la Bavière auprès du monde extérieur. Le terme « Ministerpräsident » est courant dans les Länder allemands pour désigner le chef du gouvernement, tandis que des termes tels que « Bürgermeister », « Premier ministre » et « Erster Minister » sont utilisés dans d’autres contextes politiques et pays. Il est donc important de savoir quel titre est spécifiquement correct pour la position en Bavière."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في بافاريا؟",
-        "a": "رئيس الوزراء",
-        "b": "عمده",
+        "a": "رئيس وزراء الولاية",
+        "b": "العمدة",
         "c": "رئيس الوزراء",
         "d": "الوزير الأول",
         "context": "بافاريا هي دولة في ألمانيا لها نظامها السياسي الخاص. يلعب رئيس حكومة هذه الدولة الفيدرالية دورا مركزيا في سياسات الدولة. يرأس هذا الشخص حكومة الولاية ويمثل بافاريا للعالم الخارجي. مصطلح \"Ministerpräsident\" شائع في الولايات الألمانية للإشارة إلى رئيس الحكومة ، بينما تستخدم مصطلحات مثل \"Bürgermeister\" و \"Premier\" و \"Erster Minister\" في سياقات وبلدان سياسية أخرى. وبالتالي ، من المهم معرفة العنوان الصحيح على وجه التحديد للمنصب في بافاريا."
       },
       "uk": {
         "question": "Як називається глава уряду в Баварії?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Мер",
         "c": "Прем'єр-міністр",
         "d": "Перший міністр",
@@ -22566,11 +22566,11 @@
       },
       "hi": {
         "question": "बवेरिया में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "महापौर",
         "c": "प्रधानमंत्री",
         "d": "प्रथम मंत्री",
-        "context": "बवेरिया जर्मनी का एक राज्य है जिसकी अपनी राजनीतिक व्यवस्था है। इस संघीय राज्य की सरकार के प्रमुख की राज्य की राजनीति में केंद्रीय भूमिका होती है। यह व्यक्ति राज्य सरकार का प्रमुख है और बाहरी दुनिया में बवेरिया का प्रतिनिधित्व करता है। जर्मन राज्यों में सरकार के प्रमुख को संदर्भित करने के लिए \"मंत्री\" शब्द आम है, जबकि \"बुर्गर्मिस्टर\", \"प्रीमियर\" और \"एस्टर मिनिस्टर\" जैसे शब्दों का उपयोग अन्य राजनीतिक संदर्भों और देशों में किया जाता है। इस प्रकार, यह पता लगाना महत्वपूर्ण है कि बवेरिया में स्थिति के लिए कौन सा शीर्षक विशेष रूप से सही है।"
+        "context": "बवेरिया जर्मनी का एक राज्य है जिसकी अपनी राजनीतिक व्यवस्था है। इस संघीय राज्य की सरकार के प्रमुख की राज्य की राजनीति में केंद्रीय भूमिका होती है। यह व्यक्ति राज्य सरकार का प्रमुख है और बाहरी दुनिया में बवेरिया का प्रतिनिधित्व करता है। जर्मन राज्यों में सरकार के प्रमुख को संदर्भित करने के लिए \"मंत्री-राष्ट्रपति\" (Ministerpräsident) शब्द आम है, जबकि \"बुर्गर्मिस्टर\", \"प्रीमियर\" और \"एस्टर मिनिस्टर\" जैसे शब्दों का उपयोग अन्य राजनीतिक संदर्भों और देशों में किया जाता है। इस प्रकार, यह पता लगाना महत्वपूर्ण है कि बवेरिया में स्थिति के लिए कौन सा शीर्षक विशेष रूप से सही है।"
       }
     },
     "category": "Law & Governance",
@@ -23938,59 +23938,59 @@
     "translation": {
       "en": {
         "question": "What is the head of government in Brandenburg called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Mayor",
         "c": "First Minister",
         "d": "Prime Minister",
-        "context": "Brandenburg is one of the 16 federal states of Germany and has its own state government. This state government is headed by the head of government, whose title is similar to that in other German states. The correct title for the head of government in a German state is not directly comparable to a title such as mayor or prime minister, as these terms represent different political roles and levels in different countries. The term \"Prime Minister\" is the usual title for the head of government of a German federal state."
+        "context": "Brandenburg is one of the 16 federal states of Germany and has its own state government. This state government is headed by the head of government, whose title is similar to that in other German states. The correct title for the head of government in a German state is not directly comparable to a title such as mayor or prime minister, as these terms represent different political roles and levels in different countries. The term \"Minister-President\" is the usual title for the head of government of a German federal state."
       },
       "tr": {
         "question": "Brandenburg'daki hükümet başkanının adı nedir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Belediye başkanı",
-        "c": "Başbakan",
+        "c": "Birinci Bakan",
         "d": "Başbakan",
-        "context": "Brandenburg, Almanya'nın 16 federal eyaletinden biridir ve kendi eyalet hükümetine sahiptir. Bu eyalet hükümetine, unvanı diğer Alman eyaletlerindekine benzer olan hükümet başkanı başkanlık eder. Bir Alman eyaletinde hükümet başkanı için doğru unvan, belediye başkanı veya başbakan gibi bir unvanla doğrudan karşılaştırılamaz, çünkü bu terimler farklı ülkelerdeki farklı siyasi rolleri ve seviyeleri temsil eder. \"Başbakan\" terimi, bir Alman federal devletinin hükümet başkanı için olağan bir unvandır."
+        "context": "Brandenburg, Almanya'nın 16 federal eyaletinden biridir ve kendi eyalet hükümetine sahiptir. Bu eyalet hükümetine, unvanı diğer Alman eyaletlerindekine benzer olan hükümet başkanı başkanlık eder. Bir Alman eyaletinde hükümet başkanı için doğru unvan, belediye başkanı veya başbakan gibi bir unvanla doğrudan karşılaştırılamaz, çünkü bu terimler farklı ülkelerdeki farklı siyasi rolleri ve seviyeleri temsil eder. \"Eyalet Başbakanı\" (Ministerpräsident) terimi, bir Alman federal devletinin hükümet başkanı için olağan bir unvandır."
       },
       "ru": {
         "question": "Как называется глава правительства в Бранденбурге?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Мэр",
         "c": "Первый министр",
         "d": "Премьер-министр",
-        "context": "Бранденбург является одной из 16 федеральных земель Германии и имеет собственное правительство земли. Правительство этой земли возглавляет глава правительства, титул которого аналогичен титулу в других землях Германии. Правильный титул главы правительства в немецкой земле нельзя напрямую сравнивать с титулом, таким как мэр или премьер-министр, поскольку эти термины представляют разные политические роли и уровни в разных странах. Термин «премьер-министр» — это обычный титул главы правительства федеральной земли Германии."
+        "context": "Бранденбург является одной из 16 федеральных земель Германии и имеет собственное правительство земли. Правительство этой земли возглавляет глава правительства, титул которого аналогичен титулу в других землях Германии. Правильный титул главы правительства в немецкой земле нельзя напрямую сравнивать с титулом, таким как мэр или премьер-министр, поскольку эти термины представляют разные политические роли и уровни в разных странах. Термин «министр-президент» — это обычный титул главы правительства федеральной земли Германии."
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement de Brandebourg ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Maire",
-        "c": "Premier ministre",
+        "c": "Ministre en chef",
         "d": "Premier ministre",
-        "context": "Le Brandebourg est l’un des 16 Länder d’Allemagne et possède son propre gouvernement régional. Ce gouvernement est dirigé par le chef du gouvernement, dont le titre est similaire à celui des autres Länder allemands. Le titre correct de chef de gouvernement dans un Land allemand n’est pas directement comparable à un titre tel que maire ou premier ministre, car ces termes représentent différents rôles et niveaux politiques dans différents pays. Le terme « Premier ministre » est le titre habituel du chef du gouvernement d’un Land allemand."
+        "context": "Le Brandebourg est l’un des 16 Länder d’Allemagne et possède son propre gouvernement régional. Ce gouvernement est dirigé par le chef du gouvernement, dont le titre est similaire à celui des autres Länder allemands. Le titre correct de chef de gouvernement dans un Land allemand n’est pas directement comparable à un titre tel que maire ou premier ministre, car ces termes représentent différents rôles et niveaux politiques dans différents pays. Le terme « ministre-président » est le titre habituel du chef du gouvernement d’un Land allemand."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في براندنبورغ؟",
-        "a": "رئيس الوزراء",
-        "b": "عمده",
+        "a": "رئيس وزراء الولاية",
+        "b": "العمدة",
         "c": "الوزير الأول",
         "d": "رئيس الوزراء",
-        "context": "براندنبورغ هي واحدة من 16 ولاية فيدرالية في ألمانيا ولديها حكومة ولاية خاصة بها. يرأس حكومة الولاية هذه رئيس الحكومة ، الذي يشبه لقبه لقبه في الولايات الألمانية الأخرى. لا يمكن مقارنة اللقب الصحيح لرئيس الحكومة في دولة ألمانية بشكل مباشر بلقب مثل رئيس البلدية أو رئيس الوزراء ، حيث تمثل هذه المصطلحات أدوارا ومستويات سياسية مختلفة في مختلف البلدان. مصطلح \"رئيس الوزراء\" هو اللقب المعتاد لرئيس حكومة دولة فيدرالية ألمانية."
+        "context": "براندنبورغ هي واحدة من 16 ولاية فيدرالية في ألمانيا ولديها حكومة ولاية خاصة بها. يرأس حكومة الولاية هذه رئيس الحكومة ، الذي يشبه لقبه لقبه في الولايات الألمانية الأخرى. لا يمكن مقارنة اللقب الصحيح لرئيس الحكومة في دولة ألمانية بشكل مباشر بلقب مثل رئيس البلدية أو رئيس الوزراء ، حيث تمثل هذه المصطلحات أدوارا ومستويات سياسية مختلفة في مختلف البلدان. مصطلح \"رئيس وزراء الولاية\" (Ministerpräsident) هو اللقب المعتاد لرئيس حكومة دولة فيدرالية ألمانية."
       },
       "uk": {
         "question": "Як називається глава уряду в Бранденбурзі?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Мер",
         "c": "Перший міністр",
         "d": "Прем'єр-міністр",
-        "context": "Бранденбург є однією з 16 федеральних земель Німеччини і має власний земельний уряд. Цей уряд землі очолює глава уряду, титул якого схожий з титулом в інших німецьких землях. Правильний титул глави уряду в німецькій землі не можна безпосередньо порівняти з таким титулом, як мер або прем'єр-міністр, оскільки ці терміни представляють різні політичні ролі та рівні в різних країнах. Термін «прем'єр-міністр» є звичайним титулом глави уряду німецької федеративної землі."
+        "context": "Бранденбург є однією з 16 федеральних земель Німеччини і має власний земельний уряд. Цей уряд землі очолює глава уряду, титул якого схожий з титулом в інших німецьких землях. Правильний титул глави уряду в німецькій землі не можна безпосередньо порівняти з таким титулом, як мер або прем'єр-міністр, оскільки ці терміни представляють різні політичні ролі та рівні в різних країнах. Термін «міністр-президент» є звичайним титулом глави уряду німецької федеративної землі."
       },
       "hi": {
         "question": "ब्रांडेनबर्ग में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "महापौर",
         "c": "प्रथम मंत्री",
         "d": "प्रधानमंत्री",
-        "context": "ब्रांडेनबर्ग जर्मनी के 16 संघीय राज्यों में से एक है और इसकी अपनी राज्य सरकार है। इस राज्य सरकार का नेतृत्व सरकार के प्रमुख द्वारा किया जाता है, जिसका शीर्षक अन्य जर्मन राज्यों के समान है। जर्मन राज्य में सरकार के प्रमुख के लिए सही शीर्षक सीधे महापौर या प्रधान मंत्री जैसे शीर्षक से तुलनीय नहीं है, क्योंकि ये शब्द विभिन्न देशों में विभिन्न राजनीतिक भूमिकाओं और स्तरों का प्रतिनिधित्व करते हैं। शब्द \"प्रधान मंत्री\" एक जर्मन संघीय राज्य की सरकार के प्रमुख के लिए सामान्य शीर्षक है।"
+        "context": "ब्रांडेनबर्ग जर्मनी के 16 संघीय राज्यों में से एक है और इसकी अपनी राज्य सरकार है। इस राज्य सरकार का नेतृत्व सरकार के प्रमुख द्वारा किया जाता है, जिसका शीर्षक अन्य जर्मन राज्यों के समान है। जर्मन राज्य में सरकार के प्रमुख के लिए सही शीर्षक सीधे महापौर या प्रधान मंत्री जैसे शीर्षक से तुलनीय नहीं है, क्योंकि ये शब्द विभिन्न देशों में विभिन्न राजनीतिक भूमिकाओं और स्तरों का प्रतिनिधित्व करते हैं। शब्द \"मंत्री-राष्ट्रपति\" (Ministerpräsident) एक जर्मन संघीय राज्य की सरकार के प्रमुख के लिए सामान्य शीर्षक है।"
       }
     },
     "category": "'Law & Governance'",
@@ -25394,7 +25394,7 @@
         "b": "اللورد العمدة",
         "c": "رئيس الوزراء",
         "d": "عضو مجلس الشيوخ الحاكم",
-        "context": "هامبورغ هي دولة مدينة ألمانية وهي مدينة ودولة فيدرالية مستقلة. على هذا النحو ، فإن هامبورغ لديها حكومتها الخاصة مع رئيس حكومة في القمة. هذا المنصب يمكن مقارنته بالوزير والرئيس في الولايات الألمانية الأخرى ، ولكن غالبا ما يختلف التعيين في دول المدن. نظرا لأن هامبورغ لديها هيكل سياسي فريد من نوعه ، فإن اللقب المناسب لرئيس الحكومة أمر بالغ الأهمية لفهم الإدارة والعمليات السياسية لدولة المدينة."
+        "context": "هامبورغ هي دولة مدينة ألمانية وهي مدينة ودولة فيدرالية مستقلة. على هذا النحو ، فإن هامبورغ لديها حكومتها الخاصة مع رئيس حكومة في القمة. هذا المنصب يمكن مقارنته برئيس وزراء الولاية في الولايات الألمانية الأخرى ، ولكن غالبا ما يختلف التعيين في دول المدن. نظرا لأن هامبورغ لديها هيكل سياسي فريد من نوعه ، فإن اللقب المناسب لرئيس الحكومة أمر بالغ الأهمية لفهم الإدارة والعمليات السياسية لدولة المدينة."
       },
       "uk": {
         "question": "Як називається глава уряду міста-держави Гамбург?",
@@ -26069,7 +26069,7 @@
       "en": {
         "question": "What is the head of government in Hesse called?",
         "a": "Mayor",
-        "b": "Prime Minister",
+        "b": "Minister-President",
         "c": "Prime Minister",
         "d": "First Minister",
         "context": "Hesse is a federal state in Germany, and like all German states, it has its own state government. The head of government of a federal state is often confused with the national heads of government. In German states, this position has a specific title. The role includes important tasks, such as the management of the state government and the representation of the state at the national level. The answer to the question of who is the head of government in Hesse refers to the specific title that this leadership position holds in all German states."
@@ -26077,15 +26077,15 @@
       "tr": {
         "question": "Hessen'deki hükümet başkanının adı nedir?",
         "a": "Belediye başkanı",
-        "b": "Başbakan",
+        "b": "Eyalet Başbakanı",
         "c": "Başbakan",
-        "d": "Başbakan",
+        "d": "Birinci Bakan",
         "context": "Hessen, Almanya'da federal bir eyalettir ve tüm Alman eyaletleri gibi kendi eyalet hükümetine sahiptir. Federal bir devletin hükümet başkanı genellikle ulusal hükümet başkanları ile karıştırılır. Alman eyaletlerinde bu pozisyonun belirli bir unvanı vardır. Rol, eyalet hükümetinin yönetimi ve devletin ulusal düzeyde temsili gibi önemli görevleri içerir. Hessen'de hükümet başkanının kim olduğu sorusunun cevabı, bu liderlik pozisyonunun tüm Alman eyaletlerinde sahip olduğu özel unvanı ifade eder."
       },
       "ru": {
         "question": "Как называется глава правительства в Гессене?",
         "a": "Мэр",
-        "b": "Премьер-министр",
+        "b": "Министр-президент",
         "c": "Премьер-министр",
         "d": "Первый министр",
         "context": "Гессен является федеральной землей в Германии, и, как и все немецкие земли, имеет собственное земельное правительство. Главу правительства федеративного государства часто путают с главами национальных правительств. В федеральных землях Германии эта должность имеет определенное название. Эта роль включает в себя важные задачи, такие как управление правительством штата и представительство штата на национальном уровне. Ответ на вопрос о том, кто является главой правительства в Гессене, относится к конкретному званию, которое занимает эта руководящая должность во всех землях Германии."
@@ -26093,15 +26093,15 @@
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement en Hesse ?",
         "a": "Maire",
-        "b": "Premier ministre",
+        "b": "Ministre-président",
         "c": "Premier ministre",
-        "d": "Premier ministre",
+        "d": "Ministre en chef",
         "context": "La Hesse est un Land de Länder en Allemagne et, comme tous les Länder allemands, elle a son propre gouvernement d’État. Le chef du gouvernement d’un État fédéral est souvent confondu avec les chefs de gouvernement nationaux. Dans les Länder allemands, ce poste a un titre spécifique. Ce rôle comprend des tâches importantes, telles que la gestion du gouvernement de l’État et la représentation de l’État au niveau national. La réponse à la question de savoir qui est le chef du gouvernement en Hesse se réfère au titre spécifique que ce poste de direction détient dans tous les Länder allemands."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في هيسن؟",
-        "a": "عمده",
-        "b": "رئيس الوزراء",
+        "a": "العمدة",
+        "b": "رئيس وزراء الولاية",
         "c": "رئيس الوزراء",
         "d": "الوزير الأول",
         "context": "هسن هي دولة فيدرالية في ألمانيا ، ومثل جميع الولايات الألمانية ، لديها حكومة ولاية خاصة بها. غالبا ما يتم الخلط بين رئيس حكومة الدولة الفيدرالية ورؤساء الحكومات الوطنيين. في الولايات الألمانية ، هذا المنصب له عنوان محدد. يتضمن الدور مهام مهمة ، مثل إدارة حكومة الولاية وتمثيل الدولة على المستوى الوطني. تشير الإجابة على سؤال من هو رئيس الحكومة في هيسن إلى اللقب المحدد الذي يحمله هذا المنصب القيادي في جميع الولايات الألمانية."
@@ -26109,7 +26109,7 @@
       "uk": {
         "question": "Як називається глава уряду в Гессені?",
         "a": "Мер",
-        "b": "Прем'єр-міністр",
+        "b": "Міністр-президент",
         "c": "Прем'єр-міністр",
         "d": "Перший міністр",
         "context": "Гессен є федеративною землею в Німеччині, і, як і всі німецькі землі, має власний земельний уряд. Главу уряду федеративної держави часто плутають з національними главами урядів. У німецьких землях ця посада має специфічну назву. Ця роль включає в себе важливі завдання, такі як управління державним управлінням і представництво держави на національному рівні. Відповідь на питання про те, хто є главою уряду в Гессені, відноситься до специфічного титулу, який має ця керівна посада у всіх німецьких землях."
@@ -26117,7 +26117,7 @@
       "hi": {
         "question": "हेसे में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "महापौर",
-        "b": "प्रधानमंत्री",
+        "b": "मंत्री-राष्ट्रपति",
         "c": "प्रधानमंत्री",
         "d": "प्रथम मंत्री",
         "context": "हेसे जर्मनी में एक संघीय राज्य है, और सभी जर्मन राज्यों की तरह, इसकी अपनी राज्य सरकार है। एक संघीय राज्य की सरकार का प्रमुख अक्सर सरकार के राष्ट्रीय प्रमुखों के साथ भ्रमित होता है। जर्मन राज्यों में, इस स्थिति का एक विशिष्ट शीर्षक है। भूमिका में महत्वपूर्ण कार्य शामिल हैं, जैसे कि राज्य सरकार का प्रबंधन और राष्ट्रीय स्तर पर राज्य का प्रतिनिधित्व। हेसे में सरकार का प्रमुख कौन है, इस सवाल का जवाब उस विशिष्ट शीर्षक को संदर्भित करता है जो सभी जर्मन राज्यों में नेतृत्व की स्थिति रखता है।"
@@ -26779,7 +26779,7 @@
       "en": {
         "question": "What is the head of government in Mecklenburg-Western Pomerania called?",
         "a": "Mayor",
-        "b": "Prime Minister",
+        "b": "Minister-President",
         "c": "Prime Minister",
         "d": "First Mayor",
         "context": "Mecklenburg-Western Pomerania is one of the 16 German states. In Germany, the federal states have their own governments, and the head of government of a federal state is referred to as the Minister-President. This is different from a mayor who heads a city or municipality and a prime minister who operates at the national level. The title \"First Mayor\" is specific to some regions, including the city of Hamburg. The correct term for the head of government in Mecklenburg-Western Pomerania is therefore Minister-President."
@@ -26787,15 +26787,15 @@
       "tr": {
         "question": "Mecklenburg-Vorpommern'deki hükümet başkanının adı nedir?",
         "a": "Belediye başkanı",
-        "b": "Başbakan",
+        "b": "Eyalet Başbakanı",
         "c": "Başbakan",
         "d": "İlk Belediye Başkanı",
-        "context": "Mecklenburg-Vorpommern, Almanya'nın 16 eyaletinden biridir. Almanya'da federal eyaletlerin kendi hükümetleri vardır ve bir federal eyaletin hükümet başkanına Bakan-Cumhurbaşkanı denir. Bu, bir şehri veya belediyeyi yöneten bir belediye başkanından ve ulusal düzeyde faaliyet gösteren bir başbakandan farklıdır. \"İlk Belediye Başkanı\" unvanı, Hamburg şehri de dahil olmak üzere bazı bölgelere özgüdür. Bu nedenle Mecklenburg-Vorpommern'deki hükümet başkanı için doğru terim Bakan-Cumhurbaşkanı'dır."
+        "context": "Mecklenburg-Vorpommern, Almanya'nın 16 eyaletinden biridir. Almanya'da federal eyaletlerin kendi hükümetleri vardır ve bir federal eyaletin hükümet başkanına Eyalet Başbakanı denir. Bu, bir şehri veya belediyeyi yöneten bir belediye başkanından ve ulusal düzeyde faaliyet gösteren bir başbakandan farklıdır. \"İlk Belediye Başkanı\" unvanı, Hamburg şehri de dahil olmak üzere bazı bölgelere özgüdür. Bu nedenle Mecklenburg-Vorpommern'deki hükümet başkanı için doğru terim Eyalet Başbakanı'dır."
       },
       "ru": {
         "question": "Как называется глава правительства в Мекленбурге-Передней Померании?",
         "a": "Мэр",
-        "b": "Премьер-министр",
+        "b": "Министр-президент",
         "c": "Премьер-министр",
         "d": "Первый мэр",
         "context": "Мекленбург-Передняя Померания является одной из 16 земель Германии. В Германии федеральные земли имеют свои собственные правительства, а глава правительства федеративной земли называется министром-президентом. Это отличается от мэра, который возглавляет город или муниципалитет, и премьер-министра, который действует на национальном уровне. Титул «Первый мэр» характерен для некоторых регионов, в том числе для города Гамбурга. Таким образом, правильным термином для обозначения главы правительства в Мекленбурге-Передней Померании является министр-президент."
@@ -26803,23 +26803,23 @@
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement du Mecklembourg-Poméranie-Occidentale ?",
         "a": "Maire",
-        "b": "Premier ministre",
+        "b": "Ministre-président",
         "c": "Premier ministre",
         "d": "Premier maire",
         "context": "Le Mecklembourg-Poméranie-Occidentale est l’un des 16 Länder allemands. En Allemagne, les Länder ont leur propre gouvernement, et le chef du gouvernement d’un Länder est appelé le ministre-président. C’est différent d’un maire qui dirige une ville ou une municipalité et d’un premier ministre qui opère au niveau national. Le titre de « premier maire » est spécifique à certaines régions, dont la ville de Hambourg. Le terme correct pour désigner le chef du gouvernement de Mecklembourg-Poméranie occidentale est donc ministre-président."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في مكلنبورغ - بوميرانيا الغربية؟",
-        "a": "عمده",
-        "b": "رئيس الوزراء",
+        "a": "العمدة",
+        "b": "رئيس وزراء الولاية",
         "c": "رئيس الوزراء",
         "d": "العمدة الأول",
-        "context": "مكلنبورغ - بوميرانيا الغربية هي واحدة من 16 ولاية ألمانية. في ألمانيا ، للولايات الفيدرالية حكوماتها الخاصة ، ويشار إلى رئيس حكومة الدولة الفيدرالية باسم الوزير والرئيس. هذا يختلف عن رئيس البلدية الذي يرأس مدينة أو بلدية ورئيس الوزراء الذي يعمل على المستوى الوطني. لقب \"العمدة الأول\" خاص ببعض المناطق ، بما في ذلك مدينة هامبورغ. وبالتالي فإن المصطلح الصحيح لرئيس الحكومة في مكلنبورغ - بوميرانيا الغربية هو الوزير والرئيس."
+        "context": "مكلنبورغ - بوميرانيا الغربية هي واحدة من 16 ولاية ألمانية. في ألمانيا ، للولايات الفيدرالية حكوماتها الخاصة ، ويشار إلى رئيس حكومة الدولة الفيدرالية باسم رئيس وزراء الولاية. هذا يختلف عن رئيس البلدية الذي يرأس مدينة أو بلدية ورئيس الوزراء الذي يعمل على المستوى الوطني. لقب \"العمدة الأول\" خاص ببعض المناطق ، بما في ذلك مدينة هامبورغ. وبالتالي فإن المصطلح الصحيح لرئيس الحكومة في مكلنبورغ - بوميرانيا الغربية هو رئيس وزراء الولاية."
       },
       "uk": {
         "question": "Як називається глава уряду в Мекленбурзі-Передній Померанії?",
         "a": "Мер",
-        "b": "Прем'єр-міністр",
+        "b": "Міністр-президент",
         "c": "Прем'єр-міністр",
         "d": "Перший міський голова",
         "context": "Мекленбург-Передня Померанія є однією з 16 німецьких земель. У Німеччині федеральні землі мають свої уряди, і глава уряду федеративної землі іменується міністром-президентом. Це відрізняється від мера, який очолює місто чи муніципалітет, та прем'єр-міністра, який діє на національному рівні. Титул «Перший мер» характерний для деяких регіонів, включаючи місто Гамбург. Тому правильним терміном для позначення глави уряду в Мекленбурзі-Передній Померанії є міністр-президент."
@@ -26827,7 +26827,7 @@
       "hi": {
         "question": "मेक्लेनबर्ग-पश्चिमी पोमेरानिया में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "महापौर",
-        "b": "प्रधानमंत्री",
+        "b": "मंत्री-राष्ट्रपति",
         "c": "प्रधानमंत्री",
         "d": "प्रथम महापौर",
         "context": "मेक्लेनबर्ग-पश्चिमी पोमेरानिया 16 जर्मन राज्यों में से एक है। जर्मनी में, संघीय राज्यों की अपनी सरकारें होती हैं, और एक संघीय राज्य की सरकार के प्रमुख को मंत्री-राष्ट्रपति कहा जाता है। यह एक महापौर से अलग है जो एक शहर या नगरपालिका का प्रमुख है और एक प्रधान मंत्री जो राष्ट्रीय स्तर पर काम करता है। शीर्षक \"फर्स्ट मेयर\" हैम्बर्ग शहर सहित कुछ क्षेत्रों के लिए विशिष्ट है। मेक्लेनबर्ग-पश्चिमी पोमेरानिया में सरकार के प्रमुख के लिए सही शब्द इसलिए मंत्री-राष्ट्रपति है।"
@@ -27559,59 +27559,59 @@
     "translation": {
       "en": {
         "question": "What is the head of government in Lower Saxony called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Prime Minister",
         "c": "Mayor",
         "d": "First Minister",
-        "context": "In Lower Saxony, as in other German states, the head of government heads the state government and represents the state externally. The title of this position is an important part of the German political structure. The term \"Prime Minister\" is widely used in Germany and refers to the person who holds the highest political authority in a federal state. This position includes tasks such as chairing cabinet meetings, executing state laws, and representing the state. Therefore, the question is relevant to understanding the political system of Germany."
+        "context": "In Lower Saxony, as in other German states, the head of government heads the state government and represents the state externally. The title of this position is an important part of the German political structure. The term \"Minister-President\" is widely used in Germany and refers to the person who holds the highest political authority in a federal state. This position includes tasks such as chairing cabinet meetings, executing state laws, and representing the state. Therefore, the question is relevant to understanding the political system of Germany."
       },
       "tr": {
         "question": "Aşağı Saksonya'daki hükümet başkanının adı nedir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Başbakan",
         "c": "Belediye başkanı",
-        "d": "Başbakan",
-        "context": "Aşağı Saksonya'da, diğer Alman eyaletlerinde olduğu gibi, hükümet başkanı eyalet hükümetine başkanlık eder ve devleti dışarıda temsil eder. Bu pozisyonun unvanı, Alman siyasi yapısının önemli bir parçasıdır. \"Başbakan\" terimi Almanya'da yaygın olarak kullanılmaktadır ve federal bir eyalette en yüksek siyasi otoriteye sahip olan kişiyi ifade eder. Bu pozisyon, kabine toplantılarına başkanlık etmek, eyalet yasalarını uygulamak ve devleti temsil etmek gibi görevleri içerir. Bu nedenle, soru Almanya'nın siyasi sistemini anlamakla ilgilidir."
+        "d": "Birinci Bakan",
+        "context": "Aşağı Saksonya'da, diğer Alman eyaletlerinde olduğu gibi, hükümet başkanı eyalet hükümetine başkanlık eder ve devleti dışarıda temsil eder. Bu pozisyonun unvanı, Alman siyasi yapısının önemli bir parçasıdır. \"Eyalet Başbakanı\" (Ministerpräsident) terimi Almanya'da yaygın olarak kullanılmaktadır ve federal bir eyalette en yüksek siyasi otoriteye sahip olan kişiyi ifade eder. Bu pozisyon, kabine toplantılarına başkanlık etmek, eyalet yasalarını uygulamak ve devleti temsil etmek gibi görevleri içerir. Bu nedenle, soru Almanya'nın siyasi sistemini anlamakla ilgilidir."
       },
       "ru": {
         "question": "Как называется глава правительства в Нижней Саксонии?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Премьер-министр",
         "c": "Мэр",
         "d": "Первый министр",
-        "context": "В Нижней Саксонии, как и в других немецких землях, глава правительства возглавляет правительство земли и представляет государство за его пределами. Название этой должности является важной частью политической структуры Германии. Термин «премьер-министр» широко используется в Германии и относится к лицу, которое обладает высшей политической властью в федеральной земле. Эта должность включает в себя такие задачи, как председательство на заседаниях кабинета министров, исполнение законов штата и представление интересов штата. Поэтому вопрос актуален для понимания политического строя Германии."
+        "context": "В Нижней Саксонии, как и в других немецких землях, глава правительства возглавляет правительство земли и представляет государство за его пределами. Название этой должности является важной частью политической структуры Германии. Термин «министр-президент» широко используется в Германии и относится к лицу, которое обладает высшей политической властью в федеральной земле. Эта должность включает в себя такие задачи, как председательство на заседаниях кабинета министров, исполнение законов штата и представление интересов штата. Поэтому вопрос актуален для понимания политического строя Германии."
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement de Basse-Saxe ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Premier ministre",
         "c": "Maire",
-        "d": "Premier ministre",
-        "context": "En Basse-Saxe, comme dans d’autres Länder allemands, le chef du gouvernement dirige le gouvernement du Land et représente l’État à l’extérieur. Le titre de ce poste est une partie importante de la structure politique allemande. Le terme « Premier ministre » est largement utilisé en Allemagne et fait référence à la personne qui détient la plus haute autorité politique dans un État fédéral. Ce poste comprend des tâches telles que la présidence des réunions du cabinet, l’exécution des lois de l’État et la représentation de l’État. Par conséquent, la question est pertinente pour comprendre le système politique de l’Allemagne."
+        "d": "Ministre en chef",
+        "context": "En Basse-Saxe, comme dans d’autres Länder allemands, le chef du gouvernement dirige le gouvernement du Land et représente l’État à l’extérieur. Le titre de ce poste est une partie importante de la structure politique allemande. Le terme « ministre-président » est largement utilisé en Allemagne et fait référence à la personne qui détient la plus haute autorité politique dans un État fédéral. Ce poste comprend des tâches telles que la présidence des réunions du cabinet, l’exécution des lois de l’État et la représentation de l’État. Par conséquent, la question est pertinente pour comprendre le système politique de l’Allemagne."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في ولاية سكسونيا السفلى؟",
-        "a": "رئيس الوزراء",
+        "a": "رئيس وزراء الولاية",
         "b": "رئيس الوزراء",
-        "c": "عمده",
+        "c": "العمدة",
         "d": "الوزير الأول",
-        "context": "في ولاية سكسونيا السفلى ، كما هو الحال في الولايات الألمانية الأخرى ، يرأس رئيس الحكومة حكومة الولاية ويمثل الدولة خارجيا. عنوان هذا المنصب هو جزء مهم من الهيكل السياسي الألماني. يستخدم مصطلح \"رئيس الوزراء\" على نطاق واسع في ألمانيا ويشير إلى الشخص الذي يشغل أعلى سلطة سياسية في دولة فيدرالية. يتضمن هذا المنصب مهام مثل رئاسة اجتماعات مجلس الوزراء وتنفيذ قوانين الولاية وتمثيل الدولة. لذلك ، فإن السؤال ذو صلة بفهم النظام السياسي في ألمانيا."
+        "context": "في ولاية سكسونيا السفلى ، كما هو الحال في الولايات الألمانية الأخرى ، يرأس رئيس الحكومة حكومة الولاية ويمثل الدولة خارجيا. عنوان هذا المنصب هو جزء مهم من الهيكل السياسي الألماني. يستخدم مصطلح \"رئيس وزراء الولاية\" (Ministerpräsident) على نطاق واسع في ألمانيا ويشير إلى الشخص الذي يشغل أعلى سلطة سياسية في دولة فيدرالية. يتضمن هذا المنصب مهام مثل رئاسة اجتماعات مجلس الوزراء وتنفيذ قوانين الولاية وتمثيل الدولة. لذلك ، فإن السؤال ذو صلة بفهم النظام السياسي في ألمانيا."
       },
       "uk": {
         "question": "Як називається глава уряду в Нижній Саксонії?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Прем'єр-міністр",
         "c": "Мер",
         "d": "Перший міністр",
-        "context": "У Нижній Саксонії, як і в інших німецьких землях, глава уряду очолює уряд землі і представляє державу зовні. Назва цієї посади є важливою частиною німецької політичної структури. Термін «прем'єр-міністр» широко використовується в Німеччині і відноситься до особи, яка має найвищу політичну владу в федеративній землі. Ця посада включає в себе такі завдання, як головування на засіданнях кабінету міністрів, виконання законів штату та представництво держави. Тому питання є актуальним для розуміння політичної системи Німеччини."
+        "context": "У Нижній Саксонії, як і в інших німецьких землях, глава уряду очолює уряд землі і представляє державу зовні. Назва цієї посади є важливою частиною німецької політичної структури. Термін «міністр-президент» широко використовується в Німеччині і відноситься до особи, яка має найвищу політичну владу в федеративній землі. Ця посада включає в себе такі завдання, як головування на засіданнях кабінету міністрів, виконання законів штату та представництво держави. Тому питання є актуальним для розуміння політичної системи Німеччини."
       },
       "hi": {
         "question": "लोअर सैक्सोनी में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "प्रधानमंत्री",
         "c": "महापौर",
         "d": "प्रथम मंत्री",
-        "context": "लोअर सैक्सोनी में, अन्य जर्मन राज्यों की तरह, सरकार का प्रमुख राज्य सरकार का प्रमुख होता है और बाहरी रूप से राज्य का प्रतिनिधित्व करता है। इस स्थिति का शीर्षक जर्मन राजनीतिक संरचना का एक महत्वपूर्ण हिस्सा है। \"प्रधान मंत्री\" शब्द का व्यापक रूप से जर्मनी में उपयोग किया जाता है और यह उस व्यक्ति को संदर्भित करता है जो संघीय राज्य में सर्वोच्च राजनीतिक अधिकार रखता है। इस स्थिति में कैबिनेट की बैठकों की अध्यक्षता करने, राज्य के कानूनों को निष्पादित करने और राज्य का प्रतिनिधित्व करने जैसे कार्य शामिल हैं। इसलिए, जर्मनी की राजनीतिक व्यवस्था को समझने के लिए सवाल प्रासंगिक है।"
+        "context": "लोअर सैक्सोनी में, अन्य जर्मन राज्यों की तरह, सरकार का प्रमुख राज्य सरकार का प्रमुख होता है और बाहरी रूप से राज्य का प्रतिनिधित्व करता है। इस स्थिति का शीर्षक जर्मन राजनीतिक संरचना का एक महत्वपूर्ण हिस्सा है। \"मंत्री-राष्ट्रपति\" (Ministerpräsident) शब्द का व्यापक रूप से जर्मनी में उपयोग किया जाता है और यह उस व्यक्ति को संदर्भित करता है जो संघीय राज्य में सर्वोच्च राजनीतिक अधिकार रखता है। इस स्थिति में कैबिनेट की बैठकों की अध्यक्षता करने, राज्य के कानूनों को निष्पादित करने और राज्य का प्रतिनिधित्व करने जैसे कार्य शामिल हैं। इसलिए, जर्मनी की राजनीतिक व्यवस्था को समझने के लिए सवाल प्रासंगिक है।"
       }
     },
     "category": "Law & Governance",
@@ -28269,7 +28269,7 @@
     "translation": {
       "en": {
         "question": "What is the head of government in North Rhine-Westphalia called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Mayor",
         "c": "First Minister",
         "d": "Prime Minister",
@@ -28277,15 +28277,15 @@
       },
       "tr": {
         "question": "Kuzey Ren-Vestfalya'daki hükümet başkanının adı nedir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Belediye başkanı",
-        "c": "Başbakan",
+        "c": "Birinci Bakan",
         "d": "Başbakan",
         "context": "Kuzey Ren-Vestfalya, Almanya'da siyasi sistemi eyaletin federal sisteminin bir parçası olan federal bir eyalettir. Her federal devletin, devletin idaresinden ve siyasetinden sorumlu olan kendi hükümet başkanı vardır. Hükümet başkanı, eyalet hükümetinin başındadır ve yasama ve yönetişimde merkezi bir rol oynar. Sorunun cevabı, bu hükümet başkanının geleneksel olarak bir Alman devletinde nasıl adlandırıldığına bağlıdır."
       },
       "ru": {
         "question": "Как называется глава правительства земли Северный Рейн-Вестфалия?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Мэр",
         "c": "Первый министр",
         "d": "Премьер-министр",
@@ -28293,23 +28293,23 @@
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement de Rhénanie-du-Nord-Westphalie ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Maire",
-        "c": "Premier ministre",
+        "c": "Ministre en chef",
         "d": "Premier ministre",
         "context": "La Rhénanie-du-Nord-Westphalie est un Land allemand dont le système politique fait partie du système fédéral de l’État. Chaque État fédéral a son propre chef de gouvernement, qui est responsable de l’administration et de la politique de l’État. Le chef du gouvernement est à la tête du gouvernement de l’État et joue un rôle central dans la législation et la gouvernance. La réponse à la question dépend de la façon dont ce chef de gouvernement est traditionnellement appelé dans un Land allemand."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في شمال الراين وستفاليا؟",
-        "a": "رئيس الوزراء",
-        "b": "عمده",
+        "a": "رئيس وزراء الولاية",
+        "b": "العمدة",
         "c": "الوزير الأول",
         "d": "رئيس الوزراء",
         "context": "شمال الراين وستفاليا هي ولاية فيدرالية في ألمانيا يعد نظامها السياسي جزءا من النظام الفيدرالي للولاية. لكل ولاية اتحادية رئيس حكومتها الخاص ، وهو المسؤول عن إدارة الدولة وسياستها. رئيس الحكومة هو رأس حكومة الولاية ويلعب دورا مركزيا في التشريع والحوكمة. تعتمد الإجابة على السؤال على كيفية تسمية رئيس الحكومة هذا تقليديا في دولة ألمانية."
       },
       "uk": {
         "question": "Як називається глава уряду в землі Північний Рейн-Вестфалія?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Мер",
         "c": "Перший міністр",
         "d": "Прем'єр-міністр",
@@ -28317,7 +28317,7 @@
       },
       "hi": {
         "question": "नॉर्थ राइन-वेस्टफेलिया में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "महापौर",
         "c": "प्रथम मंत्री",
         "d": "प्रधानमंत्री",
@@ -28979,59 +28979,59 @@
     "translation": {
       "en": {
         "question": "What is the head of government in Rhineland-Palatinate called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Mayor",
         "c": "First Minister",
         "d": "Prime Minister",
-        "context": "Rhineland-Palatinate is a state in Germany that has its own state government. The head of government of a German federal state is part of this government and is responsible for the political leadership and administration of the country. In each federal state, the head of government is called \"Prime Minister\" or \"Prime Minister\". This position is comparable to a prime minister at the national level, but specific to the respective state. The area of work includes, among other things, the representation of the state and the implementation of state political decisions."
+        "context": "Rhineland-Palatinate is a state in Germany that has its own state government. The head of government of a German federal state is part of this government and is responsible for the political leadership and administration of the country. In each federal state, the head of government is called \"Minister-President\" (Ministerpräsident or Ministerpräsidentin). This position is comparable to a prime minister at the national level, but specific to the respective state. The area of work includes, among other things, the representation of the state and the implementation of state political decisions."
       },
       "tr": {
         "question": "Rheinland-Pfalz'daki hükümet başkanının adı nedir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Belediye başkanı",
-        "c": "Başbakan",
+        "c": "Birinci Bakan",
         "d": "Başbakan",
-        "context": "Rheinland-Pfalz, Almanya'da kendi eyalet hükümetine sahip bir eyalettir. Bir Alman federal devletinin hükümet başkanı bu hükümetin bir parçasıdır ve ülkenin siyasi liderliğinden ve idaresinden sorumludur. Her federal eyalette, hükümet başkanına \"Başbakan\" veya \"Başbakan\" denir. Bu pozisyon, ulusal düzeydeki bir başbakanla karşılaştırılabilir, ancak ilgili devlete özgüdür. Çalışma alanı, diğer şeylerin yanı sıra, devletin temsilini ve devlet siyasi kararlarının uygulanmasını içerir."
+        "context": "Rheinland-Pfalz, Almanya'da kendi eyalet hükümetine sahip bir eyalettir. Bir Alman federal devletinin hükümet başkanı bu hükümetin bir parçasıdır ve ülkenin siyasi liderliğinden ve idaresinden sorumludur. Her federal eyalette, hükümet başkanına \"Eyalet Başbakanı\" (Ministerpräsident veya Ministerpräsidentin) denir. Bu pozisyon, ulusal düzeydeki bir başbakanla karşılaştırılabilir, ancak ilgili devlete özgüdür. Çalışma alanı, diğer şeylerin yanı sıra, devletin temsilini ve devlet siyasi kararlarının uygulanmasını içerir."
       },
       "ru": {
         "question": "Как называется глава правительства в земле Рейнланд-Пфальц?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Мэр",
         "c": "Первый министр",
         "d": "Премьер-министр",
-        "context": "Рейнланд-Пфальц — земля в Германии, которая имеет собственное правительство земли. Глава правительства федеральной земли Германии входит в состав этого правительства и отвечает за политическое руководство и управление страной. В каждой федеральной земле глава правительства называется «премьер-министр» или «премьер-министр». Эта должность сравнима с должностью премьер-министра на национальном уровне, но специфична для соответствующего государства. Направление работы включает в себя, в том числе, представительство государства и реализацию государственных политических решений."
+        "context": "Рейнланд-Пфальц — земля в Германии, которая имеет собственное правительство земли. Глава правительства федеральной земли Германии входит в состав этого правительства и отвечает за политическое руководство и управление страной. В каждой федеральной земле глава правительства называется «министр-президент» (Ministerpräsident или Ministerpräsidentin). Эта должность сравнима с должностью премьер-министра на национальном уровне, но специфична для соответствующего государства. Направление работы включает в себя, в том числе, представительство государства и реализацию государственных политических решений."
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement en Rhénanie-Palatinat ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Maire",
-        "c": "Premier ministre",
+        "c": "Ministre en chef",
         "d": "Premier ministre",
-        "context": "La Rhénanie-Palatinat est un Land d’Allemagne qui possède son propre gouvernement régional. Le chef du gouvernement d’un État fédéral allemand fait partie de ce gouvernement et est responsable de la direction politique et de l’administration du pays. Dans chaque État fédéral, le chef du gouvernement est appelé « Premier ministre » ou « Premier ministre ». Cette position est comparable à celle d’un Premier ministre au niveau national, mais spécifique à l’État concerné. Le domaine de travail comprend, entre autres, la représentation de l’État et la mise en œuvre des décisions politiques de l’État."
+        "context": "La Rhénanie-Palatinat est un Land d’Allemagne qui possède son propre gouvernement régional. Le chef du gouvernement d’un État fédéral allemand fait partie de ce gouvernement et est responsable de la direction politique et de l’administration du pays. Dans chaque État fédéral, le chef du gouvernement est appelé « ministre-président » ou « ministre-présidente ». Cette position est comparable à celle d’un Premier ministre au niveau national, mais spécifique à l’État concerné. Le domaine de travail comprend, entre autres, la représentation de l’État et la mise en œuvre des décisions politiques de l’État."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في راينلاند بالاتينات؟",
-        "a": "رئيس الوزراء",
-        "b": "عمده",
+        "a": "رئيس وزراء الولاية",
+        "b": "العمدة",
         "c": "الوزير الأول",
         "d": "رئيس الوزراء",
-        "context": "راينلاند بالاتينات هي ولاية في ألمانيا لديها حكومة ولاية خاصة بها. رئيس حكومة دولة فيدرالية ألمانية هو جزء من هذه الحكومة وهو مسؤول عن القيادة السياسية وإدارة البلاد. في كل ولاية فيدرالية ، يطلق على رئيس الحكومة اسم \"رئيس الوزراء\" أو \"رئيس الوزراء\". هذا المنصب مشابه لرئيس الوزراء على المستوى الوطني ، ولكنه خاص بالولاية المعنية. يشمل مجال العمل، من بين أمور أخرى، تمثيل الدولة وتنفيذ القرارات السياسية للدولة."
+        "context": "راينلاند بالاتينات هي ولاية في ألمانيا لديها حكومة ولاية خاصة بها. رئيس حكومة دولة فيدرالية ألمانية هو جزء من هذه الحكومة وهو مسؤول عن القيادة السياسية وإدارة البلاد. في كل ولاية فيدرالية ، يطلق على رئيس الحكومة اسم \"رئيس وزراء الولاية\" (Ministerpräsident أو Ministerpräsidentin). هذا المنصب مشابه لرئيس الوزراء على المستوى الوطني ، ولكنه خاص بالولاية المعنية. يشمل مجال العمل، من بين أمور أخرى، تمثيل الدولة وتنفيذ القرارات السياسية للدولة."
       },
       "uk": {
         "question": "Як називається глава уряду в землі Рейнланд-Пфальц?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Мер",
         "c": "Перший міністр",
         "d": "Прем'єр-міністр",
-        "context": "Рейнланд-Пфальц — земля в Німеччині, яка має власний уряд землі. Глава уряду німецької федеральної землі входить до складу цього уряду і відповідає за політичне керівництво та управління країною. У кожній федеральній землі глава уряду називається «Прем'єр-міністр» або «Прем'єр-міністр». Ця посада порівнянна з посадою прем'єр-міністра на національному рівні, але специфічна для відповідної держави. У сферу роботи входить, серед іншого, представництво держави та реалізація державних політичних рішень."
+        "context": "Рейнланд-Пфальц — земля в Німеччині, яка має власний уряд землі. Глава уряду німецької федеральної землі входить до складу цього уряду і відповідає за політичне керівництво та управління країною. У кожній федеральній землі глава уряду називається «міністр-президент» (Ministerpräsident або Ministerpräsidentin). Ця посада порівнянна з посадою прем'єр-міністра на національному рівні, але специфічна для відповідної держави. У сферу роботи входить, серед іншого, представництво держави та реалізація державних політичних рішень."
       },
       "hi": {
         "question": "राइनलैंड-पैलेटिनेट में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "महापौर",
         "c": "प्रथम मंत्री",
         "d": "प्रधानमंत्री",
-        "context": "राइनलैंड-पैलेटिनेट जर्मनी का एक राज्य है जिसकी अपनी राज्य सरकार है। एक जर्मन संघीय राज्य की सरकार का प्रमुख इस सरकार का हिस्सा है और देश के राजनीतिक नेतृत्व और प्रशासन के लिए जिम्मेदार है। प्रत्येक संघीय राज्य में, सरकार के प्रमुख को \"प्रधान मंत्री\" या \"प्रधान मंत्री\" कहा जाता है। यह स्थिति राष्ट्रीय स्तर पर एक प्रधान मंत्री के बराबर है, लेकिन संबंधित राज्य के लिए विशिष्ट है। कार्य के क्षेत्र में, अन्य बातों के अलावा, राज्य का प्रतिनिधित्व और राज्य के राजनीतिक निर्णयों का कार्यान्वयन शामिल है।"
+        "context": "राइनलैंड-पैलेटिनेट जर्मनी का एक राज्य है जिसकी अपनी राज्य सरकार है। एक जर्मन संघीय राज्य की सरकार का प्रमुख इस सरकार का हिस्सा है और देश के राजनीतिक नेतृत्व और प्रशासन के लिए जिम्मेदार है। प्रत्येक संघीय राज्य में, सरकार के प्रमुख को \"मंत्री-राष्ट्रपति\" (Ministerpräsident या Ministerpräsidentin) कहा जाता है। यह स्थिति राष्ट्रीय स्तर पर एक प्रधान मंत्री के बराबर है, लेकिन संबंधित राज्य के लिए विशिष्ट है। कार्य के क्षेत्र में, अन्य बातों के अलावा, राज्य का प्रतिनिधित्व और राज्य के राजनीतिक निर्णयों का कार्यान्वयन शामिल है।"
       }
     },
     "category": "Federal System",
@@ -29692,56 +29692,56 @@
         "a": "Mayor",
         "b": "First Minister",
         "c": "Prime Minister",
-        "d": "Prime Minister",
-        "context": "Saarland is one of the 16 federal states of Germany. Each federal state has its own state government with a main responsible person at the top. This office is not the mayor, but the prime minister, who heads the government of the federal state. The Minister-President is a member of the state government and is usually elected by the state parliament. This position plays a central role in the political shaping and implementation of state political affairs in Saarland and other federal states."
+        "d": "Minister-President",
+        "context": "Saarland is one of the 16 federal states of Germany. Each federal state has its own state government with a main responsible person at the top. This office is not the mayor, but the Minister-President, who heads the government of the federal state. The Minister-President is a member of the state government and is usually elected by the state parliament. This position plays a central role in the political shaping and implementation of state political affairs in Saarland and other federal states."
       },
       "tr": {
         "question": "Saarland hükümetinin başkanına ne diyorsunuz?",
         "a": "Belediye başkanı",
-        "b": "Başbakan",
+        "b": "Birinci Bakan",
         "c": "Başbakan",
-        "d": "Başbakan",
-        "context": "Saarland, Almanya'nın 16 federal eyaletinden biridir. Her federal eyaletin, en üstte bir ana sorumlu kişi ile kendi eyalet hükümeti vardır. Bu makam belediye başkanı değil, federal devlet hükümetine başkanlık eden başbakandır. Bakan-Cumhurbaşkanı, eyalet hükümetinin bir üyesidir ve genellikle eyalet parlamentosu tarafından seçilir. Bu pozisyon, Saarland ve diğer federal eyaletlerde devlet siyasi işlerinin siyasi olarak şekillendirilmesinde ve uygulanmasında merkezi bir rol oynamaktadır."
+        "d": "Eyalet Başbakanı",
+        "context": "Saarland, Almanya'nın 16 federal eyaletinden biridir. Her federal eyaletin, en üstte bir ana sorumlu kişi ile kendi eyalet hükümeti vardır. Bu makam belediye başkanı değil, federal devlet hükümetine başkanlık eden Eyalet Başbakanıdır (Ministerpräsident). Eyalet Başbakanı, eyalet hükümetinin bir üyesidir ve genellikle eyalet parlamentosu tarafından seçilir. Bu pozisyon, Saarland ve diğer federal eyaletlerde devlet siyasi işlerinin siyasi olarak şekillendirilmesinde ve uygulanmasında merkezi bir rol oynamaktadır."
       },
       "ru": {
         "question": "Как вы называете главу правительства Саара?",
         "a": "Мэр",
         "b": "Первый министр",
         "c": "Премьер-министр",
-        "d": "Премьер-министр",
-        "context": "Саар является одной из 16 федеральных земель Германии. Каждая федеральная земля имеет свое собственное правительство с главным ответственным лицом наверху. Этой канцелярией является не мэр, а премьер-министр, который возглавляет правительство федеративного государства. Министр-президент является членом правительства штата и обычно избирается парламентом земли. Эта должность играет центральную роль в политическом формировании и реализации государственных политических дел в Сааре и других федеральных землях."
+        "d": "Министр-президент",
+        "context": "Саар является одной из 16 федеральных земель Германии. Каждая федеральная земля имеет свое собственное правительство с главным ответственным лицом наверху. Этой должностью является не мэр, а министр-президент, который возглавляет правительство федеративного государства. Министр-президент является членом правительства штата и обычно избирается парламентом земли. Эта должность играет центральную роль в политическом формировании и реализации государственных политических дел в Сааре и других федеральных землях."
       },
       "fr": {
         "question": "Comment appelle-t-on le chef du gouvernement de la Sarre ?",
         "a": "Maire",
-        "b": "Premier ministre",
+        "b": "Ministre en chef",
         "c": "Premier ministre",
-        "d": "Premier ministre",
-        "context": "La Sarre est l’un des 16 Länder allemands. Chaque État fédéral a son propre gouvernement d’État avec une personne responsable principale au sommet. Ce bureau n’est pas le maire, mais le Premier ministre, qui dirige le gouvernement de l’État fédéral. Le ministre-président est membre du gouvernement de l’État et est généralement élu par le parlement de l’État. Cette position joue un rôle central dans l’élaboration et la mise en œuvre politiques des affaires politiques des Länder de la Sarre et d’autres Länder."
+        "d": "Ministre-président",
+        "context": "La Sarre est l’un des 16 Länder allemands. Chaque État fédéral a son propre gouvernement d’État avec une personne responsable principale au sommet. Ce poste n’est pas le maire, mais le ministre-président, qui dirige le gouvernement de l’État fédéral. Le ministre-président est membre du gouvernement de l’État et est généralement élu par le parlement de l’État. Cette position joue un rôle central dans l’élaboration et la mise en œuvre politiques des affaires politiques des Länder de la Sarre et d’autres Länder."
       },
       "ar": {
         "question": "ماذا تسمي رئيس حكومة سارلاند؟",
-        "a": "عمده",
+        "a": "العمدة",
         "b": "الوزير الأول",
         "c": "رئيس الوزراء",
-        "d": "رئيس الوزراء",
-        "context": "سارلاند هي واحدة من 16 ولاية فيدرالية في ألمانيا. كل ولاية فيدرالية لها حكومة ولاية خاصة بها مع شخص مسؤول رئيسي في القمة. هذا المنصب ليس رئيس البلدية، بل رئيس الوزراء، الذي يرأس حكومة الدولة الفيدرالية. الوزير والرئيس هو عضو في حكومة الولاية وعادة ما يتم انتخابه من قبل برلمان الولاية. يلعب هذا المنصب دورا مركزيا في التشكيل السياسي وتنفيذ الشؤون السياسية للولاية في سارلاند والولايات الفيدرالية الأخرى."
+        "d": "رئيس وزراء الولاية",
+        "context": "سارلاند هي واحدة من 16 ولاية فيدرالية في ألمانيا. كل ولاية فيدرالية لها حكومة ولاية خاصة بها مع شخص مسؤول رئيسي في القمة. هذا المنصب ليس رئيس البلدية، بل رئيس وزراء الولاية، الذي يرأس حكومة الدولة الفيدرالية. رئيس وزراء الولاية هو عضو في حكومة الولاية وعادة ما يتم انتخابه من قبل برلمان الولاية. يلعب هذا المنصب دورا مركزيا في التشكيل السياسي وتنفيذ الشؤون السياسية للولاية في سارلاند والولايات الفيدرالية الأخرى."
       },
       "uk": {
         "question": "Як ви називаєте главу уряду Саару?",
         "a": "Мер",
         "b": "Перший міністр",
         "c": "Прем'єр-міністр",
-        "d": "Прем'єр-міністр",
-        "context": "Саар є однією з 16 федеральних земель Німеччини. Кожна федеральна земля має власний уряд штату з головною відповідальною особою на чолі. Цією посадою є не мер, а прем'єр-міністр, який очолює уряд федеральної землі. Міністр-президент є членом уряду штату і, як правило, обирається парламентом штату. Ця посада відіграє центральну роль у політичному формуванні та реалізації політичних справ штатів у Саарі та інших федеральних землях."
+        "d": "Міністр-президент",
+        "context": "Саар є однією з 16 федеральних земель Німеччини. Кожна федеральна земля має власний уряд штату з головною відповідальною особою на чолі. Цією посадою є не мер, а міністр-президент, який очолює уряд федеральної землі. Міністр-президент є членом уряду штату і, як правило, обирається парламентом штату. Ця посада відіграє центральну роль у політичному формуванні та реалізації політичних справ штатів у Саарі та інших федеральних землях."
       },
       "hi": {
         "question": "सारलैंड की सरकार के प्रमुख को आप क्या कहते हैं?",
         "a": "महापौर",
         "b": "प्रथम मंत्री",
         "c": "प्रधानमंत्री",
-        "d": "प्रधानमंत्री",
-        "context": "सारलैंड जर्मनी के 16 संघीय राज्यों में से एक है। प्रत्येक संघीय राज्य की अपनी राज्य सरकार होती है जिसमें शीर्ष पर एक मुख्य जिम्मेदार व्यक्ति होता है। यह कार्यालय महापौर नहीं है, बल्कि प्रधान मंत्री है, जो संघीय राज्य की सरकार का प्रमुख है। मंत्री-राष्ट्रपति राज्य सरकार का सदस्य होता है और आमतौर पर राज्य संसद द्वारा चुना जाता है। यह स्थिति सारलैंड और अन्य संघीय राज्यों में राज्य के राजनीतिक मामलों के राजनीतिक आकार और कार्यान्वयन में एक केंद्रीय भूमिका निभाती है।"
+        "d": "मंत्री-राष्ट्रपति",
+        "context": "सारलैंड जर्मनी के 16 संघीय राज्यों में से एक है। प्रत्येक संघीय राज्य की अपनी राज्य सरकार होती है जिसमें शीर्ष पर एक मुख्य जिम्मेदार व्यक्ति होता है। यह कार्यालय महापौर नहीं है, बल्कि मंत्री-राष्ट्रपति है, जो संघीय राज्य की सरकार का प्रमुख है। मंत्री-राष्ट्रपति राज्य सरकार का सदस्य होता है और आमतौर पर राज्य संसद द्वारा चुना जाता है। यह स्थिति सारलैंड और अन्य संघीय राज्यों में राज्य के राजनीतिक मामलों के राजनीतिक आकार और कार्यान्वयन में एक केंद्रीय भूमिका निभाती है।"
       }
     },
     "category": "Law & Governance",
@@ -30401,7 +30401,7 @@
         "question": "What is the head of government in Saxony-Anhalt called?",
         "a": "Prime Minister",
         "b": "Mayor",
-        "c": "Prime Minister",
+        "c": "Minister-President",
         "d": "First Minister",
         "context": "Saxony-Anhalt is a federal state in Germany that is part of the federal structure. Each federal state has its own head of government. The head of government is responsible for the state government and is usually elected by the state parliament. The term for this head of government varies by region and can often be confused with other political titles. In Germany, it is important to know that the title for the head of government of a federal state differs from that at the municipal level or in other countries."
       },
@@ -30409,15 +30409,15 @@
         "question": "Saksonya-Anhalt'taki hükümet başkanının adı nedir?",
         "a": "Başbakan",
         "b": "Belediye başkanı",
-        "c": "Başbakan",
-        "d": "Başbakan",
+        "c": "Eyalet Başbakanı",
+        "d": "Birinci Bakan",
         "context": "Saksonya-Anhalt, Almanya'da federal yapının bir parçası olan federal bir eyalettir. Her federal eyaletin kendi hükümet başkanı vardır. Hükümet başkanı eyalet hükümetinden sorumludur ve genellikle eyalet parlamentosu tarafından seçilir. Bu hükümet başkanı için kullanılan terim bölgeye göre değişir ve genellikle diğer siyasi unvanlarla karıştırılabilir. Almanya'da, bir federal devletin hükümet başkanı unvanının belediye düzeyindeki veya diğer ülkelerdeki unvandan farklı olduğunu bilmek önemlidir."
       },
       "ru": {
         "question": "Как называется глава правительства в Саксонии-Анхальт?",
         "a": "Премьер-министр",
         "b": "Мэр",
-        "c": "Премьер-министр",
+        "c": "Министр-президент",
         "d": "Первый министр",
         "context": "Саксония-Анхальт – федеральная земля в Германии, входящая в федеративное устройство. В каждой федеральной земле есть свой глава правительства. Глава правительства несет ответственность за правительство штата и обычно избирается парламентом штата. Термин для обозначения этого главы правительства варьируется в зависимости от региона и его часто путают с другими политическими титулами. В Германии важно знать, что титул главы правительства федеральной земли отличается от титула на муниципальном уровне или в других странах."
       },
@@ -30425,15 +30425,15 @@
         "question": "Comment s’appelle le chef du gouvernement de Saxe-Anhalt ?",
         "a": "Premier ministre",
         "b": "Maire",
-        "c": "Premier ministre",
-        "d": "Premier ministre",
+        "c": "Ministre-président",
+        "d": "Ministre en chef",
         "context": "La Saxe-Anhalt est un Land allemand qui fait partie de la structure fédérale. Chaque État fédéral a son propre chef de gouvernement. Le chef du gouvernement est responsable du gouvernement de l’État et est généralement élu par le parlement de l’État. Le terme désignant ce chef de gouvernement varie selon les régions et peut souvent être confondu avec d’autres titres politiques. En Allemagne, il est important de savoir que le titre de chef du gouvernement d’un État fédéral diffère de celui au niveau municipal ou dans d’autres pays."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في ساكسونيا أنهالت؟",
         "a": "رئيس الوزراء",
-        "b": "عمده",
-        "c": "رئيس الوزراء",
+        "b": "العمدة",
+        "c": "رئيس وزراء الولاية",
         "d": "الوزير الأول",
         "context": "ساكسونيا أنهالت هي ولاية فيدرالية في ألمانيا وهي جزء من الهيكل الفيدرالي. كل ولاية فيدرالية لها رئيس حكومتها الخاص. رئيس الحكومة هو المسؤول عن حكومة الولاية وعادة ما يتم انتخابه من قبل برلمان الولاية. يختلف مصطلح رئيس الحكومة هذا حسب المنطقة ويمكن الخلط بينه وبين الألقاب السياسية الأخرى. من المهم في ألمانيا أن تعرف أن لقب رئيس حكومة دولة فيدرالية يختلف عن لقب البلدية أو في البلدان الأخرى."
       },
@@ -30441,7 +30441,7 @@
         "question": "Як називається глава уряду в землі Саксонія-Ангальт?",
         "a": "Прем'єр-міністр",
         "b": "Мер",
-        "c": "Прем'єр-міністр",
+        "c": "Міністр-президент",
         "d": "Перший міністр",
         "context": "Саксонія-Ангальт — федеральна земля в Німеччині, що входить до складу федерального устрою. Кожна федеральна земля має свого главу уряду. Глава уряду несе відповідальність за управління штатом і, як правило, обирається парламентом штату. Термін для цього глави уряду різниться в залежності від регіону і його часто можна сплутати з іншими політичними титулами. У Німеччині важливо знати, що титул глави уряду федеративної землі відрізняється від такого на муніципальному рівні або в інших країнах."
       },
@@ -30449,7 +30449,7 @@
         "question": "सैक्सोनी-एनहाल्ट में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "प्रधानमंत्री",
         "b": "महापौर",
-        "c": "प्रधानमंत्री",
+        "c": "मंत्री-राष्ट्रपति",
         "d": "प्रथम मंत्री",
         "context": "सैक्सोनी-एनहाल्ट जर्मनी में एक संघीय राज्य है जो संघीय ढांचे का हिस्सा है। प्रत्येक संघीय राज्य का अपना सरकार प्रमुख होता है। सरकार का प्रमुख राज्य सरकार के लिए जिम्मेदार होता है और आमतौर पर राज्य संसद द्वारा चुना जाता है। सरकार के इस प्रमुख के लिए शब्द क्षेत्र के अनुसार भिन्न होता है और अक्सर अन्य राजनीतिक शीर्षकों के साथ भ्रमित हो सकता है। जर्मनी में, यह जानना महत्वपूर्ण है कि एक संघीय राज्य की सरकार के प्रमुख के लिए शीर्षक नगरपालिका स्तर या अन्य देशों से भिन्न होता है।"
       }
@@ -31110,7 +31110,7 @@
       "en": {
         "question": "What is the head of government in Saxony called?",
         "a": "Mayor",
-        "b": "Prime Minister",
+        "b": "Minister-President",
         "c": "Prime Minister",
         "d": "First Minister",
         "context": "Saxony is a federal state in Germany with its own state parliament and government. The head of government has a central role in the administration and politics of the state. In Germany, the head of government of a federal state typically bears the title of Minister-President. This person is responsible for implementing laws, developing policy strategies, and representing the country to the outside world. Therefore, the answer to the question of which title is assigned to the head of government in Saxony is crucial for understanding the political structure of the state."
@@ -31118,15 +31118,15 @@
       "tr": {
         "question": "Saksonya'daki hükümet başkanının adı nedir?",
         "a": "Belediye başkanı",
-        "b": "Başbakan",
+        "b": "Eyalet Başbakanı",
         "c": "Başbakan",
-        "d": "Başbakan",
-        "context": "Saksonya, Almanya'da kendi eyalet parlamentosu ve hükümeti olan federal bir eyalettir. Hükümet başkanı, devletin idaresinde ve siyasetinde merkezi bir role sahiptir. Almanya'da, bir federal devletin hükümet başkanı tipik olarak Bakan-Cumhurbaşkanı unvanını taşır. Bu kişi, yasaları uygulamaktan, politika stratejileri geliştirmekten ve ülkeyi dış dünyaya karşı temsil etmekten sorumludur. Bu nedenle, Saksonya'da hükümet başkanına hangi unvanın verildiği sorusunun cevabı, devletin siyasi yapısını anlamak için çok önemlidir."
+        "d": "Birinci Bakan",
+        "context": "Saksonya, Almanya'da kendi eyalet parlamentosu ve hükümeti olan federal bir eyalettir. Hükümet başkanı, devletin idaresinde ve siyasetinde merkezi bir role sahiptir. Almanya'da, bir federal devletin hükümet başkanı tipik olarak Eyalet Başbakanı unvanını taşır. Bu kişi, yasaları uygulamaktan, politika stratejileri geliştirmekten ve ülkeyi dış dünyaya karşı temsil etmekten sorumludur. Bu nedenle, Saksonya'da hükümet başkanına hangi unvanın verildiği sorusunun cevabı, devletin siyasi yapısını anlamak için çok önemlidir."
       },
       "ru": {
         "question": "Как называется глава правительства в Саксонии?",
         "a": "Мэр",
-        "b": "Премьер-министр",
+        "b": "Министр-президент",
         "c": "Премьер-министр",
         "d": "Первый министр",
         "context": "Саксония является федеративной землей в Германии со своим земельным парламентом и правительством. Глава правительства играет центральную роль в управлении и политике государства. В Германии глава правительства федеративной земли обычно носит титул министра-президента. Этот человек отвечает за исполнение законов, разработку политических стратегий и представление страны во внешнем мире. Поэтому ответ на вопрос о том, какой титул присваивается главе правительства в Саксонии, имеет решающее значение для понимания политического устройства государства."
@@ -31134,23 +31134,23 @@
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement en Saxe ?",
         "a": "Maire",
-        "b": "Premier ministre",
+        "b": "Ministre-président",
         "c": "Premier ministre",
-        "d": "Premier ministre",
+        "d": "Ministre en chef",
         "context": "La Saxe est un Land allemand doté de son propre parlement et de son propre gouvernement. Le chef du gouvernement joue un rôle central dans l’administration et la politique de l’État. En Allemagne, le chef du gouvernement d’un État fédéral porte généralement le titre de ministre-président. Cette personne est responsable de la mise en œuvre des lois, de l’élaboration de stratégies politiques et de la représentation du pays auprès du monde extérieur. Par conséquent, la réponse à la question de savoir quel titre est attribué au chef du gouvernement en Saxe est cruciale pour comprendre la structure politique de l’État."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في ساكسونيا؟",
-        "a": "عمده",
-        "b": "رئيس الوزراء",
+        "a": "العمدة",
+        "b": "رئيس وزراء الولاية",
         "c": "رئيس الوزراء",
         "d": "الوزير الأول",
-        "context": "ساكسونيا هي ولاية فيدرالية في ألمانيا ولها برلمان وحكومة خاصة بها. يلعب رئيس الحكومة دورا مركزيا في إدارة الدولة وسياستها. في ألمانيا ، يحمل رئيس حكومة الدولة الفيدرالية عادة لقب الوزير والرئيس. هذا الشخص مسؤول عن تنفيذ القوانين وتطوير استراتيجيات السياسة وتمثيل البلاد في العالم الخارجي. لذلك ، فإن الإجابة على السؤال حول اللقب المخصص لرئيس الحكومة في ساكسونيا أمر بالغ الأهمية لفهم البنية السياسية للدولة."
+        "context": "ساكسونيا هي ولاية فيدرالية في ألمانيا ولها برلمان وحكومة خاصة بها. يلعب رئيس الحكومة دورا مركزيا في إدارة الدولة وسياستها. في ألمانيا ، يحمل رئيس حكومة الدولة الفيدرالية عادة لقب رئيس وزراء الولاية. هذا الشخص مسؤول عن تنفيذ القوانين وتطوير استراتيجيات السياسة وتمثيل البلاد في العالم الخارجي. لذلك ، فإن الإجابة على السؤال حول اللقب المخصص لرئيس الحكومة في ساكسونيا أمر بالغ الأهمية لفهم البنية السياسية للدولة."
       },
       "uk": {
         "question": "Як називається глава уряду в Саксонії?",
         "a": "Мер",
-        "b": "Прем'єр-міністр",
+        "b": "Міністр-президент",
         "c": "Прем'єр-міністр",
         "d": "Перший міністр",
         "context": "Саксонія - федеративна земля в Німеччині з власною землею, парламентом і урядом. Глава уряду відіграє центральну роль в управлінні та політиці держави. У Німеччині глава уряду федеративної землі зазвичай носить титул міністра-президента. Ця людина відповідає за реалізацію законів, розробку політичних стратегій та представлення країни перед зовнішнім світом. Тому відповідь на питання про те, який титул присвоюється главі уряду в Саксонії, має вирішальне значення для розуміння політичного устрою держави."
@@ -31158,7 +31158,7 @@
       "hi": {
         "question": "सैक्सोनी में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "महापौर",
-        "b": "प्रधानमंत्री",
+        "b": "मंत्री-राष्ट्रपति",
         "c": "प्रधानमंत्री",
         "d": "प्रथम मंत्री",
         "context": "सैक्सोनी जर्मनी में एक संघीय राज्य है जिसकी अपनी राज्य संसद और सरकार है। राज्य के प्रशासन और राजनीति में सरकार के प्रमुख की केंद्रीय भूमिका होती है। जर्मनी में, एक संघीय राज्य की सरकार का प्रमुख आमतौर पर मंत्री-राष्ट्रपति की उपाधि धारण करता है। यह व्यक्ति कानूनों को लागू करने, नीति रणनीतियों को विकसित करने और बाहरी दुनिया में देश का प्रतिनिधित्व करने के लिए जिम्मेदार है। इसलिए, सैक्सोनी में सरकार के प्रमुख को कौन सा शीर्षक सौंपा गया है, इस सवाल का जवाब राज्य की राजनीतिक संरचना को समझने के लिए महत्वपूर्ण है।"
@@ -31819,7 +31819,7 @@
     "translation": {
       "en": {
         "question": "What is the head of government in Schleswig-Holstein called?",
-        "a": "Prime Minister",
+        "a": "Minister-President",
         "b": "Mayor",
         "c": "First Minister",
         "d": "Prime Minister",
@@ -31827,15 +31827,15 @@
       },
       "tr": {
         "question": "Schleswig-Holstein'daki hükümet başkanının adı nedir?",
-        "a": "Başbakan",
+        "a": "Eyalet Başbakanı",
         "b": "Belediye başkanı",
-        "c": "Başbakan",
+        "c": "Birinci Bakan",
         "d": "Başbakan",
-        "context": "Schleswig-Holstein, Almanya'nın 16 federal eyaletinden birisidir. Her federal eyaletin, eyalet hükümetine başkanlık eden kendi hükümet başkanı vardır. Almanya'da bu görev genellikle \"Ministerpräsident\" veya \"Ministerpräsidentin\" unvanını taşır. Buna karşılık, belediye başkanları Schleswig-Holstein'ın başkenti Kiel gibi şehirlerden sorumludur. \"Başbakan\" unvanı diğer ülkelerde genellikle hükümet başkanına atıfta bulunmak için kullanılır, ancak Alman siyasetinde yaygın değildir. \"Başbakan\" terimi de Alman bağlamında yaygın değildir."
+        "context": "Schleswig-Holstein, Almanya'nın 16 federal eyaletinden birisidir. Her federal eyaletin, eyalet hükümetine başkanlık eden kendi hükümet başkanı vardır. Almanya'da bu görev genellikle \"Ministerpräsident\" veya \"Ministerpräsidentin\" unvanını taşır. Buna karşılık, belediye başkanları Schleswig-Holstein'ın başkenti Kiel gibi şehirlerden sorumludur. \"Başbakan\" unvanı diğer ülkelerde genellikle hükümet başkanına atıfta bulunmak için kullanılır, ancak Alman siyasetinde yaygın değildir. \"Birinci Bakan\" terimi de Alman bağlamında yaygın değildir."
       },
       "ru": {
         "question": "Как называется глава правительства в Шлезвиг-Гольштейне?",
-        "a": "Премьер-министр",
+        "a": "Министр-президент",
         "b": "Мэр",
         "c": "Первый министр",
         "d": "Премьер-министр",
@@ -31843,23 +31843,23 @@
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement du Schleswig-Holstein ?",
-        "a": "Premier ministre",
+        "a": "Ministre-président",
         "b": "Maire",
-        "c": "Premier ministre",
+        "c": "Ministre en chef",
         "d": "Premier ministre",
-        "context": "Le Schleswig-Holstein est l’un des 16 Länder allemands. Chaque État fédéral a son propre chef de gouvernement qui dirige le gouvernement de l’État. En Allemagne, ce poste porte généralement le titre de « Ministerpräsident » ou « Ministerpräsidentin ». En revanche, les maires sont responsables de villes comme Kiel, la capitale du Schleswig-Holstein. Le titre de « Premier ministre » est souvent utilisé dans d’autres pays pour désigner le chef du gouvernement, mais il n’est pas courant dans la politique allemande. Le terme « Premier ministre » n’est pas non plus courant dans le contexte allemand."
+        "context": "Le Schleswig-Holstein est l’un des 16 Länder allemands. Chaque État fédéral a son propre chef de gouvernement qui dirige le gouvernement de l’État. En Allemagne, ce poste porte généralement le titre de « Ministerpräsident » ou « Ministerpräsidentin ». En revanche, les maires sont responsables de villes comme Kiel, la capitale du Schleswig-Holstein. Le titre de « Premier ministre » est souvent utilisé dans d’autres pays pour désigner le chef du gouvernement, mais il n’est pas courant dans la politique allemande. Le terme « ministre en chef » n’est pas non plus courant dans le contexte allemand."
       },
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في شليسفيغ هولشتاين؟",
-        "a": "رئيس الوزراء",
-        "b": "عمده",
+        "a": "رئيس وزراء الولاية",
+        "b": "العمدة",
         "c": "الوزير الأول",
         "d": "رئيس الوزراء",
         "context": "شليسفيغ هولشتاين هي واحدة من 16 ولاية فيدرالية في ألمانيا. كل ولاية فيدرالية لها رئيس حكومتها الخاص الذي يرأس حكومة الولاية. في ألمانيا ، يحمل هذا المنصب عادة لقب \"Ministerpräsident\" أو \"Ministerpräsidentin\". في المقابل ، فإن رؤساء البلديات مسؤولون عن مدن مثل كيل ، عاصمة شليسفيغ هولشتاين. غالبا ما يستخدم لقب \"رئيس الوزراء\" في بلدان أخرى للإشارة إلى رئيس الحكومة، ولكنه ليس شائعا في السياسة الألمانية. كما أن مصطلح \"الوزير الأول\" ليس شائعا في السياق الألماني."
       },
       "uk": {
         "question": "Як називається глава уряду в Шлезвіг-Гольштейні?",
-        "a": "Прем'єр-міністр",
+        "a": "Міністр-президент",
         "b": "Мер",
         "c": "Перший міністр",
         "d": "Прем'єр-міністр",
@@ -31867,7 +31867,7 @@
       },
       "hi": {
         "question": "श्लेस्विग-होल्स्टीन में सरकार के प्रमुख को क्या कहा जाता है?",
-        "a": "प्रधानमंत्री",
+        "a": "मंत्री-राष्ट्रपति",
         "b": "महापौर",
         "c": "प्रथम मंत्री",
         "d": "प्रधानमंत्री",
@@ -32530,15 +32530,15 @@
       "en": {
         "question": "What is the head of government called in Thuringia?",
         "a": "First Minister",
-        "b": "Prime Minister",
+        "b": "Minister-President",
         "c": "Mayor",
         "d": "Prime Minister",
         "context": "Thuringia is one of the 16 federal states of Germany. Each federal state has its own head of government who heads the state government. This person has a similar function to a prime minister in other forms of government, but acts specifically at the state level within Germany. It is important to know the correct title, as this title describes the way this political position is officially called and the role it plays within the German federal structure."
       },
       "tr": {
         "question": "Thüringen'de hükümet başkanına ne denir?",
-        "a": "Başbakan",
-        "b": "Başbakan",
+        "a": "Birinci Bakan",
+        "b": "Eyalet Başbakanı",
         "c": "Belediye başkanı",
         "d": "Başbakan",
         "context": "Thüringen, Almanya'nın 16 federal eyaletinden biridir. Her federal eyaletin, eyalet hükümetine başkanlık eden kendi hükümet başkanı vardır. Bu kişi, diğer hükümet biçimlerindeki bir başbakana benzer bir işleve sahiptir, ancak özellikle Almanya'da devlet düzeyinde hareket eder. Doğru unvanı bilmek önemlidir, çünkü bu unvan bu siyasi pozisyonun resmi olarak nasıl adlandırıldığını ve Alman federal yapısı içinde oynadığı rolü tanımlar."
@@ -32546,15 +32546,15 @@
       "ru": {
         "question": "Как называют главу правительства в Тюрингии?",
         "a": "Первый министр",
-        "b": "Премьер-министр",
+        "b": "Министр-президент",
         "c": "Мэр",
         "d": "Премьер-министр",
         "context": "Тюрингия является одной из 16 федеральных земель Германии. В каждой федеральной земле есть свой глава правительства, который возглавляет правительство земли. Это лицо выполняет функции, аналогичные функции премьер-министра в других формах правления, но действует конкретно на государственном уровне в Германии. Важно знать правильное название, так как это название описывает то, как эта политическая позиция официально называется и какую роль она играет в федеральной структуре Германии."
       },
       "fr": {
         "question": "Comment s’appelle le chef du gouvernement en Thuringe ?",
-        "a": "Premier ministre",
-        "b": "Premier ministre",
+        "a": "Ministre en chef",
+        "b": "Ministre-président",
         "c": "Maire",
         "d": "Premier ministre",
         "context": "La Thuringe est l’un des 16 Länder allemands. Chaque État fédéral a son propre chef de gouvernement qui dirige le gouvernement de l’État. Cette personne a une fonction similaire à celle d’un Premier ministre dans d’autres formes de gouvernement, mais agit spécifiquement au niveau de l’État en Allemagne. Il est important de connaître le titre correct, car ce titre décrit la façon dont cette position politique est officiellement appelée et le rôle qu’elle joue au sein de la structure fédérale allemande."
@@ -32562,15 +32562,15 @@
       "ar": {
         "question": "ماذا يسمى رئيس الحكومة في تورينغن؟",
         "a": "الوزير الأول",
-        "b": "رئيس الوزراء",
-        "c": "عمده",
+        "b": "رئيس وزراء الولاية",
+        "c": "العمدة",
         "d": "رئيس الوزراء",
         "context": "تورينغن هي واحدة من 16 ولاية فيدرالية في ألمانيا. كل ولاية فيدرالية لها رئيس حكومتها الخاص الذي يرأس حكومة الولاية. هذا الشخص له وظيفة مماثلة لوظيفة رئيس الوزراء في أشكال أخرى من الحكم ، لكنه يعمل على وجه التحديد على مستوى الدولة داخل ألمانيا. من المهم معرفة العنوان الصحيح ، حيث يصف هذا العنوان الطريقة التي يطلق عليها هذا الموقف السياسي رسميا والدور الذي يلعبه داخل الهيكل الفيدرالي الألماني."
       },
       "uk": {
         "question": "Як називають главу уряду в Тюрингії?",
         "a": "Перший міністр",
-        "b": "Прем'єр-міністр",
+        "b": "Міністр-президент",
         "c": "Мер",
         "d": "Прем'єр-міністр",
         "context": "Тюрингія є однією з 16 федеральних земель Німеччини. Кожна федеральна земля має свого главу уряду, який очолює уряд штату. Ця особа виконує ті ж функції, що і прем'єр-міністр в інших формах правління, але діє специфічно на державному рівні в межах Німеччини. Важливо знати правильну назву, оскільки ця назва описує, як офіційно називається ця політична позиція та роль, яку вона відіграє в федеральній структурі Німеччини."
@@ -32578,7 +32578,7 @@
       "hi": {
         "question": "थुरिंगिया में सरकार के प्रमुख को क्या कहा जाता है?",
         "a": "प्रथम मंत्री",
-        "b": "प्रधानमंत्री",
+        "b": "मंत्री-राष्ट्रपति",
         "c": "महापौर",
         "d": "प्रधानमंत्री",
         "context": "थुरिंगिया जर्मनी के 16 संघीय राज्यों में से एक है। प्रत्येक संघीय राज्य का अपना सरकार प्रमुख होता है जो राज्य सरकार का प्रमुख होता है। इस व्यक्ति के पास सरकार के अन्य रूपों में प्रधान मंत्री के समान कार्य है, लेकिन जर्मनी के भीतर विशेष रूप से राज्य स्तर पर कार्य करता है। सही शीर्षक जानना महत्वपूर्ण है, क्योंकि यह शीर्षक इस राजनीतिक स्थिति को आधिकारिक तौर पर कहे जाने के तरीके का वर्णन करता है और जर्मन संघीय ढांचे के भीतर इसकी भूमिका निभाता है।"
