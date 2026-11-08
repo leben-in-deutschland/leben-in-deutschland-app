@@ -11,7 +11,7 @@
     "translation": {
       "en": {
         "question": "What happened on May 8, 1945?",
-        "a": "Tod Adolf Hitlers",
+        "a": "Death of Adolf Hitler",
         "b": "Beginning of the construction of the Berlin Wall",
         "c": "Election of Konrad Adenauer as Federal Chancellor",
         "d": "End of World War II in Europe",
@@ -19,7 +19,7 @@
       },
       "tr": {
         "question": "8 Mayıs 1945'te ne oldu?",
-        "a": "Tod Adolf Hitler'in hikayesi",
+        "a": "Adolf Hitler'in ölümü",
         "b": "Berlin Duvarı'nın inşaatının başlangıcı",
         "c": "Konrad Adenauer'in Federal Şansölye olarak seçilmesi",
         "d": "Avrupa'da II. Dünya Savaşı'nın sona ermesi",
@@ -27,7 +27,7 @@
       },
       "ru": {
         "question": "Что произошло 8 мая 1945 года?",
-        "a": "Тод Адольф Гитлер",
+        "a": "Смерть Адольфа Гитлера",
         "b": "Начало строительства Берлинской стены",
         "c": "Избрание Конрада Аденауэра федеральным канцлером",
         "d": "Окончание Второй мировой войны в Европе",
@@ -35,7 +35,7 @@
       },
       "fr": {
         "question": "Que s’est-il passé le 8 mai 1945 ?",
-        "a": "Tod Adolf Hitler",
+        "a": "Mort d’Adolf Hitler",
         "b": "Début de la construction du mur de Berlin",
         "c": "Élection de Konrad Adenauer au poste de chancelier fédéral",
         "d": "Fin de la Seconde Guerre mondiale en Europe",
@@ -43,7 +43,7 @@
       },
       "ar": {
         "question": "ماذا حدث في 8 مايو 1945؟",
-        "a": "تود أدولف هتلر",
+        "a": "وفاة أدولف هتلر",
         "b": "بداية بناء جدار برلين",
         "c": "انتخاب كونراد أديناور مستشارا اتحاديا",
         "d": "نهاية الحرب العالمية الثانية في أوروبا",
@@ -51,7 +51,7 @@
       },
       "uk": {
         "question": "Що сталося 8 травня 1945 року?",
-        "a": "Тод Адольф Гітлер",
+        "a": "Смерть Адольфа Гітлера",
         "b": "Початок будівництва Берлінської стіни",
         "c": "Обрання Конрада Аденауера Федеральним канцлером",
         "d": "Закінчення Другої світової війни в Європі",
@@ -59,7 +59,7 @@
       },
       "hi": {
         "question": "8 मई, 1945 को क्या हुआ था?",
-        "a": "टॉड एडॉल्फ हिटलर",
+        "a": "एडॉल्फ हिटलर की मृत्यु",
         "b": "बर्लिन की दीवार के निर्माण की शुरुआत",
         "c": "संघीय चांसलर के रूप में कोनराड एडेनॉयर का चुनाव",
         "d": "यूरोप में द्वितीय विश्व युद्ध का अंत",
@@ -5621,7 +5621,7 @@
       "en": {
         "question": "What is the constitution of the Federal Republic of Germany called?",
         "a": "Constitution",
-        "b": "Bundesverfassung",
+        "b": "Federal Constitution",
         "c": "Code",
         "d": "Constitutional treaty",
         "context": "The Federal Republic of Germany has a special constitution that is decisive for the legal and political structure of the country. After the Second World War, this constitution was developed to ensure a stable and democratic order. It contains fundamental principles such as the separation of powers and the rights of citizens. This constitution is essential for Germany's legal sovereignty and is often cited in legal and political discussions. The correct name of this constitution is crucial for understanding German legislation and its historical development."
@@ -5629,7 +5629,7 @@
       "tr": {
         "question": "Federal Almanya Cumhuriyeti anayasasının adı nedir?",
         "a": "Anayasa",
-        "b": "Bundesverfassung",
+        "b": "Federal Anayasa",
         "c": "Kod",
         "d": "Anayasa antlaşması",
         "context": "Federal Almanya Cumhuriyeti, ülkenin hukuki ve siyasi yapısı için belirleyici olan özel bir anayasaya sahiptir. İkinci Dünya Savaşı'ndan sonra bu anayasa istikrarlı ve demokratik bir düzen sağlamak için geliştirilmiştir. Kuvvetler ayrılığı ve vatandaşların hakları gibi temel ilkeleri içerir. Bu anayasa, Almanya'nın yasal egemenliği için esastır ve yasal ve siyasi tartışmalarda sıklıkla atıfta bulunulur. Bu anayasanın doğru adı, Alman mevzuatını ve tarihsel gelişimini anlamak için çok önemlidir."
@@ -5637,7 +5637,7 @@
       "ru": {
         "question": "Как называется конституция Федеративной Республики Германия?",
         "a": "Конституция",
-        "b": "Bundesverfassung",
+        "b": "Федеральная конституция",
         "c": "Код",
         "d": "Конституционный договор",
         "context": "Федеративная Республика Германия имеет специальную конституцию, которая имеет решающее значение для правового и политического устройства страны. После Второй мировой войны эта конституция была разработана для обеспечения стабильного и демократического порядка. В нем закреплены такие основополагающие принципы, как разделение властей и права граждан. Эта конституция имеет важное значение для правового суверенитета Германии и часто цитируется в юридических и политических дискуссиях. Правильное название этой конституции имеет решающее значение для понимания немецкого законодательства и его исторического развития."
@@ -5645,7 +5645,7 @@
       "fr": {
         "question": "Comment s’appelle la constitution de la République fédérale d’Allemagne ?",
         "a": "Constitution",
-        "b": "Bundesverfassung",
+        "b": "Constitution fédérale",
         "c": "Code",
         "d": "Traité constitutionnel",
         "context": "La République fédérale d’Allemagne dispose d’une constitution spéciale qui est déterminante pour la structure juridique et politique du pays. Après la Seconde Guerre mondiale, cette constitution a été élaborée pour assurer un ordre stable et démocratique. Il contient des principes fondamentaux tels que la séparation des pouvoirs et les droits des citoyens. Cette constitution est essentielle pour la souveraineté juridique de l’Allemagne et est souvent citée dans les discussions juridiques et politiques. Le nom correct de cette constitution est crucial pour comprendre la législation allemande et son évolution historique."
@@ -5653,7 +5653,7 @@
       "ar": {
         "question": "ماذا يسمى دستور جمهورية ألمانيا الاتحادية؟",
         "a": "دستور",
-        "b": "Bundesverfassung",
+        "b": "الدستور الاتحادي",
         "c": "رمز",
         "d": "المعاهدة الدستورية",
         "context": "لدى جمهورية ألمانيا الاتحادية دستور خاص حاسم للهيكل القانوني والسياسي للبلاد. بعد الحرب العالمية الثانية ، تم تطوير هذا الدستور لضمان نظام مستقر وديمقراطي. ويتضمن مبادئ أساسية مثل الفصل بين السلطات وحقوق المواطنين. هذا الدستور ضروري للسيادة القانونية لألمانيا وغالبا ما يتم الاستشهاد به في المناقشات القانونية والسياسية. الاسم الصحيح لهذا الدستور أمر بالغ الأهمية لفهم التشريع الألماني وتطوره التاريخي."
@@ -5661,7 +5661,7 @@
       "uk": {
         "question": "Як називається конституція Федеративної Республіки Німеччина?",
         "a": "Конституція",
-        "b": "Bundesverfassung",
+        "b": "Федеральна конституція",
         "c": "Код",
         "d": "Конституційний договір",
         "context": "Федеративна Республіка Німеччина має особливу конституцію, яка є визначальною для правового і політичного устрою країни. Після Другої світової війни ця конституція була розроблена для забезпечення стабільного і демократичного порядку. Він містить такі основоположні принципи, як поділ влади і права громадян. Ця конституція має важливе значення для правового суверенітету Німеччини і часто цитується в юридичних і політичних дискусіях. Правильна назва цієї конституції має вирішальне значення для розуміння німецького законодавства та його історичного розвитку."
@@ -5669,7 +5669,7 @@
       "hi": {
         "question": "जर्मनी के संघीय गणराज्य के संविधान को क्या कहा जाता है?",
         "a": "संविधान",
-        "b": "Bundesverfassung",
+        "b": "संघीय संविधान",
         "c": "कोड",
         "d": "संवैधानिक संधि",
         "context": "जर्मनी के संघीय गणराज्य का एक विशेष संविधान है जो देश की कानूनी और राजनीतिक संरचना के लिए निर्णायक है। द्वितीय विश्व युद्ध के बाद, इस संविधान को एक स्थिर और लोकतांत्रिक व्यवस्था सुनिश्चित करने के लिए विकसित किया गया था। इसमें मौलिक सिद्धांत शामिल हैं जैसे शक्तियों का पृथक्करण और नागरिकों के अधिकार। यह संविधान जर्मनी की कानूनी संप्रभुता के लिए आवश्यक है और अक्सर कानूनी और राजनीतिक चर्चाओं में उद्धृत किया जाता है। जर्मन कानून और इसके ऐतिहासिक विकास को समझने के लिए इस संविधान का सही नाम महत्वपूर्ण है।"
@@ -9170,7 +9170,7 @@
     "translation": {
       "en": {
         "question": "What does \"popular sovereignty\" mean? All state power proceeds from ...",
-        "a": "Volke.",
+        "a": "the people.",
         "b": "Bundestag.",
         "c": "Prussian king.",
         "d": "Federal Constitutional Court.",
@@ -9178,7 +9178,7 @@
       },
       "tr": {
         "question": "\"Halk egemenliği\" ne anlama geliyor? Tüm devlet gücü ...",
-        "a": "Volke.",
+        "a": "Halk.",
         "b": "Bundestag.",
         "c": "Prusya kralı.",
         "d": "Federal Anayasa Mahkemesi.",
@@ -9186,7 +9186,7 @@
       },
       "ru": {
         "question": "Что означает «народный суверенитет»? Вся государственная власть исходит от...",
-        "a": "Volke.",
+        "a": "народа.",
         "b": "Бундестага.",
         "c": "Прусский король.",
         "d": "Федеральный конституционный суд.",
@@ -9194,7 +9194,7 @@
       },
       "fr": {
         "question": "Que signifie « souveraineté populaire » ? Tout le pouvoir de l’État procède de...",
-        "a": "Volke.",
+        "a": "du peuple.",
         "b": "Bundestag.",
         "c": "Roi de Prusse.",
         "d": "Cour constitutionnelle fédérale.",
@@ -9202,7 +9202,7 @@
       },
       "ar": {
         "question": "ماذا تعني \"السيادة الشعبية\"؟ كل سلطات الدولة تأتي من ...",
-        "a": "فولك.",
+        "a": "الشعب.",
         "b": "البوندستاغ.",
         "c": "الملك البروسي.",
         "d": "المحكمة الدستورية الاتحادية.",
@@ -9210,7 +9210,7 @@
       },
       "uk": {
         "question": "Що означає «народний суверенітет»? Вся державна влада виходить з ...",
-        "a": "Вольке.",
+        "a": "народу.",
         "b": "Бундестаг.",
         "c": "Прусський король.",
         "d": "Федеральний конституційний суд.",
@@ -9218,7 +9218,7 @@
       },
       "hi": {
         "question": "\"लोकप्रिय संप्रभुता\" का क्या अर्थ है? सभी राज्य शक्ति से आगे बढ़ता है ...",
-        "a": "वोल्के।",
+        "a": "जनता।",
         "b": "बुंडेस्टाग।",
         "c": "प्रशिया के राजा।",
         "d": "संघीय संवैधानिक न्यायालय।",
@@ -17478,7 +17478,7 @@
       "en": {
         "question": "What applies to most children in Germany?",
         "a": "Compulsory voting",
-        "b": "Schulpflicht",
+        "b": "Compulsory schooling",
         "c": "Pledge of secrecy",
         "d": "Religious duty",
         "context": "In Germany, school attendance is usually compulsory for children and adolescents. This legal obligation requires children and young people to attend a certain number of school years. Compulsory schooling begins at the age of about six and usually extends until the age of 18. The aim is to provide every child with a basic education. The other options, such as religious obligation, confidentiality and compulsory voting, are not relevant in this context or do not apply to children in Germany."
@@ -17486,7 +17486,7 @@
       "tr": {
         "question": "Almanya'daki çoğu çocuk için ne geçerlidir?",
         "a": "Zorunlu oylama",
-        "b": "Schulpflicht Belediyesi",
+        "b": "Zorunlu eğitim",
         "c": "Gizlilik yemini",
         "d": "Dini görev",
         "context": "Almanya'da okula devam genellikle çocuklar ve gençler için zorunludur. Bu yasal zorunluluk, çocukların ve gençlerin belirli sayıda okul yılına devam etmelerini gerektirir. Zorunlu eğitim yaklaşık altı yaşında başlar ve genellikle 18 yaşına kadar sürer. Amaç her çocuğa temel bir eğitim sağlamaktır. Dini zorunluluk, gizlilik ve oy kullanma zorunluluğu gibi diğer seçenekler bu bağlamda geçerli değildir veya Almanya'daki çocuklar için geçerli değildir."
@@ -17494,7 +17494,7 @@
       "ru": {
         "question": "Что относится к большинству детей в Германии?",
         "a": "Обязательное голосование",
-        "b": "Schulpflicht",
+        "b": "Обязательное школьное образование",
         "c": "Залог секретности",
         "d": "Религиозный долг",
         "context": "В Германии посещение школы обычно является обязательным для детей и подростков. Это юридическое обязательство требует, чтобы дети и молодые люди посещали определенное количество школьных лет. Обязательное школьное образование начинается в возрасте около шести лет и обычно длится до 18 лет. Цель состоит в том, чтобы дать каждому ребенку базовое образование. Другие варианты, такие как религиозный долг, конфиденциальность и обязательное голосование, в данном контексте не актуальны или не распространяются на детей в Германии."
@@ -17502,7 +17502,7 @@
       "fr": {
         "question": "Qu’est-ce qui s’applique à la plupart des enfants en Allemagne ?",
         "a": "Vote obligatoire",
-        "b": "Schulpflicht",
+        "b": "Scolarité obligatoire",
         "c": "Serment de confidentialité",
         "d": "Devoir religieux",
         "context": "En Allemagne, la fréquentation scolaire est généralement obligatoire pour les enfants et les adolescents. Cette obligation légale impose aux enfants et aux jeunes de fréquenter un certain nombre d’années scolaires. La scolarité obligatoire commence à l’âge de six ans environ et se poursuit généralement jusqu’à l’âge de 18 ans. L’objectif est de fournir à chaque enfant une éducation de base. Les autres options, telles que l’obligation religieuse, le secret et le vote obligatoire, ne sont pas pertinentes dans ce contexte ou ne s’appliquent pas aux enfants en Allemagne."
@@ -17510,7 +17510,7 @@
       "ar": {
         "question": "ما الذي ينطبق على معظم الأطفال في ألمانيا؟",
         "a": "التصويت الإجباري",
-        "b": "شولبفليخت",
+        "b": "التعليم الإلزامي",
         "c": "تعهد السرية",
         "d": "الواجب الديني",
         "context": "عادة ما يكون الالتحاق بالمدرسة إلزاميا للأطفال والمراهقين في ألمانيا. يتطلب هذا الالتزام القانوني من الأطفال والشباب الالتحاق بعدد معين من السنوات الدراسية. يبدأ التعليم الإلزامي في سن السادسة تقريبا ويمتد عادة حتى سن 18 عاما. الهدف هو توفير التعليم الأساسي لكل طفل. الخيارات الأخرى، مثل الواجب الديني والسرية والتصويت الإلزامي، ليست ذات صلة في هذا السياق أو لا تنطبق على الأطفال في ألمانيا."
@@ -17526,7 +17526,7 @@
       "hi": {
         "question": "जर्मनी में अधिकांश बच्चों पर क्या लागू होता है?",
         "a": "अनिवार्य मतदान",
-        "b": "शुल्पफ्लिच",
+        "b": "अनिवार्य स्कूली शिक्षा",
         "c": "गोपनीयता की प्रतिज्ञा",
         "d": "धार्मिक कर्तव्य",
         "context": "जर्मनी में, स्कूल उपस्थिति आमतौर पर बच्चों और किशोरों के लिए अनिवार्य है। इस कानूनी दायित्व के लिए बच्चों और युवाओं को एक निश्चित संख्या में स्कूल वर्षों में भाग लेने की आवश्यकता होती है। अनिवार्य स्कूली शिक्षा लगभग छह साल की उम्र में शुरू होती है और आमतौर पर 18 साल की उम्र तक बढ़ती है। इसका उद्देश्य हर बच्चे को बुनियादी शिक्षा प्रदान करना है। अन्य विकल्प, जैसे धार्मिक दायित्व, गोपनीयता और अनिवार्य मतदान, इस संदर्भ में प्रासंगिक नहीं हैं या जर्मनी में बच्चों पर लागू नहीं होते हैं।"
