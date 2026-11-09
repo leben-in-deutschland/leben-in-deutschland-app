@@ -14,6 +14,7 @@ import {
     formatGermanDate,
     formatGermanDateTime,
     guardPruefstellen,
+    moveWebsite,
     nextEvaluation,
     parseDownloadLinks,
     parseExamDate,
@@ -217,6 +218,15 @@ describe("rowsToCentres", () => {
         expect(plz("06108")).toBe("06108");
         expect(plz("90443")).toBe("90443");
         expect(plz("")).toBe("");
+    });
+
+    it("moves a web address from the E-Mail column to website", () => {
+        const header = ["", "Kreis", "PLZ", "Ort", "Name der Prüfstelle", "Straße", "Telefon", "E-Mail"];
+        const centre = (email: string) => rowsToCentres([header, ["", "Ansbach", "91522", "Ansbach", "VHS", "Weg 1", "0", email]])[0];
+        expect(centre(" www.landratsamt-ansbach.de ")).toMatchObject({ email: "", website: "www.landratsamt-ansbach.de" });
+        expect(centre("vhs@example.org")).toEqual({ regierungsbezirk: "Ansbach", plz: "91522", ort: "Ansbach", einrichtung: "VHS", straße: "Weg 1", telefon: "0", email: "vhs@example.org" });
+        expect(centre("")).not.toHaveProperty("website");
+        expect(moveWebsite({ email: "vhs-verband-mv.de" })).toEqual({ email: "", website: "vhs-verband-mv.de" });
     });
 });
 

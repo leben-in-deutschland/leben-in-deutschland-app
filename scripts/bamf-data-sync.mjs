@@ -256,6 +256,22 @@ export function parseDownloadLinks(html, code) {
 }
 
 /**
+ * BAMF's "E-Mail" column sometimes holds a web address instead of an address
+ * ("www.landratsamt-ansbach.de" in Bavaria, "vhs-verband-mv.de"). A value
+ * without "@" is no address: it moves to `website` and leaves `email` empty,
+ * so the file never offers a mail draft to a host. The field exists only on
+ * the centres that need it.
+ */
+export function moveWebsite(centre) {
+    const value = String(centre.email ?? "").trim();
+    if (value && !value.includes("@")) {
+        centre.email = "";
+        centre.website = value;
+    }
+    return centre;
+}
+
+/**
  * The centres of one sheet from its rows (`{ hidden, cells }` as the reader
  * returns them, or plain string arrays). Returns an empty list for a sheet
  * without a header row - the empty companion sheets of every workbook.
@@ -291,6 +307,7 @@ export function rowsToCentres(rows) {
         if (/^\d{4}$/.test(centre.plz)) {
             centre.plz = `0${centre.plz}`;
         }
+        moveWebsite(centre);
         if (centre.einrichtung) {
             centres.push(centre);
         }
@@ -335,7 +352,7 @@ function centreKey(centre) {
 /** A centre with every field a trimmed string, so a numeric PLZ compares equal to its text. */
 function normaliseCentre(centre) {
     const normalised = {};
-    for (const { field } of COLUMNS) {
+    for (const field of [...COLUMNS.map((column) => column.field), "website"]) {
         normalised[field] = String(centre[field] ?? "").trim();
     }
     return normalised;
