@@ -28,13 +28,32 @@ type Center = {
     city: string;
     phone: string;
     phoneHref: string | null;
-    email: string;
+    contact: Contact | null;
     mapsHref: string;
 };
 
 const clean = (value: unknown): string => String(value ?? "").trim();
 
-function toCenter(place: Prüfstellen, index: number): Center {
+/**
+ * What BAMF lists in the "E-Mail" column: usually an address, sometimes a web
+ * address ("www.landratsamt-ansbach.de"). An address opens a mail draft, a host
+ * opens the website, and anything else is shown as text without a link.
+ */
+type Contact = { kind: "mail" | "web" | "text"; label: string; href: string | null };
+
+const MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const HOST = /^(?:https?:\/\/)?((?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,})(\/\S*)?$/i;
+
+export function toContact(value: unknown): Contact | null {
+    const label = clean(value);
+    if (!label) return null;
+    if (label.includes("@")) return { kind: "mail", label, href: MAIL.test(label) ? `mailto:${label}` : null };
+    const host = HOST.exec(label);
+    if (host) return { kind: "web", label, href: `https://${host[1].toLowerCase()}${host[2] ?? ""}` };
+    return { kind: "text", label, href: null };
+}
+
+export function toCenter(place: Prüfstellen, index: number): Center {
     const street = clean(place.straße);
     const city = `${clean(place.plz)} ${clean(place.ort)}`.trim();
     const phone = clean(place.telefon);
@@ -48,7 +67,7 @@ function toCenter(place: Prüfstellen, index: number): Center {
         city,
         phone,
         phoneHref: digits.length >= 6 ? `tel:${digits}` : null,
-        email: clean(place.email),
+        contact: toContact(place.email),
         mapsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([name, street, city].filter(Boolean).join(", "))}`,
     };
 }
@@ -159,11 +178,21 @@ export function CentersList({ stateCode, stateName, centers, states }: CentersLi
                                         </span>
                                     )
                                 ) : null}
-                                {center.email ? (
-                                    <a href={`mailto:${center.email}`} className={`${contactClass} min-w-0`}>
+                                {center.contact?.kind === "mail" && center.contact.href ? (
+                                    <a href={center.contact.href} className={`${contactClass} min-w-0`}>
                                         <MailIcon size={16} className="shrink-0" aria-hidden="true" />
-                                        <span className="truncate">{center.email}</span>
+                                        <span className="truncate">{center.contact.label}</span>
                                     </a>
+                                ) : center.contact?.kind === "web" && center.contact.href ? (
+                                    <a href={center.contact.href} target="_blank" rel="noopener noreferrer" className={`${contactClass} min-w-0`}>
+                                        <ExternalLinkIcon size={16} className="shrink-0" aria-hidden="true" />
+                                        <span className="truncate">{center.contact.label}</span>
+                                    </a>
+                                ) : center.contact ? (
+                                    <span className={`${contactClass} min-w-0`}>
+                                        <MailIcon size={16} className="shrink-0" aria-hidden="true" />
+                                        <span className="truncate">{center.contact.label}</span>
+                                    </span>
                                 ) : null}
                                 <a href={center.mapsHref} target="_blank" rel="noopener noreferrer" className={contactClass}>
                                     <ExternalLinkIcon size={16} aria-hidden="true" />
