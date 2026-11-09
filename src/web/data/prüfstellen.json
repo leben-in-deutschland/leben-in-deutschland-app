@@ -924,7 +924,8 @@
         "einrichtung": "VHS des Landkreises Ansbach",
         "straße": "Crailsheimstr. 1",
         "telefon": "0981/4686113",
-        "email": "www.landratsamt-ansbach.de"
+        "email": "",
+        "website": "www.landratsamt-ansbach.de"
       },
       {
         "regierungsbezirk": "Ansbach",
@@ -2717,7 +2718,8 @@
         "einrichtung": "Volkshochschulverband Mecklenburg-Vorpommern e. V.",
         "straße": "Berta-von-Suttner-Str. 5",
         "telefon": "0385/3031550",
-        "email": "vhs-verband-mv.de"
+        "email": "",
+        "website": "vhs-verband-mv.de"
       },
       {
         "regierungsbezirk": "Vorpommern-Rügen",
@@ -3825,7 +3827,8 @@
         "einrichtung": "Sputnik - Integrations- und Übersetzungsdienst (SIÜD",
         "straße": "Wolfgang-Döring-Str. 4",
         "telefon": "0211/17053011",
-        "email": "www.sputnik-garath.com"
+        "email": "",
+        "website": "www.sputnik-garath.com"
       },
       {
         "regierungsbezirk": "Düsseldorf",

@@ -79,6 +79,18 @@ describe("toContact", () => {
         }
         expect(hrefs).toContain("https://www.landratsamt-ansbach.de");
     });
+
+    it("keeps every e-mail value of the bundled exam centres an address (the sync moves a host to website)", () => {
+        const places = (prüfstellen as PrüfstellenData[]).flatMap((state) => state.data as Prüfstellen[]);
+        expect(places.filter((p) => p.email.trim() && !p.email.includes("@"))).toEqual([]);
+        expect(places.filter((p) => p.website).map((p) => p.website)).toContain("www.landratsamt-ansbach.de");
+    });
+
+    it("opens the website field when the e-mail is empty", () => {
+        const center = toCenter({ ...place("VHS des Landkreises Ansbach", ""), website: "www.landratsamt-ansbach.de" }, 0);
+        expect(center.contact).toMatchObject({ kind: "web", href: "https://www.landratsamt-ansbach.de" });
+        expect(toCenter({ ...place("VHS", "a@b.de"), website: "www.b.de" }, 0).contact?.href).toBe("mailto:a@b.de");
+    });
 });
 
 describe("CentersList contact links", () => {

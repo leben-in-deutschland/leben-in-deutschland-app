@@ -35,9 +35,10 @@ type Center = {
 const clean = (value: unknown): string => String(value ?? "").trim();
 
 /**
- * What BAMF lists in the "E-Mail" column: usually an address, sometimes a web
- * address ("www.landratsamt-ansbach.de"). An address opens a mail draft, a host
- * opens the website, and anything else is shown as text without a link.
+ * A centre's contact: its address, or - when BAMF's "E-Mail" column held a web
+ * address, which the sync moves to `website` - its website
+ * ("www.landratsamt-ansbach.de"). An address opens a mail draft, a host opens
+ * the website, and anything else is shown as text without a link.
  */
 type Contact = { kind: "mail" | "web" | "text"; label: string; href: string | null };
 
@@ -67,7 +68,7 @@ export function toCenter(place: Prüfstellen, index: number): Center {
         city,
         phone,
         phoneHref: digits.length >= 6 ? `tel:${digits}` : null,
-        contact: toContact(place.email),
+        contact: toContact(clean(place.email) || place.website),
         mapsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([name, street, city].filter(Boolean).join(", "))}`,
     };
 }
