@@ -4979,7 +4979,7 @@
     "stateCode": "rp",
     "data": [
       {
-        "regierungsbezirk": "Ludwigshafen am Rhein",
+        "regierungsbezirk": "",
         "plz": "57610",
         "ort": "Altenkirchen (Westerwald)",
         "einrichtung": "Kreisvolkshochschule Altenkirchen",
@@ -4988,7 +4988,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landau in der Pfalz",
+        "regierungsbezirk": "",
         "plz": "55232",
         "ort": "Alzey",
         "einrichtung": "Kreis-VHS Alzey-Worms",
@@ -4997,7 +4997,7 @@
         "email": "Brovina.Anna@alzey-worms.de"
       },
       {
-        "regierungsbezirk": "Ludwigshafen am Rhein",
+        "regierungsbezirk": "",
         "plz": "56626",
         "ort": "Andernach",
         "einrichtung": "VHS Andernach",
@@ -5006,7 +5006,7 @@
         "email": "integration@andernach.de"
       },
       {
-        "regierungsbezirk": "Speyer",
+        "regierungsbezirk": "",
         "plz": "67098",
         "ort": "Bad Dürkheim",
         "einrichtung": "Kreis-VHS Bad Dürkheim",
@@ -5015,7 +5015,7 @@
         "email": "kvhs@kreis-bad-duerkheim.de"
       },
       {
-        "regierungsbezirk": "Frankenthal (Pfalz)",
+        "regierungsbezirk": "",
         "plz": "56130",
         "ort": "Bad Ems",
         "einrichtung": "Kreis-VHS Rhein-Lahn",
@@ -5024,7 +5024,7 @@
         "email": "info@kvhs-rhein-lahn.de"
       },
       {
-        "regierungsbezirk": "Landau in der Pfalz",
+        "regierungsbezirk": "",
         "plz": "55543",
         "ort": "Bad Kreuznach",
         "einrichtung": "KUNZ Institut für Betriebswirtschaftliche Aus- und Weiterbildung",
@@ -5033,7 +5033,7 @@
         "email": "info@kunz-institut.de"
       },
       {
-        "regierungsbezirk": "Landkreis Alzey-Worms",
+        "regierungsbezirk": "",
         "plz": "55545",
         "ort": "Bad Kreuznach",
         "einrichtung": "Sprachschule Gamp und Léus",
@@ -5042,7 +5042,7 @@
         "email": "SprachenschuleGampundLeus@web.de"
       },
       {
-        "regierungsbezirk": "Worms",
+        "regierungsbezirk": "",
         "plz": "55543",
         "ort": "Bad Kreuznach",
         "einrichtung": "VHS Bad Kreuznach",
@@ -5051,7 +5051,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landau in der Pfalz",
+        "regierungsbezirk": "",
         "plz": "53474",
         "ort": "Bad Neuenahr-Ahrweiler",
         "einrichtung": "Kreis-Volkshochschule Ahrweiler e.V.",
@@ -5060,7 +5060,7 @@
         "email": "info@kvhs-ahrweiler.de"
       },
       {
-        "regierungsbezirk": "Landkreis Germersheim",
+        "regierungsbezirk": "",
         "plz": "54470",
         "ort": "Bernkastel-Kues",
         "einrichtung": "Volkshochschule Bernkastel-Kues",
@@ -5069,7 +5069,7 @@
         "email": "vhs@bernkstel-kues.de"
       },
       {
-        "regierungsbezirk": "Landkreis Germersheim",
+        "regierungsbezirk": "",
         "plz": "54470",
         "ort": "Bernkastel-Kues",
         "einrichtung": "VHS Bernkastel-Kues",
@@ -5078,7 +5078,7 @@
         "email": "vhs@bernkastel-kues.de"
       },
       {
-        "regierungsbezirk": "Landkreis Mainz-Bingen",
+        "regierungsbezirk": "",
         "plz": "55411",
         "ort": "Bingen am Rhein",
         "einrichtung": "VHS Bingen e.V.",
@@ -5087,7 +5087,7 @@
         "email": "service@vhs-bingen.de"
       },
       {
-        "regierungsbezirk": "Pirmasens",
+        "regierungsbezirk": "",
         "plz": "55765",
         "ort": "Birkenfeld",
         "einrichtung": "Kreisvolkshochschule Birkenfeld",
@@ -5096,7 +5096,7 @@
         "email": "M.Becker-Hassdenteufel@landkreis-birkenfeld.de"
       },
       {
-        "regierungsbezirk": "Koblenz",
+        "regierungsbezirk": "",
         "plz": "54634",
         "ort": "Bitburg",
         "einrichtung": "VHS Bitburg",
@@ -5105,7 +5105,7 @@
         "email": "vhs@bitburg.de"
       },
       {
-        "regierungsbezirk": "Mainz",
+        "regierungsbezirk": "",
         "plz": "56154",
         "ort": "Boppard",
         "einrichtung": "VHS Boppard",
@@ -5114,7 +5114,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landkreis Mainz-Bingen",
+        "regierungsbezirk": "",
         "plz": "56812",
         "ort": "Cochem",
         "einrichtung": "VHS-Kreis Cochem-Zell",
@@ -5123,7 +5123,7 @@
         "email": "integration@cochem-zell.de"
       },
       {
-        "regierungsbezirk": "Donnersbergkreis",
+        "regierungsbezirk": "",
         "plz": "54550",
         "ort": "Daun",
         "einrichtung": "VHS Daun",
@@ -5132,7 +5132,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Neustadt an der Weinstraße",
+        "regierungsbezirk": "",
         "plz": "67227",
         "ort": "Frankenthal (Pfalz)",
         "einrichtung": "VHS Frankenthal e. V.",
@@ -5141,7 +5141,7 @@
         "email": "integration@vhs-ft.de"
       },
       {
-        "regierungsbezirk": "Trier",
+        "regierungsbezirk": "",
         "plz": "76726",
         "ort": "Germersheim",
         "einrichtung": "KVHS Germersheim",
@@ -5150,7 +5150,7 @@
         "email": "vhs@kreis-germersheim.de"
       },
       {
-        "regierungsbezirk": "Bernkastel-Wittlich",
+        "regierungsbezirk": "",
         "plz": "54568",
         "ort": "Gerolstein",
         "einrichtung": "Volkshochschule Gerolstein",
@@ -5159,7 +5159,7 @@
         "email": "vhs@gerolstein.de"
       },
       {
-        "regierungsbezirk": "Koblenz",
+        "regierungsbezirk": "",
         "plz": "55743",
         "ort": "Idar-Oberstein",
         "einrichtung": "IB Internationaler Bund Südwest gGmbH",
@@ -5168,7 +5168,7 @@
         "email": "sonja.mueller@ib.de"
       },
       {
-        "regierungsbezirk": "Zweibrücken",
+        "regierungsbezirk": "",
         "plz": "55218",
         "ort": "Ingelheim am Rhein",
         "einrichtung": "Kreisvolkshochschule Mainz-Bingen e.V.",
@@ -5177,7 +5177,7 @@
         "email": "info@kvhs-mainz-bingen.de"
       },
       {
-        "regierungsbezirk": "Landkreis Neuwied",
+        "regierungsbezirk": "",
         "plz": "67655",
         "ort": "Kaiserslautern",
         "einrichtung": "VHS Kaiserslautern e.V.",
@@ -5186,7 +5186,7 @@
         "email": "info@vhs-kaiserslautern.de"
       },
       {
-        "regierungsbezirk": "Landkreis Cochem-Zell",
+        "regierungsbezirk": "",
         "plz": "67657",
         "ort": "Kaiserslautern",
         "einrichtung": "Kreisvolkshohschule Kaiserslautern",
@@ -5195,7 +5195,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landkreis Ahrweiler",
+        "regierungsbezirk": "",
         "plz": "76870",
         "ort": "Kandel",
         "einrichtung": "VHS Kandel e.V.",
@@ -5204,7 +5204,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Rhein-Hunsrück-Kreis",
+        "regierungsbezirk": "",
         "plz": "55481",
         "ort": "Kirchberg (Hunsrück)",
         "einrichtung": "VHS Hunsrück",
@@ -5213,7 +5213,7 @@
         "email": "vhs@kirchberg-hunsrueck.de"
       },
       {
-        "regierungsbezirk": "Kaiserslautern",
+        "regierungsbezirk": "",
         "plz": "67292",
         "ort": "Kirchheimbolanden",
         "einrichtung": "KVHS Donnersbergkreis",
@@ -5222,7 +5222,7 @@
         "email": "kvhs@donnersberg.de"
       },
       {
-        "regierungsbezirk": "Landkreis Mayen-Koblenz",
+        "regierungsbezirk": "",
         "plz": "56068",
         "ort": "Koblenz",
         "einrichtung": "Bénédict-Akademie - Koblenz",
@@ -5231,7 +5231,7 @@
         "email": "jschneider@benedict-akademie-koblenz.de"
       },
       {
-        "regierungsbezirk": "Westerwaldkreis",
+        "regierungsbezirk": "",
         "plz": "56068",
         "ort": "Koblenz",
         "einrichtung": "ISL Sprachschule GmbH & Co. KG",
@@ -5240,7 +5240,7 @@
         "email": "koblenz@isl-sprachschule.de"
       },
       {
-        "regierungsbezirk": "Landkreis Bad Dürkheim",
+        "regierungsbezirk": "",
         "plz": "56073",
         "ort": "Koblenz",
         "einrichtung": "Volkshochschule Koblenz",
@@ -5249,7 +5249,7 @@
         "email": "sandra.schmalz@vhs-koblenz.de"
       },
       {
-        "regierungsbezirk": "Landkreis Bernkastel-Wittlich",
+        "regierungsbezirk": "",
         "plz": "66869",
         "ort": "Kusel",
         "einrichtung": "Kreisvolkshochschule Kusel",
@@ -5258,7 +5258,7 @@
         "email": "kvhs@kv-kus.de"
       },
       {
-        "regierungsbezirk": "Mainz",
+        "regierungsbezirk": "",
         "plz": "76829",
         "ort": "Landau in der Pfalz",
         "einrichtung": "ProfeS Gesellschaft für Bildung & Kommunikation mbH",
@@ -5267,7 +5267,7 @@
         "email": "info@profes-gmbh.de"
       },
       {
-        "regierungsbezirk": "Landkreis Bad Kreuznach",
+        "regierungsbezirk": "",
         "plz": "76829",
         "ort": "Landau in der Pfalz",
         "einrichtung": "VHS-Kreis Südliche Weinstraße",
@@ -5276,7 +5276,7 @@
         "email": "vhs@suedliche-weinstrasse.de"
       },
       {
-        "regierungsbezirk": "Worms",
+        "regierungsbezirk": "",
         "plz": "76829",
         "ort": "Landau in der Pfalz",
         "einrichtung": "VHS Landau in der Pfalz e.V.",
@@ -5285,7 +5285,7 @@
         "email": "info@volkshochschule-landau.de"
       },
       {
-        "regierungsbezirk": "Landkreis Birkenfeld",
+        "regierungsbezirk": "",
         "plz": "67059",
         "ort": "Ludwigshafen am Rhein",
         "einrichtung": "VHS Ludwigshafen",
@@ -5294,7 +5294,7 @@
         "email": "ralf.trapp@ludwigshafen.de"
       },
       {
-        "regierungsbezirk": "Eifelkreis Bitburg-Prüm",
+        "regierungsbezirk": "",
         "plz": "67063",
         "ort": "Ludwigshafen am Rhein",
         "einrichtung": "VHS Rhein-Pfalz-Kreis",
@@ -5303,7 +5303,7 @@
         "email": "KVHS-Geschaeftsstelle@vhs-rpk.de"
       },
       {
-        "regierungsbezirk": "Mainz",
+        "regierungsbezirk": "",
         "plz": "55116",
         "ort": "Mainz",
         "einrichtung": "VHS Mainz",
@@ -5312,7 +5312,7 @@
         "email": "cornelia.bonk@vhs-mainz.de"
       },
       {
-        "regierungsbezirk": "Landkreis Bernkastel-Wittlich",
+        "regierungsbezirk": "",
         "plz": "55116",
         "ort": "Mainz",
         "einrichtung": "Sprachschule Dr. Ridder",
@@ -5321,7 +5321,7 @@
         "email": "sekretariat@dr-ridder.de"
       },
       {
-        "regierungsbezirk": "Landkreis Kusel",
+        "regierungsbezirk": "",
         "plz": "55118",
         "ort": "Mainz",
         "einrichtung": "Akademisches Bildungs-Center e.V.",
@@ -5330,7 +5330,7 @@
         "email": "integration@abc-mainz.de"
       },
       {
-        "regierungsbezirk": "Trier",
+        "regierungsbezirk": "",
         "plz": "56410",
         "ort": "Montabaur",
         "einrichtung": "VHS-Kreis-Westerwald e.V.",
@@ -5339,7 +5339,7 @@
         "email": "info@vhs-ww.de"
       },
       {
-        "regierungsbezirk": "Landkreis Birkenfeld",
+        "regierungsbezirk": "",
         "plz": "67433",
         "ort": "Neustadt an der Weinstraße",
         "einrichtung": "VHS Neustadt an der Weinstraße",
@@ -5348,7 +5348,7 @@
         "email": "hanna.loewenstein@neustadt.eu"
       },
       {
-        "regierungsbezirk": "Landkreis Bad Kreuznach",
+        "regierungsbezirk": "",
         "plz": "56564",
         "ort": "Neuwied",
         "einrichtung": "VHS Neuwied \"Die Brücke\"",
@@ -5357,7 +5357,7 @@
         "email": "integration@vhs-neuwied.de"
       },
       {
-        "regierungsbezirk": "Rhein-Lahn-Kreis",
+        "regierungsbezirk": "",
         "plz": "56564",
         "ort": "Neuwied",
         "einrichtung": "VHS-Kreis Neuwied",
@@ -5366,7 +5366,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landkreis Bernkastel-Wittlich",
+        "regierungsbezirk": "",
         "plz": "66953",
         "ort": "Pirmasens",
         "einrichtung": "VHS-Kreis Südwestpfalz e.V.",
@@ -5375,7 +5375,7 @@
         "email": "F.Rossard@lksuedwestpfalz.de"
       },
       {
-        "regierungsbezirk": "Landkreis Bad Kreuznach",
+        "regierungsbezirk": "",
         "plz": "",
         "ort": "Pirmasens",
         "einrichtung": "VHS Pirmasens",
@@ -5384,7 +5384,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Landkreis Vulkaneifel",
+        "regierungsbezirk": "",
         "plz": "67346",
         "ort": "Speyer",
         "einrichtung": "VHS Speyer",
@@ -5393,7 +5393,7 @@
         "email": "Lena.Schierbauer@Stadt-Speyer.de"
       },
       {
-        "regierungsbezirk": "Pirmasens",
+        "regierungsbezirk": "",
         "plz": "56841",
         "ort": "Traben-Trarbach",
         "einrichtung": "Volkshochschule der Verbandsgemeinde Traben-Trarbach",
@@ -5402,7 +5402,7 @@
         "email": ""
       },
       {
-        "regierungsbezirk": "Kaiserslautern",
+        "regierungsbezirk": "",
         "plz": "54290",
         "ort": "Trier",
         "einrichtung": "Volkshochschule Trier",
@@ -5411,7 +5411,7 @@
         "email": "Laura.Trierweiler@trier.de"
       },
       {
-        "regierungsbezirk": "Landkreis Altenkirchen (Westerwald)",
+        "regierungsbezirk": "",
         "plz": "54290",
         "ort": "Trier",
         "einrichtung": "Euro Schulen Trier",
@@ -5420,7 +5420,7 @@
         "email": "trier@euroakademie.de"
       },
       {
-        "regierungsbezirk": "Landkreis Neuwied",
+        "regierungsbezirk": "",
         "plz": "54516",
         "ort": "Wittlich",
         "einrichtung": "VHS Wittlich",
@@ -5429,7 +5429,7 @@
         "email": "vhs@vg-wittlich-land.de"
       },
       {
-        "regierungsbezirk": "Koblenz",
+        "regierungsbezirk": "",
         "plz": "67547",
         "ort": "Worms",
         "einrichtung": "Volkshochschule der Stadt Worms",
@@ -5438,7 +5438,7 @@
         "email": "Ildiko.Lazar@worms.de"
       },
       {
-        "regierungsbezirk": "Landkreis Vulkaneifel",
+        "regierungsbezirk": "",
         "plz": "67547",
         "ort": "Worms",
         "einrichtung": "IBLA Germany GmbH",
@@ -5447,7 +5447,7 @@
         "email": "ibla-germany@web.de"
       },
       {
-        "regierungsbezirk": "Rhein-Hunsrück-Kreis",
+        "regierungsbezirk": "",
         "plz": "66482",
         "ort": "Zweibrücken",
         "einrichtung": "VHS Zweibrücken",

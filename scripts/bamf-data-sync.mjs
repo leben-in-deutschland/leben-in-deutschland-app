@@ -242,6 +242,19 @@ const COLUMNS = [
     { field: "email", header: /^E-Mail$/ },
 ];
 
+/**
+ * States whose "Kreis / kreisfreie Stadt" column does not belong to its rows.
+ * BAMF's Pruefstellen-RP.xlsx sorts that column on its own, apart from the
+ * rows (read 2026-11-10 with scripts/lib/xlsx.mjs: the first data row is
+ * ["", "Ludwigshafen am Rhein", "57610", "Altenkirchen (Westerwald)", ...];
+ * Alzey read "Landau in der Pfalz", Worms "Koblenz", and only 3 of 53 rows
+ * named a district containing the town). A district from another row makes
+ * a learner who searches the list for a district find the wrong centres, so
+ * these states get no district at all - the list hides an empty one, as for
+ * Berlin. Remove a state here once BAMF's workbook is sorted again.
+ */
+export const SCRAMBLED_DISTRICT_STATES = new Set(["rp"]);
+
 /** The `Pruefstellen-XX.xlsx?__blob=...` download links of a state's landing page, entities decoded. */
 export function parseDownloadLinks(html, code) {
     const name = `Pruefstellen-${code.toUpperCase()}.xlsx?`;
@@ -275,8 +288,11 @@ export function moveWebsite(centre) {
  * The centres of one sheet from its rows (`{ hidden, cells }` as the reader
  * returns them, or plain string arrays). Returns an empty list for a sheet
  * without a header row - the empty companion sheets of every workbook.
+ * `code` is the state; a state in SCRAMBLED_DISTRICT_STATES keeps the
+ * district empty.
  */
-export function rowsToCentres(rows) {
+export function rowsToCentres(rows, code = "") {
+    const dropDistrict = SCRAMBLED_DISTRICT_STATES.has(code);
     const normalised = rows.map((row) => (Array.isArray(row) ? { hidden: false, cells: row } : row));
     const headerAt = normalised.findIndex((row) => row.cells.some((cell) => cell.trim() === "PLZ"));
     if (headerAt < 0) {
@@ -301,6 +317,9 @@ export function rowsToCentres(rows) {
         const centre = {};
         for (const { field } of COLUMNS) {
             centre[field] = index[field] < 0 ? "" : (cells[index[field]] ?? "").trim();
+        }
+        if (dropDistrict) {
+            centre.regierungsbezirk = "";
         }
         // Excel keeps a postcode typed as a number without its leading zero
         // (Saxony, Saxony-Anhalt, Brandenburg): "6108" is 06108.
@@ -327,7 +346,7 @@ async function scrapeState(code) {
             throw new Error(`the download for state ${code} is not an .xlsx file (${contentType.split(";")[0] || "no content type"}); the site's WAF may have answered instead`);
         }
         for (const sheet of readWorkbook(buffer).sheets) {
-            centres.push(...rowsToCentres(sheet.rows));
+            centres.push(...rowsToCentres(sheet.rows, code));
         }
     }
     if (centres.length === 0) {
