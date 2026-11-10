@@ -19,6 +19,7 @@ import {
     parseDownloadLinks,
     parseExamDate,
     rowsToCentres,
+    SCRAMBLED_DISTRICT_STATES,
     STATES,
     validateEvaluation,
     validatePruefstellen,
@@ -209,6 +210,17 @@ describe("rowsToCentres", () => {
         expect(rows(["Reg.-Bez.", "Kreis / kreisfreie Städte", "PLZ", "Ort", "Name der Prüfstelle ", "Straße", "Telefon", "E-Mail"])[0].regierungsbezirk).toBe("Kreis X");
         expect(rows(["", "Kreis / kreisfrie Stadt", "PLZ", "Ort", "Namen der Prüfstelle", "Straße", "Telefon", "E-Mail"])[0].einrichtung).toBe("VHS");
         expect(() => rowsToCentres([["PLZ", "Ort"], ["1", "2"]])).toThrow(/no einrichtung column/);
+    });
+
+    it("leaves the district empty in Rhineland-Palatinate, whose Kreis column BAMF sorts apart from the rows", () => {
+        // The first data row of Pruefstellen-RP.xlsx as read on 2026-11-10.
+        const rows = [HEADER, ["", "Ludwigshafen am Rhein", "57610", "Altenkirchen (Westerwald)", "VHS Altenkirchen", "Weg 1", "0", "a@b.de"]];
+        expect([...SCRAMBLED_DISTRICT_STATES]).toEqual(["rp"]);
+        expect(rowsToCentres(rows, "rp")).toEqual([
+            { regierungsbezirk: "", plz: "57610", ort: "Altenkirchen (Westerwald)", einrichtung: "VHS Altenkirchen", straße: "Weg 1", telefon: "0", email: "a@b.de" },
+        ]);
+        expect(rowsToCentres(rows, "by")[0].regierungsbezirk).toBe("Ludwigshafen am Rhein");
+        expect(rowsToCentres(rows)[0].regierungsbezirk).toBe("Ludwigshafen am Rhein");
     });
 
     it("restores the leading zero of a postcode Excel stored as a number", () => {
