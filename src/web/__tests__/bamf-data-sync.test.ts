@@ -21,6 +21,7 @@ import {
     rowsToCentres,
     SCRAMBLED_DISTRICT_STATES,
     STATES,
+    tidyEmail,
     validateEvaluation,
     validatePruefstellen,
 } from "../../../scripts/bamf-data-sync.mjs";
@@ -239,6 +240,16 @@ describe("rowsToCentres", () => {
         expect(centre("vhs@example.org")).toEqual({ regierungsbezirk: "Ansbach", plz: "91522", ort: "Ansbach", einrichtung: "VHS", straße: "Weg 1", telefon: "0", email: "vhs@example.org" });
         expect(centre("")).not.toHaveProperty("website");
         expect(moveWebsite({ email: "vhs-verband-mv.de" })).toEqual({ email: "", website: "vhs-verband-mv.de" });
+    });
+
+    it("drops the separator of a label left in front of an address", () => {
+        const header = ["", "Kreis", "PLZ", "Ort", "Name der Prüfstelle", "Straße", "Telefon", "E-Mail"];
+        const centre = (email: string) => rowsToCentres([header, ["", "Köln", "50667", "Köln", "VHS", "Weg 1", "0", email]])[0];
+        expect(centre(": Vorname.Name@STADT-KOELN.DE").email).toBe("Vorname.Name@STADT-KOELN.DE");
+        expect(centre(" ;, vhs@example.org ").email).toBe("vhs@example.org");
+        expect(centre(": www.example.org")).toMatchObject({ email: "", website: "www.example.org" });
+        expect(tidyEmail("vhs@example.org")).toBe("vhs@example.org");
+        expect(tidyEmail(undefined)).toBe("");
     });
 });
 

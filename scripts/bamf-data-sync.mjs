@@ -269,6 +269,17 @@ export function parseDownloadLinks(html, code) {
 }
 
 /**
+ * BAMF's "E-Mail" cell sometimes keeps the separator of a label someone typed
+ * in front of the address (Pruefstellen-NW.xlsx, VHS Köln, read 2026-11-22:
+ * ": Stefanie...@STADT-KOELN.DE"). The app links only a clean address, so a
+ * leading run of separators (colon, semicolon, comma, whitespace) goes; the
+ * address itself is kept as BAMF wrote it.
+ */
+export function tidyEmail(value) {
+    return String(value ?? "").replace(/^[\s:;,]+/, "").trim();
+}
+
+/**
  * BAMF's "E-Mail" column sometimes holds a web address instead of an address
  * ("www.landratsamt-ansbach.de" in Bavaria, "vhs-verband-mv.de"). A value
  * without "@" is no address: it moves to `website` and leaves `email` empty,
@@ -276,7 +287,8 @@ export function parseDownloadLinks(html, code) {
  * the centres that need it.
  */
 export function moveWebsite(centre) {
-    const value = String(centre.email ?? "").trim();
+    const value = tidyEmail(centre.email);
+    centre.email = value;
     if (value && !value.includes("@")) {
         centre.email = "";
         centre.website = value;
