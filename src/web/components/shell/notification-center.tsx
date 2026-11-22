@@ -19,6 +19,7 @@ import {
     FlameIcon,
     LandmarkIcon,
     LightbulbIcon,
+    MapPinIcon,
     SnowflakeIcon,
     SparklesIcon,
     TargetIcon,
@@ -35,6 +36,7 @@ const TYPE_STYLE: Record<InAppNotificationType, { icon: IconComponent; accent: A
     evaluation: { icon: LandmarkIcon, accent: "default" },
     tip: { icon: LightbulbIcon, accent: "warning" },
     mock: { icon: ClipboardCheckIcon, accent: "primary" },
+    termine: { icon: MapPinIcon, accent: "success" },
 };
 
 type NotificationCenterProps = {

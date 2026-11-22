@@ -18,6 +18,7 @@ import { examCountdown, greetingKey, needsFirstOpenStamp, shouldCelebrateGoal } 
 import { ModeGrid } from "./mode-grid";
 import { MockSummary } from "./mock-summary";
 import { NoticeList } from "./notice-card";
+import { TermineCard } from "./termine-card";
 import { ThanksDialog } from "@/components/support/thanks-dialog";
 import { useEvaluation } from "./use-evaluation";
 import { useNotices } from "./use-notices";
@@ -138,7 +139,8 @@ export function HomeScreen({ user }: { user: User }) {
             <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
                 <MockSummary tests={user.testProgress} language={language} t={t} className="animate-rise-in" style={rise(4)} />
                 <ExamCountdownCard countdown={countdown} language={language} t={t} onClear={clearExamDate} className="animate-rise-in" style={rise(5)} />
-                <EvaluationStatus data={evaluation} language={language} t={t} className="animate-rise-in" style={rise(6)} />
+                <TermineCard stateCode={user.state.stateCode} t={t} className="animate-rise-in" style={rise(6)} />
+                <EvaluationStatus data={evaluation} language={language} t={t} className="animate-rise-in" style={rise(7)} />
             </div>
         </div>
     );

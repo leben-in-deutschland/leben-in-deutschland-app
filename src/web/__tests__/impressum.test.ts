@@ -48,7 +48,7 @@ describe("legal pages (TASK-043)", () => {
 
     it("refreshes the privacy policy last-updated date", () => {
         const page = read("app/privacy-policy/page.tsx");
-        expect(page).toContain('const LAST_UPDATED = "October 31, 2026"');
+        expect(page).toContain('const LAST_UPDATED = "November 22, 2026"');
     });
 
     it("names the payment handler of each app's optional tips (Google Play on Android, Apple on iOS)", () => {

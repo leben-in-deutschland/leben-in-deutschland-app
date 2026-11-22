@@ -49,6 +49,9 @@ const WEBSITE = "https://www.lebenindeutschland.org";
 /** Routes that are removed from the Android bundle (see scripts/prepare-android.sh). */
 const WEB_ONLY_PREFIXES = ["/question-catalogue", "/pruefstellen", "/privacy-policy"];
 
+/** "/termine/NW": the website has an exam-dates page per state, the apps only "/termine", which switches in place. */
+const TERMINE_STATE_PAGE = /^\/termine\/[a-z]{2}(?=$|[?#])/i;
+
 /** True for in-app paths that do not exist in the Android bundle. */
 export function isWebOnlyPath(path: string): boolean {
     return path.startsWith("/#") || WEB_ONLY_PREFIXES.some((prefix) => path.startsWith(prefix));
@@ -65,5 +68,5 @@ export function toNativeHref(path: string): string {
     if (isWebOnlyPath(path)) {
         return `${WEBSITE}${path}`;
     }
-    return toHtmlPath(path);
+    return toHtmlPath(path.replace(TERMINE_STATE_PAGE, "/termine"));
 }

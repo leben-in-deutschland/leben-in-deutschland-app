@@ -51,6 +51,7 @@ export const Footer = () => {
                 { label: t.footer_new_start, href: "/dashboard" },
                 { label: t.footer_link_catalogue, href: "/question-catalogue" },
                 { label: t.footer_link_centers, href: "/#explore" },
+                { label: t.termine_title, href: "/termine" },
                 { label: t.nav_bamf, href: "/#bamf-evaluation" },
             ],
         },

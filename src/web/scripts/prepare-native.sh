@@ -51,6 +51,20 @@ fi
 rm -f "$OUT_DIR/question-catalogue.html" "$OUT_DIR/question-catalogue.txt" 2>/dev/null
 
 # -------------------------------------------------------
+# 3b. Remove the exam-dates pages per state (SEO-only).
+#     The app keeps /termine and switches states in place.
+# -------------------------------------------------------
+if [ -d "$OUT_DIR/termine" ]; then
+  SIZE=$(du -sh "$OUT_DIR/termine" | cut -f1)
+  rm -rf "$OUT_DIR/termine"
+  echo "  Removed /termine/<state> pages ($SIZE)"
+fi
+if [ ! -f "$OUT_DIR/termine.html" ]; then
+  echo "Error: $OUT_DIR/termine.html is missing; the app links to it."
+  exit 1
+fi
+
+# -------------------------------------------------------
 # 4. Remove .txt RSC payload files (React Server Components)
 #    These are only used for RSC streaming; Capacitor loads
 #    the static HTML directly.

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { Spinner } from "@heroui/react";
-import { isAppRoute, isFocusRoute } from "@/utils/routes";
+import { isAppRoute, isFocusRoute, isSharedRoute } from "@/utils/routes";
 import { useUiMode } from "@/utils/ui-mode";
 import { useIsNative, useTranslations, useUser } from "@/utils/user-store";
 import { ClassicApp } from "@/classic/classic-app";
@@ -62,6 +62,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 
     const appRoute = isAppRoute(pathname);
     const focus = focusFlag || isFocusRoute(pathname);
+    // Inside the apps a shared page (the exam dates) sits among the learner
+    // screens, tab bar included; the classic design has no tab bar to show.
+    const tabs = appRoute || (isNative && isSharedRoute(pathname) && ui?.mode === "modern");
 
     // Unknown until hydration: a neutral spinner, so a classic learner never
     // sees the modern chrome flash by (a modern learner sees it for one frame).
@@ -99,7 +102,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 className={clsx(
                     "mx-auto flex w-full max-w-6xl flex-grow flex-col px-4 sm:px-6",
                     focus ? "pt-0" : "pt-5 sm:pt-8",
-                    appRoute && !focus ? "pb-tabbar md:pb-12" : "pb-10",
+                    tabs && !focus ? "pb-tabbar md:pb-12" : "pb-10",
                 )}
             >
                 {appRoute ? (
@@ -110,7 +113,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     </OnboardingGate>
                 ) : children}
             </main>
-            {appRoute && !focus ? <BottomNav /> : null}
+            {tabs && !focus ? <BottomNav /> : null}
             {!appRoute && !isNative ? <Footer /> : null}
         </div>
     );

@@ -18,6 +18,7 @@ import { migrateUser, prefsOf } from "@/utils/user-defaults";
 import { readUser, updateUser, useAppLanguage, useTranslations, useUser, writeUser } from "@/utils/user-store";
 import { addNotificationTapListener, syncNativeNotifications } from "@/services/notifications";
 import { useAndroidBackButton } from "./use-back-button";
+import { useTermineAlerts } from "./use-termine-alerts";
 
 /** Local plugin: `AppSystemBarsPlugin.java` on Android, `AppSystemBarsPlugin.swift` on iOS. */
 interface AppSystemBarsPlugin {
@@ -210,6 +211,7 @@ export function useAppEffects() {
     useEngagement(user, t);
     useNativeNotifications(user, t, language);
     useNotificationTaps();
+    useTermineAlerts(t);
     useDocumentAttributes(user, language);
     useSystemBars();
     useAndroidBackButton();

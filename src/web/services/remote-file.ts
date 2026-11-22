@@ -7,6 +7,10 @@ import type { RemoteStore } from "@/utils/remote-cache";
  * shape validation, and warn-and-back-off on any failure. The website never
  * calls this; its bundled copies are rebuilt on every data change.
  *
+ * `refreshSiteFile` is the same download through the browser's own `fetch`,
+ * for a file this website serves itself (ADR-050: the exam dates, which
+ * change too often to be bundled).
+ *
  * Never throws. Resolves with the newly stored content, or null when nothing
  * new was stored.
  */
@@ -21,6 +25,40 @@ export type RemoteFileOptions<T> = {
     notFound?: "fail" | "empty";
     /** Decides what to keep from a valid body, e.g. null when it equals the bundled copy. */
     keep?: (data: T) => T | null;
+    /** Download even when the cache is fresh or a try just failed: the learner asked for it. */
+    force?: boolean;
+};
+
+/** What a download hands back: the status, the body (text or parsed JSON) and the headers. */
+type RemoteResponse = { status: number; data: unknown; headers: unknown };
+type Transport = (url: string, etag: string | null) => Promise<RemoteResponse>;
+
+function requestHeaders(etag: string | null): Record<string, string> {
+    return { Accept: "application/json", ...(etag ? { "If-None-Match": etag } : {}) };
+}
+
+const nativeTransport: Transport = (url, etag) =>
+    CapacitorHttp.get({
+        url,
+        responseType: "json",
+        connectTimeout: REMOTE_TIMEOUT_MS,
+        readTimeout: REMOTE_TIMEOUT_MS,
+        headers: requestHeaders(etag),
+    });
+
+const browserTransport: Transport = async (url, etag) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), REMOTE_TIMEOUT_MS);
+    try {
+        const response = await fetch(url, { headers: requestHeaders(etag), signal: controller.signal });
+        const headers: Record<string, string> = {};
+        response.headers.forEach((value, name) => {
+            headers[name] = value;
+        });
+        return { status: response.status, data: response.status === 200 ? await response.text() : null, headers };
+    } finally {
+        clearTimeout(timer);
+    }
 };
 
 /** True on Android where the native HTTP client exists. */
@@ -58,34 +96,45 @@ function headerValue(headers: unknown, name: string): string | null {
 
 const inFlight = new Map<string, Promise<unknown>>();
 
-/** Downloads `url` into `store` when the cache is missing or a day old. */
-export function refreshRemoteFile<T>(store: RemoteStore<T>, url: string, options: RemoteFileOptions<T>): Promise<T | null> {
+function refresh<T>(store: RemoteStore<T>, url: string, options: RemoteFileOptions<T>, transport: Transport): Promise<T | null> {
     const now = options.now ?? new Date();
-    if (!nativeHttpSupported() || !store.shouldRefresh(now)) {
+    if (!options.force && !store.shouldRefresh(now)) {
         return Promise.resolve(null);
     }
     const running = inFlight.get(store.key) as Promise<T | null> | undefined;
     if (running) {
         return running;
     }
-    const request = download(store, url, now, options).finally(() => {
+    const request = download(store, url, now, options, transport).finally(() => {
         inFlight.delete(store.key);
     });
     inFlight.set(store.key, request);
     return request;
 }
 
-async function download<T>(store: RemoteStore<T>, url: string, now: Date, options: RemoteFileOptions<T>): Promise<T | null> {
+/** Downloads `url` into `store` when the cache is missing or a day old. */
+export function refreshRemoteFile<T>(store: RemoteStore<T>, url: string, options: RemoteFileOptions<T>): Promise<T | null> {
+    if (!nativeHttpSupported()) {
+        return Promise.resolve(null);
+    }
+    return refresh(store, url, options, nativeTransport);
+}
+
+/**
+ * Downloads a file of this website (`path` starts with "/") into `store`
+ * through the browser. Does nothing while prerendering.
+ */
+export function refreshSiteFile<T>(store: RemoteStore<T>, path: string, options: RemoteFileOptions<T>): Promise<T | null> {
+    if (typeof window === "undefined" || typeof fetch !== "function" || !path.startsWith("/") || path.startsWith("//")) {
+        return Promise.resolve(null);
+    }
+    return refresh(store, path, options, browserTransport);
+}
+
+async function download<T>(store: RemoteStore<T>, url: string, now: Date, options: RemoteFileOptions<T>, transport: Transport): Promise<T | null> {
     const { label, notFound = "fail", keep } = options;
     try {
-        const etag = store.read().etag;
-        const response = await CapacitorHttp.get({
-            url,
-            responseType: "json",
-            connectTimeout: REMOTE_TIMEOUT_MS,
-            readTimeout: REMOTE_TIMEOUT_MS,
-            headers: { Accept: "application/json", ...(etag ? { "If-None-Match": etag } : {}) },
-        });
+        const response = await transport(url, store.read().etag);
         if (response.status === 304) {
             store.storeUnchanged(now);
             return null;
