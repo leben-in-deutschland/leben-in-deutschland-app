@@ -124,7 +124,9 @@ row containing `PLZ`, `Ort`, `Name der Prüfstelle` (or `Namen der
 Prüfstelle`), `Straße`, `Telefon`, `E-Mail` and, outside Berlin, `Kreis /
 kreisfreie Stadt`. A value in `E-Mail` without `@` (a web address such as
 `www.landratsamt-ansbach.de`) is written as `website` with `email` empty,
-so the app never builds a `mailto:` link to a host. When a check exits 1 three runs in a row the daemon
+so the app never builds a `mailto:` link to a host. Leading separators left
+from a typed label (`": name@stadt-koeln.de"`, NW 2026-11-22) are dropped
+first, so the address stays a working link. When a check exits 1 three runs in a row the daemon
 queues a job to fix the watcher: read the error, fetch the page once with
 the script's helpers (`src/catalogue/lib/http.mjs`), adjust the parser and
 its tests in `src/web/__tests__/bamf-data-sync.test.ts`, and keep the
