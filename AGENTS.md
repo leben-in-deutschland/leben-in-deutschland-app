@@ -12,6 +12,7 @@ src/android/    Native Android project generated and maintained with Capacitor
 src/ios/        Native iOS project (Xcode, CocoaPods) generated and maintained with Capacitor
 src/store/      Play Console and App Store Connect configuration and the scripts that publish it
 src/catalogue/  Official BAMF question-catalogue pipeline
+src/termine/    Exam-date pipeline: reads the exam centres' own course pages (registry, adapters, sync)
 scripts/        The repository's own checks (`check.sh`, `verify.sh`) and the BAMF data sync (`bamf-data-sync.mjs`, `lib/xlsx.mjs`)
 .pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation plus its watch script (`<name>.yaml` + `<name>.sh`)
 .hive/automations/   The automations already moved to the folder Hive reads, same pair per automation (so far `bamf-catalogue-sync`)
@@ -70,6 +71,13 @@ script has to sit under `.hive/` as well, so YAML and script moved together.
 | `bamf-catalogue-sync` (daily 06:00 UTC) | `.hive/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
 | `evaluation-sync` (daily 14:00 UTC) | `.pulse/automations/evaluation-sync.sh` → `scripts/bamf-data-sync.mjs evaluation --check` | `bamf-data-sync` |
 | `pruefstellen-sync` (weekly 05:30 UTC) | `.pulse/automations/pruefstellen-sync.sh` → `scripts/bamf-data-sync.mjs pruefstellen --check` | `bamf-data-sync` |
+
+The exam dates are the one sync that is not an automation (ADR-050): they
+change several times a day, so the scheduled GitHub workflow
+`termine-sync.yml` runs `src/termine/sync.mjs` four times a day and commits
+`termine.json` to the `data` branch - no model, no secret, nothing on `main`,
+no deploy. The apps read that file from GitHub, the website from its own
+origin (`/live/termine.json`, a rewrite in `src/web/vercel.json`).
 
 The job commits on its branch and the runner lands it on `main`; the daemon
 pushes, and that push deploys the web. No secrets: the scripts only `GET`
@@ -198,6 +206,7 @@ response. Exact facts, paths, commands, and code do not change.
 | Play products, store listing or track upload | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key; production promotion stays the owner's click |
 | App Store products or listing | `src/store/README.md` ("App Store Connect from the command line"), the `app-store-connect-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
+| Exam dates (Termine: sources, adapters, the published file, alerts) | `src/termine/README.md`, `pulse record show ADR-050`, `src/web/utils/termine-watch.ts` | Only `sync.mjs` writes `termine.json` (the workflow publishes it on `data`); a date is `free` only when the centre's page says so, anything unclear is `unknown`; a new centre is an entry in `sources.json` (`discover.mjs`), a new course system an adapter with fixtures; the watch list stays on the device |
 | Evaluation status or exam centres (bamf.de data) | The `bamf-data-sync` skill, `scripts/bamf-data-sync.mjs` | Only the script writes the two data files; never edit the data by hand |
 | A standing check or sync (automation) | `.pulse/automations/`, the "Automations" section above, `pulse manifest check` | One YAML file per automation plus its script beside it in `.pulse/automations/` as `<name>.sh`; prefer a watch over a job that runs every time |
 | Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |
