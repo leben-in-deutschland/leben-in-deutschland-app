@@ -18,8 +18,8 @@ the three "last updated" signals, the numbering and the release rule - are
 in `catalogue-source.md` beside this file.
 
 Since 2026-11-01 the standing check is a PULSE automation, not a GitHub
-workflow: `.pulse/automations/bamf-catalogue-sync.yaml` runs
-`.pulse/automations/bamf-catalogue-sync.sh` (`src/catalogue/watch.mjs`) every
+workflow: `.hive/automations/bamf-catalogue-sync.yaml` runs
+`.hive/automations/bamf-catalogue-sync.sh` (`src/catalogue/watch.mjs`) every
 day without a model; only when bamf.de shows a new page date, link version or PDF does the
 daemon queue one agent job whose brief is this skill.
 
@@ -280,8 +280,8 @@ daemon queue one agent job whose brief is this skill.
    commits and `scripts/check.sh` runs); in a conversation,
    `pulse land --project leben-in-deutschland --branch <branch>`. The apps
    need no build: they download `questions-core.json` over the air.
-9. The standing check: `.pulse/automations/bamf-catalogue-sync.yaml` is a
-   daily watch of `.pulse/automations/bamf-catalogue-sync.sh`. The watcher
+9. The standing check: `.hive/automations/bamf-catalogue-sync.yaml` is a
+   daily watch of `.hive/automations/bamf-catalogue-sync.sh`. The watcher
    prints nothing
    while the three signals equal `state.json` and prints the changed
    signals otherwise; the daemon then queues one job with this skill as its
@@ -333,6 +333,6 @@ command for each new question).
 - `catalogue-source.md` beside this file (how the official PDF is read and
   what it cannot tell you: firewall, signals, numbering, releases, drift)
 - `AGENTS.md` (public-repository privacy rule, verification commands)
-- `.pulse/automations/bamf-catalogue-sync.yaml`,
-  `.pulse/automations/bamf-catalogue-sync.sh`, `src/catalogue/watch.mjs` (the
+- `.hive/automations/bamf-catalogue-sync.yaml`,
+  `.hive/automations/bamf-catalogue-sync.sh`, `src/catalogue/watch.mjs` (the
   daily watch that queues this skill)

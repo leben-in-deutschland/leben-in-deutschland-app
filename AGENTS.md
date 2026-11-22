@@ -14,6 +14,7 @@ src/store/      Play Console and App Store Connect configuration and the scripts
 src/catalogue/  Official BAMF question-catalogue pipeline
 scripts/        The repository's own checks (`check.sh`, `verify.sh`) and the BAMF data sync (`bamf-data-sync.mjs`, `lib/xlsx.mjs`)
 .pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation plus its watch script (`<name>.yaml` + `<name>.sh`)
+.hive/automations/   The automations already moved to the folder Hive reads, same pair per automation (so far `bamf-catalogue-sync`)
 .pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
 ```
 
@@ -60,11 +61,13 @@ The data syncs that used to be GitHub workflows are PULSE automations in
 schedule list --project leben-in-deutschland` shows them). All three are
 **watches**: the daemon runs the script every day (the exam centres weekly)
 without a model, and queues one agent job - whose brief names the skill -
-only when the script prints a change.
+only when the script prints a change. `bamf-catalogue-sync` already lives in
+`.hive/automations/`, the folder `hive manifest check` reads; there the
+script has to sit under `.hive/` as well, so YAML and script moved together.
 
 | Automation | Script | Skill the job follows |
 | --- | --- | --- |
-| `bamf-catalogue-sync` (daily 06:00 UTC) | `.pulse/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
+| `bamf-catalogue-sync` (daily 06:00 UTC) | `.hive/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
 | `evaluation-sync` (daily 14:00 UTC) | `.pulse/automations/evaluation-sync.sh` → `scripts/bamf-data-sync.mjs evaluation --check` | `bamf-data-sync` |
 | `pruefstellen-sync` (weekly 05:30 UTC) | `.pulse/automations/pruefstellen-sync.sh` → `scripts/bamf-data-sync.mjs pruefstellen --check` | `bamf-data-sync` |
 
