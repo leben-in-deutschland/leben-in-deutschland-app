@@ -14,7 +14,7 @@ the agent job prepares the complete entry (explanation, category, the seven
 translations, a proposed solution with its justification) in
 `data/pending-questions.json`, and it ships only after the owner confirmed
 the answer letter. A daily PULSE watch
-(`.pulse/automations/bamf-catalogue-sync.yaml`) looks for a new catalogue
+(`.hive/automations/bamf-catalogue-sync.yaml`) looks for a new catalogue
 without a model; when one appears, the agent job it queues applies the safe
 part, lands it on `main` (which deploys the web; the apps refresh the
 catalogue over the air), prepares the new questions and hands the owner the
@@ -358,12 +358,12 @@ rewrite, and the PDF is never opened, so it runs without `src/web/node_modules`.
 Diagnostics go to stderr; stdout carries only the change (`landing page
 date … -> …`, `download link version … -> …`, `PDF bytes changed: …`) or
 nothing. Exit `1` on the same errors as `check.mjs`.
-`.pulse/automations/bamf-catalogue-sync.sh` wraps it for PULSE.
+`.hive/automations/bamf-catalogue-sync.sh` wraps it for PULSE.
 
 ## PULSE automation
 
-`.pulse/automations/bamf-catalogue-sync.yaml` is a PULSE **watch**: every
-day at 06:00 UTC the daemon runs `.pulse/automations/bamf-catalogue-sync.sh`
+`.hive/automations/bamf-catalogue-sync.yaml` is a PULSE **watch**: every
+day at 06:00 UTC the daemon runs `.hive/automations/bamf-catalogue-sync.sh`
 in a fresh worktree of `main`, with no model. While the watcher prints nothing, nothing
 happens. When it prints the changed signals, the daemon queues one agent job
 whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sync/SKILL.md`):
