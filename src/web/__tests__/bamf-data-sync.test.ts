@@ -13,6 +13,7 @@ import {
     describePruefstellen,
     formatGermanDate,
     formatGermanDateTime,
+    cleanEmail,
     guardPruefstellen,
     moveWebsite,
     nextEvaluation,
@@ -239,6 +240,18 @@ describe("rowsToCentres", () => {
         expect(centre("vhs@example.org")).toEqual({ regierungsbezirk: "Ansbach", plz: "91522", ort: "Ansbach", einrichtung: "VHS", straße: "Weg 1", telefon: "0", email: "vhs@example.org" });
         expect(centre("")).not.toHaveProperty("website");
         expect(moveWebsite({ email: "vhs-verband-mv.de" })).toEqual({ email: "", website: "vhs-verband-mv.de" });
+    });
+
+    it("drops a label or punctuation typed before an e-mail address", () => {
+        const header = ["", "Kreis", "PLZ", "Ort", "Name der Prüfstelle", "Straße", "Telefon", "E-Mail"];
+        const email = (value: string) => rowsToCentres([header, ["", "Köln", "50667", "Köln", "VHS", "Weg 1", "0", value]])[0].email;
+        expect(email(": Stefanie.Heydenreich@STADT-KOELN.DE")).toBe("Stefanie.Heydenreich@STADT-KOELN.DE");
+        expect(email("E-Mail: vhs@example.org")).toBe("vhs@example.org");
+        expect(email("mailto:vhs@example.org")).toBe("vhs@example.org");
+        expect(email("vhs@example.org")).toBe("vhs@example.org");
+        expect(email("emailbox@example.org")).toBe("emailbox@example.org");
+        expect(cleanEmail(undefined)).toBe("");
+        expect(cleanEmail(" ; ")).toBe("");
     });
 });
 
