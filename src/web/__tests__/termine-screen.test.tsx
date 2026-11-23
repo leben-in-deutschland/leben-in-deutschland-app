@@ -13,11 +13,16 @@ const mocks = vi.hoisted(() => ({
     refresh: vi.fn(async (): Promise<TermineData | null> => null),
     notify: vi.fn(async () => 1),
     toast: vi.fn(),
+    push: vi.fn(),
 }));
 
 vi.mock("@/services/termine", () => ({ refreshTermine: mocks.refresh }));
 vi.mock("@/services/notifications", () => ({ notifyTermine: mocks.notify }));
 vi.mock("react-toastify", () => ({ toast: mocks.toast }));
+vi.mock("next/navigation", async (importOriginal) => ({
+    ...(await importOriginal<typeof import("next/navigation")>()),
+    useRouter: () => ({ push: mocks.push, replace: vi.fn(), prefetch: vi.fn() }),
+}));
 vi.mock("@capacitor/core", async (importOriginal) => {
     const original = await importOriginal<typeof import("@capacitor/core")>();
     return {
@@ -102,6 +107,7 @@ beforeEach(() => {
     mocks.refresh.mockReset().mockResolvedValue(null);
     mocks.notify.mockReset().mockResolvedValue(1);
     mocks.toast.mockReset();
+    mocks.push.mockReset();
 });
 
 afterEach(() => {
@@ -269,7 +275,9 @@ describe("exam-date alerts", () => {
         const body = `VHS Fürth: ${day}.${month}.${year}, 09:00. Anmelden kannst du dich bei der Prüfstelle.`;
         expect(mocks.notify).toHaveBeenCalledTimes(1);
         expect(mocks.notify).toHaveBeenCalledWith([{ key: "by-fuerth/f1", route: "/termine", title, body }], de);
-        expect(mocks.toast).toHaveBeenCalledWith(`${title} — ${body}`, { toastId: "termine-by-fuerth/f1" });
+        expect(mocks.toast).toHaveBeenCalledWith(`${title} — ${body}`, expect.objectContaining({ toastId: "termine-by-fuerth/f1" }));
+        // The inbox keeps the note for this learner, so the toast leaves by itself.
+        expect(mocks.toast.mock.calls[0][1]).not.toHaveProperty("autoClose");
         const note = readUser()?.inbox?.find((item) => item.type === "termine");
         expect(note).toMatchObject({ id: `termine-open-by-fuerth/f1-${TODAY}`, route: "/termine", read: false });
         expect(readWatch().known["by-fuerth/f1"]).toEqual({ status: "free", date: SOON });
@@ -305,6 +313,23 @@ describe("exam-date alerts", () => {
         expect(mocks.notify).not.toHaveBeenCalled();
         expect(mocks.toast).not.toHaveBeenCalled();
         expect(readWatch().known["by-fuerth/f1"]).toEqual({ status: "full", date: SOON });
+    });
+
+    it("keeps the message until it is closed for a website visitor without a learner record, and opens the dates on a tap", async () => {
+        writeWatch(watchCentre(EMPTY_WATCH, FUERTH, TODAY));
+        termineStore.storeData(DATA);
+        await mount(<Alerts />);
+        await act(async () => {
+            termineStore.storeData({ ...DATA, centres: [centre("by-fuerth", "BY", "Fürth", [slot("f1", SOON, "free")]), KISSINGEN, KOELN] });
+        });
+        // No learner record means no inbox: the toast is the only place this news appears.
+        expect(readUser()).toBeNull();
+        expect(mocks.toast).toHaveBeenCalledTimes(1);
+        const [text, options] = mocks.toast.mock.calls[0];
+        expect(text).toContain("Freier Platz in Fürth");
+        expect(options).toMatchObject({ toastId: "termine-by-fuerth/f1", autoClose: false });
+        options.onClick();
+        expect(mocks.push).toHaveBeenCalledWith("/termine");
     });
 
     it("leaves the system notification out when the learner switched notifications off", async () => {
