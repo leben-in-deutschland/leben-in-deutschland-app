@@ -344,8 +344,12 @@ describe("Kufer adapter", () => {
 
     it("gives every course its own traffic light when the template's markers are missing", () => {
         const read = (html: string) => parseKufer(html, PAGE, { today: TODAY }).courses.map((course) => [course.id, course.date, course.time, course.status, course.place]);
-        // The card template with its comments stripped: the light stands in front of the link.
-        expect(read(KUFER_CARDS.replace(/<!--.*?-->/g, ""))).toEqual([
+        // The card template as a site that minifies its pages serves it: the marker lines are gone, the light stands in front of the link.
+        const unmarked = KUFER_CARDS.split("\n")
+            .filter((line) => !line.startsWith("<!--"))
+            .join("\n");
+        expect(unmarked).not.toContain("B12");
+        expect(read(unmarked)).toEqual([
             ["YCW44803", "2026-11-27", "13:00", "free", "Calw, vhs, Raum 12"],
             ["YCW44804", "2027-01-22", "13:00", "unknown", "Calw, vhs, Raum 12"],
         ]);
