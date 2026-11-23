@@ -8,8 +8,8 @@
 // stderr, so stdout carries only the change. Exit 1 on an error (network,
 // firewall redirect, a body that is not a PDF).
 //
-// The PULSE watch automation (.pulse/automations/bamf-catalogue-sync.yaml via
-// .pulse/automations/bamf-catalogue-sync.sh) runs this daily, with no model, in a fresh
+// The PULSE watch automation (.hive/automations/bamf-catalogue-sync.yaml via
+// .hive/automations/bamf-catalogue-sync.sh) runs this daily, with no model, in a fresh
 // worktree of the default branch without node_modules; it therefore never
 // opens the PDF (no pdfjs) and leaves state.json and output/ untouched. When
 // it prints something, the job it queues runs check.mjs and the rest of the
