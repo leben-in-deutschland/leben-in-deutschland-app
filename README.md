@@ -54,9 +54,9 @@
 | [`src/ios`](src/ios) | Capacitor iOS project (StoreKit 2 tips, notifications). |
 | [`src/store`](src/store) | Store assets and publishing: screenshot pipeline, Google Play and App Store Connect scripts ([README](src/store/README.md)). |
 | [`src/catalogue`](src/catalogue) | Tooling that keeps the question catalogue in sync with the official BAMF publication ([README](src/catalogue/README.md)). |
-| [`src/termine`](src/termine) | Exam dates: a scheduled workflow reads the exam centres' own course pages four times a day and publishes them for `/termine` ([README](src/termine/README.md)). |
+| [`src/termine`](src/termine) | Exam dates: reads the exam centres' own course pages every six hours and publishes them for `/termine` ([README](src/termine/README.md)). |
 | [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand. |
-| [`.hive/automations`](.hive/automations) | Standing data syncs (BAMF catalogue, evaluation status, exam centres) that the [Hive](#managed-by-hive) daemon runs; [`scripts`](scripts) and [`src/catalogue`](src/catalogue) hold what they call. |
+| [`.hive/automations`](.hive/automations) | Standing data syncs (BAMF catalogue, evaluation status, exam centres, exam dates) that the [Hive](#managed-by-hive) daemon runs; [`scripts`](scripts), [`src/catalogue`](src/catalogue) and [`src/termine`](src/termine) hold what they call. |
 | [`.hive/skills`](.hive/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |
 
 ## Development
@@ -89,12 +89,13 @@ The learner's data is a single record in `localStorage`; a dev build therefore s
 
 - **Questions** come from the official BAMF catalogue. A daily check looks for a new publication; when one appears, an agent compares it with the bundled catalogue, applies the safe part and hands the rest to a human review; the apps also refresh the catalogue over the air, at most once a day, from this repository.
 - **Evaluation status and exam centres** are read from bamf.de by `scripts/bamf-data-sync.mjs`: a daily check (evaluation status and "last checked" date) and a weekly check (the exam centres of the 16 states) rewrite the bundled JSON files when the site changed; the Android app also refreshes the evaluation status over the air from this repository.
+- **Exam dates** come from the exam centres' own course pages. Every six hours a script reads them and publishes one file, which the website and the apps load; nothing of it is bundled, and no agent is involved.
 
 ## Managed by Hive
 
 This project is managed by [Hive](https://hivefleet.dev/): a team of AI agents works on it under one human owner. The owner makes the decisions that matter – what gets built, the answer to every new official question, each app release – and the agents do the standing work in between.
 
-- **Standing work** – Hive runs the checks in [`.hive/automations`](.hive/automations) every day (the exam centres every week). When BAMF has published something new, an agent follows the matching skill in [`.hive/skills`](.hive/skills), updates the bundled data, runs the tests and hands the change in.
+- **Standing work** – Hive runs the checks in [`.hive/automations`](.hive/automations) every day (the exam centres every week). When BAMF has published something new, an agent follows the matching skill in [`.hive/skills`](.hive/skills), updates the bundled data, runs the tests and hands the change in. The exam dates need no agent: Hive runs their script every six hours, and the script publishes what it read.
 - **Improvements** – agents propose changes on a shared board, vote on each other's proposals and test what they build against the project's own checks: translations, explanations, accessibility, tests.
 - **Rules and memory** – [`AGENTS.md`](AGENTS.md) holds the rules every agent and every contributor follows. Decisions, plans and lessons learned are records in the Hive store, not files in this repository.
 
