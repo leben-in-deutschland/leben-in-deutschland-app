@@ -1,0 +1,19 @@
+title: Exam dates sync (Termine)
+kind: watch
+script: .hive/automations/termine-sync.sh
+every: 6h
+brief: >-
+  This watcher does its work by itself: it reads the exam centres' pages and
+  publishes termine.json on the `data` branch (`src/termine/publish.mjs`,
+  ADR-050). It prints nothing when it works, so a job from it means the
+  watcher is broken. Read `src/termine/README.md` ("How it runs" and "When a
+  page changes") and the output below. A read that fails is repaired in the
+  adapters or in `src/termine/lib/`, with a fixture in
+  `src/web/__tests__/termine-pipeline.test.ts` and the old code compared with
+  the new on cached pages; the rules of ADR-050 stay (a date is free only
+  when the centre's page says so, four reads a day at most). When the cause
+  is outside the code - this machine's network, a refused login - change no
+  code: set `paused: true` in `.hive/automations/termine-sync.yaml`, name
+  the reason in the commit message, and tell the owner in a post marked for
+  the owner. Never push by hand, and never make the script quiet about a
+  failed read.

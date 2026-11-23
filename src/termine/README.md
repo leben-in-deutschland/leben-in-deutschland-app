@@ -18,10 +18,11 @@ of `src/catalogue/`. No npm dependency, only Node built-ins (`fetch`,
 
 ```text
 src/termine/
-  sync.mjs             Reads every source, validates, writes termine.json (the scheduled workflow runs this)
+  sync.mjs             Reads every source, validates, writes termine.json
+  publish.mjs          One run of the automation: reads what is published, runs sync.mjs, pushes the file as one commit to the `data` branch
   discover.mjs         Maintenance tool: finds the page with the test dates for BAMF's exam centres -> output/candidates.json; --merge adds them to sources.json
   sources.json         COMMITTED: the registry - one entry per exam centre: id, state, town, name, adapter, page
-  data-branch.md       README of the `data` branch, copied there by the workflow
+  data-branch.md       README of the `data` branch; publish.mjs puts it there with every commit
   adapters/kufer.mjs   Kufer (KuferWEB): the course system of most Volkshochschulen
   adapters/item.mjs    ITEM (vhs-cms): many Bavarian and some other Volkshochschulen
   adapters/index.mjs   The adapters by name
@@ -35,7 +36,9 @@ src/termine/
 ```
 
 Tests: `src/web/__tests__/termine-pipeline.test.ts` (fixtures shaped like the
-live pages; nothing touches the network).
+live pages; nothing touches the network) and `termine-publish.test.ts` (what
+a run leaves on the `data` branch; a bare repository in a temporary folder
+is the remote).
 
 ## Rules
 
@@ -79,7 +82,7 @@ live pages; nothing touches the network).
   failed read too ("no course found on the page"): a maintenance page or a
   changed link shape must not wipe the dates at once. A run in which fewer
   than half of the sources that answered last time answer writes nothing
-  and exits 1.
+  and exits 1, and so does a run in which no source answers at all.
 - **A centre can opt out.** Remove its entry from `sources.json`; the legal
   notice of the website has the contact.
 
@@ -91,6 +94,7 @@ Run everything from the repository root.
 node src/termine/sync.mjs                         # read every source -> src/termine/output/termine.json
 node src/termine/sync.mjs --out FILE --previous FILE
 node src/termine/sync.mjs --only by-vhs-kisshab   # look at one source; prints its result, writes nothing
+node src/termine/publish.mjs --dry-run            # one run of the automation without the push (reads every source)
 
 node src/termine/discover.mjs --cache /tmp/termine-cache          # every exam centre of BAMF's list
 node src/termine/discover.mjs --state by --cache /tmp/termine-cache
@@ -145,11 +149,19 @@ app versions could not read needs a new `version` and a new file name.
 
 ## How it runs
 
-`.github/workflows/termine-sync.yml` runs `sync.mjs` four times a day
-(05:17, 09:17, 13:17, 17:17 UTC) and by hand (`workflow_dispatch`), with
-the published file as `--previous`, and commits the result as
-`termine.json` to the **`data` branch** with the workflow's own token. No
-secret, nothing on `main`, no build, no deploy.
+The Hive automation `.hive/automations/termine-sync.yaml` is a watch: the
+daemon runs its script every six hours, without a model. The script calls
+`publish.mjs`, and one run does this:
+
+1. It reads what is published - the **`data` branch**, from the
+   repository's public address, without a login. A file younger than three
+   hours ends the run: four reads a day at most, also when somebody starts
+   a run by hand shortly after a scheduled one.
+2. `sync.mjs` reads the centres, with the published file as `--previous`.
+3. The new `termine.json` and the branch's README become one commit on top
+   of the published one, and `git push origin <commit>:refs/heads/data`
+   publishes it. Nothing else is ever pushed, and never with force. Nothing
+   lands on `main`, nothing is built or deployed.
 
 - The apps download
   `https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/data/termine.json`
@@ -159,8 +171,31 @@ secret, nothing on `main`, no build, no deploy.
   rewrites that to the same raw file, so the browser talks to no third
   party.
 
-A failed run changes nothing: the published file stays, GitHub reports the
-failed workflow.
+What a run says goes to standard error: `hive schedule log SCHED-NNN` shows
+the last run, `hive schedule list --project leben-in-deutschland` the
+schedule and its state. Nothing is printed on standard output - Hive gives
+a watch that prints there an agent job.
+
+- **The read fails** (most centres silent, a file of the wrong shape, a
+  crash): exit 1. Nothing is published and the published file stays.
+- **The push is refused**: exit 1 as well; the dates were read and are not
+  published. The push uses the git login of the checkout the daemon runs
+  the script in - the one a `git push` typed there would use. Hive gives a
+  script no credential of its own.
+- **Another run published while this one was reading**: nothing to do,
+  exit 0.
+- **The published branch cannot be reached** (the machine is offline):
+  nothing is read, exit 0.
+
+Hive marks the watcher broken at the first exit 1 and sends an agent after
+three in a row. While nothing is published the file ages, and the app
+shows a centre whose last read is older than 36 hours as not confirmed.
+
+By hand, in a checkout with push rights: `node src/termine/publish.mjs
+--dry-run` reads the centres and builds the commit without pushing; without
+`--dry-run` it publishes; `--even-if-fresh` reads although the published
+file is young. `hive schedule run SCHED-NNN` makes the automation due at
+once; the six hours then count from that run.
 
 ## Adding an exam centre
 
@@ -185,7 +220,7 @@ what a learner's watch list stores, so it never changes once published.
 
 ## When a page changes
 
-A source that stops being read shows up in the workflow log
+A source that stops being read shows up in the run's log
 (`! by-vhs-x: the page is not a kufer course list any more`, or
 `! by-vhs-x: no course found on the page`) and in the file (`ok: false`).
 Fetch the page once with `--only`, find what moved, fix the adapter and
@@ -216,6 +251,9 @@ websites run a system no adapter knows yet.
   `sources.json`; the next run publishes the file without it.
 - A bad run on the `data` branch: `git revert` the commit there (or wait for
   the next run, which rewrites the file).
-- The whole feature: disable the workflow in the repository's Actions
-  settings; the page then says that the dates could not be loaded and links
-  the list of exam centres. Nothing on `main` depends on the file.
+- No more reads: `paused: true` in `.hive/automations/termine-sync.yaml`.
+  The published file then ages, and after 36 hours the app shows its dates
+  as not confirmed.
+- The whole feature: delete the `data` branch as well; the page then says
+  that the dates could not be loaded and links the list of exam centres.
+  Nothing on `main` depends on the file.

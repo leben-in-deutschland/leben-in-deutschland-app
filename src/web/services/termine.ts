@@ -6,12 +6,13 @@ import { nativeHttpSupported, refreshRemoteFile, refreshSiteFile } from "./remot
  * Exam dates refresh (ADR-050).
  *
  * `src/termine/sync.mjs` reads the exam centres' own course pages a few
- * times a day and the scheduled workflow publishes the result as
- * `termine.json` on the `data` branch of this repository. The file changes
- * too often to be bundled, so nothing ships with the app: the apps download
- * it from GitHub like the evaluation status (`services/evaluation.ts`), and
- * the website asks its own origin, where Vercel passes the request on to the
- * same file (`vercel.json`) - the browser never talks to a third party.
+ * times a day and `src/termine/publish.mjs`, a Hive automation, publishes
+ * the result as `termine.json` on the `data` branch of this repository. The
+ * file changes too often to be bundled, so nothing ships with the app: the
+ * apps download it from GitHub like the evaluation status
+ * (`services/evaluation.ts`), and the website asks its own origin, where
+ * Vercel passes the request on to the same file (`vercel.json`) - the
+ * browser never talks to a third party.
  */
 
 /** The published file, for the apps. */

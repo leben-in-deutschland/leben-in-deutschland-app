@@ -1,11 +1,11 @@
 # Exam dates (generated)
 
-`termine.json` on this branch is written by the scheduled workflow
-`.github/workflows/termine-sync.yml` of the
-[Leben in Deutschland app](https://github.com/leben-in-deutschland/leben-in-deutschland-app):
+`termine.json` on this branch is written by a script of the
+[Leben in Deutschland app](https://github.com/leben-in-deutschland/leben-in-deutschland-app),
+`src/termine/publish.mjs`, which runs every six hours:
 `src/termine/sync.mjs` reads the public course pages of exam centres for the
-Einbürgerungstest and the test "Leben in Deutschland" a few times a day and
-stores, per centre, the dates it lists and what the page says about places.
+Einbürgerungstest and the test "Leben in Deutschland" and stores, per
+centre, the dates it lists and what the page says about places.
 
 - The app and the website read this file; nothing here is edited by hand.
 - Every date links to the exam centre's own page. That page is what counts:
