@@ -5,17 +5,18 @@
 //   node src/termine/sync.mjs --out FILE [--previous FILE] [--only ID] [--concurrency N]
 //
 // One GET per source (plus the site's robots.txt), a few times a day, from
-// the scheduled workflow (.github/workflows/termine-sync.yml), which
-// publishes the file on the `data` branch. Nothing is posted, no login, no
-// cookie is kept; a site whose robots.txt says no is not read.
+// publish.mjs (the Hive automation .hive/automations/termine-sync.yaml),
+// which publishes the file on the `data` branch. Nothing is posted, no
+// login, no cookie is kept; a site whose robots.txt says no is not read.
 //
 // A source that cannot be read keeps the dates of its last good read for
 // STALE_DAYS and is marked `ok: false`; after that its dates are dropped
 // rather than shown as current. A page that suddenly lists no course at all
 // while dates are known for the centre counts as not read: that is a moved
 // or broken page, not news. The run fails (exit 1, nothing written) when
-// the result is not the shape the app expects or when most sources that
-// answered last time are silent now - that is a broken run, not news.
+// the result is not the shape the app expects, when most sources that
+// answered last time are silent now, or when no source answered at all -
+// that is a broken run, not news.
 //
 // Node 22, built-ins only.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -280,7 +281,9 @@ export function buildTermine(sources, results, previousData, now = new Date()) {
 }
 
 /**
- * A run in which most of the sources that answered last time are silent is a broken run.
+ * A run in which most of the sources that answered last time are silent is a
+ * broken run, and so is one in which no source answered - also the first
+ * run, which has no last time: that is this machine's network, not news.
  *
  * @param {{ centres?: { ok?: boolean }[] } | null} previousData
  * @param {{ centres: { ok?: boolean }[] }} data
@@ -290,6 +293,9 @@ export function guardTermine(previousData, data) {
     const answeredNow = data.centres.filter((centre) => centre.ok).length;
     if (answeredBefore >= 10 && answeredNow < answeredBefore / 2) {
         fail(`only ${answeredNow} sources answered, ${answeredBefore} did last time; keeping the previous file`);
+    }
+    if (data.centres.length > 0 && answeredNow === 0) {
+        fail(`none of the ${data.centres.length} sources answered; nothing written`);
     }
 }
 

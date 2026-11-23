@@ -664,6 +664,12 @@ describe("sync", () => {
         expect(() => guardTermine(before, dark)).toThrow(/only 5 sources answered/);
         expect(() => guardTermine(null, dark)).not.toThrow();
     });
+
+    it("refuses a run in which no centre answered, also the first one", () => {
+        const silent = { centres: Array.from({ length: 20 }, (_, index) => ({ id: `c${index}`, ok: false })) };
+        expect(() => guardTermine(null, silent)).toThrow(/none of the 20 sources answered/);
+        expect(() => guardTermine({ centres: [] }, { centres: [] })).not.toThrow();
+    });
 });
 
 describe("the registry", () => {
