@@ -43,6 +43,7 @@
     "termine_checked": "Read: {time}",
     "termine_unconfirmed": "Not reachable lately – as of {time}",
     "termine_never_read": "We could not read this exam centre yet.",
+    "termine_unreadable": "We cannot read this exam centre's page right now.",
     "termine_no_dates": "The exam centre's page shows no date right now.",
     "termine_open_centre": "To the exam centre",
     "termine_open_date_aria": "Open {title} on {date} on the exam centre's page",

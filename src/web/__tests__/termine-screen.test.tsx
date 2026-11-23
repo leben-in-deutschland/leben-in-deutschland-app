@@ -132,6 +132,27 @@ describe("exam dates page", () => {
         expect(mocks.refresh).toHaveBeenCalledTimes(1);
     });
 
+    it("says of a centre it could not read that it could not read it - not that its page lists no date", async () => {
+        const read = centre("by-leer", "BY", "Aach", []);
+        const lost = centre("by-still", "BY", "Zell", [], { ok: false, checkedAt: new Date(Date.now() - 5 * 86_400_000).toISOString() });
+        const never = centre("by-nie", "BY", "Ulm", [], { ok: false, checkedAt: null });
+        termineStore.storeData({ ...DATA, centres: [read, lost, never] });
+        await mount(<TermineScreen initialState="BY" states={STATES} />);
+
+        const text = (id: string) => container.querySelector(`[data-testid='termine-centre-${id}']`)!.textContent ?? "";
+        expect(text("by-leer")).toContain(de.termine_status_none);
+        expect(text("by-leer")).toContain(de.termine_no_dates);
+        for (const [id, said] of [
+            ["by-still", de.termine_unreadable],
+            ["by-nie", de.termine_never_read],
+        ]) {
+            expect(text(id)).toContain(said);
+            expect(text(id)).not.toContain(de.termine_status_none);
+            expect(text(id)).not.toContain(de.termine_no_dates);
+        }
+        expect(text("by-still")).toContain("Zuletzt nicht erreichbar");
+    });
+
     it("links every state to its own page on the website and says so when a state has no centre yet", async () => {
         termineStore.storeData(DATA);
         await mount(<TermineScreen initialState="BE" states={STATES} />);
@@ -259,6 +280,31 @@ describe("exam-date alerts", () => {
         });
         expect(mocks.notify).toHaveBeenCalledTimes(1);
         expect(readUser()?.inbox?.filter((item) => item.type === "termine")).toHaveLength(1);
+    });
+
+    it("stays quiet, and stops, when the device cannot store what it announced", async () => {
+        seedLearner();
+        writeWatch(watchCentre(EMPTY_WATCH, FUERTH, TODAY));
+        const setItem = Storage.prototype.setItem;
+        const writes = vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (this: Storage, key: string, value: string) {
+            if (key === TERMINE_WATCH_KEY) {
+                throw new DOMException("full", "QuotaExceededError");
+            }
+            setItem.call(this, key, value);
+        });
+        try {
+            await mount(<Alerts />);
+            // News that cannot be remembered would be news again on every pass - for ever.
+            await act(async () => {
+                termineStore.storeData({ ...DATA, centres: [centre("by-fuerth", "BY", "Fürth", [slot("f1", SOON, "free")]), KISSINGEN, KOELN] });
+            });
+            expect(writes.mock.calls.filter(([key]) => key === TERMINE_WATCH_KEY)).toHaveLength(1);
+        } finally {
+            writes.mockRestore();
+        }
+        expect(mocks.notify).not.toHaveBeenCalled();
+        expect(mocks.toast).not.toHaveBeenCalled();
+        expect(readWatch().known["by-fuerth/f1"]).toEqual({ status: "full", date: SOON });
     });
 
     it("leaves the system notification out when the learner switched notifications off", async () => {

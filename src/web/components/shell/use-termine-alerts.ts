@@ -68,9 +68,10 @@ export function useTermineAlerts(t: Translations) {
         }
         const today = dayKey();
         const { alerts, watch: next } = detectAlerts(watch, data, today);
-        if (next !== watch) {
-            // Stored before anything is shown, so the same news is never announced twice.
-            writeWatch(next);
+        // Stored before anything is shown, so the same news is never announced twice -
+        // and when it cannot be stored, it is not announced: it would be news again on every pass.
+        if (next !== watch && !writeWatch(next)) {
+            return;
         }
         if (alerts.length === 0) {
             return;

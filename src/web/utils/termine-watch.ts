@@ -206,9 +206,12 @@ export function subscribeWatch(listener: () => void): () => void {
     };
 }
 
-/** Stores the watch list on this device and tells every subscriber. Returns false when storage fails. */
+/**
+ * Stores the watch list on this device and tells every subscriber. Returns
+ * false when storage fails; then nothing changed, and nobody is told - a
+ * subscriber that stores in answer would be called for ever.
+ */
 export function writeWatch(watch: TermineWatch): boolean {
-    let stored = true;
     try {
         if (watch.centres.length === 0) {
             window.localStorage.removeItem(TERMINE_WATCH_KEY);
@@ -216,9 +219,9 @@ export function writeWatch(watch: TermineWatch): boolean {
             window.localStorage.setItem(TERMINE_WATCH_KEY, JSON.stringify(watch));
         }
     } catch {
-        stored = false;
+        return false;
     }
     lastRaw = undefined;
     listeners.forEach((listener) => listener());
-    return stored;
+    return true;
 }

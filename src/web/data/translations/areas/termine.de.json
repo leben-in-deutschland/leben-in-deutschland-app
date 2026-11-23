@@ -43,6 +43,7 @@
     "termine_checked": "Gelesen: {time}",
     "termine_unconfirmed": "Zuletzt nicht erreichbar – Stand {time}",
     "termine_never_read": "Diese Prüfstelle konnten wir noch nicht lesen.",
+    "termine_unreadable": "Die Seite dieser Prüfstelle können wir gerade nicht lesen.",
     "termine_no_dates": "Auf der Seite der Prüfstelle steht gerade kein Termin.",
     "termine_open_centre": "Zur Prüfstelle",
     "termine_open_date_aria": "{title} am {date} auf der Seite der Prüfstelle öffnen",

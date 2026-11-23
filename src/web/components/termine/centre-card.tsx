@@ -69,6 +69,8 @@ export function CentreCard({ centre, today, now, language, t, watched, onToggleW
     const readAt = centre.checkedAt ? formatDate(centre.checkedAt, language, READ_AT) : null;
     const unconfirmed = isUnconfirmed(centre, now);
     const WatchIcon = watched ? BellIcon : BellOffIcon;
+    // "No dates online" is a statement about the centre's page. Without a good read there is nothing to state.
+    const nothingKnown = slots.length === 0 && !centre.ok;
 
     return (
         <Surface as="li" className="flex flex-col gap-3" data-testid={`termine-centre-${centre.id}`}>
@@ -81,7 +83,7 @@ export function CentreCard({ centre, today, now, language, t, watched, onToggleW
                     <h2 className="mt-0.5 font-display text-base font-semibold leading-tight text-foreground">{centre.name}</h2>
                     {others.length > 0 ? <p className="mt-0.5 text-xs text-default-500">{fmt(t.termine_also_in, { towns: others.join(", ") })}</p> : null}
                 </div>
-                <StatusChip status={summary} t={t} />
+                {nothingKnown ? null : <StatusChip status={summary} t={t} />}
             </div>
 
             {slots.length > 0 ? (
@@ -102,13 +104,11 @@ export function CentreCard({ centre, today, now, language, t, watched, onToggleW
                     ) : null}
                 </div>
             ) : (
-                <p className="text-sm text-default-500">{readAt ? t.termine_no_dates : t.termine_never_read}</p>
+                <p className="text-sm text-default-500">{centre.ok && readAt ? t.termine_no_dates : readAt ? t.termine_unreadable : t.termine_never_read}</p>
             )}
 
             <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-                <p className={clsx("text-xs", unconfirmed ? "text-warning-700" : "text-default-500")}>
-                    {readAt ? fmt(unconfirmed ? t.termine_unconfirmed : t.termine_checked, { time: readAt }) : null}
-                </p>
+                {readAt ? <p className={clsx("text-xs", unconfirmed ? "text-warning-700" : "text-default-500")}>{fmt(unconfirmed ? t.termine_unconfirmed : t.termine_checked, { time: readAt })}</p> : null}
                 <div className="flex flex-wrap gap-2">
                     <button
                         type="button"
