@@ -1,12 +1,12 @@
 title: Weekly exam-centre (Prüfstellen) check
 kind: watch
-script: .pulse/automations/pruefstellen-sync.sh
+script: .hive/automations/pruefstellen-sync.sh
 every: weekly
 at: "05:30"
 tier: 0
 brief: >-
   bamf.de lists a different set of exam centres (Prüfstellen) than the app
-  bundles. Read the skill bamf-data-sync (`pulse skill show bamf-data-sync`)
+  bundles. Read the skill bamf-data-sync (`hive skill show bamf-data-sync`)
   and follow it for the source `pruefstellen`: write the file with
   `node scripts/bamf-data-sync.mjs pruefstellen`, run the web tests, commit
   the data file with the version bump as one `data:` commit, and finish so

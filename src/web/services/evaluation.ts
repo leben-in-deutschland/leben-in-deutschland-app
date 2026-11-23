@@ -5,8 +5,8 @@ import { nativeHttpSupported, refreshRemoteFile } from "./remote-file";
 /**
  * BAMF evaluation status refresh (ADR-005).
  *
- * The app ships `data/current-evaluation.json` and the daily PULSE watch
- * (`.pulse/automations/evaluation-sync.yaml`) keeps that copy fresh for every
+ * The app ships `data/current-evaluation.json` and the daily Hive watch
+ * (`.hive/automations/evaluation-sync.yaml`) keeps that copy fresh for every
  * build. On Android the installed version would
  * otherwise show the date from its build day, so the app downloads the same
  * public file at most once a day through Capacitor's native HTTP client and

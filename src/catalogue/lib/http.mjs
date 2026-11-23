@@ -58,7 +58,7 @@ async function attempt(url, { headers, timeoutMs }) {
  * GETs `url` and returns the Response for 2xx and 304; throws HttpError for
  * everything else. Network errors and 5xx answers are retried once.
  *
- * The retry notice goes to stderr: the PULSE watches (`.pulse/automations/*.sh`)
+ * The retry notice goes to stderr: the Hive watches (`.hive/automations/*.sh`)
  * queue a job whenever their script prints to stdout, so a reset connection
  * that the retry recovered from must not look like a change on bamf.de.
  */

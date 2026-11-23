@@ -2,7 +2,7 @@
 /*
  * src/catalogue/lib/http.mjs is the one way the BAMF scripts talk to bamf.de
  * (scripts/bamf-data-sync.mjs, src/catalogue/check.mjs and watch.mjs). The
- * PULSE watches in .pulse/automations/ queue a job whenever their script
+ * Hive watches in .hive/automations/ queue a job whenever their script
  * prints to stdout, so a connection reset that the built-in retry recovers
  * from must be reported on stderr only - on 2026-11-03 a retry notice on
  * stdout queued a Prüfstellen and a catalogue job although nothing had

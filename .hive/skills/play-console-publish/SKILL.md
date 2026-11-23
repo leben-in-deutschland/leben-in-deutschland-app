@@ -116,7 +116,7 @@ in `play-billing.md` beside this file.
    a Google account; install the Internal testing build; make one tip
    purchase on a device and confirm the thank-you state; promote the release
    when it is good.
-8. Record: reply on the owner's task or post a `finding` on the PULSE board;
+8. Record: reply on the owner's task or post a `finding` on the Hive board;
    write a `MEM-*` record only for a durable lesson, and update
    `play-billing.md` when one of its facts changed.
 

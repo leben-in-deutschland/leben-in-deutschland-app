@@ -60,7 +60,7 @@ The official source for the test questions is the BAMF PDF
    `questions-core.json` over the air; `android-release.yml` and
    `ios-release.yml` are started by hand. Catalogue commits therefore bump
    the patch version when app data changed and reach `main` through
-   `pulse land`, which the daemon pushes (`landing.push`). Until 2026-11-01
+   `hive land`, which the daemon pushes (`landing.push`). Until 2026-11-01
    this was a GitHub workflow pushing with a `PAT` secret, because a push
    made with a workflow's own `GITHUB_TOKEN` never triggers other
    workflows; the daemon's push is an ordinary push and does trigger them.
@@ -107,7 +107,7 @@ The official source for the test questions is the BAMF PDF
   fail: the PDF layout changed; fix the parser, do not hand-edit the JSON.
 - When someone proposes to apply a `needsReview` entry without the owner,
   to fetch the catalogue from the app at runtime, or to renumber questions.
-- When something other than `pulse land` wants to put a catalogue commit on
+- When something other than `hive land` wants to put a catalogue commit on
   `main`: the hard stops forbid an agent's `git push` and `gh`.
 - Before touching `src/web/data/question.json`, `questions-core.json`, or
   `public/data/` separately.

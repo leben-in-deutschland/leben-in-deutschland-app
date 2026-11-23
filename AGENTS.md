@@ -13,9 +13,8 @@ src/ios/        Native iOS project (Xcode, CocoaPods) generated and maintained w
 src/store/      Play Console and App Store Connect configuration and the scripts that publish it
 src/catalogue/  Official BAMF question-catalogue pipeline
 scripts/        The repository's own checks (`check.sh`, `verify.sh`) and the BAMF data sync (`bamf-data-sync.mjs`, `lib/xlsx.mjs`)
-.pulse/automations/  Standing work the PULSE daemon runs from main: one YAML file per automation plus its watch script (`<name>.yaml` + `<name>.sh`)
-.hive/automations/   The automations already moved to the folder Hive reads, same pair per automation (so far `bamf-catalogue-sync`)
-.pulse/skills/  Project skills: one folder per skill, SKILL.md plus support files
+.hive/automations/  Standing work the Hive daemon runs from main: one YAML file per automation plus its watch script (`<name>.yaml` + `<name>.sh`)
+.hive/skills/       Project skills: one folder per skill, SKILL.md plus support files
 ```
 
 Native code that both apps share by contract lives twice: the `TipJar` and
@@ -24,27 +23,32 @@ Native code that both apps share by contract lives twice: the `TipJar` and
 `AppViewController.swift` registers them like `MainActivity.java` does. Keep
 the two in step when one changes.
 
-## PULSE
+## Hive
 
-This repository is run through PULSE. The store is canonical for everything
+This repository is run through Hive. The store is canonical for everything
 that used to live under `docs/`: decisions, plans, features, memory,
 workflows, prompts, the constitution and the evaluators are records, and
-coordination happens on the board. Start with `pulse guide`, then
-`pulse board --project leben-in-deutschland` and
-`pulse task list --project leben-in-deutschland`. Read records with
-`pulse record list <kind> --project leben-in-deutschland` (`adr`, `memory`,
-`context`, `wu`, ...) and `pulse record show <id>`. Do not recreate a `docs/`
+coordination happens on the board. Start with `hive guide`, then
+`hive board --project leben-in-deutschland` and
+`hive task list --project leben-in-deutschland`. Read records with
+`hive record list <kind> --project leben-in-deutschland` (`adr`, `memory`,
+`context`, `wu`, ...) and `hive record show <id>`. Do not recreate a `docs/`
 control plane, and do not commit tool-specific folders such as `.claude/`,
 `.cursor/`, `.codex/`, or `.opencode/`.
 
+Hive was called PULSE until November 2026. Older branches (`pulse/...`),
+records, the stored guide and the framework skills (`pulse-*`) still carry
+that name; wherever they spell a command as `pulse ...`, the command is
+`hive ...`.
+
 ## Skills
 
-Project skills live in `.pulse/skills/<name>/SKILL.md`, the first folder
-PULSE's harness reads (then `.claude/skills`, `.github/skills`,
-`.agents/skills`, the owner's `~/.pulse/skills`, and the `pulse skill`
+Project skills live in `.hive/skills/<name>/SKILL.md`, the first folder
+Hive's harness reads (then `.claude/skills`, `.github/skills`,
+`.agents/skills`, the owner's `~/.hive/skills`, and the `hive skill`
 registry; a repository skill shadows the owner's). Support files sit beside
 `SKILL.md` and are read on demand. Skills document procedures, never the
-owner's values. The PULSE framework skills are not copied into this
+owner's values. The framework skills (`pulse-*`) are not copied into this
 repository.
 
 | Skill | Use it for |
@@ -56,20 +60,19 @@ repository.
 
 ## Automations
 
-The data syncs that used to be GitHub workflows are PULSE automations in
-`.pulse/automations/` (`pulse manifest check` validates them; `pulse
+The data syncs that used to be GitHub workflows are Hive automations in
+`.hive/automations/` (`hive manifest check` validates them; `hive
 schedule list --project leben-in-deutschland` shows them). All three are
 **watches**: the daemon runs the script every day (the exam centres weekly)
 without a model, and queues one agent job - whose brief names the skill -
-only when the script prints a change. `bamf-catalogue-sync` already lives in
-`.hive/automations/`, the folder `hive manifest check` reads; there the
-script has to sit under `.hive/` as well, so YAML and script moved together.
+only when the script prints a change. An automation's script has to sit
+under `.hive/` as well, so it lives beside its YAML file.
 
 | Automation | Script | Skill the job follows |
 | --- | --- | --- |
 | `bamf-catalogue-sync` (daily 06:00 UTC) | `.hive/automations/bamf-catalogue-sync.sh` → `src/catalogue/watch.mjs` | `bamf-catalogue-sync` |
-| `evaluation-sync` (daily 14:00 UTC) | `.pulse/automations/evaluation-sync.sh` → `scripts/bamf-data-sync.mjs evaluation --check` | `bamf-data-sync` |
-| `pruefstellen-sync` (weekly 05:30 UTC) | `.pulse/automations/pruefstellen-sync.sh` → `scripts/bamf-data-sync.mjs pruefstellen --check` | `bamf-data-sync` |
+| `evaluation-sync` (daily 14:00 UTC) | `.hive/automations/evaluation-sync.sh` → `scripts/bamf-data-sync.mjs evaluation --check` | `bamf-data-sync` |
+| `pruefstellen-sync` (weekly 05:30 UTC) | `.hive/automations/pruefstellen-sync.sh` → `scripts/bamf-data-sync.mjs pruefstellen --check` | `bamf-data-sync` |
 
 The job commits on its branch and the runner lands it on `main`; the daemon
 pushes, and that push deploys the web. No secrets: the scripts only `GET`
@@ -154,7 +157,7 @@ deployments, or external state needs a rollback plan before the first change:
 - **Recovery verification:** checks proving the baseline is restored.
 
 Tier 0 work keeps it as a concise in-session checklist; Tier 1 and Tier 2
-work carries it in the work-unit or plan record (`pulse guide`,
+work carries it in the work-unit or plan record (`hive guide`,
 "Proportional lifecycle tiers"). Never use broad reset, cleanup, history
 rewriting, force-push, or unplanned deletion as rollback shortcuts.
 
@@ -191,14 +194,14 @@ response. Exact facts, paths, commands, and code do not change.
 
 | Request | Read first | Write when useful |
 | --- | --- | --- |
-| Product or architecture decision | `pulse record list context`, `architecture`, `adr`, and `memory` for the project | Tier 2: an ADR record, and the owner's explicit yes before implementation |
+| Product or architecture decision | `hive record list context`, `architecture`, `adr`, and `memory` for the project | Tier 2: an ADR record, and the owner's explicit yes before implementation |
 | New feature or bug fix | Relevant source, tests, and the project's records | Tier 1: a work-unit record naming its ADR; memory only for a durable lesson |
 | Android release signing | The signing rule above, `.github/workflows/android-release.yml`, Android config | Nothing in the repository holds secret values |
-| iOS release signing, TestFlight, App Store | The iOS signing rule above, `.github/workflows/ios-release.yml`, `src/store/README.md` (App Store Connect), `pulse record show PLAN-013` | Nothing in the repository holds secret values; the owner submits to review by hand |
+| iOS release signing, TestFlight, App Store | The iOS signing rule above, `.github/workflows/ios-release.yml`, `src/store/README.md` (App Store Connect), `hive record show PLAN-013` | Nothing in the repository holds secret values; the owner submits to review by hand |
 | Play products, store listing or track upload | `src/store/README.md`, the `play-console-publish` skill | Change `src/store/metadata/`, never a key; production promotion stays the owner's click |
 | App Store products or listing | `src/store/README.md` ("App Store Connect from the command line"), the `app-store-connect-publish` skill | Change `src/store/metadata/`, never a key |
 | BAMF question catalogue (official PDF) | `src/catalogue/README.md`, the `bamf-catalogue-sync` skill | Only `apply.mjs` writes `src/web/data/question.json`, and only the safe part |
 | Evaluation status or exam centres (bamf.de data) | The `bamf-data-sync` skill, `scripts/bamf-data-sync.mjs` | Only the script writes the two data files; never edit the data by hand |
-| A standing check or sync (automation) | `.pulse/automations/`, the "Automations" section above, `pulse manifest check` | One YAML file per automation plus its script beside it in `.pulse/automations/` as `<name>.sh`; prefer a watch over a job that runs every time |
-| Legal pages (`/impressum`, privacy policy, footer and About links) | `pulse record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |
-| Learning or mistake | `pulse record list memory --project leben-in-deutschland` | A `finding` on the board, or a `MEM-*` record when it is durable |
+| A standing check or sync (automation) | `.hive/automations/`, the "Automations" section above, `hive manifest check` | One YAML file per automation plus its script beside it in `.hive/automations/` as `<name>.sh`; prefer a watch over a job that runs every time |
+| Legal pages (`/impressum`, privacy policy, footer and About links) | `hive record show MEM-legal-notice-names-a-natural-person-ddg-mstv-leben-in-deutschland` | Keep the named person, address and contact consistent across all of them; never link the EU ODR platform |
+| Learning or mistake | `hive record list memory --project leben-in-deutschland` | A `finding` on the board, or a `MEM-*` record when it is durable |
