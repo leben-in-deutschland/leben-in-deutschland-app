@@ -1,0 +1,4380 @@
+{
+ "version": 1,
+ "generatedAt": "2026-11-23T15:20:09.938Z",
+ "centres": [
+  {
+   "id": "bb-vhs-brandenburg",
+   "state": "BB",
+   "city": "Brandenburg an der Havel",
+   "name": "VHS Brandenburg an der Havel",
+   "plz": "14776",
+   "url": "https://www.vhs-brandenburg.de/p/mensch-und-gesellschaft/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27F1170000",
+     "date": "2027-01-27",
+     "time": "10:00",
+     "until": "11:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest Anmeldeverfahren und Termin",
+     "deadline": "2026-12-21",
+     "url": "https://www.vhs-brandenburg.de/kurs/mensch-und-gesellschaft/einbuergerungstest/einbuergerungstest-anmeldeverfahren-und-termin/27F1170000"
+    }
+   ]
+  },
+  {
+   "id": "bb-kvhs-uckermark",
+   "state": "BB",
+   "city": "Prenzlau",
+   "name": "Kreisvolkshochschule Uckermark",
+   "plz": "17291",
+   "url": "https://www.kvhs-uckermark.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27EBT01P01",
+     "date": "2027-01-21",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT01P01"
+    },
+    {
+     "id": "27EBT01P02",
+     "date": "2027-01-21",
+     "time": "11:15",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT01P02"
+    },
+    {
+     "id": "27EBT01P03",
+     "date": "2027-01-21",
+     "time": "12:30",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT01P03"
+    },
+    {
+     "id": "27EBT01P04",
+     "date": "2027-01-21",
+     "time": "14:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT01P04"
+    },
+    {
+     "id": "27EBT01P05",
+     "date": "2027-01-21",
+     "time": "15:15",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT01P05"
+    },
+    {
+     "id": "27EBT02P05",
+     "date": "2027-02-18",
+     "time": "15:15",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "P VHS R 104",
+     "url": "https://www.kvhs-uckermark.de/kurssuche/kurs/Einbuergerungstest/27EBT02P05"
+    }
+   ]
+  },
+  {
+   "id": "bb-kreisvolkshochschule-spn",
+   "state": "BB",
+   "city": "Spremberg",
+   "name": "Kreisvolkshochschule Spree-Neiße",
+   "plz": "03130",
+   "url": "https://www.kreisvolkshochschule-spn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26-EBT-S04",
+     "date": "2026-12-02",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Regionalstelle Spremberg - Seminarraum 1.03",
+     "url": "https://www.kreisvolkshochschule-spn.de/programm/kurs/Einbuergerungstest/26-EBT-S04"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-calw",
+   "state": "BW",
+   "city": "Calw",
+   "name": "VHS Calw e.V.",
+   "plz": "75365",
+   "url": "https://www.vhs-calw.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "YCW44803",
+     "date": "2026-11-27",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Calw, vhs, Raum 12",
+     "url": "https://www.vhs-calw.de/kurssuche/kurs/Einbuergerungstest/YCW44803"
+    },
+    {
+     "id": "YCW44804",
+     "date": "2027-01-22",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Calw, vhs, Raum 12",
+     "url": "https://www.vhs-calw.de/kurssuche/kurs/Einbuergerungstest/YCW44804"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-freiburg",
+   "state": "BW",
+   "city": "Freiburg im Breisgau",
+   "name": "VHS Freiburg e.V.",
+   "plz": "79098",
+   "url": "https://www.vhs-freiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262404974",
+     "date": "2027-01-28",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs im Schwarzen Kloster, Theatersaal",
+     "url": "https://www.vhs-freiburg.de/kurssuche/kurs/Einbuergerungstest/262404974"
+    },
+    {
+     "id": "262404975",
+     "date": "2027-01-28",
+     "time": "11:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs im Schwarzen Kloster, Theatersaal",
+     "url": "https://www.vhs-freiburg.de/kurssuche/kurs/Einbuergerungstest/262404975"
+    },
+    {
+     "id": "262404976",
+     "date": "2027-01-28",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs im Schwarzen Kloster, Theatersaal",
+     "url": "https://www.vhs-freiburg.de/kurssuche/kurs/Einbuergerungstest/262404976"
+    },
+    {
+     "id": "262404977",
+     "date": "2027-01-28",
+     "time": "14:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs im Schwarzen Kloster, Theatersaal",
+     "url": "https://www.vhs-freiburg.de/kurssuche/kurs/Einbuergerungstest/262404977"
+    },
+    {
+     "id": "262404978",
+     "date": "2027-01-28",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs im Schwarzen Kloster, Theatersaal",
+     "url": "https://www.vhs-freiburg.de/kurssuche/kurs/Einbuergerungstest/262404978"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-fn",
+   "state": "BW",
+   "city": "Friedrichshafen",
+   "name": "VHS Friedrichshafen",
+   "plz": "88045",
+   "url": "https://www.vhs-fn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "NB2599EBT",
+     "date": "2027-01-15",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs FN, Vortragssaal 1",
+     "url": "https://www.vhs-fn.de/programm/kurs/Einbuergerungstest/NB2599EBT"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-hechingen",
+   "state": "BW",
+   "city": "Hechingen",
+   "name": "Städtische VHS Hechingen",
+   "plz": "72379",
+   "url": "https://www.vhs-hechingen.de/programm/gesellschaft-umwelt-kultur?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-4085",
+     "date": "2026-12-16",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "R. 108",
+     "url": "https://www.vhs-hechingen.de/programm/gesellschaft-umwelt-kultur/kurs/Einbuergerungstest/262-4085"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhskirchheim",
+   "state": "BW",
+   "city": "Kirchheim unter Teck",
+   "name": "VHS Kirchheim u. Teck e.V.",
+   "plz": "73230",
+   "url": "https://www.vhskirchheim.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-PE4",
+     "date": "2026-12-02",
+     "time": "14:30",
+     "status": "closed",
+     "title": "Einbürgerungstest BAMF",
+     "place": "Kirchheim",
+     "url": "https://www.vhskirchheim.de/kurssuche/kurs/Einbuergerungstest/262-PE4"
+    },
+    {
+     "id": "262-PE6",
+     "date": "2027-01-20",
+     "time": "14:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest BAMF",
+     "place": "Kirchheim",
+     "url": "https://www.vhskirchheim.de/kurssuche/kurs/Einbuergerungstest/262-PE6"
+    },
+    {
+     "id": "262-PE7",
+     "date": "2027-02-10",
+     "time": "14:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest BAMF",
+     "place": "Kirchheim",
+     "url": "https://www.vhskirchheim.de/kurssuche/kurs/Einbuergerungstest/262-PE7"
+    }
+   ]
+  },
+  {
+   "id": "bw-abendakademie-mannheim",
+   "state": "BW",
+   "city": "Mannheim",
+   "name": "Mannheimer Abendakademie und VHS GmbH",
+   "plz": "68161",
+   "url": "https://www.abendakademie-mannheim.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": null,
+   "ok": false,
+   "slots": []
+  },
+  {
+   "id": "bw-vhs-markgraeflerland",
+   "state": "BW",
+   "city": "Müllheim",
+   "name": "VHS Markgräflerland e.V.",
+   "plz": "79379",
+   "url": "https://www.vhs-markgraeflerland.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "X40473",
+     "date": "2026-12-03",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus; Raum 11",
+     "url": "https://www.vhs-markgraeflerland.de/programm/kurs/Einbuergerungstest/X40473"
+    },
+    {
+     "id": "X40474",
+     "date": "2027-02-18",
+     "time": "16:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus; Raum 11",
+     "url": "https://www.vhs-markgraeflerland.de/programm/kurs/Einbuergerungstest/X40474"
+    },
+    {
+     "id": "X40475",
+     "date": "2027-04-08",
+     "time": "16:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus; Raum 11",
+     "url": "https://www.vhs-markgraeflerland.de/programm/kurs/Einbuergerungstest/X40475"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-nuertingen",
+   "state": "BW",
+   "city": "Nürtingen",
+   "name": "VHS Nürtingen",
+   "plz": "72622",
+   "url": "https://www.vhs-nuertingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-410072",
+     "date": "2027-01-13",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Test - Leben in Deutschland",
+     "place": "Nürtingen, Schloßbergschule, Raum 204",
+     "url": "https://www.vhs-nuertingen.de/kurssuche/kurs/Test-Leben-in-Deutschland/262-410072"
+    }
+   ]
+  },
+  {
+   "id": "bw-gmuender-vhs",
+   "state": "BW",
+   "city": "Schwäbisch Gmünd",
+   "name": "VHS Schwäbisch-Gmünd e.V.",
+   "plz": "73525",
+   "url": "https://www.gmuender-vhs.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "A404132P",
+     "date": "2027-02-20",
+     "time": "09:00",
+     "until": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "GD, Münsterplatz, Irma-Schmücker-Saal",
+     "url": "https://www.gmuender-vhs.de/programm/kurssuche/kurs/Einbuergerungstest/A404132P"
+    },
+    {
+     "id": "A404132PZ",
+     "date": "2027-02-20",
+     "time": "10:30",
+     "until": "11:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "GD, Münsterplatz, Irma-Schmücker-Saal",
+     "url": "https://www.gmuender-vhs.de/programm/kurssuche/kurs/Einbuergerungstest/A404132PZ"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-landkreis-konstanz",
+   "state": "BW",
+   "city": "Singen (Hohentwiel)",
+   "name": "VHS Landkreis Konstanz e.V.",
+   "plz": "78224",
+   "url": "https://www.vhs-landkreis-konstanz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271-841828",
+     "date": "2027-01-25",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Singen; vhs, Raum E.6",
+     "url": "https://www.vhs-landkreis-konstanz.de/kurssuche/kurs/Einbuergerungstest/271-841828"
+    },
+    {
+     "id": "271-841829",
+     "date": "2027-01-25",
+     "time": "15:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Singen; vhs, Raum E.6",
+     "url": "https://www.vhs-landkreis-konstanz.de/kurssuche/kurs/Einbuergerungstest/271-841829"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-tuebingen",
+   "state": "BW",
+   "city": "Tübingen",
+   "name": "VHS Tübingen e.V.",
+   "plz": "72072",
+   "url": "https://www.vhs-tuebingen.de/veranstaltungssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-479510",
+     "date": "2026-11-28",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Saal",
+     "url": "https://www.vhs-tuebingen.de/veranstaltungssuche/kurs/Einbuergerungstest/262-479510"
+    },
+    {
+     "id": "262-479511",
+     "date": "2026-11-28",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Saal",
+     "url": "https://www.vhs-tuebingen.de/veranstaltungssuche/kurs/Einbuergerungstest/262-479511"
+    },
+    {
+     "id": "262-479512",
+     "date": "2026-11-28",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Saal",
+     "url": "https://www.vhs-tuebingen.de/veranstaltungssuche/kurs/Einbuergerungstest/262-479512"
+    },
+    {
+     "id": "262-479513",
+     "date": "2026-11-28",
+     "time": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Saal",
+     "url": "https://www.vhs-tuebingen.de/veranstaltungssuche/kurs/Einbuergerungstest/262-479513"
+    },
+    {
+     "id": "262-479514",
+     "date": "2026-11-28",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Saal",
+     "url": "https://www.vhs-tuebingen.de/veranstaltungssuche/kurs/Einbuergerungstest/262-479514"
+    }
+   ]
+  },
+  {
+   "id": "bw-vhs-tuttlingen",
+   "state": "BW",
+   "city": "Tuttlingen",
+   "name": "VHS für Stadt und Kreis Tuttlingen e. V.",
+   "plz": "78532",
+   "url": "https://www.vhs-tuttlingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "NTU4049008",
+     "date": "2027-02-26",
+     "time": "08:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest für Einbürgerungswillige",
+     "place": "Tuttlingen, Stadthalle, kleiner Saal",
+     "url": "https://www.vhs-tuttlingen.de/kurssuche/kurs/Einbuergerungstest-fuer-Einbuergerungswillige-20/NTU4049008"
+    }
+   ]
+  },
+  {
+   "id": "bw-vh-ulm",
+   "state": "BW",
+   "city": "Ulm",
+   "name": "Ulmer Volkshochschule",
+   "plz": "89073",
+   "url": "https://www.vh-ulm.de/vh-programm/kurs-finder?clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26H1110507",
+     "date": "2027-02-18",
+     "time": "13:00",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/einbuergerungstest/26H1110507"
+    },
+    {
+     "id": "26H1110508",
+     "date": "2027-02-18",
+     "time": "14:15",
+     "until": "15:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/einbuergerungstest/26H1110508"
+    },
+    {
+     "id": "26H1110509",
+     "date": "2027-02-18",
+     "time": "15:30",
+     "until": "16:45",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/einbuergerungstest/26H1110509"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-aichach-friedberg",
+   "state": "BY",
+   "city": "Aichach",
+   "name": "VHS Landkreis Aichach-Friedberg e.V.",
+   "plz": "86551",
+   "url": "https://www.vhs-aichach-friedberg.de/programm/gesellschaft-leben?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "G40203-18",
+     "date": "2027-01-15",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Aichach; Feuerhaus; Kursraum",
+     "url": "https://www.vhs-aichach-friedberg.de/programm/gesellschaft-leben/kurs/Einbuergerungstest/G40203-18"
+    },
+    {
+     "id": "G40303-18",
+     "date": "2027-01-15",
+     "time": "15:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Aichach; Feuerhaus; Kursraum",
+     "url": "https://www.vhs-aichach-friedberg.de/programm/gesellschaft-leben/kurs/Einbuergerungstest/G40303-18"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-aschaffenburg",
+   "state": "BY",
+   "city": "Aschaffenburg",
+   "name": "VHS Aschaffenburg",
+   "plz": "63741",
+   "url": "https://www.vhs-aschaffenburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271-428001",
+     "date": "2027-02-04",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "136. Einbürgerungstest",
+     "place": "vhs Aschaffenburg, IK Zentrum, Auhofstr. 9, Raum 1.03",
+     "url": "https://www.vhs-aschaffenburg.de/kurssuche/kurs/136-Einbuergerungstest/271-428001"
+    },
+    {
+     "id": "271-428002",
+     "date": "2027-03-04",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "137. Einbürgerungstest",
+     "place": "vhs Aschaffenburg, IK Zentrum, Auhofstr. 9, Raum 1.03",
+     "url": "https://www.vhs-aschaffenburg.de/kurssuche/kurs/137-Einbuergerungstest/271-428002"
+    },
+    {
+     "id": "271-428003",
+     "date": "2027-04-08",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "138. Einbürgerungstest",
+     "place": "vhs Aschaffenburg, IK Zentrum, Auhofstr. 9, Raum 1.03",
+     "url": "https://www.vhs-aschaffenburg.de/kurssuche/kurs/138-Einbuergerungstest/271-428003"
+    },
+    {
+     "id": "271-428004",
+     "date": "2027-05-13",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "139. Einbürgerungstest",
+     "place": "vhs Aschaffenburg, IK Zentrum, Auhofstr. 9, Raum 1.03",
+     "url": "https://www.vhs-aschaffenburg.de/kurssuche/kurs/139-Einbuergerungstest/271-428004"
+    },
+    {
+     "id": "271-428005",
+     "date": "2027-06-17",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "140. Einbürgerungstest",
+     "place": "vhs Aschaffenburg, IK Zentrum, Auhofstr. 9, Raum 1.03",
+     "url": "https://www.vhs-aschaffenburg.de/kurssuche/kurs/140-Einbuergerungstest/271-428005"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-kisshab",
+   "state": "BY",
+   "city": "Bad Kissingen",
+   "name": "Städtische Volkshochschule Bad Kissingen und Hammelburg",
+   "plz": "97688",
+   "url": "https://www.vhs-kisshab.de/p/integration/einbuergerungstest-675-CAT-KAT77",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2627405KG",
+     "date": "2026-12-03",
+     "time": "14:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest 7-26",
+     "place": "Bad Kissingen",
+     "url": "https://www.vhs-kisshab.de/p/integration/einbuergerungstest/einbuergerungstest-7-26-675-C-2627405KG"
+    },
+    {
+     "id": "2717405KG",
+     "date": "2027-02-18",
+     "time": "14:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest 1-27",
+     "place": "Bad Kissingen",
+     "url": "https://www.vhs-kisshab.de/p/integration/einbuergerungstest/einbuergerungstest-1-27-675-C-2717405KG"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-burghausen",
+   "state": "BY",
+   "city": "Burghausen",
+   "name": "VHS Burghausen-Burgkirchen e. V.",
+   "plz": "84489",
+   "url": "https://www.vhs-burghausen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "248026",
+     "date": "2026-11-24",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Mautnerschloss Computerraum, 2. OG",
+     "url": "https://www.vhs-burghausen.de/programm/kurs/Einbuergerungstest/248026"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-eching",
+   "state": "BY",
+   "city": "Eching",
+   "name": "VHS Eching e.V.",
+   "plz": "85386",
+   "url": "https://www.vhs-eching.de/programm/kurssuche/suche?suchesetzen=true&kathaupt=6&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27-4103",
+     "date": "2026-12-04",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4103"
+    },
+    {
+     "id": "27-4104",
+     "date": "2026-12-04",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4104"
+    },
+    {
+     "id": "27-4105",
+     "date": "2027-02-19",
+     "time": "09:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4105"
+    },
+    {
+     "id": "27-4106",
+     "date": "2027-02-19",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4106"
+    },
+    {
+     "id": "27-4107",
+     "date": "2027-05-07",
+     "time": "09:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4107"
+    },
+    {
+     "id": "27-4108",
+     "date": "2027-05-07",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4108"
+    },
+    {
+     "id": "27-4109",
+     "date": "2027-07-16",
+     "time": "09:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4109"
+    },
+    {
+     "id": "27-4110",
+     "date": "2027-07-16",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-eching.de/programm/kurssuche/kurs/Einbuergerungstest/27-4110"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-erding",
+   "state": "BY",
+   "city": "Erding",
+   "name": "Zweckverband Volkshochschule im Landkreis Erding",
+   "plz": "85435",
+   "url": "https://www.vhs-erding.de/p/deutsch-integration/pruefungen/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-4088",
+     "date": "2026-11-26",
+     "time": "16:00",
+     "status": "closed",
+     "title": "Prüfung - Einbürgerungstest",
+     "place": "Erding, VHS-Haus, Raum B 215",
+     "url": "https://www.vhs-erding.de/kurs/deutsch-integration/pruefungen/einbuergerungstest/pruefung-einbuergerungstest/ausgebucht/262-4088"
+    },
+    {
+     "id": "262-4089",
+     "date": "2026-12-17",
+     "time": "16:00",
+     "status": "closed",
+     "title": "Prüfung - Einbürgerungstest",
+     "place": "Erding, VHS-Haus, Raum B 215",
+     "url": "https://www.vhs-erding.de/kurs/deutsch-integration/pruefungen/einbuergerungstest/pruefung-einbuergerungstest/ausgebucht/262-4089"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-freising",
+   "state": "BY",
+   "city": "Freising",
+   "name": "VHS Freising e.V.",
+   "plz": "85354",
+   "url": "https://www.vhs-freising.org/p/fachbereiche/sprachen/einbuergerung",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "263-30930",
+     "date": "2026-12-11",
+     "time": "17:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-104/263-30930"
+    },
+    {
+     "id": "263-30931",
+     "date": "2026-12-11",
+     "time": "17:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-202/263-30931"
+    },
+    {
+     "id": "263-30932",
+     "date": "2026-12-11",
+     "time": "17:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-206/263-30932"
+    },
+    {
+     "id": "271-30900",
+     "date": "2027-01-22",
+     "time": "17:00",
+     "status": "few",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-104/271-30900"
+    },
+    {
+     "id": "271-30901",
+     "date": "2027-01-22",
+     "time": "17:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-202/271-30901"
+    },
+    {
+     "id": "271-30902",
+     "date": "2027-01-22",
+     "time": "17:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-206/271-30902"
+    },
+    {
+     "id": "271-30903",
+     "date": "2027-02-26",
+     "time": "17:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-104/271-30903"
+    },
+    {
+     "id": "271-30904",
+     "date": "2027-02-26",
+     "time": "17:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-202/271-30904"
+    },
+    {
+     "id": "271-30905",
+     "date": "2027-02-26",
+     "time": "17:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs Freising",
+     "url": "https://www.vhs-freising.org/kurs/fachbereiche/sprachen/einbuergerung/einbuergerungstest/raum-206/271-30905"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-fuerth",
+   "state": "BY",
+   "city": "Fürth",
+   "name": "VHS Fürth",
+   "plz": "90762",
+   "url": "https://www.vhs-fuerth.de/p/grundbildung/einbuergerungen/einbuergerungstest-33-fragen",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-63005",
+     "date": "2026-12-04",
+     "time": "09:00",
+     "status": "full",
+     "title": "Prüfung: Einbürgerungstest - 33 Fragen",
+     "place": "Hirschenstr. 27, Raum E.4",
+     "url": "https://www.vhs-fuerth.de/kurs/grundbildung/einbuergerungen/einbuergerungstest-33-fragen/pruefung-einbuergerungstest-33-fragen/262-63005"
+    },
+    {
+     "id": "262-63007",
+     "date": "2027-02-05",
+     "time": "09:00",
+     "status": "full",
+     "title": "Prüfung: Einbürgerungstest - 33 Fragen",
+     "place": "Hirschenstr. 27, Raum E.4",
+     "url": "https://www.vhs-fuerth.de/kurs/grundbildung/einbuergerungen/einbuergerungstest-33-fragen/pruefung-einbuergerungstest-33-fragen/262-63007"
+    },
+    {
+     "id": "262-63007B",
+     "date": "2027-02-05",
+     "time": "10:30",
+     "status": "full",
+     "title": "Prüfung: Einbürgerungstest - 33 Fragen",
+     "place": "Hirschenstr. 27, Raum E.4",
+     "url": "https://www.vhs-fuerth.de/kurs/grundbildung/einbuergerungen/einbuergerungstest-33-fragen/pruefung-einbuergerungstest-33-fragen/262-63007B"
+    },
+    {
+     "id": "262-63007C",
+     "date": "2027-02-05",
+     "time": "12:00",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 33 Fragen",
+     "place": "Hirschenstr. 27, Raum E.4",
+     "url": "https://www.vhs-fuerth.de/kurs/grundbildung/einbuergerungen/einbuergerungstest-33-fragen/pruefung-einbuergerungstest-33-fragen/262-63007C"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-nord",
+   "state": "BY",
+   "city": "Garching b. München",
+   "name": "VHS im Norden des Landkreises München e.V.",
+   "plz": "85748",
+   "url": "https://www.vhs-nord.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "E4800-6",
+     "date": "2026-12-04",
+     "time": "15:00",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Unterschleißheim, vhs-Zentrum, Raum 306, Vortragsraum",
+     "url": "https://www.vhs-nord.de/kurssuche/kurs/Einbuergerungstest/E4800-6"
+    },
+    {
+     "id": "E4800-8",
+     "date": "2027-01-22",
+     "time": "15:00",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Unterschleißheim, vhs-Zentrum, Raum 235, Vortragsraum",
+     "url": "https://www.vhs-nord.de/kurssuche/kurs/Einbuergerungstest/E4800-8"
+    },
+    {
+     "id": "E4800-10",
+     "date": "2027-02-26",
+     "time": "15:00",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Unterschleißheim, vhs-Zentrum, Raum 235, Vortragsraum",
+     "url": "https://www.vhs-nord.de/kurssuche/kurs/Einbuergerungstest/E4800-10"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-gap",
+   "state": "BY",
+   "city": "Garmisch-Partenkirchen",
+   "name": "VHS Garmisch-Partenkirchen e.V.",
+   "plz": "82467",
+   "url": "https://www.vhs-gap.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "W40493EBT",
+     "date": "2026-12-04",
+     "time": "10:00",
+     "status": "full",
+     "title": "Einbürgerungstest - AUSGEBUCHT",
+     "place": "vhs, Burgstr. 21",
+     "url": "https://www.vhs-gap.de/kurssuche/kurs/Einbuergerungstest-AUSGEBUCHT/W40493EBT"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-roth",
+   "state": "BY",
+   "city": "Hilpoltstein",
+   "name": "VHS der Gemeinden im Landkreis Roth",
+   "plz": "91161",
+   "url": "https://www.vhs-roth.de/p/sprachen/deutsch/test-leben-in-deutschland",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "N31200",
+     "date": "2027-01-23",
+     "time": "09:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Test \"Leben in Deutschland\"",
+     "place": "Landwirtschaftsschule, Aula",
+     "url": "https://www.vhs-roth.de/kurs/sprachen/deutsch/test-leben-in-deutschland/test-leben-in-deutschland/N31200"
+    }
+   ]
+  },
+  {
+   "id": "by-inlingua-ingolstadt",
+   "state": "BY",
+   "city": "Ingolstadt",
+   "name": "Zentrum für fremdsprachliche Bildung Ingolstadt GmbH & Co. KG",
+   "plz": "85049",
+   "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27IPRDE106",
+     "date": "2027-01-12",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "free",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/?kathaupt=11&katid=36&knr=27IPRDE106&kursname=Pruefung%20Einbuergerungstest&cHash=34f254522f3058ea5fc79ab0e803bbc4"
+    },
+    {
+     "id": "27IPRDE112",
+     "date": "2027-02-02",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "free",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/?kathaupt=11&katid=36&knr=27IPRDE112&kursname=Pruefung%20Einbuergerungstest&cHash=d1aefb40d8107c0d4244d85618e03265"
+    },
+    {
+     "id": "27IPRDE118",
+     "date": "2027-03-02",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "free",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/?kathaupt=11&katid=36&knr=27IPRDE118&kursname=Pruefung%20Einbuergerungstest&cHash=6823abb9e4d267681fdc14b70b10931b"
+    },
+    {
+     "id": "27IPRDE124",
+     "date": "2027-04-06",
+     "time": "13:00",
+     "until": "14:00",
+     "status": "free",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/?kathaupt=11&katid=36&knr=27IPRDE124&kursname=Pruefung%20Einbuergerungstest&cHash=341e5475065880d4387f834e9c0de106"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-landshut",
+   "state": "BY",
+   "city": "Landshut",
+   "name": "VHS Landshut e.V.",
+   "plz": "84028",
+   "url": "https://www.vhs-landshut.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2623094005",
+     "date": "2026-12-10",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094005"
+    },
+    {
+     "id": "2623094006",
+     "date": "2026-12-10",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094006"
+    },
+    {
+     "id": "2623094007",
+     "date": "2027-01-14",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094007"
+    },
+    {
+     "id": "2623094008",
+     "date": "2027-01-14",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094008"
+    },
+    {
+     "id": "2623094009",
+     "date": "2027-02-18",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094009"
+    },
+    {
+     "id": "2623094010",
+     "date": "2027-02-18",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Test Einbürgerung - staatsbürgerliches Wissen",
+     "place": "vhs Vortragssaal",
+     "url": "https://www.vhs-landshut.de/kurssuche/kurs/Test-Einbuergerung-staatsbuergerliches-Wissen/2623094010"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-moosburg",
+   "state": "BY",
+   "city": "Moosburg a.d.Isar",
+   "name": "VHS Moosburg e.V.",
+   "plz": "85368",
+   "url": "https://www.vhs-moosburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262.3071",
+     "date": "2026-11-26",
+     "time": "15:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Stadtplatz 2, Raum UG4",
+     "url": "https://www.vhs-moosburg.de/kurssuche/kurs/Einbuergerungstest/262.3071"
+    },
+    {
+     "id": "262.3072",
+     "date": "2027-02-25",
+     "time": "15:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Stadtplatz 2, Raum UG4",
+     "url": "https://www.vhs-moosburg.de/kurssuche/kurs/Einbuergerungstest/262.3072"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-muehldorf",
+   "state": "BY",
+   "city": "Mühldorf a. Inn",
+   "name": "VHS Mühldorf e. V.",
+   "plz": "84453",
+   "url": "https://www.vhs-muehldorf.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "E36901",
+     "date": "2026-12-11",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Deutsch - Einbürgerungstest",
+     "place": "vhs-Zentrum Schlörstraße Raum 07/UG",
+     "url": "https://www.vhs-muehldorf.de/kurssuche/kurs/Deutsch-Einbuergerungstest/E36901"
+    },
+    {
+     "id": "F36900",
+     "date": "2027-03-19",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Deutsch - Einbürgerungstest",
+     "place": "vhs-Zentrum Schlörstraße Raum 07/UG",
+     "url": "https://www.vhs-muehldorf.de/kurssuche/kurs/Deutsch-Einbuergerungstest/F36900"
+    }
+   ]
+  },
+  {
+   "id": "by-mvhs",
+   "state": "BY",
+   "city": "München",
+   "name": "Münchner Volkshochschule GmbH",
+   "plz": "81675",
+   "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "X674130",
+     "date": "2027-01-22",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "Innenstadt",
+     "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerungstest/10-tage-vor-der-pruefung-bekommen-sie-die-genauen-pruefungszeiten-per-e-mail-zugeschickt-460-C-X674130"
+    },
+    {
+     "id": "X674140",
+     "date": "2027-02-25",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "Innenstadt",
+     "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung/einbuergerungstest/10-tage-vor-der-pruefung-bekommen-sie-die-genauen-pruefungszeiten-per-e-mail-zugeschickt-460-C-X674140"
+    }
+   ]
+  },
+  {
+   "id": "by-vhsneuburg",
+   "state": "BY",
+   "city": "Neuburg a.d.Donau",
+   "name": "VHS Neuburg/Donau",
+   "plz": "86633",
+   "url": "https://www.vhsneuburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "23F049",
+     "date": "2026-12-11",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "vhs Gebäude: 1. Stock, Zi. 110",
+     "url": "https://www.vhsneuburg.de/kurssuche/kurs/Einbuergerungstest/23F049"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-regensburger-land",
+   "state": "BY",
+   "city": "Neutraubling",
+   "name": "VHS Landkreis Regensburg",
+   "plz": "93073",
+   "url": "https://www.vhs-regensburger-land.de/p/deutsch-schule/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-305039",
+     "date": "2027-01-29",
+     "time": "12:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305039"
+    },
+    {
+     "id": "262-305040",
+     "date": "2027-01-29",
+     "time": "14:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305040"
+    },
+    {
+     "id": "262-305041",
+     "date": "2027-02-19",
+     "time": "12:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305041"
+    },
+    {
+     "id": "262-305042",
+     "date": "2027-02-19",
+     "time": "14:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305042"
+    },
+    {
+     "id": "262-305043",
+     "date": "2027-03-05",
+     "time": "12:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305043"
+    },
+    {
+     "id": "262-305044",
+     "date": "2027-03-05",
+     "time": "14:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305044"
+    },
+    {
+     "id": "262-305045",
+     "date": "2027-03-19",
+     "time": "12:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305045"
+    },
+    {
+     "id": "262-305046",
+     "date": "2027-03-19",
+     "time": "14:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Neutraubling, vhs im Klosterbau (Königsberger Str. 4)",
+     "url": "https://www.vhs-regensburger-land.de/kurs/deutsch-schule/einbuergerungstest/einbuergerungstest/262-305046"
+    }
+   ]
+  },
+  {
+   "id": "by-vhsosh",
+   "state": "BY",
+   "city": "Oberschleißheim",
+   "name": "VHS Oberschleißheim e.V.",
+   "plz": "85764",
+   "url": "https://www.vhsosh.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": null,
+   "ok": false,
+   "slots": []
+  },
+  {
+   "id": "by-vhs-suedost",
+   "state": "BY",
+   "city": "Ottobrunn",
+   "name": "Volkshochschule SüdOst im Lkr. München GmbH",
+   "plz": "85521",
+   "url": "https://www.vhs-suedost.de/suche/Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-47092",
+     "date": "2026-12-17",
+     "time": "09:00",
+     "status": "full",
+     "title": "Einbürgerungstest 1 Gruppe",
+     "place": "Otb, Wolf-Ferrari-Haus, OG, Ratssaal",
+     "url": "https://www.vhs-suedost.de/kurs/vhs/einbuergerungstest-1-gruppe/262-47092"
+    },
+    {
+     "id": "262-47093",
+     "date": "2026-12-17",
+     "time": "10:30",
+     "status": "full",
+     "title": "Einbürgerungstest 2 Gruppe (ausgebucht)",
+     "place": "Otb, Wolf-Ferrari-Haus, OG, Ratssaal",
+     "url": "https://www.vhs-suedost.de/kurs/vhs/einbuergerungstest-2-gruppe-ausgebucht/262-47093"
+    },
+    {
+     "id": "262-47094",
+     "date": "2027-02-25",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 1 Gruppe",
+     "place": "Otb, Wolf-Ferrari-Haus, OG, Ratssaal",
+     "url": "https://www.vhs-suedost.de/kurs/vhs/einbuergerungstest-1-gruppe/262-47094"
+    },
+    {
+     "id": "262-47095",
+     "date": "2027-02-25",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest 2 Gruppe",
+     "place": "Otb, Wolf-Ferrari-Haus, OG, Ratssaal",
+     "url": "https://www.vhs-suedost.de/kurs/vhs/einbuergerungstest-2-gruppe/262-47095"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-rottenburg-laaber",
+   "state": "BY",
+   "city": "Rottenburg a.d.Laaber",
+   "name": "vhs Rottenburg e.V.",
+   "plz": "84056",
+   "url": "https://www.vhs-rottenburg-laaber.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "R26+S35",
+     "date": "2027-03-09",
+     "time": "16:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "vhs Rottenburg, Raum 209",
+     "url": "https://www.vhs-rottenburg-laaber.de/kurssuche/kurs/Einbuergerungstest/R26+S35"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-sob",
+   "state": "BY",
+   "city": "Schrobenhausen",
+   "name": "vhs Schrobenhausen",
+   "plz": "86529",
+   "url": "https://www.vhs-sob.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-I-600",
+     "date": "2027-01-23",
+     "time": "08:30",
+     "status": "unknown",
+     "title": "Prüfung \"Leben in Deutschland\" (LiD)",
+     "place": "vhs-Haus, \"Blauer Saal\" (Zimmer 301), 3. Stock",
+     "url": "https://www.vhs-sob.de/kurssuche/kurs/Pruefung-Leben-in-Deutschland-LiD/262-I-600"
+    },
+    {
+     "id": "262-I-660",
+     "date": "2027-01-23",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Prüfung \"Leben in Deutschland\" (LiD)",
+     "place": "vhs-Haus, \"Blauer Saal\" (Zimmer 301), 3. Stock",
+     "url": "https://www.vhs-sob.de/kurssuche/kurs/Pruefung-Leben-in-Deutschland-LiD/262-I-660"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-fichtelgebirge",
+   "state": "BY",
+   "city": "Selb",
+   "name": "Volkshochschule Fichtelgebirge",
+   "plz": "95100",
+   "url": "https://www.vhs-fichtelgebirge.de/p/integration/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "PSE40472",
+     "date": "2026-11-26",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Marktredwitz",
+     "place": "Egerland-Kulturhaus, vhs-Seminarraum",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest-marktredwitz/PSE40472"
+    },
+    {
+     "id": "PSE40473",
+     "date": "2026-12-08",
+     "time": "13:00",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/PSE40473"
+    },
+    {
+     "id": "PSE40475",
+     "date": "2027-01-14",
+     "time": "13:00",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/PSE40475"
+    },
+    {
+     "id": "QSE40472",
+     "date": "2027-02-02",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40472"
+    },
+    {
+     "id": "QSE40473",
+     "date": "2027-03-18",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40473"
+    },
+    {
+     "id": "QSE40474",
+     "date": "2027-04-06",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40474"
+    },
+    {
+     "id": "QSE40475",
+     "date": "2027-05-13",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40475"
+    },
+    {
+     "id": "QSE40476",
+     "date": "2027-06-08",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40476"
+    },
+    {
+     "id": "QSE40477",
+     "date": "2027-07-08",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40477"
+    },
+    {
+     "id": "QSE40478",
+     "date": "2027-08-03",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/QSE40478"
+    },
+    {
+     "id": "RSE40471",
+     "date": "2027-09-16",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/RSE40471"
+    },
+    {
+     "id": "RSE40472",
+     "date": "2027-10-12",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/RSE40472"
+    },
+    {
+     "id": "RSE40473",
+     "date": "2027-11-11",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Egerland-Kulturhaus, (1/3 Saal)",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/RSE40473"
+    },
+    {
+     "id": "RSE40474",
+     "date": "2027-12-14",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Raum 1.07",
+     "url": "https://www.vhs-fichtelgebirge.de/kurs/integration/einbuergerungstest/einbuergerungstest/RSE40474"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-starnbergammersee",
+   "state": "BY",
+   "city": "Starnberg",
+   "name": "VHS StarnbergAmmersee e.V.",
+   "plz": "82319",
+   "url": "https://www.vhs-starnbergammersee.de/p/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-3480-S",
+     "date": "2027-01-29",
+     "time": "13:30",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "Starnberg, vhs, Bahnhofplatz 14, II. OG, Raum 23",
+     "url": "https://www.vhs-starnbergammersee.de/kurs/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest/einbuergerungstest/262-3480-S"
+    },
+    {
+     "id": "262-3481-S",
+     "date": "2027-01-29",
+     "time": "14:30",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "Starnberg, vhs, Bahnhofplatz 14, II. OG, Raum 23",
+     "url": "https://www.vhs-starnbergammersee.de/kurs/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest/einbuergerungstest/262-3481-S"
+    },
+    {
+     "id": "262-3482-S",
+     "date": "2027-01-29",
+     "time": "15:30",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "Starnberg, vhs, Bahnhofplatz 14, II. OG, Raum 23",
+     "url": "https://www.vhs-starnbergammersee.de/kurs/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest/einbuergerungstest/262-3482-S"
+    },
+    {
+     "id": "262-3493-A",
+     "date": "2027-02-02",
+     "time": "18:15",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "Herrsching, Realschule, Jahnstr. 10, Raum E24",
+     "url": "https://www.vhs-starnbergammersee.de/kurs/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest/einbuergerungstest/262-3493-A"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-straubing",
+   "state": "BY",
+   "city": "Straubing",
+   "name": "VHS Straubing",
+   "plz": "94315",
+   "url": "https://www.vhs-straubing.de/p/sprachen/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27-404161",
+     "date": "2027-01-21",
+     "time": "09:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "VHS SR, Steinweg 56, Raum VERW.119 (Tagung, Vortrag & Streaming",
+     "url": "https://www.vhs-straubing.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/27-404161"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-as",
+   "state": "BY",
+   "city": "Sulzbach-Rosenberg",
+   "name": "VHS Landkreis Amberg-Sulzbach",
+   "plz": "92237",
+   "url": "https://www.vhs-as.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "Z40420S",
+     "date": "2027-02-16",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS; Su-Ro; Vortragssaal 2. Stock",
+     "url": "https://www.vhs-as.de/kurssuche/kurs/Einbuergerungstest/Z40420S"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-taufkirchen",
+   "state": "BY",
+   "city": "Taufkirchen",
+   "name": "Volkshochschule Taufkirchen e.V.",
+   "plz": "82024",
+   "url": "https://www.vhs-taufkirchen.de/kurssuche/suche?suchesetzen=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-30121",
+     "date": "2026-12-02",
+     "time": "13:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Ahornring 121, Raum 2.2",
+     "url": "https://www.vhs-taufkirchen.de/kurssuche/kurs/Einbuergerungstest/262-30121"
+    },
+    {
+     "id": "262-30122",
+     "date": "2026-12-02",
+     "time": "14:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Ahornring 121, Raum 2.2",
+     "url": "https://www.vhs-taufkirchen.de/kurssuche/kurs/Einbuergerungstest/262-30122"
+    },
+    {
+     "id": "262-30021",
+     "date": "2027-02-17",
+     "time": "13:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Ahornring 121, Raum 2.2",
+     "url": "https://www.vhs-taufkirchen.de/kurssuche/kurs/Einbuergerungstest/262-30021"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-traunreut",
+   "state": "BY",
+   "city": "Traunreut",
+   "name": "Volkshochschule Traunreut e.V.",
+   "plz": "83301",
+   "url": "https://www.vhs-traunreut.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "X4047",
+     "date": "2026-12-04",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Heimathaus, Saal, Joh.-Hinrich-Wichern-Str. 5, Traunreut",
+     "url": "https://www.vhs-traunreut.de/programm/kurs/Einbuergerungstest/X4047"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-trostberg",
+   "state": "BY",
+   "city": "Trostberg",
+   "name": "VHS Trostberg e.V.",
+   "plz": "83308",
+   "url": "https://www.vhs-trostberg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "W3051T",
+     "date": "2027-07-10",
+     "time": "10:00",
+     "until": "11:00",
+     "status": "unknown",
+     "title": "W3051T 56-Test Leben in Deutschland",
+     "url": "https://www.vhs-trostberg.de/programm/kurs/56-Test-Leben-in-Deutschland/W3051T"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-vilsbiburg",
+   "state": "BY",
+   "city": "Vilsbiburg",
+   "name": "VHS Vilsbiburg",
+   "plz": "84137",
+   "url": "https://www.vhs-vilsbiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262S823",
+     "date": "2027-02-26",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS, 111",
+     "url": "https://www.vhs-vilsbiburg.de/kurssuche/kurs/Einbuergerungstest/262S823"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-wasserburg",
+   "state": "BY",
+   "city": "Wasserburg a. Inn",
+   "name": "VHS Wasserburg / Inn e.V.",
+   "plz": "83512",
+   "url": "https://www.vhs-wasserburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-1242",
+     "date": "2026-11-27",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Wege zur Einbürgerung",
+     "place": "vhs Salzburgerstr.19, EG,KULT",
+     "url": "https://www.vhs-wasserburg.de/programm/kurs/Einbuergerungstest-Wege-zur-Einbuergerung/262-1242"
+    },
+    {
+     "id": "262-1243",
+     "date": "2027-01-29",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Wege zur Einbürgerung",
+     "place": "vhs Salzburgerstr.19, EG,KULT",
+     "url": "https://www.vhs-wasserburg.de/programm/kurs/Einbuergerungstest-Wege-zur-Einbuergerung/262-1243"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-weiden-neustadt",
+   "state": "BY",
+   "city": "Weiden i.d.OPf.",
+   "name": "Volkshochschule Weiden-Neustadt gGmbH",
+   "plz": "92637",
+   "url": "https://www.vhs-weiden-neustadt.de/p/mensch-gesellschaft/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "TV404831",
+     "date": "2027-02-25",
+     "time": "13:30",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Luitpoldstr. 24",
+     "url": "https://www.vhs-weiden-neustadt.de/kurs/mensch-gesellschaft/einbuergerungstest/einbuergerungstest/anmeldeschluss-25-01-2027/TV404831"
+    },
+    {
+     "id": "TV404832",
+     "date": "2027-05-13",
+     "time": "13:30",
+     "status": "few",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Luitpoldstr. 24",
+     "url": "https://www.vhs-weiden-neustadt.de/kurs/mensch-gesellschaft/einbuergerungstest/einbuergerungstest/anmeldeschluss-13-04-2027/TV404832"
+    },
+    {
+     "id": "TV404833",
+     "date": "2027-07-22",
+     "time": "13:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Luitpoldstr. 24",
+     "url": "https://www.vhs-weiden-neustadt.de/kurs/mensch-gesellschaft/einbuergerungstest/einbuergerungstest/anmeldeschluss-22-06-2027/TV404833"
+    },
+    {
+     "id": "TV404834",
+     "date": "2027-11-18",
+     "time": "13:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "vhs, Luitpoldstr. 24",
+     "url": "https://www.vhs-weiden-neustadt.de/kurs/mensch-gesellschaft/einbuergerungstest/einbuergerungstest/anmeldeschluss-18-10-2027/TV404834"
+    }
+   ]
+  },
+  {
+   "id": "by-vhs-schwarzachtal",
+   "state": "BY",
+   "city": "Winkelhaid",
+   "name": "VHS Schwarzachtal / Winkelhaid",
+   "plz": "90610",
+   "url": "https://www.vhs-schwarzachtal.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26-41-0017",
+     "date": "2026-12-09",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Winkelhaid, Rathaus, Mehrzwecksaal",
+     "url": "https://www.vhs-schwarzachtal.de/programm/kurs/Einbuergerungstest/26-41-0017"
+    },
+    {
+     "id": "27-41-0001",
+     "date": "2027-02-24",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Winkelhaid, Rathaus, Mehrzwecksaal",
+     "url": "https://www.vhs-schwarzachtal.de/programm/kurs/Einbuergerungstest/27-41-0001"
+    }
+   ]
+  },
+  {
+   "id": "he-darmstadt-vhs",
+   "state": "HE",
+   "city": "Darmstadt",
+   "name": "Wissenschaftsstadt Darmstadt - Volkshochschule",
+   "plz": "64283",
+   "url": "https://www.darmstadt-vhs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "J800-412EB",
+     "date": "2026-12-04",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 04.12.26 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-041226-Vormittag/J800-412EB"
+    },
+    {
+     "id": "J800-1612E",
+     "date": "2026-12-16",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 16.12.26 (Nachmittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-161226-Nachmittag/J800-1612E"
+    },
+    {
+     "id": "J800-151EB",
+     "date": "2027-01-15",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 15.01.27 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-150127-Vormittag/J800-151EB"
+    },
+    {
+     "id": "K800-164EB",
+     "date": "2027-04-16",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 16.04.2027 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-16042027-Vormittag/K800-164EB"
+    },
+    {
+     "id": "K800-116EB",
+     "date": "2027-06-11",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 11.06.2027 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-11062027-Vormittag/K800-116EB"
+    },
+    {
+     "id": "K800-027EB",
+     "date": "2027-07-02",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 02.07.2027 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-02072027-Vormittag/K800-027EB"
+    },
+    {
+     "id": "K800-068EB",
+     "date": "2027-08-06",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 06.08.2027 (Vormittag)",
+     "place": "Justus-Liebig-Haus; Foyer",
+     "url": "https://www.darmstadt-vhs.de/kurssuche/kurs/Einbuergerungstest-06082027-Vormittag/K800-068EB"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-werra-meissner",
+   "state": "HE",
+   "city": "Eschwege",
+   "name": "Eigenbetrieb Bildung und Jugend Werra-Meißner, Volkshochschule",
+   "plz": "37269",
+   "url": "https://www.vhs-werra-meissner.de/fachbereich//sprachen/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-40003E",
+     "date": "2027-02-19",
+     "time": "12:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "ESW, vhs, Vor dem Berge 1, R. 202 (Aula)",
+     "url": "https://www.vhs-werra-meissner.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/262-40003E"
+    },
+    {
+     "id": "262-40004E",
+     "date": "2027-06-25",
+     "time": "12:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "ESW, vhs, Vor dem Berge 1, R. 202 (Aula)",
+     "url": "https://www.vhs-werra-meissner.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/262-40004E"
+    },
+    {
+     "id": "262-40005E",
+     "date": "2027-09-24",
+     "time": "12:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "ESW, vhs, Vor dem Berge 1, R. 202 (Aula)",
+     "url": "https://www.vhs-werra-meissner.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/262-40005E"
+    },
+    {
+     "id": "262-40006E",
+     "date": "2027-12-10",
+     "time": "12:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "ESW, vhs, Vor dem Berge 1, R. 202 (Aula)",
+     "url": "https://www.vhs-werra-meissner.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/262-40006E"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-wetterau",
+   "state": "HE",
+   "city": "Friedberg (Hessen)",
+   "name": "Wetteraukreis - vhs Wetterau",
+   "plz": "61169",
+   "url": "https://www.vhs-wetterau.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "FPG40403B1",
+     "date": "2027-02-11",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403B1"
+    },
+    {
+     "id": "FPG40403C1",
+     "date": "2027-02-17",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403C1"
+    },
+    {
+     "id": "FPG40403D1",
+     "date": "2027-03-11",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403D1"
+    },
+    {
+     "id": "FPG40403E1",
+     "date": "2027-04-14",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403E1"
+    },
+    {
+     "id": "FPG40403F1",
+     "date": "2027-04-22",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403F1"
+    },
+    {
+     "id": "FPG40403G1",
+     "date": "2027-05-20",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Friedberg",
+     "url": "https://www.vhs-wetterau.de/kurssuche/kurs/EINBUERGERUNGSTEST/FPG40403G1"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-hanau",
+   "state": "HE",
+   "city": "Hanau",
+   "name": "VHS der Stadt Hanau",
+   "plz": "63452",
+   "url": "https://www.vhs-hanau.de/p/programmbereiche/sprachen-verstaendigung/deutsch-als-fremdsprache/pruefungen-einbuergerungstests",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "7247770",
+     "date": "2027-02-05",
+     "time": "11:00",
+     "status": "few",
+     "booking": "phone",
+     "title": "Deutsch Einbürgerungstest",
+     "place": "vhs-Gebäude",
+     "url": "https://www.vhs-hanau.de/kurs/programmbereiche/sprachen-verstaendigung/deutsch-als-fremdsprache/pruefungen-einbuergerungstests/deutsch-einbuergerungstest/5-februar-2027-11-00-uhr/7247770"
+    },
+    {
+     "id": "7247782",
+     "date": "2027-02-05",
+     "time": "12:15",
+     "status": "free",
+     "booking": "phone",
+     "title": "Deutsch Einbürgerungstest",
+     "place": "vhs-Gebäude",
+     "url": "https://www.vhs-hanau.de/kurs/programmbereiche/sprachen-verstaendigung/deutsch-als-fremdsprache/pruefungen-einbuergerungstests/deutsch-einbuergerungstest/5-februar-2027-12-15-uhr/7247782"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-mtk",
+   "state": "HE",
+   "city": "Hofheim am Taunus",
+   "name": "VHS Main-Taunus-Kreis",
+   "plz": "65719",
+   "url": "https://www.vhs-mtk.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "A1404500",
+     "date": "2027-02-09",
+     "time": "15:00",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Hofheim, Volkshochschule",
+     "url": "https://www.vhs-mtk.de/kurssuche/kurs/Einbuergerungstest/A1404500"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-waldeck-frankenberg",
+   "state": "HE",
+   "city": "Korbach",
+   "name": "Kreisvolkshochschule Waldeck-Frankenberg",
+   "plz": "34497",
+   "url": "https://www.vhs-waldeck-frankenberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "71-1021101",
+     "date": "2027-02-26",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "Korbach, vhs-Räume, Briloner Landstr. 36, Raum 4",
+     "url": "https://www.vhs-waldeck-frankenberg.de/kurssuche/kurs/Einbuergerungstest/71-1021101"
+    }
+   ]
+  },
+  {
+   "id": "he-vhs-limburg-weilburg",
+   "state": "HE",
+   "city": "Limburg a.d. Lahn",
+   "name": "VHS Kreis Limburg-Weilburg",
+   "plz": "65549",
+   "url": "https://www.vhs-limburg-weilburg.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2620242414",
+     "date": "2026-12-11",
+     "time": "11:00",
+     "status": "unknown",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "Haus der VHS, Limburger Str. 8, Seminarraum, 35781 Weilburg",
+     "url": "https://www.vhs-limburg-weilburg.de/versteckte-seiten/kurssuche/kurs/Einbuergerungstest/2620242414"
+    }
+   ]
+  },
+  {
+   "id": "hh-abh-kurse",
+   "state": "HH",
+   "city": "Hamburg",
+   "name": "Akademikerbund Hamburg e.V.",
+   "plz": "22767",
+   "url": "https://www.abh-kurse.de/programm/pruefungen/kw/bereich/kategorien/kategorie-id/75/oberkategorie-id/4/kategorie-name/Einbuergerungstest/",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "BX-EB-59-L",
+     "date": "2027-01-22",
+     "time": "14:30",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "BerlinerTor-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-EB-59-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "HX-EB-21-L",
+     "date": "2027-01-29",
+     "time": "14:00",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "Harburg-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/HX-EB-21-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "BX-EB-60-L",
+     "date": "2027-02-05",
+     "time": "14:30",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "BerlinerTor-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/BX-EB-60-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "AX-EB-30-L",
+     "date": "2027-03-19",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "Altona-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/AX-EB-30-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "AX-EB-31-L",
+     "date": "2027-04-30",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "Altona-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/AX-EB-31-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "AX-EB-32-L",
+     "date": "2027-05-28",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "Altona-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/AX-EB-32-L/kursname/Einbuergerungstest/kategorie-id/75"
+    },
+    {
+     "id": "AX-EB-33-L",
+     "date": "2027-06-25",
+     "time": "10:00",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "place": "Altona-ABH",
+     "url": "https://www.abh-kurse.de/programm/kw/bereich/kursdetails/kurs/AX-EB-33-L/kursname/Einbuergerungstest/kategorie-id/75"
+    }
+   ]
+  },
+  {
+   "id": "ni-kvhs-wesermarsch",
+   "state": "NI",
+   "city": "Brake (Unterweser)",
+   "name": "KVHS Wesermarsch GmbH",
+   "plz": "26919",
+   "url": "https://www.kvhs-wesermarsch.de/programm/paedagogik-kommunikation-psychologie?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26H7112BR",
+     "date": "2027-01-13",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "BR 2.2 Aula",
+     "url": "https://www.kvhs-wesermarsch.de/programm/paedagogik-kommunikation-psychologie/kurs/Einbuergerungstest/26H7112BR"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-celle",
+   "state": "NI",
+   "city": "Celle",
+   "name": "VHS Celle e.V.",
+   "plz": "29221",
+   "url": "https://www.vhs-celle.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26BCE6322",
+     "date": "2027-01-21",
+     "time": "16:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest im Januar 2027",
+     "place": "Celle; VHS, Kronestr. 36, Raum 18",
+     "url": "https://www.vhs-celle.de/kurssuche/kurs/Einbuergerungstest-im-Januar-2027/26BCE6322"
+    }
+   ]
+  },
+  {
+   "id": "ni-kvhs-northeim",
+   "state": "NI",
+   "city": "Einbeck",
+   "name": "Landkreis Northeim - Fachbereich Kreisvolkshochschule Northeim",
+   "plz": "37574",
+   "url": "https://www.kvhs-northeim.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "P4053P2K",
+     "date": "2026-11-23",
+     "time": "11:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest für Einwohner*innen des Landkreises Northeim",
+     "place": "Northeim, Kreisvolkshochschule",
+     "url": "https://www.kvhs-northeim.de/programm/kurssuche/kurs/Einbuergerungstest-fuer-Einwohnerinnen-des-Landkreises-Northeim/P4053P2K"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-emden",
+   "state": "NI",
+   "city": "Emden",
+   "name": "VHS Emden e.V.",
+   "plz": "26721",
+   "url": "https://www.vhs-emden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2719602",
+     "date": "2027-01-22",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest am 22.01.2027",
+     "place": "vhs, Raum 306",
+     "url": "https://www.vhs-emden.de/kurssuche/kurs/Einbuergerungstest-am-22012027/2719602"
+    },
+    {
+     "id": "2719603",
+     "date": "2027-04-23",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest am 23.04.2027",
+     "place": "vhs, Forum",
+     "url": "https://www.vhs-emden.de/kurssuche/kurs/Einbuergerungstest-am-23042027/2719603"
+    },
+    {
+     "id": "2729601",
+     "date": "2027-08-20",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest am 20.08.2027",
+     "place": "vhs, Forum",
+     "url": "https://www.vhs-emden.de/kurssuche/kurs/Einbuergerungstest-am-20082027/2729601"
+    },
+    {
+     "id": "2729602",
+     "date": "2027-11-19",
+     "time": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest am 19.11.2027",
+     "place": "vhs, Forum",
+     "url": "https://www.vhs-emden.de/kurssuche/kurs/Einbuergerungstest-am-19112027/2729602"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-goslar",
+   "state": "NI",
+   "city": "Goslar",
+   "name": "Volkshochschule Landkreis Goslar",
+   "plz": "33640",
+   "url": "https://www.vhs-goslar.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "AE10G15",
+     "date": "2026-11-28",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "GS; BBS Am Stadtgarten; Raum 009",
+     "url": "https://www.vhs-goslar.de/kurssuche/kurs/Einbuergerungstest/AE10G15"
+    },
+    {
+     "id": "AF10G16",
+     "date": "2027-02-20",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "GS; BBS Am Stadtgarten; Raum 009",
+     "url": "https://www.vhs-goslar.de/kurssuche/kurs/Einbuergerungstest/AF10G16"
+    },
+    {
+     "id": "AF10G17",
+     "date": "2027-04-24",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "GS; BBS Am Stadtgarten; Raum 009",
+     "url": "https://www.vhs-goslar.de/kurssuche/kurs/Einbuergerungstest/AF10G17"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-hildesheim",
+   "state": "NI",
+   "city": "Hildesheim",
+   "name": "Volkshochschule (VHS) Hildesheim gGmbH",
+   "plz": "31134",
+   "url": "https://www.vhs-hildesheim.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": null,
+   "ok": false,
+   "slots": []
+  },
+  {
+   "id": "ni-vhs-ostkreis-hannover",
+   "state": "NI",
+   "city": "Lehrte",
+   "name": "VHS Ostkreis Hannover",
+   "plz": "31275",
+   "url": "https://www.vhs-ostkreis-hannover.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262444005L",
+     "date": "2027-01-19",
+     "time": "11:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Lehrte, VHS-Gebäude, Seminarraum 1",
+     "url": "https://www.vhs-ostkreis-hannover.de/kurssuche/kurs/Einbuergerungstest/262444005L"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-meppen",
+   "state": "NI",
+   "city": "Meppen",
+   "name": "VHS Meppen GmbH",
+   "plz": "49716",
+   "url": "https://www.vhs-meppen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26271-0666",
+     "date": "2026-12-02",
+     "time": "17:00",
+     "status": "closed",
+     "title": "Einbürgerungstest - keine Anmeldung mehr möglich!",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest-keine-Anmeldung-mehr-moeglich/26271-0666"
+    },
+    {
+     "id": "26271-0668",
+     "date": "2027-01-18",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/26271-0668"
+    },
+    {
+     "id": "27171-0660",
+     "date": "2027-02-08",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0660"
+    },
+    {
+     "id": "27171-0661",
+     "date": "2027-03-08",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0661"
+    },
+    {
+     "id": "27171-0662",
+     "date": "2027-04-12",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0662"
+    },
+    {
+     "id": "27171-0663",
+     "date": "2027-05-24",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0663"
+    },
+    {
+     "id": "27171-0664",
+     "date": "2027-06-14",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0664"
+    },
+    {
+     "id": "27171-0665",
+     "date": "2027-07-12",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-meppen.de/kurssuche/kurs/Einbuergerungstest/27171-0665"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-hannover-land",
+   "state": "NI",
+   "city": "Neustadt am Rübenberge",
+   "name": "VHS Hannover Land",
+   "plz": "31535",
+   "url": "https://www.vhs-hannover-land.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271IP03E2",
+     "date": "2027-03-04",
+     "time": "09:30",
+     "until": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest 3/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-3-2027/271IP03E2"
+    },
+    {
+     "id": "271IP04E2",
+     "date": "2027-03-04",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 3/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-3-2027/271IP04E2"
+    },
+    {
+     "id": "271IP05E2",
+     "date": "2027-05-20",
+     "time": "09:30",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 5/2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-52027/271IP05E2"
+    },
+    {
+     "id": "271IP06E2",
+     "date": "2027-05-20",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 5/2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-52027/271IP06E2"
+    },
+    {
+     "id": "272IP07E2",
+     "date": "2027-07-01",
+     "time": "09:30",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 7/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-7-2027/272IP07E2"
+    },
+    {
+     "id": "272IP08E2",
+     "date": "2027-07-01",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 7/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-7-2027/272IP08E2"
+    },
+    {
+     "id": "272IP09E2",
+     "date": "2027-09-30",
+     "time": "09:30",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 9/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-9-2027/272IP09E2"
+    },
+    {
+     "id": "272IP10E2",
+     "date": "2027-09-30",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 9/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-9-2027/272IP10E2"
+    },
+    {
+     "id": "272IP11E2",
+     "date": "2027-11-11",
+     "time": "09:30",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 11/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-11-2027/272IP11E2"
+    },
+    {
+     "id": "272IP12E2",
+     "date": "2027-11-11",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest 11/ 2027",
+     "place": "Garbsen; Geschäftsstelle vhs (am Planetencenter); EDV-Raum",
+     "url": "https://www.vhs-hannover-land.de/kurssuche/kurs/Einbuergerungstest-11-2027/272IP12E2"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-os",
+   "state": "NI",
+   "city": "Osnabrück",
+   "name": "VHS der Stadt Osnabrück",
+   "plz": "49084",
+   "url": "https://www.vhs-os.de/fachbereich//deutsch-als-zweitsprache/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27A5970P16",
+     "date": "2027-01-29",
+     "time": "14:00",
+     "status": "full",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5970P16"
+    },
+    {
+     "id": "27A5970PZ3",
+     "date": "2027-01-29",
+     "time": "15:30",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5970PZ3"
+    },
+    {
+     "id": "27A5971P16",
+     "date": "2027-03-19",
+     "time": "14:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5971P16"
+    },
+    {
+     "id": "27A5971PZ3",
+     "date": "2027-03-19",
+     "time": "15:30",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5971PZ3"
+    },
+    {
+     "id": "27A5972P16",
+     "date": "2027-05-21",
+     "time": "14:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5972P16"
+    },
+    {
+     "id": "27A5972PZ3",
+     "date": "2027-05-21",
+     "time": "15:30",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5972PZ3"
+    },
+    {
+     "id": "27A5973P16",
+     "date": "2027-07-09",
+     "time": "14:00",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5973P16"
+    },
+    {
+     "id": "27A5973PZ3",
+     "date": "2027-07-09",
+     "time": "15:30",
+     "status": "free",
+     "booking": "phone",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Zweigstelle, Franz-Lenz-Str. 4",
+     "url": "https://www.vhs-os.de/kurs/deutsch-als-zweitsprache/einbuergerungstest/einbuergerungstest/27A5973PZ3"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-ohz",
+   "state": "NI",
+   "city": "Osterholz-Scharmbeck",
+   "name": "VHS Osterholz-Scharmbeck-Hambergen e.V.",
+   "plz": "27711",
+   "url": "https://www.vhs-ohz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": []
+  },
+  {
+   "id": "ni-vhs-stade",
+   "state": "NI",
+   "city": "Stade",
+   "name": "VHS Stade e. V.",
+   "plz": "21682",
+   "url": "https://www.vhs-stade.de/programm/mensch-gesellschaft-umwelt?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271-7131",
+     "date": "2027-02-17",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Raum 11, vhs-Haus",
+     "url": "https://www.vhs-stade.de/programm/mensch-gesellschaft-umwelt/kurs/Einbuergerungstest-Stade/271-7131"
+    }
+   ]
+  },
+  {
+   "id": "ni-allesbildung",
+   "state": "NI",
+   "city": "Uelzen",
+   "name": "Kreisvolkshochschule Uelzen-Lüchow-Dannenberg",
+   "plz": "29525",
+   "url": "https://www.allesbildung.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "A4040116",
+     "date": "2026-12-02",
+     "time": "09:30",
+     "until": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Altes Rathaus, Seminarraum 4",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4040116"
+    },
+    {
+     "id": "A4041112",
+     "date": "2026-12-02",
+     "time": "09:30",
+     "until": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Lüchow, Tarmitzer Str. 7, Raum 13",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4041112"
+    },
+    {
+     "id": "A4040117",
+     "date": "2026-12-02",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Altes Rathaus, Seminarraum 4",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4040117"
+    },
+    {
+     "id": "A4040118",
+     "date": "2027-01-27",
+     "time": "09:30",
+     "until": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Altes Rathaus, Seminarraum 4",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4040118"
+    },
+    {
+     "id": "A4041113",
+     "date": "2027-01-27",
+     "time": "09:30",
+     "until": "10:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Lüchow, Tarmitzer Str. 7, Raum 2",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4041113"
+    },
+    {
+     "id": "A4040119",
+     "date": "2027-01-27",
+     "time": "11:00",
+     "until": "12:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+     "place": "Altes Rathaus, Seminarraum 4",
+     "url": "https://www.allesbildung.de/kurssuche/kurs/Einbuergerungstest-Anmeldung-nur-persoenlich-und-vor-Ort/A4040119"
+    }
+   ]
+  },
+  {
+   "id": "ni-kvhs-ammerland",
+   "state": "NI",
+   "city": "Westerstede",
+   "name": "KVHS Ammerland",
+   "plz": "26655",
+   "url": "https://www.kvhs-ammerland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "Q7098",
+     "date": "2027-01-19",
+     "time": "14:30",
+     "until": "15:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest Westerstede",
+     "place": "Westerstede, kvhs, Raum B202, Seminarraum",
+     "url": "https://www.kvhs-ammerland.de/kurssuche/kurs/Einbuergerungstest-Westerstede/Q7098"
+    }
+   ]
+  },
+  {
+   "id": "ni-vhs-whv",
+   "state": "NI",
+   "city": "Wilhelmshaven",
+   "name": "VHS und Musikschule der Stadt Wilhelmshaven gGmbH",
+   "plz": "26382",
+   "url": "https://www.vhs-whv.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2624042",
+     "date": "2026-11-24",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Hans Beutz Haus",
+     "url": "https://www.vhs-whv.de/programm/kurs/Einbuergerungstest/2624042"
+    },
+    {
+     "id": "2624043",
+     "date": "2026-12-15",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Hans Beutz Haus",
+     "url": "https://www.vhs-whv.de/programm/kurs/Einbuergerungstest/2624043"
+    },
+    {
+     "id": "2624044",
+     "date": "2027-01-26",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Hans Beutz Haus",
+     "url": "https://www.vhs-whv.de/programm/kurs/Einbuergerungstest/2624044"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-aktuellesforum",
+   "state": "NW",
+   "city": "Ahaus",
+   "name": "VHS Ahaus",
+   "plz": "48683",
+   "url": "https://www.vhs-aktuellesforum.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-4283",
+     "date": "2026-12-09",
+     "time": "17:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest NRW",
+     "place": "Ahaus, VHS-Haus, 120",
+     "url": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/Einbuergerungstest-NRW/262-4283"
+    },
+    {
+     "id": "271-4281",
+     "date": "2027-02-25",
+     "time": "17:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest NRW",
+     "place": "Ahaus, VHS-Haus, 120",
+     "url": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/Einbuergerungstest-NRW/271-4281"
+    },
+    {
+     "id": "271-4282",
+     "date": "2027-04-22",
+     "time": "17:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest NRW",
+     "place": "Ahaus, VHS-Haus, 120",
+     "url": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/Einbuergerungstest-NRW/271-4282"
+    },
+    {
+     "id": "271-4283",
+     "date": "2027-05-20",
+     "time": "17:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest NRW",
+     "place": "Ahaus, VHS-Haus, 120",
+     "url": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/Einbuergerungstest-NRW/271-4283"
+    },
+    {
+     "id": "271-4284",
+     "date": "2027-07-15",
+     "time": "17:15",
+     "status": "unknown",
+     "title": "Einbürgerungstest NRW",
+     "place": "Ahaus, VHS-Haus, 120",
+     "url": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/Einbuergerungstest-NRW/271-4284"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-nordkreis-aachen",
+   "state": "NW",
+   "city": "Alsdorf",
+   "name": "VHS Nordkreis Aachen",
+   "plz": "52477",
+   "url": "https://www.vhs-nordkreis-aachen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-20216",
+     "date": "2027-01-16",
+     "time": "10:00",
+     "until": "11:00",
+     "status": "unknown",
+     "title": "20216 - Einbürgerungstest",
+     "url": "https://www.vhs-nordkreis-aachen.de/programm/kurs/Einbuergerungstest/262-20216"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-driburg",
+   "state": "NW",
+   "city": "Bad Driburg",
+   "name": "VHS Zweckverband Bad Driburg-Brakel-Nieheim-Steinheim",
+   "plz": "33014",
+   "url": "https://www.vhs-driburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26_EBT_4",
+     "date": "2026-11-25",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest (Land NRW) 4/2026",
+     "place": "33014 Bad Driburg",
+     "url": "https://www.vhs-driburg.de/programm/kurs/Einbuergerungstest-Land-NRW-42026/26_EBT_4"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-bornheim-alfter",
+   "state": "NW",
+   "city": "Bornheim",
+   "name": "VHS für die Gemeinde Alfter und die Stadt Bornheim",
+   "plz": "53332",
+   "url": "https://www.vhs-bornheim-alfter.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "BC70003",
+     "date": "2026-11-30",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Roisdorf VHS-Gebäude; Raum 3",
+     "url": "https://www.vhs-bornheim-alfter.de/programm/kurssuche/kurs/Einbuergerungstest/BC70003"
+    },
+    {
+     "id": "BC70005",
+     "date": "2027-02-01",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Roisdorf VHS-Gebäude; Raum 3",
+     "url": "https://www.vhs-bornheim-alfter.de/programm/kurssuche/kurs/Einbuergerungstest/BC70005"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-bmo",
+   "state": "NW",
+   "city": "Brilon",
+   "name": "VHS-Zweckverband Brilon-Marsberg-Olsberg",
+   "plz": "59929",
+   "url": "https://www.vhs-bmo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "X10.753",
+     "date": "2027-02-11",
+     "time": "14:45",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Brilon, VHS-Haus, EG",
+     "url": "https://www.vhs-bmo.de/kurssuche/kurs/Einbuergerungstest/X10.753"
+    },
+    {
+     "id": "X10.755",
+     "date": "2027-06-17",
+     "time": "14:45",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Brilon, VHS-Haus, EG",
+     "url": "https://www.vhs-bmo.de/kurssuche/kurs/Einbuergerungstest/X10.755"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-detmold-lemgo",
+   "state": "NW",
+   "city": "Detmold",
+   "name": "Volkshochschule Detmold-Lemgo AöR",
+   "plz": "32756",
+   "url": "https://www.vhs-detmold-lemgo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271-L4900",
+     "date": "2027-02-26",
+     "time": "10:00",
+     "until": "11:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Lemgo, Haus Wippermann, Raum 010",
+     "url": "https://www.vhs-detmold-lemgo.de/kurssuche/kurs/Einbuergerungstest/271-L4900"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-egs",
+   "state": "NW",
+   "city": "Emsdetten",
+   "name": "Zweckverband VHS Emsdetten-Greven-Saerbeck",
+   "plz": "48282",
+   "url": "https://www.vhs-egs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "484615E",
+     "date": "2026-11-30",
+     "time": "18:30",
+     "until": "20:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Gymnasium Martinum, Raum B 206",
+     "url": "https://www.vhs-egs.de/kurssuche/kurs/Einbuergerungstest/484615E"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-erftstadt",
+   "state": "NW",
+   "city": "Erftstadt",
+   "name": "VHS der Stadt Erftstadt",
+   "plz": "50374",
+   "url": "https://www.vhs-erftstadt.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "P-4005",
+     "date": "2027-06-15",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Standort Bahnhofstraße 7, Raum 5, 2. OG, Eingang Schulhof",
+     "url": "https://www.vhs-erftstadt.de/kurssuche/kurs/Einbuergerungstest/P-4005"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-kreis-euskirchen",
+   "state": "NW",
+   "city": "Euskirchen",
+   "name": "VHS Kreis Euskirchen",
+   "plz": "53879",
+   "url": "https://www.vhs-kreis-euskirchen.de/fachbereiche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271-53202",
+     "date": "2027-02-22",
+     "time": "16:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest am 22. Februar 2027",
+     "place": "Euskirchen, Altes Rathaus, Raum 117",
+     "url": "https://www.vhs-kreis-euskirchen.de/fachbereiche/kurs/Einbuergerungstest-am-22-Februar-2027/271-53202"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-gelderland",
+   "state": "NW",
+   "city": "Geldern",
+   "name": "VHS Gelderland",
+   "plz": "47608",
+   "url": "https://www.vhs-gelderland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "D5902G",
+     "date": "2026-12-03",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Volkshochschule, Kapuzinerstr. 34, Geldern, Raum 105",
+     "url": "https://www.vhs-gelderland.de/kurssuche/kurs/Einbuergerungstest/D5902G"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhsimkreisherford",
+   "state": "NW",
+   "city": "Herford",
+   "name": "Zweckverband VHS im Kreis Herford",
+   "plz": "32052",
+   "url": "https://vhsimkreisherford.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26-32021",
+     "date": "2026-11-26",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/26-32021/bereich/details/"
+    },
+    {
+     "id": "26-32022",
+     "date": "2026-12-10",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/26-32022/bereich/details/"
+    },
+    {
+     "id": "27-32000",
+     "date": "2027-01-21",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32000/bereich/details/"
+    },
+    {
+     "id": "27-32003",
+     "date": "2027-02-04",
+     "time": "16:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32003/bereich/details/"
+    },
+    {
+     "id": "27-32001",
+     "date": "2027-02-18",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32001/bereich/details/"
+    },
+    {
+     "id": "27-32004",
+     "date": "2027-03-04",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32004/bereich/details/"
+    },
+    {
+     "id": "27-32002",
+     "date": "2027-03-18",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32002/bereich/details/"
+    },
+    {
+     "id": "27-32005",
+     "date": "2027-04-01",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32005/bereich/details/"
+    },
+    {
+     "id": "27-32006",
+     "date": "2027-04-15",
+     "time": "16:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32006/bereich/details/"
+    },
+    {
+     "id": "27-32007",
+     "date": "2027-05-13",
+     "time": "16:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Herford, vhs, Raum U 8",
+     "url": "https://vhsimkreisherford.de/kurssuche/kurs/Einbuergerungstest/nr/27-32007/bereich/details/"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-hoexter",
+   "state": "NW",
+   "city": "Höxter",
+   "name": "Volkshochschule Höxter-Marienmünster",
+   "plz": "37671",
+   "url": "https://www.vhs-hoexter.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": []
+  },
+  {
+   "id": "nw-vhs-kk",
+   "state": "NW",
+   "city": "Kaarst",
+   "name": "VHS Kaarst-Korschenbroich",
+   "plz": "41564",
+   "url": "https://www.vhs-kk.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-30503",
+     "date": "2026-12-11",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest im Dezember",
+     "place": "Kaarst",
+     "url": "https://www.vhs-kk.de/programm/kurs/Einbuergerungstest-im-Dezember/262-30503"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-mhb",
+   "state": "NW",
+   "city": "Menden (Sauerland)",
+   "name": "VHS Menden-Hemer-Balve",
+   "plz": "58706",
+   "url": "https://www.vhs-mhb.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-4159",
+     "date": "2026-12-17",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Haus der VHS, Raum A 21",
+     "url": "https://www.vhs-mhb.de/kurssuche/kurs/Einbuergerungstest/262-4159"
+    },
+    {
+     "id": "262-4160",
+     "date": "2027-01-21",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Haus der VHS, Raum A 21",
+     "url": "https://www.vhs-mhb.de/kurssuche/kurs/Einbuergerungstest/262-4160"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-hsk",
+   "state": "NW",
+   "city": "Meschede",
+   "name": "VHS Hochsauerlandkreis",
+   "plz": "59872",
+   "url": "https://www.vhs-hsk.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-404163",
+     "date": "2026-12-08",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Raum 6b, Unterrichtszentrum Ruhrstraße 26",
+     "url": "https://www.vhs-hsk.de/kurse/kurs/Einbuergerungstest/262-404163"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-mettmann",
+   "state": "NW",
+   "city": "Mettmann",
+   "name": "Volkshochschule der Städte Mettmann und Wülfrath",
+   "plz": "40822",
+   "url": "https://www.vhs-mettmann.de/p/sprachen/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "Q3114",
+     "date": "2026-12-09",
+     "time": "09:00",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "VHS, Schwarzbachstr. 28",
+     "url": "https://www.vhs-mettmann.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/Q3114"
+    },
+    {
+     "id": "Q3115",
+     "date": "2026-12-09",
+     "time": "10:30",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "VHS, Schwarzbachstr. 28",
+     "url": "https://www.vhs-mettmann.de/kurs/sprachen/einbuergerungstest/einbuergerungstest/Q3115"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-minden",
+   "state": "NW",
+   "city": "Minden",
+   "name": "VHS Minden - Zweckverband Volkshochschule Minden",
+   "plz": "32423",
+   "url": "https://www.vhs-minden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262B54602",
+     "date": "2026-11-27",
+     "time": "12:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest (BMI / BAMF)",
+     "place": "VHS Bad Oeynhausen, Vortragsraum",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Einbuergerungstest-BMI-BAMF/262B54602"
+    },
+    {
+     "id": "262M54603",
+     "date": "2026-11-27",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Einbürgerungstest (BMI / BAMF)",
+     "place": "VHS Minden, Villa, Raum 1",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Einbuergerungstest-BMI-BAMF/262M54603"
+    },
+    {
+     "id": "262B54502",
+     "date": "2026-12-07",
+     "time": "12:30",
+     "status": "unknown",
+     "title": "Test \"Leben in Deutschland\" (LiD / BAMF)",
+     "place": "VHS Bad Oeynhausen, Mehrzweckraum Druckerei, UG",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Test-Leben-in-Deutschland-LiD-BAMF/262B54502"
+    },
+    {
+     "id": "262B54501",
+     "date": "2026-12-14",
+     "time": "16:15",
+     "status": "unknown",
+     "title": "Test \"Leben in Deutschland\" (LiD / BAMF)",
+     "place": "VHS Bad Oeynhausen, Mehrzweckraum Druckerei, UG",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Test-Leben-in-Deutschland-LiD-BAMF/262B54501"
+    },
+    {
+     "id": "262M54604",
+     "date": "2027-01-15",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Einbürgerungstest (BMI / BAMF)",
+     "place": "VHS Minden, Villa, Raum 1",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Einbuergerungstest-BMI-BAMF/262M54604"
+    },
+    {
+     "id": "262M54605",
+     "date": "2027-02-19",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Einbürgerungstest (BMI / BAMF)",
+     "place": "VHS Minden, Villa, Raum 1",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Einbuergerungstest-BMI-BAMF/262M54605"
+    },
+    {
+     "id": "271B54500",
+     "date": "2027-06-10",
+     "time": "12:30",
+     "status": "unknown",
+     "title": "Test \"Leben in Deutschland\" (LiD / BAMF)",
+     "place": "VHS Bad Oeynhausen, Mehrzweckraum Druckerei, UG",
+     "url": "https://www.vhs-minden.de/kurssuche/kurs/Test-Leben-in-Deutschland-LiD-BAMF/271B54500"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-ochtrup",
+   "state": "NW",
+   "city": "Ochtrup",
+   "name": "VHS-Zweckverband der Stadt Ochtrup und der Gemeinden Neuenkirchen, Wettringen und Metelen",
+   "plz": "48607",
+   "url": "https://www.vhs-ochtrup.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": []
+  },
+  {
+   "id": "nw-vhsor",
+   "state": "NW",
+   "city": "Overath",
+   "name": "Volkshochschule Overath / Rösrath",
+   "plz": "51491",
+   "url": "https://www.vhsor.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-40480C",
+     "date": "2027-01-22",
+     "time": "13:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest Januar",
+     "place": "VHS-Studienhaus, Raum 10",
+     "url": "https://www.vhsor.de/kurssuche/kurs/Einbuergerungstest-Januar/262-40480C"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-re",
+   "state": "NW",
+   "city": "Rheda-Wiedenbrück",
+   "name": "VHS Reckenberg-Ems gGmbH",
+   "plz": "33378",
+   "url": "https://www.vhs-re.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26B4CV101",
+     "date": "2026-12-01",
+     "time": "13:30",
+     "status": "unknown",
+     "title": "Test „Leben in Deutschland“",
+     "place": "vhs campus, Rheda, Mehrzweckraum",
+     "url": "https://www.vhs-re.de/programm/kurs/Test-Leben-in-DeutschlandEinbuergerung/26B4CV101"
+    },
+    {
+     "id": "26B4CV102",
+     "date": "2027-01-26",
+     "time": "13:30",
+     "status": "unknown",
+     "title": "Test „Leben in Deutschland“",
+     "place": "vhs campus, Rheda, Mehrzweckraum",
+     "url": "https://www.vhs-re.de/programm/kurs/Test-Leben-in-DeutschlandEinbuergerung/26B4CV102"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-rheinberg",
+   "state": "NW",
+   "city": "Rheinberg",
+   "name": "VHS-ZV Alpen-Rheinberg - Sonsbeck-Xanten",
+   "plz": "47495",
+   "url": "https://www.vhs-rheinberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "F107010",
+     "date": "2027-03-18",
+     "time": "15:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Rheinberg Stadthaus, Raum-Nr. 249",
+     "url": "https://www.vhs-rheinberg.de/kurssuche/kurs/Einbuergerungstest/F107010"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhslippe-ost",
+   "state": "NW",
+   "city": "Schieder-Schwalenberg",
+   "name": "VHS Lippe-Ost",
+   "plz": "32816",
+   "url": "https://www.vhslippe-ost.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-S400B",
+     "date": "2026-12-02",
+     "time": "14:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Schieder-Schwalenberg",
+     "url": "https://www.vhslippe-ost.de/kurssuche/kurs/Einbuergerungstest/262-S400B"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-schwerte",
+   "state": "NW",
+   "city": "Schwerte",
+   "name": "Kultur- und Weiterbildungsbetrieb der Stadt Schwerte-Volkshochschule-",
+   "plz": "58239",
+   "url": "https://www.vhs-schwerte.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "226-4716",
+     "date": "2026-12-16",
+     "time": "13:30",
+     "until": "14:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest bei der vhs",
+     "place": "vhs, Raum 01",
+     "url": "https://www.vhs-schwerte.de/programm/kurs/Einbuergerungstest-bei-der-vhs/226-4716"
+    },
+    {
+     "id": "226-4717",
+     "date": "2027-01-20",
+     "time": "13:30",
+     "until": "14:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest bei der vhs",
+     "place": "vhs, Raum 01",
+     "url": "https://www.vhs-schwerte.de/programm/kurs/Einbuergerungstest-bei-der-vhs/226-4717"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-rhein-sieg",
+   "state": "NW",
+   "city": "Siegburg",
+   "name": "VHS-Zweckverband Rhein-Sieg",
+   "plz": "53721",
+   "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-49921A",
+     "date": "2026-11-27",
+     "time": "14:00",
+     "until": "15:15",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49921A&kursname=Pruefung+Einbuergerungstest&katid=140"
+    },
+    {
+     "id": "262-49933A",
+     "date": "2026-12-03",
+     "time": "17:00",
+     "until": "18:15",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49933A&kursname=Pruefung+Einbuergerungstest&katid=140"
+    },
+    {
+     "id": "262-49934A",
+     "date": "2027-01-07",
+     "time": "17:00",
+     "until": "18:15",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49934A&kursname=Pruefung+Einbuergerungstest&katid=140"
+    },
+    {
+     "id": "262-49922A",
+     "date": "2027-01-29",
+     "time": "13:30",
+     "until": "14:45",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49922A&kursname=Pruefung+Einbuergerungstest&katid=140"
+    },
+    {
+     "id": "262-49922B",
+     "date": "2027-01-29",
+     "time": "14:45",
+     "until": "16:00",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49922B&kursname=Pruefung+Einbuergerungstest&katid=140"
+    },
+    {
+     "id": "262-49935A",
+     "date": "2027-02-11",
+     "time": "17:00",
+     "until": "18:15",
+     "status": "unknown",
+     "title": "Prüfung Einbürgerungstest",
+     "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49935A&kursname=Pruefung+Einbuergerungstest&katid=140"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-arnsberg-sundern",
+   "state": "NW",
+   "city": "Sundern (Sauerland)",
+   "name": "Zweckverband VHS Arnsberg/Sundern",
+   "plz": "59846",
+   "url": "https://www.vhs-arnsberg-sundern.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "AG404-923",
+     "date": "2027-02-17",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Neheim Möhnepark, Werler Str. 2A",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AG404-923"
+    },
+    {
+     "id": "AG404-924",
+     "date": "2027-04-21",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Neheim Möhnepark, Werler Str. 2A",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AG404-924"
+    },
+    {
+     "id": "AG404-925",
+     "date": "2027-06-24",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Sundern, VHS, Franz-Josef-Tigges-Platz 1",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AG404-925"
+    },
+    {
+     "id": "AH404-926",
+     "date": "2027-09-08",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Neheim Möhnepark, Werler Str. 2A",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AH404-926"
+    },
+    {
+     "id": "AH404-927",
+     "date": "2027-10-21",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Sundern, VHS, Franz-Josef-Tigges-Platz 1",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AH404-927"
+    },
+    {
+     "id": "AH404-928",
+     "date": "2027-12-15",
+     "time": "18:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Neheim Möhnepark, Werler Str. 2A",
+     "url": "https://www.vhs-arnsberg-sundern.de/programm/kurs/Einbuergerungstest/AH404-928"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-vh",
+   "state": "NW",
+   "city": "Velbert",
+   "name": "VHS Zweckverband Velbert-Heiligenhaus",
+   "plz": "42551",
+   "url": "https://www.vhs-vh.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "262-1403",
+     "date": "2026-12-12",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Velbert-Mitte, Forum, Oststr. 20, Raum 3.2.35",
+     "url": "https://www.vhs-vh.de/programm/kurssuche/kurs/Einbuergerungstest/262-1403"
+    },
+    {
+     "id": "262-1404",
+     "date": "2027-01-30",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Velbert-Mitte, Forum, Oststr. 20, Raum 3.2.35",
+     "url": "https://www.vhs-vh.de/programm/kurssuche/kurs/Einbuergerungstest/262-1404"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-warendorf",
+   "state": "NW",
+   "city": "Warendorf",
+   "name": "VHS Warendorf",
+   "plz": "48231",
+   "url": "https://www.vhs-warendorf.de/fachbereich//deutsch-integration/einbuergerung",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "3321542",
+     "date": "2026-12-10",
+     "time": "08:30",
+     "status": "closed",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus",
+     "url": "https://www.vhs-warendorf.de/kurs/deutsch-integration/einbuergerung/einbuergerungstest/3321542"
+    },
+    {
+     "id": "3369247",
+     "date": "2027-02-11",
+     "time": "08:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus",
+     "url": "https://www.vhs-warendorf.de/kurs/deutsch-integration/einbuergerung/einbuergerungstest/3369247"
+    },
+    {
+     "id": "3369262",
+     "date": "2027-04-15",
+     "time": "08:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus",
+     "url": "https://www.vhs-warendorf.de/kurs/deutsch-integration/einbuergerung/einbuergerungstest/3369262"
+    },
+    {
+     "id": "3369277",
+     "date": "2027-06-17",
+     "time": "08:30",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "VHS-Haus",
+     "url": "https://www.vhs-warendorf.de/kurs/deutsch-integration/einbuergerung/einbuergerungstest/3369277"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-lennetal",
+   "state": "NW",
+   "city": "Werdohl",
+   "name": "VHS Lennetal",
+   "plz": "58791",
+   "url": "https://www.vhs-lennetal.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27F40069",
+     "date": "2027-02-25",
+     "time": "15:00",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-lennetal.de/kurssuche/kurs/Einbuergerungstest/27F40069"
+    },
+    {
+     "id": "27F40070",
+     "date": "2027-04-15",
+     "time": "15:00",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-lennetal.de/kurssuche/kurs/Einbuergerungstest/27F40070"
+    },
+    {
+     "id": "27F40071",
+     "date": "2027-06-24",
+     "time": "15:00",
+     "status": "unknown",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-lennetal.de/kurssuche/kurs/Einbuergerungstest/27F40071"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-werl",
+   "state": "NW",
+   "city": "Werl",
+   "name": "Volkshochschule Werl-Wickede (Ruhr)-Ense",
+   "plz": "59457",
+   "url": "https://www.vhs-werl.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26H3195",
+     "date": "2026-11-26",
+     "time": "17:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Werl, vhs Raum 01",
+     "url": "https://www.vhs-werl.de/kurssuche/kurs/Einbuergerungstest/26H3195"
+    }
+   ]
+  },
+  {
+   "id": "nw-vhs-bergisch-land",
+   "state": "NW",
+   "city": "Wermelskirchen",
+   "name": "VHS Bergisch Land",
+   "plz": "42929",
+   "url": "https://www.vhs-bergisch-land.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26231930P",
+     "date": "2026-12-15",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "place": "Wermelskirchen; VHS-Zentrale; Raum A0.03a",
+     "url": "https://www.vhs-bergisch-land.de/kurse/kurs/Pruefung-Einbuergerungstest/26231930P"
+    },
+    {
+     "id": "27131910P",
+     "date": "2027-02-02",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "place": "Wermelskirchen; VHS-Zentrale; Raum A0.03a",
+     "url": "https://www.vhs-bergisch-land.de/kurse/kurs/Pruefung-Einbuergerungstest/27131910P"
+    },
+    {
+     "id": "27131920P",
+     "date": "2027-03-18",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "place": "Wermelskirchen; VHS-Zentrale; Raum A0.03a",
+     "url": "https://www.vhs-bergisch-land.de/kurse/kurs/Pruefung-Einbuergerungstest/27131920P"
+    },
+    {
+     "id": "27131930P",
+     "date": "2027-05-11",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "place": "Wermelskirchen; VHS-Zentrale; Raum A0.03a",
+     "url": "https://www.vhs-bergisch-land.de/kurse/kurs/Pruefung-Einbuergerungstest/27131930P"
+    },
+    {
+     "id": "27131940P",
+     "date": "2027-07-06",
+     "time": "12:45",
+     "status": "unknown",
+     "title": "Prüfung \"Einbürgerungstest\"",
+     "place": "Wermelskirchen; VHS-Zentrale; Raum A0.03a",
+     "url": "https://www.vhs-bergisch-land.de/kurse/kurs/Pruefung-Einbuergerungstest/27131940P"
+    }
+   ]
+  },
+  {
+   "id": "rp-vhs-bingen",
+   "state": "RP",
+   "city": "Bingen am Rhein",
+   "name": "VHS Bingen e.V.",
+   "plz": "55411",
+   "url": "https://www.vhs-bingen.de/programm/kw/bereich/suche/suchesetzen/true/?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "E83024",
+     "date": "2026-11-28",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr (BÜDESHEIM!)",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/E83024/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr%20BUEDESHEIM/kategorie-id/1"
+    },
+    {
+     "id": "E83025",
+     "date": "2026-12-19",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/E83025/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83042A",
+     "date": "2027-01-12",
+     "time": "16:30",
+     "until": "17:30",
+     "status": "unknown",
+     "title": "Prüfung: Leben in Deutschland (E445749)",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83042A/kursname/Pruefung%20Leben%20in%20Deutschland%20E445749/kategorie-id/1"
+    },
+    {
+     "id": "F83021",
+     "date": "2027-01-30",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83021/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83022",
+     "date": "2027-02-27",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83022/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83023",
+     "date": "2027-03-20",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83023/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83024",
+     "date": "2027-04-24",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83024/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83025",
+     "date": "2027-05-22",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83025/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83026",
+     "date": "2027-06-19",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83026/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    },
+    {
+     "id": "F83027",
+     "date": "2027-07-31",
+     "time": "13:15",
+     "until": "14:15",
+     "status": "unknown",
+     "title": "Prüfung: Einbürgerungstest - 13:15 Uhr",
+     "url": "https://www.vhs-bingen.de/pruefungen/vorbereitung/kw/bereich/kursdetails/kurs/F83027/kursname/Pruefung%20Einbuergerungstest%20-%201315%20Uhr/kategorie-id/1"
+    }
+   ]
+  },
+  {
+   "id": "rp-kvhs-mainz-bingen",
+   "state": "RP",
+   "city": "Ingelheim am Rhein",
+   "name": "Kreisvolkshochschule Mainz-Bingen e.V.",
+   "plz": "55218",
+   "url": "https://www.kvhs-mainz-bingen.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": []
+  },
+  {
+   "id": "rp-vhs-kaiserslautern",
+   "state": "RP",
+   "city": "Kaiserslautern",
+   "name": "VHS Kaiserslautern e.V.",
+   "plz": "67655",
+   "url": "https://www.vhs-kaiserslautern.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "BE4282-P",
+     "date": "2026-12-17",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum U22",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BE4282-P"
+    },
+    {
+     "id": "BE4285-P",
+     "date": "2027-01-28",
+     "time": "17:30",
+     "until": "18:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum U22",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BE4285-P"
+    },
+    {
+     "id": "BF4280-P",
+     "date": "2027-02-25",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BF4280-P"
+    },
+    {
+     "id": "BF4283-P",
+     "date": "2027-03-18",
+     "time": "17:30",
+     "until": "18:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BF4283-P"
+    },
+    {
+     "id": "BF4281-P",
+     "date": "2027-04-22",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BF4281-P"
+    },
+    {
+     "id": "BF4284-P",
+     "date": "2027-05-20",
+     "time": "17:30",
+     "until": "18:30",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BF4284-P"
+    },
+    {
+     "id": "BF4282-P",
+     "date": "2027-06-24",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BF4282-P"
+    },
+    {
+     "id": "BG4280-P",
+     "date": "2027-08-26",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BG4280-P"
+    },
+    {
+     "id": "BG4281-P",
+     "date": "2027-10-21",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BG4281-P"
+    },
+    {
+     "id": "BG4282-P",
+     "date": "2027-12-16",
+     "time": "18:00",
+     "until": "19:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "WBZ, Raum 126",
+     "url": "https://www.vhs-kaiserslautern.de/kurssuche/kurs/Einbuergerungstest/BG4282-P"
+    }
+   ]
+  },
+  {
+   "id": "rp-vhs-ww",
+   "state": "RP",
+   "city": "Montabaur",
+   "name": "VHS-Kreis-Westerwald e.V.",
+   "plz": "56410",
+   "url": "https://www.vhs-ww.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "2620092003",
+     "date": "2026-12-18",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Montabaur, Kreisverwaltung, Peter-Altmeier-Platz 1, Sitzungssaal 2",
+     "url": "https://www.vhs-ww.de/kurssuche/kurs/Einbuergerungstest/2620092003"
+    },
+    {
+     "id": "2710092501",
+     "date": "2027-01-15",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Montabaur, Kreisverwaltung, Peter-Altmeier-Platz 1, PPWS",
+     "url": "https://www.vhs-ww.de/kurssuche/kurs/Einbuergerungstest/2710092501"
+    },
+    {
+     "id": "2710092502",
+     "date": "2027-03-12",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Montabaur, Kreisverwaltung, Peter-Altmeier-Platz 1, PPWS",
+     "url": "https://www.vhs-ww.de/kurssuche/kurs/Einbuergerungstest/2710092502"
+    },
+    {
+     "id": "2710092503",
+     "date": "2027-05-14",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Montabaur, Kreisverwaltung, Peter-Altmeier-Platz 1, PPWS",
+     "url": "https://www.vhs-ww.de/kurssuche/kurs/Einbuergerungstest/2710092503"
+    },
+    {
+     "id": "2710092504",
+     "date": "2027-06-11",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "Montabaur, Kreisverwaltung, Peter-Altmeier-Platz 1, PPWS",
+     "url": "https://www.vhs-ww.de/kurssuche/kurs/Einbuergerungstest/2710092504"
+    }
+   ]
+  },
+  {
+   "id": "sn-vhs-lkl",
+   "state": "SN",
+   "city": "Borna",
+   "name": "Kommunaler Eigenbetrieb \"Bildung und Kultur des Landkreises Leipzig\" Volkshochschule Landkreis Leipzig",
+   "plz": "04552",
+   "url": "https://www.vhs-lkl.de/p/deutsch/einbuergerungstests",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26M044E009",
+     "date": "2026-12-16",
+     "time": "16:00",
+     "status": "full",
+     "booking": "inperson",
+     "title": "Einbürgerungstest (ausgebucht)",
+     "url": "https://www.vhs-lkl.de/kurs/deutsch/einbuergerungstests/einbuergerungstest-ausgebucht/26M044E009"
+    },
+    {
+     "id": "27M044E001",
+     "date": "2027-01-13",
+     "time": "16:00",
+     "status": "full",
+     "title": "Einbürgerungstest (ausgebucht)",
+     "url": "https://www.vhs-lkl.de/kurs/deutsch/einbuergerungstests/einbuergerungstest-ausgebucht/27M044E001"
+    }
+   ]
+  },
+  {
+   "id": "sn-vhs-chemnitz",
+   "state": "SN",
+   "city": "Chemnitz",
+   "name": "VHS Chemnitz",
+   "plz": "09111",
+   "url": "https://www.vhs-chemnitz.de/p/deutsch/einbuergerung",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "W264DS08",
+     "date": "2027-02-09",
+     "time": "13:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "TIETZ, siehe vhs-Raumanzeige",
+     "url": "https://www.vhs-chemnitz.de/kurs/deutsch/einbuergerung/einbuergerungstest/W264DS08"
+    },
+    {
+     "id": "W264DS09",
+     "date": "2027-02-09",
+     "time": "15:00",
+     "status": "free",
+     "booking": "inperson",
+     "title": "Einbürgerungstest",
+     "place": "TIETZ, siehe vhs-Raumanzeige",
+     "url": "https://www.vhs-chemnitz.de/kurs/deutsch/einbuergerung/einbuergerungstest/W264DS09"
+    }
+   ]
+  },
+  {
+   "id": "sn-vhs-vogtland",
+   "state": "SN",
+   "city": "Plauen",
+   "name": "Volkshochschule Vogtland e.V",
+   "plz": "08527",
+   "url": "https://www.vhs-vogtland.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "271P404E2",
+     "date": "2027-02-03",
+     "time": "17:30",
+     "status": "free",
+     "title": "Einbürgerungstest",
+     "url": "https://www.vhs-vogtland.de/kurssuche/kurs/Einbuergerungstest/nr/271P404E2/bereich/details/"
+    }
+   ]
+  },
+  {
+   "id": "st-vhs-burgenlandkreis",
+   "state": "ST",
+   "city": "Zeitz",
+   "name": "VHS Burgenlandkreis \"Dr. Wilhelm Harnisch\"",
+   "plz": "06712",
+   "url": "https://www.vhs-burgenlandkreis.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "26HN1000A4",
+     "date": "2026-11-26",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS Naumburg, Seminarstr. 1, Raum 1.14 PC-Kabinett",
+     "url": "https://www.vhs-burgenlandkreis.de/kurse/kurs/Einbuergerungstest/26HN1000A4"
+    },
+    {
+     "id": "26HW1000A5",
+     "date": "2026-12-17",
+     "time": "09:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS Weißenfels, Promenade 37, Raum 2.1",
+     "url": "https://www.vhs-burgenlandkreis.de/kurse/kurs/Einbuergerungstest/26HW1000A5"
+    },
+    {
+     "id": "26HN1000A5",
+     "date": "2026-12-17",
+     "time": "10:00",
+     "status": "unknown",
+     "title": "Einbürgerungstest",
+     "place": "VHS Naumburg, Seminarstr. 1, Raum 1.14 PC-Kabinett",
+     "url": "https://www.vhs-burgenlandkreis.de/kurse/kurs/Einbuergerungstest/26HN1000A5"
+    }
+   ]
+  },
+  {
+   "id": "th-vhs-th",
+   "state": "TH",
+   "city": "Jena",
+   "name": "Thüringer Volkshochschulverband e.V.",
+   "plz": "07743",
+   "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest",
+   "checkedAt": "2026-11-23T15:20:09.938Z",
+   "ok": true,
+   "slots": [
+    {
+     "id": "27.94.0113",
+     "date": "2027-01-15",
+     "time": "09:30",
+     "status": "free",
+     "title": "Einbürgerungstest Sonneberg",
+     "place": "vhs des Landkreises Sonneberg",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Sonneberg/27.94.0113"
+    },
+    {
+     "id": "27.94.0110",
+     "date": "2027-01-15",
+     "time": "11:00",
+     "status": "free",
+     "title": "Einbürgerungstest Hildburghausen",
+     "place": "kvhs Hildburghausen / Raum 1.14",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Hildburghausen-Raum-114/27.94.0110"
+    },
+    {
+     "id": "27.94.0111",
+     "date": "2027-01-15",
+     "time": "11:00",
+     "status": "free",
+     "title": "Einbürgerungstest Hildburghausen",
+     "place": "kvhs Hildburghausen / Raum 1.15",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Hildburghausen-Raum-115/27.94.0111"
+    },
+    {
+     "id": "27.94.0114",
+     "date": "2027-01-15",
+     "time": "11:00",
+     "status": "free",
+     "title": "Einbürgerungstest Sonneberg",
+     "place": "vhs des Landkreises Sonneberg",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Sonneberg/27.94.0114"
+    },
+    {
+     "id": "27.94.0115",
+     "date": "2027-01-15",
+     "time": "12:30",
+     "status": "free",
+     "title": "Einbürgerungstest Altenburg",
+     "place": "vhs Altenburger Land",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Altenburg/27.94.0115"
+    },
+    {
+     "id": "27.94.0116",
+     "date": "2027-01-15",
+     "time": "14:00",
+     "status": "free",
+     "title": "Einbürgerungstest Altenburg",
+     "place": "vhs Altenburger Land",
+     "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest/kurs/Einbuergerungstest-Altenburg/27.94.0116"
+    }
+   ]
+  }
+ ]
+}
