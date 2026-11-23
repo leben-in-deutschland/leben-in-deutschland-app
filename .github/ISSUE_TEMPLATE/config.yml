@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or idea to talk through
+    url: https://github.com/leben-in-deutschland/leben-in-deutschland-app/discussions
+    about: Ask how something works, or talk an idea through before it becomes an issue.
+  - name: Security problem
+    url: https://github.com/leben-in-deutschland/leben-in-deutschland-app/security/advisories/new
+    about: Report it privately. Please do not open a public issue.

@@ -65,7 +65,7 @@ Prerequisites: Node.js 22. For the native apps additionally Android Studio with 
 
 ```bash
 cd src/web
-npm install
+npm ci             # installs exactly what package-lock.json says
 npm run dev        # http://localhost:3000
 npm test           # Vitest, the project's verification command
 npm run lint
@@ -109,7 +109,7 @@ No account, no analytics, no advertising SDKs. Learning data stays on the device
 
 ## Contributing
 
-Issues and pull requests are welcome. Please read [`AGENTS.md`](AGENTS.md) first – it holds the rules every change follows (tests green, no secrets, store wording, release signing) – and keep `npm test` passing.
+Issues and pull requests are welcome. [`CONTRIBUTING.md`](CONTRIBUTING.md) says how to report a mistake in a question, set the project up and send a change; [`AGENTS.md`](AGENTS.md) holds the rules every change follows (tests green, no secrets, store wording, release signing). Security problems go to the owner privately ([`SECURITY.md`](SECURITY.md)), and everyone who takes part follows the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
