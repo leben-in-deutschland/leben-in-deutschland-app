@@ -69,6 +69,8 @@ npm run typecheck  # tsc --noEmit; vitest does not type-check, the build does
 npm run build      # static export into src/web/out
 ```
 
+Optional: with [pre-commit](https://pre-commit.com) installed, `pre-commit install` scans every commit for secrets before it is made.
+
 Native apps (the web build is copied into the native projects by Capacitor):
 
 ```bash
