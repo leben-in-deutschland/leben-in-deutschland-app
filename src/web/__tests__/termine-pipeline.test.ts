@@ -15,11 +15,11 @@ import { parseItem } from "../../termine/adapters/item.mjs";
 import { parseKufer } from "../../termine/adapters/kufer.mjs";
 import { describeSite, examLinks, kuferSearchUrls, mergeSources, websitesOf } from "../../termine/discover.mjs";
 import { isExamTitle, toSlots } from "../../termine/lib/courses.mjs";
-import { berlinDay, findDate, findTime } from "../../termine/lib/dates.mjs";
-import { firstText, innerText, textOf } from "../../termine/lib/html.mjs";
+import { berlinDay, findDate, findExamDay, findTime } from "../../termine/lib/dates.mjs";
+import { firstText, innerText, openingTags, textOf } from "../../termine/lib/html.mjs";
 import { decodeBody, getPage, sameSite } from "../../termine/lib/http.mjs";
 import { isAllowed } from "../../termine/lib/robots.mjs";
-import { statusFromBookingClasses, statusFromText } from "../../termine/lib/status.mjs";
+import { statusFromBookingClasses, statusFromText, titleVerdict } from "../../termine/lib/status.mjs";
 import { buildTermine, guardTermine, mergeCentre, readSource, STALE_DAYS, validateSources, validateTermine } from "../../termine/sync.mjs";
 
 const TODAY = "2026-11-22";
@@ -57,6 +57,52 @@ describe("German dates and times", () => {
         expect(findDate("Mo. 28.11. 09:00 Uhr", 0, TODAY)).toBeNull();
         expect(findDate("28.11. 09:00 Uhr", 0, TODAY)).toBeNull();
         expect(findDate("Sa. 28.11. 09:00 Uhr")).toBeNull();
+    });
+
+    it("takes neither a price nor an hour for the year, and not a weekday's first letters for another", () => {
+        const day = (text: string) => findDate(text, 0, TODAY)?.date ?? null;
+        // The fee column of a table row, and "10 Uhr" written close to the date.
+        expect(day("Sa. 28.11. 30,00 €")).toBe("2026-11-28");
+        expect(day("Sa. 28.11. 10 Uhr")).toBe("2026-11-28");
+        expect(day("Sa. 28.11.10-12 Uhr")).toBe("2026-11-28");
+        expect(day("Zeitraum: am 12.01.2027 Uhrzeit: 13:00")).toBe("2027-01-12");
+        // "Sonnabend" is Saturday, and the "so" of "also" is no Sunday.
+        expect(day("Sonnabend, 28.11. 10:00 Uhr")).toBe("2026-11-28");
+        expect(day("Samstag, den 28.11. um 10 Uhr")).toBe("2026-11-28");
+        expect(day("also 28.11. um 10 Uhr")).toBeNull();
+        // Two digits are a year only when the weekday in front agrees; otherwise the day is not guessed.
+        expect(day("Do. 05.02.26, 10:00")).toBe("2026-02-05");
+        expect(day("Fr. 05.02.26, 10:00")).toBeNull();
+    });
+
+    it("reads a time with a dot only where it is one: not a room number, not another date", () => {
+        const when = (text: string) => {
+            const found = findExamDay(text, TODAY);
+            return found ? [found.date, found.time, found.until] : null;
+        };
+        expect(when("Datum: Fr. 22.01.2027 Ort: vhs, Raum 1.12")).toEqual(["2027-01-22", null, null]);
+        expect(when("Datum: Fr. 22.01.2027 Anmeldung bis 08.01. 12 Uhr")).toEqual(["2027-01-22", null, null]);
+        expect(when("Fr. 22.01.2027 Raum 2.15 Uhrzeit: 13:00")).toEqual(["2027-01-22", "13:00", null]);
+        expect(when("Fr. 22.01.2027, 8 - 9.30 Uhr")).toEqual(["2027-01-22", "08:00", "09:30"]);
+        expect(when("Fr. 22.01.2027, 10 Uhr")).toEqual(["2027-01-22", "10:00", null]);
+        expect(when("ab 25.01.2027 ,08:30 - 15:30 Uhr. Kursort: Schule")).toEqual(["2027-01-25", "08:30", "15:30"]);
+        // The day twice: the time stands behind its second mention - unless the first one has it.
+        expect(when("Einbürgerungstest - 11.12.2026 Fr., ab 11.12.2026 um 12:30 Uhr")).toEqual(["2026-12-11", "12:30", null]);
+        expect(when("Kursbeginn: Mi. , 2.12.2026, 13:00 Uhr Kursende: Mi. , 2.12.2026, 14:00 Uhr")).toEqual(["2026-12-02", "13:00", null]);
+    });
+
+    it("tells the exam day from the days of registration", () => {
+        const when = (text: string) => {
+            const found = findExamDay(text, TODAY);
+            return found ? [found.date, found.deadline] : null;
+        };
+        for (const deadline of ["Anmeldeschluss: Fr. 08.01.2027", "Anmeldeschluss ist der 08.01.2027.", "Anmeldung bis Fr., 08.01.2027", "Anmeldung bis einschließlich 08.01.2027,", "Anmeldungen sind bis zum 08.01.2027 möglich."]) {
+            expect({ deadline, read: when(`${deadline} Datum: Fr. 22.01.2027 Uhrzeit: 13:00 Uhr`) }).toEqual({ deadline, read: ["2027-01-22", "2027-01-08"] });
+        }
+        // The day registration starts is not the exam either (a live page read 04.12. as the test day).
+        expect(when("Persönliche Anmeldung erforderlich - ab 04.12.2026 möglich! Beginn: Fr. , 26.02.2027, 10:00 - 11:00 Uhr")).toEqual(["2027-02-26", null]);
+        expect(when("Anmeldezeitraum: 01.11.2026 - 08.01.2027 Prüfung: 22.01.2027")).toEqual(["2027-01-22", "2027-01-08"]);
+        expect(when("Anmeldung bis 08.01.2027")).toBeNull();
     });
 
     it("counts the day in Germany, whatever the machine's zone", () => {
@@ -98,6 +144,31 @@ describe("booking state from a centre's words", () => {
         expect(statusFromText("Keine Anmeldung mehr möglich")).toBe("closed");
     });
 
+    it("lets no negation, count of none or later day pass as a free place", () => {
+        const expected: Record<string, string[]> = {
+            full: ["Kurs ausgebucht - keine Restplätze", "Keine Restplätze mehr", "0 freie Plätze", "Freie Plätze: 0", "Ausgebucht, keine Warteliste"],
+            unknown: ["Noch wenige Tage", "Keinerlei Anmeldung möglich", "Kurs ist noch nicht ausgebucht", "3 von 12 Plätzen belegt", "Anmeldung möglich vom 01.12. bis 15.12.", "Anmeldung ab 16 Jahren"],
+            soon: ["Ab 01.12. buchbar", "Erst ab 01.12. buchbar", "Buchbar erst ab 01.12.", "Ab dem 01.12. Anmeldung möglich", "Demnächst buchbar", "Anmeldung ab Mi., 25.11. möglich"],
+            waitlist: ["Warteplätze frei"],
+            few: ["Nur noch 3 Plätze", "Restplätze vorhanden"],
+            free: ["Anmeldung ab sofort möglich", "Noch 12 Plätze frei"],
+        };
+        for (const [status, texts] of Object.entries(expected)) {
+            for (const text of texts) {
+                expect({ text, status: statusFromText(text) }).toEqual({ text, status });
+            }
+        }
+    });
+
+    it("lets a title or a tooltip close a date but never open one", () => {
+        expect(titleVerdict("Einbürgerungstest - AUSGEBUCHT")).toBe("full");
+        expect(titleVerdict("Der Termin ist ausgebucht. Keine Anmeldung mehr möglich.")).toBe("closed");
+        // The registration day in a title is no verdict, and does not hide one.
+        expect(titleVerdict("Einbürgerungstest (Anmeldung ab 1.12.) - AUSGEBUCHT")).toBe("full");
+        expect(titleVerdict("Einbürgerungstest Januar - persönliche Anmeldung ab Mi., 25.11. möglich")).toBeNull();
+        expect(titleVerdict("Einbürgerungstest - Anmeldung möglich")).toBeNull();
+    });
+
     it("reads ITEM's booking classes the way ITEM's own stylesheet words them", () => {
         const of = (classes: string) => statusFromBookingClasses(classes.split(" "));
         expect(of("bk-type-course bk-bookable bk-av-enough")).toEqual({ status: "free", booking: "online" });
@@ -126,6 +197,28 @@ describe("HTML helpers", () => {
         expect(firstText(html, start)).toBe("Einbürgerungstest BAMF");
         expect(innerText(html, start)).toBe("Einbürgerungstest BAMF Wann: Mi., 10.02.2027");
     });
+});
+
+describe("HTML helpers on broken pages", () => {
+    it("ends a comment the way a browser does and lets an unclosed script take the rest", () => {
+        expect(textOf("vor <!-- <meta name=x> --!> sichtbar <!-- weg --> nach")).toBe("vor sichtbar nach");
+        expect(textOf("<p>Text</p><script>var a = '<p>nie geschlossen'")).toBe("Text");
+    });
+
+    it("keeps a long attribute value inside its tag", () => {
+        const html = `<p>vor</p><img src="data:image/png;base64,${"A".repeat(200_000)}" alt="x > y"><p>nach</p>`;
+        expect(textOf(html)).toBe("vor nach");
+    });
+
+    it("does not let a page that never closes its tags stall the run", () => {
+        const started = Date.now();
+        for (const page of ['<a "'.repeat(80_000), "<a ".repeat(100_000), "<script ".repeat(40_000)]) {
+            textOf(page);
+            expect(openingTags(page, "a")).toEqual([]);
+        }
+        // 47 seconds for the first of these before the patterns were bounded; a few on a slow machine now.
+        expect(Date.now() - started).toBeLessThan(20_000);
+    }, 40_000);
 });
 
 const KUFER_CARDS = `
@@ -234,6 +327,85 @@ describe("Kufer adapter", () => {
         expect(courses[1]).toMatchObject({ id: "27A100", date: "2027-01-20", time: "17:00", status: "free" });
     });
 
+    it("names a registration deadline as that, whatever stands between the word and the day, and tidies the place", () => {
+        const earlier = KUFER_CARDS.replace("Anmeldeschluss: 08.01.2027", "").replace(
+            '<li>Datum: <span class="kw-kurs-properties-label"><abbr title="Freitag">Fr.</abbr> 22.01.2027</span></li>',
+            '<li>Anmeldeschluss: <span class="kw-kurs-properties-label"><abbr title="Freitag">Fr.</abbr> 08.01.2027</span></li><li>Datum: <span class="kw-kurs-properties-label"><abbr title="Freitag">Fr.</abbr> 22.01.2027</span></li>',
+        );
+        expect(parseKufer(earlier, PAGE, { today: TODAY }).courses[1]).toMatchObject({ id: "YCW44804", date: "2027-01-22", time: "13:00", deadline: "2027-01-08" });
+
+        // Some templates repeat the label for screen readers: "Wo:" and then ", Ort: …".
+        const labelled = `<!-- B12A--><div class="row kw-table-row alt1"><a href="/programm/kurs/Einbuergerungstest/262-1243" class="kw-kurstitel"><div class="col-sm-4">Einb&uuml;rgerungstest</div>
+            <div class="kw-table-label">Wann:</div><div class="kw-table-data">ab <abbr title="Freitag">Fr.</abbr> 29.01.2027, 13.00 Uhr</div>
+            <div class="kw-table-label">Wo:</div><div class="kw-table-data"><span class="sr-only">, Ort: </span> vhs Salzburgerstr.19, EG&nbsp;</div></a>
+            <div class="kw-table-data"><span class="kw_ampel status7">Keine Anmeldung m&ouml;glich</span></div></div><!-- B12E -->`;
+        expect(parseKufer(labelled, PAGE, { today: TODAY }).courses[0]).toMatchObject({ date: "2027-01-29", time: "13:00", place: "vhs Salzburgerstr.19, EG" });
+    });
+
+    it("gives every course its own traffic light when the template's markers are missing", () => {
+        const read = (html: string) => parseKufer(html, PAGE, { today: TODAY }).courses.map((course) => [course.id, course.date, course.time, course.status, course.place]);
+        // The card template with its comments stripped: the light stands in front of the link.
+        expect(read(KUFER_CARDS.replace(/<!--.*?-->/g, ""))).toEqual([
+            ["YCW44803", "2026-11-27", "13:00", "free", "Calw, vhs, Raum 12"],
+            ["YCW44804", "2027-01-22", "13:00", "unknown", "Calw, vhs, Raum 12"],
+        ]);
+        // The table with another row class: each row is its own course, light, date and place.
+        expect(read(KUFER_TABLE.replaceAll("kw-table-row ", ""))).toEqual(read(KUFER_TABLE));
+        expect(read(KUFER_TABLE)[0][3]).toBe("closed");
+        // Three in a row, the light a sibling in front of each card: none takes its neighbour's.
+        const card = (id: string, light: string, day: string) =>
+            `<div class="status-info"><span class="kw_ampel">${light}</span></div><div class="h-box"><h4 class="kw-kurstitel"><a href="/kurssuche/kurs/Einbuergerungstest/${id}">Einb&uuml;rgerungstest</a></h4><ul><li>Datum: Fr. ${day}</li><li>Ort: Calw</li></ul><a href="/kurssuche/kurs/Einbuergerungstest/${id}" class="btn">weitere Details</a></div>`;
+        const three = `<div class="kw-kursuebersicht">${card("A1", "ausgebucht", "27.11.2026")}${card("A2", "Anmeldung m&ouml;glich", "22.01.2027")}${card("A3", "ausgebucht", "19.02.2027")}</div>`;
+        expect(read(three).map(([id, date, , status]) => [id, date, status])).toEqual([
+            ["A1", "2026-11-27", "full"],
+            ["A2", "2027-01-22", "free"],
+            ["A3", "2027-02-19", "full"],
+        ]);
+    });
+
+    it("reads a card whose first link is a picture and whose button says more than its light", () => {
+        const card = (id: string, light: string, tooltip: string, day: string) => `<div class="col"><div class="product-wrap">
+            <div class="product-img"><a href="/kurssuche/kurs/Einbuergerungstest/${id}"><img src="/platzhalter.jpg" alt=""></a>
+              <div class="ampelstatus"><span class="kw_ampel">${light}</span></div>
+              <div class="product-action"><a href="/kurssuche/kurs/Einbuergerungstest/${id}" title="${tooltip}"><i class="pe-7s-info"></i> Kursinfo beachten</a></div></div>
+            <div class="product-content"><h3><a href="/kurssuche/kurs/Einbuergerungstest/${id}" title="Mehr Details zum Kurs 'Einb&uuml;rgerungstest' öffnen">Einb&uuml;rgerungstest</a></h3>
+              <div><span>Kursbeginn: <strong><abbr title="Mittwoch">Mi.</abbr>, ${day}, 13:00 Uhr</strong></span></div>
+              <div><span>Kursort: <strong>vhs, Ahornring 121, Raum 2.2</strong></span></div></div></div></div>`;
+        const page = `<div class="row kw-kursuebersicht">${card("262-30121", "Keine Online-Anmeldung m&ouml;glich", "Der Termin ist ausgebucht. Keine Anmeldung mehr möglich.", "2.12.2026")}${card("262-30021", "Anmeldung m&ouml;glich", "Mehr Details aufrufen", "17.2.2027")}</div>`;
+        const { courses } = parseKufer(page, PAGE, { today: TODAY });
+        // The heading names the course, not the button; the button's tooltip closes the date its light left open.
+        expect(courses.map((course) => [course.id, course.title, course.date, course.time, course.status, course.place])).toEqual([
+            ["262-30121", "Einbürgerungstest", "2026-12-02", "13:00", "closed", "vhs, Ahornring 121, Raum 2.2"],
+            ["262-30021", "Einbürgerungstest", "2027-02-17", "13:00", "free", "vhs, Ahornring 121, Raum 2.2"],
+        ]);
+    });
+
+    it("keeps a date with its own course when the text stands in front of the link", () => {
+        const teaser = (id: string, when: string) => `<div class="teaser"><h3>Einb&uuml;rgerungstest</h3><p>Der Test ist am ${when} in Calw.</p><p><a href="/kurssuche/kurs/Einbuergerungstest/${id}">Zum Kurs</a></p></div>`;
+        const page = `<div class="kw-kursuebersicht">${teaser("T1", "Fr. 27.11.2026, 13:00 Uhr")}${teaser("T2", "Fr. 22.01.2027, 9.30 Uhr")}</div>`;
+        expect(parseKufer(page, PAGE, { today: TODAY }).courses.map((course) => [course.id, course.date, course.time])).toEqual([
+            ["T1", "2026-11-27", "13:00"],
+            ["T2", "2027-01-22", "09:30"],
+        ]);
+    });
+
+    it("reads no light at all where it cannot tell whose it is", () => {
+        const row = (id: string, day: string, light: string) => `<p><a href="/kurssuche/kurs/Einbuergerungstest/${id}">Einb&uuml;rgerungstest</a> Fr. ${day}, 13:00 Uhr <span class="kw_ampel">${light}</span></p>`;
+        const list = `${row("L1", "27.11.2026", "ausgebucht")}${row("L2", "22.01.2027", "Anmeldung m&ouml;glich")}`;
+        const read = (html: string) => parseKufer(html, PAGE, { today: TODAY }).courses.map((course) => [course.id, course.date, course.status]);
+        // Link, then light, all the way down: the order is clear.
+        expect(read(`<div class="kw-kursuebersicht">${list}</div>`)).toEqual([
+            ["L1", "2026-11-27", "full"],
+            ["L2", "2027-01-22", "free"],
+        ]);
+        // A legend in front makes the same list read both ways. The dates stay, nobody is told "free".
+        const legend = `<p>Legende: <span class="kw_ampel">Anmeldung m&ouml;glich</span> <span class="kw_ampel">ausgebucht</span></p>`;
+        expect(read(`<div class="kw-kursuebersicht">${legend}${list}</div>`)).toEqual([
+            ["L1", "2026-11-27", "unknown"],
+            ["L2", "2027-01-22", "unknown"],
+        ]);
+    });
+
     it("says so when the page is no Kufer page any more", () => {
         expect(parseKufer("<html><body><h1>Wartungsarbeiten</h1></body></html>", PAGE)).toEqual({ recognised: false, courses: [] });
         expect(parseKufer(`<div class="kw-kursuebersicht">Es wurden leider keine passenden Veranstaltungen gefunden.</div>`, PAGE)).toEqual({ recognised: true, courses: [] });
@@ -291,6 +463,12 @@ describe("ITEM adapter", () => {
         });
     });
 
+    it("does not take the deadline in a subtitle for the exam day", () => {
+        const page = ITEM_OLD.replace('<span class="course-subtitle small"></span>', '<span class="course-subtitle small">Anmeldeschluss 26.11.2026</span>');
+        const { courses } = parseItem(page, "https://www.vhs-beispiel.de/p/integration/einbuergerungstest-675-CAT-KAT77", { today: TODAY });
+        expect(courses[0]).toMatchObject({ id: "2627405KG", date: "2026-12-03", time: "14:30", deadline: "2026-11-26", status: "free" });
+    });
+
     it("reads the newer template: the day from data-date, the time from its own element", () => {
         const { courses } = parseItem(ITEM_NEW, "https://www.vhs-beispiel.de/p/grundbildung/einbuergerungen", { today: TODAY });
         expect(courses).toHaveLength(1);
@@ -304,7 +482,14 @@ describe("ITEM adapter", () => {
 
 describe("from courses to exam dates", () => {
     it("keeps the test itself and drops courses about it, the integration course's own test and registration appointments", () => {
-        for (const title of ["Einbürgerungstest", "Prüfung: Einbürgerungstest - 33 Fragen", "Test Einbürgerung - staatsbürgerliches Wissen", "Test „Leben in Deutschland“", 'Prüfung "Leben in Deutschland" (LiD)']) {
+        for (const title of [
+            "Einbürgerungstest",
+            "Prüfung: Einbürgerungstest - 33 Fragen",
+            "Test Einbürgerung - staatsbürgerliches Wissen",
+            "Test „Leben in Deutschland“",
+            'Prüfung "Leben in Deutschland" (LiD)',
+            "Einbürgerungstest - Anmeldung nur persönlich und vor Ort",
+        ]) {
             expect({ title, exam: isExamTitle(title) }).toEqual({ title, exam: true });
         }
         for (const title of [
@@ -313,6 +498,8 @@ describe("from courses to exam dates", () => {
             'LID-Test "Leben in Deutschland" (Test zum Orientierungskurs)',
             '144. Integrationskurs Test: "Leben in Deutschland"',
             "Termin Anmeldung zum Einbürgerungstest",
+            "Anmeldung: Einbürgerungstest und Zertifikatsprüfung „telc Deutsch A2/B1“",
+            "Prüfung: Leben in Deutschland (oK)",
             "Deutsch B1 Prüfung",
         ]) {
             expect({ title, exam: isExamTitle(title) }).toEqual({ title, exam: false });
@@ -334,6 +521,9 @@ describe("from courses to exam dates", () => {
         );
         expect(slots.map((slot) => `${slot.id}:${slot.status}`)).toEqual(["e:free", "b:unknown", "c:full"]);
         expect(Object.keys(slots[0])).toEqual(["id", "date", "time", "status", "title", "url"]);
+        // A dash where the page has no place is no place.
+        const placed = (place: string) => toSlots([{ ...course("p", "2027-01-11", "09:00", "Einbürgerungstest"), place }], { today: TODAY })[0].place;
+        expect([placed("—"), placed("Rathaus")]).toEqual([undefined, "Rathaus"]);
     });
 });
 
@@ -395,6 +585,21 @@ describe("sync", () => {
         ]);
         expect(await read("<html>Wartung</html>")).toEqual({ ok: false, error: "the page is not a kufer course list any more" });
         expect(await readSource(SOURCE, { today: TODAY, robots: async () => "", page: async () => Promise.reject(new Error("HTTP 503")) })).toEqual({ ok: false, error: "HTTP 503" });
+    });
+
+    it("takes a page that suddenly lists no course for a failed read while dates are known for the centre", async () => {
+        const empty = `<link href="/fileadmin/kuferweb/layout.css"><h1>Wartungsarbeiten</h1>`;
+        const read = (previous: object | null) => readSource(SOURCE, { today: TODAY, robots: async () => "", page: async () => ({ url: PAGE, html: empty }), previous });
+        const slot = (date: string) => ({ id: "a", date, status: "free", title: "Einbürgerungstest", url: "https://x.de/a" });
+        const known = { ...SOURCE, checkedAt: "2026-11-22T05:17:00.000Z", ok: true, slots: [slot("2026-12-03")] };
+
+        const failed = await read(known);
+        expect(failed).toEqual({ ok: false, error: "no course found on the page" });
+        // The dates stay, marked as not confirmed, instead of vanishing at once.
+        expect(mergeCentre(SOURCE, failed, known, { now: new Date("2026-11-22T09:17:00Z"), today: TODAY })).toMatchObject({ ok: false, slots: [{ date: "2026-12-03" }] });
+        // Nothing was expected: an empty list is an empty list. A test held today is over, not expected.
+        expect(await read(null)).toEqual({ ok: true, slots: [] });
+        expect(await read({ ...known, slots: [slot(TODAY)] })).toEqual({ ok: true, slots: [] });
     });
 
     it("keeps the dates of the last good read for a few days when a centre stops answering, then drops them", () => {

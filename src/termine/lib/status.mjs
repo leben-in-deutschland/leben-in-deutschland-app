@@ -20,43 +20,83 @@ export const BOOKABLE = ["free", "few"];
 /** How a place is booked, when the page says so. */
 export const BOOKINGS = ["online", "inperson", "phone", "written"];
 
+const MONTH_WORDS = "januar|februar|märz|april|mai|juni|juli|august|september|oktober|november|dezember";
+const WEEKDAY_WORDS = "montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonnabend|sonntag";
+
 /** "Eventuell ist ein späterer Einstieg noch möglich": the centre itself says "ask us". */
 const HEDGED = /(eventuell|ggf\.?|gegebenenfalls|unter umständen)[^.]{0,80}möglich/;
 const CLOSED =
-    /anmeldeschluss[^.]{0,40}(erreicht|abgelaufen|vorbei|überschritten|verstrichen)|anmelde(frist|phase|zeitraum)[^.]{0,40}(abgelaufen|beendet|vorbei|vorüber|verstrichen)|keine anmeldung(en)? mehr möglich|nicht mehr (buchbar|möglich|anmeldbar)|\babgeschlossen\b|\bbeendet\b|bereits (begonnen|gestartet)|hat begonnen|läuft bereits|\babgesagt\b|\bausgefallen\b|fällt aus|\bentfällt\b|\bstorniert\b|\babgelaufen\b/;
-const SOON = /noch nicht (begonnen|möglich|buchbar|freigeschaltet|geöffnet)|anmeldung (ab|erst ab|möglich ab|startet|beginnt)\b|buchbar ab\b|anmeldestart|in planung|in vorbereitung/;
-const WAITLIST = /warteliste|wartelisten|nachrück/;
-const FEW = /fast (ausgebucht|belegt|voll)|wenige (freie )?(plätze|restplätze)|noch wenige|restpl[aä]tze|nur noch \d+ (plätze|platz|pl\.)/;
-const FULL = /\bausgebucht\b|\bbelegt\b|keine (freien )?plätze|\b(ist |bereits |schon )?voll\b|\bausverkauft\b/;
-/** A negation or a pointer to the course text: the page shows the date, not whether a place is left. */
-const UNCLEAR =
-    /\bnicht\b|\bkein(e|en|er)?\b|\bnur\b|persönlich|telefonisch|schriftlich|siehe (details|kurs|hinweis|beschreibung)|kursinfo|information|hinweise?\b|beachten|auf anfrage|vor ort|interessent/;
-const FREE = /anmeldung (ist )?(noch )?möglich|\bbuchbar\b|plätze (sind )?(noch )?(frei|vorhanden|verfügbar)|freie plätze|noch plätze|noch frei\b|in den warenkorb|jetzt (anmelden|buchen)/;
-
+    /anmeldeschluss(?![^.]{0,40}\bnicht\b)[^.]{0,40}(erreicht|abgelaufen|vorbei|überschritten|verstrichen)|anmelde(frist|phase|zeitraum)(?![^.]{0,40}\bnicht\b)[^.]{0,40}(abgelaufen|beendet|vorbei|vorüber|verstrichen)|keine anmeldung(en)? mehr möglich|nicht mehr (buchbar|möglich|anmeldbar)|\babgeschlossen\b|\bbeendet\b|bereits (begonnen|gestartet)|hat begonnen|läuft bereits|\babgesagt\b|\bausgefallen\b|fällt aus|\bentfällt\b|\bstorniert\b|\babgelaufen\b/;
 /**
- * Status for a German status text ("Anmeldung möglich", "fast ausgebucht",
- * "Der Anmeldeschluss wurde bereits erreicht."). The order matters:
- * "ausgebucht, Warteliste möglich" is a waiting list, "fast ausgebucht" is
- * not full, and any negation keeps a text from counting as free. "Keine
- * Anmeldung möglich" is unknown, not closed: most centres take registrations
- * for this test in person, and their web shop says exactly that about it.
+ * A day from which something counts: "ab 01.12.", "ab dem 1. Dezember",
+ * "ab Mi., 25.11.", "ab Januar", "ab KW 3" - but not "ab sofort",
+ * "ab 16 Jahren" or "ab 14 Uhr".
  */
-export function statusFromText(text) {
-    const value = String(text ?? "")
+const FROM_A_DAY = `\\bab (?:dem |den )?(?:(?:${WEEKDAY_WORDS})\\b|(?:mo|di|mi|do|fr|sa|so)\\.?,? ?(?=\\d)|\\d{1,2}\\.|(?:anfang |mitte |ende )?(?:${MONTH_WORDS})\\b|kw ?\\d)`;
+const SOON = new RegExp(
+    [
+        "noch nicht (begonnen|möglich|buchbar|freigeschaltet|geöffnet|gestartet|anmeldbar)",
+        "anmeldung (startet|beginnt|öffnet)\\b",
+        "anmelde(start|beginn)",
+        "in planung|in vorbereitung",
+        "\\b(demnächst|in kürze)\\b",
+        "\\bbald (wieder )?(buchbar|möglich|anmeldbar|verfügbar|freigeschaltet)",
+        "\\berst (ab|am|im|zum|wieder|später)\\b",
+        FROM_A_DAY,
+    ].join("|"),
+);
+const WAITLIST = /warteliste|wartepl(ä|a)tz|nachrück/;
+/** "Keine Warteliste", "Warteliste geschlossen": the word alone is no waiting list. */
+const NO_WAITLIST = /\b(keine?|ohne) (\w+ )?wartelisten?\b|wartelisten?[^.]{0,20}\b(nicht|geschlossen|voll)\b/;
+/** "0 freie Plätze", "Freie Plätze: 0": a count of none. */
+const ZERO = /(?<![\d.,:])0 (freie[nr]? |verfügbare[nr]? )?(rest)?pl(ä|a)tz|\bplätze( frei| verfügbar| vorhanden)?: ?0(?![\d.,:]| ?(von|\/))/;
+/** "3 von 12 Plätzen belegt": how many are taken, not that all are. */
+const TAKEN = /(?<![\d.,:])(\d{1,3}) ?(?:von|\/) ?(\d{1,3}) (?:plätzen? )?(?:sind )?(?:belegt|besetzt|vergeben|gebucht)/;
+/** A negation: whatever else the text says, it does not say that a place can be booked. */
+const NEGATED = /\bkein(e|en|er|erlei)?\b|\bnicht\b|\bohne\b/;
+/** "Noch nicht ausgebucht" is neither full nor a statement that can be booked on. */
+const NOT_FULL = /\b(nicht|kein(e|en|er)?) (\w+ ){0,2}(ausgebucht|belegt|voll|ausverkauft)\b/;
+const FEW =
+    /fast (ausgebucht|belegt|voll)|\bwenige (freie )?(rest)?pl(ä|a)tze|\bwenige (sind )?(noch )?(frei|verfügbar|vorhanden)|\brestpl(ä|a)tz|nur noch \d+ (freie[nr]? )?(pl(ä|a)tz|pl\.)|nur noch (ein|einen|zwei|drei) (freie[nr]? )?pl(ä|a)tz/;
+const FULL = /\bausgebucht\b|\bbelegt\b|\bkein(e|en)? (freie[nr]? )?(rest)?pl(ä|a)tz|\b(ist |bereits |schon )?voll\b|\bausverkauft\b/;
+/**
+ * A pointer to the course text or a condition: the page shows the date, not
+ * whether a place is left. A day in the text is a condition too ("Anmeldung
+ * möglich vom 01.12. bis 15.12." says nothing about today).
+ */
+const UNCLEAR = new RegExp(
+    `\\bnur\\b|persönlich|telefonisch|schriftlich|siehe (details|kurs|hinweis|beschreibung)|kursinfo|information|hinweise?\\b|beachten|auf anfrage|vor ort|interessent|\\d{1,2}\\.\\s?\\d{1,2}\\.|\\b\\d{1,2}\\. ?(?:${MONTH_WORDS})`,
+);
+const FREE =
+    /anmeldung (ist )?((ab sofort|jetzt|noch|weiterhin|online) )*möglich|\bbuchbar\b|\banmeldbar\b|\bplätze (sind )?(noch )?(frei|vorhanden|verfügbar)|\bfreie plätze|noch plätze|noch frei\b|in den warenkorb|jetzt (anmelden|buchen)/;
+
+function normalise(text) {
+    return String(text ?? "")
         .toLowerCase()
         .replace(/\s+/g, " ")
         .trim();
-    if (!value || HEDGED.test(value)) {
-        return "unknown";
-    }
-    if (CLOSED.test(value)) {
-        return "closed";
-    }
-    if (SOON.test(value)) {
-        return "soon";
-    }
-    if (WAITLIST.test(value)) {
+}
+
+/**
+ * What a text says about places, once it is known not to be over or not yet
+ * open. The order matters: "ausgebucht, Warteliste möglich" is a waiting
+ * list, a count of none and every negation come before any word that sounds
+ * like a free place ("keine Restplätze", "0 freie Plätze"), and "fast
+ * ausgebucht" is not full.
+ */
+function placesFromText(value) {
+    if (WAITLIST.test(value) && !NO_WAITLIST.test(value)) {
         return "waitlist";
+    }
+    if (ZERO.test(value)) {
+        return "full";
+    }
+    const taken = TAKEN.exec(value);
+    if (taken) {
+        return Number(taken[1]) >= Number(taken[2]) ? "full" : "unknown";
+    }
+    if (NEGATED.test(value)) {
+        return !NOT_FULL.test(value) && FULL.test(value) ? "full" : "unknown";
     }
     if (FEW.test(value)) {
         return "few";
@@ -68,6 +108,43 @@ export function statusFromText(text) {
         return "unknown";
     }
     return FREE.test(value) ? "free" : "unknown";
+}
+
+/**
+ * Status for a German status text ("Anmeldung möglich", "fast ausgebucht",
+ * "Der Anmeldeschluss wurde bereits erreicht."). "Keine Anmeldung möglich"
+ * is unknown, not closed: most centres take registrations for this test in
+ * person, and their web shop says exactly that about it.
+ */
+export function statusFromText(text) {
+    const value = normalise(text);
+    if (!value || HEDGED.test(value)) {
+        return "unknown";
+    }
+    if (CLOSED.test(value)) {
+        return "closed";
+    }
+    if (SOON.test(value)) {
+        return "soon";
+    }
+    return placesFromText(value);
+}
+
+const VERDICTS = ["full", "closed", "waitlist"];
+
+/**
+ * What a course title or a link's tooltip says about places
+ * ("Einbürgerungstest - AUSGEBUCHT"): "full", "closed", "waitlist" or null.
+ * Such a text can close a date, never open one - and a registration day it
+ * mentions ("Anmeldung ab 25.11.") is no verdict at all.
+ */
+export function titleVerdict(text) {
+    const value = normalise(text);
+    if (!value || HEDGED.test(value)) {
+        return null;
+    }
+    const status = CLOSED.test(value) ? "closed" : placesFromText(value);
+    return VERDICTS.includes(status) ? status : null;
 }
 
 /** How to book, when a status text names it. */

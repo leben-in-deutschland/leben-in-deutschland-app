@@ -612,6 +612,15 @@
     "url": "https://www.vhs-ohz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
   },
   {
+    "id": "ni-vhs-stade",
+    "state": "NI",
+    "city": "Stade",
+    "name": "VHS Stade e. V.",
+    "plz": "21682",
+    "adapter": "kufer",
+    "url": "https://www.vhs-stade.de/programm/mensch-gesellschaft-umwelt?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
     "id": "ni-allesbildung",
     "state": "NI",
     "city": "Uelzen",
@@ -880,6 +889,15 @@
     "plz": "48231",
     "adapter": "item",
     "url": "https://www.vhs-warendorf.de/fachbereich//deutsch-integration/einbuergerung"
+  },
+  {
+    "id": "nw-vhs-lennetal",
+    "state": "NW",
+    "city": "Werdohl",
+    "name": "VHS Lennetal",
+    "plz": "58791",
+    "adapter": "kufer",
+    "url": "https://www.vhs-lennetal.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
   },
   {
     "id": "nw-vhs-werl",

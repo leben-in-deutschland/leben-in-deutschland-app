@@ -27,8 +27,8 @@ src/termine/
   adapters/index.mjs   The adapters by name
   lib/http.mjs         Polite GET: User-Agent, timeout, size limit, redirects only within the site, the page's own charset
   lib/robots.mjs       robots.txt (RFC 9309): the group that names this crawler, longest match, wildcards
-  lib/html.mjs         Entity decoding, quote-aware tag stripping, text of an element
-  lib/dates.mjs        German dates and times -> "YYYY-MM-DD" and "HH:MM"; "today" in Germany
+  lib/html.mjs         Entity decoding, quote-aware tag stripping, text of an element; bounded on pages that never close a tag
+  lib/dates.mjs        German dates and times -> "YYYY-MM-DD" and "HH:MM"; the exam day apart from the days of registration; "today" in Germany
   lib/status.mjs       A page's words or booking classes -> free, few, waitlist, full, soon, closed, unknown
   lib/courses.mjs      Which courses are the test itself; the shape of a date
   output/              IGNORED: candidates.json, a local termine.json
@@ -47,20 +47,39 @@ live pages; nothing touches the network).
   to another site is a failure, not followed.
 - **Never invent availability.** A date is `free` or `few` only when the
   centre's page says a place can be booked. A negation ("nicht", "kein",
-  "nur"), a pointer to the course text or no word at all is `unknown`.
-  "Keine Anmeldung möglich" is `unknown`, not `closed`: most centres take
-  registrations for this test in person, and their web shop says exactly
-  that about it. A title may say `full`, `closed` or `waitlist`
+  "nur"), a count of none ("0 freie Plätze"), a condition with a day in it
+  ("Anmeldung möglich vom 01.12. bis 15.12."), a pointer to the course text
+  or no word at all is never `free`: it is `full` when the text says so
+  ("keine Restplätze"), `soon` when registration starts later ("ab 01.12.
+  buchbar"), `unknown` otherwise. "Keine Anmeldung möglich" is `unknown`,
+  not `closed`: most centres take registrations for this test in person,
+  and their web shop says exactly that about it. A title, or the tooltip
+  of a link to the course, may say `full`, `closed` or `waitlist`
   ("Einbürgerungstest - AUSGEBUCHT"), never `free`.
+- **A light belongs to its own course.** Blocks are cut at the template's
+  markers or table rows. Without them, a block is the container the course
+  sits in (a card, a row, a list item), whatever comes first in it. Where
+  the structure does not say whose a traffic light is - a legend, lights
+  between two cards - it is not read, and the date is `unknown`.
+- **The exam day, not a day of registration.** "Anmeldeschluss: Fr.
+  08.01.2027" is the deadline, "Anmeldung ab 04.12.2026" the start of
+  registration; neither is the test. A date printed without a year counts
+  only with a weekday that fits a nearby year, and two digits are a year
+  only when that weekday agrees. What cannot be read is dropped, not
+  guessed.
 - **The test, not courses about it.** Preparation courses, the test that
-  ends an integration course (for its participants only) and appointments
-  to register are dropped (`isExamTitle`).
+  ends an integration or orientation course (for its participants only)
+  and appointments to register are dropped (`isExamTitle`).
 - **Facts and a link.** Day, time, booking state, the centre's title of the
   date, the place, the link. No description text is stored.
 - **A failed read is shown as such.** A source that cannot be read keeps the
   dates of its last good read for three days (`ok: false`, the old
-  `checkedAt`); then they are dropped. A run in which fewer than half of
-  the sources that answered last time answer writes nothing and exits 1.
+  `checkedAt`); then they are dropped. A page in the site's layout that
+  lists no course at all, while dates ahead are known for the centre, is a
+  failed read too ("no course found on the page"): a maintenance page or a
+  changed link shape must not wipe the dates at once. A run in which fewer
+  than half of the sources that answered last time answer writes nothing
+  and exits 1.
 - **A centre can opt out.** Remove its entry from `sources.json`; the legal
   notice of the website has the contact.
 
@@ -80,7 +99,7 @@ node src/termine/discover.mjs --merge             # candidates -> sources.json (
 ```
 
 `sync.mjs` prints one line on stdout
-(`109 of 109 centres read, 106 list a date; 331 dates, 87 bookable`) and
+(`111 of 111 centres read, 108 list a date; 335 dates, 87 bookable`) and
 what happened per source on stderr. Exit 1 when the registry or the result
 is not valid, or when most sources are silent.
 
@@ -167,16 +186,27 @@ what a learner's watch list stores, so it never changes once published.
 ## When a page changes
 
 A source that stops being read shows up in the workflow log
-(`! by-vhs-x: the page is not a kufer course list any more`) and in the
-file (`ok: false`). Fetch the page once with `--only`, find what moved, fix
-the adapter and add the new shape to the fixtures in
-`termine-pipeline.test.ts`. Keep the rules above: when a page stops saying
-whether a place is left, the answer is `unknown`.
+(`! by-vhs-x: the page is not a kufer course list any more`, or
+`! by-vhs-x: no course found on the page`) and in the file (`ok: false`).
+Fetch the page once with `--only`, find what moved, fix the adapter and
+add the new shape to the fixtures in `termine-pipeline.test.ts`. Keep the
+rules above: when a page stops saying whether a place is left, the answer
+is `unknown`.
+
+Before a change to an adapter or to `lib/` goes in, read the same pages
+with the old and the new code and look at every difference:
+`discover.mjs --cache DIR` keeps the pages, so this costs the websites
+nothing. Fixtures show that a rule works; only real pages show what else
+it touches (a tighter tag pattern once stopped matching tags with an
+inline image in them).
+
+A page is at most 3 MB, and the tag patterns are bounded, so a page that
+never closes its tags or quotes costs seconds, not the run.
 
 A new course system is one module in `adapters/` with
 `parse(html, pageUrl, { today }) -> { recognised, courses }` and
 `recognises(html)`, registered in `adapters/index.mjs`. At the start
-(2026-11-22) the two adapters read 109 of the 663 centres BAMF lists; 107
+(2026-11-22) the two adapters read 111 of the 663 centres BAMF lists; 107
 centres have a mail domain that is not their website, and about 270
 websites run a system no adapter knows yet.
 

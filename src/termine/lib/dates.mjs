@@ -1,23 +1,69 @@
 // German dates and times as the course pages print them ("Fr. 27.11.2026",
-// "27. November 2026", "Sa. 28.11.", "13:00 - 14:00 Uhr", "12.30 Uhr"),
-// turned into "YYYY-MM-DD" and "HH:MM". Exam days are calendar days in
+// "27. November 2026", "Sa. 28.11.", "13:00 - 14:00 Uhr", "12.30 Uhr",
+// "10 Uhr"), turned into "YYYY-MM-DD" and "HH:MM", and the exam day told
+// apart from the days of registration. Exam days are calendar days in
 // Germany, so "today" is always Europe/Berlin, whatever the zone of the
 // machine that runs the sync.
 
 const MONTHS = ["januar", "februar", "märz", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "dezember"];
 const MONTH_NAMES = "Januar|Februar|März|Maerz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember";
-/** Sunday = 0, as `Date#getUTCDay` counts. */
-const WEEKDAYS = { so: 0, mo: 1, di: 2, mi: 3, do: 4, fr: 5, sa: 6 };
+/** Sunday = 0, as `Date#getUTCDay` counts. "Sonnabend" is the Saturday of northern Germany. */
+const WEEKDAYS = { so: 0, mo: 1, di: 2, mi: 3, do: 4, fr: 5, sa: 6, sonntag: 0, montag: 1, dienstag: 2, mittwoch: 3, donnerstag: 4, freitag: 5, samstag: 6, sonnabend: 6 };
+const WEEKDAY_WORDS = "montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonnabend|sonntag|mo|di|mi|do|fr|sa|so";
 
-/** A year that is not the hour of a time: the "09" of "28.11. 09:00" is no year. */
-const YEAR = "(\\d{4}|\\d{2})(?![\\d:]|\\.\\d)";
-/** "27.11.2026", "27.11.26", "27. 11. 2026", "27. November 2026" - or "27.11." without a year. */
-const DATE = new RegExp(`(?<![\\d.])(\\d{1,2})\\.\\s?(?:(\\d{1,2})\\.(?:\\s?${YEAR})?|(${MONTH_NAMES})\\s+(\\d{4})(?!\\d))`, "i");
-const WEEKDAY_BEFORE = /(mo|di|mi|do|fr|sa|so)(?:ntag|enstag|ttwoch|nnerstag|eitag|mstag|nnabend)?\.?,?\s*$/i;
+/** What does not follow a year: the price of "28.11. 30,00 €", the time of "28.11. 09:00". */
+const NOT_A_YEAR = "(?![\\d:]|[.,]\\d)";
+/** Two digits are no year either in front of "Uhr": the hour of "28.11.10 Uhr" and of "28.11.10-12 Uhr". */
+const NOT_AN_HOUR = "(?!\\s*Uhr\\b|\\s*(?:-|–|—|bis)\\s*\\d{1,2}(?:[.:]\\d\\d)?\\s*Uhr\\b)";
+/**
+ * "27.11.2026", "27. 11. 2026", "27.11.26", "27. November 2026" - or
+ * "27.11." without a year. Two digits are a year only directly behind the
+ * dot; a space may only stand in front of all four.
+ */
+const DATE = new RegExp(`(?<![\\d.])(\\d{1,2})\\.\\s?(?:(\\d{1,2})\\.(?:\\s?((?:19|20)\\d{2})${NOT_A_YEAR}|(\\d{2})${NOT_A_YEAR}${NOT_AN_HOUR})?|(${MONTH_NAMES})\\s+(\\d{4})(?!\\d))`, "i");
+/** The weekday in front of a date: "Sa. 28.11.", "Samstag, den 28.11." - but not the "so" of "also". */
+const WEEKDAY_BEFORE = new RegExp(`(?<![a-zäöüß])(${WEEKDAY_WORDS})\\.?\\s?,?\\s*(?:de[nm]\\s+)?$`, "i");
 
-/** A minute count that is not the middle of a date: "12.30" but not the "05.09" of "05.09.2026". */
-const MINUTES = "([0-5]\\d)(?!\\d|\\.\\d)";
-const TIME = new RegExp(`(?<![\\d.:])([01]?\\d|2[0-3])[:.]${MINUTES}(?:\\s*(?:Uhr)?\\s*(?:-|–|—|bis)\\s*([01]?\\d|2[0-3])[:.]${MINUTES})?`);
+const AN_HOUR = "(?:[01]?\\d|2[0-3])";
+const A_MINUTE = "(?:[0-5]\\d)";
+const HOUR = `(${AN_HOUR})`;
+const MINUTE = `(${A_MINUTE})`;
+const UHR = "\\s*Uhr\\b";
+const TO = "\\s*(?:-|–|—|bis)\\s*";
+/** Not the tail of a number ("25,00"), a date or another time; a comma in front is fine (",08:30"). */
+const FRESH = "(?<![\\d.:]|\\d,)";
+/** Where a clock time may start; the one that comes first in the text counts. */
+const TIME_STARTS = [
+    // "13:00": a colon always makes a time.
+    new RegExp(`${FRESH}${HOUR}:${MINUTE}(?!\\d)`, "i"),
+    // "12.30 Uhr", "9.00 - 10.30 Uhr": a dot does only with "Uhr" behind the time or behind the range it opens -
+    // "Raum 1.12" and the "08.01." of another date are no times.
+    new RegExp(`${FRESH}${HOUR}\\.${MINUTE}(?=${UHR}|${TO}${AN_HOUR}[.:]${A_MINUTE}${UHR})`, "i"),
+    // "10 Uhr", "8 - 9.30 Uhr": a bare hour needs "Uhr" as well.
+    new RegExp(`${FRESH}${HOUR}(?=${UHR}|${TO}${AN_HOUR}(?:[.:]${A_MINUTE})?${UHR})`, "i"),
+    // "05.02.27, 10.30": directly behind the date a dot is enough.
+    new RegExp(`(?<=^[\\s,;]*(?:(?:um|ab|von)\\s+)?)${HOUR}\\.${MINUTE}(?![\\d.])`, "i"),
+];
+/** The end of a range behind a start: "- 14:00", "bis 10.30", "Uhr - 11 Uhr". */
+const TIME_UNTIL = new RegExp(`^(?:${UHR})?${TO}(?:${HOUR}:${MINUTE}(?!\\d)|${HOUR}\\.${MINUTE}(?![\\d.])|${HOUR}(?=${UHR}))`, "i");
+
+/** Between a registration word and its day: "Anmeldeschluss: Fr.", "Anmeldung bis einschließlich", "Anmeldeschluss ist der". */
+const FILLER = `(?:[\\s:.,–-]|\\b(?:ist|war|der|den|dem|am|zum|einschließlich|einschl|spätestens|bis|${WEEKDAY_WORDS})\\b)`;
+const REGISTERING = "anmeld(?:ung(?:en)?|en|bar)\\b[^.\\d]{0,24}";
+/** Words in front of a date that make it the end of registration, not the exam day. */
+const DEADLINE = new RegExp(`(?:anmeldeschluss|anmeldefrist|anmeldeende|meldeschluss|${REGISTERING}\\bbis|\\bbis (?:zum|spätestens))${FILLER}{0,14}$`, "i");
+/** Words in front of a date that make it the start of registration. */
+const OPENING = new RegExp(`(?:anmeldebeginn|anmeldestart|anmeldezeitraum|anmeldephase|${REGISTERING}\\b(?:ab|vom|von)|\\bbuchbar (?:erst )?ab)${FILLER}{0,14}$`, "i");
+/** "01.11. - 08.01.": what stands between the two days of a registration period. */
+const PERIOD = new RegExp(`^\\s*(?:-|–|—|bis)\\s*(?:zum\\s+)?(?:(?:${WEEKDAY_WORDS})\\.?\\s?,?\\s*)?$`, "i");
+/** The second day of "03.09. - 05.09.2026". */
+const SECOND_DAY = new RegExp(`^\\s*(?:-|–|—|bis)\\s*(?:(?:${WEEKDAY_WORDS})\\.?\\s?,?\\s*)?\\d{1,2}\\.\\s?(?:\\d{1,2}\\.\\s?(?:\\d{4}|\\d{2})?|(?:${MONTH_NAMES})(?:\\s+\\d{4})?)`, "i");
+/** Where the text behind an exam day turns to something else: another date, or registration. */
+const NEXT_TOPIC = /\d{1,2}\.\s?\d{1,2}\.|anmeld/i;
+/** How far behind the day its time may stand. */
+const TIME_WINDOW = 60;
+/** How close a second mention of the same day must follow to count as the same statement. */
+const SAME_DAY_GAP = 40;
 
 function pad(value) {
     return String(value).padStart(2, "0");
@@ -63,11 +109,18 @@ function inferYear(day, month, weekday, today) {
     return best?.year ?? null;
 }
 
+function weekdayBefore(source, index) {
+    const word = WEEKDAY_BEFORE.exec(source.slice(Math.max(0, index - 24), index))?.[1].toLowerCase();
+    return word === undefined ? undefined : WEEKDAYS[word];
+}
+
 /**
  * The first German date in `text` at or after `from` as
- * { date: "YYYY-MM-DD", index, end }, or null. Two-digit years mean 20xx.
- * A date without a year counts only when `today` ("YYYY-MM-DD") is given
- * and a weekday stands in front of it. Impossible days are skipped.
+ * { date: "YYYY-MM-DD", index, end }, or null. A date without a year counts
+ * only when `today` ("YYYY-MM-DD") is given and a weekday stands in front of
+ * it. Two digits behind the dot mean 20xx; when the weekday in front does
+ * not fall on that day, the date is not readable and is skipped rather
+ * than guessed. Impossible days are skipped too.
  *
  * @param {string} text
  * @param {number} [from]
@@ -86,14 +139,20 @@ export function findDate(text, from = 0, today = null) {
         const end = index + match[0].length;
         offset = end;
         const day = Number(match[1]);
-        const month = match[4] ? monthNumber(match[4]) : Number(match[2]);
-        const yearText = match[4] ? match[5] : match[3];
+        const month = match[5] ? monthNumber(match[5]) : Number(match[2]);
+        const weekday = weekdayBefore(source, index);
         let year;
-        if (yearText) {
-            year = yearText.length === 2 ? 2000 + Number(yearText) : Number(yearText);
+        if (match[5]) {
+            year = Number(match[6]);
+        } else if (match[3]) {
+            year = Number(match[3]);
+        } else if (match[4]) {
+            year = 2000 + Number(match[4]);
+            if (weekday !== undefined && isRealDay(year, month, day) && new Date(Date.UTC(year, month - 1, day)).getUTCDay() !== weekday) {
+                continue;
+            }
         } else {
-            const weekday = WEEKDAY_BEFORE.exec(source.slice(Math.max(0, index - 14), index))?.[1].toLowerCase();
-            year = inferYear(day, month, weekday === undefined ? undefined : WEEKDAYS[weekday], today);
+            year = inferYear(day, month, weekday, today);
         }
         if (year !== null && isRealDay(year, month, day)) {
             return { date: `${year}-${pad(month)}-${pad(day)}`, index, end };
@@ -104,24 +163,96 @@ export function findDate(text, from = 0, today = null) {
 
 /**
  * The first clock time in `text` at or after `from` as
- * { time: "HH:MM", until: "HH:MM" | null, index, end }, or null.
- * "12.30 Uhr" counts as a time; the "05.09" of a second date does not.
+ * { time: "HH:MM", until: "HH:MM" | null, index, end }, or null. Pass the
+ * position right behind a date as `from`: only there does "10.30" count
+ * without "Uhr".
  *
  * @param {string} text
  * @param {number} [from]
  * @returns {{ time: string, until: string | null, index: number, end: number } | null}
  */
 export function findTime(text, from = 0) {
-    const match = TIME.exec(String(text ?? "").slice(from));
-    if (!match) {
+    const source = String(text ?? "").slice(from);
+    let start = null;
+    for (const pattern of TIME_STARTS) {
+        const match = pattern.exec(source);
+        if (match && (start === null || match.index < start.index)) {
+            start = match;
+        }
+    }
+    if (!start) {
         return null;
     }
+    const end = start.index + start[0].length;
+    const tail = TIME_UNTIL.exec(source.slice(end));
     return {
-        time: `${pad(match[1])}:${match[2]}`,
-        until: match[3] ? `${pad(match[3])}:${match[4]}` : null,
-        index: from + match.index,
-        end: from + match.index + match[0].length,
+        time: `${pad(start[1])}:${start[2] ?? "00"}`,
+        until: tail ? `${pad(tail[1] ?? tail[3] ?? tail[5])}:${tail[2] ?? tail[4] ?? "00"}` : null,
+        index: from + start.index,
+        end: from + end + (tail ? tail[0].length : 0),
     };
+}
+
+/** The text behind an exam day in which its time may stand: the second day of a range aside, up to the next date or registration word. */
+function timeWindow(text, from) {
+    let rest = text.slice(from, from + TIME_WINDOW);
+    const second = SECOND_DAY.exec(rest);
+    if (second) {
+        rest = rest.slice(second[0].length);
+    }
+    const stop = rest.search(NEXT_TOPIC);
+    return stop < 0 ? rest : rest.slice(0, stop);
+}
+
+/**
+ * The exam day in the text of one course: the first date that is not about
+ * registration, with its time, and the registration deadline when the text
+ * names one. "Anmeldeschluss: Fr. 08.01.2027" is a deadline, "Anmeldung ab
+ * 25.11." and both ends of "Anmeldezeitraum: 01.11. - 08.01." are not the
+ * exam either. Null when no other date is left.
+ *
+ * @param {string} text
+ * @param {string | null} [today]
+ * @returns {{ date: string, time: string | null, until: string | null, deadline: string | null } | null}
+ */
+export function findExamDay(text, today = null) {
+    const source = String(text ?? "");
+    let day = null;
+    let deadline = null;
+    /** Where a registration start ended, while the next date may still be the end of that period. */
+    let opened = null;
+    let from = 0;
+    for (;;) {
+        const found = findDate(source, from, today);
+        if (!found) {
+            break;
+        }
+        const before = source.slice(Math.max(0, found.index - 80), found.index);
+        if (DEADLINE.test(before) || (opened !== null && PERIOD.test(source.slice(opened, found.index)))) {
+            deadline ??= found.date;
+            opened = null;
+        } else if (OPENING.test(before)) {
+            opened = found.end;
+        } else {
+            opened = null;
+            day ??= found;
+        }
+        from = found.end;
+    }
+    if (!day) {
+        return null;
+    }
+    let clock = findTime(timeWindow(source, day.end));
+    // "Einbürgerungstest - 11.12.2026 Fr., ab 11.12.2026 um 12:30 Uhr": without a time behind the day, it may stand behind the day's next mention.
+    for (let behind = day.end; !clock; ) {
+        const again = findDate(source, behind, today);
+        if (!again || again.date !== day.date || again.index - behind > SAME_DAY_GAP) {
+            break;
+        }
+        behind = again.end;
+        clock = findTime(timeWindow(source, behind));
+    }
+    return { date: day.date, time: clock?.time ?? null, until: clock?.until ?? null, deadline };
 }
 
 /** "YYYY-MM-DD" of `now` on a wall clock in Germany. */

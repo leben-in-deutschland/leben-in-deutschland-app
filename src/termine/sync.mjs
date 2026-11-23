@@ -11,7 +11,9 @@
 //
 // A source that cannot be read keeps the dates of its last good read for
 // STALE_DAYS and is marked `ok: false`; after that its dates are dropped
-// rather than shown as current. The run fails (exit 1, nothing written) when
+// rather than shown as current. A page that suddenly lists no course at all
+// while dates are known for the centre counts as not read: that is a moved
+// or broken page, not news. The run fails (exit 1, nothing written) when
 // the result is not the shape the app expects or when most sources that
 // answered last time are silent now - that is a broken run, not news.
 //
@@ -190,15 +192,26 @@ export function validateTermine(data) {
  * @typedef {{ version: number, generatedAt: string, centres: Centre[] }} Termine
  */
 
+/** True when the last file knows a date of the centre that is still ahead. */
+function expectsDates(previous, today) {
+    return Array.isArray(previous?.slots) && previous.slots.some((slot) => isDay(slot?.date) && (!today || slot.date > today));
+}
+
 /**
  * Reads one source: robots.txt first, then the page, then the adapter.
  * Resolves with { ok: true, slots } or { ok: false, error }; never throws.
  *
+ * `previous` is the centre's entry in the last file. A page in the site's
+ * layout that lists no course at all - maintenance, a changed link shape -
+ * is recognised but empty; when the last file knows dates ahead for the
+ * centre, that is a failed read, so the dates stay (marked unconfirmed)
+ * instead of vanishing at once.
+ *
  * @param {Source} source
- * @param {{ today?: string, robots?: (url: string) => Promise<string | null>, page?: (url: string) => Promise<{ url: string, html: string }> }} [options]
+ * @param {{ today?: string, robots?: (url: string) => Promise<string | null>, page?: (url: string) => Promise<{ url: string, html: string }>, previous?: Partial<Centre> | null }} [options]
  * @returns {Promise<ReadResult>}
  */
-export async function readSource(source, { today, robots = fetchRobots, page = getPage } = {}) {
+export async function readSource(source, { today, robots = fetchRobots, page = getPage, previous = null } = {}) {
     try {
         const rules = await robots(source.url);
         if (rules === null) {
@@ -211,6 +224,9 @@ export async function readSource(source, { today, robots = fetchRobots, page = g
         const { recognised, courses } = ADAPTERS[source.adapter].parse(html, url, { today });
         if (!recognised) {
             return { ok: false, error: `the page is not a ${source.adapter} course list any more` };
+        }
+        if (courses.length === 0 && expectsDates(previous, today)) {
+            return { ok: false, error: "no course found on the page" };
         }
         return { ok: true, slots: toSlots(courses, { today }) };
     } catch (error) {
@@ -288,8 +304,12 @@ export function summarise(data) {
     };
 }
 
-/** Reads every source, a few websites at a time and never two pages of one website at once. */
-export async function readAll(sources, { today, concurrency = 6, log = () => {}, read = readSource } = {}) {
+/**
+ * Reads every source, a few websites at a time and never two pages of one website at once.
+ * `previous` is the last file; each source is read knowing its entry there.
+ */
+export async function readAll(sources, { today, concurrency = 6, log = () => {}, read = readSource, previous = null } = {}) {
+    const before = new Map((previous?.centres ?? []).map((centre) => [centre.id, centre]));
     const robotsBySite = new Map();
     const robots = (url) => {
         const origin = new URL(url).origin;
@@ -309,7 +329,7 @@ export async function readAll(sources, { today, concurrency = 6, log = () => {},
     const worker = async () => {
         while (next < sites.length) {
             for (const source of sites[next++]) {
-                const result = await read(source, { today, robots });
+                const result = await read(source, { today, robots, previous: before.get(source.id) ?? null });
                 results.set(source.id, result);
                 log(result.ok ? `  ${source.id}: ${result.slots.length} dates` : `  ! ${source.id}: ${result.error}`);
             }
@@ -350,7 +370,7 @@ async function main(args) {
     const now = new Date();
     const wanted = only ? sources.filter((source) => source.id === only) : sources;
     console.error(`reading ${wanted.length} of ${sources.length} sources (${now.toISOString()})`);
-    const results = await readAll(wanted, { today: berlinDay(now), concurrency, log: (line) => console.error(line) });
+    const results = await readAll(wanted, { today: berlinDay(now), concurrency, previous, log: (line) => console.error(line) });
     if (only) {
         // A single source is a look at one page, not a new file.
         console.log(JSON.stringify(results.get(only) ?? { ok: false, error: "no such source" }, null, 1));

@@ -2,18 +2,20 @@
 // test itself (no preparation course), only days that are still ahead, in a
 // stable order and a stable shape.
 import { isClock, isDay } from "./dates.mjs";
-import { BOOKINGS, STATUSES, statusFromText } from "./status.mjs";
+import { BOOKINGS, STATUSES, titleVerdict } from "./status.mjs";
 
 const EXAM =
     /einb(ü|ue)rgerungstest|test\W{0,3}einb(ü|ue)rgerung|(test|pr(ü|ue)fung)\W{0,6}leben in deutschland|leben[- ]in[- ]deutschland[- ]?test|\blid\b[- ]?test|test\W{0,3}lid\b/i;
 /**
  * A course about the test is not the test, the test that ends an integration
- * course is for its participants only, and an appointment to register is
- * not an exam day.
+ * or orientation course ("oK") is for its participants only, and an
+ * appointment to register ("Anmeldung: Einbürgerungstest und …", "Termin
+ * Anmeldung zum …") is not an exam day. "Einbürgerungstest - Anmeldung nur
+ * persönlich" stays an exam: there the registration is a remark, not the
+ * subject.
  */
-const NOT_EXAM = /vorbereit|training|übung|uebung|kurs(es)?\b|\binfo|beratung|sprechstunde|vortrag|workshop|\blernen\b|lerngruppe|fragestunde|anmeldung (zum|zur|für)/i;
-/** What a title may say about places: "Einbürgerungstest - AUSGEBUCHT". A title never makes a date bookable. */
-const TITLE_VERDICTS = ["full", "closed", "waitlist"];
+const NOT_EXAM =
+    /vorbereit|training|übung|uebung|kurs(es)?\b|\(o\.?\s?k\.?\)|\binfo|beratung|sprechstunde|vortrag|workshop|\blernen\b|lerngruppe|fragestunde|anmeldung (zum|zur|für)|^\W*(termin\s+)?anmeld(ung|etermin|etag)/i;
 
 /**
  * What an adapter reads from one block of a course page.
@@ -75,13 +77,15 @@ export function toSlots(courses, { today, limit = MAX_SLOTS } = {}) {
                 slot.until = course.until;
             }
         }
-        const titled = statusFromText(course.title);
-        slot.status = course.status !== "closed" && TITLE_VERDICTS.includes(titled) ? titled : course.status;
+        // What a title says about places can close a date, never open one: "Einbürgerungstest - AUSGEBUCHT".
+        const titled = titleVerdict(course.title);
+        slot.status = course.status !== "closed" && titled ? titled : course.status;
         if (BOOKINGS.includes(course.booking)) {
             slot.booking = course.booking;
         }
         slot.title = clip(course.title, MAX_TITLE);
-        if (course.place) {
+        // Some pages print "—" where no place is set: a place needs a letter or a digit.
+        if (/[\p{L}\p{N}]/u.test(String(course.place ?? ""))) {
             slot.place = clip(course.place, MAX_PLACE);
         }
         if (isDay(course.deadline) && course.deadline <= course.date) {

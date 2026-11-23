@@ -41,8 +41,17 @@ const NAMED = {
     bull: "•",
 };
 
-/** An opening or closing tag. Quoted attribute values may hold ">" (some course systems put markup into `title`). */
-const TAG = /<\/?[a-zA-Z][^\s>"'/]*(?:[^>"']|"[^"]*"|'[^']*')*>/g;
+/**
+ * What a tag holds behind its name. Quoted attribute values may hold ">"
+ * (some course systems put markup into `title`) and may be long (an inline
+ * image, a JSON attribute). Outside its quotes a tag is short - of 1.8
+ * million tags on the centres' pages, nine had more than 1000 characters
+ * there - and that is the bound: a page that never closes its tags or its
+ * quotes must not cost more than a real one.
+ */
+const ATTRIBUTES = `(?:[^>"']|"[^"]*"|'[^']*'){0,1000}`;
+/** An opening or closing tag. */
+const TAG = new RegExp(`<\\/?[a-zA-Z][^\\s>"'/]{0,60}${ATTRIBUTES}>`, "g");
 
 /** Elements that start a new line of text. */
 const LINE_BREAKING = /^<\/?(?:address|article|aside|blockquote|br|dd|div|dl|dt|figure|footer|h[1-6]|header|hr|li|ol|p|section|table|tbody|td|th|thead|tr|ul)\b/i;
@@ -70,17 +79,36 @@ export function squash(text) {
         .trim();
 }
 
+/**
+ * `html` without what stands between `open` and `close`. One pass from left
+ * to right; what is never closed takes the rest of the page with it, as it
+ * does in a browser.
+ */
+function without(html, open, close) {
+    const opening = new RegExp(open, "gi");
+    const closing = new RegExp(close, "gi");
+    let kept = "";
+    let cursor = 0;
+    for (let start = opening.exec(html); start; start = opening.exec(html)) {
+        kept += `${html.slice(cursor, start.index)} `;
+        closing.lastIndex = opening.lastIndex;
+        if (!closing.exec(html)) {
+            return kept;
+        }
+        cursor = closing.lastIndex;
+        opening.lastIndex = cursor;
+    }
+    return cursor === 0 ? html : kept + html.slice(cursor);
+}
+
 /** The HTML without scripts, styles and comments. */
 export function withoutNoise(html) {
-    return String(html ?? "")
-        .replace(/<script\b[\s\S]*?<\/script\s*>/gi, " ")
-        .replace(/<style\b[\s\S]*?<\/style\s*>/gi, " ")
-        .replace(/<!--[\s\S]*?-->/g, " ");
+    return without(without(without(String(html ?? ""), "<script\\b", "<\\/script\\s*>"), "<style\\b", "<\\/style\\s*>"), "<!--", "--!?>");
 }
 
 function stripTags(html, replacement) {
     // Whatever the quote-aware pattern leaves behind (a tag with an unbalanced quote) goes with the plain one.
-    return html.replace(TAG, replacement).replace(/<[a-zA-Z/][^>]*>/g, " ");
+    return html.replace(TAG, replacement).replace(/<[a-zA-Z/][^>]{0,4000}>/g, " ");
 }
 
 /** The visible text of a fragment: tags become spaces, references are decoded, white space collapses. */
@@ -162,9 +190,21 @@ export function attrOf(tag, name) {
     return decodeEntities(match[1] ?? match[2] ?? match[3] ?? "");
 }
 
+/** Every tag - opening and closing - between `from` and `to`, in the order of the page. */
+export function tagsOf(html, from = 0, to = Infinity) {
+    const source = String(html ?? "");
+    const pattern = new RegExp(TAG.source, "g");
+    pattern.lastIndex = Math.max(0, from);
+    const tags = [];
+    for (let match = pattern.exec(source); match && match.index < to; match = pattern.exec(source)) {
+        tags.push({ tag: match[0], index: match.index, end: match.index + match[0].length });
+    }
+    return tags;
+}
+
 /** Every opening tag of one element type with its position, e.g. all `<a …>`. */
 export function openingTags(html, element) {
-    const pattern = new RegExp(`<${element}\\b(?:[^>"']|"[^"]*"|'[^']*')*>`, "gi");
+    const pattern = new RegExp(`<${element}\\b${ATTRIBUTES}>`, "gi");
     return Array.from(String(html ?? "").matchAll(pattern), (match) => ({ tag: match[0], index: match.index, end: match.index + match[0].length }));
 }
 

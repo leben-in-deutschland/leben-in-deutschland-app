@@ -10,7 +10,7 @@
 //   - the start as a German date with the time
 //     ("Do. 17.09.2026 14:30", or `data-date="2026-09-25"`).
 import { attrOf, classesOf, firstText, openingTags, resolveUrl, textOf, withoutNoise } from "../lib/html.mjs";
-import { findDate, findTime, isDay } from "../lib/dates.mjs";
+import { findExamDay, findTime, isDay } from "../lib/dates.mjs";
 import { statusFromBookingClasses } from "../lib/status.mjs";
 
 const MARKERS = /\bbk-icon\b|category-courses|-CAT-KAT\d|course-list-item/i;
@@ -57,24 +57,23 @@ function textOfClass(block, names) {
     return "";
 }
 
+/** How far behind the day its time may stand. */
+const TIME_WINDOW = 60;
+
 function findWhen(block, title, today) {
     for (const { tag, end } of openingTags(block, "span")) {
         const day = attrOf(tag, "data-date");
         if (classesOf(tag).includes("start-date") && isDay(day)) {
-            const clock = findTime(textOf(block.slice(end, end + 600)).replace(/^\S+/, ""));
-            return { date: day, time: clock?.time ?? null, until: clock?.until ?? null };
+            // The element's own text is the day once more ("04.12.2026"); the time stands behind it.
+            const clock = findTime(textOf(block.slice(end, end + 600)).replace(/^\S+/, "").slice(0, TIME_WINDOW));
+            return { date: day, time: clock?.time ?? null, until: clock?.until ?? null, deadline: null };
         }
     }
-    // The title may carry another date ("Anmeldung ab 25.11."), so the day is looked for behind it.
+    // The title may carry another date ("Anmeldung ab 25.11."), so the day is looked for behind it -
+    // and a subtitle may name the deadline first ("Anmeldeschluss 26.11.2026"), which is not the exam day.
     const whole = textOf(block);
     const position = title ? whole.indexOf(title) : -1;
-    const text = position < 0 ? whole : whole.slice(position + title.length);
-    const day = findDate(text, 0, today);
-    if (!day) {
-        return null;
-    }
-    const clock = findTime(text.slice(day.end, day.end + 40));
-    return { date: day.date, time: clock?.time ?? null, until: clock?.until ?? null };
+    return findExamDay(position < 0 ? whole : whole.slice(position + title.length), today);
 }
 
 /**
@@ -116,7 +115,7 @@ export function parseItem(html, pageUrl, { today = null } = {}) {
             date: when.date,
             time: when.time,
             until: when.until,
-            deadline: null,
+            deadline: when.deadline,
             status,
             statusText: classes.join(" "),
             booking,
