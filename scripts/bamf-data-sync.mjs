@@ -269,6 +269,20 @@ export function parseDownloadLinks(html, code) {
 }
 
 /**
+ * A cell of the "E-Mail" column without the label or punctuation typed in
+ * front of the address: BAMF's Pruefstellen-NW.xlsx read
+ * ": Stefanie.Heydenreich@STADT-KOELN.DE" on 2026-11-19 (VHS Köln), which
+ * the app shows as text without a mail link. Strips a leading "E-Mail" or
+ * "mailto" label and any ":", ";", "," and spaces before the address.
+ */
+export function cleanEmail(value) {
+    return String(value ?? "")
+        .trim()
+        .replace(/^(?:(?:e-?mail|mailto)\s*(?=[:;,\s]))?[:;,\s]+/i, "")
+        .trim();
+}
+
+/**
  * BAMF's "E-Mail" column sometimes holds a web address instead of an address
  * ("www.landratsamt-ansbach.de" in Bavaria, "vhs-verband-mv.de"). A value
  * without "@" is no address: it moves to `website` and leaves `email` empty,
@@ -276,7 +290,8 @@ export function parseDownloadLinks(html, code) {
  * the centres that need it.
  */
 export function moveWebsite(centre) {
-    const value = String(centre.email ?? "").trim();
+    const value = cleanEmail(centre.email);
+    centre.email = value;
     if (value && !value.includes("@")) {
         centre.email = "";
         centre.website = value;
