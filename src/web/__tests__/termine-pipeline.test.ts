@@ -210,15 +210,19 @@ describe("HTML helpers on broken pages", () => {
         expect(textOf(html)).toBe("vor nach");
     });
 
-    it("does not let a page that never closes its tags stall the run", () => {
-        const started = Date.now();
-        for (const page of ['<a "'.repeat(80_000), "<a ".repeat(100_000), "<script ".repeat(40_000)]) {
-            textOf(page);
-            expect(openingTags(page, "a")).toEqual([]);
-        }
-        // 47 seconds for the first of these before the patterns were bounded; a few on a slow machine now.
-        expect(Date.now() - started).toBeLessThan(20_000);
-    }, 40_000);
+    it("takes more than a thousand characters outside quotes for text, not for a tag", () => {
+        // This bound is what keeps a page that never closes its tags from costing the run:
+        // every "<a" then stops after a thousand steps instead of reading on to the end of the page.
+        const endless = `<a ${"x ".repeat(1_500)}>`;
+        const real = `<a href="/kurs/1" title="${"x ".repeat(1_500)}">`;
+        expect(openingTags(endless, "a")).toEqual([]);
+        expect(openingTags(real, "a")).toHaveLength(1);
+        // The same holds where text is read: the endless one is text, the real one is a tag around its title.
+        expect(firstText(`<p>${endless}</p>`, 3)).toContain("x x x");
+        expect(firstText(`<p>${real}Titel</a></p>`, 3)).toBe("Titel");
+        // A page of nothing but unclosed tags and quotes comes back as it is.
+        expect(textOf('<a "'.repeat(2_000))).toContain('<a "');
+    });
 });
 
 const KUFER_CARDS = `
