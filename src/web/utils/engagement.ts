@@ -48,7 +48,9 @@ const MOCK_NUDGE_QUIET_DAYS = 3;
 /** Days between two mock nudges. */
 const MOCK_NUDGE_REPEAT_DAYS = 14;
 
-type Draft = Omit<InAppNotification, "createdAt" | "read">;
+/** A note before it is stamped and stored. */
+export type InboxDraft = Omit<InAppNotification, "createdAt" | "read">;
+type Draft = InboxDraft;
 
 function inboxOf(user: User | null | undefined): InAppNotification[] {
     return Array.isArray(user?.inbox) ? user.inbox.filter((item) => item && typeof item.id === "string") : [];
@@ -263,6 +265,23 @@ export function runEngagement(user: User, options: EngagementOptions): Engagemen
         user: { ...next, inbox: [...added, ...inbox].slice(0, MAX_INBOX_ITEMS) },
         added,
     };
+}
+
+/**
+ * Adds notes that do not come from the learner's own record - an exam-date
+ * alert, for example - to the inbox, newest first. Ids that are already
+ * there are skipped; the same user object comes back when nothing was added.
+ */
+export function addInboxNotes(user: User, drafts: InboxDraft[], now: Date): EngagementResult {
+    const inbox = inboxOf(user);
+    const known = new Set(inbox.map((item) => item.id));
+    const fresh = drafts.filter((draft, index) => !known.has(draft.id) && drafts.findIndex((other) => other.id === draft.id) === index);
+    if (fresh.length === 0) {
+        return { user, added: [] };
+    }
+    const createdAt = now.toISOString();
+    const added = fresh.map((draft) => ({ ...draft, createdAt, read: false }));
+    return { user: { ...user, inbox: [...added, ...inbox].slice(0, MAX_INBOX_ITEMS) }, added };
 }
 
 /** Title and body of a notification in the current language. */

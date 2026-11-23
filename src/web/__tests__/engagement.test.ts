@@ -4,7 +4,9 @@ import type { EvaluationData } from "@/types/evaluation";
 import type { InAppNotification, User, UserDailyProgress, UserQuestionProgress } from "@/types/user";
 import { addDays, parseDayKey } from "@/utils/date-utils";
 import {
+    addInboxNotes,
     EXAM_COUNTDOWN_DAYS,
+    type InboxDraft,
     markAllNotificationsRead,
     markNotificationRead,
     renderNotification,
@@ -217,6 +219,31 @@ describe("runEngagement", () => {
         const input = returning({ inbox: undefined });
         const result = run(input);
         expect(ids(result)).toEqual(["welcome"]);
+    });
+});
+
+describe("addInboxNotes", () => {
+    const note = (id: string): InboxDraft => ({ id, type: "termine", titleKey: "termine_inbox_open_title", bodyKey: "termine_inbox_body", params: { city: "Aach" }, route: "/termine" });
+
+    it("puts new notes first, unread, and skips what the inbox already holds", () => {
+        const before = run(returning()).user;
+        const first = addInboxNotes(before, [note("termine-a"), note("termine-b"), note("termine-a")], NOW);
+        expect(ids(first)).toEqual(["termine-a", "termine-b"]);
+        expect(first.user.inbox?.slice(0, 3).map((item) => item.id)).toEqual(["termine-a", "termine-b", "welcome"]);
+        expect(first.added.every((item) => !item.read && item.createdAt === NOW.toISOString())).toBe(true);
+
+        const second = addInboxNotes(first.user, [note("termine-a")], NOW);
+        expect(second.added).toEqual([]);
+        expect(second.user).toBe(first.user);
+    });
+
+    it("renders an exam-date note in both languages", () => {
+        const item = { ...note("termine-a"), bodyKey: "termine_inbox_body_more", params: { city: "Aach", centre: "VHS Aach", when: "03.12.2026, 14:30", more: 2 }, createdAt: NOW.toISOString(), read: false };
+        expect(renderNotification(getTranslations("de"), item)).toEqual({
+            title: "Freier Platz in Aach",
+            body: "VHS Aach: 03.12.2026, 14:30 und 2 weitere. Anmelden kannst du dich bei der Prüfstelle.",
+        });
+        expect(renderNotification(getTranslations("en"), item).title).toBe("A place is free in Aach");
     });
 });
 

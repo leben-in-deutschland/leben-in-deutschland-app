@@ -110,9 +110,14 @@ export function CentersList({ stateCode, stateName, centers, states }: CentersLi
                         <p>{t.centers_intro_2}</p>
                     </div>
                 </div>
-                <Button as={AppLink} href={`/question-catalogue/${stateCode}`} variant="flat" color="primary" className="h-11 font-semibold" endContent={<ArrowRightIcon size={16} aria-hidden="true" />}>
-                    {fmt(t.centers_state_questions_link, { state: stateName })}
-                </Button>
+                <div className="flex flex-col gap-2">
+                    <Button as={AppLink} href={`/termine/${stateCode}`} color="primary" className="h-11 font-semibold" endContent={<ArrowRightIcon size={16} aria-hidden="true" />}>
+                        {fmt(t.termine_state_link, { state: stateName })}
+                    </Button>
+                    <Button as={AppLink} href={`/question-catalogue/${stateCode}`} variant="flat" color="primary" className="h-11 font-semibold" endContent={<ArrowRightIcon size={16} aria-hidden="true" />}>
+                        {fmt(t.centers_state_questions_link, { state: stateName })}
+                    </Button>
+                </div>
             </Surface>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

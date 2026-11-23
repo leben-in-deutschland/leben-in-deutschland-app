@@ -21,7 +21,7 @@ vi.mock("@capacitor/core", () => ({
     CapacitorHttp: { get: mocks.get },
 }));
 
-import { nativeHttpSupported, refreshRemoteFile } from "@/services/remote-file";
+import { nativeHttpSupported, refreshRemoteFile, refreshSiteFile } from "@/services/remote-file";
 
 type Thing = { name: string };
 const isThing = (value: unknown): value is Thing => typeof value === "object" && value !== null && typeof (value as Thing).name === "string";
@@ -163,5 +163,48 @@ describe("refreshRemoteFile", () => {
         release({ status: 200, data: { name: "a" }, headers: {} });
         expect(await first).toEqual({ name: "a" });
         expect(await second).toEqual({ name: "a" });
+    });
+});
+
+describe("refreshSiteFile", () => {
+    const PATH = "/live/thing.json";
+
+    afterEach(() => {
+        vi.unstubAllGlobals();
+    });
+
+    it("asks this website through the browser, validates and stores like the native download", async () => {
+        mocks.native = false;
+        const store = makeStore();
+        const fetchMock = vi.fn().mockResolvedValueOnce(new Response("{\"name\":\"a\"}", { status: 200, headers: { etag: "\"v1\"" } }));
+        vi.stubGlobal("fetch", fetchMock);
+        expect(await refreshSiteFile(store, PATH, { now: NOW, label: "t" })).toEqual({ name: "a" });
+        expect(fetchMock).toHaveBeenCalledWith(PATH, expect.objectContaining({ headers: { Accept: "application/json" } }));
+        expect(store.read().etag).toBe("\"v1\"");
+        expect(mocks.get).not.toHaveBeenCalled();
+
+        fetchMock.mockResolvedValueOnce(new Response("<html>challenge</html>", { status: 200 }));
+        expect(await refreshSiteFile(store, PATH, { now: DAY_LATER, label: "t" })).toBeNull();
+        expect(store.read().data).toEqual({ name: "a" });
+    });
+
+    it("only asks its own origin", async () => {
+        mocks.native = false;
+        const fetchMock = vi.fn();
+        vi.stubGlobal("fetch", fetchMock);
+        expect(await refreshSiteFile(makeStore(), "https://elsewhere.example/thing.json", { now: NOW, label: "t" })).toBeNull();
+        expect(await refreshSiteFile(makeStore(), "//elsewhere.example/thing.json", { now: NOW, label: "t" })).toBeNull();
+        expect(fetchMock).not.toHaveBeenCalled();
+    });
+
+    it("asks again at once when the learner wants it, also right after a failure", async () => {
+        mocks.native = false;
+        const store = makeStore();
+        const fetchMock = vi.fn().mockResolvedValueOnce(new Response("", { status: 503 })).mockResolvedValueOnce(new Response("{\"name\":\"b\"}", { status: 200 }));
+        vi.stubGlobal("fetch", fetchMock);
+        expect(await refreshSiteFile(store, PATH, { now: NOW, label: "t" })).toBeNull();
+        expect(await refreshSiteFile(store, PATH, { now: NOW, label: "t" })).toBeNull();
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(await refreshSiteFile(store, PATH, { now: NOW, label: "t", force: true })).toEqual({ name: "b" });
     });
 });

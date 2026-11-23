@@ -254,3 +254,5 @@ release.keystore
 src/store/output/
 # Generated catalogue assets (BAMF PDF, extracted pictures, review report, proposal)
 src/catalogue/output/
+# Generated exam-date assets (discovery candidates, a local sync result)
+src/termine/output/

@@ -800,6 +800,62 @@ describe("syncNativeNotifications", () => {
     });
 });
 
+describe("notifyTermine", () => {
+    const T_TERMINE = { ...T, termine_channel_name: "Exam dates", termine_channel_desc: "New dates and free places at your exam centres" };
+    const ALERT = { key: "by-a/27-1", title: "A place is free in Aach", body: "VHS Aach: 03.12.2026, 14:30.", route: "/termine" };
+
+    it("shows the alert at once on its own channel, with the route a tap opens", async () => {
+        expect(await service.notifyTermine([ALERT], T_TERMINE)).toBe(1);
+
+        expect(LN.createChannel).toHaveBeenCalledTimes(1);
+        expect(LN.createChannel).toHaveBeenCalledWith({ id: "termine", name: "Exam dates", description: "New dates and free places at your exam centres", importance: 4 });
+        const [card] = scheduled();
+        expect(card).toEqual({
+            id: card.id,
+            title: ALERT.title,
+            body: ALERT.body,
+            largeBody: ALERT.body,
+            smallIcon: SMALL_ICON,
+            extra: { route: "/termine" },
+            autoCancel: true,
+            channelId: "termine",
+        });
+        // No schedule: the plugin shows it now. The id is outside the planner's ids, so a sync never cancels it.
+        expect(card.id as number).toBeGreaterThanOrEqual(7000);
+        expect(card.id as number).toBeLessThan(8000);
+        expect(native.plannerIds).not.toContain(card.id);
+        expect(LN.cancel).not.toHaveBeenCalled();
+    });
+
+    it("gives one date one id, so a repeated alert replaces the card, and creates the channel once", async () => {
+        await service.notifyTermine([ALERT, { ...ALERT, key: "by-a/27-2" }], T_TERMINE);
+        await service.notifyTermine([ALERT], T_TERMINE);
+        const [first, second] = scheduled(0);
+        expect(first.id).not.toBe(second.id);
+        expect(scheduled(1)[0].id).toBe(first.id);
+        expect(LN.createChannel).toHaveBeenCalledTimes(1);
+    });
+
+    it("does nothing on the web, without permission, or without an alert", async () => {
+        expect(await service.notifyTermine([], T_TERMINE)).toBe(0);
+        LN.checkPermissions.mockResolvedValue({ display: "denied" });
+        expect(await service.notifyTermine([ALERT], T_TERMINE)).toBe(0);
+        native.env.native = false;
+        expect(await service.notifyTermine([ALERT], T_TERMINE)).toBe(0);
+        expect(LN.schedule).not.toHaveBeenCalled();
+        expect(LN.requestPermissions).not.toHaveBeenCalled();
+    });
+
+    it("falls back to the default channel when its own cannot be created, and reports a failed show as 0", async () => {
+        LN.createChannel.mockRejectedValueOnce(new Error("no channels"));
+        expect(await service.notifyTermine([ALERT], T_TERMINE)).toBe(1);
+        expect(scheduled()[0]).not.toHaveProperty("channelId");
+
+        LN.schedule.mockRejectedValueOnce(new Error("bridge gone"));
+        expect(await service.notifyTermine([ALERT], T_TERMINE)).toBe(0);
+    });
+});
+
 describe("cancelPendingNotifications", () => {
     it("does nothing on the web", async () => {
         native.env.native = false;

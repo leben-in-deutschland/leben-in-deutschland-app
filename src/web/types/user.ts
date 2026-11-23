@@ -163,7 +163,8 @@ export type InAppNotificationType =
     | "exam"
     | "evaluation"
     | "tip"
-    | "mock";
+    | "mock"
+    | "termine";
 
 export interface InAppNotification {
     /** Stable id so the same event is never added twice, e.g. "goal-2026-10-09". */

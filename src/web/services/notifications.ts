@@ -43,6 +43,10 @@ const TEST_NOTIFICATION_ID = 6900;
 const TEST_NOTIFICATION_DELAY_MS = 5000;
 /** Screen opened when a tapped notification carries no usable route. */
 const DEFAULT_ROUTE = "/dashboard";
+/** Exam-date alerts (ADR-050): their own Android channel and id range, apart from the planned reminders. */
+const TERMINE_CHANNEL_ID = "termine";
+const TERMINE_ID_BASE = 7000;
+const TERMINE_ID_SPAN = 1000;
 
 const CHANNELS: { id: NotificationChannelId; importance: Importance }[] = [
     { id: "reminders", importance: 3 },
@@ -383,6 +387,77 @@ export function sendTestNotification(t: Translations, user?: User | null): Promi
             return result.ok;
         },
         false,
+    );
+}
+
+/** One exam-date alert as the system shows it. `key` names the date, so a repeated alert replaces the card. */
+export interface TermineNotification {
+    key: string;
+    title: string;
+    body: string;
+    /** In-app route that a tap opens. */
+    route: string;
+}
+
+/** Channel of the exam-date alerts, created once per session and language. Null when it could not be created. */
+let termineChannelSignature: string | null = null;
+
+async function ensureTermineChannel(t: Translations): Promise<boolean> {
+    if (!isAndroid()) {
+        return false;
+    }
+    const name = text(t, "termine_channel_name");
+    const description = text(t, "termine_channel_desc");
+    const signature = `${name}\n${description}`;
+    if (termineChannelSignature !== signature) {
+        const result = await attempt(`createChannel "${TERMINE_CHANNEL_ID}"`, () =>
+            LocalNotifications.createChannel({ id: TERMINE_CHANNEL_ID, name, description, importance: 4 }),
+        );
+        if (!result.ok) {
+            return false;
+        }
+        termineChannelSignature = signature;
+    }
+    return true;
+}
+
+/** A stable id inside the exam-date range for one date. */
+function termineId(key: string): number {
+    let hash = 0;
+    for (let index = 0; index < key.length; index++) {
+        hash = (hash * 31 + key.charCodeAt(index)) % TERMINE_ID_SPAN;
+    }
+    return TERMINE_ID_BASE + hash;
+}
+
+/**
+ * Shows exam-date alerts at once (no schedule) and returns how many were
+ * handed to the system. Does nothing (returns 0) on the web or without
+ * permission; never asks for permission. The planned reminders are not
+ * touched: these ids are outside the planner's.
+ */
+export function notifyTermine(items: TermineNotification[], t: Translations): Promise<number> {
+    return enqueue(
+        "notifyTermine",
+        async () => {
+            if (items.length === 0 || !isNative() || (await getNotificationPermission()) !== "granted") {
+                return 0;
+            }
+            const channelReady = await ensureTermineChannel(t);
+            const notifications: LocalNotificationSchema[] = items.map((item) => ({
+                id: termineId(item.key),
+                title: item.title,
+                body: item.body,
+                largeBody: item.body,
+                smallIcon: SMALL_ICON,
+                extra: { route: item.route },
+                autoCancel: true,
+                ...(channelReady ? { channelId: TERMINE_CHANNEL_ID } : {}),
+            }));
+            const result = await attempt("show exam-date notification", () => LocalNotifications.schedule({ notifications }));
+            return result.ok ? notifications.length : 0;
+        },
+        0,
     );
 }
 

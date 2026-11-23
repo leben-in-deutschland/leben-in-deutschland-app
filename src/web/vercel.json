@@ -1,3 +1,9 @@
 {
-  "buildCommand": "next build --webpack"
+  "buildCommand": "next build --webpack",
+  "rewrites": [
+    {
+      "source": "/live/termine.json",
+      "destination": "https://raw.githubusercontent.com/leben-in-deutschland/leben-in-deutschland-app/data/termine.json"
+    }
+  ]
 }

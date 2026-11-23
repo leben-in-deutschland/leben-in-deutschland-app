@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PrivacyIntro } from "@/components/landing/privacy-intro";
 import { Surface } from "@/components/ui/surface";
 
-const LAST_UPDATED = "October 31, 2026";
+const LAST_UPDATED = "November 22, 2026";
 const CONTACT_EMAIL = "hello@lamplitlabs.com";
 const CONTROLLER = "Manish Tiwari";
 const ADDRESS = "Am Potekamp 22, 40885 Ratingen, Germany";
@@ -111,9 +111,18 @@ export default function PrivacyPolicy() {
                 <p>
                     To stay current between app updates, the Android and iOS apps download a few small public files at most once a day from GitHub, where
                     this project is published: the BAMF evaluation status, the official question catalogue, and occasional notices from us (for
-                    example when a new version is available). These requests contain no account or learning data; like any internet request they
-                    reveal your IP address to GitHub, whose privacy statement applies to that connection. If a download fails or you are offline,
-                    the app simply uses the copy it was installed with. Notices you dismiss are remembered only on your device.
+                    example when a new version is available). When you open the exam dates, or while you watch an exam centre, the apps also
+                    download the list of exam dates from there, at most once an hour. These requests contain no account or learning data; like
+                    any internet request they reveal your IP address to GitHub, whose privacy statement applies to that connection. If a download
+                    fails or you are offline, the app simply uses the copy it was installed with. Notices you dismiss are remembered only on your
+                    device.
+                </p>
+                <p>
+                    The exam dates are read from the public websites of the exam centres and published as one file. On this website that file is
+                    loaded from our own domain: our hosting provider fetches it for you, so your browser does not contact GitHub or an exam
+                    centre. The exam centres you watch, and what you were last told about their dates, are stored only on your device; we do not
+                    know which centres you watch, and no e-mail address or account is needed. Opening a date takes you to the website of that exam
+                    centre, where its own privacy policy applies.
                 </p>
             </Section>
 

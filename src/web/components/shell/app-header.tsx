@@ -39,6 +39,7 @@ export const APP_TABS = [
 const PUBLIC_LINKS = [
     { href: "/question-catalogue", labelKey: "nav_catalogue" },
     { href: "/#explore", labelKey: "nav_centers" },
+    { href: "/termine", labelKey: "termine_nav" },
     { href: "/#bamf-evaluation", labelKey: "nav_bamf" },
 ] as const;
 

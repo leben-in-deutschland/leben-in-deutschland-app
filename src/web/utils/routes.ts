@@ -2,12 +2,26 @@
  * Route groups for the app shell.
  *
  * App routes show the learner tab bar and need a learner record (onboarding
- * runs first). Public routes are the marketing and reference pages. Paths may
- * arrive as "/dashboard", "/dashboard/" or "/dashboard.html" (Android).
+ * runs first). Public routes are the marketing and reference pages; shared
+ * routes are public pages that the apps show among the learner screens.
+ * Paths may arrive as "/dashboard", "/dashboard/" or "/dashboard.html"
+ * (Android).
  */
 
 export const TAB_ROUTES = ["/dashboard", "/practice", "/mock", "/progress", "/settings"] as const;
 export const APP_ROUTES = [...TAB_ROUTES, "/prepare"] as const;
+
+/**
+ * Pages that work with and without a learner record: public pages on the
+ * website, learner screens with the tab bar inside the apps (ADR-050).
+ */
+export const SHARED_ROUTES = ["/termine"] as const;
+
+/** "/termine" and "/termine/<state>". */
+export function isSharedRoute(pathname: string | null | undefined): boolean {
+    const path = normalizePath(pathname);
+    return SHARED_ROUTES.some((route) => path === route || path.startsWith(`${route}/`));
+}
 
 /** "/settings/<section>": a settings sub-page (the hub lists them). */
 export function isSettingsSubpage(pathname: string | null | undefined): boolean {

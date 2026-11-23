@@ -54,6 +54,7 @@
 | [`src/ios`](src/ios) | Capacitor iOS project (StoreKit 2 tips, notifications). |
 | [`src/store`](src/store) | Store assets and publishing: screenshot pipeline, Google Play and App Store Connect scripts ([README](src/store/README.md)). |
 | [`src/catalogue`](src/catalogue) | Tooling that keeps the question catalogue in sync with the official BAMF publication ([README](src/catalogue/README.md)). |
+| [`src/termine`](src/termine) | Exam dates: a scheduled workflow reads the exam centres' own course pages four times a day and publishes them for `/termine` ([README](src/termine/README.md)). |
 | [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand. |
 | [`.hive/automations`](.hive/automations) | Standing data syncs (BAMF catalogue, evaluation status, exam centres) that the [Hive](#managed-by-hive) daemon runs; [`scripts`](scripts) and [`src/catalogue`](src/catalogue) hold what they call. |
 | [`.hive/skills`](.hive/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |

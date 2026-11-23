@@ -1,6 +1,6 @@
 import type { State } from "@/types/state";
 import { AppLink } from "@/components/ui/app-link";
-import { ArrowRightIcon, BookOpenIcon, MapPinIcon } from "@/components/ui/icons";
+import { ArrowRightIcon, BookOpenIcon, CalendarIcon, MapPinIcon } from "@/components/ui/icons";
 import { Surface } from "@/components/ui/surface";
 import type { Translations } from "@/utils/i18n";
 import { LandingSection } from "./landing-primitives";
@@ -8,7 +8,7 @@ import { LandingSection } from "./landing-primitives";
 const linkClass =
     "inline-flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-content2 px-2 text-xs font-semibold text-foreground transition-colors hover:bg-primary-50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
 
-/** Every state with links to its question catalogue and exam centres. */
+/** The catalogue, the exam dates, and every state with links to its questions and exam centres. */
 export function ExploreSection({ t, states }: { t: Translations; states: State[] }) {
     return (
         <LandingSection id="explore" eyebrow={t.landing_explore_eyebrow} title={t.landing_explore_title} description={t.landing_explore_subtitle}>
@@ -22,6 +22,20 @@ export function ExploreSection({ t, states }: { t: Translations; states: State[]
                 </div>
                 <AppLink href="/question-catalogue" className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-xl px-3 text-sm font-semibold text-primary hover:underline">
                     {t.map_view_all_questions}
+                    <ArrowRightIcon size={16} aria-hidden="true" />
+                </AppLink>
+            </Surface>
+
+            <Surface tone="sunken" className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-3">
+                    <CalendarIcon size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+                    <div>
+                        <p className="font-semibold text-foreground">{t.termine_home_title}</p>
+                        <p className="text-sm text-default-500">{t.termine_home_body}</p>
+                    </div>
+                </div>
+                <AppLink href="/termine" className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-xl px-3 text-sm font-semibold text-primary hover:underline">
+                    {t.termine_explore_link}
                     <ArrowRightIcon size={16} aria-hidden="true" />
                 </AppLink>
             </Surface>

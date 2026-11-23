@@ -23,6 +23,8 @@ import landingEn from './translations/areas/landing.en.json';
 import landingDe from './translations/areas/landing.de.json';
 import catalogueEn from './translations/areas/catalogue.en.json';
 import catalogueDe from './translations/areas/catalogue.de.json';
+import termineEn from './translations/areas/termine.en.json';
+import termineDe from './translations/areas/termine.de.json';
 import { Question } from '@/types/question';
 import { PrüfstellenData } from '@/types/prüfstellen';
 import { EvaluationData } from '@/types/evaluation';
@@ -43,8 +45,8 @@ export type AppTranslations = typeof enJson & Record<string, string>;
 
 /** Area files per language, merged in this order (later wins). */
 export const translationAreas = {
-    en: { common: commonEn, home: homeEn, practice: practiceEn, exam: examEn, progress: progressEn, settings: settingsEn, onboarding: onboardingEn, landing: landingEn, catalogue: catalogueEn },
-    de: { common: commonDe, home: homeDe, practice: practiceDe, exam: examDe, progress: progressDe, settings: settingsDe, onboarding: onboardingDe, landing: landingDe, catalogue: catalogueDe },
+    en: { common: commonEn, home: homeEn, practice: practiceEn, exam: examEn, progress: progressEn, settings: settingsEn, onboarding: onboardingEn, landing: landingEn, catalogue: catalogueEn, termine: termineEn },
+    de: { common: commonDe, home: homeDe, practice: practiceDe, exam: examDe, progress: progressDe, settings: settingsDe, onboarding: onboardingDe, landing: landingDe, catalogue: catalogueDe, termine: termineDe },
 } as const;
 
 const mergeAreas = (base: typeof enJson, areas: Record<string, Record<string, string>>): AppTranslations =>
