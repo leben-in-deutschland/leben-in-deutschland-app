@@ -1,0 +1,41 @@
+name: Checks
+
+# The repository's own checks on every pull request, so that whoever sends a
+# change - a person or an agent - sees the result before it is merged. It
+# reads no secret and writes nothing; the deploy workflow tests again on main.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Tests, lint, types, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        working-directory: src/web
+        run: npm ci
+
+      - name: Tests, lint and type check
+        run: sh scripts/check.sh
+
+      - name: Build
+        working-directory: src/web
+        run: npm run build
