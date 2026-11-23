@@ -124,10 +124,12 @@ reads it any more, and its `question.json` was never copied into the app
   with the App Store profile "Leben in Deutschland App Store", which
   `src/store/asc-profile.mjs` creates for the distribution certificate and
   installs on the runner; Debug stays automatic for Xcode on the owner's
-  Mac. Release to the App Store is a manual step in App Store Connect. Never commit, print, or request certificates, keys,
-  profiles, the Team ID or the numeric Apple ID of the app - once the app is
-  public its App Store URL (and so the id) belongs in
-  `siteConfig.links.appStore`, nowhere else.
+  Mac. Release to the App Store is a manual step in App Store Connect. Never
+  commit, print, or request certificates, keys, profiles or the Team ID. The
+  numeric Apple ID of the app is public since the app is in the App Store:
+  its App Store URL lives in `siteConfig.links.appStore`, which the app
+  reads, and the README links the same page. The store scripts find the app
+  by its bundle id and never carry the id.
 - The iOS app must not name Google Play, and the Android app need not name
   the App Store: user-facing store wording goes through `storeName()` and
   `storeRatingUrl()` in `src/web/utils/app-store.ts` (translations use a
