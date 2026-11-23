@@ -1,13 +1,13 @@
 title: Daily BAMF evaluation status check
 kind: watch
-script: .pulse/automations/evaluation-sync.sh
+script: .hive/automations/evaluation-sync.sh
 every: daily
 at: "14:00"
 tier: 0
 brief: >-
   bamf.de shows a newer BAMF evaluation status than the app bundles, or the
   bundled "last checked" date is not today. Read the skill bamf-data-sync
-  (`pulse skill show bamf-data-sync`) and follow it for the source
+  (`hive skill show bamf-data-sync`) and follow it for the source
   `evaluation`: write the file with `node scripts/bamf-data-sync.mjs
   evaluation`, run the web tests, commit the data file with the version bump
   as one `data:` commit, and finish so the runner lands it. Never edit the

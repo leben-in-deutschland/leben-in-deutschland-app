@@ -8,12 +8,12 @@
 // stderr, so stdout carries only the change. Exit 1 on an error (network,
 // firewall redirect, a body that is not a PDF).
 //
-// The PULSE watch automation (.hive/automations/bamf-catalogue-sync.yaml via
+// The Hive watch automation (.hive/automations/bamf-catalogue-sync.yaml via
 // .hive/automations/bamf-catalogue-sync.sh) runs this daily, with no model, in a fresh
 // worktree of the default branch without node_modules; it therefore never
 // opens the PDF (no pdfjs) and leaves state.json and output/ untouched. When
 // it prints something, the job it queues runs check.mjs and the rest of the
-// pipeline (see .pulse/skills/bamf-catalogue-sync/SKILL.md).
+// pipeline (see .hive/skills/bamf-catalogue-sync/SKILL.md).
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

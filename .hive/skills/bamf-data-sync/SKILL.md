@@ -1,6 +1,6 @@
 ---
 name: bamf-data-sync
-description: Keep the app's two bundled BAMF data files - the evaluation status (src/web/data/current-evaluation.json, exam date and last check) and the exam centres (src/web/data/prüfstellen.json) - in step with bamf.de; scripts/bamf-data-sync.mjs reads the Einbürgerung page and the 16 state .xlsx files, validates, writes, bumps the patch version; then run the web tests and commit one data commit. Public GETs to bamf.de only, no credentials, never edits the data by hand. Use when a PULSE watch (evaluation-sync, pruefstellen-sync) reports a change, when asked to sync the evaluation status or the Prüfstellen, or when the home page's "last checked" date is stale.
+description: Keep the app's two bundled BAMF data files - the evaluation status (src/web/data/current-evaluation.json, exam date and last check) and the exam centres (src/web/data/prüfstellen.json) - in step with bamf.de; scripts/bamf-data-sync.mjs reads the Einbürgerung page and the 16 state .xlsx files, validates, writes, bumps the patch version; then run the web tests and commit one data commit. Public GETs to bamf.de only, no credentials, never edits the data by hand. Use when a Hive watch (evaluation-sync, pruefstellen-sync) reports a change, when asked to sync the evaluation status or the Prüfstellen, or when the home page's "last checked" date is stale.
 ---
 
 # BAMF data sync
@@ -55,7 +55,7 @@ too).
   script bumps the patch version in `src/web/package.json` and
   `src/web/package-lock.json` together, without npm (npm 10 rewrites the
   lockfile in its own dialect; see the project memory).
-- **Hard stops stay.** Landing on `main` goes through `pulse land`; the
+- **Hard stops stay.** Landing on `main` goes through `hive land`; the
   daemon pushes according to `landing.push`. Never `git push`, never `gh`.
 - **Public repository.** Commit messages and posts carry no e-mail
   addresses, home paths or device names; the GitHub noreply address is the
@@ -107,8 +107,8 @@ too).
    `src/web/package-lock.json`, nothing else, with the message the script
    printed (`data: BAMF evaluation status <examDate> (checked <date>)` or
    `data: exam centres from bamf.de (<n> centres)`).
-6. Hand the branch to landing: as a PULSE job, finish normally (the runner
-   lands kept commits); in a conversation, `pulse land --project
+6. Hand the branch to landing: as a Hive job, finish normally (the runner
+   lands kept commits); in a conversation, `hive land --project
    leben-in-deutschland --branch <branch>`. The landing runs
    `scripts/check.sh`; a push to `main` deploys the web
    (`vercel-deploy.yml`), nothing else starts - the apps pick the new
@@ -143,9 +143,9 @@ describes the firewall.
 
 - `scripts/bamf-data-sync.mjs` (scrape, validation, write, version bump),
   `scripts/lib/xlsx.mjs` (the dependency-free workbook reader),
-  `.pulse/automations/evaluation-sync.sh`,
-  `.pulse/automations/pruefstellen-sync.sh` (the PULSE watches)
-- `.pulse/automations/evaluation-sync.yaml` (daily), `.pulse/automations/pruefstellen-sync.yaml` (weekly)
+  `.hive/automations/evaluation-sync.sh`,
+  `.hive/automations/pruefstellen-sync.sh` (the Hive watches)
+- `.hive/automations/evaluation-sync.yaml` (daily), `.hive/automations/pruefstellen-sync.yaml` (weekly)
 - `src/web/services/evaluation.ts` (the in-app refresh on Android),
   `src/web/utils/evaluation-store.ts` (the shape), `src/web/types/prüfstellen.ts`
 - `AGENTS.md` (public-repository privacy rule, verification commands)

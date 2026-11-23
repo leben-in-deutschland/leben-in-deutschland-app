@@ -89,7 +89,7 @@ PLAN-013); the Play twin is the `play-console-publish` skill.
    availability, the review screenshot if not attached, selecting the
    TestFlight build, submitting - and after approval
    `siteConfig.links.appStore`.
-7. Record: reply on the owner's task or post a `finding` on the PULSE board;
+7. Record: reply on the owner's task or post a `finding` on the Hive board;
    write a `MEM-*` record only for a durable lesson.
 
 ## Owner steps (print verbatim when the gate is closed)

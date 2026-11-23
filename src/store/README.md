@@ -217,7 +217,7 @@ the committed, repeatable alternative to clicking through the Console; all
 three have a dry run that needs no credentials.
 
 The agent-facing procedure is the `play-console-publish` skill
-(`.pulse/skills/play-console-publish/SKILL.md`): offline checks, credential
+(`.hive/skills/play-console-publish/SKILL.md`): offline checks, credential
 gate, products, listing, hand-back. Its offline check is
 
 ```bash
@@ -540,7 +540,7 @@ listing* (in the *Grow* section of the left menu):
 
 ### App Store Connect
 
-The iOS app lives in `src/ios` (ADR-047, PLAN-013: `pulse record show
+The iOS app lives in `src/ios` (ADR-047, PLAN-013: `hive record show
 PLAN-013`). `.github/workflows/ios-release.yml` builds it on every change
 and, once the secrets below exist, uploads every `main` build to TestFlight.
 Releasing to the App Store is always done by hand in App Store Connect. The

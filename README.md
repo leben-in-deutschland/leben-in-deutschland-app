@@ -52,8 +52,8 @@
 | [`src/store`](src/store) | Store assets and publishing: screenshot pipeline, Google Play and App Store Connect scripts ([README](src/store/README.md)). |
 | [`src/catalogue`](src/catalogue) | Tooling that keeps the question catalogue in sync with the official BAMF publication ([README](src/catalogue/README.md)). |
 | [`.github/workflows`](.github/workflows) | Web deploy on merge; Android and iOS releases started by hand. |
-| [`.pulse/automations`](.pulse/automations), [`.hive/automations`](.hive/automations) | Standing data syncs (evaluation status and exam centres; the BAMF catalogue check already in `.hive/automations`) that the daemon runs; [`scripts`](scripts) holds their watch scripts. |
-| [`.pulse/skills`](.pulse/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |
+| [`.hive/automations`](.hive/automations) | Standing data syncs (BAMF catalogue, evaluation status, exam centres) that the Hive daemon runs; [`scripts`](scripts) and [`src/catalogue`](src/catalogue) hold what they call. |
+| [`.hive/skills`](.hive/skills) | Agent skills; [`AGENTS.md`](AGENTS.md) holds the repository rules. |
 
 ## Development
 
@@ -102,8 +102,8 @@ Issues and pull requests are welcome. Please read [`AGENTS.md`](AGENTS.md) first
 ## Agents and Skills
 
 Engineering records - decisions, plans, memory, workflows - live in the
-[PULSE](https://github.com/manishtiwari25/pulse) store, not in this
-repository. Project agent skills live under [`.pulse/skills/`](.pulse/skills/),
+Hive store, not in this
+repository. Project agent skills live under [`.hive/skills/`](.hive/skills/),
 one folder per skill with a `SKILL.md`, and [`AGENTS.md`](AGENTS.md) holds the
 repository rules.
 

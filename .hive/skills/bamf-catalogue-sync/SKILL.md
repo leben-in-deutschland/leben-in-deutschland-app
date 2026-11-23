@@ -17,7 +17,7 @@ part and push to `main` automatically); the facts behind them - the firewall,
 the three "last updated" signals, the numbering and the release rule - are
 in `catalogue-source.md` beside this file.
 
-Since 2026-11-01 the standing check is a PULSE automation, not a GitHub
+Since 2026-11-01 the standing check is a Hive automation, not a GitHub
 workflow: `.hive/automations/bamf-catalogue-sync.yaml` runs
 `.hive/automations/bamf-catalogue-sync.sh` (`src/catalogue/watch.mjs`) every
 day without a model; only when bamf.de shows a new page date, link version or PDF does the
@@ -70,7 +70,7 @@ daemon queue one agent job whose brief is this skill.
 - **Public repository.** The committed state and the report contain no
   machine names, home paths, e-mail addresses, or other identifiers (see
   the privacy rule in `AGENTS.md`).
-- **Hard stops stay.** Landing on `main` goes through `pulse land`; the
+- **Hard stops stay.** Landing on `main` goes through `hive land`; the
   daemon pushes according to `landing.push`. Never `git push`, never `gh`.
 - **Images carry credits.** Pictures extracted from the PDF land in the
   git-ignored `src/catalogue/output/images/`; `apply.mjs` renders each
@@ -276,20 +276,20 @@ daemon queue one agent job whose brief is this skill.
    edit `"version"` in `src/web/package.json` and both `version` fields of
    `src/web/package-lock.json` by hand (npm 10 rewrites the lockfile; see
    the project memory) and add them to the same commit. Then hand the
-   branch to landing: as a PULSE job, finish normally (the runner lands kept
+   branch to landing: as a Hive job, finish normally (the runner lands kept
    commits and `scripts/check.sh` runs); in a conversation,
-   `pulse land --project leben-in-deutschland --branch <branch>`. The apps
+   `hive land --project leben-in-deutschland --branch <branch>`. The apps
    need no build: they download `questions-core.json` over the air.
 9. The standing check: `.hive/automations/bamf-catalogue-sync.yaml` is a
    daily watch of `.hive/automations/bamf-catalogue-sync.sh`. The watcher
    prints nothing
    while the three signals equal `state.json` and prints the changed
    signals otherwise; the daemon then queues one job with this skill as its
-   brief (`pulse schedule list --project leben-in-deutschland`,
-   `pulse schedule log SCHED-NNN` for the last output, `pulse schedule run
+   brief (`hive schedule list --project leben-in-deutschland`,
+   `hive schedule log SCHED-NNN` for the last output, `hive schedule run
    SCHED-NNN` to run it now). A watcher that exits 1 three runs in a row
    (firewall, layout change) queues a job to fix the watcher, not the data.
-10. Record: reply on the owner's task or post a `finding` on the PULSE
+10. Record: reply on the owner's task or post a `finding` on the Hive
     board; held-back questions go to the owner as a `question` post with
     the summary of `review.md`, new questions as the summary of
     `add.mjs --check` with the confirm commands. Write a `MEM-*` record only for a durable

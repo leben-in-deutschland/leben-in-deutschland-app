@@ -5,7 +5,7 @@ every: daily
 at: "06:00"
 brief: >-
   bamf.de shows a newer Gesamtfragenkatalog than src/catalogue/state.json
-  records. Read the skill bamf-catalogue-sync (`pulse skill show
+  records. Read the skill bamf-catalogue-sync (`hive skill show
   bamf-catalogue-sync`) and follow it: `cd src/web && npm ci`, then
   `node src/catalogue/check.mjs`, extract, compare, apply the safe part,
   regenerate the split data, run the web tests, commit the catalogue state and

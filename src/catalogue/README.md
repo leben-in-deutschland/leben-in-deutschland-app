@@ -13,7 +13,7 @@ question that is **new** in the official catalogue goes through `add.mjs`:
 the agent job prepares the complete entry (explanation, category, the seven
 translations, a proposed solution with its justification) in
 `data/pending-questions.json`, and it ships only after the owner confirmed
-the answer letter. A daily PULSE watch
+the answer letter. A daily Hive watch
 (`.hive/automations/bamf-catalogue-sync.yaml`) looks for a new catalogue
 without a model; when one appears, the agent job it queues applies the safe
 part, lands it on `main` (which deploys the web; the apps refresh the
@@ -30,7 +30,7 @@ Node built-ins (`fetch`, `node:crypto`, `node:zlib`).
 
 ```text
 src/catalogue/
-  watch.mjs                 The PULSE watch: prints the changed signals, or nothing; writes nothing, needs no pdfjs
+  watch.mjs                 The Hive watch: prints the changed signals, or nothing; writes nothing, needs no pdfjs
   check.mjs                 Step 1+2: reads the "last updated" signals, downloads the PDF when it changed
   extract.mjs               Step 3: PDF -> data/bamf-catalogue.json + output/images/*.png, validates the result
   compare.mjs               Step 4: compares with src/web/data/question.json -> output/report.md + output/question.proposed.json
@@ -358,15 +358,15 @@ rewrite, and the PDF is never opened, so it runs without `src/web/node_modules`.
 Diagnostics go to stderr; stdout carries only the change (`landing page
 date … -> …`, `download link version … -> …`, `PDF bytes changed: …`) or
 nothing. Exit `1` on the same errors as `check.mjs`.
-`.hive/automations/bamf-catalogue-sync.sh` wraps it for PULSE.
+`.hive/automations/bamf-catalogue-sync.sh` wraps it for Hive.
 
-## PULSE automation
+## Hive automation
 
-`.hive/automations/bamf-catalogue-sync.yaml` is a PULSE **watch**: every
+`.hive/automations/bamf-catalogue-sync.yaml` is a Hive **watch**: every
 day at 06:00 UTC the daemon runs `.hive/automations/bamf-catalogue-sync.sh`
 in a fresh worktree of `main`, with no model. While the watcher prints nothing, nothing
 happens. When it prints the changed signals, the daemon queues one agent job
-whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sync/SKILL.md`):
+whose brief is the `bamf-catalogue-sync` skill (`.hive/skills/bamf-catalogue-sync/SKILL.md`):
 
 1. `cd src/web && npm ci`, then `node src/catalogue/check.mjs`,
    `extract.mjs`, `compare.mjs`, `apply.mjs`; for every new official
@@ -393,8 +393,8 @@ whose brief is the `bamf-catalogue-sync` skill (`.pulse/skills/bamf-catalogue-sy
    `add.mjs --confirm`, the split script and the tests, bumps the version,
    and lands one more `catalogue:` commit.
 
-`pulse schedule list --project leben-in-deutschland` shows the schedule,
-`pulse schedule log SCHED-NNN` the watcher's last output, `pulse schedule run
+`hive schedule list --project leben-in-deutschland` shows the schedule,
+`hive schedule log SCHED-NNN` the watcher's last output, `hive schedule run
 SCHED-NNN` runs it now. A watcher that exits `1` three runs in a row (firewall,
 layout change) queues a job to fix the watcher. No secrets are involved: the
 watcher and the pipeline only `GET` public files, and the landing uses the
@@ -428,7 +428,7 @@ daemon's own push credential.
   with a descriptive User-Agent, a 60 s timeout and one retry, treat any
   redirect as a failure, and never store or print cookies or the landing
   page HTML. The retry notice (`! GET … failed: ECONNRESET; retrying in
-  3 s`) goes to stderr: the PULSE watches queue a job for anything on
+  3 s`) goes to stderr: the Hive watches queue a job for anything on
   stdout, and a recovered retry is not a change on bamf.de.
 - **Public repository.** Committed files and printed output contain no
   home paths (paths are printed relative to the repository root), e-mail
@@ -444,7 +444,7 @@ daemon's own push credential.
   have blocked the request` or `the download is not a PDF` – the WAF
   answered with an error page (it does this for `HEAD`, for some automated
   clients, or during maintenance). Retry later; if it persists on the
-  machine the PULSE daemon runs on, run `sync.mjs` on another one and land
+  machine the Hive daemon runs on, run `sync.mjs` on another one and land
   the branch by hand.
 - `GET … failed: fetch failed` or `… timed out` – network problem; one
   retry is built in, run again.
@@ -495,7 +495,7 @@ daemon's own push credential.
   already in the app's question file` from `add.mjs` – take the number the
   message proposes; `--template` chooses it.
 - The watch keeps printing the same change – the job it queued did not
-  land (`pulse schedule show SCHED-NNN` names the job). Finish or fix that
+  land (`hive schedule show SCHED-NNN` names the job). Finish or fix that
   job; the next run of the watcher compares against the landed
   `state.json`.
 - The issue body ends with "Cut here" – expected for long lists; download

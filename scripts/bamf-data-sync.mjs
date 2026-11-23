@@ -7,7 +7,7 @@
 //   node scripts/bamf-data-sync.mjs <source> --check   # watch: print what changed, write nothing
 //   node scripts/bamf-data-sync.mjs <source>           # scrape, validate, write, bump the patch version
 //
-// `--check` is what the PULSE watch automations run (.pulse/automations/*.sh): it
+// `--check` is what the Hive watch automations run (.hive/automations/*.sh): it
 // prints nothing and exits 0 when bamf.de agrees with the bundled file, prints
 // a short description of the change when it differs, and exits 1 when the
 // scrape failed or is not the shape the app expects. Without `--check` the

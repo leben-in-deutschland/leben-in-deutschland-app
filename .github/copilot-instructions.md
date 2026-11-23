@@ -1,12 +1,12 @@
 # GitHub Copilot Instructions
 
 Use [`AGENTS.md`](../AGENTS.md) as the operating guide for this repository.
-Engineering records - decisions, plans, memory, workflows - live in the PULSE
-store, not under `docs/`; project skills live in `.pulse/skills/`.
+Engineering records - decisions, plans, memory, workflows - live in the Hive
+store, not under `docs/`; project skills live in `.hive/skills/`.
 
 ## Default Behavior
 
-- Read the relevant source, tests, and PULSE records before non-trivial work.
+- Read the relevant source, tests, and Hive records before non-trivial work.
 - Do not recreate a `docs/` control plane or commit hidden runner-specific
   control folders.
 - Preserve product code, tests, configuration, workflows, deployment, and
