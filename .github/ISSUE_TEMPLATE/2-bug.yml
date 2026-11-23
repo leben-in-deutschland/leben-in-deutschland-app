@@ -1,0 +1,30 @@
+name: Bug
+description: Something on the website or in the apps does not work as it should.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead? A screenshot helps.
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where?
+      multiple: true
+      options:
+        - Website (lebenindeutschland.org)
+        - Android app
+        - iPhone or iPad app
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and version
+      description: The device and its system, and the app version from the store page - or the browser for the website.
+      placeholder: Pixel 8, Android 15, app 2.1.35
+    validations:
+      required: false

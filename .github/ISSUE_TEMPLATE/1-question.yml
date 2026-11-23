@@ -1,0 +1,39 @@
+name: Mistake in a question
+description: A question, an answer, a translation, an explanation or a picture is wrong or hard to understand.
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Which question?
+      description: The number from the question catalogue on the website (for example 127 or BW-3), or the first words of the question.
+      placeholder: "127"
+    validations:
+      required: true
+  - type: dropdown
+    id: part
+    attributes:
+      label: What is wrong?
+      multiple: true
+      options:
+        - German question or answer
+        - The answer marked as correct
+        - Translation
+        - Explanation
+        - Picture
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: For a translation or an explanation - which language?
+      placeholder: Turkish
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: What does it say, and what would be right?
+      description: Quote the text as it is now and say what it should be. A source helps - for example the official BAMF catalogue.
+    validations:
+      required: true
