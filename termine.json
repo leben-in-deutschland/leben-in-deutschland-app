@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-11-23T21:18:36.537Z",
+ "generatedAt": "2026-11-24T03:16:43.422Z",
  "centres": [
   {
    "id": "bb-vhs-brandenburg",
@@ -9,7 +9,7 @@
    "name": "VHS Brandenburg an der Havel",
    "plz": "14776",
    "url": "https://www.vhs-brandenburg.de/p/mensch-und-gesellschaft/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -31,7 +31,7 @@
    "name": "Kreisvolkshochschule Uckermark",
    "plz": "17291",
    "url": "https://www.kvhs-uckermark.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -97,7 +97,7 @@
    "name": "Kreisvolkshochschule Spree-Neiße",
    "plz": "03130",
    "url": "https://www.kreisvolkshochschule-spn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -118,7 +118,7 @@
    "name": "VHS Calw e.V.",
    "plz": "75365",
    "url": "https://www.vhs-calw.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -150,7 +150,7 @@
    "name": "VHS Freiburg e.V.",
    "plz": "79098",
    "url": "https://www.vhs-freiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -207,7 +207,7 @@
    "name": "VHS Friedrichshafen",
    "plz": "88045",
    "url": "https://www.vhs-fn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -228,7 +228,7 @@
    "name": "Städtische VHS Hechingen",
    "plz": "72379",
    "url": "https://www.vhs-hechingen.de/programm/gesellschaft-umwelt-kultur?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -249,7 +249,7 @@
    "name": "VHS Kirchheim u. Teck e.V.",
    "plz": "73230",
    "url": "https://www.vhskirchheim.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -288,7 +288,7 @@
    "name": "Mannheimer Abendakademie und VHS GmbH",
    "plz": "68161",
    "url": "https://www.abendakademie-mannheim.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -324,7 +324,7 @@
    "name": "VHS Markgräflerland e.V.",
    "plz": "79379",
    "url": "https://www.vhs-markgraeflerland.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -363,7 +363,7 @@
    "name": "VHS Nürtingen",
    "plz": "72622",
    "url": "https://www.vhs-nuertingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -384,7 +384,7 @@
    "name": "VHS Schwäbisch-Gmünd e.V.",
    "plz": "73525",
    "url": "https://www.gmuender-vhs.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -416,7 +416,7 @@
    "name": "VHS Landkreis Konstanz e.V.",
    "plz": "78224",
    "url": "https://www.vhs-landkreis-konstanz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -446,7 +446,7 @@
    "name": "VHS Tübingen e.V.",
    "plz": "72072",
    "url": "https://www.vhs-tuebingen.de/veranstaltungssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -503,7 +503,7 @@
    "name": "VHS für Stadt und Kreis Tuttlingen e. V.",
    "plz": "78532",
    "url": "https://www.vhs-tuttlingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -524,7 +524,7 @@
    "name": "Ulmer Volkshochschule",
    "plz": "89073",
    "url": "https://www.vh-ulm.de/vh-programm/kurs-finder?clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -563,7 +563,7 @@
    "name": "VHS Landkreis Aichach-Friedberg e.V.",
    "plz": "86551",
    "url": "https://www.vhs-aichach-friedberg.de/programm/gesellschaft-leben?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -593,7 +593,7 @@
    "name": "VHS Aschaffenburg",
    "plz": "63741",
    "url": "https://www.vhs-aschaffenburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -650,7 +650,7 @@
    "name": "Städtische Volkshochschule Bad Kissingen und Hammelburg",
    "plz": "97688",
    "url": "https://www.vhs-kisshab.de/p/integration/einbuergerungstest-675-CAT-KAT77",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -682,7 +682,7 @@
    "name": "VHS Burghausen-Burgkirchen e. V.",
    "plz": "84489",
    "url": "https://www.vhs-burghausen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -703,7 +703,7 @@
    "name": "VHS Eching e.V.",
    "plz": "85386",
    "url": "https://www.vhs-eching.de/programm/kurssuche/suche?suchesetzen=true&kathaupt=6&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -779,7 +779,7 @@
    "name": "Zweckverband Volkshochschule im Landkreis Erding",
    "plz": "85435",
    "url": "https://www.vhs-erding.de/p/deutsch-integration/pruefungen/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -809,7 +809,7 @@
    "name": "VHS Freising e.V.",
    "plz": "85354",
    "url": "https://www.vhs-freising.org/p/fachbereiche/sprachen/einbuergerung",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -908,7 +908,7 @@
    "name": "VHS Fürth",
    "plz": "90762",
    "url": "https://www.vhs-fuerth.de/p/grundbildung/einbuergerungen/einbuergerungstest-33-fragen",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -956,7 +956,7 @@
    "name": "VHS im Norden des Landkreises München e.V.",
    "plz": "85748",
    "url": "https://www.vhs-nord.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -998,7 +998,7 @@
    "name": "VHS Garmisch-Partenkirchen e.V.",
    "plz": "82467",
    "url": "https://www.vhs-gap.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1019,7 +1019,7 @@
    "name": "VHS der Gemeinden im Landkreis Roth",
    "plz": "91161",
    "url": "https://www.vhs-roth.de/p/sprachen/deutsch/test-leben-in-deutschland",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1041,7 +1041,7 @@
    "name": "Zentrum für fremdsprachliche Bildung Ingolstadt GmbH & Co. KG",
    "plz": "85049",
    "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1089,7 +1089,7 @@
    "name": "VHS Landshut e.V.",
    "plz": "84028",
    "url": "https://www.vhs-landshut.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1155,7 +1155,7 @@
    "name": "VHS Moosburg e.V.",
    "plz": "85368",
    "url": "https://www.vhs-moosburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1185,7 +1185,7 @@
    "name": "VHS Mühldorf e. V.",
    "plz": "84453",
    "url": "https://www.vhs-muehldorf.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1215,7 +1215,7 @@
    "name": "Münchner Volkshochschule GmbH",
    "plz": "81675",
    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1245,7 +1245,7 @@
    "name": "VHS Neuburg/Donau",
    "plz": "86633",
    "url": "https://www.vhsneuburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1266,7 +1266,7 @@
    "name": "VHS Landkreis Regensburg",
    "plz": "93073",
    "url": "https://www.vhs-regensburger-land.de/p/deutsch-schule/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1369,7 +1369,7 @@
    "name": "Volkshochschule SüdOst im Lkr. München GmbH",
    "plz": "85521",
    "url": "https://www.vhs-suedost.de/suche/Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1417,7 +1417,7 @@
    "name": "vhs Rottenburg e.V.",
    "plz": "84056",
    "url": "https://www.vhs-rottenburg-laaber.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1438,7 +1438,7 @@
    "name": "vhs Schrobenhausen",
    "plz": "86529",
    "url": "https://www.vhs-sob.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1468,7 +1468,7 @@
    "name": "Volkshochschule Fichtelgebirge",
    "plz": "95100",
    "url": "https://www.vhs-fichtelgebirge.de/p/integration/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1617,7 +1617,7 @@
    "name": "VHS StarnbergAmmersee e.V.",
    "plz": "82319",
    "url": "https://www.vhs-starnbergammersee.de/p/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1666,7 +1666,7 @@
    "name": "VHS Straubing",
    "plz": "94315",
    "url": "https://www.vhs-straubing.de/p/sprachen/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1688,7 +1688,7 @@
    "name": "VHS Landkreis Amberg-Sulzbach",
    "plz": "92237",
    "url": "https://www.vhs-as.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1709,7 +1709,7 @@
    "name": "Volkshochschule Taufkirchen e.V.",
    "plz": "82024",
    "url": "https://www.vhs-taufkirchen.de/kurssuche/suche?suchesetzen=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1748,7 +1748,7 @@
    "name": "Volkshochschule Traunreut e.V.",
    "plz": "83301",
    "url": "https://www.vhs-traunreut.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1769,7 +1769,7 @@
    "name": "VHS Trostberg e.V.",
    "plz": "83308",
    "url": "https://www.vhs-trostberg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1790,7 +1790,7 @@
    "name": "VHS Vilsbiburg",
    "plz": "84137",
    "url": "https://www.vhs-vilsbiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1811,7 +1811,7 @@
    "name": "VHS Wasserburg / Inn e.V.",
    "plz": "83512",
    "url": "https://www.vhs-wasserburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1841,7 +1841,7 @@
    "name": "Volkshochschule Weiden-Neustadt gGmbH",
    "plz": "92637",
    "url": "https://www.vhs-weiden-neustadt.de/p/mensch-gesellschaft/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1892,7 +1892,7 @@
    "name": "VHS Schwarzachtal / Winkelhaid",
    "plz": "90610",
    "url": "https://www.vhs-schwarzachtal.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1922,7 +1922,7 @@
    "name": "Wissenschaftsstadt Darmstadt - Volkshochschule",
    "plz": "64283",
    "url": "https://www.darmstadt-vhs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -1997,7 +1997,7 @@
    "name": "Eigenbetrieb Bildung und Jugend Werra-Meißner, Volkshochschule",
    "plz": "37269",
    "url": "https://www.vhs-werra-meissner.de/fachbereich//sprachen/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2049,7 +2049,7 @@
    "name": "Wetteraukreis - vhs Wetterau",
    "plz": "61169",
    "url": "https://www.vhs-wetterau.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2115,7 +2115,7 @@
    "name": "VHS der Stadt Hanau",
    "plz": "63452",
    "url": "https://www.vhs-hanau.de/p/programmbereiche/sprachen-verstaendigung/deutsch-als-fremdsprache/pruefungen-einbuergerungstests",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2147,7 +2147,7 @@
    "name": "VHS Main-Taunus-Kreis",
    "plz": "65719",
    "url": "https://www.vhs-mtk.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2169,7 +2169,7 @@
    "name": "Kreisvolkshochschule Waldeck-Frankenberg",
    "plz": "34497",
    "url": "https://www.vhs-waldeck-frankenberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2190,7 +2190,7 @@
    "name": "VHS Kreis Limburg-Weilburg",
    "plz": "65549",
    "url": "https://www.vhs-limburg-weilburg.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2212,7 +2212,7 @@
    "name": "Akademikerbund Hamburg e.V.",
    "plz": "22767",
    "url": "https://www.abh-kurse.de/programm/pruefungen/kw/bereich/kategorien/kategorie-id/75/oberkategorie-id/4/kategorie-name/Einbuergerungstest/",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2290,7 +2290,7 @@
    "name": "KVHS Wesermarsch GmbH",
    "plz": "26919",
    "url": "https://www.kvhs-wesermarsch.de/programm/paedagogik-kommunikation-psychologie?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2311,7 +2311,7 @@
    "name": "VHS Celle e.V.",
    "plz": "29221",
    "url": "https://www.vhs-celle.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2332,19 +2332,9 @@
    "name": "Landkreis Northeim - Fachbereich Kreisvolkshochschule Northeim",
    "plz": "37574",
    "url": "https://www.kvhs-northeim.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
-   "slots": [
-    {
-     "id": "P4053P2K",
-     "date": "2026-11-23",
-     "time": "11:00",
-     "status": "unknown",
-     "title": "Einbürgerungstest für Einwohner*innen des Landkreises Northeim",
-     "place": "Northeim, Kreisvolkshochschule",
-     "url": "https://www.kvhs-northeim.de/programm/kurssuche/kurs/Einbuergerungstest-fuer-Einwohnerinnen-des-Landkreises-Northeim/P4053P2K"
-    }
-   ]
+   "slots": []
   },
   {
    "id": "ni-vhs-emden",
@@ -2353,7 +2343,7 @@
    "name": "VHS Emden e.V.",
    "plz": "26721",
    "url": "https://www.vhs-emden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2401,7 +2391,7 @@
    "name": "Volkshochschule Landkreis Goslar",
    "plz": "33640",
    "url": "https://www.vhs-goslar.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2451,7 +2441,7 @@
    "name": "VHS Ostkreis Hannover",
    "plz": "31275",
    "url": "https://www.vhs-ostkreis-hannover.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2472,7 +2462,7 @@
    "name": "VHS Meppen GmbH",
    "plz": "49716",
    "url": "https://www.vhs-meppen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2548,7 +2538,7 @@
    "name": "VHS Hannover Land",
    "plz": "31535",
    "url": "https://www.vhs-hannover-land.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2660,7 +2650,7 @@
    "name": "VHS der Stadt Osnabrück",
    "plz": "49084",
    "url": "https://www.vhs-os.de/fachbereich//deutsch-als-zweitsprache/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2751,7 +2741,7 @@
    "name": "VHS Osterholz-Scharmbeck-Hambergen e.V.",
    "plz": "27711",
    "url": "https://www.vhs-ohz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": []
   },
@@ -2762,7 +2752,7 @@
    "name": "VHS Stade e. V.",
    "plz": "21682",
    "url": "https://www.vhs-stade.de/programm/mensch-gesellschaft-umwelt?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2783,7 +2773,7 @@
    "name": "Kreisvolkshochschule Uelzen-Lüchow-Dannenberg",
    "plz": "29525",
    "url": "https://www.allesbildung.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2855,7 +2845,7 @@
    "name": "KVHS Ammerland",
    "plz": "26655",
    "url": "https://www.kvhs-ammerland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2877,7 +2867,7 @@
    "name": "VHS und Musikschule der Stadt Wilhelmshaven gGmbH",
    "plz": "26382",
    "url": "https://www.vhs-whv.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2916,7 +2906,7 @@
    "name": "VHS Ahaus",
    "plz": "48683",
    "url": "https://www.vhs-aktuellesforum.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2973,7 +2963,7 @@
    "name": "VHS Nordkreis Aachen",
    "plz": "52477",
    "url": "https://www.vhs-nordkreis-aachen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -2994,7 +2984,7 @@
    "name": "VHS Zweckverband Bad Driburg-Brakel-Nieheim-Steinheim",
    "plz": "33014",
    "url": "https://www.vhs-driburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3015,7 +3005,7 @@
    "name": "VHS für die Gemeinde Alfter und die Stadt Bornheim",
    "plz": "53332",
    "url": "https://www.vhs-bornheim-alfter.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3045,7 +3035,7 @@
    "name": "VHS-Zweckverband Brilon-Marsberg-Olsberg",
    "plz": "59929",
    "url": "https://www.vhs-bmo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3077,7 +3067,7 @@
    "name": "Volkshochschule Detmold-Lemgo AöR",
    "plz": "32756",
    "url": "https://www.vhs-detmold-lemgo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3099,7 +3089,7 @@
    "name": "Zweckverband VHS Emsdetten-Greven-Saerbeck",
    "plz": "48282",
    "url": "https://www.vhs-egs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3121,7 +3111,7 @@
    "name": "VHS der Stadt Erftstadt",
    "plz": "50374",
    "url": "https://www.vhs-erftstadt.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3142,7 +3132,7 @@
    "name": "VHS Kreis Euskirchen",
    "plz": "53879",
    "url": "https://www.vhs-kreis-euskirchen.de/fachbereiche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3163,7 +3153,7 @@
    "name": "VHS Gelderland",
    "plz": "47608",
    "url": "https://www.vhs-gelderland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3184,7 +3174,7 @@
    "name": "Zweckverband VHS im Kreis Herford",
    "plz": "32052",
    "url": "https://vhsimkreisherford.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3286,7 +3276,7 @@
    "name": "Volkshochschule Höxter-Marienmünster",
    "plz": "37671",
    "url": "https://www.vhs-hoexter.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": []
   },
@@ -3297,7 +3287,7 @@
    "name": "VHS Kaarst-Korschenbroich",
    "plz": "41564",
    "url": "https://www.vhs-kk.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3318,7 +3308,7 @@
    "name": "VHS Menden-Hemer-Balve",
    "plz": "58706",
    "url": "https://www.vhs-mhb.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3348,7 +3338,7 @@
    "name": "VHS Hochsauerlandkreis",
    "plz": "59872",
    "url": "https://www.vhs-hsk.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3369,7 +3359,7 @@
    "name": "Volkshochschule der Städte Mettmann und Wülfrath",
    "plz": "40822",
    "url": "https://www.vhs-mettmann.de/p/sprachen/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3399,7 +3389,7 @@
    "name": "VHS Minden - Zweckverband Volkshochschule Minden",
    "plz": "32423",
    "url": "https://www.vhs-minden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3474,7 +3464,7 @@
    "name": "VHS-Zweckverband der Stadt Ochtrup und der Gemeinden Neuenkirchen, Wettringen und Metelen",
    "plz": "48607",
    "url": "https://www.vhs-ochtrup.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": []
   },
@@ -3485,7 +3475,7 @@
    "name": "Volkshochschule Overath / Rösrath",
    "plz": "51491",
    "url": "https://www.vhsor.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3506,7 +3496,7 @@
    "name": "VHS Reckenberg-Ems gGmbH",
    "plz": "33378",
    "url": "https://www.vhs-re.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3536,7 +3526,7 @@
    "name": "VHS-ZV Alpen-Rheinberg - Sonsbeck-Xanten",
    "plz": "47495",
    "url": "https://www.vhs-rheinberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3557,7 +3547,7 @@
    "name": "VHS Lippe-Ost",
    "plz": "32816",
    "url": "https://www.vhslippe-ost.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3578,7 +3568,7 @@
    "name": "Kultur- und Weiterbildungsbetrieb der Stadt Schwerte-Volkshochschule-",
    "plz": "58239",
    "url": "https://www.vhs-schwerte.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3610,7 +3600,7 @@
    "name": "VHS-Zweckverband Rhein-Sieg",
    "plz": "53721",
    "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3676,7 +3666,7 @@
    "name": "Zweckverband VHS Arnsberg/Sundern",
    "plz": "59846",
    "url": "https://www.vhs-arnsberg-sundern.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3742,7 +3732,7 @@
    "name": "VHS Zweckverband Velbert-Heiligenhaus",
    "plz": "42551",
    "url": "https://www.vhs-vh.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3772,7 +3762,7 @@
    "name": "VHS Warendorf",
    "plz": "48231",
    "url": "https://www.vhs-warendorf.de/fachbereich//deutsch-integration/einbuergerung",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3823,7 +3813,7 @@
    "name": "VHS Lennetal",
    "plz": "58791",
    "url": "https://www.vhs-lennetal.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3862,7 +3852,7 @@
    "name": "Volkshochschule Werl-Wickede (Ruhr)-Ense",
    "plz": "59457",
    "url": "https://www.vhs-werl.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3883,7 +3873,7 @@
    "name": "VHS Bergisch Land",
    "plz": "42929",
    "url": "https://www.vhs-bergisch-land.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -3940,7 +3930,7 @@
    "name": "VHS Bingen e.V.",
    "plz": "55411",
    "url": "https://www.vhs-bingen.de/programm/kw/bereich/suche/suchesetzen/true/?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4042,7 +4032,7 @@
    "name": "Kreisvolkshochschule Mainz-Bingen e.V.",
    "plz": "55218",
    "url": "https://www.kvhs-mainz-bingen.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": []
   },
@@ -4053,7 +4043,7 @@
    "name": "VHS Kaiserslautern e.V.",
    "plz": "67655",
    "url": "https://www.vhs-kaiserslautern.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4165,7 +4155,7 @@
    "name": "VHS-Kreis-Westerwald e.V.",
    "plz": "56410",
    "url": "https://www.vhs-ww.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4222,7 +4212,7 @@
    "name": "Kommunaler Eigenbetrieb \"Bildung und Kultur des Landkreises Leipzig\" Volkshochschule Landkreis Leipzig",
    "plz": "04552",
    "url": "https://www.vhs-lkl.de/p/deutsch/einbuergerungstests",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4251,7 +4241,7 @@
    "name": "VHS Chemnitz",
    "plz": "09111",
    "url": "https://www.vhs-chemnitz.de/p/deutsch/einbuergerung",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4271,7 +4261,7 @@
      "status": "free",
      "booking": "inperson",
      "title": "Einbürgerungstest",
-     "place": "TIETZ",
+     "place": "TIETZ, siehe vhs-Raumanzeige",
      "url": "https://www.vhs-chemnitz.de/kurs/deutsch/einbuergerung/einbuergerungstest/W264DS09"
     }
    ]
@@ -4283,7 +4273,7 @@
    "name": "Volkshochschule Vogtland e.V",
    "plz": "08527",
    "url": "https://www.vhs-vogtland.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4303,7 +4293,7 @@
    "name": "VHS Burgenlandkreis \"Dr. Wilhelm Harnisch\"",
    "plz": "06712",
    "url": "https://www.vhs-burgenlandkreis.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
@@ -4342,7 +4332,7 @@
    "name": "Thüringer Volkshochschulverband e.V.",
    "plz": "07743",
    "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest",
-   "checkedAt": "2026-11-23T21:18:36.537Z",
+   "checkedAt": "2026-11-24T03:16:43.422Z",
    "ok": true,
    "slots": [
     {
