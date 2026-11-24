@@ -20,6 +20,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     return {
         title: `Prüfstellen in ${code} - ${stateRelatedData?.name}`,
         description: `Einbürgerungstest oder Leben in Deutschland ${stateRelatedData ? `Prüfstellen in ${stateRelatedData.name}` : `Prüfstellen in ${code}`} `,
+        // The page's own address, as the sitemap lists it. Without it the page inherits the layout's "/" and names the start page as its original.
+        alternates: { canonical: `/pruefstellen/${code}` },
     };
 }
 

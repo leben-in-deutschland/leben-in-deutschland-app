@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
         return {
             title: "Fragenkatalog Einbürgerungstest oder Leben in Deutschland",
             description: "Fragenkatalog Einbürgerungstest oder Leben in Deutschland, Alle 300 fragen mit antworten kostenlos",
+            // The page's own address. Without it the page inherits the layout's "/" and names the start page as its original.
+            alternates: { canonical: "/question-catalogue" },
         };
     }
     const code = state[0].toUpperCase();
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     return {
         title: `Fragenkatalog Einbürgerungstest oder Leben in Deutschland für  ${code} - ${stateRelatedData?.name}`,
         description: `Fragenkatalog Einbürgerungstest oder Leben in Deutschland, Alle 10 fragen mit antworten kostenlos für ${stateRelatedData ? stateRelatedData.name : code} `,
+        alternates: { canonical: `/question-catalogue/${code}` },
     };
 }
 
