@@ -7,18 +7,6 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.lebenindeutschland.org/prepare</loc>
-        <lastmod>2025-03-08T00:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.lebenindeutschland.org/mock</loc>
-        <lastmod>2025-03-08T00:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://www.lebenindeutschland.org/privacy-policy</loc>
         <lastmod>2025-03-08T00:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
