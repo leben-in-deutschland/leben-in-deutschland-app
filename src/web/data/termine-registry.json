@@ -1,0 +1,890 @@
+[
+  {
+    "id": "bb-vhs-brandenburg",
+    "state": "BB",
+    "city": "Brandenburg an der Havel",
+    "name": "VHS Brandenburg an der Havel",
+    "plz": "14776",
+    "url": "https://www.vhs-brandenburg.de/p/mensch-und-gesellschaft/einbuergerungstest"
+  },
+  {
+    "id": "bb-kvhs-uckermark",
+    "state": "BB",
+    "city": "Prenzlau",
+    "name": "Kreisvolkshochschule Uckermark",
+    "plz": "17291",
+    "url": "https://www.kvhs-uckermark.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bb-kreisvolkshochschule-spn",
+    "state": "BB",
+    "city": "Spremberg",
+    "name": "Kreisvolkshochschule Spree-Neiße",
+    "plz": "03130",
+    "url": "https://www.kreisvolkshochschule-spn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-calw",
+    "state": "BW",
+    "city": "Calw",
+    "name": "VHS Calw e.V.",
+    "plz": "75365",
+    "url": "https://www.vhs-calw.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-freiburg",
+    "state": "BW",
+    "city": "Freiburg im Breisgau",
+    "name": "VHS Freiburg e.V.",
+    "plz": "79098",
+    "url": "https://www.vhs-freiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-fn",
+    "state": "BW",
+    "city": "Friedrichshafen",
+    "name": "VHS Friedrichshafen",
+    "plz": "88045",
+    "url": "https://www.vhs-fn.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-hechingen",
+    "state": "BW",
+    "city": "Hechingen",
+    "name": "Städtische VHS Hechingen",
+    "plz": "72379",
+    "url": "https://www.vhs-hechingen.de/programm/gesellschaft-umwelt-kultur?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhskirchheim",
+    "state": "BW",
+    "city": "Kirchheim unter Teck",
+    "name": "VHS Kirchheim u. Teck e.V.",
+    "plz": "73230",
+    "url": "https://www.vhskirchheim.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-abendakademie-mannheim",
+    "state": "BW",
+    "city": "Mannheim",
+    "name": "Mannheimer Abendakademie und VHS GmbH",
+    "plz": "68161",
+    "url": "https://www.abendakademie-mannheim.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-markgraeflerland",
+    "state": "BW",
+    "city": "Müllheim",
+    "name": "VHS Markgräflerland e.V.",
+    "plz": "79379",
+    "url": "https://www.vhs-markgraeflerland.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-nuertingen",
+    "state": "BW",
+    "city": "Nürtingen",
+    "name": "VHS Nürtingen",
+    "plz": "72622",
+    "url": "https://www.vhs-nuertingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-gmuender-vhs",
+    "state": "BW",
+    "city": "Schwäbisch Gmünd",
+    "name": "VHS Schwäbisch-Gmünd e.V.",
+    "plz": "73525",
+    "url": "https://www.gmuender-vhs.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-landkreis-konstanz",
+    "state": "BW",
+    "city": "Singen (Hohentwiel)",
+    "name": "VHS Landkreis Konstanz e.V.",
+    "plz": "78224",
+    "url": "https://www.vhs-landkreis-konstanz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-tuebingen",
+    "state": "BW",
+    "city": "Tübingen",
+    "name": "VHS Tübingen e.V.",
+    "plz": "72072",
+    "url": "https://www.vhs-tuebingen.de/veranstaltungssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vhs-tuttlingen",
+    "state": "BW",
+    "city": "Tuttlingen",
+    "name": "VHS für Stadt und Kreis Tuttlingen e. V.",
+    "plz": "78532",
+    "url": "https://www.vhs-tuttlingen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "bw-vh-ulm",
+    "state": "BW",
+    "city": "Ulm",
+    "name": "Ulmer Volkshochschule",
+    "plz": "89073",
+    "url": "https://www.vh-ulm.de/vh-programm/kurs-finder?clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-aichach-friedberg",
+    "state": "BY",
+    "city": "Aichach",
+    "name": "VHS Landkreis Aichach-Friedberg e.V.",
+    "plz": "86551",
+    "url": "https://www.vhs-aichach-friedberg.de/programm/gesellschaft-leben?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-aschaffenburg",
+    "state": "BY",
+    "city": "Aschaffenburg",
+    "name": "VHS Aschaffenburg",
+    "plz": "63741",
+    "url": "https://www.vhs-aschaffenburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-kisshab",
+    "state": "BY",
+    "city": "Bad Kissingen",
+    "name": "Städtische Volkshochschule Bad Kissingen und Hammelburg",
+    "plz": "97688",
+    "url": "https://www.vhs-kisshab.de/p/integration/einbuergerungstest-675-CAT-KAT77"
+  },
+  {
+    "id": "by-vhs-burghausen",
+    "state": "BY",
+    "city": "Burghausen",
+    "name": "VHS Burghausen-Burgkirchen e. V.",
+    "plz": "84489",
+    "url": "https://www.vhs-burghausen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-eching",
+    "state": "BY",
+    "city": "Eching",
+    "name": "VHS Eching e.V.",
+    "plz": "85386",
+    "url": "https://www.vhs-eching.de/programm/kurssuche/suche?suchesetzen=true&kathaupt=6&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-erding",
+    "state": "BY",
+    "city": "Erding",
+    "name": "Zweckverband Volkshochschule im Landkreis Erding",
+    "plz": "85435",
+    "url": "https://www.vhs-erding.de/p/deutsch-integration/pruefungen/einbuergerungstest"
+  },
+  {
+    "id": "by-vhs-freising",
+    "state": "BY",
+    "city": "Freising",
+    "name": "VHS Freising e.V.",
+    "plz": "85354",
+    "url": "https://www.vhs-freising.org/p/fachbereiche/sprachen/einbuergerung"
+  },
+  {
+    "id": "by-vhs-fuerth",
+    "state": "BY",
+    "city": "Fürth",
+    "name": "VHS Fürth",
+    "plz": "90762",
+    "url": "https://www.vhs-fuerth.de/p/grundbildung/einbuergerungen/einbuergerungstest-33-fragen"
+  },
+  {
+    "id": "by-vhs-nord",
+    "state": "BY",
+    "city": "Garching b. München",
+    "name": "VHS im Norden des Landkreises München e.V.",
+    "plz": "85748",
+    "url": "https://www.vhs-nord.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-gap",
+    "state": "BY",
+    "city": "Garmisch-Partenkirchen",
+    "name": "VHS Garmisch-Partenkirchen e.V.",
+    "plz": "82467",
+    "url": "https://www.vhs-gap.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-roth",
+    "state": "BY",
+    "city": "Hilpoltstein",
+    "name": "VHS der Gemeinden im Landkreis Roth",
+    "plz": "91161",
+    "url": "https://www.vhs-roth.de/p/sprachen/deutsch/test-leben-in-deutschland"
+  },
+  {
+    "id": "by-inlingua-ingolstadt",
+    "state": "BY",
+    "city": "Ingolstadt",
+    "name": "Zentrum für fremdsprachliche Bildung Ingolstadt GmbH & Co. KG",
+    "plz": "85049",
+    "url": "https://www.inlingua-ingolstadt.de/pruefungen/einbuergerungstests/"
+  },
+  {
+    "id": "by-vhs-landshut",
+    "state": "BY",
+    "city": "Landshut",
+    "name": "VHS Landshut e.V.",
+    "plz": "84028",
+    "url": "https://www.vhs-landshut.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-moosburg",
+    "state": "BY",
+    "city": "Moosburg a.d.Isar",
+    "name": "VHS Moosburg e.V.",
+    "plz": "85368",
+    "url": "https://www.vhs-moosburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-muehldorf",
+    "state": "BY",
+    "city": "Mühldorf a. Inn",
+    "name": "VHS Mühldorf e. V.",
+    "plz": "84453",
+    "url": "https://www.vhs-muehldorf.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-mvhs",
+    "state": "BY",
+    "city": "München",
+    "name": "Münchner Volkshochschule GmbH",
+    "plz": "81675",
+    "url": "https://www.mvhs.de/kurse/deutsch-integration/pruefungen-einbuergerung-460-CAT-KAT7849"
+  },
+  {
+    "id": "by-vhsneuburg",
+    "state": "BY",
+    "city": "Neuburg a.d.Donau",
+    "name": "VHS Neuburg/Donau",
+    "plz": "86633",
+    "url": "https://www.vhsneuburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-regensburger-land",
+    "state": "BY",
+    "city": "Neutraubling",
+    "name": "VHS Landkreis Regensburg",
+    "plz": "93073",
+    "url": "https://www.vhs-regensburger-land.de/p/deutsch-schule/einbuergerungstest"
+  },
+  {
+    "id": "by-vhsosh",
+    "state": "BY",
+    "city": "Oberschleißheim",
+    "name": "VHS Oberschleißheim e.V.",
+    "plz": "85764",
+    "url": "https://www.vhsosh.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-suedost",
+    "state": "BY",
+    "city": "Ottobrunn",
+    "name": "Volkshochschule SüdOst im Lkr. München GmbH",
+    "plz": "85521",
+    "url": "https://www.vhs-suedost.de/suche/Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-rottenburg-laaber",
+    "state": "BY",
+    "city": "Rottenburg a.d.Laaber",
+    "name": "vhs Rottenburg e.V.",
+    "plz": "84056",
+    "url": "https://www.vhs-rottenburg-laaber.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-sob",
+    "state": "BY",
+    "city": "Schrobenhausen",
+    "name": "vhs Schrobenhausen",
+    "plz": "86529",
+    "url": "https://www.vhs-sob.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-fichtelgebirge",
+    "state": "BY",
+    "city": "Selb",
+    "name": "Volkshochschule Fichtelgebirge",
+    "plz": "95100",
+    "url": "https://www.vhs-fichtelgebirge.de/p/integration/einbuergerungstest"
+  },
+  {
+    "id": "by-vhs-starnbergammersee",
+    "state": "BY",
+    "city": "Starnberg",
+    "name": "VHS StarnbergAmmersee e.V.",
+    "plz": "82319",
+    "url": "https://www.vhs-starnbergammersee.de/p/sprachen-und-integration/deutsch-als-fremdsprache/pruefungen-pruefungsvorbereitung-einbuergerung/einbuergerungstest"
+  },
+  {
+    "id": "by-vhs-straubing",
+    "state": "BY",
+    "city": "Straubing",
+    "name": "VHS Straubing",
+    "plz": "94315",
+    "url": "https://www.vhs-straubing.de/p/sprachen/einbuergerungstest"
+  },
+  {
+    "id": "by-vhs-as",
+    "state": "BY",
+    "city": "Sulzbach-Rosenberg",
+    "name": "VHS Landkreis Amberg-Sulzbach",
+    "plz": "92237",
+    "url": "https://www.vhs-as.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-taufkirchen",
+    "state": "BY",
+    "city": "Taufkirchen",
+    "name": "Volkshochschule Taufkirchen e.V.",
+    "plz": "82024",
+    "url": "https://www.vhs-taufkirchen.de/kurssuche/suche?suchesetzen=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-traunreut",
+    "state": "BY",
+    "city": "Traunreut",
+    "name": "Volkshochschule Traunreut e.V.",
+    "plz": "83301",
+    "url": "https://www.vhs-traunreut.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-trostberg",
+    "state": "BY",
+    "city": "Trostberg",
+    "name": "VHS Trostberg e.V.",
+    "plz": "83308",
+    "url": "https://www.vhs-trostberg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-vilsbiburg",
+    "state": "BY",
+    "city": "Vilsbiburg",
+    "name": "VHS Vilsbiburg",
+    "plz": "84137",
+    "url": "https://www.vhs-vilsbiburg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-wasserburg",
+    "state": "BY",
+    "city": "Wasserburg a. Inn",
+    "name": "VHS Wasserburg / Inn e.V.",
+    "plz": "83512",
+    "url": "https://www.vhs-wasserburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "by-vhs-weiden-neustadt",
+    "state": "BY",
+    "city": "Weiden i.d.OPf.",
+    "name": "Volkshochschule Weiden-Neustadt gGmbH",
+    "plz": "92637",
+    "url": "https://www.vhs-weiden-neustadt.de/p/mensch-gesellschaft/einbuergerungstest"
+  },
+  {
+    "id": "by-vhs-schwarzachtal",
+    "state": "BY",
+    "city": "Winkelhaid",
+    "name": "VHS Schwarzachtal / Winkelhaid",
+    "plz": "90610",
+    "url": "https://www.vhs-schwarzachtal.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "he-darmstadt-vhs",
+    "state": "HE",
+    "city": "Darmstadt",
+    "name": "Wissenschaftsstadt Darmstadt - Volkshochschule",
+    "plz": "64283",
+    "url": "https://www.darmstadt-vhs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "he-vhs-werra-meissner",
+    "state": "HE",
+    "city": "Eschwege",
+    "name": "Eigenbetrieb Bildung und Jugend Werra-Meißner, Volkshochschule",
+    "plz": "37269",
+    "url": "https://www.vhs-werra-meissner.de/fachbereich//sprachen/einbuergerungstest"
+  },
+  {
+    "id": "he-vhs-wetterau",
+    "state": "HE",
+    "city": "Friedberg (Hessen)",
+    "name": "Wetteraukreis - vhs Wetterau",
+    "plz": "61169",
+    "url": "https://www.vhs-wetterau.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "he-vhs-hanau",
+    "state": "HE",
+    "city": "Hanau",
+    "name": "VHS der Stadt Hanau",
+    "plz": "63452",
+    "url": "https://www.vhs-hanau.de/p/programmbereiche/sprachen-verstaendigung/deutsch-als-fremdsprache/pruefungen-einbuergerungstests"
+  },
+  {
+    "id": "he-vhs-mtk",
+    "state": "HE",
+    "city": "Hofheim am Taunus",
+    "name": "VHS Main-Taunus-Kreis",
+    "plz": "65719",
+    "url": "https://www.vhs-mtk.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "he-vhs-waldeck-frankenberg",
+    "state": "HE",
+    "city": "Korbach",
+    "name": "Kreisvolkshochschule Waldeck-Frankenberg",
+    "plz": "34497",
+    "url": "https://www.vhs-waldeck-frankenberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "he-vhs-limburg-weilburg",
+    "state": "HE",
+    "city": "Limburg a.d. Lahn",
+    "name": "VHS Kreis Limburg-Weilburg",
+    "plz": "65549",
+    "url": "https://www.vhs-limburg-weilburg.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "hh-abh-kurse",
+    "state": "HH",
+    "city": "Hamburg",
+    "name": "Akademikerbund Hamburg e.V.",
+    "plz": "22767",
+    "url": "https://www.abh-kurse.de/programm/pruefungen/kw/bereich/kategorien/kategorie-id/75/oberkategorie-id/4/kategorie-name/Einbuergerungstest/"
+  },
+  {
+    "id": "ni-kvhs-wesermarsch",
+    "state": "NI",
+    "city": "Brake (Unterweser)",
+    "name": "KVHS Wesermarsch GmbH",
+    "plz": "26919",
+    "url": "https://www.kvhs-wesermarsch.de/programm/paedagogik-kommunikation-psychologie?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-celle",
+    "state": "NI",
+    "city": "Celle",
+    "name": "VHS Celle e.V.",
+    "plz": "29221",
+    "url": "https://www.vhs-celle.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-kvhs-northeim",
+    "state": "NI",
+    "city": "Einbeck",
+    "name": "Landkreis Northeim - Fachbereich Kreisvolkshochschule Northeim",
+    "plz": "37574",
+    "url": "https://www.kvhs-northeim.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-emden",
+    "state": "NI",
+    "city": "Emden",
+    "name": "VHS Emden e.V.",
+    "plz": "26721",
+    "url": "https://www.vhs-emden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-goslar",
+    "state": "NI",
+    "city": "Goslar",
+    "name": "Volkshochschule Landkreis Goslar",
+    "plz": "33640",
+    "url": "https://www.vhs-goslar.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-hildesheim",
+    "state": "NI",
+    "city": "Hildesheim",
+    "name": "Volkshochschule (VHS) Hildesheim gGmbH",
+    "plz": "31134",
+    "url": "https://www.vhs-hildesheim.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-ostkreis-hannover",
+    "state": "NI",
+    "city": "Lehrte",
+    "name": "VHS Ostkreis Hannover",
+    "plz": "31275",
+    "url": "https://www.vhs-ostkreis-hannover.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-meppen",
+    "state": "NI",
+    "city": "Meppen",
+    "name": "VHS Meppen GmbH",
+    "plz": "49716",
+    "url": "https://www.vhs-meppen.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-hannover-land",
+    "state": "NI",
+    "city": "Neustadt am Rübenberge",
+    "name": "VHS Hannover Land",
+    "plz": "31535",
+    "url": "https://www.vhs-hannover-land.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-os",
+    "state": "NI",
+    "city": "Osnabrück",
+    "name": "VHS der Stadt Osnabrück",
+    "plz": "49084",
+    "url": "https://www.vhs-os.de/fachbereich//deutsch-als-zweitsprache/einbuergerungstest"
+  },
+  {
+    "id": "ni-vhs-ohz",
+    "state": "NI",
+    "city": "Osterholz-Scharmbeck",
+    "name": "VHS Osterholz-Scharmbeck-Hambergen e.V.",
+    "plz": "27711",
+    "url": "https://www.vhs-ohz.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-stade",
+    "state": "NI",
+    "city": "Stade",
+    "name": "VHS Stade e. V.",
+    "plz": "21682",
+    "url": "https://www.vhs-stade.de/programm/mensch-gesellschaft-umwelt?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-allesbildung",
+    "state": "NI",
+    "city": "Uelzen",
+    "name": "Kreisvolkshochschule Uelzen-Lüchow-Dannenberg",
+    "plz": "29525",
+    "url": "https://www.allesbildung.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-kvhs-ammerland",
+    "state": "NI",
+    "city": "Westerstede",
+    "name": "KVHS Ammerland",
+    "plz": "26655",
+    "url": "https://www.kvhs-ammerland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "ni-vhs-whv",
+    "state": "NI",
+    "city": "Wilhelmshaven",
+    "name": "VHS und Musikschule der Stadt Wilhelmshaven gGmbH",
+    "plz": "26382",
+    "url": "https://www.vhs-whv.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-aktuellesforum",
+    "state": "NW",
+    "city": "Ahaus",
+    "name": "VHS Ahaus",
+    "plz": "48683",
+    "url": "https://www.vhs-aktuellesforum.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-nordkreis-aachen",
+    "state": "NW",
+    "city": "Alsdorf",
+    "name": "VHS Nordkreis Aachen",
+    "plz": "52477",
+    "url": "https://www.vhs-nordkreis-aachen.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-driburg",
+    "state": "NW",
+    "city": "Bad Driburg",
+    "name": "VHS Zweckverband Bad Driburg-Brakel-Nieheim-Steinheim",
+    "plz": "33014",
+    "url": "https://www.vhs-driburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-bornheim-alfter",
+    "state": "NW",
+    "city": "Bornheim",
+    "name": "VHS für die Gemeinde Alfter und die Stadt Bornheim",
+    "plz": "53332",
+    "url": "https://www.vhs-bornheim-alfter.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-bmo",
+    "state": "NW",
+    "city": "Brilon",
+    "name": "VHS-Zweckverband Brilon-Marsberg-Olsberg",
+    "plz": "59929",
+    "url": "https://www.vhs-bmo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-detmold-lemgo",
+    "state": "NW",
+    "city": "Detmold",
+    "name": "Volkshochschule Detmold-Lemgo AöR",
+    "plz": "32756",
+    "url": "https://www.vhs-detmold-lemgo.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-egs",
+    "state": "NW",
+    "city": "Emsdetten",
+    "name": "Zweckverband VHS Emsdetten-Greven-Saerbeck",
+    "plz": "48282",
+    "url": "https://www.vhs-egs.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-erftstadt",
+    "state": "NW",
+    "city": "Erftstadt",
+    "name": "VHS der Stadt Erftstadt",
+    "plz": "50374",
+    "url": "https://www.vhs-erftstadt.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-kreis-euskirchen",
+    "state": "NW",
+    "city": "Euskirchen",
+    "name": "VHS Kreis Euskirchen",
+    "plz": "53879",
+    "url": "https://www.vhs-kreis-euskirchen.de/fachbereiche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-gelderland",
+    "state": "NW",
+    "city": "Geldern",
+    "name": "VHS Gelderland",
+    "plz": "47608",
+    "url": "https://www.vhs-gelderland.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhsimkreisherford",
+    "state": "NW",
+    "city": "Herford",
+    "name": "Zweckverband VHS im Kreis Herford",
+    "plz": "32052",
+    "url": "https://vhsimkreisherford.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-hoexter",
+    "state": "NW",
+    "city": "Höxter",
+    "name": "Volkshochschule Höxter-Marienmünster",
+    "plz": "37671",
+    "url": "https://www.vhs-hoexter.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-kk",
+    "state": "NW",
+    "city": "Kaarst",
+    "name": "VHS Kaarst-Korschenbroich",
+    "plz": "41564",
+    "url": "https://www.vhs-kk.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-mhb",
+    "state": "NW",
+    "city": "Menden (Sauerland)",
+    "name": "VHS Menden-Hemer-Balve",
+    "plz": "58706",
+    "url": "https://www.vhs-mhb.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-hsk",
+    "state": "NW",
+    "city": "Meschede",
+    "name": "VHS Hochsauerlandkreis",
+    "plz": "59872",
+    "url": "https://www.vhs-hsk.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-mettmann",
+    "state": "NW",
+    "city": "Mettmann",
+    "name": "Volkshochschule der Städte Mettmann und Wülfrath",
+    "plz": "40822",
+    "url": "https://www.vhs-mettmann.de/p/sprachen/einbuergerungstest"
+  },
+  {
+    "id": "nw-vhs-minden",
+    "state": "NW",
+    "city": "Minden",
+    "name": "VHS Minden - Zweckverband Volkshochschule Minden",
+    "plz": "32423",
+    "url": "https://www.vhs-minden.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-ochtrup",
+    "state": "NW",
+    "city": "Ochtrup",
+    "name": "VHS-Zweckverband der Stadt Ochtrup und der Gemeinden Neuenkirchen, Wettringen und Metelen",
+    "plz": "48607",
+    "url": "https://www.vhs-ochtrup.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhsor",
+    "state": "NW",
+    "city": "Overath",
+    "name": "Volkshochschule Overath / Rösrath",
+    "plz": "51491",
+    "url": "https://www.vhsor.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-re",
+    "state": "NW",
+    "city": "Rheda-Wiedenbrück",
+    "name": "VHS Reckenberg-Ems gGmbH",
+    "plz": "33378",
+    "url": "https://www.vhs-re.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-rheinberg",
+    "state": "NW",
+    "city": "Rheinberg",
+    "name": "VHS-ZV Alpen-Rheinberg - Sonsbeck-Xanten",
+    "plz": "47495",
+    "url": "https://www.vhs-rheinberg.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhslippe-ost",
+    "state": "NW",
+    "city": "Schieder-Schwalenberg",
+    "name": "VHS Lippe-Ost",
+    "plz": "32816",
+    "url": "https://www.vhslippe-ost.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-schwerte",
+    "state": "NW",
+    "city": "Schwerte",
+    "name": "Kultur- und Weiterbildungsbetrieb der Stadt Schwerte-Volkshochschule-",
+    "plz": "58239",
+    "url": "https://www.vhs-schwerte.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-rhein-sieg",
+    "state": "NW",
+    "city": "Siegburg",
+    "name": "VHS-Zweckverband Rhein-Sieg",
+    "plz": "53721",
+    "url": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-arnsberg-sundern",
+    "state": "NW",
+    "city": "Sundern (Sauerland)",
+    "name": "Zweckverband VHS Arnsberg/Sundern",
+    "plz": "59846",
+    "url": "https://www.vhs-arnsberg-sundern.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-vh",
+    "state": "NW",
+    "city": "Velbert",
+    "name": "VHS Zweckverband Velbert-Heiligenhaus",
+    "plz": "42551",
+    "url": "https://www.vhs-vh.de/index.php?id=15&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-warendorf",
+    "state": "NW",
+    "city": "Warendorf",
+    "name": "VHS Warendorf",
+    "plz": "48231",
+    "url": "https://www.vhs-warendorf.de/fachbereich//deutsch-integration/einbuergerung"
+  },
+  {
+    "id": "nw-vhs-lennetal",
+    "state": "NW",
+    "city": "Werdohl",
+    "name": "VHS Lennetal",
+    "plz": "58791",
+    "url": "https://www.vhs-lennetal.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-werl",
+    "state": "NW",
+    "city": "Werl",
+    "name": "Volkshochschule Werl-Wickede (Ruhr)-Ense",
+    "plz": "59457",
+    "url": "https://www.vhs-werl.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "nw-vhs-bergisch-land",
+    "state": "NW",
+    "city": "Wermelskirchen",
+    "name": "VHS Bergisch Land",
+    "plz": "42929",
+    "url": "https://www.vhs-bergisch-land.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "rp-vhs-bingen",
+    "state": "RP",
+    "city": "Bingen am Rhein",
+    "name": "VHS Bingen e.V.",
+    "plz": "55411",
+    "url": "https://www.vhs-bingen.de/programm/kw/bereich/suche/suchesetzen/true/?kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "rp-kvhs-mainz-bingen",
+    "state": "RP",
+    "city": "Ingelheim am Rhein",
+    "name": "Kreisvolkshochschule Mainz-Bingen e.V.",
+    "plz": "55218",
+    "url": "https://www.kvhs-mainz-bingen.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "rp-vhs-kaiserslautern",
+    "state": "RP",
+    "city": "Kaiserslautern",
+    "name": "VHS Kaiserslautern e.V.",
+    "plz": "67655",
+    "url": "https://www.vhs-kaiserslautern.de/kurssuche/liste?suchesetzen=false&clearallkatfilter=true&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "rp-vhs-ww",
+    "state": "RP",
+    "city": "Montabaur",
+    "name": "VHS-Kreis-Westerwald e.V.",
+    "plz": "56410",
+    "url": "https://www.vhs-ww.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "sn-vhs-lkl",
+    "state": "SN",
+    "city": "Borna",
+    "name": "Kommunaler Eigenbetrieb \"Bildung und Kultur des Landkreises Leipzig\" Volkshochschule Landkreis Leipzig",
+    "plz": "04552",
+    "url": "https://www.vhs-lkl.de/p/deutsch/einbuergerungstests"
+  },
+  {
+    "id": "sn-vhs-chemnitz",
+    "state": "SN",
+    "city": "Chemnitz",
+    "name": "VHS Chemnitz",
+    "plz": "09111",
+    "url": "https://www.vhs-chemnitz.de/p/deutsch/einbuergerung"
+  },
+  {
+    "id": "sn-vhs-vogtland",
+    "state": "SN",
+    "city": "Plauen",
+    "name": "Volkshochschule Vogtland e.V",
+    "plz": "08527",
+    "url": "https://www.vhs-vogtland.de/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "st-vhs-burgenlandkreis",
+    "state": "ST",
+    "city": "Zeitz",
+    "name": "VHS Burgenlandkreis \"Dr. Wilhelm Harnisch\"",
+    "plz": "06712",
+    "url": "https://www.vhs-burgenlandkreis.de/kurse?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
+    "id": "th-vhs-th",
+    "state": "TH",
+    "city": "Jena",
+    "name": "Thüringer Volkshochschulverband e.V.",
+    "plz": "07743",
+    "url": "https://www.vhs-th.de/bildung-sprache-pruefungen/sprachpruefungen-und-einbuergerungstest/einbuergerungstest"
+  }
+]

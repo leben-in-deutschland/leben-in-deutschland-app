@@ -6,9 +6,9 @@
  * same news twice.
  */
 import { beforeEach, describe, expect, it } from "vitest";
-import type { TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
+import type { RegistryCentre, TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
 import { alertDraft, alertText, whenText } from "@/utils/termine-alerts";
-import { centreSummary, countCentres, isUnconfirmed, listCentres, matchesQuery, splitSlots } from "@/utils/termine-logic";
+import { centreSummary, countCentres, isUnconfirmed, listCentres, listRegistry, matchesQuery, registryByState, splitSlots } from "@/utils/termine-logic";
 import { isTermineData, sanitizeTermine } from "@/utils/termine-store";
 import { detectAlerts, EMPTY_WATCH, MAX_WATCHED, readWatch, TERMINE_WATCH_KEY, unwatchCentre, watchCentre, writeWatch } from "@/utils/termine-watch";
 
@@ -126,6 +126,38 @@ describe("listing the centres", () => {
         expect(isUnconfirmed({ ...free, ok: false }, now)).toBe(true);
         expect(isUnconfirmed({ ...free, checkedAt: "2026-11-20T05:17:00.000Z" }, now)).toBe(true);
         expect(isUnconfirmed({ ...free, checkedAt: null }, now)).toBe(true);
+    });
+});
+
+describe("the centres before the dates arrive", () => {
+    const entry = (id: string, state: string, city: string, name: string, plz: string): RegistryCentre => ({ id, state, city, name, plz, url: `https://vhs.example/${id}` });
+    const registry = [
+        entry("by-muc", "BY", "München", "Münchner Volkshochschule", "80331"),
+        entry("nw-koe", "NW", "Köln", "VHS Köln", "50667"),
+        entry("by-aic", "BY", "Aichach", "VHS Aichach", "86551"),
+        { ...entry("by-muc-2", "BY", "München", "Bildungswerk", "80335"), towns: ["München", "Garching"] },
+    ];
+
+    it("lists a state's centres by town and finds them like the dates: by town, postcode or name, umlauts or not", () => {
+        const ids = (state: string, query: string) => listRegistry(registry, { state, query }).map((centre) => centre.id);
+        expect(ids("by", "")).toEqual(["by-aic", "by-muc-2", "by-muc"]);
+        expect(ids("", "muenchen")).toEqual(["by-muc-2", "by-muc"]);
+        expect(ids("", "50667")).toEqual(["nw-koe"]);
+        expect(ids("", "garching")).toEqual(["by-muc-2"]);
+        expect(ids("BY", "köln")).toEqual([]);
+        expect(ids("BE", "")).toEqual([]);
+    });
+
+    it("sums the registry up by state: its centres and each town they serve once, a state without a centre left out", () => {
+        const states = [
+            { code: "bw", name: "Baden-Württemberg" },
+            { code: "by", name: "Bayern" },
+            { code: "nw", name: "Nordrhein-Westfalen" },
+        ];
+        expect(registryByState(registry, states)).toEqual([
+            { code: "BY", name: "Bayern", centres: 3, towns: ["Aichach", "Garching", "München"] },
+            { code: "NW", name: "Nordrhein-Westfalen", centres: 1, towns: ["Köln"] },
+        ]);
     });
 });
 

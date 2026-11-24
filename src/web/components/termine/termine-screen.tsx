@@ -4,7 +4,7 @@ import { Button, Input, Spinner } from "@heroui/react";
 import { useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import type { State } from "@/types/state";
-import type { TerminCentre } from "@/types/termine";
+import type { RegistryCentre, TerminCentre } from "@/types/termine";
 import { StatePicker } from "@/components/landing/state-picker";
 import { AppLink } from "@/components/ui/app-link";
 import { ChoiceChips } from "@/components/ui/choice-chips";
@@ -14,18 +14,28 @@ import { AlertTriangleIcon, BellIcon, ChevronLeftIcon, SearchIcon } from "@/comp
 import { PageHeader, SectionHeading } from "@/components/ui/surface";
 import { dayKey } from "@/utils/date-utils";
 import { fmt, formatDate, plural } from "@/utils/i18n";
-import { countCentres, listCentres } from "@/utils/termine-logic";
+import { countCentres, listCentres, listRegistry, registryByState } from "@/utils/termine-logic";
 import { isWatched, MAX_WATCHED } from "@/utils/termine-watch";
 import { prefsOf } from "@/utils/user-defaults";
 import { useAppLanguage, useHydrated, useIsNative, useTranslations, useUser } from "@/utils/user-store";
 import { CentreCard } from "./centre-card";
+import { CentreIndex, TownDirectory } from "./centre-index";
 import { useTermine, useTermineWatch } from "./use-termine";
 
 type TermineScreenProps = {
     /** Upper-case code of the state the page was opened for, or "" for all states. */
     initialState: string;
     states: State[];
+    /**
+     * The centres the dates sync reads (`data/termine-registry.ts`) that this page can name until the dates arrive:
+     * those of its state, or all of them on the overview.
+     */
+    registry?: RegistryCentre[];
+    /** How many centres the sync reads in all states. */
+    registrySize?: number;
 };
+
+const NO_REGISTRY: RegistryCentre[] = [];
 
 type Show = "all" | "bookable";
 
@@ -46,8 +56,17 @@ export function terminePath(code: string): string {
  * On the website every state has its own address and the state row links to
  * it. The apps ship one page only, so there the row switches in place and
  * starts with the learner's own state.
+ *
+ * The dates arrive after the page: until then, and when they cannot be
+ * loaded, the website names the centres of the registry - the towns per
+ * state on the overview, the centres with the way to their own pages for a
+ * state or a search. That is part of the built page, so it is also what a
+ * search engine reads that runs no script. The registry is the one of the
+ * build: on the website that is today's, in an installed app it would be
+ * the one of its release, so the apps drop it as soon as the page has
+ * started - like the website's header and footer - and wait for the dates.
  */
-export function TermineScreen({ initialState, states }: TermineScreenProps) {
+export function TermineScreen({ initialState, states, registry = NO_REGISTRY, registrySize = registry.length }: TermineScreenProps) {
     const t = useTranslations();
     const language = useAppLanguage();
     const isNative = useIsNative();
@@ -69,6 +88,13 @@ export function TermineScreen({ initialState, states }: TermineScreenProps) {
     const centres = useMemo(() => listCentres(data, { state: stateCode, query, bookableOnly: show === "bookable" }, today), [data, stateCode, query, show, today]);
     const counts = useMemo(() => countCentres(listCentres(data, { state: stateCode, query: "", bookableOnly: false }, today), today), [data, stateCode, today]);
     const watched = useMemo(() => (data?.centres ?? []).filter((centre) => isWatched(watch, centre.id)), [data, watch]);
+    // Without the dates: the towns per state on the overview, the centres themselves for a state or a search.
+    const listed = isNative ? NO_REGISTRY : registry;
+    const listedInAll = isNative ? 0 : registrySize;
+    const overview = stateCode === "" && query.trim() === "";
+    const directory = useMemo(() => (data || !overview ? [] : registryByState(listed, states)), [data, overview, listed, states]);
+    const known = useMemo(() => (data || overview ? NO_REGISTRY : listRegistry(listed, { state: stateCode, query })), [data, overview, listed, stateCode, query]);
+    const stateNames = useMemo(() => new Map(states.map((state) => [state.code.toUpperCase(), state.name])), [states]);
     const filtered = query.trim() !== "" || show === "bookable";
 
     const onToggleWatch = (centre: TerminCentre) => {
@@ -229,13 +255,34 @@ export function TermineScreen({ initialState, states }: TermineScreenProps) {
                 ) : (
                     <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">{centres.map(card)}</ul>
                 )}
+
+                {directory.length > 0 ? (
+                    <TownDirectory
+                        states={directory}
+                        title={t.termine_index_title}
+                        hint={t.termine_directory_hint}
+                        stateLink={(state) => (
+                            <AppLink href={terminePath(state.code)} className={linkClass}>
+                                {fmt(t.termine_state_link, { state: state.name })}
+                            </AppLink>
+                        )}
+                        countLabel={(count) => plural(t, "termine_count", count)}
+                    />
+                ) : known.length > 0 ? (
+                    <CentreIndex
+                        centres={known}
+                        title={stateName ? fmt(t.termine_index_title_state, { state: stateName }) : t.termine_index_title}
+                        hint={t.termine_index_hint}
+                        stateNames={stateCode ? undefined : stateNames}
+                    />
+                ) : null}
             </section>
 
             <InlineNotice tone="info" title={t.termine_note_title}>
                 <p>{t.termine_note_body}</p>
-                {data ? (
+                {data || listedInAll > 0 ? (
                     <p className="mt-1">
-                        {fmt(t.termine_coverage, { count: data.centres.length })} {centresLink}
+                        {fmt(t.termine_coverage, { count: data ? data.centres.length : listedInAll })} {centresLink}
                     </p>
                 ) : null}
             </InlineNotice>

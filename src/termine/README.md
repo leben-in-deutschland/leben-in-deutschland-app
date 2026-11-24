@@ -22,6 +22,7 @@ src/termine/
   publish.mjs          One run of the automation: reads what is published, runs sync.mjs, pushes the file as one commit to the `data` branch
   discover.mjs         Maintenance tool: finds the page with the test dates for BAMF's exam centres -> output/candidates.json; --merge adds them to sources.json
   sources.json         COMMITTED: the registry - one entry per exam centre: id, state, town, name, adapter, page
+  web-registry.mjs     Writes the website's copy of the registry (src/web/data/termine-registry.json); --check says whether it is up to date
   data-branch.md       README of the `data` branch; publish.mjs puts it there with every commit
   adapters/kufer.mjs   Kufer (KuferWEB): the course system of most Volkshochschulen
   adapters/item.mjs    ITEM (vhs-cms): many Bavarian and some other Volkshochschulen
@@ -83,8 +84,10 @@ is the remote).
   changed link shape must not wipe the dates at once. A run in which fewer
   than half of the sources that answered last time answer writes nothing
   and exits 1, and so does a run in which no source answers at all.
-- **A centre can opt out.** Remove its entry from `sources.json`; the legal
-  notice of the website has the contact.
+- **A centre can opt out.** Remove its entry from `sources.json` and run
+  `node src/termine/web-registry.mjs`; the legal notice of the website has
+  the contact. The deploy of that change takes the centre off the website's
+  pages, the next run off the published file.
 
 ## Commands
 
@@ -197,6 +200,34 @@ By hand, in a checkout with push rights: `node src/termine/publish.mjs
 file is young. `hive schedule run SCHED-NNN` makes the automation due at
 once; the six hours then count from that run.
 
+## What the pages say before the dates arrive
+
+The dates reach a page after it has loaded, so the page as it is built holds
+none. What it does hold is the registry: `/termine` and `/termine/<STATE>`
+get the centres from `src/web/data/termine-registry.json`. Until the dates
+arrive, and when they cannot be loaded, the overview lists the states with
+the towns of their centres, and a state's page lists its centres with the
+link to each centre's own page. That is also what a search engine reads
+that runs no script; each page has its own title, canonical address, link
+preview and breadcrumbs (`src/web/app/termine/[[...state]]/page.tsx`).
+
+The website is built from `src/web` alone, so that file is a copy of
+`sources.json` without the adapter:
+
+```bash
+node src/termine/web-registry.mjs           # write the copy
+node src/termine/web-registry.mjs --check   # exit 1 when it is out of date
+```
+
+Run it after every change to `sources.json` (`discover.mjs --merge` does it
+by itself); the registry test fails when the copy is out of date. The change
+reaches the pages with the next deploy of `main`. The apps leave the lists
+out: an installed app would show the registry of its release, not today's.
+An app ships the built page as the website has it, so the lists are in its
+files and show for the moment before the page has started, like the
+website's header and footer; a centre that left the registry is gone from
+there with the next app release.
+
 ## Adding an exam centre
 
 1. `node src/termine/discover.mjs --host <domain> --cache /tmp/termine-cache`
@@ -212,8 +243,10 @@ once; the six hours then count from that run.
    ```
 
 3. `node src/termine/sync.mjs --only <id>` shows what the sync reads.
-4. `cd src/web && npm test` (the registry test checks ids, adapters and
-   addresses).
+4. After an entry added or changed by hand:
+   `node src/termine/web-registry.mjs` renews the website's copy.
+5. `cd src/web && npm test` (the registry test checks ids, adapters,
+   addresses and that the website's copy is up to date).
 
 The id is the state code plus the centre's domain without its ending; it is
 what a learner's watch list stores, so it never changes once published.
@@ -248,7 +281,9 @@ websites run a system no adapter knows yet.
 ## Rollback
 
 - A wrong date or a centre that must go: remove or fix its entry in
-  `sources.json`; the next run publishes the file without it.
+  `sources.json` and run `node src/termine/web-registry.mjs`; the deploy of
+  that change rebuilds the website's pages without it, and the next run
+  publishes the file without it.
 - A bad run on the `data` branch: `git revert` the commit there (or wait for
   the next run, which rewrites the file).
 - No more reads: `paused: true` in `.hive/automations/termine-sync.yaml`.

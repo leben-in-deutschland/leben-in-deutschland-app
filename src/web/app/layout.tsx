@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { siteConfig } from "../config/site";
+import { shareImages, siteConfig } from "../config/site";
 import { fontDisplay, fontSans } from "../config/fonts";
 import { Providers } from "./provider";
 import clsx from "clsx";
@@ -36,26 +36,7 @@ export const metadata: Metadata = {
     url: "https://www.lebenindeutschland.org",
     siteName: siteConfig.name,
     description: siteConfig.descriptionEn,
-    images: [
-      {
-        url: "/mobile/app-1.png",
-        width: 1080,
-        height: 1920,
-        alt: "Leben in Deutschland - Einbürgerungstest App Dashboard",
-      },
-      {
-        url: "/mobile/app-2.png",
-        width: 1080,
-        height: 1920,
-        alt: "Übungsfragen für den Einbürgerungstest",
-      },
-      {
-        url: "/mobile/app-3.png",
-        width: 1080,
-        height: 1920,
-        alt: "Fragen übersetzt in 7 Sprachen",
-      },
-    ],
+    images: shareImages,
   },
   twitter: {
     card: "summary_large_image",

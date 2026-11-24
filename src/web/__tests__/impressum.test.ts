@@ -80,7 +80,7 @@ describe("legal pages (TASK-043)", () => {
     it("lists /datenschutz in the sitemap next to /privacy-policy and /impressum", () => {
         const sitemap = read("app/sitemap.xml");
         for (const path of ["/privacy-policy", "/datenschutz", "/impressum"]) {
-            expect(sitemap).toContain(`<loc>https://lebenindeutschland.org${path}</loc>`);
+            expect(sitemap).toContain(`<loc>https://www.lebenindeutschland.org${path}</loc>`);
         }
         // the longer alias stays out: its canonical points at /datenschutz
         expect(sitemap).not.toContain("/datenschutzrichtlinie");

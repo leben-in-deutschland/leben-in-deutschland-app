@@ -1,4 +1,4 @@
-import type { TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
+import type { RegistryCentre, TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
 
 /**
  * Lists and summaries for the exam-dates screen. Pure: callers pass "today"
@@ -53,8 +53,11 @@ export function centreSummary(centre: TerminCentre, today: string): CentreSummar
     return best;
 }
 
+/** What the search reads of a centre; a registry entry has no dates. */
+type Searchable = Pick<TerminCentre, "city" | "name" | "plz" | "towns"> & Partial<Pick<TerminCentre, "slots">>;
+
 /** Every town a centre is found under. */
-export function townsOf(centre: TerminCentre): string[] {
+export function townsOf(centre: Pick<Searchable, "city" | "towns">): string[] {
     return Array.from(new Set([centre.city, ...(centre.towns ?? [])]));
 }
 
@@ -68,12 +71,12 @@ function fold(text: string): string {
 }
 
 /** True when town, postcode, name or a date's place contains the search text ("muenchen" finds "München"). */
-export function matchesQuery(centre: TerminCentre, query: string): boolean {
+export function matchesQuery(centre: Searchable, query: string): boolean {
     const needle = fold(query.trim());
     if (!needle) {
         return true;
     }
-    const haystack = [...townsOf(centre), centre.name, centre.plz ?? "", ...centre.slots.map((slot) => slot.place ?? "")].join(" ");
+    const haystack = [...townsOf(centre), centre.name, centre.plz ?? "", ...(centre.slots ?? []).map((slot) => slot.place ?? "")].join(" ");
     return fold(haystack).includes(needle);
 }
 
@@ -114,6 +117,32 @@ export function countCentres(centres: TerminCentre[], today: string): TermineCou
         withDates: summaries.filter((summary) => summary !== "none").length,
         bookable: summaries.filter((summary) => summary !== "none" && isBookable(summary)).length,
     };
+}
+
+/**
+ * The centres the sync reads, for the time the page has no dates: one state
+ * ("" = every state) and the search text, by town.
+ */
+export function listRegistry(registry: RegistryCentre[], filter: Pick<CentreFilter, "state" | "query">): RegistryCentre[] {
+    const state = filter.state.toUpperCase();
+    return registry
+        .filter((centre) => (!state || centre.state === state) && matchesQuery(centre, filter.query))
+        .sort((a, b) => a.city.localeCompare(b.city, "de") || a.name.localeCompare(b.name, "de"));
+}
+
+/** A state in the registry: how many centres the sync reads there, and in which towns. */
+export type StateTowns = { code: string; name: string; centres: number; towns: string[] };
+
+/** The registry by state, in the order of `states`; a state without a centre is left out. */
+export function registryByState(registry: RegistryCentre[], states: { code: string; name: string }[]): StateTowns[] {
+    return states
+        .map((state) => {
+            const code = state.code.toUpperCase();
+            const centres = registry.filter((centre) => centre.state === code);
+            const towns = Array.from(new Set(centres.flatMap(townsOf))).sort((a, b) => a.localeCompare(b, "de"));
+            return { code, name: state.name, centres: centres.length, towns };
+        })
+        .filter((state) => state.centres > 0);
 }
 
 /** State codes that have at least one centre in the file. */

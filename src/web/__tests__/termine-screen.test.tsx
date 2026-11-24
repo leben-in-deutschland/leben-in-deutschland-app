@@ -6,7 +6,7 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
+import type { RegistryCentre, TerminCentre, TerminSlot, TerminStatus, TermineData } from "@/types/termine";
 
 const mocks = vi.hoisted(() => ({
     native: false,
@@ -61,6 +61,8 @@ const FUERTH = centre("by-fuerth", "BY", "Fürth", [slot("f1", SOON, "full"), sl
 const KISSINGEN = centre("by-kiss", "BY", "Bad Kissingen", [slot("k1", SOON, "free", { time: "14:30", booking: "inperson", place: "Rathaus" })]);
 const KOELN = centre("nw-koeln", "NW", "Köln", [slot("c1", SOON, "few")]);
 const DATA: TermineData = { version: 1, generatedAt: new Date().toISOString(), centres: [FUERTH, KISSINGEN, KOELN] };
+/** The same centres as the registry of the sync names them: no dates. */
+const REGISTRY: RegistryCentre[] = [FUERTH, KISSINGEN, KOELN].map(({ id, state, city, name, url }) => ({ id, state, city, name, url }));
 
 let root: Root | null = null;
 let container: HTMLDivElement;
@@ -76,6 +78,10 @@ async function mount(node: React.ReactNode) {
 
 function cards(): string[] {
     return Array.from(container.querySelectorAll("[data-testid^='termine-centre-']")).map((card) => card.getAttribute("data-testid")!.replace("termine-centre-", ""));
+}
+
+function indexRows(): string[] {
+    return Array.from(container.querySelectorAll("[data-testid^='termine-index-']")).map((row) => row.getAttribute("data-testid")!.replace("termine-index-", ""));
 }
 
 function button(label: string): HTMLButtonElement {
@@ -214,6 +220,46 @@ describe("exam dates page", () => {
         await press(button(de.termine_retry));
         expect(mocks.refresh).toHaveBeenLastCalledWith({ force: true });
         expect(cards()).toEqual(["nw-koeln"]);
+    });
+
+    it("names a state's centres with the way to their pages while it has no dates, and the dates take their place", async () => {
+        await mount(<TermineScreen initialState="BY" states={STATES} registry={REGISTRY.filter((centre) => centre.state === "BY")} registrySize={REGISTRY.length} />);
+        expect(container.textContent).toContain(de.termine_failed_title);
+        expect(container.textContent).toContain("Wir lesen bisher 3 Prüfstellen");
+        expect(container.querySelector("#termine-index-title")?.textContent).toBe("Prüfstellen in Bayern mit Terminen im Internet");
+        expect(indexRows()).toEqual(["by-kiss", "by-fuerth"]);
+        const link = container.querySelector("[data-testid='termine-index-by-kiss'] a")!;
+        expect([link.getAttribute("href"), link.getAttribute("target"), link.getAttribute("rel")]).toEqual(["https://vhs.example/by-kiss", "_blank", "noopener noreferrer"]);
+        expect(link.textContent).toBe("Bad KissingenVHS Bad Kissingen");
+
+        mocks.refresh.mockImplementationOnce(async () => {
+            termineStore.storeData(DATA);
+            return DATA;
+        });
+        await press(button(de.termine_retry));
+        expect(cards()).toEqual(["by-kiss", "by-fuerth"]);
+        expect(container.querySelector("[data-testid='termine-index']")).toBeNull();
+    });
+
+    it("lists the states with their towns on the overview while it has no dates, and the matching centres for a search", async () => {
+        await mount(<TermineScreen initialState="" states={STATES} registry={REGISTRY} />);
+        const directory = Array.from(container.querySelectorAll("[data-testid^='termine-directory-']")).map((entry) => entry.textContent);
+        expect(directory).toEqual(["Prüfungstermine in Bayern · 2 PrüfstellenBad Kissingen, Fürth", "Prüfungstermine in Nordrhein-Westfalen · 1 PrüfstelleKöln"]);
+        expect(container.querySelector("[data-testid='termine-directory-BY'] a")?.getAttribute("href")).toBe("/termine/BY");
+        expect(indexRows()).toEqual([]);
+
+        await type("koeln");
+        expect(container.querySelector("[data-testid^='termine-directory-']")).toBeNull();
+        expect(indexRows()).toEqual(["nw-koeln"]);
+        expect(container.querySelector("[data-testid='termine-index-nw-koeln']")?.textContent).toBe("Köln · Nordrhein-WestfalenVHS Köln");
+    });
+
+    it("leaves those lists to the website: an installed app would name the centres of its release, not today's", async () => {
+        mocks.native = true;
+        await mount(<TermineScreen initialState="" states={STATES} registry={REGISTRY} />);
+        expect(container.textContent).toContain(de.termine_failed_title);
+        expect(container.querySelector("[data-testid='termine-index']")).toBeNull();
+        expect(container.textContent).not.toContain("Wir lesen bisher");
     });
 
     it("starts with the learner's state inside the app and switches states in place", async () => {
