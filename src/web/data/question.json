@@ -1509,7 +1509,7 @@
         "context": "After World War II, Germany was divided into four occupation zones, which were controlled by the United States, Great Britain, France, and the Soviet Union. This division led to tensions between the Western powers and the Soviet Union. Finally, the German Democratic Republic (GDR) was founded to establish the communist government in its zone. The founding of the GDR was an important event in the context of the beginning of the Cold War and the political-ideological confrontation between East and West. Which occupying power was responsible for the founding of the GDR is crucial for understanding Germany's post-war history."
       },
       "tr": {
-        "question": "DAC hangi işgal bölgesinde kuruldu? İçinde...",
+        "question": "Doğu Almanya hangi işgal bölgesinde kuruldu? İçinde...",
         "a": "Amerikan işgal bölgesi",
         "b": "Fransız işgal bölgesi",
         "c": "İngiliz işgal bölgesi",
@@ -1585,7 +1585,7 @@
         "b": "1949",
         "c": "1953",
         "d": "1956",
-        "context": "Alman Demokratik Cumhuriyeti (DDR), Orta Avrupa'da II. Dünya Savaşı'ndan sonra kurulan sosyalist bir devletti. Doğu Almanya'nın kuruluşu, Soğuk Savaş ve Almanya'nın bölünmesi bağlamında gerçekleşti. Nasyonal Sosyalistlerin teslim olmasından sonra, Almanya Müttefikler tarafından işgal edildi ve işgal bölgelerine bölündü. Doğuda, Sovyet işgal bölgesi, Batı'da kurulan Federal Almanya Cumhuriyeti'nin muadili olarak Doğu Almanya'ya yol açtı. DAC'nin resmi kuruluşu, Marksizm-Leninizm'in ideolojik ilkelerini izleyen ayrı bir devlet kurmak için yapıldı."
+        "context": "Alman Demokratik Cumhuriyeti (DDR), Orta Avrupa'da II. Dünya Savaşı'ndan sonra kurulan sosyalist bir devletti. Doğu Almanya'nın kuruluşu, Soğuk Savaş ve Almanya'nın bölünmesi bağlamında gerçekleşti. Nasyonal Sosyalistlerin teslim olmasından sonra, Almanya Müttefikler tarafından işgal edildi ve işgal bölgelerine bölündü. Doğuda, Sovyet işgal bölgesi, Batı'da kurulan Federal Almanya Cumhuriyeti'nin muadili olarak Doğu Almanya'ya yol açtı. Doğu Almanya'nın resmi kuruluşu, Marksizm-Leninizm'in ideolojik ilkelerini izleyen ayrı bir devlet kurmak için yapıldı."
       },
       "ru": {
         "question": "Когда была основана ГДР?",
@@ -2444,7 +2444,7 @@
         "a": "Пруссия",
         "b": "Федеративная Республика Германия",
         "c": "Третий рейх",
-        "d": "РДР",
+        "d": "ГДР",
         "context": "Речь идет о флаге Германской Демократической Республики (ГДР), который существовал с 1949 по 1990 год. Этот флаг имел традиционные немецкие цвета черно-красно-золотой, но с дополнительной эмблемой. В центре находились молоток и циркуль, окруженные венком из пшеницы, который должен был символизировать рабочий класс и интеллектуальное творчество. ГДР была социалистическим государством и частью Германии, которая возникла под советским влиянием после Второй мировой войны, вплоть до воссоединения с Федеративной Республикой Германия в 1990 году."
       },
       "fr": {
@@ -2460,7 +2460,7 @@
         "a": "بروسيا",
         "b": "جمهورية ألمانيا الاتحادية",
         "c": "الرايخ الثالث",
-        "d": "الادماج",
+        "d": "جمهورية ألمانيا الديمقراطية",
         "context": "يشير السؤال إلى علم جمهورية ألمانيا الديمقراطية ، الذي كان موجودا من عام 1949 إلى عام 1990. كان لهذا العلم الألوان الألمانية التقليدية من الأسود والأحمر والذهبي ، ولكن مع شعار إضافي. في المنتصف كانت هناك مطرقة وبوصلة ، محاطة بإكليل من القمح ، والذي كان من المفترض أن يرمز إلى الطبقة العاملة والإبداع الفكري. كانت جمهورية ألمانيا الديمقراطية دولة اشتراكية وجزءا من ألمانيا ظهر تحت النفوذ السوفيتي بعد الحرب العالمية الثانية ، حتى إعادة توحيدها مع جمهورية ألمانيا الاتحادية في عام 1990."
       },
       "uk": {
@@ -2468,7 +2468,7 @@
         "a": "Пруссія",
         "b": "Федеративна Республіка Німеччина",
         "c": "Третій Рейх",
-        "d": "ДДР",
+        "d": "НДР",
         "context": "Йдеться про прапор Німецької Демократичної Республіки (НДР), який існував з 1949 по 1990 рік. Цей прапор мав традиційні німецькі кольори чорний-червоно-золотий, але з додатковою емблемою. Посередині знаходилися молот і циркуль, оточені вінком з пшениці, який повинен був символізувати робітничий клас і інтелектуальну творчість. НДР була соціалістичною державою і частиною Німеччини, яка виникла під радянським впливом після Другої світової війни, до возз'єднання з Федеративною Республікою Німеччина в 1990 році."
       },
       "hi": {
@@ -3431,7 +3431,7 @@
         "b": "Mecklenburg-Vorpommern, Brandenburg, Saksonya, Saksonya-Anhalt, Thüringen",
         "c": "Bavyera, Baden-Württemberg, Rheinland-Pfalz, Thüringen, Saksonya",
         "d": "Saksonya, Thüringen, Hessen, Aşağı Saksonya, Brandenburg",
-        "context": "Soru, Almanya'nın 1949'dan 1990'a kadar Doğu Almanya (Alman Demokratik Cumhuriyeti) ve FRG (Federal Almanya Cumhuriyeti) olarak tarihsel bölünmesine atıfta bulunuyor. Doğu Almanya, yeniden birleşmeden sonra Almanya'ya ait olan doğu federal eyaletlerini içeriyordu. Bu soru için önemli olan, günümüzdeki hangi federal devletlerin tarihsel olarak DAC'ye ait olduğudur. Doğru cevap, Doğu Almanya'nın tüm federal eyaletlerini içermeli ve FRG'nin hiçbirini içermemelidir. Doğu Almanya, Mecklenburg-Vorpommern, Brandenburg, Saksonya, Saksonya-Anhalt ve Thüringen'i içeriyordu. Soru, eski Doğu Almanya topraklarının coğrafi konumunun anlaşılmasını test etmeyi amaçlamaktadır."
+        "context": "Soru, Almanya'nın 1949'dan 1990'a kadar Doğu Almanya (Alman Demokratik Cumhuriyeti) ve FRG (Federal Almanya Cumhuriyeti) olarak tarihsel bölünmesine atıfta bulunuyor. Doğu Almanya, yeniden birleşmeden sonra Almanya'ya ait olan doğu federal eyaletlerini içeriyordu. Bu soru için önemli olan, günümüzdeki hangi federal devletlerin tarihsel olarak Doğu Almanya'ya ait olduğudur. Doğru cevap, Doğu Almanya'nın tüm federal eyaletlerini içermeli ve FRG'nin hiçbirini içermemelidir. Doğu Almanya, Mecklenburg-Vorpommern, Brandenburg, Saksonya, Saksonya-Anhalt ve Thüringen'i içeriyordu. Soru, eski Doğu Almanya topraklarının coğrafi konumunun anlaşılmasını test etmeyi amaçlamaktadır."
       },
       "ru": {
         "question": "В каком из следующих списков указаны только федеративные государства, входившие в состав территории бывшей ГДР?",
@@ -3497,7 +3497,7 @@
         "context": "The Cold War was a geopolitical period of tension between the Western powers, led by the US and NATO, and the Eastern powers, led by the Soviet Union. The world was divided into two blocs: the Western capitalist states and the Eastern socialist states. The GDR (German Democratic Republic) was a socialist state located in the Eastern Bloc. This Eastern Bloc was under the influence of the Soviet Union and was part of the Warsaw Pact, a military alliance of socialist states. This contextualization clarifies the affiliation of the GDR during this time."
       },
       "tr": {
-        "question": "DAC \"Soğuk Savaş\" sırasında kime aitti?",
+        "question": "Doğu Almanya \"Soğuk Savaş\" sırasında kime aitti?",
         "a": "Batılı Güçlere",
         "b": "Varşova Paktı hakkında",
         "c": "NATO'ya",
@@ -3786,7 +3786,7 @@
         "b": "Ren Konfederasyonu'nda",
         "c": "Varşova Paktı'nda",
         "d": "Avrupa İttifakı'nda",
-        "context": "Alman Demokratik Cumhuriyeti (GDR), 1949'dan 1990'a kadar var olan sosyalist bir devletti. Sovyetler Birliği ile olan siyasi ve ideolojik bağları nedeniyle Doğu Almanya, 1955'te NATO'nun muadili olarak kurulan bir askeri ittifak olan Varşova Paktı'nın bir üyesiydi. Varşova Paktı, esas olarak Doğu Avrupa ülkelerinden oluşuyordu ve Soğuk Savaş sırasında ortak bir savunma ve işbirliği olarak hizmet etti. Bu ittifak içinde DAC diğer sosyalist devletlerle yakın işbirliği içinde çalıştı."
+        "context": "Alman Demokratik Cumhuriyeti (GDR), 1949'dan 1990'a kadar var olan sosyalist bir devletti. Sovyetler Birliği ile olan siyasi ve ideolojik bağları nedeniyle Doğu Almanya, 1955'te NATO'nun muadili olarak kurulan bir askeri ittifak olan Varşova Paktı'nın bir üyesiydi. Varşova Paktı, esas olarak Doğu Avrupa ülkelerinden oluşuyordu ve Soğuk Savaş sırasında ortak bir savunma ve işbirliği olarak hizmet etti. Bu ittifak içinde Doğu Almanya diğer sosyalist devletlerle yakın işbirliği içinde çalıştı."
       },
       "ru": {
         "question": "В каком военном союзе состояла ГДР?",
@@ -3879,7 +3879,7 @@
         "question": "ماذا كان \"ستاسي\"؟",
         "a": "الخدمة السرية في \"الرايخ الثالث\"",
         "b": "نصب تذكاري ألماني شهير",
-        "c": "الخدمة السرية من ال [غدر]",
+        "c": "الخدمة السرية لجمهورية ألمانيا الديمقراطية",
         "d": "ناد رياضي ألماني خلال الحرب العالمية الثانية",
         "context": "كانت \"ستاسي\" (Stasi) ، المعروفة رسميا باسم وزارة أمن الدولة ، هي الخدمة السرية لجمهورية ألمانيا الديمقراطية (DDR). تأسست في عام 1950 ولعبت دورا مركزيا في مراقبة ومراقبة سكان جمهورية ألمانيا الديمقراطية. اشتهرت ستاسي بأنشطة المراقبة والتجسس المكثفة ، والتي تم خلالها التجسس بشكل منهجي على العديد من المواطنين. كان حاسما لتأمين سلطة حكومة جمهورية ألمانيا الديمقراطية ويعتبر الآن رمزا للقمع وإساءة استخدام سلطة الدولة خلال هذا الوقت."
       },
@@ -4425,7 +4425,7 @@
         "b": "1933 tarihine kadar 1945",
         "c": "1945 tarihine kadar 1961",
         "d": "1949 tarihine kadar 1990",
-        "context": "Alman Demokratik Cumhuriyeti (DDR), Orta Avrupa'da II. Dünya Savaşı'ndan sonra kurulan sosyalist bir devletti. Almanya'daki Sovyet işgal bölgelerinden kaynaklandı ve Federal Almanya Cumhuriyeti'ne (FRG) paralel olarak var oldu. Doğu Almanya, Sovyetler Birliği'nden güçlü bir şekilde etkilendi ve Soğuk Savaş tarafından şekillendirildi. Sonu, Berlin Duvarı'nın yıkılması ve Almanya'nın yeniden birleşmesi ile işaretlendi. DAC'nin tarihsel önemi, Doğu Bloku'nun bir temsilcisi ve savaş sonrası bölünmüş Alman düzeninin bir parçası olarak rolünde yatmaktadır. Sorunun doğru cevabı d: 1949'dan 1990'a."
+        "context": "Alman Demokratik Cumhuriyeti (DDR), Orta Avrupa'da II. Dünya Savaşı'ndan sonra kurulan sosyalist bir devletti. Almanya'daki Sovyet işgal bölgelerinden kaynaklandı ve Federal Almanya Cumhuriyeti'ne (FRG) paralel olarak var oldu. Doğu Almanya, Sovyetler Birliği'nden güçlü bir şekilde etkilendi ve Soğuk Savaş tarafından şekillendirildi. Sonu, Berlin Duvarı'nın yıkılması ve Almanya'nın yeniden birleşmesi ile işaretlendi. Doğu Almanya'nın tarihsel önemi, Doğu Bloku'nun bir temsilcisi ve savaş sonrası bölünmüş Alman düzeninin bir parçası olarak rolünde yatmaktadır. Sorunun doğru cevabı d: 1949'dan 1990'a."
       },
       "ru": {
         "question": "В какой период существовала Германская Демократическая Республика (ГДР)?",
@@ -11707,7 +11707,7 @@
         "b": "Bärbel Bas",
         "c": "बोडो रामेलो",
         "d": "जोआचिम गौक",
-        "context": "प्रश्न को बेहतर ढंग से समझने के लिए, जर्मनी में राजनीतिक पदों को जानना महत्वपूर्ण है। जर्मनी एक संसदीय गणतंत्र है जिसमें संघीय राष्ट्रपति राज्य के प्रमुख के रूप में होता है। संघीय राष्ट्रपति के पास मुख्य रूप से प्रतिनिधि कार्य होते हैं और उन्हें संघीय विधानसभा द्वारा चुना जाता है। उत्तर विकल्प उन लोगों को संदर्भित करते हैं जो वर्तमान या पूर्व संघीय राष्ट्रपति या अन्य राजनीतिक व्यक्ति हैं। उदाहरण के लिए, फ्रैंक-वाल्टर स्टीनमीयर वर्तमान संघीय राष्ट्रपति हैं, जबकि जोआचिम गौक एक पूर्व पदाधिकारी हैं। बार्बेल बास और बोडो रामेलो प्रसिद्ध राजनेता हैं, लेकिन संघीय अध्यक्षों के रूप में कार्य नहीं करते हैं।"
+        "context": "प्रश्न को बेहतर ढंग से समझने के लिए, जर्मनी में राजनीतिक पदों को जानना महत्वपूर्ण है। जर्मनी एक संसदीय गणतंत्र है जिसमें संघीय राष्ट्रपति राज्य के प्रमुख के रूप में होता है। संघीय राष्ट्रपति के पास मुख्य रूप से प्रतिनिधि कार्य होते हैं और उन्हें संघीय विधानसभा द्वारा चुना जाता है। उत्तर विकल्प उन लोगों को संदर्भित करते हैं जो वर्तमान या पूर्व संघीय राष्ट्रपति या अन्य राजनीतिक व्यक्ति हैं। उदाहरण के लिए, फ्रैंक-वाल्टर स्टीनमीयर वर्तमान संघीय राष्ट्रपति हैं, जबकि जोआचिम गौक एक पूर्व पदाधिकारी हैं। बार्बेल बास और बोडो रामेलो प्रसिद्ध राजनेता हैं, लेकिन संघीय राष्ट्रपतियों के रूप में कार्य नहीं करते हैं।"
       }
     },
     "category": "Democracy & Politics",
@@ -12012,7 +12012,7 @@
         "question": "Which court in Germany is responsible for interpreting the Basic Law?",
         "a": "Regional appeal court",
         "b": "District court",
-        "c": "Federal constitutional court",
+        "c": "Federal Constitutional Court",
         "d": "Administrative tribunal",
         "context": "The Basic Law forms the constitutional basic order of Germany. Its interpretation is crucial for the protection of fundamental rights and the functioning of the state. Different courts have different areas of responsibility and jurisdiction. While administrative courts, higher regional courts and district courts deal with specific issues, a court is specifically responsible for interpreting the constitution and ensuring that it is observed. Understanding the role of this court is essential for the safe application of the law and the protection of civil rights in the country."
       },
@@ -14577,7 +14577,7 @@
         "a": "Federal Şansölye'nin.",
         "b": "federal eyaletlerin parlamentolarının.",
         "c": "Almanya Parlamentosu'nun.",
-        "d": "Federal Başkan'ın.",
+        "d": "Federal Cumhurbaşkanı'nın.",
         "context": "Federal Meclis seçimleri, Almanya'daki siyasi sistemin merkezi bir bileşenidir. Her dört yılda bir gerçekleşir ve Alman Federal Meclisi'nin bileşimini belirler. Bu seçimde vatandaşlar, çıkarlarını parlamentoda temsil edecek milletvekillerine karar verirler. Federal Meclis, Almanya'daki en önemli yasama organıdır ve ulusal siyaset üzerinde önemli bir etkiye sahiptir. Federal Şansölye, Federal Meclis'teki çoğunluk tarafından dolaylı olarak seçilirken, Federal Cumhurbaşkanı Federal Konvansiyon tarafından seçilir."
       },
       "ru": {
@@ -14972,7 +14972,7 @@
         "a": "संघीय चांसलर।",
         "b": "एक संघीय राज्य के मंत्री-राष्ट्रपति।",
         "c": "बुंडेस्टाग।",
-        "d": "संघीय अध्यक्ष।",
+        "d": "संघीय राष्ट्रपति।",
         "context": "जर्मनी में, केवल बुंडेस्टाग सीधे लोगों द्वारा चुना जाता है। बुंडेस्टाग के सदस्य सामान्य, स्वतंत्र, गुप्त और प्रत्यक्ष चुनावों में चुने जाते हैं। संघीय राष्ट्रपति या चांसलर सीधे आबादी द्वारा नहीं, बल्कि अन्य राजनीतिक तंत्रों द्वारा चुने जाते हैं। संघीय राष्ट्रपति संघीय विधानसभा द्वारा चुना जाता है, जबकि संघीय चांसलर बुंडेस्टाग द्वारा चुना जाता है। एक संघीय राज्य का प्रधान मंत्री भी सीधे आबादी द्वारा नहीं, बल्कि राज्य संसद द्वारा चुना जाता है।"
       }
     },
