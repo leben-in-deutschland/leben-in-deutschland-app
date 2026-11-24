@@ -6,7 +6,7 @@
 //   node src/termine/discover.mjs                      # every centre; writes output/candidates.json
 //   node src/termine/discover.mjs --state by           # one state
 //   node src/termine/discover.mjs --host vhs-calw.de   # one website
-//   node src/termine/discover.mjs --merge              # adds the candidates to sources.json (existing entries stay)
+//   node src/termine/discover.mjs --merge              # adds the candidates to sources.json (existing entries stay) and renews the website's copy
 //
 // A maintenance tool, run by hand a few times a year: the schedule never
 // runs it. Per website it reads robots.txt, the start page and at most
@@ -27,6 +27,7 @@ import { berlinDay } from "./lib/dates.mjs";
 import { attrOf, innerText, openingTags, resolveUrl } from "./lib/html.mjs";
 import { getPage, sameSite } from "./lib/http.mjs";
 import { fetchRobots, isAllowed } from "./lib/robots.mjs";
+import { writeWebRegistry } from "./web-registry.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../..");
@@ -340,7 +341,8 @@ async function main(args) {
         const before = readSources();
         const after = mergeSources(before, candidates);
         writeFileSync(SOURCES_FILE, `${JSON.stringify(after, null, 2)}\n`);
-        console.log(`sources.json: ${before.length} -> ${after.length} sources`);
+        writeWebRegistry(after);
+        console.log(`sources.json: ${before.length} -> ${after.length} sources (the website's copy is renewed)`);
         return;
     }
     const state = option(args, "--state")?.toUpperCase();

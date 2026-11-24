@@ -97,7 +97,12 @@ website from its own origin (`/live/termine.json`, a rewrite in
 makes: `<commit>:refs/heads/data`, never with force, with the git login of
 the checkout the daemon runs the script in (Hive gives a script no
 credential of its own). A read that fails or a push that is refused exits
-1 and shows in `hive schedule log`.
+1 and shows in `hive schedule log`. The pages under `/termine` name the
+registry's centres and towns before the dates arrive, from a copy inside
+the web app: after every change to `src/termine/sources.json` run
+`node src/termine/web-registry.mjs` (a test fails when
+`src/web/data/termine-registry.json` is out of date); the change reaches
+the pages with the next deploy.
 
 ## Critical Rules
 

@@ -21,6 +21,7 @@ import { decodeBody, getPage, sameSite } from "../../termine/lib/http.mjs";
 import { isAllowed } from "../../termine/lib/robots.mjs";
 import { statusFromBookingClasses, statusFromText, titleVerdict } from "../../termine/lib/status.mjs";
 import { buildTermine, guardTermine, mergeCentre, readSource, STALE_DAYS, validateSources, validateTermine } from "../../termine/sync.mjs";
+import { WEB_REGISTRY_FILE, webRegistry } from "../../termine/web-registry.mjs";
 
 const TODAY = "2026-11-22";
 const PAGE = "https://www.vhs-beispiel.de/kurssuche?kathaupt=26";
@@ -679,6 +680,13 @@ describe("the registry", () => {
         expect(() => validateSources(sources)).not.toThrow();
         expect(new Set(sources.map((source: { url: string }) => source.url)).size).toBe(sources.length);
         expect(sources.length).toBeGreaterThan(50);
+    });
+
+    it("is what the website's pages name: the copy inside the web app is up to date", () => {
+        const copy = JSON.parse(readFileSync(WEB_REGISTRY_FILE, "utf8"));
+        expect(copy, "run `node src/termine/web-registry.mjs` after a change to sources.json").toEqual(webRegistry(sources));
+        // The page gets what it shows; how a centre is read stays with the sync.
+        expect(webRegistry([{ ...SOURCE, towns: ["Hürth"] }])).toEqual([{ id: SOURCE.id, state: SOURCE.state, city: SOURCE.city, name: SOURCE.name, towns: ["Hürth"], url: SOURCE.url }]);
     });
 
     it("refuses an entry the sync could not read", () => {

@@ -56,3 +56,10 @@ export interface TermineData {
     generatedAt: string;
     centres: TerminCentre[];
 }
+
+/**
+ * A centre as the registry of the dates sync names it
+ * (`src/termine/sources.json`): enough to list it before its dates arrive,
+ * or when they cannot be loaded. The registry holds no date.
+ */
+export type RegistryCentre = Pick<TerminCentre, "id" | "state" | "city" | "name" | "plz" | "towns" | "url">;
