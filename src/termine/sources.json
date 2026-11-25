@@ -675,6 +675,15 @@
     "url": "https://www.vhs-driburg.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
   },
   {
+    "id": "nw-vhs-bielefeld",
+    "state": "NW",
+    "city": "Bielefeld",
+    "name": "Volkshochschule Bielefeld",
+    "plz": "33607",
+    "adapter": "kufer",
+    "url": "https://www.vhs-bielefeld.de/programm?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"
+  },
+  {
     "id": "nw-vhs-bornheim-alfter",
     "state": "NW",
     "city": "Bornheim",

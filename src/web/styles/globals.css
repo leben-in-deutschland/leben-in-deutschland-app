@@ -87,6 +87,20 @@
   h1, h2, h3 {
     text-wrap: balance;
   }
+
+  /*
+   * iPhones and iPads zoom the page in when a text field whose font is
+   * smaller than 16px gets the focus, and leave it zoomed: the page then
+   * moves sideways. Text fields are 16px there. `-webkit-touch-callout`
+   * exists on iOS only, so nothing changes anywhere else.
+   */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
 }
 
 @layer components {
