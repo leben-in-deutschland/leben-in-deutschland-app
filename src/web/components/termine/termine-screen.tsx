@@ -1,23 +1,25 @@
 "use client";
 
-import { Button, Input, Spinner } from "@heroui/react";
+import { Button, Input, Spinner, useDisclosure } from "@heroui/react";
 import { useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import type { State } from "@/types/state";
 import type { RegistryCentre, TerminCentre } from "@/types/termine";
 import { StatePicker } from "@/components/landing/state-picker";
+import { StateDialog } from "@/components/preferences/state-dialog";
 import { AppLink } from "@/components/ui/app-link";
 import { ChoiceChips } from "@/components/ui/choice-chips";
 import { EmptyState, InlineNotice } from "@/components/ui/feedback";
 import { FoldOut } from "@/components/ui/fold-out";
 import { AlertTriangleIcon, BellIcon, ChevronLeftIcon, SearchIcon } from "@/components/ui/icons";
-import { PageHeader, SectionHeading } from "@/components/ui/surface";
+import { GermanFlag, StateFlag } from "@/components/ui/state-flag";
+import { PageHeader, SectionHeading, Surface } from "@/components/ui/surface";
 import { dayKey } from "@/utils/date-utils";
 import { fmt, formatDate, plural } from "@/utils/i18n";
 import { countCentres, listCentres, listRegistry, registryByState } from "@/utils/termine-logic";
 import { isWatched, MAX_WATCHED } from "@/utils/termine-watch";
-import { prefsOf } from "@/utils/user-defaults";
-import { useAppLanguage, useHydrated, useIsNative, useTranslations, useUser } from "@/utils/user-store";
+import { changeUserState, prefsOf } from "@/utils/user-defaults";
+import { updateUser, useAppLanguage, useHydrated, useIsNative, useTranslations, useUser } from "@/utils/user-store";
 import { CentreCard } from "./centre-card";
 import { CentreIndex, TownDirectory } from "./centre-index";
 import { useTermine, useTermineWatch } from "./use-termine";
@@ -54,8 +56,10 @@ export function terminePath(code: string): string {
  * device.
  *
  * On the website every state has its own address and the state row links to
- * it. The apps ship one page only, so there the row switches in place and
- * starts with the learner's own state.
+ * it. The apps ship one page only. There a learner has chosen a state once,
+ * so the page shows that state and does not ask again: it names the state
+ * and offers "change", which changes the state of the whole app, as the
+ * settings do. Only without a chosen state does the row ask, in place.
  *
  * The dates arrive after the page: until then, and when they cannot be
  * loaded, the website names the centres of the registry - the towns per
@@ -77,10 +81,14 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
     const [query, setQuery] = useState("");
     const [show, setShow] = useState<Show>("all");
     const [chosen, setChosen] = useState<string | null>(null);
+    const statePicker = useDisclosure();
 
     const ownState = user?.state?.stateCode?.toUpperCase() ?? "";
+    // Inside the app, with a state chosen: nothing to ask. `chosen` is then only "" (every state) or nothing.
+    const settled = isNative && ownState !== "";
     const stateCode = isNative ? (chosen ?? (initialState || ownState)) : initialState;
-    const stateName = states.find((state) => state.code.toUpperCase() === stateCode)?.name ?? "";
+    const nameOf = (code: string) => states.find((state) => state.code.toUpperCase() === code)?.name ?? "";
+    const stateName = nameOf(stateCode);
     // Render-stable within a mount; the day only matters for which dates count as upcoming.
     const [now] = useState(() => new Date());
     const today = dayKey(now);
@@ -96,6 +104,8 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
     const known = useMemo(() => (data || overview ? NO_REGISTRY : listRegistry(listed, { state: stateCode, query })), [data, overview, listed, stateCode, query]);
     const stateNames = useMemo(() => new Map(states.map((state) => [state.code.toUpperCase(), state.name])), [states]);
     const filtered = query.trim() !== "" || show === "bookable";
+    // The line above the list counts what the list shows: with a search, the centres found - not the whole state.
+    const shown = useMemo(() => (filtered ? countCentres(centres, today) : counts), [filtered, centres, counts, today]);
 
     const onToggleWatch = (centre: TerminCentre) => {
         if (!toggle(centre)) {
@@ -115,6 +125,13 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
 
     const notificationsOff = isNative && user ? !prefsOf(user).notificationsEnabled : false;
 
+    /** The learner's state changes for the whole app; the dates follow it. */
+    const chooseOwnState = (state: State) => {
+        updateUser((draft) => changeUserState(draft, state));
+        setChosen(null);
+        statePicker.onClose();
+    };
+
     return (
         <div className="flex flex-col gap-6">
             <PageHeader
@@ -128,14 +145,36 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
                 description={t.termine_desc}
             />
 
-            <StatePicker
-                label={t.termine_state_picker_label}
-                states={states}
-                current={stateCode}
-                hrefFor={terminePath}
-                onSelect={isNative ? setChosen : undefined}
-                allLabel={t.termine_state_all}
-            />
+            {settled ? (
+                <Surface padding="sm" className="flex items-center justify-between gap-3" data-testid="termine-state">
+                    <div className="flex min-w-0 items-center gap-3">
+                        {stateName ? <StateFlag name={stateName} size="md" /> : <GermanFlag size="md" />}
+                        <div className="min-w-0">
+                            <p className="text-xs font-medium uppercase tracking-wide text-default-500">{t.settings_state}</p>
+                            <p className="font-display text-base font-semibold leading-tight text-foreground">{stateName || t.termine_state_all_states}</p>
+                        </div>
+                    </div>
+                    {stateCode === ownState ? (
+                        <Button variant="flat" color="primary" onPress={statePicker.onOpen} aria-label={t.termine_state_change_aria} className="min-h-[44px] shrink-0 font-semibold">
+                            {t.termine_state_change}
+                        </Button>
+                    ) : (
+                        <Button variant="flat" color="primary" onPress={() => setChosen(null)} className="min-h-[44px] shrink-0 font-semibold">
+                            {fmt(t.termine_state_back, { state: nameOf(ownState) || ownState })}
+                        </Button>
+                    )}
+                    <StateDialog isOpen={statePicker.isOpen} onOpenChange={statePicker.onOpenChange} selectedCode={user?.state?.stateCode} onSelect={chooseOwnState} />
+                </Surface>
+            ) : (
+                <StatePicker
+                    label={t.termine_state_picker_label}
+                    states={states}
+                    current={stateCode}
+                    hrefFor={terminePath}
+                    onSelect={isNative ? setChosen : undefined}
+                    allLabel={t.termine_state_all}
+                />
+            )}
 
             {watched.length > 0 ? (
                 <section aria-labelledby="termine-watch-title" className="flex flex-col gap-3">
@@ -174,11 +213,10 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
                         aria-label={t.termine_search_label}
                         startContent={<SearchIcon size={18} className="text-default-400" aria-hidden="true" />}
                         className="lg:max-w-sm"
-                        classNames={{ inputWrapper: "bg-content1" }}
+                        classNames={{ inputWrapper: "min-h-[48px] bg-content1" }}
                     />
                     <ChoiceChips<Show>
                         label={t.termine_filter_label}
-                        size="sm"
                         value={show}
                         onChange={setShow}
                         options={[
@@ -190,9 +228,9 @@ export function TermineScreen({ initialState, states, registry = NO_REGISTRY, re
 
                 {data ? (
                     <p className="text-sm text-default-500" role="status" aria-live="polite">
-                        {plural(t, "termine_count", filtered ? centres.length : counts.centres)}
+                        {plural(t, "termine_count", shown.centres)}
                         {" · "}
-                        {fmt(t.termine_count_bookable, { count: counts.bookable })}
+                        {fmt(t.termine_count_bookable, { count: shown.bookable })}
                         {" · "}
                         {fmt(t.termine_updated, { time: formatDate(data.generatedAt, language, UPDATED) })}
                     </p>

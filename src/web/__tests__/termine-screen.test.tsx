@@ -184,8 +184,12 @@ describe("exam dates page", () => {
         await mount(<TermineScreen initialState="" states={STATES} />);
         expect(cards()).toEqual(["by-kiss", "nw-koeln", "by-fuerth"]);
 
+        expect(container.querySelector("[role='status']")?.textContent).toContain("3 Prüfstellen · 2 mit freien Plätzen");
+
         await type("fuerth");
         expect(cards()).toEqual(["by-fuerth"]);
+        // The line counts what the search lists: the one centre found has no free place.
+        expect(container.querySelector("[role='status']")?.textContent).toContain("1 Prüfstelle · 0 mit freien Plätzen");
         await type("");
         await press(button(de.termine_filter_bookable));
         expect(cards()).toEqual(["by-kiss", "nw-koeln"]);
@@ -262,13 +266,72 @@ describe("exam dates page", () => {
         expect(container.textContent).not.toContain("Wir lesen bisher");
     });
 
-    it("starts with the learner's state inside the app and switches states in place", async () => {
+    it("shows the learner's state inside the app without asking for it, and 'change' changes the state of the whole app", async () => {
         mocks.native = true;
         localStorage.setItem("user", JSON.stringify(createNewUser({ state: { name: "Nordrhein-Westfalen", code: "NW", eng: "", capital: "" }, language: "de" })));
         termineStore.storeData(DATA);
         await mount(<TermineScreen initialState="" states={STATES} />);
 
         expect(cards()).toEqual(["nw-koeln"]);
+        // The learner chose the state once: no row of states asks again.
+        expect(container.querySelector(`nav[aria-label="${de.termine_state_picker_label}"]`)).toBeNull();
+        const bar = container.querySelector("[data-testid='termine-state']")!;
+        expect(bar.textContent).toContain("Nordrhein-Westfalen");
+        expect(bar.querySelector("img")?.getAttribute("src")).toBe("/states/flag/Nordrhein-Westfalen.svg");
+
+        await press(button(de.termine_state_change_aria));
+        const dialog = document.querySelector<HTMLElement>("[role='dialog']")!;
+        expect(dialog.textContent).toContain(de.settings_state_hint);
+        const bayern = Array.from(dialog.querySelectorAll<HTMLButtonElement>("[role='option'] button")).find((option) => option.textContent?.includes("Bayern"))!;
+        await press(bayern);
+
+        // The same change the settings make: the learner's record, and with it every screen.
+        expect(readUser()?.state).toEqual({ stateCode: "BY", stateName: "Bayern" });
+        expect(cards()).toEqual(["by-kiss", "by-fuerth"]);
+        expect(container.querySelector("h1")?.textContent).toBe("Prüfungstermine in Bayern");
+        expect(container.querySelector("[data-testid='termine-state']")?.textContent).toContain("Bayern");
+    });
+
+    it("lets a learner whose state has no centre yet look at every state, and come back", async () => {
+        mocks.native = true;
+        localStorage.setItem("user", JSON.stringify(createNewUser({ state: { name: "Berlin", code: "BE", eng: "", capital: "" }, language: "de" })));
+        termineStore.storeData(DATA);
+        await mount(<TermineScreen initialState="" states={STATES} />);
+
+        expect(cards()).toEqual([]);
+        await press(button(de.termine_show_all_states));
+        expect(cards()).toEqual(["by-kiss", "nw-koeln", "by-fuerth"]);
+        const bar = container.querySelector("[data-testid='termine-state']")!;
+        expect(bar.textContent).toContain(de.termine_state_all_states);
+        expect(bar.querySelector("[data-flag='de']")).not.toBeNull();
+        // Looking at every state is not a change of the learner's state.
+        expect(readUser()?.state.stateCode).toBe("BE");
+
+        await press(button("Nur Berlin"));
+        expect(cards()).toEqual([]);
+        expect(container.querySelector("[data-testid='termine-state']")?.textContent).toContain("Berlin");
+    });
+
+    it("keeps the row of links on the website, also for a learner who has chosen a state", async () => {
+        localStorage.setItem("user", JSON.stringify(createNewUser({ state: { name: "Nordrhein-Westfalen", code: "NW", eng: "", capital: "" }, language: "de" })));
+        termineStore.storeData(DATA);
+        await mount(<TermineScreen initialState="BY" states={STATES} />);
+
+        // On the website the address says which state is shown, and the row is the way to the other states' pages.
+        expect(container.querySelector("[data-testid='termine-state']")).toBeNull();
+        const row = container.querySelector(`nav[aria-label="${de.termine_state_picker_label}"]`)!;
+        expect(row.querySelector("a[aria-current='page']")?.textContent).toBe("Bayern");
+        expect(row.querySelector("a[title='Nordrhein-Westfalen']")?.getAttribute("href")).toBe("/termine/NW");
+        expect(cards()).toEqual(["by-kiss", "by-fuerth"]);
+    });
+
+    it("asks with the row of states inside the app only while no state is chosen, and switches in place", async () => {
+        mocks.native = true;
+        termineStore.storeData(DATA);
+        await mount(<TermineScreen initialState="" states={STATES} />);
+
+        expect(container.querySelector("[data-testid='termine-state']")).toBeNull();
+        expect(cards()).toEqual(["by-kiss", "nw-koeln", "by-fuerth"]);
         const row = container.querySelector(`nav[aria-label="${de.termine_state_picker_label}"]`)!;
         expect(row.querySelectorAll("a")).toHaveLength(0);
         await press(row.querySelector("button[title='Bayern']") as HTMLButtonElement);
