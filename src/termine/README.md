@@ -236,7 +236,10 @@ there with the next app release.
 2. When the samples are the centre's real test dates,
    `node src/termine/discover.mjs --merge`. For a centre the tool does not
    find (its mail domain is not its website, or its dates sit on a page the
-   start page does not link), add the entry by hand:
+   start page does not link), add the entry by hand. The usual case is a
+   Volkshochschule for which BAMF lists an address of the town hall
+   (`...@bielefeld.de`): the tool then looks at the town's website, while
+   the dates are on the Volkshochschule's own (`vhs-bielefeld.de`).
 
    ```json
    { "id": "nw-vhs-beispiel", "state": "NW", "city": "Beispielstadt", "name": "VHS Beispielstadt", "adapter": "kufer", "url": "https://www.vhs-beispiel.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest" }

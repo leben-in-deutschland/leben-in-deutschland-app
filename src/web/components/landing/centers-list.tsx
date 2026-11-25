@@ -102,7 +102,8 @@ export function CentersList({ stateCode, stateName, centers, states }: CentersLi
 
             <StatePicker label={t.centers_state_picker_label} states={states} current={stateCode} hrefFor={(code) => `/pruefstellen/${code}`} />
 
-            <Surface className="grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
+            {/* One column that may shrink on a phone; a long state name wraps inside its button instead of widening the page. */}
+            <Surface className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto] md:items-start">
                 <div className="flex gap-3">
                     <IconBadge icon={LandmarkIcon} accent="primary" />
                     <div className="rich-text text-sm text-default-600">
@@ -111,10 +112,10 @@ export function CentersList({ stateCode, stateName, centers, states }: CentersLi
                     </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <Button as={AppLink} href={`/termine/${stateCode}`} color="primary" className="h-11 font-semibold" endContent={<ArrowRightIcon size={16} aria-hidden="true" />}>
+                    <Button as={AppLink} href={`/termine/${stateCode}`} color="primary" className="h-auto min-h-11 whitespace-normal py-2 font-semibold" endContent={<ArrowRightIcon size={16} className="shrink-0" aria-hidden="true" />}>
                         {fmt(t.termine_state_link, { state: stateName })}
                     </Button>
-                    <Button as={AppLink} href={`/question-catalogue/${stateCode}`} variant="flat" color="primary" className="h-11 font-semibold" endContent={<ArrowRightIcon size={16} aria-hidden="true" />}>
+                    <Button as={AppLink} href={`/question-catalogue/${stateCode}`} variant="flat" color="primary" className="h-auto min-h-11 whitespace-normal py-2 font-semibold" endContent={<ArrowRightIcon size={16} className="shrink-0" aria-hidden="true" />}>
                         {fmt(t.centers_state_questions_link, { state: stateName })}
                     </Button>
                 </div>
@@ -151,7 +152,7 @@ export function CentersList({ stateCode, stateName, centers, states }: CentersLi
                     }
                 />
             ) : (
-                <ul className="grid gap-3 md:grid-cols-2">
+                <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     {visible.map((center) => (
                         <Surface as="li" key={center.key} className="flex flex-col gap-3">
                             <div>

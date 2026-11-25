@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from "@heroui/react";
+import { useDisclosure } from "@heroui/react";
 import { useTheme } from "next-themes";
 import type { State } from "@/types/state";
 import type { User } from "@/types/user";
@@ -12,7 +12,7 @@ import { changeUserState, prefsOf } from "@/utils/user-defaults";
 import { setAppLanguage, updateUser, useAppLanguage, useHydrated, useTranslations } from "@/utils/user-store";
 import { TRANSLATION_LANGUAGE_OPTIONS } from "./preferences-logic";
 import { SettingBlock, SettingsSection, SwitchRow, ValuePill } from "./settings-shared";
-import { StateList } from "./state-list";
+import { StateDialog } from "./state-dialog";
 
 const THEMES = ["system", "light", "dark"] as const;
 type ThemeName = (typeof THEMES)[number];
@@ -117,35 +117,7 @@ export function ProfileSection({ user }: { user: User }) {
                 }
             />
 
-            <Modal
-                isOpen={picker.isOpen}
-                onOpenChange={picker.onOpenChange}
-                placement="auto"
-                scrollBehavior="inside"
-                size="lg"
-                classNames={{ base: "max-h-[90dvh]", body: "pb-4" }}
-            >
-                <ModalContent>
-                    {(onClose) => (
-                        <>
-                            <ModalHeader className="font-display text-lg">{t.settings_state_picker_title}</ModalHeader>
-                            <ModalBody>
-                                <StateList
-                                    selectedCode={user.state?.stateCode}
-                                    onSelect={chooseState}
-                                    searchLabel={t.onboarding_state_search}
-                                    emptyLabel={t.settings_state_empty}
-                                    className="max-h-[65dvh]"
-                                />
-                                <p className="text-xs text-default-500">{t.settings_state_hint}</p>
-                                <Button variant="flat" onPress={onClose} className="min-h-[44px]">
-                                    {t.common_cancel}
-                                </Button>
-                            </ModalBody>
-                        </>
-                    )}
-                </ModalContent>
-            </Modal>
+            <StateDialog isOpen={picker.isOpen} onOpenChange={picker.onOpenChange} selectedCode={user.state?.stateCode} onSelect={chooseState} />
         </SettingsSection>
     );
 }
