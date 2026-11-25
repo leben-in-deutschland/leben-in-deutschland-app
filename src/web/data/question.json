@@ -164,7 +164,7 @@
         "a": "Konrad Adenauer",
         "b": "Kurt Georg Kiesinger",
         "c": "Helmut Schmidt",
-        "d": "Willy Brandt'ın fotoğrafı.",
+        "d": "Willy Brandt",
         "context": "Federal Almanya Cumhuriyeti, İkinci Dünya Savaşı'ndan sonra 1949'da kuruldu ve o zamandan beri Avrupa'nın merkezi siyasi güçlerinden biri oldu. İlk Şansölye, ülkenin siyasi ve ekonomik istikrarının sağlanmasında ve dış politika yöneliminin belirlenmesinde belirleyici bir rol oynadı. İlk Şansölye sorunu, savaş sonrası Alman demokrasisinin tarihsel temelini anlamayı ve modern Almanya'nın rotasını belirleyen önemli figürü belirlemeyi amaçlıyor."
       },
       "ru": {
@@ -1936,8 +1936,8 @@
       },
       "tr": {
         "question": "Federal Almanya Cumhuriyeti'nin ilk Şansölyesi ...",
-        "a": "Ludwig Erhard'ın fotoğrafı.",
-        "b": "Willy Brandt'ın fotoğrafı.",
+        "a": "Ludwig Erhard.",
+        "b": "Willy Brandt.",
         "c": "Konrad Adenauer.",
         "d": "Gerhard Schröder.",
         "context": "Federal Almanya Cumhuriyeti, İkinci Dünya Savaşı'ndan sonra Batı Almanya'da kuruldu. İlk Şansölye, ülkenin yeniden inşasında ve siyasi yöneliminin şekillenmesinde önemli bir rol oynadı. Şansölyelik, Almanya'nın tarihi ve siyasi gelişimi için belirleyicidir. Seçenekler arasında Batı ile uyum ve yeniden birleşme politikasıyla tanınan Konrad Adenauer, Ostpolitik ve daha fazla demokrasi ile tanınan Willy Brandt, sosyal piyasa ekonomisini tanıtan Ludwig Erhard ve reform ve modernleşmeyi savunan Gerhard Schröder yer alıyor."
@@ -2921,8 +2921,8 @@
     "image": "-",
     "translation": {
       "en": {
-        "question": "On October 3, Germany celebrates the Day of the Germans ...",
-        "a": "Unit.",
+        "question": "On October 3, Germany celebrates the Day of German ...",
+        "a": "Unity.",
         "b": "Nation.",
         "c": "States.",
         "d": "Cities.",
@@ -2930,7 +2930,7 @@
       },
       "tr": {
         "question": "3 Ekim'de Almanya, Almanların Günü'nü kutluyor ...",
-        "a": "Birim.",
+        "a": "Birliği.",
         "b": "Ulus.",
         "c": "Devletleri.",
         "d": "Şehir.",
@@ -2938,7 +2938,7 @@
       },
       "ru": {
         "question": "3 октября в Германии отмечается День немцев...",
-        "a": "Единица.",
+        "a": "Единства.",
         "b": "Нация.",
         "c": "Государств.",
         "d": "Городах.",
@@ -2962,7 +2962,7 @@
       },
       "uk": {
         "question": "3 жовтня в Німеччині відзначають День німців ...",
-        "a": "Одиниці.",
+        "a": "Єдності.",
         "b": "Нація.",
         "c": "Штати.",
         "d": "Міста.",
@@ -2970,7 +2970,7 @@
       },
       "hi": {
         "question": "3 अक्टूबर को, जर्मनी जर्मनों का दिन मनाता है ...",
-        "a": "इकाई।",
+        "a": "एकता।",
         "b": "राष्ट्र।",
         "c": "राज्यों।",
         "d": "शहरों।",
@@ -3357,7 +3357,7 @@
       "tr": {
         "question": "Günümüzdeki hangi Alman devleti eskiden Doğu Almanya topraklarına aitti?",
         "a": "Hesse",
-        "b": "Schleswig-Holstein Belediyesi",
+        "b": "Schleswig-Holstein",
         "c": "Mecklenburg-Vorpommern",
         "d": "Saarland",
         "context": "II. Dünya Savaşı'ndan sonra Almanya, 1949'da kurulan GDR'nin (Alman Demokratik Cumhuriyeti) ortaya çıkmasına yol açan farklı işgal bölgelerine bölündü. Almanya'nın doğu bölgelerini kapsıyordu ve 1990'da yeniden birleşmeye kadar varlığını sürdürdü. Kısmen veya tamamen Doğu Almanya'ya ait olan federal devletler şimdi birleşik Almanya'nın bir parçası. Bu tarihsel bölünme, bugünkü hangi federal devletin Doğu Almanya topraklarına ait olduğu sorusunu yanıtlamak için çok önemlidir. Doğru cevap Mecklenburg-Vorpommern'dir."
@@ -4706,9 +4706,9 @@
       "tr": {
         "question": "Hangi politikacı \"Doğu Antlaşmaları\" nı savunuyor?",
         "a": "Helmut Kohl",
-        "b": "Willy Brandt'ın fotoğrafı.",
+        "b": "Willy Brandt",
         "c": "Mihail Gorbaçov",
-        "d": "Ludwig Erhard'ın fotoğrafı.",
+        "d": "Ludwig Erhard",
         "context": "\"Doğu Antlaşmaları\", 1970'lerde Federal Almanya Cumhuriyeti ile Doğu Avrupa ülkeleri arasında yapılan bir dizi antlaşmayı ifade eder. Bunlar, Soğuk Savaş sırasında ilişkileri geliştirmek ve gerginliği azaltmak için yumuşama politikasının bir parçası olarak başlatılmıştır. Dönemin Federal Şansölyesi Willy Brandt, raporun sonuç bölümünde merkezi bir figürdü. Antlaşmalar, diğer şeylerin yanı sıra, Polonya ve Sovyetler Birliği ile barışı tanıyan ve II. Dünya Savaşı'ndan sonra Avrupa sınırlarının yeniden düzenlenmesini tanıyan anlaşmaları içeriyordu. Bu politika, birleşik bir Avrupa ve Doğu-Batı yakınlaşması için önemli bir adımdı."
       },
       "ru": {
@@ -5124,58 +5124,58 @@
       "en": {
         "question": "Which law is one of the fundamental rights in Germany?",
         "a": "Possession of weapons",
-        "b": "Club law",
+        "b": "Right of the fist",
         "c": "Freedom of opinion",
-        "d": "Vigilantism.",
+        "d": "Vigilante justice",
         "context": "In Germany, fundamental rights are enshrined in the Basic Law and protect essential freedoms and rights of citizens. These fundamental rights guarantee, among other things, freedom of expression, freedom of assembly and equality before the law. Vigilante justice, gun ownership and the right of the fist are not recognized fundamental rights. Freedom of expression in particular is a fundamental human right, guaranteed in Article 5 of the Basic Law, which allows citizens to freely express and disseminate their views. This is essential for a democratic society and public discourse."
       },
       "tr": {
         "question": "Almanya'da temel haklardan biri olan kanun hangisidir?",
         "a": "Silah bulundurmak",
-        "b": "Kulüp hukuku",
+        "b": "Yumruk hakkı",
         "c": "Fikir özgürlüğü",
-        "d": "Tetikçilik.",
+        "d": "Kanunsuz adalet",
         "context": "Almanya'da temel haklar Anayasa'da yer alır ve vatandaşların temel özgürlüklerini ve haklarını korur. Bu temel haklar, diğer şeylerin yanı sıra, ifade özgürlüğünü, toplanma özgürlüğünü ve kanun önünde eşitliği garanti eder. Kanunsuz adalet, silah sahipliği ve yumruk hakkı temel haklar olarak tanınmamaktadır. Özellikle ifade özgürlüğü, vatandaşların görüşlerini özgürce ifade etmelerine ve yaymalarına izin veren Anayasa'nın 5. maddesinde güvence altına alınan temel bir insan hakkıdır. Bu, demokratik bir toplum ve kamusal söylem için esastır."
       },
       "ru": {
         "question": "Какой закон является одним из основных прав в Германии?",
         "a": "Владение оружием",
-        "b": "Клубное право",
+        "b": "Право кулака",
         "c": "Свобода мнений",
-        "d": "Бдительность.",
+        "d": "Самосуд",
         "context": "В Германии основные права закреплены в Основном законе и защищают основные свободы и права граждан. Эти основные права гарантируют, среди прочего, свободу выражения мнений, свободу собраний и равенство перед законом. Самосуд, владение оружием и право кулака не являются признанными основными правами. Свобода выражения мнений, в частности, является одним из основных прав человека, гарантированных статьей 5 Основного закона, которая позволяет гражданам свободно выражать и распространять свои взгляды. Это необходимо для демократического общества и общественного дискурса."
       },
       "fr": {
         "question": "Quelle est la loi qui fait partie des droits fondamentaux en Allemagne ?",
         "a": "Possession d’armes",
-        "b": "Droit des clubs",
+        "b": "Droit du poing",
         "c": "Liberté d’opinion",
-        "d": "Autodéfense.",
-        "context": "En Allemagne, les droits fondamentaux sont inscrits dans la Loi fondamentale et protègent les libertés et les droits essentiels des citoyens. Ces droits fondamentaux garantissent, entre autres, la liberté d’expression, la liberté de réunion et l’égalité devant la loi. La justice d’autodéfense, la possession d’armes à feu et le droit du poing ne sont pas des droits fondamentaux reconnus. La liberté d’expression, en particulier, est un droit humain fondamental, garanti à l’article 5 de la Loi fondamentale, qui permet aux citoyens d’exprimer et de diffuser librement leurs opinions. C’est essentiel pour une société démocratique et un discours public."
+        "d": "Justice privée",
+        "context": "En Allemagne, les droits fondamentaux sont inscrits dans la Loi fondamentale et protègent les libertés et les droits essentiels des citoyens. Ces droits fondamentaux garantissent, entre autres, la liberté d’expression, la liberté de réunion et l’égalité devant la loi. La justice privée, la possession d’armes à feu et le droit du poing ne sont pas des droits fondamentaux reconnus. La liberté d’expression, en particulier, est un droit humain fondamental, garanti à l’article 5 de la Loi fondamentale, qui permet aux citoyens d’exprimer et de diffuser librement leurs opinions. C’est essentiel pour une société démocratique et un discours public."
       },
       "ar": {
         "question": "ما هو القانون الذي يعد أحد الحقوق الأساسية في ألمانيا؟",
         "a": "حيازة الأسلحة",
-        "b": "قانون النادي",
+        "b": "حق القبضة",
         "c": "حرية الرأي",
-        "d": "اليقظة.",
-        "context": "في ألمانيا، الحقوق الأساسية مكرسة في القانون الأساسي وتحمي الحريات والحقوق الأساسية للمواطنين. وتضمن هذه الحقوق الأساسية، من بين أمور أخرى، حرية التعبير وحرية التجمع والمساواة أمام القانون. العدالة الأيقظة وملكية السلاح وحق القبضة ليست من الحقوق الأساسية المعترف بها. حرية التعبير على وجه الخصوص هي حق أساسي من حقوق الإنسان، مكفولة في المادة 5 من القانون الأساسي، التي تسمح للمواطنين بالتعبير عن آرائهم ونشرها بحرية. هذا ضروري لمجتمع ديمقراطي وخطاب عام."
+        "d": "أخذ القانون باليد",
+        "context": "في ألمانيا، الحقوق الأساسية مكرسة في القانون الأساسي وتحمي الحريات والحقوق الأساسية للمواطنين. وتضمن هذه الحقوق الأساسية، من بين أمور أخرى، حرية التعبير وحرية التجمع والمساواة أمام القانون. أخذ القانون باليد وملكية السلاح وحق القبضة ليست من الحقوق الأساسية المعترف بها. حرية التعبير على وجه الخصوص هي حق أساسي من حقوق الإنسان، مكفولة في المادة 5 من القانون الأساسي، التي تسمح للمواطنين بالتعبير عن آرائهم ونشرها بحرية. هذا ضروري لمجتمع ديمقراطي وخطاب عام."
       },
       "uk": {
         "question": "Який закон є одним з основоположних прав у Німеччині?",
         "a": "Володіння зброєю",
-        "b": "Клубне право",
+        "b": "Право кулака",
         "c": "Свобода думки",
-        "d": "Пильність.",
-        "context": "У Німеччині основні права закріплені в Основному Законі і захищають основні свободи і права громадян. Ці основоположні права гарантують, серед іншого, свободу вираження поглядів, свободу зібрань і рівність перед законом. Пильне правосуддя, володіння зброєю та право кулака не визнаються основоположними правами. Свобода вираження поглядів, зокрема, є основоположним правом людини, гарантованим статтею 5 Основного Закону, яке дозволяє громадянам вільно висловлювати та поширювати свої погляди. Це важливо для демократичного суспільства та публічного дискурсу."
+        "d": "Самосуд",
+        "context": "У Німеччині основні права закріплені в Основному Законі і захищають основні свободи і права громадян. Ці основоположні права гарантують, серед іншого, свободу вираження поглядів, свободу зібрань і рівність перед законом. Самосуд, володіння зброєю та право кулака не визнаються основоположними правами. Свобода вираження поглядів, зокрема, є основоположним правом людини, гарантованим статтею 5 Основного Закону, яке дозволяє громадянам вільно висловлювати та поширювати свої погляди. Це важливо для демократичного суспільства та публічного дискурсу."
       },
       "hi": {
         "question": "जर्मनी में कौन सा कानून मौलिक अधिकारों में से एक है?",
         "a": "हथियारों का कब्ज़ा",
-        "b": "क्लब कानून",
+        "b": "मुट्ठी का अधिकार",
         "c": "राय की स्वतंत्रता",
-        "d": "अतिसतर्कता।",
-        "context": "जर्मनी में, मौलिक अधिकार मूल कानून में निहित हैं और नागरिकों की आवश्यक स्वतंत्रता और अधिकारों की रक्षा करते हैं। ये मौलिक अधिकार, अन्य बातों के अलावा, अभिव्यक्ति की स्वतंत्रता, विधानसभा की स्वतंत्रता और कानून के समक्ष समानता की गारंटी देते हैं। सतर्कता न्याय, बंदूक स्वामित्व और मुट्ठी के अधिकार को मौलिक अधिकारों को मान्यता नहीं दी जाती है। विशेष रूप से अभिव्यक्ति की स्वतंत्रता एक मौलिक मानव अधिकार है, जिसकी गारंटी मूल कानून के अनुच्छेद 5 में दी गई है, जो नागरिकों को अपने विचारों को स्वतंत्र रूप से व्यक्त करने और प्रसारित करने की अनुमति देता है। यह एक लोकतांत्रिक समाज और सार्वजनिक संवाद के लिए आवश्यक है।"
+        "d": "क़ानून अपने हाथ में लेना",
+        "context": "जर्मनी में, मौलिक अधिकार मूल कानून में निहित हैं और नागरिकों की आवश्यक स्वतंत्रता और अधिकारों की रक्षा करते हैं। ये मौलिक अधिकार, अन्य बातों के अलावा, अभिव्यक्ति की स्वतंत्रता, विधानसभा की स्वतंत्रता और कानून के समक्ष समानता की गारंटी देते हैं। क़ानून अपने हाथ में लेना, बंदूक स्वामित्व और मुट्ठी के अधिकार को मौलिक अधिकारों को मान्यता नहीं दी जाती है। विशेष रूप से अभिव्यक्ति की स्वतंत्रता एक मौलिक मानव अधिकार है, जिसकी गारंटी मूल कानून के अनुच्छेद 5 में दी गई है, जो नागरिकों को अपने विचारों को स्वतंत्र रूप से व्यक्त करने और प्रसारित करने की अनुमति देता है। यह एक लोकतांत्रिक समाज और सार्वजनिक संवाद के लिए आवश्यक है।"
       }
     },
     "category": "Rights & Freedoms",
@@ -8400,7 +8400,7 @@
         "a": "Berlin ve Münih",
         "b": "Hamburg ve Essen",
         "c": "Nürnberg ve Stuttgart",
-        "d": "Solucanlar ve Speyer",
+        "d": "Worms ve Speyer",
         "context": "Almanya'daki Yahudi cemaatleri, Orta Çağ'a kadar uzanan uzun bir geçmişe sahiptir ve ülkenin kültürel ve dini yaşamı için çok önemlidir. II. Dünya Savaşı'ndan ve 1950'de Yahudiler Merkez Konseyi'nin kurulmasından sonra, bazı şehirler hem göç hem de Yahudi kültürünü canlandırmaya yönelik yerel girişimler tarafından teşvik edilen Yahudi topluluklarında önemli bir büyüme yaşadı. Berlin ve Münih, büyük ve aktif topluluklarıyla tanınırlar. Bu çeşitlilik aynı zamanda Yahudi cemaatlerinin yapısına ve faaliyetlerine de yansımaktadır."
       },
       "ru": {
@@ -8424,7 +8424,7 @@
         "a": "برلين وميونيخ",
         "b": "هامبورغ وإيسن",
         "c": "نورمبرغ وشتوتغارت",
-        "d": "الديدان والشباير",
+        "d": "فورمس وشباير",
         "context": "للمجتمعات اليهودية في ألمانيا تاريخ طويل يعود تاريخه إلى العصور الوسطى ، وهي ضرورية للحياة الثقافية والدينية للبلاد. بعد الحرب العالمية الثانية وإنشاء المجلس المركزي لليهود في عام 1950 ، شهدت بعض المدن نموا كبيرا في المجتمعات اليهودية ، بتشجيع من الهجرة والمبادرات المحلية لإحياء الثقافة اليهودية. تشتهر برلين وميونيخ بمجتمعاتهما الكبيرة والنشطة. ينعكس هذا التنوع أيضا في هيكل وأنشطة المجتمعات اليهودية."
       },
       "uk": {
@@ -8432,7 +8432,7 @@
         "a": "Берлін і Мюнхен",
         "b": "Гамбург і Ессен",
         "c": "Нюрнберг і Штутгарт",
-        "d": "Черви і Шпаєр",
+        "d": "Вормс і Шпаєр",
         "context": "Єврейські громади в Німеччині мають довгу історію, що сягає Середньовіччя, і мають вирішальне значення для культурного та релігійного життя країни. Після Другої світової війни та створення Центральної ради євреїв у 1950 році в деяких містах спостерігалося значне зростання єврейських громад, заохочених як імміграцією, так і місцевими ініціативами з відродження єврейської культури. Берлін та Мюнхен відомі своїми великими та активними громадами. Це різноманіття також відображається в структурі та діяльності єврейських громад."
       },
       "hi": {
@@ -8440,7 +8440,7 @@
         "a": "बर्लिन और म्यूनिख",
         "b": "हैम्बर्ग और एसेन",
         "c": "नूर्नबर्ग और स्टटगार्ट",
-        "d": "कीड़े और स्पीयर",
+        "d": "वर्म्स और स्पेयर",
         "context": "जर्मनी में यहूदी समुदायों का एक लंबा इतिहास है, जो मध्य युग में वापस डेटिंग करता है, और देश के सांस्कृतिक और धार्मिक जीवन के लिए महत्वपूर्ण है। द्वितीय विश्व युद्ध और 1950 में यहूदियों की केंद्रीय परिषद की स्थापना के बाद, कुछ शहरों ने यहूदी समुदायों में महत्वपूर्ण वृद्धि का अनुभव किया, जो यहूदी संस्कृति को पुनर्जीवित करने के लिए आव्रजन और स्थानीय पहल दोनों से प्रोत्साहित थे। बर्लिन और म्यूनिख अपने बड़े और सक्रिय समुदायों के लिए जाने जाते हैं। यह विविधता यहूदी समुदायों की संरचना और गतिविधियों में भी परिलक्षित होती है।"
       }
     },
@@ -9667,26 +9667,26 @@
     "translation": {
       "en": {
         "question": "The cooperation of parties to form a government is called in Germany ...",
-        "a": "Unit.",
+        "a": "Unity.",
         "b": "Coalition.",
         "c": "Ministry.",
-        "d": "Fraction.",
+        "d": "Parliamentary group.",
         "context": "In Germany, a government is often formed by the cooperation of different political parties to form a stable majority in parliament. This is particularly relevant in the event of a close election result or in a multi-party system. Such cooperation is necessary to effectively implement laws and make policy decisions. Parties often have to make compromises and define common political goals. The term for this cooperation, which is often associated with negotiations on the distribution of portfolios and political agendas, is crucial for the functioning of democratic processes in the country."
       },
       "tr": {
         "question": "Almanya'da hükümet kurmak için partilerin işbirliği çağrısında bulunuluyor ...",
-        "a": "Birim.",
+        "a": "Birlik.",
         "b": "Koalisyon.",
         "c": "Bakanlık.",
-        "d": "Kesir.",
+        "d": "Meclis grubu.",
         "context": "Almanya'da bir hükümet genellikle parlamentoda istikrarlı bir çoğunluk oluşturmak için farklı siyasi partilerin işbirliğiyle kurulur. Bu, özellikle yakın bir seçim sonucu veya çok partili bir sistem durumunda geçerlidir. Bu tür bir işbirliği, yasaları etkin bir şekilde uygulamak ve politika kararları almak için gereklidir. Partiler genellikle taviz vermek ve ortak siyasi hedefler belirlemek zorundadır. Genellikle portföylerin ve siyasi gündemlerin dağılımına ilişkin müzakerelerle ilişkilendirilen bu işbirliğinin terimi, ülkedeki demokratik süreçlerin işleyişi için çok önemlidir."
       },
       "ru": {
         "question": "О сотрудничестве партий для формирования правительства в Германии призывают...",
-        "a": "Единица.",
+        "a": "Единство.",
         "b": "Коалиция.",
         "c": "Министерство.",
-        "d": "Дробь.",
+        "d": "Фракция.",
         "context": "В Германии правительство часто формируется в сотрудничестве различных политических партий для формирования стабильного большинства в парламенте. Это особенно актуально в случае близкого результата выборов или при многопартийной системе. Такое сотрудничество необходимо для эффективной реализации законов и принятия политических решений. Партиям часто приходится идти на компромиссы и определять общие политические цели. Термин для этого сотрудничества, который часто ассоциируется с переговорами о распределении портфелей и политической повесткой дня, имеет решающее значение для функционирования демократических процессов в стране."
       },
       "fr": {
@@ -9694,7 +9694,7 @@
         "a": "Unité.",
         "b": "Coalition.",
         "c": "Ministère.",
-        "d": "Fraction.",
+        "d": "Groupe parlementaire.",
         "context": "En Allemagne, un gouvernement est souvent formé par la coopération de différents partis politiques pour former une majorité stable au parlement. Cela est particulièrement pertinent en cas de résultat électoral serré ou dans un système multipartite. Une telle coopération est nécessaire pour mettre en œuvre efficacement les lois et prendre des décisions politiques. Les partis doivent souvent faire des compromis et définir des objectifs politiques communs. Le terme de cette coopération, qui est souvent associée à des négociations sur la répartition des portefeuilles et des agendas politiques, est crucial pour le fonctionnement des processus démocratiques dans le pays."
       },
       "ar": {
@@ -9702,23 +9702,23 @@
         "a": "وحدة.",
         "b": "ائتلاف.",
         "c": "وزارة.",
-        "d": "جزء.",
+        "d": "الكتلة البرلمانية.",
         "context": "في ألمانيا ، غالبا ما يتم تشكيل الحكومة بالتعاون مع الأحزاب السياسية المختلفة لتشكيل أغلبية مستقرة في البرلمان. هذا مهم بشكل خاص في حالة نتيجة الانتخابات المتقاربة أو في نظام متعدد الأحزاب. وهذا التعاون ضروري لتنفيذ القوانين بفعالية واتخاذ القرارات المتعلقة بالسياسية. وغالبا ما يتعين على الأحزاب تقديم تنازلات وتحديد أهداف سياسية مشتركة. ومصطلح هذا التعاون، الذي غالبا ما يرتبط بالمفاوضات المتعلقة بتوزيع الحقائب الوزارية وجداول الأعمال السياسية، أمر حاسم لعمل العمليات الديمقراطية في البلد."
       },
       "uk": {
         "question": "Співробітництво партій для формування уряду називається в Німеччині ...",
-        "a": "Одиниці.",
+        "a": "Єдність.",
         "b": "Коаліції.",
         "c": "Міністерство.",
-        "d": "Дріб.",
+        "d": "Фракція.",
         "context": "У Німеччині уряд часто формується шляхом співпраці різних політичних партій для формування стабільної більшості в парламенті. Це особливо актуально в разі близького результату виборів або в умовах багатопартійної системи. Така співпраця необхідна для ефективної імплементації законів та прийняття політичних рішень. Партіям часто доводиться йти на компроміси і визначати спільні політичні цілі. Термін для цієї співпраці, який часто асоціюється з переговорами щодо розподілу портфелів і політичних програм, має вирішальне значення для функціонування демократичних процесів у країні."
       },
       "hi": {
         "question": "सरकार बनाने के लिए पार्टियों के सहयोग को जर्मनी में कहा जाता है ...",
-        "a": "इकाई।",
+        "a": "एकता।",
         "b": "गठबंधन सरकार।",
         "c": "मंत्रालय।",
-        "d": "भिन्‍न।",
+        "d": "संसदीय दल।",
         "context": "जर्मनी में, संसद में स्थिर बहुमत बनाने के लिए अक्सर विभिन्न राजनीतिक दलों के सहयोग से सरकार बनाई जाती है। यह विशेष रूप से एक करीबी चुनाव परिणाम की स्थिति में या बहुदलीय प्रणाली में प्रासंगिक है। कानूनों को प्रभावी ढंग से लागू करने और नीतिगत निर्णय लेने के लिए इस तरह का सहयोग आवश्यक है। पार्टियों को अक्सर समझौता करना पड़ता है और सामान्य राजनीतिक लक्ष्यों को परिभाषित करना पड़ता है। इस सहयोग के लिए शब्द, जो अक्सर विभागों और राजनीतिक एजेंडा के वितरण पर बातचीत से जुड़ा होता है, देश में लोकतांत्रिक प्रक्रियाओं के कामकाज के लिए महत्वपूर्ण है।"
       }
     },
@@ -9756,7 +9756,7 @@
         "question": "Что не является государственной властью в Германии?",
         "a": "Законодательство",
         "b": "Правительство",
-        "c": "Давить",
+        "c": "Пресса",
         "d": "Юрисдикция",
         "context": "В Германии государственная власть разделена на три основные сферы: исполнительная (правительство), судебная (судебная) и законодательная (законодательная). Такое разделение властей служит предотвращению злоупотребления властью и укреплению демократии. Пресса, с другой стороны, считается четвертой властью, поскольку она играет важную роль в предоставлении информации и контроле над правительством. Однако это не официальная государственная власть, а независимый орган, поддерживающий свободу выражения мнений и демократические процессы."
       },
@@ -9772,7 +9772,7 @@
         "question": "ما هي سلطة الدولة في ألمانيا؟",
         "a": "تشريع",
         "b": "حكومة",
-        "c": "كبس",
+        "c": "الصحافة",
         "d": "الولايه القضائيه",
         "context": "تنقسم سلطات الدولة في ألمانيا إلى ثلاثة مجالات رئيسية: السلطة التنفيذية (الحكومة) والسلطة القضائية (القضائية) والتشريعية (السلطة التشريعية). ويعمل هذا الفصل بين السلطات على منع إساءة استخدام السلطة وتعزيز الديمقراطية. من ناحية أخرى ، تعتبر الصحافة الطبقة الرابعة ، حيث تلعب دورا مهما في توفير المعلومات وضبط الحكومة. ومع ذلك، فهي ليست سلطة رسمية للدولة، بل هيئة مستقلة تدعم حرية التعبير والعمليات الديمقراطية."
       },
@@ -9780,7 +9780,7 @@
         "question": "Що в Німеччині не є державною владою?",
         "a": "Законодавство",
         "b": "Уряд",
-        "c": "Прес",
+        "c": "Преса",
         "d": "Юрисдикції",
         "context": "У Німеччині державні повноваження поділяються на три основні сфери: виконавчу (уряд), судову (судова влада) і законодавчу (законодавчу владу). Такий поділ влади слугує запобіганню зловживанню владою та зміцненню демократії. Преса, з іншого боку, вважається четвертою владою, оскільки вона відіграє важливу роль у наданні інформації та контролі за урядом. Однак це не офіційна державна влада, а незалежний орган, який підтримує свободу вираження поглядів і демократичні процеси."
       },
@@ -9788,7 +9788,7 @@
         "question": "जर्मनी में राज्य प्राधिकरण क्या नहीं है?",
         "a": "विधायन",
         "b": "सरकार",
-        "c": "दबाना",
+        "c": "प्रेस",
         "d": "अधिकार-क्षेत्र",
         "context": "जर्मनी में, राज्य शक्तियों को तीन मुख्य क्षेत्रों में विभाजित किया गया है: कार्यकारी (सरकार), न्यायपालिका (न्यायपालिका) और विधायी (विधायिका)। शक्तियों का यह पृथक्करण सत्ता के दुरुपयोग को रोकने और लोकतंत्र को मजबूत करने का कार्य करता है। दूसरी ओर, प्रेस को चौथा स्तंभ माना जाता है, क्योंकि यह सूचना प्रदान करने और सरकार को नियंत्रित करने में महत्वपूर्ण भूमिका निभाता है। हालांकि, यह एक आधिकारिक राज्य शक्ति नहीं है, बल्कि एक स्वतंत्र निकाय है जो अभिव्यक्ति की स्वतंत्रता और लोकतांत्रिक प्रक्रियाओं का समर्थन करता है।"
       }
@@ -10024,7 +10024,7 @@
         "question": "Who passes a new law in Germany?",
         "a": "the government",
         "b": "Parliament",
-        "c": "the dishes",
+        "c": "the courts",
         "d": "the police",
         "context": "In Germany, the legislative process follows certain procedures. New laws are typically proposed by the executive, i.e. the government, and then debated and passed in parliament, the Bundestag. The courts are responsible for reviewing and applying the laws, while the police monitor their implementation in everyday life. Parliament plays a crucial role as it is the only body authorized to officially adopt laws, which must be taken into account when choosing the correct answer to the question."
       },
@@ -10032,7 +10032,7 @@
         "question": "Almanya'da yeni bir yasayı kim geçiriyor?",
         "a": "Hükümet",
         "b": "Parlamento",
-        "c": "Yemekler",
+        "c": "Mahkemeler",
         "d": "Polis",
         "context": "Almanya'da yasama süreci belirli prosedürleri takip eder. Yeni yasalar genellikle yürütme, yani hükümet tarafından önerilir ve daha sonra parlamentoda, Bundestag'da tartışılır ve kabul edilir. Mahkemeler yasaları gözden geçirmek ve uygulamaktan sorumluyken, polis günlük yaşamda bunların uygulanmasını izler. Parlamento, soruya doğru cevabı seçerken dikkate alınması gereken yasaları resmi olarak kabul etmeye yetkili tek organ olduğu için çok önemli bir rol oynamaktadır."
       },
@@ -10040,7 +10040,7 @@
         "question": "Кто принимает новый закон в Германии?",
         "a": "Правительство",
         "b": "Парламент",
-        "c": "Посуда",
+        "c": "Суды",
         "d": "Полиция",
         "context": "В Германии законодательный процесс следует определенным процедурам. Новые законы, как правило, предлагаются исполнительной властью, то есть правительством, а затем обсуждаются и принимаются в парламенте, Бундестаге. Суды отвечают за пересмотр и применение законов, в то время как полиция следит за их исполнением в повседневной жизни. Парламент играет важнейшую роль, так как он является единственным органом, уполномоченным официально принимать законы, что необходимо учитывать при выборе правильного ответа на вопрос."
       },
@@ -10048,7 +10048,7 @@
         "question": "Qui adopte une nouvelle loi en Allemagne ?",
         "a": "Le gouvernement",
         "b": "Parlement",
-        "c": "Les plats",
+        "c": "Les tribunaux",
         "d": "La police",
         "context": "En Allemagne, le processus législatif suit certaines procédures. Les nouvelles lois sont généralement proposées par l’exécutif, c’est-à-dire le gouvernement, puis débattues et adoptées par le Parlement, le Bundestag. Les tribunaux sont chargés d’examiner et d’appliquer les lois, tandis que la police surveille leur application dans la vie quotidienne. Le Parlement joue un rôle crucial car il est le seul organe habilité à adopter officiellement des lois, qui doivent être prises en compte pour choisir la bonne réponse à la question."
       },
@@ -10056,7 +10056,7 @@
         "question": "من يمرر قانونا جديدا في ألمانيا؟",
         "a": "الحكومة",
         "b": "برلمان",
-        "c": "الأطباق",
+        "c": "المحاكم",
         "d": "الشرطة",
         "context": "في ألمانيا ، تتبع العملية التشريعية إجراءات معينة. عادة ما يتم اقتراح قوانين جديدة من قبل السلطة التنفيذية ، أي الحكومة ، ثم يتم مناقشتها وتمريرها في البرلمان ، البوندستاغ. المحاكم مسؤولة عن مراجعة القوانين وتطبيقها، بينما تراقب الشرطة تنفيذها في الحياة اليومية. يلعب البرلمان دورا حاسما لأنه الهيئة الوحيدة المخولة باعتماد القوانين رسميا ، والتي يجب أخذها في الاعتبار عند اختيار الإجابة الصحيحة على السؤال."
       },
@@ -10064,7 +10064,7 @@
         "question": "Хто ухвалює новий закон у Німеччині?",
         "a": "Уряд",
         "b": "Парламент",
-        "c": "Посуд",
+        "c": "Суди",
         "d": "Поліція",
         "context": "У Німеччині законодавчий процес проходить за певними процедурами. Нові закони, як правило, пропонуються виконавчою владою, тобто урядом, а потім обговорюються і приймаються в парламенті - Бундестазі. Суди несуть відповідальність за перегляд та застосування законів, а поліція – за їх виконанням у повсякденному житті. Парламент відіграє важливу роль, оскільки є єдиним органом, уповноваженим офіційно приймати закони, що необхідно враховувати при виборі правильної відповіді на запитання."
       },
@@ -10072,7 +10072,7 @@
         "question": "जर्मनी में नया कानून किसने पारित किया?",
         "a": "सरकार",
         "b": "पार्लियामेंट",
-        "c": "व्यंजन",
+        "c": "अदालतें",
         "d": "पुलिस",
         "context": "जर्मनी में, विधायी प्रक्रिया कुछ प्रक्रियाओं का पालन करती है। नए कानून आम तौर पर कार्यपालिका, यानी सरकार द्वारा प्रस्तावित किए जाते हैं, और फिर संसद में बहस और पारित किए जाते हैं, बुंडेस्टाग। अदालतें कानूनों की समीक्षा और लागू करने के लिए जिम्मेदार हैं, जबकि पुलिस रोजमर्रा की जिंदगी में उनके कार्यान्वयन की निगरानी करती है। संसद एक महत्वपूर्ण भूमिका निभाती है क्योंकि यह आधिकारिक तौर पर कानूनों को अपनाने के लिए अधिकृत एकमात्र निकाय है, जिसे प्रश्न का सही उत्तर चुनते समय ध्यान में रखा जाना चाहिए।"
       }
@@ -10875,7 +10875,7 @@
       "en": {
         "question": "What does not belong to the executive branch in Germany?",
         "a": "the police",
-        "b": "the dishes",
+        "b": "the courts",
         "c": "the tax office",
         "d": "the ministries",
         "context": "In Germany, the executive branch refers to the executive branch of the government that implements the laws and regulations of the country. Typically, this includes entities such as ministries and the police, which are directly involved in the administration and enforcement of laws. Courts, on the other hand, are part of the judiciary, which oversees the legal framework and makes decisions in legal matters. Although the tax office operates in the administrative area, it is mainly responsible for tax matters. Thus, the courts are not part of the executive, but belong to the judiciary."
@@ -10883,7 +10883,7 @@
       "tr": {
         "question": "Almanya'da yürütme organına ait olmayan nedir?",
         "a": "Polis",
-        "b": "Yemekler",
+        "b": "Mahkemeler",
         "c": "Vergi Dairesi",
         "d": "Bakanlıklar",
         "context": "Almanya'da yürütme organı, ülkenin yasalarını ve düzenlemelerini uygulayan hükümetin yürütme organını ifade eder. Tipik olarak, bu, yasaların idaresi ve uygulanmasında doğrudan yer alan bakanlıklar ve polis gibi kuruluşları içerir. Mahkemeler ise hukuki çerçeveyi denetleyen ve hukuki konularda karar veren yargının bir parçasıdır. Vergi dairesi idari alanda faaliyet gösterse de esas olarak vergi konularından sorumludur. Bu nedenle, mahkemeler yürütmenin bir parçası değil, yargıya aittir."
@@ -10891,7 +10891,7 @@
       "ru": {
         "question": "Что не относится к исполнительной власти в Германии?",
         "a": "Полиция",
-        "b": "Посуда",
+        "b": "Суды",
         "c": "Налоговая инспекция",
         "d": "Министерства",
         "context": "В Германии исполнительная власть — это исполнительная ветвь власти, которая реализует законы и нормативные акты страны. Как правило, это включает в себя такие органы, как министерства и полиция, которые непосредственно участвуют в применении и обеспечении соблюдения законов. Суды, с другой стороны, являются частью судебной власти, которая осуществляет надзор за правовой базой и принимает решения по правовым вопросам. Несмотря на то, что налоговая инспекция работает в административной сфере, она в основном отвечает за налоговые вопросы. Таким образом, суды не являются частью исполнительной власти, а относятся к судебной."
@@ -10899,7 +10899,7 @@
       "fr": {
         "question": "Qu’est-ce qui n’appartient pas au pouvoir exécutif en Allemagne ?",
         "a": "La police",
-        "b": "Les plats",
+        "b": "Les tribunaux",
         "c": "Le bureau des impôts",
         "d": "Les ministères",
         "context": "En Allemagne, le pouvoir exécutif fait référence au pouvoir exécutif du gouvernement qui met en œuvre les lois et règlements du pays. En règle générale, il s’agit d’entités telles que les ministères et la police, qui participent directement à l’administration et à l’application des lois. Les tribunaux, quant à eux, font partie du pouvoir judiciaire, qui supervise le cadre juridique et prend des décisions en matière juridique. Bien que le bureau des impôts opère dans le domaine administratif, il est principalement responsable des questions fiscales. Ainsi, les tribunaux ne font pas partie de l’exécutif, mais appartiennent au pouvoir judiciaire."
@@ -10907,7 +10907,7 @@
       "ar": {
         "question": "ما الذي لا ينتمي إلى السلطة التنفيذية في ألمانيا؟",
         "a": "الشرطة",
-        "b": "الأطباق",
+        "b": "المحاكم",
         "c": "مكتب الضرائب",
         "d": "الوزارات",
         "context": "في ألمانيا ، تشير السلطة التنفيذية إلى السلطة التنفيذية للحكومة التي تنفذ قوانين وأنظمة البلاد. ويشمل ذلك عادة كيانات مثل الوزارات والشرطة، التي تشارك بشكل مباشر في إدارة القوانين وإنفاذها. من ناحية أخرى ، تعد المحاكم جزءا من السلطة القضائية ، التي تشرف على الإطار القانوني وتتخذ القرارات في المسائل القانونية. وعلى الرغم من أن مكتب الضرائب يعمل في المجال الإداري، إلا أنه مسؤول بشكل أساسي عن المسائل الضريبية. وبالتالي ، فإن المحاكم ليست جزءا من السلطة التنفيذية ، ولكنها تنتمي إلى القضاء."
@@ -10915,7 +10915,7 @@
       "uk": {
         "question": "Що не належить до виконавчої влади в Німеччині?",
         "a": "Поліція",
-        "b": "Посуд",
+        "b": "Суди",
         "c": "Податкова інспекція",
         "d": "міністерств",
         "context": "У Німеччині під виконавчою владою розуміється виконавча гілка влади, яка реалізує закони та нормативні акти країни. Як правило, це такі структури, як міністерства та поліція, які безпосередньо займаються адмініструванням та виконанням законів. З іншого боку, суди є частиною судової влади, яка здійснює нагляд за правовою базою та приймає рішення з правових питань. Незважаючи на те, що податкова інспекція функціонує в адміністративній сфері, вона в основному відповідає за податкові питання. Таким чином, суди не входять до складу виконавчої влади, а належать до судової влади."
@@ -10923,7 +10923,7 @@
       "hi": {
         "question": "जर्मनी में कार्यकारी शाखा से क्या संबंधित नहीं है?",
         "a": "पुलिस",
-        "b": "व्यंजन",
+        "b": "अदालतें",
         "c": "कर कार्यालय",
         "d": "मंत्रालयों",
         "context": "जर्मनी में, कार्यकारी शाखा सरकार की कार्यकारी शाखा को संदर्भित करती है जो देश के कानूनों और विनियमों को लागू करती है। आमतौर पर, इसमें मंत्रालयों और पुलिस जैसी संस्थाएं शामिल होती हैं, जो सीधे प्रशासन और कानूनों के प्रवर्तन में शामिल होती हैं। दूसरी ओर, अदालतें न्यायपालिका का हिस्सा हैं, जो कानूनी ढांचे की देखरेख करती हैं और कानूनी मामलों में निर्णय लेती हैं। हालांकि कर कार्यालय प्रशासनिक क्षेत्र में संचालित होता है, यह मुख्य रूप से कर मामलों के लिए जिम्मेदार है। इस प्रकार, अदालतें कार्यपालिका का हिस्सा नहीं हैं, बल्कि न्यायपालिका से संबंधित हैं।"
@@ -12651,57 +12651,57 @@
         "question": "What is the name given in Germany to the association of deputies of a party in parliament?",
         "a": "Association",
         "b": "Elders",
-        "c": "Fraction",
+        "c": "Parliamentary group",
         "d": "Opposition",
-        "context": "In Germany, political parties are represented in parliament by members of parliament who are organized in groups to bundle and effectively represent their interests and political goals. These groups are formed according to the principle of party affiliation. They play a crucial role in the internal organisation of parliament by coordinating the political programmes of their parties and influencing the formation of opinion in legislative processes. One of these possibilities is described by the term \"fraction\". The term describes the collective organization of members of parliament from the same party. This is important for the structure and influence of parties in parliament."
+        "context": "In Germany, political parties are represented in parliament by members of parliament who are organized in groups to bundle and effectively represent their interests and political goals. These groups are formed according to the principle of party affiliation. They play a crucial role in the internal organisation of parliament by coordinating the political programmes of their parties and influencing the formation of opinion in legislative processes. One of these possibilities is described by the term \"parliamentary group\" (Fraktion). The term describes the collective organization of members of parliament from the same party. This is important for the structure and influence of parties in parliament."
       },
       "tr": {
         "question": "Almanya'da bir partinin parlamentodaki milletvekilleri derneğine verilen ad nedir?",
         "a": "Dernek",
         "b": "Yaşlı",
-        "c": "Kesir",
+        "c": "Meclis grubu",
         "d": "Muhalefet",
-        "context": "Almanya'da siyasi partiler, çıkarlarını ve siyasi hedeflerini bir araya getirmek ve etkili bir şekilde temsil etmek için gruplar halinde örgütlenmiş parlamento üyeleri tarafından parlamentoda temsil edilir. Bu gruplar parti üyeliği ilkesine göre oluşturulur. Partilerinin siyasi programlarını koordine ederek ve yasama süreçlerinde kanaat oluşumunu etkileyerek parlamentonun iç organizasyonunda çok önemli bir rol oynarlar. Bu olasılıklardan biri \"kesir\" terimi ile tanımlanır. Terim, aynı partiden milletvekillerinin toplu örgütlenmesini tanımlar. Bu, parlamentodaki partilerin yapısı ve etkisi için önemlidir."
+        "context": "Almanya'da siyasi partiler, çıkarlarını ve siyasi hedeflerini bir araya getirmek ve etkili bir şekilde temsil etmek için gruplar halinde örgütlenmiş parlamento üyeleri tarafından parlamentoda temsil edilir. Bu gruplar parti üyeliği ilkesine göre oluşturulur. Partilerinin siyasi programlarını koordine ederek ve yasama süreçlerinde kanaat oluşumunu etkileyerek parlamentonun iç organizasyonunda çok önemli bir rol oynarlar. Bu olasılıklardan biri \"meclis grubu\" (Fraktion) terimi ile tanımlanır. Terim, aynı partiden milletvekillerinin toplu örgütlenmesini tanımlar. Bu, parlamentodaki partilerin yapısı ve etkisi için önemlidir."
       },
       "ru": {
         "question": "Как называется в Германии объединение депутатов той или иной партии в парламенте?",
         "a": "Ассоциация",
         "b": "Старейшин",
-        "c": "Дробь",
+        "c": "Фракция",
         "d": "Оппозиция",
-        "context": "В Германии политические партии представлены в парламенте членами парламента, которые организованы в группы, чтобы объединить и эффективно представлять свои интересы и политические цели. Эти группы формируются по принципу партийной принадлежности. Они играют важнейшую роль во внутренней организации парламента, координируя политические программы своих партий и оказывая влияние на формирование общественного мнения в законодательных процессах. Одна из таких возможностей описывается термином «дробь». Этот термин описывает коллективную организацию членов парламента от одной партии. Это важно для структуры и влияния партий в парламенте."
+        "context": "В Германии политические партии представлены в парламенте членами парламента, которые организованы в группы, чтобы объединить и эффективно представлять свои интересы и политические цели. Эти группы формируются по принципу партийной принадлежности. Они играют важнейшую роль во внутренней организации парламента, координируя политические программы своих партий и оказывая влияние на формирование общественного мнения в законодательных процессах. Одна из таких возможностей описывается термином «фракция». Этот термин описывает коллективную организацию членов парламента от одной партии. Это важно для структуры и влияния партий в парламенте."
       },
       "fr": {
         "question": "Quel est le nom donné en Allemagne à l’association des députés d’un parti au parlement ?",
         "a": "Association",
         "b": "Aînés",
-        "c": "Fraction",
+        "c": "Groupe parlementaire",
         "d": "Opposition",
-        "context": "En Allemagne, les partis politiques sont représentés au parlement par des membres du parlement qui sont organisés en groupes pour regrouper et représenter efficacement leurs intérêts et leurs objectifs politiques. Ces groupes sont formés selon le principe de l’affiliation à un parti. Ils jouent un rôle crucial dans l’organisation interne du parlement en coordonnant les programmes politiques de leurs partis et en influençant la formation de l’opinion dans les processus législatifs. L’une de ces possibilités est décrite par le terme « fraction ». Le terme décrit l’organisation collective des députés d’un même parti. C’est important pour la structure et l’influence des partis au parlement."
+        "context": "En Allemagne, les partis politiques sont représentés au parlement par des membres du parlement qui sont organisés en groupes pour regrouper et représenter efficacement leurs intérêts et leurs objectifs politiques. Ces groupes sont formés selon le principe de l’affiliation à un parti. Ils jouent un rôle crucial dans l’organisation interne du parlement en coordonnant les programmes politiques de leurs partis et en influençant la formation de l’opinion dans les processus législatifs. L’une de ces possibilités est décrite par le terme « groupe parlementaire ». Le terme décrit l’organisation collective des députés d’un même parti. C’est important pour la structure et l’influence des partis au parlement."
       },
       "ar": {
         "question": "ما هو الاسم الذي يطلق في ألمانيا على رابطة نواب حزب في البرلمان؟",
         "a": "ناد",
         "b": "شيوخ",
-        "c": "جزء",
+        "c": "الكتلة البرلمانية",
         "d": "المعارضه",
-        "context": "في ألمانيا ، يتم تمثيل الأحزاب السياسية في البرلمان من قبل أعضاء البرلمان الذين يتم تنظيمهم في مجموعات لتجميع وتمثيل مصالحهم وأهدافهم السياسية بشكل فعال. تتشكل هذه المجموعات وفقا لمبدأ الانتماء الحزبي. ويضطلعون بدور حاسم في التنظيم الداخلي للبرلمان من خلال تنسيق البرامج السياسية لأحزابهم والتأثير على تكوين الرأي في العمليات التشريعية. يتم وصف أحد هذه الاحتمالات بمصطلح \"الكسر\". يصف المصطلح التنظيم الجماعي لأعضاء البرلمان من نفس الحزب. هذا مهم لهيكل وتأثير الأحزاب في البرلمان."
+        "context": "في ألمانيا ، يتم تمثيل الأحزاب السياسية في البرلمان من قبل أعضاء البرلمان الذين يتم تنظيمهم في مجموعات لتجميع وتمثيل مصالحهم وأهدافهم السياسية بشكل فعال. تتشكل هذه المجموعات وفقا لمبدأ الانتماء الحزبي. ويضطلعون بدور حاسم في التنظيم الداخلي للبرلمان من خلال تنسيق البرامج السياسية لأحزابهم والتأثير على تكوين الرأي في العمليات التشريعية. يتم وصف أحد هذه الاحتمالات بمصطلح \"الكتلة البرلمانية\". يصف المصطلح التنظيم الجماعي لأعضاء البرلمان من نفس الحزب. هذا مهم لهيكل وتأثير الأحزاب في البرلمان."
       },
       "uk": {
         "question": "Як називають у Німеччині об'єднання депутатів тієї чи іншої партії в парламенті?",
         "a": "Асоціація",
         "b": "Старших",
-        "c": "Дріб",
+        "c": "Фракція",
         "d": "Опозиція",
-        "context": "У Німеччині політичні партії представлені в парламенті членами парламенту, які організовані в групи для об'єднання та ефективного представлення своїх інтересів і політичних цілей. Ці групи формуються за принципом партійної приналежності. Вони відіграють вирішальну роль у внутрішній організації парламенту, координуючи політичні програми своїх партій і впливаючи на формування громадської думки в законодавчих процесах. Одна з таких можливостей описується терміном «дріб». Цей термін описує колективну організацію членів парламенту від однієї партії. Це важливо для структури та впливу партій у парламенті."
+        "context": "У Німеччині політичні партії представлені в парламенті членами парламенту, які організовані в групи для об'єднання та ефективного представлення своїх інтересів і політичних цілей. Ці групи формуються за принципом партійної приналежності. Вони відіграють вирішальну роль у внутрішній організації парламенту, координуючи політичні програми своїх партій і впливаючи на формування громадської думки в законодавчих процесах. Одна з таких можливостей описується терміном «фракція». Цей термін описує колективну організацію членів парламенту від однієї партії. Це важливо для структури та впливу партій у парламенті."
       },
       "hi": {
         "question": "जर्मनी में संसद में किसी पार्टी के प्रतिनिधियों के संघ को क्या नाम दिया गया है?",
         "a": "संघ",
         "b": "बडे बूढे",
-        "c": "भिन्‍न",
+        "c": "संसदीय दल",
         "d": "प्रतिपक्ष",
-        "context": "जर्मनी में, संसद में राजनीतिक दलों का प्रतिनिधित्व संसद के सदस्यों द्वारा किया जाता है जो समूहों में संगठित होते हैं और प्रभावी रूप से अपने हितों और राजनीतिक लक्ष्यों का प्रतिनिधित्व करते हैं। ये समूह पार्टी संबद्धता के सिद्धांत के अनुसार बनते हैं। वे अपने दलों के राजनीतिक कार्यक्रमों का समन्वय करके और विधायी प्रक्रियाओं में राय के गठन को प्रभावित करके संसद के आंतरिक संगठन में महत्वपूर्ण भूमिका निभाते हैं। इन संभावनाओं में से एक को \"अंश\" शब्द द्वारा वर्णित किया गया है। यह शब्द एक ही पार्टी के संसद सदस्यों के सामूहिक संगठन का वर्णन करता है। यह संसद में पार्टियों की संरचना और प्रभाव के लिए महत्वपूर्ण है।"
+        "context": "जर्मनी में, संसद में राजनीतिक दलों का प्रतिनिधित्व संसद के सदस्यों द्वारा किया जाता है जो समूहों में संगठित होते हैं और प्रभावी रूप से अपने हितों और राजनीतिक लक्ष्यों का प्रतिनिधित्व करते हैं। ये समूह पार्टी संबद्धता के सिद्धांत के अनुसार बनते हैं। वे अपने दलों के राजनीतिक कार्यक्रमों का समन्वय करके और विधायी प्रक्रियाओं में राय के गठन को प्रभावित करके संसद के आंतरिक संगठन में महत्वपूर्ण भूमिका निभाते हैं। इन संभावनाओं में से एक को \"संसदीय दल\" शब्द द्वारा वर्णित किया गया है। यह शब्द एक ही पार्टी के संसद सदस्यों के सामूहिक संगठन का वर्णन करता है। यह संसद में पार्टियों की संरचना और प्रभाव के लिए महत्वपूर्ण है।"
       }
     },
     "category": "Law & Governance",
@@ -17069,7 +17069,7 @@
         "question": "В Германии государственная власть разделена. В каком государственном органе работает судья? Для ...",
         "a": "Судебный",
         "b": "Исполнительный",
-        "c": "Давить",
+        "c": "Пресса",
         "d": "Законодательный",
         "context": "В Германии государственное устройство основано на разделении властей, что является центральным принципом демократических систем. Это делит государственную власть на три основные сферы: законодательную, исполнительную и судебную, чтобы предотвратить злоупотребление властью. Законодательная власть несет ответственность за законодательство, в то время как исполнительная власть осуществляет надзор за практическим исполнением законов. Судебная власть, состоящая из судей, несет ответственность за вынесение решений и контроль за применением закона. Такое разделение обеспечивает четкое разделение задач и то, что ни одна из держав не получает слишком много власти, что обеспечивает стабильность демократии."
       },
@@ -17085,7 +17085,7 @@
         "question": "في ألمانيا ، سلطة الدولة منقسمة. لأي سلطة دولة يعمل القاضي؟ من أجل ...",
         "a": "القضاء",
         "b": "تنفيذي",
-        "c": "كبس",
+        "c": "الصحافة",
         "d": "تشريعي",
         "context": "في ألمانيا ، يقوم تنظيم الدولة على الفصل بين السلطات ، وهو مبدأ أساسي للأنظمة الديمقراطية. هذا يقسم سلطة الدولة إلى ثلاثة مجالات رئيسية: التشريعية والتنفيذية والقضائية ، من أجل منع إساءة استخدام السلطة. السلطة التشريعية هي المسؤولة عن التشريع، بينما تشرف السلطة التنفيذية على التنفيذ العملي للقوانين. السلطة القضائية، المؤلفة من قضاة، مسؤولة عن الفصل في تطبيق القانون ومراقبته. يضمن هذا الفصل تقسيم المهام بوضوح وعدم اكتساب أي من السلطات الكثير من السلطة ، مما يضمن استقرار الديمقراطية."
       },
@@ -17093,7 +17093,7 @@
         "question": "У Німеччині державна влада розділена. У якому державному органі працює суддя? Для ...",
         "a": "Судова",
         "b": "Виконавчий",
-        "c": "Прес",
+        "c": "Преса",
         "d": "Законодавчий",
         "context": "У Німеччині державна організація ґрунтується на поділі влади, що є центральним принципом демократичних систем. Це поділяє державну владу на три основні сфери: законодавчу, виконавчу та судову, з метою запобігання зловживанню владою. Законодавча влада відповідає за законодавство, а виконавча – за практичним виконанням законів. Судова влада, що складається з суддів, відповідає за винесення рішень і контроль за застосуванням закону. Такий поділ забезпечує чіткий розподіл завдань і те, що жодна з держав не отримує занадто багато влади, що забезпечує стабільність демократії."
       },
@@ -17101,7 +17101,7 @@
         "question": "जर्मनी में, राज्य शक्ति विभाजित है। न्यायाधीश किस राज्य प्राधिकरण के लिए काम करता है? के लिए ...",
         "a": "न्‍यायतंत्र",
         "b": "कार्यकारिणी",
-        "c": "दबाना",
+        "c": "प्रेस",
         "d": "वैधानिक",
         "context": "जर्मनी में, राज्य संगठन शक्तियों के पृथक्करण पर आधारित है, जो लोकतांत्रिक प्रणालियों का एक केंद्रीय सिद्धांत है। यह राज्य शक्ति को तीन मुख्य क्षेत्रों में विभाजित करता है: विधायी, कार्यकारी और न्यायपालिका, ताकि शक्ति के दुरुपयोग को रोका जा सके। विधायिका कानून के लिए जिम्मेदार है, जबकि कार्यकारी कानूनों के व्यावहारिक कार्यान्वयन की देखरेख करता है। न्यायपालिका, न्यायाधीशों से मिलकर, कानून के आवेदन के निर्णय और निगरानी के लिए जिम्मेदार है। यह अलगाव सुनिश्चित करता है कि कार्यों को स्पष्ट रूप से विभाजित किया गया है और कोई भी शक्ति बहुत अधिक शक्ति प्राप्त नहीं करती है, जो लोकतंत्र की स्थिरता सुनिश्चित करती है।"
       }
@@ -17769,7 +17769,7 @@
       },
       "tr": {
         "question": "Almanya'da bir üniversitede okumaya başlamak için normalde hangi okul bitirme belgesine ihtiyacınız vardır?",
-        "a": "Abitur Kilisesi",
+        "a": "Abitur",
         "b": "bir diploma",
         "c": "Vekaletname",
         "d": "Bir Kalfa Sınavı",
@@ -22100,7 +22100,7 @@
       },
       "tr": {
         "question": "Bavyera'da hangi ilçelerden biridir?",
-        "a": "Prignitz Belediyesi",
+        "a": "Prignitz",
         "b": "Rhein-Sieg bölgesi",
         "c": "Kuzey Friesland",
         "d": "Altötting",
@@ -22132,7 +22132,7 @@
       },
       "uk": {
         "question": "Який район є в Баварії?",
-        "a": "Пригнитель",
+        "a": "Прігніц",
         "b": "Район Рейн-Зіг",
         "c": "Нордфрісландія",
         "d": "Altötting",
@@ -22811,8 +22811,8 @@
       "tr": {
         "question": "Berlin'in bir semti hangisidir?",
         "a": "Altona",
-        "b": "Prignitz Belediyesi",
-        "c": "Pankow Belediyesi",
+        "b": "Prignitz",
+        "c": "Pankow",
         "d": "Mecklenburg Göller Bölgesi",
         "context": "Almanya'nın başkenti Berlin, her biri kendine özgü kültürel ve tarihi özelliklere sahip farklı bölgelere ayrılmıştır. Şehrin toplam 12 ilçesi vardır. Pankow da bu semtlerden biridir ve Berlin'in kuzeyinde yer almaktadır. Bu soru, Berlin şehrinin coğrafi dağılımı hakkındaki bilginizi test etmeyi amaçlamaktadır. Seçimde yer alan Prignitz, Mecklenburg Göller Bölgesi ve Altona gibi diğer yerler Berlin'in ilçelerine ait değil, Almanya'nın diğer bölgeleri veya şehirleri."
       },
@@ -22843,7 +22843,7 @@
       "uk": {
         "question": "Який район Берліна?",
         "a": "Альтона",
-        "b": "Пригнитель",
+        "b": "Прігніц",
         "c": "Панків",
         "d": "Мекленбурзький озерний край",
         "context": "Берлін, столиця Німеччини, розділений на різні райони, кожен з яких має свої культурні та історичні особливості. Всього в місті налічується 12 районів. Панков є одним з таких районів і розташований на півночі Берліна. Це питання має на меті перевірити ваші знання про географічний поділ міста Берліна. Інші місця у вибірці, такі як Прігніц, Мекленбурзький озерний край та Альтона, не належать до районів Берліна, а є іншими регіонами чи містами Німеччини."
@@ -23520,10 +23520,10 @@
       },
       "tr": {
         "question": "Brandenburg'da hangi ilçelerden biri vardır?",
-        "a": "Prignitz Belediyesi",
+        "a": "Prignitz",
         "b": "Rhein-Sieg bölgesi",
         "c": "Vogtlandkreis",
-        "d": "Amberg-Sulzbach Belediyesi",
+        "d": "Amberg-Sulzbach",
         "context": "Brandenburg, Almanya'nın kuzeydoğusunda, tarihi ve doğal manzaraları ile tanınan federal bir eyalettir. İdari birimler olan ilçelere ve bağımsız şehirlere ayrılmıştır. Soru, Brandenburg içinde bir ilçenin belirlenmesiyle ilgilidir. Seçim için mevcut cevaplar, yalnızca biri aslında Brandenburg'da olan ilçelerin isimlerini içerir. Doğru cevabı belirlemek için Alman federal eyaletlerinin coğrafi konumunu ve idari bölümünü bilmek önemlidir."
       },
       "ru": {
@@ -23552,7 +23552,7 @@
       },
       "uk": {
         "question": "Який район у Бранденбурзі?",
-        "a": "Пригнитель",
+        "a": "Прігніц",
         "b": "Район Рейн-Зіг",
         "c": "Фогтландкрайс",
         "d": "Амберг-Зульцбах",
@@ -24231,8 +24231,8 @@
       "tr": {
         "question": "Bremen'in bir ilçesi hangisidir?",
         "a": "Altona",
-        "b": "Hemelingen Belediyesi",
-        "c": "Pankow Belediyesi",
+        "b": "Hemelingen",
+        "c": "Pankow",
         "d": "Babilsberg",
         "context": "Bremen, Almanya'nın kuzeyinde bir şehirdir ve birkaç ilçesi vardır. Bazı iyi bilinen ilçeler Mitte, Schwachhausen ve Hemelingen'dir. Buna karşılık, Pankow, Babelsberg ve Altona diğer Alman şehirlerinin ilçeleridir: Pankow Berlin'de, Babelsberg Potsdam'da ve Altona Hamburg'un bir bölgesidir. Soru, Bremen'e hangi ilçenin atanabileceği ile ilgilidir ve doğru cevap Hemelingen'dir. Bu bilgi, Almanya'daki bölgelerin coğrafi bölünmesini ve tahsisini daha iyi anlamaya yardımcı olur."
       },
@@ -24587,7 +24587,7 @@
         "question": "Alman şehir devleti nedir?",
         "a": "Bremen",
         "b": "Münih",
-        "c": "Frankfurt Eyaleti",
+        "c": "Frankfurt",
         "d": "Erfurt",
         "context": "Almanya'da üçü şehir devleti olarak kabul edilen 16 federal eyalet vardır. Bunlar hem şehirler hem de bağımsız federal eyaletlerdir. Bölgesel devletlerden farklı özel bir idari yapıya sahiptirler. Şehir devletleri Bremen, Hamburg ve Berlin'dir. Şehir devletleri genellikle yüksek bir nüfus yoğunluğuna ve merkezi siyasi ve ekonomik öneme sahiptir. d: Erfurt, b: Münih ve c: Frankfurt seçenekleri Almanya'daki şehirlerdir, ancak şehir devletleri değildir. \"Alman şehir devleti nedir?\" sorusunun doğru cevabı a'dır: Bremen."
       },
@@ -24941,8 +24941,8 @@
       "tr": {
         "question": "Hamburg'un bir ilçesi hangisidir?",
         "a": "Altona",
-        "b": "Hemelingen Belediyesi",
-        "c": "Pankow Belediyesi",
+        "b": "Hemelingen",
+        "c": "Pankow",
         "d": "Mecklenburg Göller Bölgesi",
         "context": "Almanya'nın en büyük ikinci şehri olan Hamburg, birkaç bölgeden oluşuyor. Bu semtler önemli idari birimlerdir ve şehrin çeşitliliğine katkıda bulunurlar. Her ilçenin kendine özgü tarihi ve kültürel önemi vardır. Soru, Hamburg'un bir bölgesini tanımlamakla ilgili. Altona, Hamburg'un eski kenti ve limanı ile tanınan, tarihi açıdan önemli bir semtidir. Diğer seçenekler, Hamburg dışındaki bölgeleri veya ilçeleri ifade eder. Pankow Berlin'de yer almaktadır, Mecklenburg Göller Bölgesi, Mecklenburg-Vorpommern'de bir bölgedir ve Hemelingen Bremen'e aittir."
       },
@@ -25650,10 +25650,10 @@
       },
       "tr": {
         "question": "Hessen'de hangi ilçelerden biri var?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Altötting",
-        "c": "Prignitz Belediyesi",
-        "d": "Ana-Taunus-Kreis",
+        "c": "Prignitz",
+        "d": "Main-Taunus-Kreis",
         "context": "Almanya'nın merkezinde federal bir eyalet olan Hessen'de toplam 21 ilçe bulunmaktadır. Hessen, zengin tarihi ve ekonomik önemi ile tanınır. İlçeler arasında, doğrudan Frankfurt Main şehri ile sınır komşusu olan ve yüksek yaşam kalitesi ve ekonomik gücü ile tanınan Main-Taunus bölgesi bulunmaktadır. Bahsedilen diğer seçenekler Almanya'daki diğer federal eyaletlerdeki bölgelerdir: Brandenburg'daki Prignitz, Aşağı Saksonya'daki Ammerland ve Bavyera'daki Altötting."
       },
       "ru": {
@@ -25684,7 +25684,7 @@
         "question": "Який район у Гессені?",
         "a": "Аммерленд",
         "b": "Altötting",
-        "c": "Пригнитель",
+        "c": "Прігніц",
         "d": "Майн-Таунус-Крайс",
         "context": "Всього в Гессені, федеральній землі в центрі Німеччини, налічується 21 район. Гессен відомий своєю багатою історією та економічним значенням. До районів належить район Майн-Таунус, який межує безпосередньо з містом Франкфурт-на-Майні і відомий своєю високою якістю життя та економічною міццю. Іншими варіантами є райони в інших федеральних землях Німеччини: Прігніц у Бранденбурзі, Аммерланд у Нижній Саксонії та Альтттінг у Баварії."
       },
@@ -25693,7 +25693,7 @@
         "a": "अम्मरलैंड",
         "b": "Altötting",
         "c": "प्रिग्निट्ज़",
-        "d": "मुख्य-Taunus-Kreis",
+        "d": "Main-Taunus-Kreis",
         "context": "जर्मनी के केंद्र में एक संघीय राज्य हेस्से में कुल 21 जिले हैं। हेस अपने समृद्ध इतिहास और आर्थिक महत्व के लिए जाना जाता है। जिलों में मेन-टाउनस जिला शामिल है, जो सीधे फ्रैंकफर्ट एम मेन शहर पर सीमा बनाता है और जीवन की उच्च गुणवत्ता और आर्थिक ताकत के लिए जाना जाता है। उल्लिखित अन्य विकल्प जर्मनी के अन्य संघीय राज्यों में जिले हैं: ब्रैंडेनबर्ग में प्रिग्निट्ज़, लोअर सैक्सोनी में अम्मेरलैंड और बवेरिया में अल्टोटिंग।"
       }
     },
@@ -26360,7 +26360,7 @@
       },
       "tr": {
         "question": "Mecklenburg-Vorpommern'de hangi ilçelerden biri vardır?",
-        "a": "Prignitz Belediyesi",
+        "a": "Prignitz",
         "b": "Mecklenburg Göller Bölgesi",
         "c": "Vogtlandkreis",
         "d": "Rhein-Sieg bölgesi",
@@ -26392,7 +26392,7 @@
       },
       "uk": {
         "question": "Який район у землі Мекленбург-Передня Померанія?",
-        "a": "Пригнитель",
+        "a": "Прігніц",
         "b": "Мекленбурзький озерний край",
         "c": "Фогтландкрайс",
         "d": "Район Рейн-Зіг",
@@ -26715,7 +26715,7 @@
       },
       "tr": {
         "question": "Mecklenburg-Vorpommern eyalet başkenti ...",
-        "a": "Greifswald Belediyesi",
+        "a": "Greifswald",
         "b": "Schwerin",
         "c": "Rostock",
         "d": "Wismar",
@@ -27070,7 +27070,7 @@
       },
       "tr": {
         "question": "Hangi Aşağı Saksonya'da bir ilçedir?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Rhein-Sieg bölgesi",
         "c": "Kuzey Friesland",
         "d": "Vogtlandkreis",
@@ -27428,7 +27428,7 @@
         "a": "Hannover",
         "b": "Braunschweig",
         "c": "Wolfsburg",
-        "d": "Osnabrück Belediyesi",
+        "d": "Osnabrück",
         "context": "Aşağı Saksonya, Almanya'nın kuzeybatısında, pitoresk manzaraları ve tarihi kasabalarıyla tanınan bir eyalettir. Zengin bir kültürel ve ekonomik öneme sahiptir. Eyalet başkenti, eyalet hükümetinin oturduğu idari merkezdir. Sermaye, devletin siyasetinde ve yönetiminde önemli bir rol oynar. Genellikle kültürel ve ekonomik olarak da önemlidir. Bu soru, Alman coğrafyasının temel bilgisi ve federal eyaletlerin siyasi yapısı hakkındaki bilgileri test eder."
       },
       "ru": {
@@ -27780,7 +27780,7 @@
       },
       "tr": {
         "question": "Hangi Kuzey Ren-Vestfalya'da bir ilçedir?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Rhein-Sieg bölgesi",
         "c": "Kuzey Friesland",
         "d": "Vogtlandkreis",
@@ -28135,7 +28135,7 @@
       },
       "tr": {
         "question": "Kuzey Ren-Vestfalya eyalet başkenti ...",
-        "a": "Kolonya",
+        "a": "Köln",
         "b": "Bonn",
         "c": "Düsseldorf",
         "d": "Dortmund",
@@ -28143,7 +28143,7 @@
       },
       "ru": {
         "question": "Столица земли Северный Рейн-Вестфалия называется...",
-        "a": "Одеколон",
+        "a": "Кельн",
         "b": "Бонн",
         "c": "Дюссельдорф",
         "d": "Дортмунд",
@@ -28492,8 +28492,8 @@
         "question": "Rheinland-Pfalz'da hangi ilçelerden biri vardır?",
         "a": "Westerwaldkreis",
         "b": "Altötting",
-        "c": "Emsland (Türkçe)",
-        "d": "Prignitz Belediyesi",
+        "c": "Emsland",
+        "d": "Prignitz",
         "context": "Rheinland-Pfalz, Almanya'nın batısında, coğrafi ve kültürel yapıları bakımından farklılık gösteren çok sayıda ilçeye sahip bir eyalettir. Soru, Rheinland-Pfalz'da yer alan bir bölgeyi belirlemekle ilgili. Seçim seçenekleri arasında Rheinland-Pfalz'ın yanı sıra diğer federal eyaletlerden bölgeler de bulunmaktadır. Hangi ilçelerin Rheinland-Pfalz'a ait olduğunu bilmelisiniz. Bu soru bir coğrafya testi veya genel bilgi testi bağlamında ortaya çıkabilir."
       },
       "ru": {
@@ -28525,7 +28525,7 @@
         "a": "Westerwaldkreis",
         "b": "Altötting",
         "c": "Емсланд",
-        "d": "Пригнитель",
+        "d": "Прігніц",
         "context": "Рейнланд-Пфальц - земля на заході Німеччини з великою кількістю районів, що відрізняються за своїм географічним і культурним устроєм. Питання полягає в тому, щоб визначити район, який знаходиться в межах землі Рейнланд-Пфальц. Варіанти вибору включають округи з землі Рейнланд-Пфальц, а також з інших федеральних земель. Ви повинні знати, які райони належать до землі Рейнланд-Пфальц. Це питання може виникнути в контексті тесту з географії або тесту на загальні знання."
       },
       "hi": {
@@ -29202,7 +29202,7 @@
         "question": "Hangi Saarland'da bir ilçedir?",
         "a": "Mecklenburg Göller Bölgesi",
         "b": "Altötting",
-        "c": "Neunkirchen Belediyesi",
+        "c": "Neunkirchen",
         "d": "Rhein-Sieg bölgesi",
         "context": "Saarland, Almanya'nın güneybatısında, sanayi merkezleri ve Fransa sınırına yakınlığı ile tanınan küçük bir eyalettir. İlçeler, altyapı ve belediye yönetimi gibi görevleri üstlenen idari birimlerdir. Saarland'da Neunkirchen, Kuzey Ren-Vestfalya'daki Rhein-Sieg bölgesi, Mecklenburg-Vorpommern'deki Mecklenburg Göller Bölgesi ve Bavyera'daki Altötting dahil olmak üzere çeşitli ilçeler bulunmaktadır. Soru, ilçelerin coğrafi dağılımı hakkındaki bilgileri test etmeyi amaçlamaktadır ve Neunkirchen doğru cevaptır."
       },
@@ -29555,7 +29555,7 @@
       },
       "tr": {
         "question": "Saarland eyalet başkenti denir ...",
-        "a": "Neunkirchen Belediyesi",
+        "a": "Neunkirchen",
         "b": "Homburg",
         "c": "Saarbrücken",
         "d": "Völklingen",
@@ -29910,9 +29910,9 @@
       },
       "tr": {
         "question": "Saksonya-Anhalt'ta hangi ilçelerden biri vardır?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Altötting",
-        "c": "Uckermark (Uckermark)",
+        "c": "Uckermark",
         "d": "Börde",
         "context": "Saksonya-Anhalt, Almanya'da ülkenin ortasında yer alan ve tarihi şehirleri ve manzaraları ile tanınan bir eyalettir. İdari birimler olarak hizmet veren birkaç ilçeye sahiptir. Börde ilçesi Saksonya-Anhalt'ta yer alır ve kırsal çevresi ve eyalet başkenti Magdeburg'a yakınlığı ile karakterizedir. Buna karşılık, Uckermark, Ammerland ve Altötting, Almanya'daki diğer federal eyaletlere aittir. Saksonya-Anhalt'ta gerçekte hangi bölgenin bulunduğunu tanımak, devletin coğrafi ve idari yapısını anlamaya yardımcı olur."
       },
@@ -30257,7 +30257,7 @@
     "translation": {
       "en": {
         "question": "The state capital of Saxony-Anhalt is called ...",
-        "a": "Hall",
+        "a": "Halle",
         "b": "Dessau",
         "c": "Magdeburg",
         "d": "Wittenberg",
@@ -30265,7 +30265,7 @@
       },
       "tr": {
         "question": "Saksonya-Anhalt eyalet başkenti denir ...",
-        "a": "Hol",
+        "a": "Halle",
         "b": "Dessau",
         "c": "Magdeburg",
         "d": "Wittenberg",
@@ -30273,7 +30273,7 @@
       },
       "ru": {
         "question": "Столица земли Саксония-Анхальт называется...",
-        "a": "Зал",
+        "a": "Галле",
         "b": "Дессау",
         "c": "Магдебург",
         "d": "Виттенберг",
@@ -30281,7 +30281,7 @@
       },
       "fr": {
         "question": "La capitale du Land de Saxe-Anhalt s’appelle ...",
-        "a": "Salle",
+        "a": "Halle",
         "b": "Dessau",
         "c": "Magdebourg",
         "d": "Wittenberg",
@@ -30289,7 +30289,7 @@
       },
       "ar": {
         "question": "تسمى عاصمة ولاية ساكسونيا أنهالت ...",
-        "a": "هول",
+        "a": "هاله",
         "b": "ديساو",
         "c": "ماغدبورغ",
         "d": "فيتنبرغ",
@@ -30297,7 +30297,7 @@
       },
       "uk": {
         "question": "Столиця землі Саксонія-Ангальт називається ...",
-        "a": "Зал",
+        "a": "Галле",
         "b": "Дессау",
         "c": "Магдебурзьке",
         "d": "Віттенберг",
@@ -30305,7 +30305,7 @@
       },
       "hi": {
         "question": "सैक्सोनी-एनहाल्ट की राज्य की राजधानी को कहा जाता है ...",
-        "a": "हॉल",
+        "a": "हाले",
         "b": "डेसाउ",
         "c": "मैगडेबर्ग",
         "d": "विटेनबर्ग",
@@ -30622,7 +30622,7 @@
         "question": "Hangi Saksonya'da bir ilçedir?",
         "a": "Vogtlandkreis",
         "b": "Altötting",
-        "c": "Uckermark (Uckermark)",
+        "c": "Uckermark",
         "d": "Kuzey Friesland",
         "context": "Saksonya, Almanya'da tarihi ve kültürel önemi ile bilinen bir eyalettir. Ülkenin doğu kesiminde yer alır ve Polonya ve Çek Cumhuriyeti ile sınır komşusudur. Saksonya Özgür Eyaleti, on bölgeye ve üç bağımsız şehre bölünmüştür. İlçeler, çeşitli belediyeleri içeren önemli idari birimlerdir. Altötting Bavyera'da, Kuzey Frizya'da Schleswig-Holstein'da ve Uckermark Brandenburg'da bulunurken, Vogtlandkreis Saksonya'ya aittir ve pitoresk manzarası ve kültürel mekanları ile tanınır."
       },
@@ -31330,7 +31330,7 @@
       },
       "tr": {
         "question": "Hangi Schleswig-Holstein 'de bir ilçedir?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Mecklenburg Göller Bölgesi",
         "c": "Kuzey Friesland",
         "d": "Rhein-Sieg bölgesi",
@@ -31680,15 +31680,15 @@
         "a": "Husum",
         "b": "Flensburg",
         "c": "Lübeck",
-        "d": "Keel",
+        "d": "Kiel",
         "context": "Schleswig-Holstein is a federal state in the north of Germany, located between the North Sea and the Baltic Sea. It is known for its maritime influences and cultural diversity. The state capital plays a central role in the administration and culture of the state. The question of the state capital is about identifying the central city that houses the seat of government of the state. Options such as Lübeck, Kiel, Flensburg and Husum are well-known cities in Schleswig-Holstein, but only one is actually the state capital."
       },
       "tr": {
         "question": "Schleswig-Holstein eyalet başkenti denir ...",
         "a": "Husum",
         "b": "Flensburg",
-        "c": "Lübeck Belediyesi",
-        "d": "Karina",
+        "c": "Lübeck",
+        "d": "Kiel",
         "context": "Schleswig-Holstein, Almanya'nın kuzeyinde, Kuzey Denizi ile Baltık Denizi arasında yer alan federal bir devlettir. Denizcilik etkileri ve kültürel çeşitliliği ile tanınır. Eyalet başkenti, devletin yönetiminde ve kültüründe merkezi bir rol oynar. Eyalet başkenti sorunu, eyalet hükümetinin koltuğuna ev sahipliği yapan merkezi şehri belirlemekle ilgilidir. Lübeck, Kiel, Flensburg ve Husum gibi seçenekler Schleswig-Holstein'da iyi bilinen şehirlerdir, ancak yalnızca biri aslında eyalet başkentidir."
       },
       "ru": {
@@ -31704,7 +31704,7 @@
         "a": "Husum",
         "b": "Flensburg",
         "c": "Lübeck",
-        "d": "Quille",
+        "d": "Kiel",
         "context": "Le Schleswig-Holstein est un Land du nord de l’Allemagne, situé entre la mer du Nord et la mer Baltique. Elle est connue pour ses influences maritimes et sa diversité culturelle. La capitale de l’État joue un rôle central dans l’administration et la culture de l’État. La question de la capitale de l’État consiste à identifier la ville centrale qui abrite le siège du gouvernement de l’État. Des villes telles que Lübeck, Kiel, Flensburg et Husum sont des villes bien connues du Schleswig-Holstein, mais une seule est réellement la capitale du Land."
       },
       "ar": {
@@ -31712,7 +31712,7 @@
         "a": "هوسوم",
         "b": "فلنسبورغ",
         "c": "لوبيك",
-        "d": "عارضه",
+        "d": "كيل",
         "context": "شليسفيغ هولشتاين هي ولاية فيدرالية في شمال ألمانيا ، وتقع بين بحر الشمال وبحر البلطيق. تشتهر بتأثيراتها البحرية وتنوعها الثقافي. تلعب عاصمة الولاية دورا مركزيا في إدارة وثقافة الدولة. تتعلق مسألة عاصمة الولاية بتحديد المدينة المركزية التي تضم مقر حكومة الولاية. خيارات مثل لوبيك وكيل وفلنسبورغ وهوسوم هي مدن معروفة في شليسفيغ هولشتاين ، ولكن واحدة فقط هي في الواقع عاصمة الولاية."
       },
       "uk": {
@@ -31728,7 +31728,7 @@
         "a": "हुसुम",
         "b": "फ्लेंसबर्ग",
         "c": "लुबेक",
-        "d": "उलटना",
+        "d": "कील",
         "context": "श्लेस्विग-होल्स्टीन जर्मनी के उत्तर में एक संघीय राज्य है, जो उत्तरी सागर और बाल्टिक सागर के बीच स्थित है। यह अपने समुद्री प्रभावों और सांस्कृतिक विविधता के लिए जाना जाता है। राज्य की राजधानी राज्य के प्रशासन और संस्कृति में एक केंद्रीय भूमिका निभाती है। राज्य की राजधानी का सवाल केंद्रीय शहर की पहचान करने के बारे में है जिसमें राज्य की सरकार की सीट है। लुबेक, कील, फ्लेंसबर्ग और हुसुम जैसे विकल्प श्लेस्विग-होल्स्टीन में प्रसिद्ध शहर हैं, लेकिन वास्तव में केवल एक ही राज्य की राजधानी है।"
       }
     },
@@ -32040,7 +32040,7 @@
       },
       "tr": {
         "question": "Thüringen'de hangi ilçe var?",
-        "a": "Ammerland (Denizcilik)",
+        "a": "Ammerland",
         "b": "Altötting",
         "c": "Kuzey Friesland",
         "d": "Wartburgkreis",
@@ -32059,7 +32059,7 @@
         "a": "Ammerland",
         "b": "Altötting",
         "c": "Frise du Nord",
-        "d": "Rue ouvrière",
+        "d": "Wartburgkreis",
         "context": "La Thuringe est un Land de Thuringe situé en Allemagne. Les comtés sont d’importantes unités administratives qui intègrent les régions urbaines et rurales. La question vise à identifier un quartier spécifique de Thuringe. Altötting, Ammerland et Nordfriesland sont des districts d’autres Länder allemands, tandis que Wartburgkreis est en fait un district de Thuringe. La connaissance de la division géographique de l’Allemagne aide à trouver la bonne réponse à cette question spécifique."
       },
       "ar": {
