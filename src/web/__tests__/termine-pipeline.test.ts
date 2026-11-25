@@ -1,7 +1,7 @@
 // @vitest-environment node
 /*
- * src/termine/ reads the exam centres' own course pages (ADR-050): two
- * adapters (Kufer, ITEM), the rules that turn a page's words into a booking
+ * src/termine/ reads the exam centres' own course pages (ADR-050): three
+ * adapters (Kufer, ITEM, cmx), the rules that turn a page's words into a booking
  * state, and the sync that writes one file for the app. The fixtures are
  * shaped like the live pages of 2026-11; nothing here touches the network.
  *
@@ -11,14 +11,15 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { parseCmx } from "../../termine/adapters/cmx.mjs";
 import { parseItem } from "../../termine/adapters/item.mjs";
 import { parseKufer } from "../../termine/adapters/kufer.mjs";
-import { describeSite, examLinks, kuferSearchUrls, mergeSources, websitesOf } from "../../termine/discover.mjs";
+import { areaLinks, describeSite, examLinks, guessedWebsites, kuferSearchUrls, mergeSources, namesCentre, probeSite, schoolLinks, siteSearchUrls, townName, websitesOf } from "../../termine/discover.mjs";
 import { isExamTitle, toSlots } from "../../termine/lib/courses.mjs";
 import { berlinDay, findDate, findExamDay, findTime } from "../../termine/lib/dates.mjs";
 import { firstText, innerText, openingTags, textOf } from "../../termine/lib/html.mjs";
 import { decodeBody, getPage, sameSite } from "../../termine/lib/http.mjs";
-import { isAllowed } from "../../termine/lib/robots.mjs";
+import { isAllowed, readRobots } from "../../termine/lib/robots.mjs";
 import { statusFromBookingClasses, statusFromText, titleVerdict } from "../../termine/lib/status.mjs";
 import { buildTermine, guardTermine, mergeCentre, readSource, STALE_DAYS, validateSources, validateTermine } from "../../termine/sync.mjs";
 import { WEB_REGISTRY_FILE, webRegistry } from "../../termine/web-registry.mjs";
@@ -389,6 +390,33 @@ describe("Kufer adapter", () => {
         ]);
     });
 
+    it("names a course by the template's own heading where its link is a button or the whole card", () => {
+        // The accordion: the name stands in the header, the only link is the button in the body.
+        const accordion = (id: string, name: string, day: string) => `<!-- B12A--><div class="accordion-item"><div class="accordion-header"><button class="accordion-button" type="button">
+            <div class="status-icon"><img src="/fileadmin/kuferweb/webbasys/layout/kursampeln/trans.png" alt="Bitte Kursinfo beachten"></div>
+            <h5 class="kw-title"> ${name}<br /><span class="kw-art">Pr&uuml;fung</span> </h5>
+            <span class="kw-kurs-properties-label"><abbr title="Dienstag">Di.</abbr> ${day} 10:00</span></button></div>
+            <div class="accordion-body"><a class="btn btn-primary btn-lg" href="/kurssuche/kurs/Einbuergerungstest/${id}"> Kursdetails anzeigen </a></div></div><!-- B12E -->`;
+        const list = parseKufer(`<div id="kw-kursuebersicht-list">${accordion("271-49220", "Einb&uuml;rgerungstest", "26.01.2027")}${accordion("271-49221", "Einb&uuml;rgerungstest", "23.02.2027")}</div>`, PAGE, { today: TODAY });
+        expect(list.courses.map((course) => [course.id, course.title, course.date, course.time])).toEqual([
+            ["271-49220", "Einbürgerungstest", "2027-01-26", "10:00"],
+            ["271-49221", "Einbürgerungstest", "2027-02-23", "10:00"],
+        ]);
+        // The card: one link around everything, the weekday first, the name in the card's heading.
+        const card = (id: string, name: string, day: string) => `<div class="col-sm-6"><div class="item"><a href="/kurssuche/kurs/Einbuergerungstest-am/${id}" title="${name}"><div class="card-body">
+            <span><abbr title="Freitag">Fr.</abbr> &vert; ${day} &vert; 13:00 Uhr &vert; 1x</span><span class="knr">${id}</span>
+            <h3 class="h5 card-title"> ${name} </h3><p class="card-text">Anmeldeschluss Donnerstag, 19.11.2026 18:00 Uhr ...</p></div></a></div></div>`;
+        const cards = parseKufer(`<div class="hauptseite_kurse"><div class="row">${card("262-4993G", "Einb&uuml;rgerungstest am 18.12.2026", "18.12.2026")}${card("271-4990G", "Einb&uuml;rgerungstest am 22.01.2027", "22.01.2027")}</div></div>`, PAGE, { today: TODAY });
+        expect(cards.courses.map((course) => [course.id, course.title, course.date, course.time, course.deadline])).toEqual([
+            ["262-4993G", "Einbürgerungstest am 18.12.2026", "2026-12-18", "13:00", "2026-11-19"],
+            ["271-4990G", "Einbürgerungstest am 22.01.2027", "2027-01-22", "13:00", "2026-11-19"],
+        ]);
+        // A link that names the course itself keeps doing so, whatever heading the page prints behind it.
+        const plain = `<div class="kw-kursuebersicht"><div class="kurs"><span class="kw_ampel">Anmeldung m&ouml;glich</span><a href="/kurssuche/kurs/Einbuergerungstest/A1">Einb&uuml;rgerungstest</a> Fr. 27.11.2026, 13:00 Uhr
+            <a class="btn" href="/kurssuche/kurs/Einbuergerungstest/A1">Details</a></div><div class="modal"><h5 class="modal-title">Kurs-Merkliste</h5></div></div>`;
+        expect(parseKufer(plain, PAGE, { today: TODAY }).courses.map((course) => course.title)).toEqual(["Einbürgerungstest"]);
+    });
+
     it("keeps a date with its own course when the text stands in front of the link", () => {
         const teaser = (id: string, when: string) => `<div class="teaser"><h3>Einb&uuml;rgerungstest</h3><p>Der Test ist am ${when} in Calw.</p><p><a href="/kurssuche/kurs/Einbuergerungstest/${id}">Zum Kurs</a></p></div>`;
         const page = `<div class="kw-kursuebersicht">${teaser("T1", "Fr. 27.11.2026, 13:00 Uhr")}${teaser("T2", "Fr. 22.01.2027, 9.30 Uhr")}</div>`;
@@ -457,6 +485,25 @@ Prüfung: Einbürgerungstest - 33 Fragen</h3>
 </article>
 </div>`;
 
+const ITEM_CARDS = `
+<div class="course-list d-flex flex-column gap-2 mt-3">
+<article class="card shadow-lg" title="Zu den Details von 'Einbürgerungstest'">
+  <a href="/kurs/programmbereich/sprachen/einbuergerungstest/einbuergerungstest/5013987" class="w-100">
+    <h2 class="title fs-5 fw-bold m-0"> Einbürgerungstest</h2><span class="sub-title"></span><small class="text-muted">34106</small>
+    <i class="bk-icon bk-type-course bk-byphone bk-av-enough bk-rs-notbookableonline"></i>
+    <div class="course-date"><span class="weekdays"> </span> 19.02.2027 18:30 – 20:00 Uhr</div><div class="course-location">vhs-Haus</div>
+  </a>
+</article>
+<div class="card mb-3 course-item" data-id="course-card-495-C-G418884P">
+  <a href="/p/kurse/deutsch-integration/pruefungen/einbuergerungstest-495-C-G418884P">
+    <div class="courseDate"><span class="course-meta-item">Sa.&nbsp;&nbsp;|</span> <span class="course-meta-item">13.03.27&nbsp;&nbsp;|</span> <span class="course-meta-item">09:30 Uhr&nbsp;&nbsp;|</span></div>
+    <h3 class="h5 card-title"> Einbürgerungstest </h3>
+    <p class="card-text">Der Test findet am Samstag, dem 13.03.2027, ab 09:15 Uhr in den Räumen der Volkshochschule statt...</p>
+    <div class="bookable-state"><i class="bk-icon bk-type-course bk-inperson bk-av-enough bk-rs-notbookableonline"></i></div>
+  </a>
+</div>
+</div>`;
+
 describe("ITEM adapter", () => {
     it("reads the older template: the booking classes on the icon, the place, in-person registration", () => {
         const { recognised, courses } = parseItem(ITEM_OLD, "https://www.vhs-beispiel.de/p/integration/einbuergerungstest-675-CAT-KAT77", { today: TODAY });
@@ -484,8 +531,65 @@ describe("ITEM adapter", () => {
         expect(courses[0]).toMatchObject({ id: "262-63005", title: "Prüfung: Einbürgerungstest - 33 Fragen", date: "2026-12-04", time: "09:00", status: "full" });
     });
 
+    it("reads the card templates: the name from the card's heading, the day from the card's own line above it", () => {
+        const { courses } = parseItem(ITEM_CARDS, "https://www.vhs-beispiel.de/programm/pruefungen", { today: TODAY });
+        // The description below the second card's name says when to arrive (09:15); the card's own line says when the test starts.
+        expect(courses.map((course) => [course.id, course.title, course.date, course.time, course.status, course.booking])).toEqual([
+            ["5013987", "Einbürgerungstest", "2027-02-19", "18:30", "free", "phone"],
+            ["G418884P", "Einbürgerungstest", "2027-03-13", "09:30", "free", "inperson"],
+        ]);
+        expect(courses[0].place).toBe("vhs-Haus");
+    });
+
     it("says so when the page is no ITEM page any more", () => {
         expect(parseItem("<html><body>404</body></html>", PAGE)).toEqual({ recognised: false, courses: [] });
+    });
+});
+
+/** One event of a cmx list as the system prints it: a list item in a list, a `div` under a heading. */
+function cmxTeaser(element: "li" | "div", id: string, { name = "Einbürgerungstest", day, light = "", classes = "" }: { name?: string; day: string; light?: string; classes?: string }) {
+    const shown = light
+        ? `<div ><span title="${light}" ><picture><img class="icon" src="/cmx/ordner/system/Veranstaltung/Icons/Ampel/Fortschrittsanzeige/status_75.svg" alt="${light}" /></picture></span><div class="Ampeltext"><span >(${light}) </span></div></div>`
+        : "";
+    return `<${element}   id="${id}"  class="Veranstaltung Teaser breite breite_0 Klasse ${classes}"  style="" ><a   title="${name}"  href="/Veranstaltung/${id}.html"  class="AktuelleURL" ><div class="Inhalt"><picture class="Thumbnail"><img class="Bild Teaserbild " src="/cmx/ordner/.cache/images/x.jpg" alt=""/></picture><div class="VeranstaltungTeaserInhalt"><strong class="Titel Flex"><span   class="Name"  style="display: inline;" ><span >${name}</span></span><span  class="Nummer" >261-T010609</span></strong><div class="Zeit"><span ><span class="Datum">${day}</span><span class="AnzahlTermine"> (1-mal) </span> <span class="Uhrzeit"> <span class="UhrzeitBeginn"> 18:00</span> <span class="UhrzeitEnde"> - 19:00</span> </span></span></div><div class="Ort"><div >Mellrichstadt</div></div><div class="Ampelanzeige">${shown}</div></div></div></a></${element}>`;
+}
+
+describe("cmx adapter", () => {
+    const LIST = "https://www.vhs-beispiel.de/vhs-einbuergerungstest";
+
+    it("reads a list of events: name, day, time, place and what the traffic light says", () => {
+        const page = `<ol>${cmxTeaser("li", "cmx68f79257b86a4", { name: "Einbürgerungstest 01.12.2026", day: "01.12.26", light: "Plätze frei" })}${cmxTeaser("li", "cmx6a798f0a1768b", { day: "05.01.27", light: "noch 4 Plätze frei" })}</ol>
+            <section><h2><span>Einbürgerungstest</span></h2>${cmxTeaser("div", "cmx6a43cc3fa312a", { day: "28.01.27" })}</section>`;
+        const { recognised, courses } = parseCmx(page, LIST, { today: TODAY });
+        expect(recognised).toBe(true);
+        expect(courses.map((course) => [course.id, course.title, course.date, course.time, course.until, course.status, course.place])).toEqual([
+            ["cmx68f79257b86a4", "Einbürgerungstest 01.12.2026", "2026-12-01", "18:00", "19:00", "free", "Mellrichstadt"],
+            // The system counts the places only once an event is nearly full.
+            ["cmx6a798f0a1768b", "Einbürgerungstest", "2027-01-05", "18:00", "19:00", "few", "Mellrichstadt"],
+            // No light at all: the page shows the day, not whether a place is left.
+            ["cmx6a43cc3fa312a", "Einbürgerungstest", "2027-01-28", "18:00", "19:00", "unknown", "Mellrichstadt"],
+        ]);
+        expect(courses[0].url).toBe("https://www.vhs-beispiel.de/Veranstaltung/cmx68f79257b86a4.html");
+    });
+
+    it("tells a waiting list from full, and an event that is over or cancelled from one with places", () => {
+        const page = [
+            cmxTeaser("li", "cmx1", { day: "02.02.27", light: "keine freien Plätze. Anmeldung auf Warteliste möglich." }),
+            cmxTeaser("li", "cmx2", { day: "02.03.27", light: "keine freien Plätze. Eine Anmeldung ist nicht mehr möglich." }),
+            cmxTeaser("li", "cmx3", { day: "03.03.26", light: "Plätze frei", classes: "beendet Beendet" }),
+            cmxTeaser("li", "cmx4", { day: "06.04.27", light: "Plätze frei", classes: "Ausgefallen" }),
+        ].join("");
+        expect(parseCmx(page, LIST, { today: TODAY }).courses.map((course) => [course.id, course.status])).toEqual([
+            ["cmx1", "waitlist"],
+            ["cmx2", "full"],
+            ["cmx3", "closed"],
+            ["cmx4", "closed"],
+        ]);
+    });
+
+    it("says so when the page is no cmx page any more, and reads none where a search finds nothing", () => {
+        expect(parseCmx("<html><body>404</body></html>", LIST)).toEqual({ recognised: false, courses: [] });
+        expect(parseCmx(`<div class="cmx_ajaxcontainer"><div class="Rot">Keine aktuellen Veranstaltungen oder Programmbereiche gefunden.</div></div>`, LIST)).toEqual({ recognised: true, courses: [] });
     });
 });
 
@@ -570,8 +674,23 @@ describe("reading the centres' websites", () => {
             .mockResolvedValueOnce(new Response(null, { status: 302, headers: { location: "https://tracking.example/landing" } }));
         vi.stubGlobal("fetch", fetchMock);
         await expect(getPage("https://vhs-x.de/kurse")).resolves.toEqual({ url: "https://www.vhs-x.de/kurse", html: "<p>ok</p>" });
-        await expect(getPage("https://vhs-x.de/kurse")).rejects.toThrow(/another site/);
+        // The sync stops there; where the redirect pointed is kept for the discovery.
+        await expect(getPage("https://vhs-x.de/kurse")).rejects.toMatchObject({ message: expect.stringMatching(/another site/), location: "https://tracking.example/landing" });
         expect(fetchMock.mock.calls.every(([, init]) => init.method === "GET" && init.redirect === "manual" && /LebenInDeutschlandTermine/.test(init.headers["user-agent"]))).toBe(true);
+    });
+});
+
+describe("robots.txt of a site that is only a redirect", () => {
+    it("is not read, and says where the site sends its visitors", async () => {
+        vi.stubGlobal(
+            "fetch",
+            vi
+                .fn()
+                .mockResolvedValueOnce(new Response(null, { status: 301, headers: { location: "https://www.vhs-y.de/robots.txt" } }))
+                .mockResolvedValueOnce(new Response("nicht gefunden", { status: 404 })),
+        );
+        await expect(readRobots("https://vhs.stadt-y.de/")).resolves.toEqual({ text: null, moved: "https://www.vhs-y.de/robots.txt" });
+        await expect(readRobots("https://www.vhs-y.de/")).resolves.toEqual({ text: "", moved: null });
     });
 });
 
@@ -715,10 +834,120 @@ describe("discovery", () => {
         ]);
     });
 
+    it("finds the keyword search of the older Kufer template, and of a start page that shows no course", () => {
+        const older = `<a href="/login/kw/kathaupt/266/">Login</a><a href="/programm/kultur/kw/bereich/kursdetails/kurs/26W81113/kursname/Keramik/">Keramik</a>
+            <a href="/programm/kw/bereich/kursdetails/kurs/26W20801/kursname/Yoga/">Yoga</a>`;
+        expect(kuferSearchUrls(older, "https://www.vhs-x.de/")).toEqual(["https://www.vhs-x.de/programm/kw/kathaupt/18/suchesetzen/false/?kfs_stichwort=Einb%C3%BCrgerungstest"]);
+        const bare = `<a href="/programm">Programm</a><a href="/kurssuche">Kurssuche</a>`;
+        expect(kuferSearchUrls(bare, "https://www.vhs-x.de/")).toEqual(["https://www.vhs-x.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest"]);
+    });
+
+    it("asks a site's own search only through a form a visitor types into and that asks with GET", () => {
+        const page = `<form method="get" action="https://vhs-x.de/Suche"><input type="hidden" name="cmxelementid" value="web4e15"/><input name="Suche" value="1" type="hidden" /><input name="Suchbegriffe" type="text" /></form>
+            <form method="post" action="/suche"><input name="q" type="text"></form><form action="https://anderswo.example/suche"><input name="q"></form>`;
+        expect(siteSearchUrls(page, "https://vhs-x.de/")).toEqual(["https://vhs-x.de/Suche?cmxelementid=web4e15&Suche=1&Suchbegriffe=Einb%C3%BCrgerungstest"]);
+    });
+
+    it("looks where the test usually stands when no link names it", () => {
+        const home = `<a href="/p/sprachen">Sprachen</a><a href="/p/deutsch-integration">Deutsch und Integration</a><a href="/p/gesundheit">Gesundheit</a>
+            <a href="/kurs/deutsch/a1/123">Deutsch A1</a><a href="/files/deutsch.pdf">Deutsch (PDF)</a>`;
+        expect(areaLinks(home, "https://www.vhs-x.de/")).toEqual(["https://www.vhs-x.de/p/deutsch-integration", "https://www.vhs-x.de/p/sprachen"]);
+    });
+
     it("follows links about the test on the same site, the test itself first", () => {
         const home = `<a href="/integration">Integration und Einbürgerung</a><a href="/pruefungen/einbuergerungstest">Einbürgerungstest: Termine</a>
             <a href="https://bamf.example/einbuergerungstest">BAMF</a><a href="/files/einbuergerungstest.pdf">Merkblatt</a><a href="/yoga">Yoga</a>`;
         expect(examLinks(home, "https://www.vhs-x.de/")).toEqual(["https://www.vhs-x.de/pruefungen/einbuergerungstest", "https://www.vhs-x.de/integration"]);
+    });
+
+    it("knows a town by its own name and where its school's website usually is", () => {
+        const towns = ["Lauf a.d.Pegnitz", "Rotenburg (Wümme)", "Frankfurt am Main", "Schwedt /Oder", "Bad Homburg v. d. Höhe", "Villingen-Schwenningen", "St. Wendel"];
+        expect(towns.map(townName)).toEqual(["Lauf", "Rotenburg", "Frankfurt", "Schwedt", "Bad Homburg", "Villingen-Schwenningen", "St. Wendel"]);
+        expect(guessedWebsites("Mülheim an der Ruhr")).toEqual(["vhs-muelheim.de", "vhs.muelheim.de", "volkshochschule-muelheim.de", "muelheim.de"]);
+    });
+
+    it("follows a town's link to its school only to a host that carries the school in its name", () => {
+        const town = `<a href="https://www.vhs-x.de/">Volkshochschule</a><a href="https://vhs.kreis-y.de/kurse">Programm</a><a href="https://presse.example/vhs-workshop">vhs-Workshop Bogenschießen</a>
+            <a href="https://www.volkshochschule.de/">Deutscher Volkshochschul-Verband</a><a href="/bildung/volkshochschule">Volkshochschule</a><a href="/rathaus">Rathaus</a>`;
+        expect(schoolLinks(town, "https://www.stadt-x.de/")).toEqual({ websites: ["vhs-x.de", "vhs.kreis-y.de"], pages: ["https://www.stadt-x.de/bildung/volkshochschule"] });
+    });
+
+    it("takes a website for a centre's own only when it names the postcode or the town", () => {
+        const centres = [{ city: "Frankfurt (Oder)", plz: "15230" }];
+        expect(namesCentre("<footer>Gartenstr. 1, 15230 Frankfurt (Oder)</footer>", centres)).toBe("plz");
+        expect(namesCentre("<p>vhs Frankfurt, Sonnemannstr. 13, 60314 Frankfurt am Main</p>", centres)).toBe("town");
+        expect(namesCentre("<p>Tel. 0152301 - Frankfurter Allee</p>", centres)).toBe(null);
+    });
+
+    describe("a centre whose address is not its website", () => {
+        const DATES = (footer: string) => `${KUFER_CARDS}<footer>${footer}</footer>`;
+        const site = (domain: string, name: string) => ({ domain, centres: [{ state: "NW", city: "Xstadt", plz: "33602", name }] });
+        /** A small web: the pages that exist, and where a host that is only a redirect points. */
+        const web = (pages: Record<string, string>, moved: Record<string, string> = {}) => {
+            const asked: string[] = [];
+            const exists = (url: string) => Object.keys(pages).some((page) => new URL(page).origin === new URL(url).origin);
+            const io = {
+                allowed: async (url: string) => (exists(url) ? "yes" : "unknown"),
+                moved: async (url: string) => moved[new URL(url).origin] ?? null,
+                read: async (url: string) => {
+                    asked.push(url);
+                    if (!(url in pages)) {
+                        throw new Error("HTTP 404");
+                    }
+                    return { url, html: pages[url] };
+                },
+            };
+            return { io, asked };
+        };
+        const probe = (target: ReturnType<typeof site>, { io }: ReturnType<typeof web>, known = new Set<string>()): Promise<Record<string, any>> => probeSite(target, { today: TODAY, io, known });
+
+        it("follows the address to where it redirects: the centre's own word, no further proof", async () => {
+            const there = web({ "https://www.vhs-x.de/": DATES("Volkshochschule im Kreis") }, { "https://www.vhs.x.de": "https://www.vhs-x.de/robots.txt" });
+            await expect(probe(site("vhs.x.de", "VHS X"), there)).resolves.toMatchObject({ id: "nw-vhs-x", domain: "vhs.x.de", website: "vhs-x.de", via: "redirect", adapter: "kufer", url: "https://www.vhs-x.de/", upcoming: 2 });
+        });
+
+        it("follows the town's link to its school, when the school names the centre's postcode or town", async () => {
+            const town = `<a href="https://www.vhs-x.de/">Volkshochschule</a>`;
+            const linked = await probe(site("stadt-x.de", "Volkshochschule Xstadt"), web({ "https://www.stadt-x.de/": town, "https://www.vhs-x.de/": DATES("Ravensberger Park 1, 33602 Xstadt") }));
+            expect(linked).toMatchObject({ id: "nw-vhs-x", city: "Xstadt", website: "vhs-x.de", via: "link", url: "https://www.vhs-x.de/" });
+            expect(linked.check).toBeUndefined();
+            // Another town's school behind the link is not this centre's website.
+            const elsewhere = await probe(site("stadt-x.de", "Volkshochschule Xstadt"), web({ "https://www.stadt-x.de/": town, "https://www.vhs-x.de/": DATES("Markt 1, 99999 Ydorf") }));
+            expect(elsewhere.url).toBeUndefined();
+            expect(elsewhere).toMatchObject({ id: "nw-stadt-x", note: "no adapter knows this site's course system", looked: ["vhs-x.de: test dates, but the website does not name the centre"] });
+        });
+
+        it("tries the usual names of a school, and leaves a guess that is not certain for a person to look at", async () => {
+            const silent = site("stadt-x.de", "VHS Xstadt");
+            const certain = await probe(silent, web({ "https://www.vhs-xstadt.de/": DATES("33602 Xstadt") }));
+            expect(certain).toMatchObject({ id: "nw-vhs-xstadt", website: "vhs-xstadt.de", via: "guess" });
+            expect(certain.check).toBeUndefined();
+            // Towns share names: without the postcode the website may be a namesake's.
+            const namesake = await probe(silent, web({ "https://www.vhs-xstadt.de/": DATES("Willkommen in Xstadt") }));
+            expect(namesake.check).toMatch(/names the town, not the postcode/);
+            // "vhs-<town>.de" is the school of the town, also where a district's school sits in it.
+            const district = await probe(site("kreis-x.de", "Kreisvolkshochschule X-Land"), web({ "https://www.vhs-xstadt.de/": DATES("33602 Xstadt") }));
+            expect(district.check).toMatch(/district's school/);
+            // Only the certain one is merged; the other two wait, whatever their ids.
+            expect(mergeSources([], [certain, { ...namesake, id: "nw-vhs-namensvetter" }, { ...district, id: "nw-vhs-kreis" }]).map((source) => source.id)).toEqual(["nw-vhs-xstadt"]);
+        });
+
+        it("does not follow a name that leads to a stranger, look for a language school, or read a source again", async () => {
+            const parked = web({ "https://www.domains.example/": DATES("33602 Xstadt") }, { "https://www.vhs-xstadt.de": "https://www.domains.example/" });
+            await expect(probe(site("stadt-x.de", "VHS Xstadt"), parked)).resolves.toMatchObject({ note: "no website answers under the mail domain" });
+            expect(parked.asked).toEqual([]);
+            const school = web({ "https://www.vhs-xstadt.de/": DATES("33602 Xstadt") });
+            await expect(probe(site("sprachschule-x.de", "Sprachschule X GmbH"), school)).resolves.toMatchObject({ note: "no website answers under the mail domain" });
+            await expect(probe(site("stadt-x.de", "VHS Xstadt"), school, new Set(["vhs-xstadt.de"]))).resolves.toMatchObject({ note: "already a source: vhs-xstadt.de" });
+            expect(school.asked).toEqual([]);
+        });
+    });
+
+    it("names an entry after the website that is read, and unites two addresses that lead to one website", () => {
+        const [first] = websitesOf([{ stateCode: "by", data: [{ ort: "Ansbach", plz: "91522", einrichtung: "VHS Ansbach", email: "info@ansbach.de" }] }]);
+        expect(describeSite(first, "www.vhs-ansbach.de")).toEqual({ id: "by-vhs-ansbach", state: "BY", city: "Ansbach", name: "VHS Ansbach", plz: "91522" });
+        const found = { id: "by-vhs-a", state: "BY", city: "Ansbach", name: "VHS A", adapter: "kufer", url: "https://vhs-a.example/k" };
+        expect(mergeSources([], [found, { ...found, city: "Feucht", name: "VHS A, Außenstelle" }])).toEqual([{ id: "by-vhs-a", state: "BY", city: "Ansbach", name: "VHS A", towns: ["Ansbach", "Feucht"], adapter: "kufer", url: "https://vhs-a.example/k" }]);
     });
 
     it("adds new candidates to the registry and leaves the entries that are there", () => {

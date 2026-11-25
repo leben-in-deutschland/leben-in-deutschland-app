@@ -1,6 +1,6 @@
 // ITEM ("vhs-cms" by ITEM KG): the course system many Bavarian and some other
-// Volkshochschulen run. A category page lists its courses; two template
-// generations are in use and both carry the same three things per course:
+// Volkshochschulen run. A category page lists its courses; three template
+// generations are in use and all carry the same three things per course:
 //
 //   - a link to the course (".../einbuergerungstest-5-26-675-C-2617425KG" in
 //     the older template, "/kurs/<category path>/<title>/<number>" in the
@@ -69,11 +69,13 @@ function findWhen(block, title, today) {
             return { date: day, time: clock?.time ?? null, until: clock?.until ?? null, deadline: null };
         }
     }
-    // The title may carry another date ("Anmeldung ab 25.11."), so the day is looked for behind it -
-    // and a subtitle may name the deadline first ("Anmeldeschluss 26.11.2026"), which is not the exam day.
+    // The title may carry another date ("Anmeldung ab 25.11."), so the day is looked for around it: a card
+    // prints it above its title ("Di. | 15.12.26 | 13:45 Uhr") - what the description below says about the
+    // day is said about the day, it is not the list's own line - and the other templates behind the title,
+    // where a subtitle may name the deadline first ("Anmeldeschluss 26.11.2026"), which is not the exam day.
     const whole = textOf(block);
     const position = title ? whole.indexOf(title) : -1;
-    return findExamDay(position < 0 ? whole : whole.slice(position + title.length), today);
+    return position < 0 ? findExamDay(whole, today) : (findExamDay(whole.slice(0, position), today) ?? findExamDay(whole.slice(position + title.length), today));
 }
 
 /**
@@ -100,7 +102,8 @@ export function parseItem(html, pageUrl, { today = null } = {}) {
             continue;
         }
         const link = courseLink(attrOf(anchor.tag, "href"), pageUrl);
-        const title = textOfClass(block, ["course-title"]);
+        // The card templates name the course in a heading with the class "card-title" or "title" alone.
+        const title = textOfClass(block, ["course-title"]) || textOfClass(block, ["card-title"]) || textOfClass(block, ["title"]);
         const when = findWhen(block, title, today);
         if (!link || !when || seen.has(link.id)) {
             continue;

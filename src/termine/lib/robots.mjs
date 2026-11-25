@@ -66,18 +66,26 @@ export function isAllowed(robotsText, url, agent = AGENT_NAME) {
 }
 
 /**
- * The robots.txt of the site `url` belongs to: its text, "" when the site
- * has none (4xx), or null when it could not be read (network, 5xx) - then
- * the caller must not read the site in this run.
+ * The robots.txt of the site `url` belongs to: `text` is its text, "" when
+ * the site has none (4xx), or null when it could not be read (network, 5xx,
+ * a redirect to another site) - then the caller must not read the site in
+ * this run. `moved` is where such a redirect pointed.
+ *
+ * @returns {Promise<{ text: string | null, moved: string | null }>}
  */
-export async function fetchRobots(url) {
+export async function readRobots(url) {
     try {
         const response = await get(new URL("/robots.txt", url).href, { accept: "text/plain,*/*", maxBytes: 500_000, retries: 0 });
-        return /html/i.test(response.contentType) ? "" : new TextDecoder("utf-8").decode(response.buffer);
+        return { text: /html/i.test(response.contentType) ? "" : new TextDecoder("utf-8").decode(response.buffer), moved: null };
     } catch (error) {
         if (error instanceof HttpError && error.status !== null && error.status >= 400 && error.status < 500) {
-            return "";
+            return { text: "", moved: null };
         }
-        return null;
+        return { text: null, moved: error instanceof HttpError ? error.location : null };
     }
+}
+
+/** The text of the site's robots.txt alone (see `readRobots`). */
+export async function fetchRobots(url) {
+    return (await readRobots(url)).text;
 }
