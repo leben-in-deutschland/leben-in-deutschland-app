@@ -20,12 +20,13 @@ of `src/catalogue/`. No npm dependency, only Node built-ins (`fetch`,
 src/termine/
   sync.mjs             Reads every source, validates, writes termine.json
   publish.mjs          One run of the automation: reads what is published, runs sync.mjs, pushes the file as one commit to the `data` branch
-  discover.mjs         Maintenance tool: finds the page with the test dates for BAMF's exam centres -> output/candidates.json; --merge adds them to sources.json
+  discover.mjs         Maintenance tool: finds each of BAMF's exam centres' website and the page with its test dates -> output/candidates.json; --merge adds them to sources.json
   sources.json         COMMITTED: the registry - one entry per exam centre: id, state, town, name, adapter, page
   web-registry.mjs     Writes the website's copy of the registry (src/web/data/termine-registry.json); --check says whether it is up to date
   data-branch.md       README of the `data` branch; publish.mjs puts it there with every commit
   adapters/kufer.mjs   Kufer (KuferWEB): the course system of most Volkshochschulen
   adapters/item.mjs    ITEM (vhs-cms): many Bavarian and some other Volkshochschulen
+  adapters/cmx.mjs     cmx (cmxOrganize): Volkshochschulen in Bavaria, Baden-Württemberg and Rhineland-Palatinate
   adapters/index.mjs   The adapters by name
   lib/http.mjs         Polite GET: User-Agent, timeout, size limit, redirects only within the site, the page's own charset
   lib/robots.mjs       robots.txt (RFC 9309): the group that names this crawler, longest match, wildcards
@@ -48,7 +49,9 @@ is the remote).
   day. The `User-Agent` is `LebenInDeutschlandTermine/1.0` with the address
   of the page that explains it. `robots.txt` is read in every run; a centre
   that closes the page to this crawler (or to `*`) is not read. A redirect
-  to another site is a failure, not followed.
+  to another site is a failure for the sync, not followed: a source must
+  not move to another site unseen. Only the discovery tool follows one, to
+  learn where a centre's website is.
 - **Never invent availability.** A date is `free` or `few` only when the
   centre's page says a place can be booked. A negation ("nicht", "kein",
   "nur"), a count of none ("0 freie Plätze"), a condition with a day in it
@@ -99,10 +102,10 @@ node src/termine/sync.mjs --out FILE --previous FILE
 node src/termine/sync.mjs --only by-vhs-kisshab   # look at one source; prints its result, writes nothing
 node src/termine/publish.mjs --dry-run            # one run of the automation without the push (reads every source)
 
-node src/termine/discover.mjs --cache /tmp/termine-cache          # every exam centre of BAMF's list
+node src/termine/discover.mjs --new --cache /tmp/termine-cache    # every exam centre of BAMF's list that is not a source yet
 node src/termine/discover.mjs --state by --cache /tmp/termine-cache
-node src/termine/discover.mjs --host vhs-calw.de
-node src/termine/discover.mjs --merge             # candidates -> sources.json (existing entries stay)
+node src/termine/discover.mjs --host vhs-calw.de                  # by the domain of BAMF's address, also when the website is another
+node src/termine/discover.mjs --merge             # candidates -> sources.json (existing entries stay; candidates with "check" wait)
 ```
 
 `sync.mjs` prints one line on stdout
@@ -230,16 +233,46 @@ there with the next app release.
 
 ## Adding an exam centre
 
-1. `node src/termine/discover.mjs --host <domain> --cache /tmp/termine-cache`
-   and read `output/candidates.json`: the page, the adapter, how many test
-   dates, three samples.
-2. When the samples are the centre's real test dates,
-   `node src/termine/discover.mjs --merge`. For a centre the tool does not
-   find (its mail domain is not its website, or its dates sit on a page the
-   start page does not link), add the entry by hand. The usual case is a
-   Volkshochschule for which BAMF lists an address of the town hall
-   (`...@bielefeld.de`): the tool then looks at the town's website, while
-   the dates are on the Volkshochschule's own (`vhs-bielefeld.de`).
+BAMF lists a mail address for every centre, not a website. `discover.mjs`
+starts at the domain of that address and, where it lists no test date,
+looks for the centre's website:
+
+- **The address redirects** (`vhs.essen.de` to `vhs-essen.de`): the tool
+  follows it. That is the centre's own word and needs no further proof.
+- **A Volkshochschule under its town hall or district**
+  (`...@bielefeld.de`, `...@kreis-offenbach.de`): the tool follows the
+  town's link to a host that carries the school in its name
+  (`vhs-bielefeld.de`, `vhs.oberhavel.de`, `kvhs-harburg.de`) - from the
+  start page, or from the town's own page about the school - and it tries
+  the usual names (`vhs-<town>.de`, `vhs.<town>.de`,
+  `volkshochschule-<town>.de`) and the town's website (`<town>.de`).
+- **Such a website counts only when it names the centre**: its postcode,
+  or - behind a town's link - its town. Two guessed names stay in the
+  report with `"check"` and are not merged: a website that names the town
+  but not the postcode (towns share names), and a guessed website for a
+  district's school ("Kreisvolkshochschule", "VHS des Landkreises ...":
+  `vhs-<town>.de` is the school of the town it sits in). Look at such a
+  website; when it is the centre's, delete `"check"` in
+  `output/candidates.json` and merge.
+
+On a website it reads robots.txt, the start page and at most five further
+pages: the keyword search of a Kufer site (its search form, the usual
+address `?kathaupt=26...` of the current template, `/kw/kathaupt/18/...`
+of the older one), the links that name the test, the site's own search
+form when it asks with GET, and the parts of the programme where the test
+usually stands ("Deutsch und Integration", "Prüfungen"). Nothing is
+posted, so a site whose search is a POST form is searched by its links
+only.
+
+1. `node src/termine/discover.mjs --host <domain of BAMF's address> --cache /tmp/termine-cache`
+   and read `output/candidates.json`: the website (`website`, `via` when it
+   is not the address's domain), the page, the adapter, how many test
+   dates, three samples - or `note` and `looked`: why there is none and
+   which other websites were looked at.
+2. When the samples are the centre's real test dates - not a preparation
+   course, not a year-long entry without a day ("Einbürgerungstests
+   2026/2027", 01.01.) - `node src/termine/discover.mjs --merge`. For a
+   centre the tool does not find, add the entry by hand:
 
    ```json
    { "id": "nw-vhs-beispiel", "state": "NW", "city": "Beispielstadt", "name": "VHS Beispielstadt", "adapter": "kufer", "url": "https://www.vhs-beispiel.de/kurssuche?kathaupt=26&suchesetzen=false&kfs_stichwort_schlagwort=Einb%C3%BCrgerungstest" }
@@ -251,8 +284,11 @@ there with the next app release.
 5. `cd src/web && npm test` (the registry test checks ids, adapters,
    addresses and that the website's copy is up to date).
 
-The id is the state code plus the centre's domain without its ending; it is
-what a learner's watch list stores, so it never changes once published.
+The id is the state code plus the domain of the website that is read,
+without its ending; it is what a learner's watch list stores, so it never
+changes once published. Town and name are BAMF's. One entry differs: BAMF
+lists the school of Goch (postcode 47574) under "Kleve", its district;
+the registry names Goch and keeps Kleve as a further town.
 
 ## When a page changes
 
@@ -276,10 +312,19 @@ never closes its tags or quotes costs seconds, not the run.
 
 A new course system is one module in `adapters/` with
 `parse(html, pageUrl, { today }) -> { recognised, courses }` and
-`recognises(html)`, registered in `adapters/index.mjs`. At the start
-(2026-11-22) the two adapters read 111 of the 663 centres BAMF lists; 107
-centres have a mail domain that is not their website, and about 270
-websites run a system no adapter knows yet.
+`recognises(html)`, registered in `adapters/index.mjs`.
+
+BAMF lists 663 centres under 600 addresses. At the start (2026-11-22) two
+adapters read 111 of them. A second look on 2026-11-25 - the school's
+website behind a town's address, the wider search, the card and accordion
+templates of Kufer and ITEM, the cmx adapter - brought the registry to
+226. Of the other addresses, 96 lead to a website in a system the tool
+reads that lists no test date online (registration in person, "currently
+no dates"), 189 to a website no adapter knows - among them the systems
+of Bonn, Gelsenkirchen and Pforzheim (VhsConnect), Stuttgart's own
+template and the Berlin districts - and 80 to no website the tool finds.
+No centre is read in Berlin, Bremen, Mecklenburg-Vorpommern and
+Schleswig-Holstein.
 
 ## Rollback
 

@@ -12,11 +12,13 @@ const MAX_REDIRECTS = 4;
 const RETRY_DELAY_MS = 2_000;
 
 export class HttpError extends Error {
-    constructor(message, { status = null, retryable = false } = {}) {
+    constructor(message, { status = null, retryable = false, location = null } = {}) {
         super(message);
         this.name = "HttpError";
         this.status = status;
         this.retryable = retryable;
+        /** Where a redirect to another site pointed; the sync never follows it, the discovery may. */
+        this.location = location;
     }
 }
 
@@ -83,7 +85,7 @@ async function attempt(url, { timeoutMs, maxBytes, accept }) {
             }
             const next = new URL(location, current).href;
             if (!sameSite(next, url)) {
-                throw new HttpError(`redirected to another site (${new URL(next).hostname})`, { status: response.status });
+                throw new HttpError(`redirected to another site (${new URL(next).hostname})`, { status: response.status, location: next });
             }
             current = next;
             continue;

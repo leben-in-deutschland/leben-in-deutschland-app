@@ -55,6 +55,9 @@ const PLACE_LABEL = /^(Ort|Wo|Kursort|Veranstaltungsort)\s?:\s*(.*)$/i;
 const ANY_LABEL = /^[A-ZÄÖÜ][\wäöüß. ]{1,24}:$/;
 /** Class names of the link that is the course's heading ("kw-kurstitel", "card-title"). */
 const TITLE_CLASS = /(^|[-_])(kurs)?(titel|title)$/;
+/** Class names of an element that holds the course's name where the link does not ("kw-title", "card-title", "kurs-name"). */
+const NAME_CLASS = /(^|[-_])((kurs)?(titel|title)|kurs-?name)$/;
+const NAME_ELEMENTS = ["h1", "h2", "h3", "h4", "h5", "h6", "div", "span", "strong"];
 
 /** The course number and absolute URL a link points at, or null for any other link. */
 export function courseLink(href, pageUrl) {
@@ -309,12 +312,34 @@ function findTitle(block, id) {
     const links = openingTags(block, "a").filter(({ tag }) => courseLink(attrOf(tag, "href"), NOWHERE)?.id === id);
     // The heading names the course; another link to it may be a button ("Kursinfo beachten").
     const headings = links.filter((link) => isHeadingLink(block, link));
-    for (const { tag, end } of [...headings, ...links.filter((link) => !headings.includes(link))]) {
-        const text = firstText(block, end);
+    const named = NAME_ELEMENTS.flatMap((element) => openingTags(block, element))
+        .filter(({ tag }) => classesOf(tag).some((name) => NAME_CLASS.test(name)))
+        .sort((a, b) => a.index - b.index);
+    const nameIn = (from, to) => {
+        for (const { index, end } of named) {
+            const text = index >= from && index < to ? firstText(block, end) : "";
+            if (text) {
+                return text;
+            }
+        }
+        return "";
+    };
+    for (const link of [...headings, ...links.filter((entry) => !headings.includes(entry))]) {
+        if (!headings.includes(link)) {
+            // A link that is the whole card ("Fr. | 18.12.2026 ... <h3 class="card-title">") is named by the
+            // heading inside it, a button ("Kursdetails anzeigen") by the name the template prints above it.
+            const closing = block.slice(link.end).search(/<\/a\s*>/i);
+            const button = classesOf(link.tag).some((name) => /^(btn|button)$/.test(name));
+            const name = nameIn(link.end, closing < 0 ? link.end : link.end + closing) || (button ? nameIn(0, link.index) : "");
+            if (name) {
+                return name;
+            }
+        }
+        const text = firstText(block, link.end);
         if (text) {
             return text;
         }
-        const quoted = /['‚‘„“"]([^'’“”"]{3,})['’“”"]/.exec(attrOf(tag, "title") ?? "");
+        const quoted = /['‚‘„“"]([^'’“”"]{3,})['’“”"]/.exec(attrOf(link.tag, "title") ?? "");
         if (quoted) {
             return squash(quoted[1]);
         }
