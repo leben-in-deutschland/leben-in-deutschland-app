@@ -61,7 +61,7 @@
 
 ## Development
 
-Prerequisites: Node.js 22. For the native apps additionally Android Studio with JDK 21, or Xcode 26 with CocoaPods.
+Prerequisites: Node.js 22. For the native apps additionally Android Studio with JDK 21, or Xcode 27 with CocoaPods.
 
 ```bash
 cd src/web
