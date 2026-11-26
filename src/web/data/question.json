@@ -21958,10 +21958,10 @@
       },
       "tr": {
         "question": "Baden-Württemberg'in hangi bakanı yok?",
-        "a": "Fransa Maliye Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Maliye Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Baden-Württemberg, Almanya'da çeşitli bakanlıklara sahip bir eyalet hükümetine sahip bir eyalettir. Her bakanlığa bir bakan başkanlık eder. Maliye bakanları, içişleri bakanları ve adalet bakanları genellikle eyalet hükümetinin bir parçasıdır. Bununla birlikte, dışişleri bakanları eyalet hükümetinin değil, federal hükümetin bir parçasıdır. Bu nedenle Baden-Württemberg'in dışişleri bakanı yok. Soru, Baden-Württemberg eyalet hükümetinin yapısını ve organizasyonunu açıklığa kavuşturmayı amaçlıyor."
       },
       "ru": {
@@ -22598,9 +22598,9 @@
       "tr": {
         "question": "Bavyera'nın hangi bakanı yok?",
         "a": "Dışişleri Bakanı",
-        "b": "Fransa İçişleri Bakanı",
-        "c": "Fransa Maliye Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "b": "İçişleri Bakanı",
+        "c": "Maliye Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Almanya'da federal ve eyalet düzeyinde çeşitli bakanlıklar vardır. Bavyera da dahil olmak üzere her eyaletin, belirli bakanlık görevlerine sahip kendi eyalet hükümeti vardır. Bununla birlikte, dış politika federal bir mesele olduğu için devlet düzeyinde bir dışişleri bakanlığı mevcut değildir. Bu nedenle, Bavyera'nın dışişleri bakanı yoktur, ancak eyalet düzeyinde içişleri, maliye ve adalet bakanlıkları vardır. Bu yapı, eyaletlerin yerel işlerini kendilerinin düzenlemesine izin verirken, uluslararası temsil federal hükümet tarafından merkezi olarak organize edilir."
       },
       "ru": {
@@ -24017,10 +24017,10 @@
       },
       "tr": {
         "question": "Brandenburg'un hangi bakanı yok?",
-        "a": "Fransa Maliye Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Maliye Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Almanya'da federal eyaletler belirli siyasi görevlerden sorumludur. Brandenburg da dahil olmak üzere her federal eyaletin belirli bakanlıkları vardır. Sadece dışişleri bakanı ülke çapında ifade eder ve devlet düzeyinde atanmaz. Bu nedenle, uluslararası ilişkiler ülke çapında düzenlendiği için Brandenburg'un dışişleri bakanı yoktur. Bu, Dışişleri Bakanı'nın pozisyonunun Brandenburg için bakanlık ofisleri listesinde neden eksik olduğunu açıklıyor."
       },
       "ru": {
@@ -26148,9 +26148,9 @@
       "tr": {
         "question": "Hessen'de hangi bakan yok?",
         "a": "Dışişleri Bakanı",
-        "b": "Fransa Maliye Bakanı",
-        "c": "Fransa Adalet Bakanı",
-        "d": "Fransa İçişleri Bakanı",
+        "b": "Maliye Bakanı",
+        "c": "Adalet Bakanı",
+        "d": "İçişleri Bakanı",
         "context": "Almanya'da federal eyaletlerin, ulusal hükümete benzer şekilde farklı bakanlıkları vardır. Federal bir devlet olarak Hessen'in içişleri, maliye ve adalet işleri için kendi bakanlıkları vardır. Bununla birlikte, dış politika ulusal olarak düzenlendiği için bir dışişleri bakanının ofisi devlet düzeyinde mevcut değildir. Devletlerin bakan-başkanları bölgesel konularla ilgilenir. Bu yapı, bazı bakanlıkların neden var olup olmadığını anlamak için önemlidir. Sonuç olarak, doğru cevap \"a: Dışişleri Bakanı\"dır, çünkü bu bakanlık Hessen'deki gibi eyalet düzeyinde değil, federal düzeyde mevcuttur."
       },
       "ru": {
@@ -26859,8 +26859,8 @@
         "question": "Mecklenburg-Vorpommern'in hangi bakanı yok?",
         "a": "Maliye Senatörü",
         "b": "Dışişleri Bakanı",
-        "c": "Fransa İçişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "c": "İçişleri Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Mecklenburg-Vorpommern, Almanya'da çeşitli bakanlıklardan oluşan bir eyalet hükümetine sahip bir eyalettir. Her bakanlığın maliye, içişleri veya adalet gibi belirli sorumlulukları vardır. Dışişleri bakanı olan federal hükümetle karşılaştırıldığında, federal bir devlet dış politikayı umursamıyor, çünkü bu bölgeler üstü bir mesele. Soru, eyalet düzeyinde belirli bir bakanın bulunmamasına ve Mecklenburg-Vorpommern'in dış politika federal hükümet tarafından ele alındığı için dışişleri bakanının bulunmamasına atıfta bulunuyor."
       },
       "ru": {
@@ -27638,9 +27638,9 @@
       },
       "tr": {
         "question": "Aşağı Saksonya'da hangi bakan yok?",
-        "a": "Fransa İçişleri Bakanı",
-        "b": "Fransa Adalet Bakanı",
-        "c": "Fransa Maliye Bakanı",
+        "a": "İçişleri Bakanı",
+        "b": "Adalet Bakanı",
+        "c": "Maliye Bakanı",
         "d": "Dışişleri Bakanı",
         "context": "Almanya'da federal bir eyalet olan Aşağı Saksonya, eyalet siyasetinin farklı alanlarından sorumlu farklı bakanlıklara sahiptir. Genellikle içişleri, adalet ve maliye bakanlıkları vardır. Ancak, dış politika federal hükümet tarafından düzenlendiği için eyalet düzeyinde bir dışişleri bakanlığı yoktur. Soru, bu bakanlıklardan hangisinin Aşağı Saksonya'da bulunmadığına ilişkindir. Bu nedenle, doğru cevap d: Dışişleri Bakanı. Bu ayrım, belirli görevlerin federal hükümet tarafından merkezi olarak yerine getirildiği Almanya'nın federal sistemine dayanmaktadır."
       },
@@ -28348,10 +28348,10 @@
       },
       "tr": {
         "question": "Kuzey Ren-Vestfalya'da hangi bakan yok?",
-        "a": "Fransa Maliye Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Maliye Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Kuzey Ren-Vestfalya, Almanya'da kendi eyalet hükümetine sahip federal bir eyalettir. Bu hükümetin yerel işlerden sorumlu çeşitli bakanlıkları vardır. Bir maliye bakanı maliyeyle ilgilenir, bir içişleri bakanı içişleriyle ilgilenir ve bir adalet bakanı hukuk işleriyle ilgilenir. Bununla birlikte, yalnızca ulusal hükümetlerin uluslararası ilişkilerden sorumlu bir dışişleri bakanı vardır. Kuzey Ren-Vestfalya'nın uluslararası bir rolü yoktur ve bu nedenle dışişleri bakanı yoktur. Bu, Kuzey Ren-Vestfalya'nın hangi bakana sahip olmadığı sorusunun neden ortaya çıktığını açıklıyor."
       },
       "ru": {
@@ -29059,9 +29059,9 @@
       "tr": {
         "question": "Rheinland-Pfalz'da hangi bakan yok?",
         "a": "Dışişleri Bakanı",
-        "b": "Fransa İçişleri Bakanı",
-        "c": "Fransa Adalet Bakanı",
-        "d": "Fransa Maliye Bakanı",
+        "b": "İçişleri Bakanı",
+        "c": "Adalet Bakanı",
+        "d": "Maliye Bakanı",
         "context": "Rheinland-Pfalz, birkaç bakanlıktan oluşan bir eyalet hükümetine sahip bir Alman eyaletidir. Her bakanlığın iç güvenlik, maliye veya adalet gibi belirli görevleri vardır. Bununla birlikte, bir Dışişleri Bakanlığı, Rheinland-Pfalz gibi tek bir devlet için gerekli olmayan uluslararası ilişkilerle ilgilendiği için tipik olarak ulusal düzeyde bulunur. Bu nedenle, soru, söz konusu bakanlıklardan hangisinin Rheinland-Pfalz eyalet hükümeti bağlamında ilgili olmadığını veya mevcut olmadığını bulmayı amaçlayabilir."
       },
       "ru": {
@@ -29768,10 +29768,10 @@
       },
       "tr": {
         "question": "Saarland'ın hangi bakanı yok?",
-        "a": "Fransa Adalet Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Adalet Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Maliye Bakanı",
+        "d": "Maliye Bakanı",
         "context": "Almanya'da federal bir eyalet olan Saarland, idare ve yönetişimden sorumlu çeşitli bakanlıklara sahiptir. Tipik bakanlıklar arasında adalet, içişleri ve maliye gibi alanlar yer alır. Ancak, her devletin kendine özgü sorumlulukları vardır ve hepsinin ayrı bir Dışişleri Bakanlığı yoktur. Dış politikanın yönetimi genellikle federal düzeydedir ve Federal Dış Politika Bakanı tarafından yönetilir. Bu nedenle, Saarland'da hangi bakanın temsil edilmediği sorusu ortaya çıkıyor."
       },
       "ru": {
@@ -30478,10 +30478,10 @@
       },
       "tr": {
         "question": "Saksonya-Anhalt'ın hangi bakanı yok?",
-        "a": "Fransa Maliye Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Maliye Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Saksonya-Anhalt, Almanya'nın federal bir eyaletidir ve diğer federal eyaletler gibi farklı bakanlıklara sahiptir. Her bakanlığa bir bakan başkanlık eder. Bir maliye bakanı bütçe yönetiminden, bir içişleri bakanı güvenlik ve idareden ve bir adalet bakanı hukuk işlerinden sorumludur. Bununla birlikte, dış politika federal düzeyde ele alındığı için federal bir devletin dışişleri bakanı yoktur. Dışişleri bakanları, eyalet hükümetinin değil, federal hükümetin bir parçasıdır. Bu nedenle, doğru cevap Saksonya-Anhalt'ın bir dışişleri bakanı olmadığı olacaktır."
       },
       "ru": {
@@ -31189,9 +31189,9 @@
       "tr": {
         "question": "Saksonya'nın hangi bakanı yok?",
         "a": "Dışişleri Bakanı",
-        "b": "Fransa Maliye Bakanı",
-        "c": "Fransa Adalet Bakanı",
-        "d": "Fransa İçişleri Bakanı",
+        "b": "Maliye Bakanı",
+        "c": "Adalet Bakanı",
+        "d": "İçişleri Bakanı",
         "context": "Saksonya, çeşitli bakanlıkları içeren kendi eyalet hükümetine sahip bir Alman eyaletidir. Alman siyasi yapısı bağlamında, federal eyaletlerin eyalet düzeyinde faaliyet gösteren belirli bakanlıkları vardır. Dışişleri Bakanlığı sadece federal düzeyde vardır, çünkü dış politika Federal Hükümetin merkezi bir görevidir. Bu nedenle Saksonya'nın dışişleri bakanı yok. Maliye Bakanlığı, Adalet Bakanlığı ve İçişleri Bakanlığı gibi adı geçen diğer bakanlıklar eyalet hükümetlerine özgüdür ve Saksonya'da da bulunur."
       },
       "ru": {
@@ -31898,10 +31898,10 @@
       },
       "tr": {
         "question": "Schleswig-Holstein'ın hangi bakanı yok?",
-        "a": "Fransa İçişleri Bakanı",
+        "a": "İçişleri Bakanı",
         "b": "Dışişleri Bakanı",
-        "c": "Fransa Adalet Bakanı",
-        "d": "Fransa Maliye Bakanı",
+        "c": "Adalet Bakanı",
+        "d": "Maliye Bakanı",
         "context": "Schleswig-Holstein, Alman federal eyaletlerinden biri olarak, çeşitli bakanlıklardan oluşan bir eyalet hükümetine sahiptir. Her bakanlığın belirli sorumluluk alanları vardır. Bununla birlikte, federal hükümetin aksine, Schleswig-Holstein ulusal düzeyde var olan tüm bakanlıklara sahip değildir. Örneğin, dış politika Federal Cumhuriyet'in bir görevi olduğu için devlet düzeyinde bir dışişleri bakanı yoktur. Devlet bakanlıkları bunun yerine iç politika, adalet ve maliye gibi iç meselelere odaklanıyor. Bu nedenle soru, bu bakanlıklardan hangisinin devlet düzeyinde bulunmadığına odaklanmaktadır."
       },
       "ru": {
@@ -32608,10 +32608,10 @@
       },
       "tr": {
         "question": "Thüringen'in hangi bakanı yok?",
-        "a": "Fransa Maliye Bakanı",
-        "b": "Fransa İçişleri Bakanı",
+        "a": "Maliye Bakanı",
+        "b": "İçişleri Bakanı",
         "c": "Dışişleri Bakanı",
-        "d": "Fransa Adalet Bakanı",
+        "d": "Adalet Bakanı",
         "context": "Thüringen, Almanya'da federal bir eyalettir ve çeşitli bakanlıklara sahip bir eyalet hükümetine sahiptir. Tipik bakanlıklar arasında Maliye Bakanlığı, İçişleri Bakanlığı ve Adalet Bakanlığı bulunmaktadır. Ancak, dış politika federal hükümetin bir görevi olduğu için eyalet düzeyinde bir dışişleri bakanlığı yoktur. Buna göre, Thüringen'in dışişleri bakanı yok. Bu rol federal düzeyde oynanır. Soru, eyalet hükümetinin yapısının anlaşılmasını ve federal siyasetten ayrılmasını test etmeyi amaçlamaktadır."
       },
       "ru": {
