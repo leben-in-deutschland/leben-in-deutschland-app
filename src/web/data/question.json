@@ -18400,58 +18400,58 @@
     "translation": {
       "en": {
         "question": "An adult woman wants to catch up on her Abitur in Germany. She can do that at ...",
-        "a": "of a university.",
-        "b": "an evening grammar school",
-        "c": "of a Hauptschule",
-        "d": "of a private university",
+        "a": "a university.",
+        "b": "an evening grammar school.",
+        "c": "a Hauptschule.",
+        "d": "a private university.",
         "context": "The Abitur is the final exam at a grammar school in Germany, which is necessary to gain access to universities and colleges. Adults who want to catch up on the Abitur have the opportunity to do so at evening grammar schools. These institutions offer flexible tuition times to give professionals or those with other commitments the opportunity to gain the necessary qualifications. Private universities, lower secondary schools and colleges do not offer the opportunity to catch up on the Abitur, but concentrate on other educational goals and qualifications."
       },
       "tr": {
-        "question": "Yetişkin bir kadın, Almanya'da Abitur'a yetişmek istiyor. Bunu şu anda yapabilir...",
-        "a": "bir üniversitenin.",
-        "b": "Bir akşam gramer okulu",
-        "c": "bir Hauptschule'nin",
-        "d": "özel bir üniversitenin",
-        "context": "Abitur, Almanya'daki bir gramer okulunda üniversitelere ve kolejlere erişim sağlamak için gerekli olan final sınavıdır. Abitur'u takip etmek isteyen yetişkinler, akşam gramer okullarında bunu yapma fırsatına sahiptir. Bu kurumlar, profesyonellere veya başka taahhütleri olanlara gerekli nitelikleri kazanma fırsatı vermek için esnek öğrenim süreleri sunar. Özel üniversiteler, ortaokullar ve kolejler Abitur'u yakalama fırsatı sunmaz, ancak diğer eğitim hedefleri ve niteliklerine odaklanır."
+        "question": "Yetişkin bir kadın, Almanya'da Abitur'u sonradan almak istiyor. Bunu şurada yapabilir: ...",
+        "a": "bir üniversitede.",
+        "b": "bir akşam lisesinde.",
+        "c": "bir Hauptschule'de.",
+        "d": "özel bir üniversitede.",
+        "context": "Abitur, Almanya'daki bir gramer okulunda üniversitelere ve kolejlere erişim sağlamak için gerekli olan final sınavıdır. Abitur'u takip etmek isteyen yetişkinler, akşam liselerinde bunu yapma fırsatına sahiptir. Bu kurumlar, profesyonellere veya başka taahhütleri olanlara gerekli nitelikleri kazanma fırsatı vermek için esnek öğrenim süreleri sunar. Özel üniversiteler, ortaokullar ve kolejler Abitur'u yakalama fırsatı sunmaz, ancak diğer eğitim hedefleri ve niteliklerine odaklanır."
       },
       "ru": {
-        "question": "Взрослая женщина хочет наверстать упущенное в Германии. Она может сделать это в...",
-        "a": "университета.",
-        "b": "вечерняя гимназия",
-        "c": "Hauptschule",
-        "d": "частного вуза",
+        "question": "Взрослая женщина хочет получить в Германии аттестат зрелости (Abitur), которого у неё ещё нет. Она может сделать это в ...",
+        "a": "университете.",
+        "b": "вечерней гимназии.",
+        "c": "Hauptschule.",
+        "d": "частном университете.",
         "context": "Abitur — это выпускной экзамен в гимназии в Германии, который необходим для поступления в университеты и колледжи. Взрослые, желающие наверстать упущенное в Abitur, имеют возможность сделать это в вечерних гимназиях. Эти учебные заведения предлагают гибкий график обучения, чтобы дать возможность специалистам или тем, у кого есть другие обязательства, получить необходимую квалификацию. Частные университеты, младшие классы средней школы и колледжи не предлагают возможности наверстать упущенное в Abitur, а концентрируются на других образовательных целях и квалификациях."
       },
       "fr": {
-        "question": "Une femme adulte veut rattraper son Abitur en Allemagne. Elle peut le faire à ...",
-        "a": "d’une université.",
-        "b": "un lycée du soir",
-        "c": "d’une Hauptschule",
-        "d": "d’une université privée",
+        "question": "Une femme adulte veut rattraper son Abitur en Allemagne. Elle peut le faire dans ...",
+        "a": "une université.",
+        "b": "un lycée du soir.",
+        "c": "une Hauptschule.",
+        "d": "une université privée.",
         "context": "L’Abitur est l’examen final d’un lycée en Allemagne, qui est nécessaire pour accéder aux universités et aux collèges. Les adultes qui souhaitent rattraper leur retard sur l’Abitur ont la possibilité de le faire dans les lycées du soir. Ces établissements offrent des horaires de cours flexibles pour donner aux professionnels ou à ceux qui ont d’autres engagements la possibilité d’obtenir les qualifications nécessaires. Les universités privées, les collèges et les collèges n’offrent pas la possibilité de rattraper leur retard sur l’Abitur, mais se concentrent sur d’autres objectifs éducatifs et qualifications."
       },
       "ar": {
         "question": "امرأة بالغة تريد اللحاق ب Abitur في ألمانيا. يمكنها أن تفعل ذلك في ...",
-        "a": "من الجامعة.",
-        "b": "مدرسة القواعد المسائية",
-        "c": "من Hauptschule",
-        "d": "جامعة خاصة",
-        "context": "Abitur هو الامتحان النهائي في مدرسة قواعد اللغة في ألمانيا ، وهو أمر ضروري للوصول إلى الجامعات والكليات. البالغون الذين يرغبون في اللحاق ب Abitur لديهم الفرصة للقيام بذلك في مدارس القواعد المسائية. تقدم هذه المؤسسات أوقاتا دراسية مرنة لمنح المهنيين أو أولئك الذين لديهم التزامات أخرى الفرصة لاكتساب المؤهلات اللازمة. لا توفر الجامعات الخاصة والمدارس الإعدادية والكليات الفرصة للحاق بالركب ، ولكنها تركز على الأهداف والمؤهلات التعليمية الأخرى."
+        "a": "جامعة.",
+        "b": "مدرسة ثانوية مسائية.",
+        "c": "Hauptschule.",
+        "d": "جامعة خاصة.",
+        "context": "Abitur هو الامتحان النهائي في مدرسة قواعد اللغة في ألمانيا ، وهو أمر ضروري للوصول إلى الجامعات والكليات. البالغون الذين يرغبون في اللحاق ب Abitur لديهم الفرصة للقيام بذلك في المدارس الثانوية المسائية. تقدم هذه المؤسسات أوقاتا دراسية مرنة لمنح المهنيين أو أولئك الذين لديهم التزامات أخرى الفرصة لاكتساب المؤهلات اللازمة. لا توفر الجامعات الخاصة والمدارس الإعدادية والكليات الفرصة للحاق بالركب ، ولكنها تركز على الأهداف والمؤهلات التعليمية الأخرى."
       },
       "uk": {
-        "question": "Доросла жінка хоче надолужити згаяне в Німеччині. Вона може зробити це в ...",
-        "a": "університету.",
-        "b": "вечірня гімназія",
-        "c": "гауптсхуле",
-        "d": "приватного ВНЗ",
+        "question": "Доросла жінка хоче отримати в Німеччині атестат зрілості (Abitur), якого в неї ще немає. Вона може зробити це в ...",
+        "a": "університеті.",
+        "b": "вечірній гімназії.",
+        "c": "гауптсхуле.",
+        "d": "приватному університеті.",
         "context": "Атестат зрілості – це підсумковий іспит у гімназії Німеччини, який необхідний для отримання доступу до університетів та коледжів. Дорослі, які хочуть надолужити згаяне на абітурі, мають можливість зробити це у вечірніх гімназіях. Ці навчальні заклади пропонують гнучкий час навчання, щоб надати професіоналам або тим, хто має інші зобов'язання, можливість отримати необхідну кваліфікацію. Приватні університети, молодші середні школи та коледжі не дають можливості надолужити згаяне на атестаті зрілості, а концентруються на інших освітніх цілях та кваліфікаціях."
       },
       "hi": {
-        "question": "एक वयस्क महिला जर्मनी में अपने एबिटुर को पकड़ना चाहती है। वह ऐसा कर सकती है ...",
-        "a": "एक विश्वविद्यालय का।",
-        "b": "एक शाम व्याकरण स्कूल",
-        "c": "एक हौप्टशूले का",
-        "d": "एक निजी विश्वविद्यालय का",
+        "question": "एक वयस्क महिला जर्मनी में अपना एबिटुर बाद में पूरा करना चाहती है। वह ऐसा कर सकती है ...",
+        "a": "एक विश्वविद्यालय में।",
+        "b": "एक शाम के व्याकरण स्कूल में।",
+        "c": "एक हौप्टशूले में।",
+        "d": "एक निजी विश्वविद्यालय में।",
         "context": "एबिटुर जर्मनी के एक व्याकरण स्कूल में अंतिम परीक्षा है, जो विश्वविद्यालयों और कॉलेजों तक पहुंच प्राप्त करने के लिए आवश्यक है। वयस्क जो एबिटुर को पकड़ना चाहते हैं, उनके पास शाम के व्याकरण स्कूलों में ऐसा करने का अवसर है। ये संस्थान पेशेवरों या अन्य प्रतिबद्धताओं वाले लोगों को आवश्यक योग्यता हासिल करने का अवसर देने के लिए लचीला ट्यूशन समय प्रदान करते हैं। निजी विश्वविद्यालय, निम्न माध्यमिक विद्यालय और कॉलेज एबिटुर को पकड़ने का अवसर प्रदान नहीं करते हैं, लेकिन अन्य शैक्षिक लक्ष्यों और योग्यताओं पर ध्यान केंद्रित करते हैं।"
       }
     },
@@ -18755,58 +18755,58 @@
     "translation": {
       "en": {
         "question": "A man wants to catch up on his Abitur in Germany at the age of 30. Where can he do that? At...",
-        "a": "of a university",
-        "b": "an evening grammar school",
-        "c": "of a Hauptschule",
-        "d": "of a private university",
+        "a": "a university.",
+        "b": "an evening grammar school.",
+        "c": "a Hauptschule.",
+        "d": "a private university.",
         "context": "A man who wants to catch up on his Abitur in Germany at the age of 30 is looking for educational opportunities for adults. Since the high school diploma is a prerequisite for admission to universities, he explores options tailored to the needs of working adults. Evening grammar schools offer flexible learning times and programmes that have been specially developed for the subsequent acquisition of the Abitur. In comparison, lower secondary schools are not specialized in awarding the Abitur. Colleges and private universities usually require a high school diploma that has already been obtained."
       },
       "tr": {
-        "question": "Bir erkek, 30 yaşında Almanya'da Abitur'a yetişmek istiyor. Bunu nerede yapabilir? Da...",
-        "a": "bir üniversitenin",
-        "b": "Bir akşam gramer okulu",
-        "c": "bir Hauptschule'nin",
-        "d": "özel bir üniversitenin",
-        "context": "30 yaşında Almanya'da Abitur sınavına devam etmek isteyen bir erkek, yetişkinler için eğitim fırsatları arıyor. Lise diploması üniversitelere kabul için bir ön koşul olduğundan, çalışan yetişkinlerin ihtiyaçlarına göre uyarlanmış seçenekleri araştırıyor. Akşam gramer okulları, Abitur'un daha sonraki edinimi için özel olarak geliştirilmiş esnek öğrenme süreleri ve programları sunar. Buna karşılık, ortaokullar Abitur'u ödüllendirme konusunda uzmanlaşmamıştır. Kolejler ve özel üniversiteler genellikle daha önce alınmış bir lise diploması gerektirir."
+        "question": "Bir erkek, 30 yaşında Almanya'da Abitur'u sonradan almak istiyor. Bunu nerede yapabilir? ...",
+        "a": "bir üniversitede.",
+        "b": "bir akşam lisesinde.",
+        "c": "bir Hauptschule'de.",
+        "d": "özel bir üniversitede.",
+        "context": "30 yaşında Almanya'da Abitur sınavına devam etmek isteyen bir erkek, yetişkinler için eğitim fırsatları arıyor. Lise diploması üniversitelere kabul için bir ön koşul olduğundan, çalışan yetişkinlerin ihtiyaçlarına göre uyarlanmış seçenekleri araştırıyor. Akşam liseleri, Abitur'un daha sonraki edinimi için özel olarak geliştirilmiş esnek öğrenme süreleri ve programları sunar. Buna karşılık, ortaokullar Abitur'u ödüllendirme konusunda uzmanlaşmamıştır. Kolejler ve özel üniversiteler genellikle daha önce alınmış bir lise diploması gerektirir."
       },
       "ru": {
-        "question": "Мужчина хочет наверстать упущенное в Германии в 30 лет. Где он может это сделать? У...",
-        "a": "ВУЗа",
-        "b": "вечерняя гимназия",
-        "c": "Hauptschule",
-        "d": "частного вуза",
+        "question": "Мужчина в 30 лет хочет получить в Германии аттестат зрелости (Abitur), которого у него ещё нет. Где он может это сделать? В ...",
+        "a": "университете.",
+        "b": "вечерней гимназии.",
+        "c": "Hauptschule.",
+        "d": "частном университете.",
         "context": "Мужчина, который хочет наверстать упущенное в Германии в возрасте 30 лет, ищет возможности для получения образования для взрослых. Поскольку аттестат о среднем образовании является обязательным условием для поступления в университеты, он изучает варианты, адаптированные к потребностям работающих взрослых. Вечерние гимназии предлагают гибкий график обучения и программы, которые были специально разработаны для последующего получения аттестата зрелости. Для сравнения, младшие классы средней школы не специализируются на присуждении аттестата зрелости. Колледжи и частные университеты обычно требуют уже полученный аттестат о среднем образовании."
       },
       "fr": {
-        "question": "À l’âge de 30 ans, un homme veut rattraper son baccalauréat en Allemagne. Où peut-il faire cela ? À...",
-        "a": "d’une université",
-        "b": "un lycée du soir",
-        "c": "d’une Hauptschule",
-        "d": "d’une université privée",
+        "question": "À l’âge de 30 ans, un homme veut rattraper son baccalauréat en Allemagne. Où peut-il faire cela ? Dans ...",
+        "a": "une université.",
+        "b": "un lycée du soir.",
+        "c": "une Hauptschule.",
+        "d": "une université privée.",
         "context": "À l’âge de 30 ans, un homme qui veut rattraper son baccalauréat en Allemagne est à la recherche de possibilités d’éducation pour les adultes. Comme le diplôme d’études secondaires est une condition préalable à l’admission à l’université, il explore des options adaptées aux besoins des adultes qui travaillent. Les lycées du soir proposent des horaires d’apprentissage flexibles et des programmes spécialement développés pour l’acquisition ultérieure de l’Abitur. En comparaison, les établissements d’enseignement secondaire du premier cycle ne sont pas spécialisés dans l’attribution de l’Abitur. Les collèges et les universités privées exigent généralement un diplôme d’études secondaires déjà obtenu."
       },
       "ar": {
         "question": "رجل يريد اللحاق ب Abitur في ألمانيا في سن الثلاثين. أين يمكنه أن يفعل ذلك؟ في...",
-        "a": "من جامعة",
-        "b": "مدرسة القواعد المسائية",
-        "c": "من Hauptschule",
-        "d": "جامعة خاصة",
-        "context": "يبحث الرجل الذي يريد اللحاق بمدرسة Abitur في ألمانيا في سن 30 عاما عن فرص تعليمية للبالغين. نظرا لأن شهادة الثانوية العامة شرط أساسي للقبول في الجامعات ، فإنه يستكشف الخيارات المصممة خصيصا لتلبية احتياجات البالغين العاملين. تقدم مدارس القواعد المسائية أوقات تعليمية وبرامج مرنة تم تطويرها خصيصا للاستحواذ اللاحق على Abitur. وبالمقارنة، فإن المدارس الثانوية الدنيا ليست متخصصة في منح شهادة الأبيتور. عادة ما تتطلب الكليات والجامعات الخاصة شهادة الثانوية العامة التي تم الحصول عليها بالفعل."
+        "a": "جامعة.",
+        "b": "مدرسة ثانوية مسائية.",
+        "c": "Hauptschule.",
+        "d": "جامعة خاصة.",
+        "context": "يبحث الرجل الذي يريد اللحاق بمدرسة Abitur في ألمانيا في سن 30 عاما عن فرص تعليمية للبالغين. نظرا لأن شهادة الثانوية العامة شرط أساسي للقبول في الجامعات ، فإنه يستكشف الخيارات المصممة خصيصا لتلبية احتياجات البالغين العاملين. تقدم المدارس الثانوية المسائية أوقات تعليمية وبرامج مرنة تم تطويرها خصيصا للاستحواذ اللاحق على Abitur. وبالمقارنة، فإن المدارس الثانوية الدنيا ليست متخصصة في منح شهادة الأبيتور. عادة ما تتطلب الكليات والجامعات الخاصة شهادة الثانوية العامة التي تم الحصول عليها بالفعل."
       },
       "uk": {
-        "question": "Чоловік хоче надолужити згаяне в Німеччині у віці 30 років. Де він може це зробити? При...",
-        "a": "вищого навчального закладу",
-        "b": "вечірня гімназія",
-        "c": "гауптсхуле",
-        "d": "приватного ВНЗ",
+        "question": "Чоловік у 30 років хоче отримати в Німеччині атестат зрілості (Abitur), якого в нього ще немає. Де він може це зробити? У ...",
+        "a": "університеті.",
+        "b": "вечірній гімназії.",
+        "c": "гауптсхуле.",
+        "d": "приватному університеті.",
         "context": "Чоловік, який хоче надолужити згаяне в Німеччині у віці 30 років, шукає освітні можливості для дорослих. Оскільки атестат про середню освіту є обов'язковою умовою для вступу до університетів, він вивчає варіанти, адаптовані до потреб працюючих дорослих. Вечірні гімназії пропонують гнучкий графік навчання та програми, які були спеціально розроблені для подальшого отримання атестату зрілості. Для порівняння, молодші середні школи не спеціалізуються на присудженні атестату зрілості. Коледжі та приватні університети зазвичай вимагають вже отриманий атестат про середню освіту."
       },
       "hi": {
         "question": "एक आदमी 30 साल की उम्र में जर्मनी में अपना एबिटुर पूरा करना चाहता है। वह ऐसा कहां कर सकता है? ...",
-        "a": "एक विश्वविद्यालय का",
-        "b": "एक शाम व्याकरण स्कूल",
-        "c": "एक हौप्टशूले का",
-        "d": "एक निजी विश्वविद्यालय का",
+        "a": "एक विश्वविद्यालय में।",
+        "b": "एक शाम के व्याकरण स्कूल में।",
+        "c": "एक हौप्टशूले में।",
+        "d": "एक निजी विश्वविद्यालय में।",
         "context": "एक आदमी जो 30 साल की उम्र में जर्मनी में अपने एबिटुर को पकड़ना चाहता है, वह वयस्कों के लिए शैक्षिक अवसरों की तलाश में है। चूंकि हाई स्कूल डिप्लोमा विश्वविद्यालयों में प्रवेश के लिए एक शर्त है, इसलिए वह कामकाजी वयस्कों की जरूरतों के अनुरूप विकल्पों की खोज करता है। शाम के व्याकरण स्कूल लचीले सीखने के समय और कार्यक्रम प्रदान करते हैं जिन्हें विशेष रूप से एबिटुर के बाद के अधिग्रहण के लिए विकसित किया गया है। इसकी तुलना में, निम्न माध्यमिक विद्यालय एबिटुर प्रदान करने में विशिष्ट नहीं हैं। कॉलेजों और निजी विश्वविद्यालयों को आमतौर पर एक हाई स्कूल डिप्लोमा की आवश्यकता होती है जो पहले ही प्राप्त हो चुका है।"
       }
     },
