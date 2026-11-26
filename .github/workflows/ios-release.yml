@@ -23,14 +23,41 @@ concurrency:
 
 env:
   NODE_VERSION: 22
+  # Apple takes an upload only when it is built with a recent iOS SDK, raises
+  # that bar every spring and warns by mail before (ITMS-90725, after each
+  # upload built with the older one). An Xcode carries the iOS SDK of its own
+  # number, and a runner image carries one Xcode generation: `macos-26` ends
+  # at Xcode 26, `xcode-27` has Xcode 27. Both macOS jobs run on the image of
+  # this number, and the workflow stops when the SDK is older - at its start,
+  # and once more on the archive itself before the upload. Raise the image
+  # label (`runs-on`, twice) and this number together.
+  IOS_SDK_MAJOR: 27
 
 jobs:
   # Compiles the app for the simulator without any signing. Runs for pull
   # requests too, so a broken Swift file or Podfile is caught before merge.
   build-simulator:
     name: Build for the simulator (unsigned)
-    runs-on: macos-26
+    runs-on: xcode-27
     steps:
+      # First, before the minutes of the web build: is this the Xcode Apple asks for?
+      - name: Check the iOS SDK
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          sdk="$(xcrun --sdk iphoneos --show-sdk-version)"
+          echo "iOS SDK $sdk"
+          case "${sdk%%.*}" in
+            '' | *[!0-9]*)
+              echo "::error::Could not read the iOS SDK version of this runner's Xcode."
+              exit 1
+              ;;
+          esac
+          if [ "${sdk%%.*}" -lt "$IOS_SDK_MAJOR" ]; then
+            echo "::error::This runner builds with the iOS $sdk SDK; an upload needs iOS $IOS_SDK_MAJOR or later (Apple, ITMS-90725). Use a runner image with a newer Xcode."
+            exit 1
+          fi
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -83,7 +110,7 @@ jobs:
     name: Archive, sign and upload to TestFlight
     needs: [build-simulator, signing-ready]
     if: github.event_name != 'pull_request' && needs.signing-ready.outputs.ready == 'true'
-    runs-on: macos-26
+    runs-on: xcode-27
     env:
       EXPECTED_BUNDLE_ID: org.lebenindeutschland.app
     steps:
@@ -192,8 +219,23 @@ jobs:
             echo "::error::Unexpected version $version ($build); expected $VERSION ($GITHUB_RUN_NUMBER)"
             exit 1
           fi
+          # What Apple reads for its SDK rule: the SDK the app itself names.
+          sdk="$(/usr/libexec/PlistBuddy -c 'Print DTPlatformVersion' "$PLIST" 2>/dev/null || true)"
+          sdk_name="$(/usr/libexec/PlistBuddy -c 'Print DTSDKName' "$PLIST" 2>/dev/null || true)"
+          xcode_build="$(/usr/libexec/PlistBuddy -c 'Print DTXcodeBuild' "$PLIST" 2>/dev/null || true)"
+          case "${sdk%%.*}" in
+            '' | *[!0-9]*)
+              echo "::error::The archive does not say which iOS SDK it was built with."
+              exit 1
+              ;;
+          esac
+          if [ "${sdk%%.*}" -lt "$IOS_SDK_MAJOR" ]; then
+            echo "::error::The archive was built with the iOS $sdk SDK; an upload needs iOS $IOS_SDK_MAJOR or later (Apple, ITMS-90725)."
+            exit 1
+          fi
           codesign --verify --deep --strict "$RUNNER_TEMP/App.xcarchive/Products/Applications/App.app"
-          echo "Verified $bundle_id $version ($build)"
+          echo "BUILT_WITH=$sdk_name, Xcode build $xcode_build" >> "$GITHUB_ENV"
+          echo "Verified $bundle_id $version ($build), built with $sdk_name (Xcode build $xcode_build)"
 
       # `destination: upload` in ExportOptions.plist sends the build straight to
       # App Store Connect; it appears in TestFlight after Apple's processing.
@@ -223,6 +265,7 @@ jobs:
             echo
             echo "- Version: \`$VERSION\` (build \`$GITHUB_RUN_NUMBER\`)"
             echo "- Bundle: \`$EXPECTED_BUNDLE_ID\`"
+            echo "- Built with: \`$BUILT_WITH\`"
             echo "- Next: wait for processing in App Store Connect, test in TestFlight, then submit for review by hand."
           } >> "$GITHUB_STEP_SUMMARY"
 

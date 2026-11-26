@@ -147,7 +147,11 @@ the pages with the next deploy.
   with the App Store profile "Leben in Deutschland App Store", which
   `src/store/asc-profile.mjs` creates for the distribution certificate and
   installs on the runner; Debug stays automatic for Xcode on the owner's
-  Mac. Release to the App Store is a manual step in App Store Connect. Never
+  Mac. Apple raises the iOS SDK an upload must be built with every spring
+  and warns by mail before (ITMS-90725): both macOS jobs run on the runner
+  image of that Xcode (`xcode-27`), and the workflow stops when the SDK is
+  older than its `IOS_SDK_MAJOR` - raise the image label and that number
+  together. Release to the App Store is a manual step in App Store Connect. Never
   commit, print, or request certificates, keys, profiles or the Team ID. The
   numeric Apple ID of the app is public since the app is in the App Store:
   its App Store URL lives in `siteConfig.links.appStore`, which the app
